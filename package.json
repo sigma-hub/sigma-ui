@@ -1,0 +1,18 @@
+{
+  "name": "sigma-ui",
+  "version": "0.0.1",
+  "private": false,
+  "license": "MIT",
+  "author": {
+    "name": "Aleksey Hoffman",
+    "email": "aleksey.hoffman.public@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sigma-hub/sigma-ui"
+  },
+  "keywords": [
+    "vue",
+    "ui"
+  ]
+}
