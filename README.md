@@ -12,6 +12,7 @@ It takes away the burden of recreating the same components from scratch for ever
 ## About
 
 **Website**: https://sigma-ui.dev
+<br/>**NPM**: https://www.npmjs.com/package/sigma-ui
 
 - **Supported frameworks**: Vue, Nuxt, Laravel, Astro.
 - **Supported languages**: TS (all components are typed, JS is not supported, move on).
