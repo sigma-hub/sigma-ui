@@ -12,7 +12,6 @@ export const siteConfig = {
 
 export const announcementConfig = {
   icon: '✨',
-  // title: 'Project released! Give some feedback',
-  title: 'Project in development, will be released soon',
+  title: 'Project released! Give some feedback',
   link: 'https://github.com/sigma-hub/sigma-ui/discussions',
 };

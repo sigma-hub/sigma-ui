@@ -95,9 +95,6 @@ function isRouteActive(href: string) {
         vaul-drawer-wrapper
         class="flex min-h-screen flex-col bg-background"
       >
-        <div class="container flex h-5 items-center text-[10px]">
-          ⚠️ Project in development, will be released soon
-        </div>
         <header class="animate-fade-in z-50 sticky top-0 bg-muted/50 border-b dark:border-none dark:bg-muted/20 backdrop-blur-lg">
           <div
             class="container flex h-14 items-center"
