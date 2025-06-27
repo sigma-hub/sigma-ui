@@ -1,0 +1,20 @@
+{
+  "name": "scroll-area",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "ScrollArea.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  ScrollAreaCorner,\n  ScrollAreaRoot,\n  type ScrollAreaRootProps,\n  ScrollAreaViewport,\n} from 'reka-ui';\n\nimport ScrollBar from './ScrollBar.vue';\n\nconst props = defineProps<ScrollAreaRootProps>();\n</script>\n\n<template>\n  <ScrollAreaRoot\n    v-bind=\"props\"\n    class=\"sigma-ui-scroll-area\"\n  >\n    <ScrollAreaViewport class=\"sigma-ui-scroll-area__viewport\">\n      <slot />\n    </ScrollAreaViewport>\n    <ScrollBar />\n    <ScrollAreaCorner />\n  </ScrollAreaRoot>\n</template>\n\n<style>\n.sigma-ui-scroll-area {\n  position: relative;\n  overflow: hidden;\n}\n\n.sigma-ui-scroll-area__viewport {\n  height: 100%;\n  width: 100%;\n  border-radius: inherit;\n}\n</style>\n"
+    },
+    {
+      "name": "ScrollBar.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ScrollAreaScrollbar, type ScrollAreaScrollbarProps, ScrollAreaThumb } from 'reka-ui';\n\nconst props = withDefaults(defineProps<ScrollAreaScrollbarProps>(), {\n  orientation: 'vertical',\n});\n</script>\n\n<template>\n  <ScrollAreaScrollbar\n    v-bind=\"props\"\n    class=\"sigma-ui-scroll-area-scrollbar\"\n  >\n    <ScrollAreaThumb class=\"sigma-ui-scroll-area-scrollbar__thumb\" />\n  </ScrollAreaScrollbar>\n</template>\n\n<style>\n.sigma-ui-scroll-area-scrollbar {\n  display: flex;\n  touch-action: none;\n  user-select: none;\n  transition-property: color, background-color, border-color;\n  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);\n  transition-duration: 150ms;\n}\n\n.sigma-ui-scroll-area-scrollbar[data-orientation=\"vertical\"] {\n  height: 100%;\n  width: 0.625rem;\n  border-left: 1px solid transparent;\n  padding: 1px;\n}\n\n.sigma-ui-scroll-area-scrollbar[data-orientation=\"horizontal\"] {\n  height: 0.625rem;\n  flex-direction: column;\n  border-top: 1px solid transparent;\n  padding: 1px;\n}\n\n.sigma-ui-scroll-area-scrollbar__thumb {\n  position: relative;\n  flex: 1;\n  border-radius: var(--radius-full);\n  background-color: hsl(var(--border));\n}\n</style>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as ScrollArea } from './ScrollArea.vue';\nexport { default as ScrollBar } from './ScrollBar.vue';\n"
+    }
+  ],
+  "type": "components:ui"
+}

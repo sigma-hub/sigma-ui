@@ -1,0 +1,24 @@
+{
+  "name": "hover-card",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "HoverCard.vue",
+      "content": "<script setup lang=\"ts\">\nimport { HoverCardRoot, type HoverCardRootEmits, type HoverCardRootProps, useForwardPropsEmits } from 'reka-ui';\n\nconst props = defineProps<HoverCardRootProps>();\nconst emits = defineEmits<HoverCardRootEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <HoverCardRoot v-bind=\"forwarded\">\n    <slot />\n  </HoverCardRoot>\n</template>\n"
+    },
+    {
+      "name": "HoverCardContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  HoverCardContent,\n  type HoverCardContentProps,\n  HoverCardPortal,\n  useForwardProps,\n} from 'reka-ui';\n\nconst props = withDefaults(\n  defineProps<HoverCardContentProps>(),\n  {\n    sideOffset: 4,\n  },\n);\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <HoverCardPortal>\n    <HoverCardContent\n      v-bind=\"forwardedProps\"\n      class=\"sigma-ui-hover-card-content\"\n      :class=\"$attrs.class\"\n    >\n      <slot />\n    </HoverCardContent>\n  </HoverCardPortal>\n</template>\n\n<style>\n.sigma-ui-hover-card-content {\n  z-index: 50;\n  border-radius: var(--radius-md);\n  border: 1px solid hsl(var(--border));\n  background-color: hsl(var(--popover));\n  padding: 1rem;\n  color: hsl(var(--popover-foreground));\n  box-shadow: var(--shadow-md);\n  outline: none;\n  transform-origin: var(--reka-popper-transform-origin);\n  animation: fadeOut 100ms ease-in forwards;\n}\n\n.sigma-ui-hover-card-content[data-state=\"open\"] {\n  animation: fadeIn 200ms ease-out;\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n    transform: scale(0.95);\n  }\n  to {\n    opacity: 1;\n    transform: scale(1);\n  }\n}\n\n@keyframes fadeOut {\n  from {\n    opacity: 1;\n    transform: scale(1);\n  }\n  to {\n    opacity: 0;\n    transform: scale(0.95);\n  }\n}\n</style>\n"
+    },
+    {
+      "name": "HoverCardTrigger.vue",
+      "content": "<script setup lang=\"ts\">\nimport { HoverCardTrigger, type HoverCardTriggerProps } from 'reka-ui';\n\nconst props = defineProps<HoverCardTriggerProps>();\n</script>\n\n<template>\n  <HoverCardTrigger v-bind=\"props\">\n    <slot />\n  </HoverCardTrigger>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as HoverCard } from './HoverCard.vue';\nexport { default as HoverCardTrigger } from './HoverCardTrigger.vue';\nexport { default as HoverCardContent } from './HoverCardContent.vue';\n"
+    }
+  ],
+  "type": "components:ui"
+}

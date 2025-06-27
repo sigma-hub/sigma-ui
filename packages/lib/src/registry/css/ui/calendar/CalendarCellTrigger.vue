@@ -1,0 +1,76 @@
+<script lang="ts" setup>
+import { CalendarCellTrigger, type CalendarCellTriggerProps, useForwardProps } from 'reka-ui';
+import { buttonVariants } from '@ui/registry/css/ui/button';
+
+const props = defineProps<CalendarCellTriggerProps>();
+
+const forwardedProps = useForwardProps(props);
+</script>
+
+<template>
+  <CalendarCellTrigger
+    class="sigma-ui-calendar-cell-trigger"
+    :class="[buttonVariants({ variant: 'ghost' })]"
+    v-bind="forwardedProps"
+  >
+    <slot />
+  </CalendarCellTrigger>
+</template>
+
+<style>
+.sigma-ui-calendar-cell-trigger {
+  height: 2.25rem;
+  width: 2.25rem;
+  padding: 0;
+  font-weight: normal;
+  background-color: transparent;
+  border-radius: var(--radius-sm);
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.sigma-ui-calendar-cell-trigger:hover {
+  background-color: hsl(var(--muted));
+  color: hsl(var(--muted-foreground));
+}
+
+.sigma-ui-calendar-cell-trigger[data-today]:not([data-selected]) {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+.sigma-ui-calendar-cell-trigger[data-selected] {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  opacity: 1;
+}
+
+.sigma-ui-calendar-cell-trigger[data-selected]:hover,
+.sigma-ui-calendar-cell-trigger[data-selected]:focus {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.sigma-ui-calendar-cell-trigger[data-disabled] {
+  color: hsl(var(--muted-foreground));
+  opacity: 0.5;
+}
+
+.sigma-ui-calendar-cell-trigger[data-unavailable] {
+  color: hsl(var(--destructive-foreground));
+  text-decoration: line-through;
+}
+
+.sigma-ui-calendar-cell-trigger[data-outside-month] {
+  pointer-events: none;
+  color: hsl(var(--muted-foreground));
+  opacity: 0.5;
+}
+
+.sigma-ui-calendar-cell-trigger[data-outside-month][data-selected] {
+  background-color: hsl(var(--accent) / 0.5);
+  color: hsl(var(--muted-foreground));
+  opacity: 0.3;
+}
+</style>

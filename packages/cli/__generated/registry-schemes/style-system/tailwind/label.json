@@ -1,0 +1,16 @@
+{
+  "name": "label",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "Label.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Label, type LabelProps } from 'reka-ui';\nimport { cn } from '@ui/utils';\n\nconst props = defineProps<LabelProps>();\n</script>\n\n<template>\n  <Label\n    v-bind=\"props\"\n    :class=\"\n\n      cn(\n        'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',\n        $attrs.class ?? '',\n      )\n    \"\n  >\n    <slot />\n  </Label>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as Label } from './Label.vue';\n"
+    }
+  ],
+  "type": "components:ui"
+}

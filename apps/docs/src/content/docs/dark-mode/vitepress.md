@@ -1,0 +1,113 @@
+---
+title: Vitepress
+description: Adding dark mode to your vitepress app.
+---
+
+## Method 1: Using `@vueuse/useColorMode`
+
+This example demonstrates how to add theme mode toggle using [`useColorMode`](https://vueuse.org/core/usecolormode) from [`@vueuse/core`](https://vueuse.org/core).
+
+**Pros**:
+- Lets you reactively change color mode (dark / light / system) with auto data persistence;
+- No need for a custom implementation;
+
+Follow their docs [here](https://vueuse.org/core/usecolormode) to learn more.
+
+<Steps>
+
+### Install Dependencies
+
+```bash
+npm install @vueuse/core
+```
+
+### Add mode toggle to UI
+
+```vue
+<script setup lang="ts">
+import { useColorMode } from '@vueuse/core'
+import { MoonIcon, SunIcon } from 'lucide-vue-next'
+import { Button } from '@/components/ui/button'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+
+const mode = useColorMode()
+</script>
+
+<template>
+  <DropdownMenu>
+    <DropdownMenuTrigger as-child>
+      <Button
+        class="w-[fit-content]"
+        variant="ghost"
+      >
+        <MoonIcon class="h-[20px] w-[20px] rotate-0 scale-100 transition-all duration-500 dark:-rotate-90 dark:scale-0" />
+        <SunIcon class="h-[20px] w-[20px] absolute rotate-90 scale-0 transition-all duration-500 dark:rotate-0 dark:scale-100" />
+      </Button>
+    </DropdownMenuTrigger>
+    <DropdownMenuContent align="end">
+      <DropdownMenuItem @click="mode = 'light'">
+        Light
+      </DropdownMenuItem>
+      <DropdownMenuItem @click="mode = 'dark'">
+        Dark
+      </DropdownMenuItem>
+      <DropdownMenuItem @click="mode = 'auto'">
+        System
+      </DropdownMenuItem>
+    </DropdownMenuContent>
+  </DropdownMenu>
+</template>
+```
+
+</Steps>
+
+## Method 2: Using `@vueuse/useToggle`
+
+This example demonstrates how to add theme mode toggle using [`useToggle`](https://vueuse.org/shared/useToggle) from [`@vueuse/core`](https://vueuse.org/core).
+
+**Pros**:
+- Lets you reactively toggle color mode (dark / light) with auto data persistence;
+- No need for a custom implementation;
+
+Follow Vitepress docs [here](https://vitepress.dev/reference/runtime-api#usedata) to learn more.
+
+<Steps>
+
+### Install Dependencies
+
+```bash
+npm install @vueuse/core
+```
+
+### Add mode toggle to UI
+
+```vue
+<script setup lang="ts">
+import { useData } from 'vitepress'
+import { useToggle } from '@vueuse/core'
+import { MoonIcon, SunIcon } from 'lucide-vue-next'
+import { Button } from '@ui/registry/tailwind/ui/button'
+
+const { frontmatter, isDark } = useData()
+const toggleDark = useToggle(isDark)
+</script>
+
+<template>
+  <Button
+    class="w-9 h-9"
+    aria-label="Toggle dark mode"
+    variant="ghost"
+    size="icon"
+    @click="toggleDark()"
+  >
+    <div class="w-5 h-5">
+      <component
+        :is="isDark ? SunIcon : MoonIcon"
+        class="w-full h-full text-foreground"
+      />
+    </div>
+  </Button>
+</template>
+```
+
+</Steps>

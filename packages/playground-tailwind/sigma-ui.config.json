@@ -1,0 +1,18 @@
+{
+  "$schema": "https://sigma-ui.dev/schema.json",
+  "styleSystem": "tailwind",
+  "tsConfigPath": "./tsconfig.json",
+  "setupTailwind": false,
+  "framework": "vite",
+  "cssPath": "src/assets/index.css",
+  "baseColor": "slate",
+  "tailwind": {
+    "config": "tailwind.config.js",
+    "cssVariables": true
+  },
+  "aliases": {
+    "utils": "@/lib/utils",
+    "components": "@/components/ui"
+  },
+  "generatePreflight": true
+}

@@ -1,0 +1,16 @@
+{
+  "name": "button",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "Button.vue",
+      "content": "<script setup lang=\"ts\">\n;\nimport { Primitive, type PrimitiveProps } from 'reka-ui';\nimport { Loader2Icon } from 'lucide-vue-next';\nimport { cn } from '@ui/utils';\nimport { type ButtonVariants, buttonVariants } from '.';\n\ninterface Props extends PrimitiveProps {\n  variant?: ButtonVariants['variant'];\n  size?: ButtonVariants['size'];\n  isLoading?: boolean;\n  loadingText?: string;\n}\n\nconst props = withDefaults(defineProps<Props>(), {\n  as: 'button',\n  isLoading: false,\n});\n</script>\n\n<template>\n  <Primitive\n    :as=\"as\"\n    :as-child=\"asChild\"\n    :class=\"cn(buttonVariants({ variant, size }), $attrs.class ?? '')\"\n    :disabled=\"isLoading || $attrs.disabled\"\n  >\n    <Loader2Icon\n      v-if=\"isLoading\"\n      class=\"w-4 h-4 mr-2 animate-spin\"\n    />\n    <template v-if=\"!isLoading || (isLoading && !loadingText)\">\n      <slot />\n    </template>\n    <template v-else>\n      {{ loadingText }}\n    </template>\n  </Primitive>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "import { type VariantProps, cva } from 'class-variance-authority';\n\nexport { default as Button } from './Button.vue';\n\nexport const buttonVariants = cva(\n  'w-[fit-content] inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 select-none',\n  {\n    variants: {\n      variant: {\n        default: 'bg-primary text-primary-foreground hover:bg-primary/90',\n        destructive:\n          'bg-destructive text-destructive-foreground hover:bg-destructive/90',\n        outline:\n          'border border-input bg-background hover:bg-accent hover:text-accent-foreground',\n        secondary:\n          'bg-secondary text-secondary-foreground hover:bg-secondary/80',\n        ghost: 'hover:bg-accent hover:text-accent-foreground',\n        link: 'text-primary underline-offset-4 hover:underline',\n      },\n      size: {\n        default: 'h-10 px-4 py-2',\n        xs: 'h-7 px-2',\n        sm: 'h-9 px-3',\n        lg: 'h-11 px-8',\n        icon: 'h-10 w-10',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n      size: 'default',\n    },\n  },\n);\n\nexport type ButtonVariants = VariantProps<typeof buttonVariants>;\n"
+    }
+  ],
+  "type": "components:ui"
+}

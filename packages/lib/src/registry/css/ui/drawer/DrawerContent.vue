@@ -1,0 +1,51 @@
+<script lang="ts" setup>
+import { DrawerContent, DrawerPortal } from 'vaul-vue';
+import type { DialogContentEmits, DialogContentProps } from 'reka-ui';
+import { useForwardPropsEmits } from 'reka-ui';
+import DrawerOverlay from './DrawerOverlay.vue';
+
+const props = defineProps<DialogContentProps>();
+const emits = defineEmits<DialogContentEmits>();
+
+const forwarded = useForwardPropsEmits(props, emits);
+</script>
+
+<template>
+  <DrawerPortal>
+    <DrawerOverlay />
+    <DrawerContent
+      v-bind="forwarded"
+      class="sigma-ui-drawer-content"
+      :class="[$attrs.class]"
+    >
+      <div class="sigma-ui-drawer-content__handle" />
+      <slot />
+    </DrawerContent>
+  </DrawerPortal>
+</template>
+
+<style>
+.sigma-ui-drawer-content {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 50;
+  margin-top: 6rem;
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border: 1px solid hsl(var(--border));
+  background-color: hsl(var(--background));
+}
+
+.sigma-ui-drawer-content__handle {
+  margin-inline: auto;
+  margin-top: 1rem;
+  height: 0.5rem;
+  width: 100px;
+  border-radius: var(--radius-full);
+  background-color: hsl(var(--muted));
+}
+</style>

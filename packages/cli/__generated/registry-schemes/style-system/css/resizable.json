@@ -1,0 +1,20 @@
+{
+  "name": "resizable",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "ResizableHandle.vue",
+      "content": "<script setup lang=\"ts\">\nimport { SplitterResizeHandle, type SplitterResizeHandleEmits, type SplitterResizeHandleProps, useForwardPropsEmits } from 'reka-ui';\nimport { GripVerticalIcon } from 'lucide-vue-next';\n\nconst props = defineProps<SplitterResizeHandleProps & { withHandle?: boolean }>();\nconst emits = defineEmits<SplitterResizeHandleEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <SplitterResizeHandle\n    v-bind=\"forwarded\"\n    class=\"sigma-ui-resizable-handle\"\n  >\n    <template v-if=\"props.withHandle\">\n      <div class=\"sigma-ui-resizable-handle__grip\">\n        <GripVerticalIcon class=\"sigma-ui-resizable-handle__grip-icon\" />\n      </div>\n    </template>\n  </SplitterResizeHandle>\n</template>\n\n<style>\n.sigma-ui-resizable-handle {\n  position: relative;\n  display: flex;\n  width: 1px;\n  align-items: center;\n  justify-content: center;\n  background-color: hsl(var(--border));\n}\n\n.sigma-ui-resizable-handle::after {\n  content: '';\n  position: absolute;\n  inset-block: 0;\n  left: 50%;\n  width: 4px;\n  transform: translateX(-50%);\n}\n\n.sigma-ui-resizable-handle:focus-visible {\n  outline: none;\n  box-shadow: 0 0 0 1px hsl(var(--ring)), 0 0 0 2px hsl(var(--background));\n}\n\n.sigma-ui-resizable-handle[data-orientation=\"vertical\"] {\n  height: 1px;\n  width: 100%;\n}\n\n.sigma-ui-resizable-handle[data-orientation=\"vertical\"]::after {\n  left: 0;\n  height: 4px;\n  width: 100%;\n  transform: translateY(-50%);\n}\n\n.sigma-ui-resizable-handle[data-orientation=\"vertical\"] > div {\n  transform: rotate(90deg);\n}\n\n.sigma-ui-resizable-handle__grip {\n  z-index: 10;\n  display: flex;\n  height: 1rem;\n  width: 0.75rem;\n  align-items: center;\n  justify-content: center;\n  border-radius: var(--radius-sm);\n  border: 1px solid hsl(var(--border));\n  background-color: hsl(var(--border));\n}\n\n.sigma-ui-resizable-handle__grip-icon {\n  height: 0.625rem;\n  width: 0.625rem;\n}\n</style>\n"
+    },
+    {
+      "name": "ResizablePanelGroup.vue",
+      "content": "<script setup lang=\"ts\">\nimport { SplitterGroup, type SplitterGroupEmits, type SplitterGroupProps, useForwardPropsEmits } from 'reka-ui';\n\nconst props = defineProps<SplitterGroupProps>();\nconst emits = defineEmits<SplitterGroupEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n\n</script>\n\n<template>\n  <SplitterGroup\n    v-bind=\"forwarded\"\n    class=\"sigma-ui-resizable-panel-group\"\n  >\n    <slot />\n  </SplitterGroup>\n</template>\n\n<style>\n.sigma-ui-resizable-panel-group {\n  display: flex;\n  height: 100%;\n  width: 100%;\n}\n\n.sigma-ui-resizable-panel-group[data-panel-group-direction=\"vertical\"] {\n  flex-direction: column;\n}\n</style>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as ResizablePanelGroup } from './ResizablePanelGroup.vue';\nexport { default as ResizableHandle } from './ResizableHandle.vue';\nexport { SplitterPanel as ResizablePanel } from 'reka-ui';\n"
+    }
+  ],
+  "type": "components:ui"
+}

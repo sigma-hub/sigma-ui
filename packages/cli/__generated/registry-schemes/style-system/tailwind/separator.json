@@ -1,0 +1,16 @@
+{
+  "name": "separator",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "Separator.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Separator, type SeparatorProps } from 'reka-ui';\nimport { cn } from '@ui/utils';\n\nconst props = defineProps<\n  SeparatorProps & { label?: string }\n>();\n</script>\n\n<template>\n  <Separator\n    v-bind=\"props\"\n    :class=\"\n      cn(\n        'shrink-0 bg-border relative',\n        props.orientation === 'vertical' ? 'w-px h-full' : 'h-px w-full',\n        $attrs.class ?? '',\n      )\n\n    \"\n  >\n    <span\n      v-if=\"props.label\"\n      :class=\"cn('text-xs text-muted-foreground bg-background absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center',\n                 props.orientation === 'vertical' ? 'w-[1px] px-1 py-2' : 'h-[1px] py-1 px-2',\n      )\"\n    >{{ props.label }}\n    </span>\n  </Separator>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as Separator } from './Separator.vue';\n"
+    }
+  ],
+  "type": "components:ui"
+}

@@ -1,0 +1,49 @@
+{
+  "name": "sigma-ui",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "packageManager": "pnpm@10.2.1",
+  "license": "MIT",
+  "repository": "sigma-hub/sigma-ui",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "pnpm --filter docs dev",
+    "build": "pnpm --filter docs build",
+    "preview": "pnpm --filter docs preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "dev:cli": "pnpm --filter sigma-ui dev",
+    "dev:nuxt": "pnpm --filter sigma-ui-nuxt dev",
+    "build:cli": "pnpm --filter sigma-ui build",
+    "build:registry": "pnpm --filter=docs build:registry",
+    "bumpp": "bumpp package.json packages/*/package.json apps/*/package.json",
+    "pub:beta": "pnpm --filter sigma-ui pub:beta",
+    "pub:release": "pnpm --filter sigma-ui pub:release",
+    "test": "pnpm --filter sigma-ui test",
+    "ts:docs": "pnpm --filter docs ts",
+    "ts:cli": "pnpm --filter sigma-ui ts",
+    "ts:nuxt": "pnpm --filter sigma-ui-nuxt ts",
+    "ts": "pnpm run ts:docs && pnpm run ts:cli && pnpm run ts:nuxt"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
+    "@eslint/js": "^9.20.0",
+    "@stylistic/eslint-plugin": "^3.1.0",
+    "@vitest/ui": "^3.0.5",
+    "eslint": "^9.20.0",
+    "eslint-plugin-vue": "^9.32.0",
+    "globals": "^15.14.0",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.23.0",
+    "vitest": "^3.0.5"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  }
+}

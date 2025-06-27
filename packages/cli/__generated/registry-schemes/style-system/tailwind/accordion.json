@@ -1,0 +1,28 @@
+{
+  "name": "accordion",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "Accordion.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  AccordionRoot,\n  type AccordionRootEmits,\n  type AccordionRootProps,\n  useForwardPropsEmits,\n} from 'reka-ui';\n\nconst props = defineProps<AccordionRootProps>();\nconst emits = defineEmits<AccordionRootEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <AccordionRoot v-bind=\"forwarded\">\n    <slot />\n  </AccordionRoot>\n</template>\n"
+    },
+    {
+      "name": "AccordionContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport { AccordionContent, type AccordionContentProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@ui/utils';\n\nconst props = defineProps<AccordionContentProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <AccordionContent\n    v-bind=\"forwarded\"\n    class=\"overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down\"\n  >\n    <div :class=\"cn('pb-4 pt-0', $attrs.class ?? '')\">\n      <slot />\n    </div>\n  </AccordionContent>\n</template>\n"
+    },
+    {
+      "name": "AccordionItem.vue",
+      "content": "<script setup lang=\"ts\">\nimport { AccordionItem, type AccordionItemProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@ui/utils';\n\nconst props = defineProps<AccordionItemProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <AccordionItem\n    v-bind=\"forwarded\"\n    :class=\"cn('border-b', $attrs.class ?? '')\"\n  >\n    <slot />\n  </AccordionItem>\n</template>\n"
+    },
+    {
+      "name": "AccordionTrigger.vue",
+      "content": "<script setup lang=\"ts\">\nimport { AccordionHeader, AccordionTrigger, type AccordionTriggerProps, useForwardProps } from 'reka-ui';\nimport { ChevronDownIcon } from 'lucide-vue-next';\nimport { cn } from '@ui/utils';\n\nconst props = defineProps<AccordionTriggerProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <AccordionHeader class=\"flex\">\n    <AccordionTrigger\n      v-bind=\"forwarded\"\n      :class=\"cn('flex flex-1 items-center justify-between py-4 font-medium transition-all [&[data-state=open]>svg]:rotate-180', $attrs.class ?? '')\"\n    >\n      <slot />\n      <slot name=\"icon\">\n        <ChevronDownIcon\n          class=\"h-4 w-4 shrink-0 transition-transform duration-200\"\n        />\n      </slot>\n    </AccordionTrigger>\n  </AccordionHeader>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as Accordion } from './Accordion.vue';\nexport { default as AccordionContent } from './AccordionContent.vue';\nexport { default as AccordionItem } from './AccordionItem.vue';\nexport { default as AccordionTrigger } from './AccordionTrigger.vue';\n"
+    }
+  ],
+  "type": "components:ui"
+}

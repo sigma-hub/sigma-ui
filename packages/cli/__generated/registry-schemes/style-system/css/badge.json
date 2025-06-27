@@ -1,0 +1,16 @@
+{
+  "name": "badge",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "Badge.vue",
+      "content": "<script setup lang=\"ts\">\nimport { type BadgeVariants, badgeVariants } from '.';\n\nconst props = defineProps<{\n  variant?: BadgeVariants['variant'];\n\n}>();\n</script>\n\n<template>\n  <div :class=\"[badgeVariants({ variant }), $attrs.class]\">\n    <slot />\n  </div>\n</template>\n\n<style>\n.sigma-ui-badge {\n  display: inline-flex;\n  align-items: center;\n  border-radius: var(--radius-full);\n  border: 1px solid hsl(var(--border));\n  padding: 0.125rem 0.625rem;\n  font-size: 0.75rem;\n  font-weight: 600;\n  transition-property: color, background-color, border-color;\n  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);\n  transition-duration: 150ms;\n}\n\n.sigma-ui-badge:focus {\n  outline: none;\n  --ring-offset: 2px;\n  --ring-width: 2px;\n  box-shadow:\n    0 0 0 var(--ring-offset) hsl(var(--background)),\n    0 0 0 calc(var(--ring-offset) + var(--ring-width)) hsl(var(--ring));\n}\n\n.sigma-ui-badge--default {\n  border-color: transparent;\n  background-color: hsl(var(--primary));\n  color: hsl(var(--primary-foreground));\n}\n\n.sigma-ui-badge--default:hover {\n  background-color: hsl(var(--primary) / 0.8);\n}\n\n.sigma-ui-badge--secondary {\n  border-color: transparent;\n  background-color: hsl(var(--secondary));\n  color: hsl(var(--secondary-foreground));\n}\n\n.sigma-ui-badge--secondary:hover {\n  background-color: hsl(var(--secondary) / 0.8);\n}\n\n.sigma-ui-badge--destructive {\n  border-color: transparent;\n  background-color: hsl(var(--destructive));\n  color: hsl(var(--destructive-foreground));\n}\n\n.sigma-ui-badge--destructive:hover {\n  background-color: hsl(var(--destructive) / 0.8);\n}\n\n.sigma-ui-badge--outline {\n  color: hsl(var(--foreground));\n}\n</style>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "import { type VariantProps, cva } from 'class-variance-authority';\n\nexport { default as Badge } from './Badge.vue';\n\nexport const badgeVariants = cva(\n  'sigma-ui-badge',\n  {\n    variants: {\n      variant: {\n        default: 'sigma-ui-badge--default',\n        secondary: 'sigma-ui-badge--secondary',\n        destructive: 'sigma-ui-badge--destructive',\n        outline: 'sigma-ui-badge--outline',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n    },\n  },\n);\n\nexport type BadgeVariants = VariantProps<typeof badgeVariants>;\n"
+    }
+  ],
+  "type": "components:ui"
+}

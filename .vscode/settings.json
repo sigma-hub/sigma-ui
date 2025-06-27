@@ -1,0 +1,15 @@
+{
+  "vue.server.hybridMode": true,
+  "vue.server.includeLanguages": [
+    "vue",
+    "markdown"
+  ],
+  "prettier.enable": false,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  },
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "eslint.useFlatConfig": true
+}

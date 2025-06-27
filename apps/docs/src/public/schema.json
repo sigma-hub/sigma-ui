@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "styleSystem": {
+      "type": "string",
+      "enum": [
+        "tailwind",
+        "css"
+      ]
+    },
+    "tsConfigPath": {
+      "type": "string",
+      "default": "./tsconfig.json"
+    },
+    "setupTailwind": {
+      "type": "boolean",
+      "default": false
+    },
+    "framework": {
+      "type": "string",
+      "enum": [
+        "nuxt",
+        "vite",
+        "laravel",
+        "astro"
+      ],
+      "default": "vite"
+    },
+    "cssPath": {
+      "type": "string"
+    },
+    "baseColor": {
+      "type": "string",
+      "default": "slate"
+    },
+    "tailwind": {
+      "type": "object",
+      "properties": {
+        "config": {
+          "type": "string"
+        },
+        "cssVariables": {
+          "type": "boolean",
+          "default": true
+        },
+        "prefix": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "config"
+      ]
+    },
+    "aliases": {
+      "type": "object",
+      "properties": {
+        "utils": {
+          "type": "string",
+          "default": ""
+        },
+        "components": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "components"
+      ]
+    },
+    "generatePreflight": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "styleSystem",
+    "cssPath",
+    "baseColor",
+    "tailwind",
+    "aliases"
+  ]
+}

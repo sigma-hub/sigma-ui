@@ -1,0 +1,48 @@
+{
+  "name": "alert-dialog",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "AlertDialog.vue",
+      "content": "<script setup lang=\"ts\">\nimport { type AlertDialogEmits, type AlertDialogProps, AlertDialogRoot, useForwardPropsEmits } from 'reka-ui';\n\nconst props = defineProps<AlertDialogProps>();\nconst emits = defineEmits<AlertDialogEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <AlertDialogRoot v-bind=\"forwarded\">\n    <slot />\n  </AlertDialogRoot>\n</template>\n"
+    },
+    {
+      "name": "AlertDialogAction.vue",
+      "content": "<script setup lang=\"ts\">\nimport { AlertDialogAction, type AlertDialogActionProps } from 'reka-ui';\nimport { cn } from '@ui/utils';\nimport { buttonVariants } from '@ui/registry/tailwind/ui/button';\n\nconst props = defineProps<AlertDialogActionProps>();\n</script>\n\n<template>\n  <AlertDialogAction\n    v-bind=\"props\"\n    :class=\"cn(buttonVariants(), $attrs.class ?? '')\"\n  >\n    <slot />\n  </AlertDialogAction>\n</template>\n"
+    },
+    {
+      "name": "AlertDialogCancel.vue",
+      "content": "<script setup lang=\"ts\">\nimport { AlertDialogCancel, type AlertDialogCancelProps } from 'reka-ui';\nimport { cn } from '@ui/utils';\nimport { buttonVariants } from '@ui/registry/tailwind/ui/button';\n\nconst props = defineProps<AlertDialogCancelProps>();\n</script>\n\n<template>\n  <AlertDialogCancel\n    v-bind=\"props\"\n    :class=\"cn(buttonVariants({ variant: 'outline' }), 'mt-2 sm:mt-0', $attrs.class ?? '')\"\n  >\n    <slot />\n  </AlertDialogCancel>\n</template>\n"
+    },
+    {
+      "name": "AlertDialogContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  AlertDialogContent,\n  type AlertDialogContentEmits,\n  type AlertDialogContentProps,\n  AlertDialogOverlay,\n  AlertDialogPortal,\n  useForwardPropsEmits,\n} from 'reka-ui';\nimport { cn } from '@ui/utils';\n\nconst props = defineProps<AlertDialogContentProps>();\nconst emits = defineEmits<AlertDialogContentEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <AlertDialogPortal>\n    <AlertDialogOverlay\n      class=\"fixed inset-0 z-50 bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0\"\n    />\n    <AlertDialogContent\n      v-bind=\"forwarded\"\n      :class=\"\n        cn(\n          'fixed left-1/2 top-1/2 z-50 grid w-full max-w-lg -translate-x-1/2 -translate-y-1/2 gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 sm:rounded-lg',\n          $attrs.class ?? '',\n        )\n      \"\n    >\n      <slot />\n    </AlertDialogContent>\n  </AlertDialogPortal>\n</template>\n"
+    },
+    {
+      "name": "AlertDialogDescription.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  AlertDialogDescription,\n  type AlertDialogDescriptionProps,\n} from 'reka-ui';\nimport { cn } from '@ui/utils';\n\nconst props = defineProps<AlertDialogDescriptionProps>();\n</script>\n\n<template>\n  <AlertDialogDescription\n    v-bind=\"props\"\n    :class=\"cn('text-sm text-muted-foreground', $attrs.class ?? '')\"\n  >\n    <slot />\n  </AlertDialogDescription>\n</template>\n"
+    },
+    {
+      "name": "AlertDialogFooter.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@ui/utils';\n\n</script>\n\n<template>\n  <div\n    :class=\"\n      cn(\n        'flex flex-col-reverse sm:flex-row sm:justify-end sm:gap-x-2',\n        $attrs.class ?? '',\n      )\n    \"\n  >\n    <slot />\n  </div>\n</template>\n"
+    },
+    {
+      "name": "AlertDialogHeader.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@ui/utils';\n\n</script>\n\n<template>\n  <div\n    :class=\"cn('flex flex-col gap-y-2 text-center sm:text-left', $attrs.class ?? '')\"\n  >\n    <slot />\n  </div>\n</template>\n"
+    },
+    {
+      "name": "AlertDialogTitle.vue",
+      "content": "<script setup lang=\"ts\">\nimport { AlertDialogTitle, type AlertDialogTitleProps } from 'reka-ui';\nimport { cn } from '@ui/utils';\n\nconst props = defineProps<AlertDialogTitleProps>();\n</script>\n\n<template>\n  <AlertDialogTitle\n    v-bind=\"props\"\n    :class=\"cn('text-lg font-semibold', $attrs.class ?? '')\"\n  >\n    <slot />\n  </AlertDialogTitle>\n</template>\n"
+    },
+    {
+      "name": "AlertDialogTrigger.vue",
+      "content": "<script setup lang=\"ts\">\nimport { AlertDialogTrigger, type AlertDialogTriggerProps } from 'reka-ui';\n\nconst props = defineProps<AlertDialogTriggerProps>();\n</script>\n\n<template>\n  <AlertDialogTrigger v-bind=\"props\">\n    <slot />\n  </AlertDialogTrigger>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as AlertDialog } from './AlertDialog.vue';\nexport { default as AlertDialogTrigger } from './AlertDialogTrigger.vue';\nexport { default as AlertDialogContent } from './AlertDialogContent.vue';\nexport { default as AlertDialogHeader } from './AlertDialogHeader.vue';\nexport { default as AlertDialogTitle } from './AlertDialogTitle.vue';\nexport { default as AlertDialogDescription } from './AlertDialogDescription.vue';\nexport { default as AlertDialogFooter } from './AlertDialogFooter.vue';\nexport { default as AlertDialogAction } from './AlertDialogAction.vue';\nexport { default as AlertDialogCancel } from './AlertDialogCancel.vue';\n"
+    }
+  ],
+  "type": "components:ui"
+}

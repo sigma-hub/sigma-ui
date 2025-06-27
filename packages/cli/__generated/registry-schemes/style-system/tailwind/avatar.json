@@ -1,0 +1,16 @@
+{
+  "name": "avatar",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "Avatar.vue",
+      "content": "<script setup lang=\"ts\">\nimport { UserIcon } from 'lucide-vue-next';\nimport { avatarVariants } from '.';\nimport { Image, type ImageVariants } from '@ui/registry/tailwind/ui/image';\nimport { cn } from '@ui/utils';\n\nconst props = withDefaults(defineProps<{\n  src?: string;\n  alt?: string;\n  glow?: boolean;\n  size?: 'xs' | 'sm' | 'base' | 'lg';\n  shape?: ImageVariants['shape'];\n}>(), {\n  size: 'base',\n  shape: 'circle',\n});\n</script>\n\n<template>\n  <div :class=\"[cn(avatarVariants({ size }), $attrs.class ?? '')]\">\n    <Image\n      v-bind=\"props\"\n    >\n      <template #fallback>\n        <slot name=\"fallback\">\n          <UserIcon class=\"w-[40%] h-[40%] text-primary/50\" />\n        </slot>\n      </template>\n    </Image>\n  </div>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "import { type VariantProps, cva } from 'class-variance-authority';\n\nexport { default as Avatar } from './Avatar.vue';\n\nexport const avatarVariants = cva(\n  'inline-flex items-center justify-center font-normal text-foreground select-none shrink-0',\n  {\n    variants: {\n      size: {\n        xs: 'h-6 w-6 text-xs',\n        sm: 'h-10 w-10 text-xs',\n        base: 'h-16 w-16 text-2xl',\n        lg: 'h-32 w-32 text-5xl',\n      },\n    },\n  },\n);\n\nexport type AvatarVariants = VariantProps<typeof avatarVariants>;\n"
+    }
+  ],
+  "type": "components:ui"
+}

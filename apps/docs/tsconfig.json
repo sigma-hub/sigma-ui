@@ -1,0 +1,21 @@
+{
+  "extends": ["@vue/tsconfig/tsconfig.dom.json"],
+  "compilerOptions": {
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "~/*": ["../../*"],
+      "@ui/*": ["../../packages/lib/src/*"]
+    },
+    "types": ["node"],
+    "declaration": false,
+    "outDir": "dist",
+    "sourceMap": true
+  },
+  "files": ["src/md.d.ts", ".vitepress/theme/types/global.d.ts"],
+  "include": ["src", "*/**.d.ts", ".vitepress/**/*.vue", "scripts/build-registry.ts", ".vitepress/**/*.mts", ".vitepress/**/*.ts", "src/lib/**/*"],
+  "vueCompilerOptions": {
+    "vitePressExtensions": [".md"]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "esnext",
+    "paths": {
+      "@/*": ["./*"],
+      "~/*": ["../../*"]
+    },
+    "isolatedModules": false
+  },
+  "include": ["./**/*.ts"],
+  "exclude": ["node_modules"]
+}

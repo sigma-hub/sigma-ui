@@ -1,0 +1,28 @@
+{
+  "name": "tabs",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "Tabs.vue",
+      "content": "<script setup lang=\"ts\">\nimport { TabsRoot, useForwardPropsEmits } from 'reka-ui';\nimport type { TabsRootEmits, TabsRootProps } from 'reka-ui';\n\nconst props = defineProps<TabsRootProps>();\nconst emits = defineEmits<TabsRootEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <TabsRoot v-bind=\"forwarded\">\n    <slot />\n  </TabsRoot>\n</template>\n"
+    },
+    {
+      "name": "TabsContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport { TabsContent, type TabsContentProps } from 'reka-ui';\n\nconst props = defineProps<TabsContentProps>();\n</script>\n\n<template>\n  <TabsContent\n    v-bind=\"props\"\n    class=\"sigma-ui-tabs-content\"\n  >\n    <slot />\n  </TabsContent>\n</template>\n\n<style>\n.sigma-ui-tabs-content {\n  margin-top: 0.5rem;\n}\n\n.sigma-ui-tabs-content:focus-visible {\n  outline: none;\n  box-shadow: 0 0 0 2px hsl(var(--ring)), 0 0 0 4px hsl(var(--background));\n}\n</style>\n"
+    },
+    {
+      "name": "TabsList.vue",
+      "content": "<script setup lang=\"ts\">\nimport { TabsList, type TabsListProps } from 'reka-ui';\n\nconst props = defineProps<TabsListProps>();\n</script>\n\n<template>\n  <TabsList\n    v-bind=\"props\"\n    class=\"sigma-ui-tabs-list\"\n  >\n    <slot />\n  </TabsList>\n</template>\n\n<style>\n.sigma-ui-tabs-list {\n  display: inline-flex;\n  height: 2.5rem;\n  padding: 2px;\n  align-items: center;\n  justify-content: center;\n  border-radius: var(--radius-md);\n  background-color: hsl(var(--muted));\n  color: hsl(var(--muted-foreground));\n}\n</style>\n"
+    },
+    {
+      "name": "TabsTrigger.vue",
+      "content": "<script setup lang=\"ts\">\nimport { TabsTrigger, type TabsTriggerProps, useForwardProps } from 'reka-ui';\n\nconst props = defineProps<TabsTriggerProps>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <TabsTrigger\n    v-bind=\"forwardedProps\"\n    class=\"sigma-ui-tabs-trigger\"\n  >\n    <slot />\n  </TabsTrigger>\n</template>\n\n<style>\n.sigma-ui-tabs-trigger {\n  display: inline-flex;\n  flex: 1;\n  height: 100%;\n  align-items: center;\n  justify-content: center;\n  white-space: nowrap;\n  border-radius: var(--radius-sm);\n  padding-inline: 0.75rem;\n  font-size: 0.875rem;\n  font-weight: 500;\n  transition-property: all;\n  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);\n  transition-duration: 150ms;\n}\n\n.sigma-ui-tabs-trigger:focus-visible {\n  outline: none;\n  box-shadow: 0 0 0 2px hsl(var(--ring)), 0 0 0 4px hsl(var(--background));\n}\n\n.sigma-ui-tabs-trigger:disabled {\n  pointer-events: none;\n  opacity: 0.5;\n}\n\n.sigma-ui-tabs-trigger[data-state=\"active\"] {\n  background-color: hsl(var(--background));\n  color: hsl(var(--foreground));\n  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);\n}\n</style>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as Tabs } from './Tabs.vue';\nexport { default as TabsTrigger } from './TabsTrigger.vue';\nexport { default as TabsList } from './TabsList.vue';\nexport { default as TabsContent } from './TabsContent.vue';\n"
+    }
+  ],
+  "type": "components:ui"
+}

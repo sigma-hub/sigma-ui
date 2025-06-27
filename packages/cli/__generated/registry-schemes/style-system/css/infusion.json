@@ -1,0 +1,12 @@
+{
+  "name": "infusion",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "Infusion.vue",
+      "content": "<script setup lang=\"ts\">\ninterface Props {\n  src: string;\n}\n\nconst props = withDefaults(defineProps<Props>(), {\n  src: '',\n});\n</script>\n\n<template>\n  <img\n    class=\"fixed z-[100] top-0 left-0 w-[100vw] h-[100vh] opacity-20 dark:opacity-30 pointer-events-none object-cover\"\n    :src=\"props.src\"\n  >\n</template>\n"
+    }
+  ],
+  "type": "components:ui"
+}

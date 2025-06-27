@@ -1,0 +1,24 @@
+{
+  "name": "collapsible",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "Collapsible.vue",
+      "content": "<script setup lang=\"ts\">\nimport { CollapsibleRoot, useForwardPropsEmits } from 'reka-ui';\nimport type { CollapsibleRootEmits, CollapsibleRootProps } from 'reka-ui';\n\nconst props = defineProps<CollapsibleRootProps>();\nconst emits = defineEmits<CollapsibleRootEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <CollapsibleRoot\n    v-slot=\"{ open }\"\n    class=\"sigma-ui-collapsible\"\n    v-bind=\"forwarded\"\n  >\n    <slot :open=\"open\" />\n  </CollapsibleRoot>\n</template>\n\n<style>\n.sigma-ui-collapsible [hidden] {\n  display: none;\n}\n</style>\n"
+    },
+    {
+      "name": "CollapsibleContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport { CollapsibleContent, type CollapsibleContentProps } from 'reka-ui';\n\nconst props = defineProps<CollapsibleContentProps>();\n</script>\n\n<template>\n  <CollapsibleContent\n    v-bind=\"props\"\n    class=\"sigma-ui-collapsible__content\"\n  >\n    <slot />\n  </CollapsibleContent>\n</template>\n\n<style>\n.sigma-ui-collapsible__content {\n  overflow: hidden;\n}\n\n.sigma-ui-collapsible__content[data-state=\"open\"] {\n  animation: collapsible-down 0.2s ease-out;\n}\n\n.sigma-ui-collapsible__content[data-state=\"closed\"] {\n  animation: collapsible-up 0.2s ease-out;\n}\n</style>\n"
+    },
+    {
+      "name": "CollapsibleTrigger.vue",
+      "content": "<script setup lang=\"ts\">\nimport { CollapsibleTrigger, type CollapsibleTriggerProps } from 'reka-ui';\n\nconst props = defineProps<CollapsibleTriggerProps>();\n</script>\n\n<template>\n  <CollapsibleTrigger v-bind=\"props\">\n    <slot />\n  </CollapsibleTrigger>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as Collapsible } from './Collapsible.vue';\nexport { default as CollapsibleTrigger } from './CollapsibleTrigger.vue';\nexport { default as CollapsibleContent } from './CollapsibleContent.vue';\n"
+    }
+  ],
+  "type": "components:ui"
+}

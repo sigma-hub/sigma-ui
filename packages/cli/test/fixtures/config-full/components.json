@@ -1,0 +1,15 @@
+{
+  "styleSystem": "css",
+  "cssPath": "src/app/globals.css",
+  "baseColor": "zinc",
+  "tailwind": {
+    "config": "tailwind.config.ts",
+    "cssVariables": true,
+    "prefix": "tw-"
+  },
+  "aliases": {
+    "utils": "~/lib/utils",
+    "components": "~/components",
+    "ui": "~/ui"
+  }
+}

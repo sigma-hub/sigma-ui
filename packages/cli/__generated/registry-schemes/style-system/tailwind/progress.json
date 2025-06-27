@@ -1,0 +1,16 @@
+{
+  "name": "progress",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "Progress.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  ProgressIndicator,\n  ProgressRoot,\n  type ProgressRootProps,\n} from 'reka-ui';\nimport { cn } from '@ui/utils';\n\nconst props = withDefaults(\n  defineProps<ProgressRootProps>(),\n  {\n    modelValue: 0,\n  },\n);\n</script>\n\n<template>\n  <ProgressRoot\n    v-bind=\"props\"\n    :class=\"\n      cn(\n        'relative h-4 w-full min-w-[50px] overflow-hidden rounded-full bg-secondary',\n        $attrs.class ?? '',\n      )\n    \"\n  >\n    <ProgressIndicator\n      class=\"h-full w-full flex-1 bg-primary transition-all\"\n      :style=\"`transform: translateX(-${100 - (props.modelValue ?? 0)}%);`\"\n    />\n  </ProgressRoot>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as Progress } from './Progress.vue';\n"
+    }
+  ],
+  "type": "components:ui"
+}

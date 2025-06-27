@@ -1,0 +1,16 @@
+{
+  "name": "checkbox",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "Checkbox.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { CheckboxRootEmits, CheckboxRootProps } from 'reka-ui';\nimport { CheckboxIndicator, CheckboxRoot, useForwardPropsEmits } from 'reka-ui';\nimport { CheckIcon } from 'lucide-vue-next';\nimport { cn } from '@ui/utils';\n\ninterface Props extends CheckboxRootProps {\n  label?: string;\n  description?: string;\n  id?: string;\n}\n\nconst props = defineProps<Props>();\nconst emits = defineEmits<CheckboxRootEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <div :class=\"cn('peer flex items-center gap-2', { 'items-start': props.description })\">\n    <CheckboxRoot\n      v-bind=\"forwarded\"\n      :id=\"(props.label && props.id) || forwarded.id\"\n      :class=\"cn(\n        'peer h-4 w-4 shrink-0 rounded-xs border border-primary ring-offset-background focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground overflow-hidden',\n      )\"\n    >\n      <transition name=\"fade-slide-top\">\n        <CheckboxIndicator class=\"flex h-full w-full items-center justify-center text-current\">\n          <slot>\n            <CheckIcon class=\"h-4 w-4\" />\n          </slot>\n        </CheckboxIndicator>\n      </transition>\n    </CheckboxRoot>\n    <div\n      v-if=\"props.label\"\n      class=\"flex flex-col gap-1.5 leading-none peer-disabled:opacity-70\"\n    >\n      <label\n        v-if=\"props.label\"\n        class=\"text-sm font-medium leading-none select-none\"\n        :for=\"props.id\"\n      >{{ props.label }}\n      </label>\n      <p\n        v-if=\"props.description\"\n        class=\"text-sm leading-5 text-muted-foreground select-none\"\n      >\n        {{ props.description }}\n      </p>\n    </div>\n  </div>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as Checkbox } from './Checkbox.vue';\n"
+    }
+  ],
+  "type": "components:ui"
+}

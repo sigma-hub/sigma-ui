@@ -1,0 +1,56 @@
+{
+  "name": "select",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "Select.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { SelectRootEmits, SelectRootProps } from 'reka-ui';\nimport { SelectRoot, useForwardPropsEmits } from 'reka-ui';\n\nconst props = defineProps<SelectRootProps>();\nconst emits = defineEmits<SelectRootEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <SelectRoot v-bind=\"forwarded\">\n    <slot />\n  </SelectRoot>\n</template>\n"
+    },
+    {
+      "name": "SelectContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  SelectContent,\n  type SelectContentEmits,\n  type SelectContentProps,\n  SelectPortal,\n  SelectViewport,\n\n  useForwardPropsEmits,\n} from 'reka-ui';\nimport { SelectScrollDownButton, SelectScrollUpButton } from '.';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst props = withDefaults(\n  defineProps<SelectContentProps>(),\n  {\n    position: 'popper',\n  },\n);\nconst emits = defineEmits<SelectContentEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <SelectPortal>\n    <SelectContent\n      v-bind=\"{ ...forwarded, ...$attrs }\"\n      class=\"sigma-ui-select-content\"\n      :class=\"[$attrs.class]\"\n    >\n      <SelectScrollUpButton />\n      <SelectViewport\n        class=\"sigma-ui-select-content__viewport\"\n        :class=\"{ 'sigma-ui-select-content__viewport--popper': position === 'popper' }\"\n      >\n        <slot />\n      </SelectViewport>\n      <SelectScrollDownButton />\n    </SelectContent>\n  </SelectPortal>\n</template>\n\n<style>\n.sigma-ui-select-content {\n  position: relative;\n  z-index: 50;\n  max-height: 24rem;\n  min-width: 8rem;\n  overflow: hidden;\n  border-radius: var(--radius-md);\n  border: 1px solid hsl(var(--border));\n  background-color: hsl(var(--popover));\n  color: hsl(var(--popover-foreground));\n  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);\n  transform-origin: var(--reka-popover-content-transform-origin);\n}\n\n.sigma-ui-select-content[data-state=\"open\"][data-side=\"bottom\"] {\n  animation: slideFromTop 150ms ease-out;\n}\n\n.sigma-ui-select-content[data-state=\"open\"][data-side=\"top\"] {\n  animation: slideFromBottom 150ms ease-out;\n}\n\n.sigma-ui-select-content[data-state=\"open\"][data-side=\"left\"] {\n  animation: slideFromRight 150ms ease-out;\n}\n\n.sigma-ui-select-content[data-state=\"open\"][data-side=\"right\"] {\n  animation: slideFromLeft 150ms ease-out;\n}\n\n@keyframes slideFromTop {\n  from {\n    transform: translateY(-1rem) scaleY(0.98);\n    filter: blur(4px);\n  }\n  to {\n    transform: translateY(0) scaleY(1);\n    filter: blur(0px);\n  }\n}\n\n@keyframes slideFromBottom {\n  from {\n    transform: translateY(1rem) scaleY(0.98);\n    filter: blur(4px);\n  }\n  to {\n    transform: translateY(0) scaleY(1);\n    filter: blur(0px);\n  }\n}\n\n@keyframes slideFromLeft {\n  from {\n    transform: translateX(-1rem) scaleY(0.98);\n    filter: blur(4px);\n  }\n  to {\n    transform: translateX(0) scaleY(1);\n    filter: blur(0px);\n  }\n}\n\n@keyframes slideFromRight {\n  from {\n    transform: translateX(1rem) scaleY(0.98);\n    filter: blur(4px);\n  }\n  to {\n    transform: translateX(0) scaleY(1);\n    filter: blur(0px);\n  }\n}\n.sigma-ui-select-content__viewport {\n  padding: 0.25rem;\n}\n\n.sigma-ui-select-content__viewport--popper {\n  height: var(--reka-select-trigger-height);\n  width: 100%;\n  min-width: var(--reka-select-trigger-width);\n}\n</style>\n"
+    },
+    {
+      "name": "SelectGroup.vue",
+      "content": "<script setup lang=\"ts\">\nimport { SelectGroup, type SelectGroupProps } from 'reka-ui';\n\nconst props = defineProps<SelectGroupProps>();\n</script>\n\n<template>\n  <SelectGroup\n    class=\"sigma-ui-select-group\"\n    v-bind=\"props\"\n  >\n    <slot />\n  </SelectGroup>\n</template>\n\n<style>\n.sigma-ui-select-group {\n  padding: 0.25rem;\n  width: 100%;\n}\n</style>\n"
+    },
+    {
+      "name": "SelectItem.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  SelectItem,\n  SelectItemIndicator,\n  type SelectItemProps,\n  SelectItemText,\n  useForwardProps,\n\n} from 'reka-ui';\nimport { CheckIcon } from 'lucide-vue-next';\n\nconst props = defineProps<SelectItemProps>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <SelectItem\n    v-bind=\"forwardedProps\"\n    class=\"sigma-ui-select-item\"\n  >\n    <span class=\"sigma-ui-select-item__indicator-wrapper\">\n      <SelectItemIndicator>\n        <CheckIcon class=\"sigma-ui-select-item__check-icon\" />\n      </SelectItemIndicator>\n    </span>\n\n    <SelectItemText>\n      <slot />\n    </SelectItemText>\n  </SelectItem>\n</template>\n\n<style>\n.sigma-ui-select-item {\n  position: relative;\n  display: flex;\n  width: 100%;\n  cursor: default;\n  user-select: none;\n  align-items: center;\n  border-radius: var(--radius-sm);\n  padding: 0.375rem 0.5rem 0.375rem 2rem;\n  font-size: 0.875rem;\n  outline: none;\n}\n\n.sigma-ui-select-item:focus {\n  background-color: hsl(var(--accent));\n  color: hsl(var(--accent-foreground));\n}\n\n.sigma-ui-select-item[data-disabled] {\n  pointer-events: none;\n  opacity: 0.5;\n}\n\n.sigma-ui-select-item__indicator-wrapper {\n  position: absolute;\n  left: 0.5rem;\n  display: flex;\n  height: 0.875rem;\n  width: 0.875rem;\n  align-items: center;\n  justify-content: center;\n}\n\n.sigma-ui-select-item__check-icon {\n  height: 1rem;\n  width: 1rem;\n}\n</style>\n"
+    },
+    {
+      "name": "SelectItemText.vue",
+      "content": "<script setup lang=\"ts\">\nimport { SelectItemText, type SelectItemTextProps } from 'reka-ui';\n\nconst props = defineProps<SelectItemTextProps>();\n</script>\n\n<template>\n  <SelectItemText v-bind=\"props\">\n    <slot />\n  </SelectItemText>\n</template>\n"
+    },
+    {
+      "name": "SelectLabel.vue",
+      "content": "<script setup lang=\"ts\">\nimport { SelectLabel, type SelectLabelProps } from 'reka-ui';\n\nconst props = defineProps<SelectLabelProps>();\n</script>\n\n<template>\n  <SelectLabel\n    class=\"sigma-ui-select-label\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </SelectLabel>\n</template>\n\n<style>\n.sigma-ui-select-label {\n  padding: 0.375rem 0.5rem 0.375rem 2rem;\n  font-size: 0.875rem;\n  font-weight: 600;\n}\n</style>\n"
+    },
+    {
+      "name": "SelectScrollDownButton.vue",
+      "content": "<script setup lang=\"ts\">\nimport { SelectScrollDownButton, type SelectScrollDownButtonProps, useForwardProps } from 'reka-ui';\nimport { ChevronDownIcon } from 'lucide-vue-next';\n\nconst props = defineProps<SelectScrollDownButtonProps>();\n\nconst forwardedProps = useForwardProps(props);\n\n</script>\n\n<template>\n  <SelectScrollDownButton\n    v-bind=\"forwardedProps\"\n    class=\"sigma-ui-select-scroll-down\"\n  >\n    <slot>\n      <ChevronDownIcon class=\"sigma-ui-select-scroll-down__icon\" />\n    </slot>\n  </SelectScrollDownButton>\n</template>\n\n<style>\n.sigma-ui-select-scroll-down {\n  display: flex;\n  cursor: default;\n  align-items: center;\n  justify-content: center;\n  padding: 0.25rem 0;\n}\n\n.sigma-ui-select-scroll-down__icon {\n  height: 1rem;\n  width: 1rem;\n}\n</style>\n"
+    },
+    {
+      "name": "SelectScrollUpButton.vue",
+      "content": "<script setup lang=\"ts\">\nimport { SelectScrollUpButton, type SelectScrollUpButtonProps, useForwardProps } from 'reka-ui';\nimport { ChevronUpIcon } from 'lucide-vue-next';\n\nconst props = defineProps<SelectScrollUpButtonProps>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <SelectScrollUpButton\n    v-bind=\"forwardedProps\"\n    class=\"sigma-ui-select-scroll-up\"\n  >\n    <slot>\n      <ChevronUpIcon class=\"sigma-ui-select-scroll-up__icon\" />\n    </slot>\n  </SelectScrollUpButton>\n</template>\n\n<style>\n.sigma-ui-select-scroll-up {\n  display: flex;\n  cursor: default;\n  align-items: center;\n  justify-content: center;\n  padding: 0.25rem 0;\n}\n\n.sigma-ui-select-scroll-up__icon {\n  height: 1rem;\n  width: 1rem;\n}\n</style>\n"
+    },
+    {
+      "name": "SelectSeparator.vue",
+      "content": "<script setup lang=\"ts\">\nimport { SelectSeparator, type SelectSeparatorProps } from 'reka-ui';\n\nconst props = defineProps<SelectSeparatorProps>();\n</script>\n\n<template>\n  <SelectSeparator\n    v-bind=\"props\"\n    class=\"sigma-ui-select-separator\"\n  />\n</template>\n\n<style>\n.sigma-ui-select-separator {\n  margin: 0.25rem -0.25rem;\n  height: 1px;\n  background-color: hsl(var(--muted));\n}\n</style>\n"
+    },
+    {
+      "name": "SelectTrigger.vue",
+      "content": "<script setup lang=\"ts\">\nimport { SelectIcon, SelectTrigger, type SelectTriggerProps, useForwardProps } from 'reka-ui';\nimport { ChevronDownIcon } from 'lucide-vue-next';\n\nconst props = defineProps<SelectTriggerProps>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <SelectTrigger\n    v-bind=\"forwardedProps\"\n    class=\"sigma-ui-select-trigger\"\n  >\n    <slot />\n    <SelectIcon as-child>\n      <ChevronDownIcon class=\"sigma-ui-select-trigger__icon\" />\n    </SelectIcon>\n  </SelectTrigger>\n</template>\n\n<style>\n.sigma-ui-select-trigger {\n  display: flex;\n  height: 2.5rem;\n  width: 100%;\n  align-items: center;\n  justify-content: space-between;\n  border-radius: var(--radius-md);\n  border: 1px solid hsl(var(--input));\n  background-color: hsl(var(--background));\n  padding: 0.5rem 0.75rem;\n  font-size: 0.875rem;\n  line-height: 1.25rem;\n}\n\n.sigma-ui-select-trigger:focus {\n  outline: none;\n  box-shadow: 0 0 0 2px hsl(var(--ring)), 0 0 0 4px hsl(var(--background));\n}\n\n.sigma-ui-select-trigger:disabled {\n  cursor: not-allowed;\n  opacity: 0.5;\n}\n\n.sigma-ui-select-trigger > span {\n  display: -webkit-box;\n  -webkit-line-clamp: 1;\n  -webkit-box-orient: vertical;\n  overflow: hidden;\n}\n\n.sigma-ui-select-trigger__icon {\n  width: 1rem;\n  height: 1rem;\n  opacity: 0.5;\n}\n</style>\n"
+    },
+    {
+      "name": "SelectValue.vue",
+      "content": "<script setup lang=\"ts\">\nimport { SelectValue, type SelectValueProps } from 'reka-ui';\n\nconst props = defineProps<SelectValueProps>();\n</script>\n\n<template>\n  <SelectValue v-bind=\"props\">\n    <slot />\n  </SelectValue>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as Select } from './Select.vue';\nexport { default as SelectValue } from './SelectValue.vue';\nexport { default as SelectTrigger } from './SelectTrigger.vue';\nexport { default as SelectContent } from './SelectContent.vue';\nexport { default as SelectGroup } from './SelectGroup.vue';\nexport { default as SelectItem } from './SelectItem.vue';\nexport { default as SelectItemText } from './SelectItemText.vue';\nexport { default as SelectLabel } from './SelectLabel.vue';\nexport { default as SelectSeparator } from './SelectSeparator.vue';\nexport { default as SelectScrollUpButton } from './SelectScrollUpButton.vue';\nexport { default as SelectScrollDownButton } from './SelectScrollDownButton.vue';\n"
+    }
+  ],
+  "type": "components:ui"
+}

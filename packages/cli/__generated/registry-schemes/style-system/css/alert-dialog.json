@@ -1,0 +1,48 @@
+{
+  "name": "alert-dialog",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "AlertDialog.vue",
+      "content": "<script setup lang=\"ts\">\nimport { type AlertDialogEmits, type AlertDialogProps, AlertDialogRoot, useForwardPropsEmits } from 'reka-ui';\n\nconst props = defineProps<AlertDialogProps>();\nconst emits = defineEmits<AlertDialogEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <AlertDialogRoot v-bind=\"forwarded\">\n    <slot />\n  </AlertDialogRoot>\n</template>\n"
+    },
+    {
+      "name": "AlertDialogAction.vue",
+      "content": "<script setup lang=\"ts\">\nimport { AlertDialogAction, type AlertDialogActionProps } from 'reka-ui';\nimport { useAttrs } from 'vue';\nimport { buttonVariants } from '@ui/registry/css/ui/button';\n\nconst props = defineProps<AlertDialogActionProps>();\nconst attrs = useAttrs();\n</script>\n\n<template>\n  <AlertDialogAction\n    v-bind=\"props\"\n    class=\"sigma-ui-button\"\n    :class=\"[buttonVariants(), attrs.class]\"\n  >\n    <slot />\n  </AlertDialogAction>\n</template>\n"
+    },
+    {
+      "name": "AlertDialogCancel.vue",
+      "content": "<script setup lang=\"ts\">\nimport { AlertDialogCancel, type AlertDialogCancelProps } from 'reka-ui';\nimport { useAttrs } from 'vue';\nimport { buttonVariants } from '@ui/registry/css/ui/button';\n\nconst props = defineProps<AlertDialogCancelProps>();\nconst attrs = useAttrs();\n</script>\n\n<template>\n  <AlertDialogCancel\n    v-bind=\"props\"\n    class=\"sigma-ui-button sigma-ui-alert-dialog-cancel\"\n    :class=\"[buttonVariants({ variant: 'outline' }), attrs.class]\"\n  >\n    <slot />\n  </AlertDialogCancel>\n</template>\n\n<style>\n.sigma-ui-alert-dialog-cancel {\n  margin-top: 0.5rem;\n}\n\n@media (min-width: 640px) {\n  .sigma-ui-alert-dialog-cancel {\n    margin-top: 0;\n  }\n}\n</style>\n"
+    },
+    {
+      "name": "AlertDialogContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  AlertDialogContent,\n  type AlertDialogContentEmits,\n  type AlertDialogContentProps,\n  AlertDialogOverlay,\n  AlertDialogPortal,\n  useForwardPropsEmits,\n} from 'reka-ui';\nimport { useAttrs } from 'vue';\n\nconst props = defineProps<AlertDialogContentProps>();\nconst emits = defineEmits<AlertDialogContentEmits>();\nconst attrs = useAttrs();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <AlertDialogPortal>\n    <AlertDialogOverlay class=\"sigma-ui-alert-dialog-overlay\" />\n    <AlertDialogContent\n      v-bind=\"forwarded\"\n      class=\"sigma-ui-alert-dialog-content\"\n      :class=\"attrs.class\"\n    >\n      <slot />\n    </AlertDialogContent>\n  </AlertDialogPortal>\n</template>\n\n<style>\n.sigma-ui-alert-dialog-overlay {\n  position: fixed;\n  inset: 0;\n  z-index: 50;\n  background-color: rgba(0, 0, 0, 0.8);\n}\n\n.sigma-ui-alert-dialog-overlay[data-state='open'] {\n  animation: fade-in 150ms cubic-bezier(0.4, 0, 0.2, 1);\n}\n\n.sigma-ui-alert-dialog-overlay[data-state='closed'] {\n  animation: fade-out 150ms cubic-bezier(0.4, 0, 0.2, 1);\n}\n\n.sigma-ui-alert-dialog-content {\n  position: fixed;\n  left: 50%;\n  top: 50%;\n  z-index: 50;\n  display: grid;\n  width: 100%;\n  max-width: 32rem;\n  transform: translate(-50%, -50%);\n  gap: 1rem;\n  border: 1px solid hsl(var(--border));\n  background-color: hsl(var(--background));\n  padding: 1.5rem;\n  box-shadow: var(--shadow-lg);\n  transition-duration: 200ms;\n}\n\n@media (min-width: 640px) {\n  .sigma-ui-alert-dialog-content {\n    border-radius: var(--radius);\n  }\n}\n\n.sigma-ui-alert-dialog-content[data-state='open'] {\n  animation: content-show 200ms cubic-bezier(0.4, 0, 0.2, 1);\n}\n\n.sigma-ui-alert-dialog-content[data-state='closed'] {\n  animation: content-hide 200ms cubic-bezier(0.4, 0, 0.2, 1);\n}\n\n@keyframes fade-in {\n  from { opacity: 0; }\n  to { opacity: 1; }\n}\n\n@keyframes fade-out {\n  from { opacity: 1; }\n  to { opacity: 0; }\n}\n\n@keyframes content-show {\n  from {\n    opacity: 0;\n    transform: translate(-50%, -50%) scale(0.95);\n  }\n  to {\n    opacity: 1;\n    transform: translate(-50%, -50%) scale(1);\n  }\n}\n\n@keyframes content-hide {\n  from {\n    opacity: 1;\n    transform: translate(-50%, -50%) scale(1);\n  }\n  to {\n    opacity: 0;\n    transform: translate(-50%, -50%) scale(0.95);\n  }\n}\n</style>\n"
+    },
+    {
+      "name": "AlertDialogDescription.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  AlertDialogDescription,\n  type AlertDialogDescriptionProps,\n} from 'reka-ui';\nimport { useAttrs } from 'vue';\n\nconst props = defineProps<AlertDialogDescriptionProps>();\nconst attrs = useAttrs();\n</script>\n\n<template>\n  <AlertDialogDescription\n    v-bind=\"props\"\n    class=\"sigma-ui-alert-dialog-description\"\n    :class=\"attrs.class\"\n  >\n    <slot />\n  </AlertDialogDescription>\n</template>\n\n<style>\n.sigma-ui-alert-dialog-description {\n  font-size: 0.875rem;\n  color: hsl(var(--muted-foreground));\n}\n</style>\n"
+    },
+    {
+      "name": "AlertDialogFooter.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nconst attrs = useAttrs();\n</script>\n\n<template>\n  <div\n    class=\"sigma-ui-alert-dialog-footer\"\n    :class=\"attrs.class\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n.sigma-ui-alert-dialog-footer {\n  display: flex;\n  flex-direction: column-reverse;\n}\n\n@media (min-width: 640px) {\n  .sigma-ui-alert-dialog-footer {\n    flex-direction: row;\n    justify-content: flex-end;\n    gap: 0.5rem;\n  }\n}\n</style>\n"
+    },
+    {
+      "name": "AlertDialogHeader.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nconst attrs = useAttrs();\n</script>\n\n<template>\n  <div\n    class=\"sigma-ui-alert-dialog-header\"\n    :class=\"attrs.class\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n.sigma-ui-alert-dialog-header {\n  display: flex;\n  flex-direction: column;\n  gap: 0.5rem;\n  text-align: center;\n}\n\n@media (min-width: 640px) {\n  .sigma-ui-alert-dialog-header {\n    text-align: left;\n  }\n}\n</style>\n"
+    },
+    {
+      "name": "AlertDialogTitle.vue",
+      "content": "<script setup lang=\"ts\">\nimport { AlertDialogTitle, type AlertDialogTitleProps } from 'reka-ui';\nimport { useAttrs } from 'vue';\n\nconst props = defineProps<AlertDialogTitleProps>();\nconst attrs = useAttrs();\n</script>\n\n<template>\n  <AlertDialogTitle\n    v-bind=\"props\"\n    class=\"sigma-ui-alert-dialog-title\"\n    :class=\"attrs.class\"\n  >\n    <slot />\n  </AlertDialogTitle>\n</template>\n\n<style>\n.sigma-ui-alert-dialog-title {\n  font-size: 1.125rem;\n  font-weight: 600;\n  line-height: 1.75rem;\n}\n</style>\n"
+    },
+    {
+      "name": "AlertDialogTrigger.vue",
+      "content": "<script setup lang=\"ts\">\nimport { AlertDialogTrigger } from 'reka-ui';\n</script>\n\n<template>\n  <AlertDialogTrigger>\n    <slot />\n  </AlertDialogTrigger>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as AlertDialog } from './AlertDialog.vue';\nexport { default as AlertDialogTrigger } from './AlertDialogTrigger.vue';\nexport { default as AlertDialogContent } from './AlertDialogContent.vue';\nexport { default as AlertDialogHeader } from './AlertDialogHeader.vue';\nexport { default as AlertDialogTitle } from './AlertDialogTitle.vue';\nexport { default as AlertDialogDescription } from './AlertDialogDescription.vue';\nexport { default as AlertDialogFooter } from './AlertDialogFooter.vue';\nexport { default as AlertDialogAction } from './AlertDialogAction.vue';\nexport { default as AlertDialogCancel } from './AlertDialogCancel.vue';\n"
+    }
+  ],
+  "type": "components:ui"
+}

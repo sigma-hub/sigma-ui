@@ -1,0 +1,787 @@
+[
+  {
+    "name": "accordion",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "accordion/Accordion.vue",
+      "accordion/AccordionContent.vue",
+      "accordion/AccordionItem.vue",
+      "accordion/AccordionTrigger.vue",
+      "accordion/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "alert",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "alert/Alert.vue",
+      "alert/AlertDescription.vue",
+      "alert/AlertTitle.vue",
+      "alert/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "alert-dialog",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "alert-dialog/AlertDialog.vue",
+      "alert-dialog/AlertDialogAction.vue",
+      "alert-dialog/AlertDialogCancel.vue",
+      "alert-dialog/AlertDialogContent.vue",
+      "alert-dialog/AlertDialogDescription.vue",
+      "alert-dialog/AlertDialogFooter.vue",
+      "alert-dialog/AlertDialogHeader.vue",
+      "alert-dialog/AlertDialogTitle.vue",
+      "alert-dialog/AlertDialogTrigger.vue",
+      "alert-dialog/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "avatar",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "avatar/Avatar.vue",
+      "avatar/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "badge",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "badge/Badge.vue",
+      "badge/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "breadcrumb",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "breadcrumb/Breadcrumb.vue",
+      "breadcrumb/BreadcrumbEllipsis.vue",
+      "breadcrumb/BreadcrumbGenerator.vue",
+      "breadcrumb/BreadcrumbItem.vue",
+      "breadcrumb/BreadcrumbLink.vue",
+      "breadcrumb/BreadcrumbList.vue",
+      "breadcrumb/BreadcrumbPage.vue",
+      "breadcrumb/BreadcrumbSeparator.vue",
+      "breadcrumb/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "button",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "button/Button.vue",
+      "button/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "calendar",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "calendar/Calendar.vue",
+      "calendar/CalendarCell.vue",
+      "calendar/CalendarCellTrigger.vue",
+      "calendar/CalendarGrid.vue",
+      "calendar/CalendarGridBody.vue",
+      "calendar/CalendarGridHead.vue",
+      "calendar/CalendarGridRow.vue",
+      "calendar/CalendarHeadCell.vue",
+      "calendar/CalendarHeader.vue",
+      "calendar/CalendarHeading.vue",
+      "calendar/CalendarNextButton.vue",
+      "calendar/CalendarPrevButton.vue",
+      "calendar/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "card",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "card/Card.vue",
+      "card/CardContent.vue",
+      "card/CardDescription.vue",
+      "card/CardFooter.vue",
+      "card/CardHeader.vue",
+      "card/CardTitle.vue",
+      "card/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "card-lightbox",
+    "dependencies": [
+      "motion-v"
+    ],
+    "registryDependencies": [],
+    "files": [
+      "card-lightbox/CardLightbox.vue",
+      "card-lightbox/index.ts",
+      "card-lightbox/types.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "carousel",
+    "dependencies": [
+      "embla-carousel-vue",
+      "@vueuse/core"
+    ],
+    "registryDependencies": [],
+    "files": [
+      "carousel/Carousel.vue",
+      "carousel/CarouselContent.vue",
+      "carousel/CarouselItem.vue",
+      "carousel/CarouselNext.vue",
+      "carousel/CarouselPrevious.vue",
+      "carousel/index.ts",
+      "carousel/interface.ts",
+      "carousel/useCarousel.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "chart",
+    "dependencies": [
+      "@unovis/vue",
+      "@unovis/ts"
+    ],
+    "registryDependencies": [],
+    "files": [
+      "chart/ChartCrosshair.vue",
+      "chart/ChartLegend.vue",
+      "chart/ChartSingleTooltip.vue",
+      "chart/ChartTooltip.vue",
+      "chart/index.ts",
+      "chart/interface.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "chart-area",
+    "dependencies": [
+      "@unovis/vue",
+      "@unovis/ts",
+      "@vueuse/core"
+    ],
+    "registryDependencies": [],
+    "files": [
+      "chart-area/AreaChart.vue",
+      "chart-area/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "chart-bar",
+    "dependencies": [
+      "@unovis/vue",
+      "@unovis/ts",
+      "@vueuse/core"
+    ],
+    "registryDependencies": [],
+    "files": [
+      "chart-bar/BarChart.vue",
+      "chart-bar/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "chart-donut",
+    "dependencies": [
+      "@unovis/vue",
+      "@unovis/ts",
+      "@vueuse/core"
+    ],
+    "registryDependencies": [],
+    "files": [
+      "chart-donut/DonutChart.vue",
+      "chart-donut/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "chart-line",
+    "dependencies": [
+      "@unovis/vue",
+      "@unovis/ts",
+      "@vueuse/core"
+    ],
+    "registryDependencies": [],
+    "files": [
+      "chart-line/LineChart.vue",
+      "chart-line/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "checkbox",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "checkbox/Checkbox.vue",
+      "checkbox/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "collapsible",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "collapsible/Collapsible.vue",
+      "collapsible/CollapsibleContent.vue",
+      "collapsible/CollapsibleTrigger.vue",
+      "collapsible/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "combobox",
+    "dependencies": [
+      "@vueuse/core"
+    ],
+    "registryDependencies": [],
+    "files": [
+      "combobox/Combobox.vue",
+      "combobox/ComboboxAnchor.vue",
+      "combobox/ComboboxEmpty.vue",
+      "combobox/ComboboxGroup.vue",
+      "combobox/ComboboxInput.vue",
+      "combobox/ComboboxItem.vue",
+      "combobox/ComboboxList.vue",
+      "combobox/ComboboxSeparator.vue",
+      "combobox/ComboboxTrigger.vue",
+      "combobox/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "command",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "command/Command.vue",
+      "command/CommandDialog.vue",
+      "command/CommandEmpty.vue",
+      "command/CommandGroup.vue",
+      "command/CommandInput.vue",
+      "command/CommandItem.vue",
+      "command/CommandList.vue",
+      "command/CommandSeparator.vue",
+      "command/CommandShortcut.vue",
+      "command/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "context-menu",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "context-menu/ContextMenu.vue",
+      "context-menu/ContextMenuCheckboxItem.vue",
+      "context-menu/ContextMenuContent.vue",
+      "context-menu/ContextMenuGroup.vue",
+      "context-menu/ContextMenuItem.vue",
+      "context-menu/ContextMenuLabel.vue",
+      "context-menu/ContextMenuPortal.vue",
+      "context-menu/ContextMenuRadioGroup.vue",
+      "context-menu/ContextMenuRadioItem.vue",
+      "context-menu/ContextMenuSeparator.vue",
+      "context-menu/ContextMenuShortcut.vue",
+      "context-menu/ContextMenuSub.vue",
+      "context-menu/ContextMenuSubContent.vue",
+      "context-menu/ContextMenuSubTrigger.vue",
+      "context-menu/ContextMenuTrigger.vue",
+      "context-menu/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "dialog",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "dialog/Dialog.vue",
+      "dialog/DialogClose.vue",
+      "dialog/DialogContent.vue",
+      "dialog/DialogDescription.vue",
+      "dialog/DialogFooter.vue",
+      "dialog/DialogHeader.vue",
+      "dialog/DialogScrollContent.vue",
+      "dialog/DialogTitle.vue",
+      "dialog/DialogTrigger.vue",
+      "dialog/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "drawer",
+    "dependencies": [
+      "vaul-vue"
+    ],
+    "registryDependencies": [],
+    "files": [
+      "drawer/Drawer.vue",
+      "drawer/DrawerContent.vue",
+      "drawer/DrawerDescription.vue",
+      "drawer/DrawerFooter.vue",
+      "drawer/DrawerHeader.vue",
+      "drawer/DrawerOverlay.vue",
+      "drawer/DrawerTitle.vue",
+      "drawer/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "dropdown-menu",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "dropdown-menu/DropdownMenu.vue",
+      "dropdown-menu/DropdownMenuCheckboxItem.vue",
+      "dropdown-menu/DropdownMenuContent.vue",
+      "dropdown-menu/DropdownMenuGroup.vue",
+      "dropdown-menu/DropdownMenuItem.vue",
+      "dropdown-menu/DropdownMenuLabel.vue",
+      "dropdown-menu/DropdownMenuRadioGroup.vue",
+      "dropdown-menu/DropdownMenuRadioItem.vue",
+      "dropdown-menu/DropdownMenuSeparator.vue",
+      "dropdown-menu/DropdownMenuShortcut.vue",
+      "dropdown-menu/DropdownMenuSub.vue",
+      "dropdown-menu/DropdownMenuSubContent.vue",
+      "dropdown-menu/DropdownMenuSubTrigger.vue",
+      "dropdown-menu/DropdownMenuTrigger.vue",
+      "dropdown-menu/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "form",
+    "dependencies": [
+      "vee-validate",
+      "@vee-validate/zod",
+      "zod"
+    ],
+    "registryDependencies": [],
+    "files": [
+      "form/FormControl.vue",
+      "form/FormDescription.vue",
+      "form/FormItem.vue",
+      "form/FormLabel.vue",
+      "form/FormMessage.vue",
+      "form/index.ts",
+      "form/injectionKeys.ts",
+      "form/useFormField.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "hover-card",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "hover-card/HoverCard.vue",
+      "hover-card/HoverCardContent.vue",
+      "hover-card/HoverCardTrigger.vue",
+      "hover-card/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "image",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "image/Image.vue",
+      "image/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "infusion",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "infusion/Infusion.vue"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "input",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "input/Input.vue",
+      "input/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "label",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "label/Label.vue",
+      "label/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "menubar",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "menubar/Menubar.vue",
+      "menubar/MenubarCheckboxItem.vue",
+      "menubar/MenubarContent.vue",
+      "menubar/MenubarGroup.vue",
+      "menubar/MenubarItem.vue",
+      "menubar/MenubarLabel.vue",
+      "menubar/MenubarMenu.vue",
+      "menubar/MenubarRadioGroup.vue",
+      "menubar/MenubarRadioItem.vue",
+      "menubar/MenubarSeparator.vue",
+      "menubar/MenubarShortcut.vue",
+      "menubar/MenubarSub.vue",
+      "menubar/MenubarSubContent.vue",
+      "menubar/MenubarSubTrigger.vue",
+      "menubar/MenubarTrigger.vue",
+      "menubar/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "navigation-menu",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "navigation-menu/NavigationMenu.vue",
+      "navigation-menu/NavigationMenuContent.vue",
+      "navigation-menu/NavigationMenuIndicator.vue",
+      "navigation-menu/NavigationMenuItem.vue",
+      "navigation-menu/NavigationMenuLink.vue",
+      "navigation-menu/NavigationMenuList.vue",
+      "navigation-menu/NavigationMenuTrigger.vue",
+      "navigation-menu/NavigationMenuViewport.vue",
+      "navigation-menu/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "number-field",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "number-field/NumberField.vue",
+      "number-field/NumberFieldContent.vue",
+      "number-field/NumberFieldDecrement.vue",
+      "number-field/NumberFieldIncrement.vue",
+      "number-field/NumberFieldInput.vue",
+      "number-field/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "pagination",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "pagination/PaginationEllipsis.vue",
+      "pagination/PaginationFirst.vue",
+      "pagination/PaginationLast.vue",
+      "pagination/PaginationNext.vue",
+      "pagination/PaginationPrev.vue",
+      "pagination/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "pin-input",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "pin-input/PinInput.vue",
+      "pin-input/PinInputGroup.vue",
+      "pin-input/PinInputInput.vue",
+      "pin-input/PinInputSeparator.vue",
+      "pin-input/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "popover",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "popover/Popover.vue",
+      "popover/PopoverContent.vue",
+      "popover/PopoverTrigger.vue",
+      "popover/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "progress",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "progress/Progress.vue",
+      "progress/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "radio-group",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "radio-group/RadioGroup.vue",
+      "radio-group/RadioGroupItem.vue",
+      "radio-group/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "range-calendar",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "range-calendar/RangeCalendar.vue",
+      "range-calendar/RangeCalendarCell.vue",
+      "range-calendar/RangeCalendarCellTrigger.vue",
+      "range-calendar/RangeCalendarGrid.vue",
+      "range-calendar/RangeCalendarGridBody.vue",
+      "range-calendar/RangeCalendarGridHead.vue",
+      "range-calendar/RangeCalendarGridRow.vue",
+      "range-calendar/RangeCalendarHeadCell.vue",
+      "range-calendar/RangeCalendarHeader.vue",
+      "range-calendar/RangeCalendarHeading.vue",
+      "range-calendar/RangeCalendarNextButton.vue",
+      "range-calendar/RangeCalendarPrevButton.vue",
+      "range-calendar/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "resizable",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "resizable/ResizableHandle.vue",
+      "resizable/ResizablePanelGroup.vue",
+      "resizable/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "scroll-area",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "scroll-area/ScrollArea.vue",
+      "scroll-area/ScrollBar.vue",
+      "scroll-area/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "select",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "select/Select.vue",
+      "select/SelectContent.vue",
+      "select/SelectGroup.vue",
+      "select/SelectItem.vue",
+      "select/SelectItemText.vue",
+      "select/SelectLabel.vue",
+      "select/SelectScrollDownButton.vue",
+      "select/SelectScrollUpButton.vue",
+      "select/SelectSeparator.vue",
+      "select/SelectTrigger.vue",
+      "select/SelectValue.vue",
+      "select/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "separator",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "separator/Separator.vue",
+      "separator/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "sheet",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "sheet/Sheet.vue",
+      "sheet/SheetClose.vue",
+      "sheet/SheetContent.vue",
+      "sheet/SheetDescription.vue",
+      "sheet/SheetFooter.vue",
+      "sheet/SheetHeader.vue",
+      "sheet/SheetTitle.vue",
+      "sheet/SheetTrigger.vue",
+      "sheet/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "skeleton",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "skeleton/Skeleton.vue",
+      "skeleton/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "slider",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "slider/Slider.vue",
+      "slider/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "switch",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "switch/Switch.vue",
+      "switch/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "table",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "table/Table.vue",
+      "table/TableBody.vue",
+      "table/TableCaption.vue",
+      "table/TableCell.vue",
+      "table/TableEmpty.vue",
+      "table/TableFooter.vue",
+      "table/TableHead.vue",
+      "table/TableHeader.vue",
+      "table/TableRow.vue",
+      "table/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "tabs",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "tabs/Tabs.vue",
+      "tabs/TabsContent.vue",
+      "tabs/TabsList.vue",
+      "tabs/TabsTrigger.vue",
+      "tabs/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "tags-input",
+    "dependencies": [
+      "@vueuse/core"
+    ],
+    "registryDependencies": [],
+    "files": [
+      "tags-input/TagsInput.vue",
+      "tags-input/TagsInputInput.vue",
+      "tags-input/TagsInputItem.vue",
+      "tags-input/TagsInputItemDelete.vue",
+      "tags-input/TagsInputItemText.vue",
+      "tags-input/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "textarea",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "textarea/Textarea.vue",
+      "textarea/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "toaster",
+    "dependencies": [
+      "vue-sonner"
+    ],
+    "registryDependencies": [],
+    "files": [
+      "toaster/CustomProgress.vue",
+      "toaster/CustomSimple.vue",
+      "toaster/Toaster.vue",
+      "toaster/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "toggle",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "toggle/Toggle.vue",
+      "toggle/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "toggle-group",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "toggle-group/ToggleGroup.vue",
+      "toggle-group/ToggleGroupItem.vue",
+      "toggle-group/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "tooltip",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "tooltip/Tooltip.vue",
+      "tooltip/TooltipContent.vue",
+      "tooltip/TooltipProvider.vue",
+      "tooltip/TooltipTrigger.vue",
+      "tooltip/index.ts"
+    ],
+    "type": "components:ui"
+  }
+]

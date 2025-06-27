@@ -1,0 +1,42 @@
+{
+  "name": "drawer",
+  "dependencies": [
+    "vaul-vue"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "Drawer.vue",
+      "content": "<script lang=\"ts\" setup>\nimport type { DrawerRootEmits, DrawerRootProps } from 'vaul-vue';\nimport { DrawerRoot } from 'vaul-vue';\nimport { useForwardPropsEmits } from 'reka-ui';\n\nconst props = withDefaults(defineProps<DrawerRootProps>(), {\n  shouldScaleBackground: true,\n});\n\nconst emits = defineEmits<DrawerRootEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <DrawerRoot v-bind=\"forwarded\">\n    <slot />\n  </DrawerRoot>\n</template>\n"
+    },
+    {
+      "name": "DrawerContent.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { DrawerContent, DrawerPortal } from 'vaul-vue';\nimport type { DialogContentEmits, DialogContentProps } from 'reka-ui';\nimport { useForwardPropsEmits } from 'reka-ui';\nimport DrawerOverlay from './DrawerOverlay.vue';\nimport { cn } from '@ui/utils';\n\nconst props = defineProps<DialogContentProps>();\nconst emits = defineEmits<DialogContentEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <DrawerPortal>\n    <DrawerOverlay />\n    <DrawerContent\n      v-bind=\"forwarded\"\n      :class=\"cn(\n        'fixed inset-x-0 bottom-0 z-50 mt-24 flex h-auto flex-col rounded-t-[10px] border bg-background',\n        $attrs.class ?? '',\n      )\"\n    >\n      <div class=\"mx-auto mt-4 h-2 w-[100px] rounded-full bg-muted\" />\n      <slot />\n    </DrawerContent>\n  </DrawerPortal>\n</template>\n"
+    },
+    {
+      "name": "DrawerDescription.vue",
+      "content": "<script lang=\"ts\" setup>\nimport type { DrawerDescriptionProps } from 'vaul-vue';\nimport { DrawerDescription } from 'vaul-vue';\nimport { cn } from '@ui/utils';\n\nconst props = defineProps<DrawerDescriptionProps>();\n</script>\n\n<template>\n  <DrawerDescription\n    v-bind=\"props\"\n    :class=\"cn('text-sm text-muted-foreground', $attrs.class ?? '')\"\n  >\n    <slot />\n  </DrawerDescription>\n</template>\n"
+    },
+    {
+      "name": "DrawerFooter.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { cn } from '@ui/utils';\n</script>\n\n<template>\n  <div :class=\"cn('mt-auto flex flex-col gap-2 p-4', $attrs.class ?? '')\">\n    <slot />\n  </div>\n</template>\n"
+    },
+    {
+      "name": "DrawerHeader.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { cn } from '@ui/utils';\n</script>\n\n<template>\n  <div :class=\"cn('grid gap-1.5 p-4 text-center sm:text-left', $attrs.class ?? '')\">\n    <slot />\n  </div>\n</template>\n"
+    },
+    {
+      "name": "DrawerOverlay.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { DrawerOverlay } from 'vaul-vue';\nimport type { DialogOverlayProps } from 'reka-ui';\nimport { cn } from '@ui/utils';\n\nconst props = defineProps<DialogOverlayProps>();\n</script>\n\n<template>\n  <DrawerOverlay\n    v-bind=\"props\"\n    :class=\"cn('fixed inset-0 z-50 bg-black/80', $attrs.class ?? '')\"\n  />\n</template>\n"
+    },
+    {
+      "name": "DrawerTitle.vue",
+      "content": "<script lang=\"ts\" setup>\nimport type { DrawerTitleProps } from 'vaul-vue';\nimport { DrawerTitle } from 'vaul-vue';\nimport { cn } from '@ui/utils';\n\nconst props = defineProps<DrawerTitleProps>();\n</script>\n\n<template>\n  <DrawerTitle\n    v-bind=\"props\"\n    :class=\"cn('text-lg font-semibold leading-none tracking-tight', $attrs.class ?? '')\"\n  >\n    <slot />\n  </DrawerTitle>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { DrawerPortal, DrawerTrigger, DrawerClose } from 'vaul-vue';\nexport { default as Drawer } from './Drawer.vue';\nexport { default as DrawerOverlay } from './DrawerOverlay.vue';\nexport { default as DrawerContent } from './DrawerContent.vue';\nexport { default as DrawerHeader } from './DrawerHeader.vue';\nexport { default as DrawerFooter } from './DrawerFooter.vue';\nexport { default as DrawerTitle } from './DrawerTitle.vue';\nexport { default as DrawerDescription } from './DrawerDescription.vue';\n"
+    }
+  ],
+  "type": "components:ui"
+}

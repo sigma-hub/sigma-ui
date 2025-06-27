@@ -1,0 +1,32 @@
+{
+  "name": "number-field",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "NumberField.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { NumberFieldRootEmits, NumberFieldRootProps } from 'reka-ui';\nimport { NumberFieldRoot, useForwardPropsEmits } from 'reka-ui';\nimport { cn } from '@ui/utils';\n\nconst props = defineProps<NumberFieldRootProps>();\nconst emits = defineEmits<NumberFieldRootEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <NumberFieldRoot\n    v-bind=\"forwarded\"\n    :class=\"cn('grid gap-1.5', $attrs.class ?? '')\"\n  >\n    <slot />\n  </NumberFieldRoot>\n</template>\n"
+    },
+    {
+      "name": "NumberFieldContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@ui/utils';\n\n</script>\n\n<template>\n  <div :class=\"cn('relative [&>[data-slot=input]]:has-[[data-slot=increment]]:pr-5 [&>[data-slot=input]]:has-[[data-slot=decrement]]:pl-5', $attrs.class ?? '')\">\n    <slot />\n  </div>\n</template>\n"
+    },
+    {
+      "name": "NumberFieldDecrement.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { NumberFieldDecrementProps } from 'reka-ui';\nimport { NumberFieldDecrement, useForwardProps } from 'reka-ui';\nimport { MinusIcon } from 'lucide-vue-next';\nimport { cn } from '@ui/utils';\n\nconst props = defineProps<NumberFieldDecrementProps>();\n\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <NumberFieldDecrement\n    data-slot=\"decrement\"\n    v-bind=\"forwarded\"\n    :class=\"cn('absolute top-1/2 -translate-y-1/2 left-0 p-3 disabled:cursor-not-allowed disabled:opacity-20', $attrs.class ?? '')\"\n  >\n    <slot>\n      <MinusIcon class=\"h-4 w-4\" />\n    </slot>\n  </NumberFieldDecrement>\n</template>\n"
+    },
+    {
+      "name": "NumberFieldIncrement.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { NumberFieldIncrementProps } from 'reka-ui';\nimport { NumberFieldIncrement, useForwardProps } from 'reka-ui';\nimport { PlusIcon } from 'lucide-vue-next';\nimport { cn } from '@ui/utils';\n\nconst props = defineProps<NumberFieldIncrementProps>();\n\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <NumberFieldIncrement\n    data-slot=\"increment\"\n    v-bind=\"forwarded\"\n    :class=\"cn('absolute top-1/2 -translate-y-1/2 right-0 disabled:cursor-not-allowed disabled:opacity-20 p-3', $attrs.class ?? '')\"\n  >\n    <slot>\n      <PlusIcon class=\"h-4 w-4\" />\n    </slot>\n  </NumberFieldIncrement>\n</template>\n"
+    },
+    {
+      "name": "NumberFieldInput.vue",
+      "content": "<script setup lang=\"ts\">\nimport { NumberFieldInput } from 'reka-ui';\nimport { cn } from '@ui/utils';\n</script>\n\n<template>\n  <NumberFieldInput\n    data-slot=\"input\"\n    :class=\"cn('flex h-10 w-full rounded-md border border-input bg-background py-2 text-sm text-center ring-offset-background placeholder:text-muted-foreground focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50')\"\n  />\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as NumberField } from './NumberField.vue';\nexport { default as NumberFieldInput } from './NumberFieldInput.vue';\nexport { default as NumberFieldIncrement } from './NumberFieldIncrement.vue';\nexport { default as NumberFieldDecrement } from './NumberFieldDecrement.vue';\nexport { default as NumberFieldContent } from './NumberFieldContent.vue';\n"
+    }
+  ],
+  "type": "components:ui"
+}

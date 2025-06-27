@@ -1,0 +1,20 @@
+{
+  "name": "resizable",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "ResizableHandle.vue",
+      "content": "<script setup lang=\"ts\">\nimport { SplitterResizeHandle, type SplitterResizeHandleEmits, type SplitterResizeHandleProps, useForwardPropsEmits } from 'reka-ui';\nimport { GripVerticalIcon } from 'lucide-vue-next';\nimport { cn } from '@ui/utils';\n\nconst props = defineProps<SplitterResizeHandleProps & { withHandle?: boolean }>();\nconst emits = defineEmits<SplitterResizeHandleEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <SplitterResizeHandle\n    v-bind=\"forwarded\"\n    :class=\"cn('relative flex w-px items-center justify-center bg-border after:absolute after:inset-y-0 after:left-1/2 after:w-1 after:-translate-x-1/2 focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-1 [&[data-orientation=vertical]]:h-px [&[data-orientation=vertical]]:w-full [&[data-orientation=vertical]]:after:left-0 [&[data-orientation=vertical]]:after:h-1 [&[data-orientation=vertical]]:after:w-full [&[data-orientation=vertical]]:after:-translate-y-1/2 [&[data-orientation=vertical]]:after:translate-x-0 [&[data-orientation=vertical]>div]:rotate-90', $attrs.class ?? '')\"\n  >\n    <template v-if=\"props.withHandle\">\n      <div class=\"z-10 flex h-4 w-3 items-center justify-center rounded-sm border bg-border\">\n        <GripVerticalIcon class=\"h-2.5 w-2.5\" />\n      </div>\n    </template>\n  </SplitterResizeHandle>\n</template>\n"
+    },
+    {
+      "name": "ResizablePanelGroup.vue",
+      "content": "<script setup lang=\"ts\">\nimport { SplitterGroup, type SplitterGroupEmits, type SplitterGroupProps, useForwardPropsEmits } from 'reka-ui';\nimport { cn } from '@ui/utils';\n\nconst props = defineProps<SplitterGroupProps>();\nconst emits = defineEmits<SplitterGroupEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <SplitterGroup\n    v-bind=\"forwarded\"\n    :class=\"cn('flex h-full w-full data-[panel-group-direction=vertical]:flex-col', $attrs.class ?? '')\"\n  >\n    <slot />\n  </SplitterGroup>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as ResizablePanelGroup } from './ResizablePanelGroup.vue';\nexport { default as ResizableHandle } from './ResizableHandle.vue';\nexport { SplitterPanel as ResizablePanel } from 'reka-ui';\n"
+    }
+  ],
+  "type": "components:ui"
+}

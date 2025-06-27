@@ -1,0 +1,41 @@
+<script lang="ts" setup>
+import { CalendarCell, type CalendarCellProps, useForwardProps } from 'reka-ui';
+
+const props = defineProps<CalendarCellProps>();
+
+const forwardedProps = useForwardProps(props);
+</script>
+
+<template>
+  <CalendarCell
+    class="sigma-ui-calendar-cell"
+    v-bind="forwardedProps"
+  >
+    <slot />
+  </CalendarCell>
+</template>
+
+<style>
+.sigma-ui-calendar-cell {
+  position: relative;
+  height: 2.25rem;
+  width: 2.25rem;
+  padding: 0;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.sigma-ui-calendar-cell:focus-within {
+  position: relative;
+  z-index: 20;
+}
+
+.sigma-ui-calendar-cell:has([data-selected]) {
+  border-radius: var(--radius-md);
+  background-color: hsl(var(--accent));
+}
+
+.sigma-ui-calendar-cell:has([data-selected][data-outside-month]) {
+  background-color: hsl(var(--accent) / 0.5);
+}
+</style>

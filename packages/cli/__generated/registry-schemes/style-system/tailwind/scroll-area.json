@@ -1,0 +1,20 @@
+{
+  "name": "scroll-area",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "ScrollArea.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  ScrollAreaCorner,\n  ScrollAreaRoot,\n  type ScrollAreaRootProps,\n  ScrollAreaViewport,\n} from 'reka-ui';\nimport ScrollBar from './ScrollBar.vue';\nimport { cn } from '@ui/utils';\n\nconst props = defineProps<ScrollAreaRootProps>();\n</script>\n\n<template>\n  <ScrollAreaRoot\n    v-bind=\"props\"\n    :class=\"cn('relative overflow-hidden', $attrs.class ?? '')\"\n  >\n    <ScrollAreaViewport class=\"h-full w-full rounded-[inherit]\">\n      <slot />\n    </ScrollAreaViewport>\n    <ScrollBar />\n    <ScrollAreaCorner />\n  </ScrollAreaRoot>\n</template>\n"
+    },
+    {
+      "name": "ScrollBar.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ScrollAreaScrollbar, type ScrollAreaScrollbarProps, ScrollAreaThumb } from 'reka-ui';\nimport { cn } from '@ui/utils';\n\nconst props = withDefaults(defineProps<ScrollAreaScrollbarProps>(), {\n  orientation: 'vertical',\n});\n</script>\n\n<template>\n  <ScrollAreaScrollbar\n    v-bind=\"props\"\n    :class=\"\n      cn('flex touch-none select-none transition-colors',\n         orientation === 'vertical'\n           && 'h-full w-2.5 border-l border-l-transparent p-px',\n         orientation === 'horizontal'\n           && 'h-2.5 flex-col border-t border-t-transparent p-px',\n         $attrs.class ?? '')\"\n  >\n    <ScrollAreaThumb class=\"relative flex-1 rounded-full bg-border\" />\n  </ScrollAreaScrollbar>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as ScrollArea } from './ScrollArea.vue';\nexport { default as ScrollBar } from './ScrollBar.vue';\n"
+    }
+  ],
+  "type": "components:ui"
+}

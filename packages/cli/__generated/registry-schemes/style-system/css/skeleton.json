@@ -1,0 +1,16 @@
+{
+  "name": "skeleton",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "Skeleton.vue",
+      "content": "<script setup lang=\"ts\">\n</script>\n\n<template>\n  <div\n    class=\"sigma-ui-skeleton\"\n    :class=\"[$attrs.class]\"\n  />\n</template>\n\n<style>\n.sigma-ui-skeleton {\n  border-radius: var(--radius-md);\n  background-color: hsl(var(--muted));\n  animation: skeletonPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;\n}\n\n@keyframes skeletonPulse {\n  0%, 100% {\n    opacity: 1;\n  }\n  50% {\n    opacity: 0.5;\n  }\n}\n</style>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as Skeleton } from './Skeleton.vue';\n"
+    }
+  ],
+  "type": "components:ui"
+}

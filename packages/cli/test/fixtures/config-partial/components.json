@@ -1,0 +1,13 @@
+{
+  "styleSystem": "tailwind",
+  "cssPath": "./src/assets/css/tailwind.css",
+  "baseColor": "neutral",
+  "tailwind": {
+    "config": "./tailwind.config.ts",
+    "cssVariables": false
+  },
+  "aliases": {
+    "utils": "@/lib/utils",
+    "components": "@/components"
+  }
+}

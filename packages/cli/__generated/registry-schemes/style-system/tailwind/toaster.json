@@ -1,0 +1,26 @@
+{
+  "name": "toaster",
+  "dependencies": [
+    "vue-sonner"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "CustomProgress.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { Button } from '@ui/registry/tailwind/ui/button';\n\nexport type ToastItem = {\n  data: {\n    id: number | string;\n    title: string;\n    description: string;\n    progress: number;\n    timer: number;\n    actionText: string;\n    cleanup: () => void;\n  };\n};\n\ntype Emits = {\n  action: [];\n};\n\nconst props = defineProps<ToastItem>();\nconst emit = defineEmits<Emits>();\n</script>\n\n<template>\n  <div class=\"flex w-full gap-6 items-end justify-between bg-background rounded border border-border p-4 shadow-lg\">\n    <div class=\"flex flex-col flex-1\">\n      <div class=\"flex gap-2 items-center text-sm font-semibold\">\n        {{ props.data.title }}\n        <div\n          v-if=\"props.data.progress && props.data.progress < 100\"\n          class=\"text-xs text-muted-foreground\"\n        >\n          {{ props.data.progress }}%\n        </div>\n      </div>\n      <div class=\"text-sm text-muted-foreground\">\n        {{ props.data.description }}\n      </div>\n      <div class=\"mt-2 text-sm bg-primary/10 rounded-full h-[2px] w-full\">\n        <div\n          class=\"bg-primary h-[2px] rounded-full\"\n          :style=\"{ width: `${props.data.progress}%` }\"\n        />\n      </div>\n    </div>\n    <Button\n      size=\"xs\"\n      @click=\"emit('action')\"\n    >\n      {{ props.data.actionText }}\n    </Button>\n  </div>\n</template>\n"
+    },
+    {
+      "name": "CustomSimple.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { Button } from '@ui/registry/tailwind/ui/button';\n\ntype Props = {\n  title: string;\n  description: string;\n  actionText: string;\n};\n\ntype Emits = {\n  action: [];\n};\n\nconst props = defineProps<Props>();\nconst emit = defineEmits<Emits>();\n</script>\n\n<template>\n  <div class=\"flex w-full items-end justify-between bg-background rounded border border-border p-4 shadow-lg\">\n    <div>\n      <div class=\"text-sm font-semibold\">\n        {{ props.title }}\n      </div>\n      <div class=\"text-sm text-muted-foreground\">\n        {{ props.description }}\n      </div>\n    </div>\n    <Button\n      size=\"xs\"\n      @click=\"emit('action')\"\n    >\n      {{ props.actionText }}\n    </Button>\n  </div>\n</template>\n"
+    },
+    {
+      "name": "Toaster.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { Toaster, type ToasterProps } from 'vue-sonner';\n\nconst props = defineProps<ToasterProps>();\n</script>\n\n<template>\n  <Toaster\n    class=\"!z-[60] pointer-events-auto fixed flex flex-col gap-[10px] max-w-[420px]\"\n    v-bind=\"props\"\n    :toast-options=\"{\n      ...props.toastOptions,\n      unstyled: true,\n      classes: {\n        toast: 'group w-full cursor-default bg-background text-foreground rounded shadow-lg flex items-center gap-2 [&[data-type=default]]:p-3 [&[data-type=default]]:px-4 [&[data-type=default]]:border [&[data-type=default]]:border-border [&[data-type=default]_[data-content]]:flex [&[data-type=default]_[data-content]]:flex-1',\n        description: 'group-[&[data-type=default]]:text-muted-foreground ',\n        actionButton: 'group-[&[data-type=default]]:px-2 group-[&[data-type=default]]:py-0.5 group-[&[data-type=default]]:rounded group-[&[data-type=default]]:bg-primary group-[&[data-type=default]]:text-primary-foreground group-[&[data-type=default]]:hover:opacity-90',\n        cancelButton: 'group-[&[data-type=default]]:px-2 group-[&[data-type=default]]:py-0.5 group-[&[data-type=default]]:rounded group-[&[data-type=default]]:bg-muted group-[&[data-type=default]]:text-muted-foreground group-[&[data-type=default]]:hover:opacity-90',\n      },\n    }\"\n  />\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { toast } from 'vue-sonner';\nexport { default as Toaster } from './Toaster.vue';\nexport { default as CustomSimple } from './CustomSimple.vue';\nexport { default as CustomProgress } from './CustomProgress.vue';\n"
+    }
+  ],
+  "type": "components:ui"
+}

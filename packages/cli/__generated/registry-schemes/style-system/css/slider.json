@@ -1,0 +1,16 @@
+{
+  "name": "slider",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "Slider.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { SliderRootEmits, SliderRootProps } from 'reka-ui';\nimport { SliderRange, SliderRoot, SliderThumb, SliderTrack, useForwardPropsEmits } from 'reka-ui';\n\nconst props = defineProps<SliderRootProps>();\nconst emits = defineEmits<SliderRootEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <SliderRoot\n    class=\"sigma-ui-slider\"\n    v-bind=\"forwarded\"\n  >\n    <SliderTrack class=\"sigma-ui-slider__track\">\n      <SliderRange class=\"sigma-ui-slider__range\" />\n    </SliderTrack>\n    <SliderThumb\n      v-for=\"(_, key) in modelValue\"\n      :key=\"key\"\n      class=\"sigma-ui-slider__thumb\"\n    />\n  </SliderRoot>\n</template>\n\n<style>\n.sigma-ui-slider {\n  position: relative;\n  display: flex;\n  width: 100%;\n  min-width: 50px;\n  touch-action: none;\n  user-select: none;\n  align-items: center;\n}\n\n.sigma-ui-slider__track {\n  position: relative;\n  height: 0.5rem;\n  width: 100%;\n  flex-grow: 1;\n  overflow: hidden;\n  border-radius: var(--radius-full);\n  background-color: hsl(var(--secondary));\n}\n\n.sigma-ui-slider__range {\n  position: absolute;\n  height: 100%;\n  background-color: hsl(var(--primary));\n}\n\n.sigma-ui-slider__thumb {\n  display: block;\n  height: 1.25rem;\n  width: 1.25rem;\n  border-radius: var(--radius-full);\n  border: 2px solid hsl(var(--primary));\n  background-color: hsl(var(--background));\n  transition-property: color, background-color, border-color;\n  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);\n  transition-duration: 150ms;\n}\n\n.sigma-ui-slider__thumb:focus-visible {\n  outline: none;\n  box-shadow: 0 0 0 2px hsl(var(--ring)), 0 0 0 4px hsl(var(--background));\n}\n\n.sigma-ui-slider__thumb:disabled {\n  pointer-events: none;\n  opacity: 0.5;\n}\n</style>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as Slider } from './Slider.vue';\n"
+    }
+  ],
+  "type": "components:ui"
+}

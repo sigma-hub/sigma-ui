@@ -1,0 +1,16 @@
+{
+  "name": "label",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "Label.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Label, type LabelProps } from 'reka-ui';\n\nconst props = defineProps<LabelProps>();\n</script>\n\n<template>\n  <Label\n    v-bind=\"props\"\n    class=\"sigma-ui-label\"\n  >\n    <slot />\n  </Label>\n</template>\n\n<style>\n.sigma-ui-label {\n  font-size: 0.875rem;\n  font-weight: 500;\n  line-height: 1;\n}\n\n:where(:disabled) ~ .sigma-ui-label {\n  cursor: not-allowed;\n  opacity: 0.7;\n}\n</style>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as Label } from './Label.vue';\n"
+    }
+  ],
+  "type": "components:ui"
+}
