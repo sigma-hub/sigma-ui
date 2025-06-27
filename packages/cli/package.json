@@ -1,7 +1,7 @@
 {
   "name": "sigma-ui",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.10",
   "description": "CLI for SIGMA-UI components.",
   "publishConfig": {
     "access": "public"
@@ -9,7 +9,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sigma-hub/sigma-ui.git",
+    "url": "git+https://github.com/sigma-hub/sigma-ui.git",
     "directory": "packages/cli"
   },
   "keywords": [
@@ -29,7 +29,9 @@
     "sigma-ui"
   ],
   "exports": "./dist/index.js",
-  "bin": "./dist/index.js",
+  "bin": {
+    "sigma-ui": "dist/index.js"
+  },
   "files": [
     "__generated/registry-schemes",
     "dist"
