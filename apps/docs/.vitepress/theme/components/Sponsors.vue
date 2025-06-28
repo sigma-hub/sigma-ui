@@ -172,7 +172,7 @@ import {
           </HoverCardContent>
         </HoverCard>
         <div class="text-muted-foreground dark:text-muted-foreground/80 text-xs border-t-[1px] pt-2 border-muted-foreground/10">
-          Current supporters: <span class="bg-muted/70 px-2 py-0.5 rounded-sm">0</span> people
+          Current supporters: <span class="bg-muted/70 px-2 py-0.5 rounded-sm">1</span> person
         </div>
       </div>
     </div>
