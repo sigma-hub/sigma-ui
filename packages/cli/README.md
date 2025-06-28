@@ -15,16 +15,17 @@ It takes away the burden of recreating the same components from scratch for ever
 <br/>**NPM**: https://www.npmjs.com/package/sigma-ui
 
 - **Supported frameworks**: Vue, Nuxt, Laravel, Astro.
-- **Supported languages**: TS (all components are typed, JS is not supported, move on).
+- **Supported languages**: TS (all components are typed, JS projects are not supported).
 - **Supported vue versions**: 3 and above.
 - **Supported style systems**: CSS, Tailwind 4.
 - **Is open-source**: Yes, MIT licensed.
 - **Accessibility**: Supported.
 - **Based upon**: Radix Vue primitives.
 - **Installation method**: GOAT (Git Obtained As Template) via npx commands. Unlike NPM modules, these components are copied from git repository directly into your project's components directory and give you full control over customization, instead of using just props and css overrides.
-- **Main problem it solves**: You are a developer, you create a new project, it needs 20+ components like dialogs, selects, skeletons, etc, and they all need to follow your companies' / your own design system.
-  - **Beta devs** - spend half a year creating every component from scratch for every new project they work in and end up with a broken buggy mess, or use Vuetify / Quasar like library and monkey patch components' css with `!important`, trying to make them look like components in their design system.
-  - **Sigma devs** - have GOAT in their stack, use well designed customizable components, easily modify design and functionality to their needs. Profit.
+- **Main problem it solves**: You are a developer, you create a new project, it needs 20+ components like dialogs, selects, skeletons, etc, and they all need to follow your companies' / your own design system:
+  - **What sad devs do:** spend a year creating every component from scratch for every new project they work on, end up with a broken buggy mess of components without any basic keyboard navigation support, modals that you cannot close with Esc, and no accessibility at all.
+  - **What Beta devs do:** use a conventional library (e.g Vuetify, Quasar) and monkey patch components' css with `!important`, trying to make their components follow their design system, and failing to modify baked-in Material design and animations.
+  - **What Sigma devs do:** add these GOAT components directly to your main (or uikit) project "components" dir, spend a little time modifying their design and functionality as needed. Profit.
 
 ## Community links
 [Discord](https://discord.gg/jH2X4VGBA4) | [YouTube](https://www.youtube.com/@sigma-dev) | [X (Twitter)](https://twitter.com/sigma__dev) | [Telegram](https://t.me/sigma_devs)
