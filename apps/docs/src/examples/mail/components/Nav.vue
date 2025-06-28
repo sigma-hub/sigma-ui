@@ -74,7 +74,7 @@ defineProps<NavProps>();
             buttonVariants({ variant: link.variant, size: 'sm' }),
             link.variant === 'default'
               && 'dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white',
-            'justify-start',
+            'flex w-full justify-start',
           )"
         >
           <Icon
@@ -85,9 +85,9 @@ defineProps<NavProps>();
           <span
             v-if="link.label"
             :class="cn(
-              'ml-auto',
+              'ml-auto text-gray-500',
               link.variant === 'default'
-                && 'text-background dark:text-white',
+                && 'text-white',
             )"
           >
             {{ link.label }}

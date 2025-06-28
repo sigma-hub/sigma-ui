@@ -3,21 +3,15 @@ import { h } from 'vue';
 import { useForm } from 'vee-validate';
 import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
-import { ChevronDownIcon } from 'lucide-vue-next';
 import { toast } from '@ui/registry/tailwind/ui/toaster';
-import { cn } from '@ui/utils';
 import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@ui/registry/tailwind/ui/form';
 import { Separator } from '@ui/registry/tailwind/ui/separator';
 import { RadioGroup, RadioGroupItem } from '@ui/registry/tailwind/ui/radio-group';
-import { Button, buttonVariants } from '@ui/registry/tailwind/ui/button';
+import { Button } from '@ui/registry/tailwind/ui/button';
 
 const appearanceFormSchema = toTypedSchema(z.object({
   theme: z.enum(['light', 'dark'], {
     required_error: 'Please select a theme.',
-  }),
-  font: z.enum(['inter', 'manrope', 'system'], {
-    invalid_type_error: 'Select a font',
-    required_error: 'Please select a font.',
   }),
 }));
 
@@ -25,7 +19,6 @@ const { handleSubmit } = useForm({
   validationSchema: appearanceFormSchema,
   initialValues: {
     theme: 'light',
-    font: 'inter',
   },
 });
 
@@ -50,41 +43,6 @@ const onSubmit = handleSubmit((values) => {
     class="space-y-8"
     @submit="onSubmit"
   >
-    <FormField
-      v-slot="{ field }"
-      name="font"
-    >
-      <FormItem>
-        <FormLabel>Font</FormLabel>
-        <div class="relative w-[200px]">
-          <FormControl>
-            <select
-              :class="cn(
-                buttonVariants({ variant: 'outline' }),
-                'w-[200px] appearance-none font-normal',
-              )"
-              v-bind="field"
-            >
-              <option value="inter">
-                Inter
-              </option>
-              <option value="manrope">
-                Manrope
-              </option>
-              <option value="system">
-                System
-              </option>
-            </select>
-          </FormControl>
-          <ChevronDownIcon class="pointer-events-none absolute right-3 top-2.5 h-4 w-4 opacity-50" />
-        </div>
-        <FormDescription>
-          Set the font you want to use in the dashboard.
-        </FormDescription>
-        <FormMessage />
-      </FormItem>
-    </FormField>
-
     <FormField
       v-slot="{ componentField }"
       type="radio"

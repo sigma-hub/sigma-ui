@@ -1,37 +1,50 @@
 <script setup lang="ts">
-import { useRoute } from 'vitepress';
 import { cn } from '@ui/utils';
 import { Button } from '@ui/registry/tailwind/ui/button';
 
 interface Item {
   title: string;
-  href: string;
+  id: string;
 }
 
-const $route = useRoute();
+interface Props {
+  modelValue?: string;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  modelValue: 'profile',
+});
+
+const emit = defineEmits<{
+  'update:modelValue': [value: string];
+}>();
 
 const sidebarNavItems: Item[] = [
   {
     title: 'Profile',
-    href: '/examples/forms',
+    id: 'profile',
   },
   {
     title: 'Account',
-    href: '/examples/forms/account',
+    id: 'account',
   },
   {
     title: 'Appearance',
-    href: '/examples/forms/appearance',
+    id: 'appearance',
   },
   {
     title: 'Notifications',
-    href: '/examples/forms/notifications',
+    id: 'notifications',
   },
   {
     title: 'Display',
-    href: '/examples/forms/display',
+    id: 'display',
   },
 ];
+
+const selectItem = (itemId: string) => {
+  emit('update:modelValue', itemId);
+};
 </script>
 
 <template>
@@ -39,13 +52,12 @@ const sidebarNavItems: Item[] = [
     <Button
       v-for="item in sidebarNavItems"
       :key="item.title"
-      as="a"
-      :href="item.href"
       variant="ghost"
       :class="cn(
         'w-full text-left justify-start',
-        $route.path === `${item.href}.html` && 'bg-muted hover:bg-muted',
+        modelValue === item.id && 'bg-muted hover:bg-muted',
       )"
+      @click="selectItem(item.id)"
     >
       {{ item.title }}
     </Button>
