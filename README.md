@@ -31,6 +31,29 @@ It takes away the burden of recreating the same components from scratch for ever
 <br>Thanks to everyone who has been sharing this project with others!
 
 
+## Supporters
+
+Consider supporting the project:
+
+- [Patreon](https://patreon.com/sigma_ui) - monthly, with rewards
+- [Donation Alerts](https://donationalerts.com/r/sigma_dev) - one-time donations
+
+### Current supporters
+
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="middle">
+        <a href="https://github.com/masihtak" title="Masih Abjadi">
+          <img valign="middle" width="48px" src="https://avatars.githubusercontent.com/u/4639192?v=4">
+          Masih Abjadi
+        </a>
+        <br/>Fullstack dev • Looking for job
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 ## Credits
 
 Created, designed, and maintained by [Aleksey Hoffman](https://github.com/aleksey-hoffman).
