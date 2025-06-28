@@ -13,12 +13,17 @@ import {
 
 const REGISTRY_PATH = new URL('../__generated/registry-schemes/', import.meta.url);
 
+const DIRS = {
+  STYLE_SYSTEM: 'style-system',
+  COLORS: 'colors',
+} as const;
+
 const filePaths = {
   index: () => `index.json`,
-  styles: () => `styles/index.json`,
-  baseColors: (baseColor: string) => `colors/${baseColor}.json`,
+  styles: () => `${DIRS.STYLE_SYSTEM}/index.json`,
+  baseColors: (baseColor: string) => `${DIRS.COLORS}/${baseColor}.json`,
   selectedStyleComponent: (params: { styleSystem: string; componentName: string }) => (
-    `style-system/${params.styleSystem}/${params.componentName}.json`
+    `${DIRS.STYLE_SYSTEM}/${params.styleSystem}/${params.componentName}.json`
   ),
 };
 
