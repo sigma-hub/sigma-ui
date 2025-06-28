@@ -45,7 +45,7 @@ Consider supporting the project:
   <tbody>
     <tr>
       <td align="center" valign="middle">
-        <a href="https://github.com/masihtak" title="Masih Abjadi">
+        <a href="https://cyberpunk-card.vercel.app" title="Masih Abjadi">
           <img valign="middle" width="48px" src="https://avatars.githubusercontent.com/u/4639192?v=4">
           Masih Abjadi
         </a>
