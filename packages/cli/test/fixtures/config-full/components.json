@@ -4,7 +4,6 @@
   "baseColor": "zinc",
   "tailwind": {
     "config": "tailwind.config.ts",
-    "cssVariables": true,
     "prefix": "tw-"
   },
   "aliases": {

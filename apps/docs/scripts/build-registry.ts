@@ -184,7 +184,6 @@ function buildBaseColors(colorsData: Record<string, any>) {
       cssVars: {},
       templates: {
         tailwind: {
-          withoutVariables: '',
           withVariables: '',
         },
         css: {
@@ -223,7 +222,6 @@ function buildBaseColors(colorsData: Record<string, any>) {
       },
     };
 
-    base.templates.tailwind.withoutVariables = template(TAILWIND_STYLES_TEMPLATE)({});
     base.templates.tailwind.withVariables = template(TAILWIND_STYLES_WITH_VARS_TEMPLATE)(config);
     base.templates.css.withVariables = template(CSS_STYLES_WITH_VARS_TEMPLATE)(config);
 

@@ -35,17 +35,13 @@
     },
     "baseColor": {
       "type": "string",
-      "default": "slate"
+      "default": "zinc"
     },
     "tailwind": {
       "type": "object",
       "properties": {
         "config": {
           "type": "string"
-        },
-        "cssVariables": {
-          "type": "boolean",
-          "default": true
         },
         "prefix": {
           "type": "string"

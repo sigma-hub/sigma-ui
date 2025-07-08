@@ -10,38 +10,10 @@ import { useConfigStore } from '@/stores/config';
 import { useExamplesStore } from '@/stores/examples';
 import ExamplesDemoNav from '../components/ExamplesDemoNav.vue';
 import { GithubIcon } from 'lucide-vue-next';
+import { baseColors } from '../../../src/lib/registry/colors';
 
 const { currentExample } = useExamplesStore();
 const { config } = useConfigStore();
-
-type Color =
-  | 'zinc'
-  | 'slate'
-  | 'stone'
-  | 'gray'
-  | 'neutral'
-  | 'red'
-  | 'rose'
-  | 'orange'
-  | 'green'
-  | 'blue'
-  | 'yellow'
-  | 'violet';
-
-const allColors: Color[] = [
-  'zinc',
-  'rose',
-  'blue',
-  'green',
-  'orange',
-  'red',
-  'slate',
-  'stone',
-  'gray',
-  'neutral',
-  'yellow',
-  'violet',
-];
 
 onMounted(() => {
   document.documentElement.style.setProperty('--radius', `${config.value.radius}rem`);
@@ -50,7 +22,7 @@ onMounted(() => {
 
 watch(() => config.value.theme, (theme) => {
   document.documentElement.classList.remove(
-    ...allColors.map(color => `theme-${color}`),
+    ...baseColors.map(color => `theme-${color.name}`),
   );
   document.documentElement.classList.add(`theme-${theme}`);
 });
@@ -95,13 +67,10 @@ watch(() => config.value.radius, (radius) => {
             align="end"
             class="w-96"
           >
-            <ThemeCustomizer :all-colors="allColors" />
+            <ThemeCustomizer />
           </PopoverContent>
         </Popover>
-        <ThemePickerMini
-          class="gap-x-0 flex md:gap-x-1"
-          :all-colors="allColors"
-        />
+        <ThemePickerMini class="gap-x-0 flex md:gap-x-1" />
       </div>
     </CardContent>
   </Card>

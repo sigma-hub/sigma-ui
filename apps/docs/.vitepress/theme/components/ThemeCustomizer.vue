@@ -6,14 +6,10 @@ import { Button } from '@ui/registry/tailwind/ui/button';
 import { Separator } from '@ui/registry/tailwind/ui/separator';
 import { Label } from '@ui/registry/tailwind/ui/label';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@ui/registry/tailwind/ui/dialog';
-import type { Color } from '../types/colors';
+import { baseColors } from '../../../src/lib/registry/colors';
 import ThemeCustomizerCode from '../components/ThemeCustomizerCode.vue';
 import { colors } from '@/lib/registry';
 import { RADII, useConfigStore } from '@/stores/config';
-
-defineProps<{
-  allColors: Color[];
-}>();
 
 const { config, setRadius, setTheme } = useConfigStore();
 const { isDark } = useData();
@@ -60,28 +56,28 @@ const toggleDark = useToggle(isDark);
 
       <div class="grid grid-cols-3 gap-2">
         <Button
-          v-for="(color, index) in allColors"
+          v-for="(color, index) in baseColors"
           :key="index"
           variant="outline"
           class="h-9 flex w-full justify-start px-3"
           :class="
-            color === config.theme
+            color.name === config.theme
               ? 'border-foreground border-2'
               : ''
           "
-          @click="setTheme(color)"
+          @click="setTheme(color.name)"
         >
           <span
             class="h-5 w-5 rounded-sm flex items-center justify-center"
-            :style="{ backgroundColor: colors[color][7].rgb }"
+            :style="{ backgroundColor: colors[color.name][7].rgb }"
           >
             <CheckIcon
-              v-if="color === config.theme"
+              v-if="color.name === config.theme"
               class="h-3 w-3 text-white"
             />
           </span>
           <span class="ml-2 text-xs capitalize">
-            {{ color }}
+            {{ color.label }}
           </span>
         </Button>
       </div>

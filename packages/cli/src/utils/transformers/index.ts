@@ -5,7 +5,6 @@ import { Project, ScriptKind, type SourceFile } from 'ts-morph';
 import type * as z from 'zod';
 import type { Config } from '@/src/schemas';
 import type { registryBaseColorSchema } from '@/src/schemas';
-import { transformCssVars } from '@/src/utils/transformers/transform-css-vars';
 import { transformImport } from '@/src/utils/transformers/transform-import';
 
 export interface TransformOpts {
@@ -22,7 +21,6 @@ export type Transformer<Output = SourceFile> = (
 ) => Promise<Output>;
 
 const transformers: Transformer[] = [
-  transformCssVars,
   transformImport,
   // transformTwPrefixes,
 ];

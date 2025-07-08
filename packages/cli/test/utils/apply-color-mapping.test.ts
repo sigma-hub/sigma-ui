@@ -4,7 +4,7 @@ import {
   applyColorMapping,
   splitClassName,
 } from '../../src/utils/transformers/transform-css-vars';
-import baseColor from '../fixtures/colors/slate.json';
+import baseColor from '../fixtures/colors/zinc.json';
 
 describe('split class', () => {
   it.each([
@@ -53,12 +53,12 @@ describe('apply color mapping', async () => {
   it.each([
     {
       input: 'bg-background text-foreground',
-      output: 'bg-white text-slate-950 dark:bg-slate-950 dark:text-slate-50',
+      output: 'bg-white text-zinc-950 dark:bg-zinc-950 dark:text-zinc-50',
     },
     {
       input: 'rounded-lg border bg-card text-card-foreground shadow-sm',
       output:
-        'rounded-lg border border-slate-200 bg-white text-slate-950 shadow-sm dark:border-slate-800 dark:bg-slate-950 dark:text-slate-50',
+        'rounded-lg border border-zinc-200 bg-white text-zinc-950 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-50',
     },
     {
       input:
@@ -70,13 +70,13 @@ describe('apply color mapping', async () => {
       input:
         'flex h-full w-full items-center justify-center rounded-full bg-muted',
       output:
-        'flex h-full w-full items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800',
+        'flex h-full w-full items-center justify-center rounded-full bg-zinc-100 dark:bg-zinc-800',
     },
     {
       input:
         'absolute right-4 top-4 bg-primary rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-hidden focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary',
       output:
-        'absolute right-4 top-4 bg-slate-900 rounded-sm opacity-70 ring-offset-white transition-opacity hover:opacity-100 focus:outline-hidden focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-slate-100 dark:bg-slate-50 dark:ring-offset-slate-950 dark:focus:ring-slate-800 dark:data-[state=open]:bg-slate-800',
+        'absolute right-4 top-4 bg-zinc-900 rounded-sm opacity-70 ring-offset-white transition-opacity hover:opacity-100 focus:outline-hidden focus:ring-2 focus:ring-zinc-400 focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-zinc-100 dark:bg-zinc-50 dark:ring-offset-zinc-950 dark:focus:ring-zinc-800 dark:data-[state=open]:bg-zinc-800',
     },
   ])('applyColorMapping($input) -> $output', ({ input, output }) => {
     expect(applyColorMapping(input, baseColor.inlineColors)).toBe(output);

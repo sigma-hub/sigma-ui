@@ -77,7 +77,6 @@ function constructFiles(componentName: string, style: StyleSystem, sources: Reco
       config: 'tailwind.config.js',
       css: 'src/assets/index.css',
       baseColor: 'zinc',
-      cssVariables: true,
     },
     aliases: {
       utils: '@/utils',

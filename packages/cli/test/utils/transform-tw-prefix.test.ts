@@ -66,7 +66,6 @@ it('transform tailwind prefix', async () => {
   //     config: {
   //       tailwind: {
   //         baseColor: 'stone',
-  //         cssVariables: false,
   //         prefix: 'tw-',
   //       },
   //       aliases: {
@@ -90,7 +89,6 @@ it('transform tailwind prefix', async () => {
   //     config: {
   //       tailwind: {
   //         baseColor: 'stone',
-  //         cssVariables: false,
   //         prefix: 'tw-',
   //       },
   //       aliases: {

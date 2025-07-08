@@ -118,46 +118,13 @@ This is used to generate the default color palette for your components.
 ```json title="sigma-ui.config.json"
 {
   "tailwind": {
-    "baseColor": "gray" | "neutral" | "slate" | "stone" | "zinc"
+    "baseColor": "zinc" | "blue" | "red" | ...
   }
 }
 ```
 
 <Callout class="mt-6">
   If you want to change this after initialization, you'll have to re-install the components.
-</Callout>
-
-### `tailwind.cssVariables`
-
-You can choose between using CSS variables or Tailwind CSS utility classes for theming.
-
-<!-- eslint-skip -->
-```json title="sigma-ui.config.json"
-{
-  "tailwind": {
-    "cssVariables": `true` | `false`
-  }
-}
-```
-
-`"cssVariables": true` - can use both variables and utility classes. Variables are generated during initialization:
-
-```html
-<Button class="bg-primary text-primary-foreground">Text</Button>
-```
-
-```html
-<Button class="bg-gray-900 text-gray-50">Text</Button>
-```
-
-`"cssVariables": false` - you can only use utility classes. The variables will not be generated:
-
-```html
-<Button class="bg-gray-900 text-gray-50">Text</Button>
-```
-
-<Callout class="mt-6">
-  If you want to change this after initialization, you'll have to re-initialize the project and re-install the components.
 </Callout>
 
 ## `aliases`

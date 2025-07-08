@@ -5,8 +5,8 @@ import { applyPrefix } from '../../src/utils/transformers/transform-tw-prefix';
 describe('apply tailwind prefix', () => {
   it.each([
     {
-      input: 'bg-slate-800 text-gray-500',
-      output: 'tw-bg-slate-800 tw-text-gray-500',
+      input: 'bg-zinc-800 text-gray-500',
+      output: 'tw-bg-zinc-800 tw-text-gray-500',
     },
     {
       input: 'hover:dark:bg-background dark:text-foreground',
@@ -14,9 +14,9 @@ describe('apply tailwind prefix', () => {
     },
     {
       input:
-        'rounded-lg border border-slate-200 bg-white text-slate-950 shadow-sm dark:border-slate-800 dark:bg-slate-950 dark:text-slate-50',
+        'rounded-lg border border-zinc-200 bg-white text-zinc-950 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-50',
       output:
-        'tw-rounded-lg tw-border tw-border-slate-200 tw-bg-white tw-text-slate-950 tw-shadow-sm dark:tw-border-slate-800 dark:tw-bg-slate-950 dark:tw-text-slate-50',
+        'tw-rounded-lg tw-border tw-border-zinc-200 tw-bg-white tw-text-zinc-950 tw-shadow-sm dark:tw-border-zinc-800 dark:tw-bg-zinc-950 dark:tw-text-zinc-50',
     },
     {
       input:

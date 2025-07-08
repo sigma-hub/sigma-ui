@@ -5,35 +5,7 @@ import { Button } from '@ui/registry/tailwind/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@ui/registry/tailwind/ui/popover';
 import ThemeCustomizer from './ThemeCustomizer.vue';
 import { useConfigStore } from '@/stores/config';
-
-type Color =
-  | 'zinc'
-  | 'slate'
-  | 'stone'
-  | 'gray'
-  | 'neutral'
-  | 'red'
-  | 'rose'
-  | 'orange'
-  | 'green'
-  | 'blue'
-  | 'yellow'
-  | 'violet';
-
-const allColors: Color[] = [
-  'zinc',
-  'rose',
-  'blue',
-  'green',
-  'orange',
-  'red',
-  'slate',
-  'stone',
-  'gray',
-  'neutral',
-  'yellow',
-  'violet',
-];
+import { baseColors } from '../../../src/lib/registry/colors';
 
 const { config } = useConfigStore();
 
@@ -44,7 +16,7 @@ onMounted(() => {
 
 watch(() => config.value.theme, (theme) => {
   document.documentElement.classList.remove(
-    ...allColors.map(color => `theme-${color}`),
+    ...baseColors.map(color => `theme-${color.name}`),
   );
   document.documentElement.classList.add(`theme-${theme}`);
 });
@@ -70,7 +42,7 @@ watch(() => config.value.radius, (radius) => {
       align="center"
       class="w-96"
     >
-      <ThemeCustomizer :all-colors="allColors" />
+      <ThemeCustomizer />
     </PopoverContent>
   </Popover>
 </template>

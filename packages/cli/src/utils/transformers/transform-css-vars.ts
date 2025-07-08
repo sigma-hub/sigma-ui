@@ -1,57 +1,5 @@
 import type * as z from 'zod';
-import MagicString from 'magic-string';
-import type { SFCTemplateBlock } from '@vue/compiler-sfc';
-import { parse } from '@vue/compiler-sfc';
-import { SyntaxKind } from 'ts-morph';
 import type { registryBaseColorSchema } from '@/src/schemas';
-import type { Transformer } from '@/src/utils/transformers';
-
-export const transformCssVars: Transformer = async ({
-  sourceFile,
-  config,
-  baseColor,
-}) => {
-  const isVueFile = sourceFile.getFilePath().endsWith('vue');
-
-  // No transform if using css variables.
-  if (config.tailwind?.cssVariables || !baseColor?.inlineColors) {
-    return sourceFile;
-  }
-
-  let template: SFCTemplateBlock | null = null;
-
-  if (isVueFile) {
-    const parsed = parse(sourceFile.getText());
-    template = parsed.descriptor.template;
-
-    if (!template) {
-      return sourceFile;
-    }
-  }
-
-  sourceFile.getDescendantsOfKind(SyntaxKind.StringLiteral).forEach((node) => {
-    if (template && template.loc.start.offset >= node.getPos()) {
-      return sourceFile;
-    }
-
-    const value = node.getText();
-
-    const hasClosingDoubleQuote = value.match(/"/g)?.length === 2;
-
-    if (value.search('\'') === -1 && hasClosingDoubleQuote) {
-      const mapped = applyColorMapping(value.replace(/"/g, ''), baseColor.inlineColors);
-      node.replaceWithText(`"${mapped}"`);
-    } else {
-      const s = new MagicString(value);
-      s.replace(/'(.*?)'/g, (substring) => {
-        return `'${applyColorMapping(substring.replace(/'/g, ''), baseColor.inlineColors)}'`;
-      });
-      node.replaceWithText(s.toString());
-    }
-  });
-
-  return sourceFile;
-};
 
 // Splits a className into variant-name-alpha.
 // eg. hover:bg-primary-100 -> [hover, bg-primary, 100]

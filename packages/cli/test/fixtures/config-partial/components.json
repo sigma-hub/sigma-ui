@@ -1,10 +1,9 @@
 {
   "styleSystem": "tailwind",
   "cssPath": "./src/assets/css/tailwind.css",
-  "baseColor": "neutral",
+  "baseColor": "zinc",
   "tailwind": {
-    "config": "./tailwind.config.ts",
-    "cssVariables": false
+    "config": "./tailwind.config.ts"
   },
   "aliases": {
     "utils": "@/lib/utils",

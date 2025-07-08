@@ -5,10 +5,9 @@
   "setupTailwind": false,
   "framework": "vite",
   "cssPath": "src/assets/index.css",
-  "baseColor": "slate",
+  "baseColor": "zinc",
   "tailwind": {
-    "config": "",
-    "cssVariables": true
+    "config": ""
   },
   "aliases": {
     "utils": "",

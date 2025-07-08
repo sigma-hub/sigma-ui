@@ -30,7 +30,7 @@ import {
 } from '../schemas';
 import { transformCJSToESM } from '../utils/transformers/transform-cjs-to-esm';
 import { applyPrefixesCss } from '../utils/transformers/transform-tw-prefix';
-import { TAILWIND_CONFIG_TEMPLATE, TAILWIND_CONFIG_WITH_VARIABLES_TEMPLATE, UTILS_TEMPLATE } from '~/packages/shared/templates/tailwind-config';
+import { TAILWIND_CONFIG_TEMPLATE, UTILS_TEMPLATE } from '~/packages/shared/templates/tailwind-config';
 import { PREFLIGHT_CSS_TEMPLATE } from '~/packages/shared/templates/preflight';
 
 const PROJECT_DEPENDENCIES = {
@@ -180,14 +180,6 @@ export async function promptForConfig(
       initial: (_, values) => defaultConfig?.cssPath ?? TAILWIND_CSS_PATH[values.framework as 'vite' | 'nuxt' | 'laravel' | 'astro'],
     },
     {
-      type: (_, answers) => answers.styleSystem === 'tailwind' ? 'toggle' : null,
-      name: 'tailwindCssVariables',
-      message: `Generate and use ${highlight('CSS variables')} for colors and other parameters? ${colors.gray('(recommended)')}`,
-      initial: defaultConfig?.tailwind.cssVariables ?? true,
-      active: 'yes',
-      inactive: 'no',
-    },
-    {
       type: 'text',
       name: 'components',
       message: `Configure the import alias for ${highlight('components')}:`,
@@ -239,7 +231,6 @@ function createConfig(options: Awaited<ReturnType<typeof prompts>>): Config {
     baseColor: options.tailwindBaseColor,
     tailwind: {
       config: options.tailwindConfig || '',
-      cssVariables: options.tailwindCssVariables,
     },
     aliases: {
       utils: options.utils || '',
@@ -296,11 +287,7 @@ async function writeFiles(config: Config) {
 }
 
 async function writeTailwindConfig(config: Config) {
-  const unformattedConfig = template(
-    config.tailwind.cssVariables
-      ? TAILWIND_CONFIG_WITH_VARIABLES_TEMPLATE
-      : TAILWIND_CONFIG_TEMPLATE,
-  )({
+  const unformattedConfig = template(TAILWIND_CONFIG_TEMPLATE)({
     framework: config.framework,
     prefix: config.tailwind.prefix,
     extension: 'ts',
@@ -333,13 +320,9 @@ async function writeCssFile(config: Config) {
     let data = '';
 
     if (config.styleSystem === 'tailwind') {
-      if (config.tailwind.cssVariables) {
-        data = config.tailwind.prefix
-          ? applyPrefixesCss(baseColorData.templates.tailwind.withVariables, config.tailwind.prefix)
-          : baseColorData.templates.tailwind.withVariables;
-      } else {
-        data = baseColorData.templates.tailwind.withoutVariables;
-      }
+      data = config.tailwind.prefix
+        ? applyPrefixesCss(baseColorData.templates.tailwind.withVariables, config.tailwind.prefix)
+        : baseColorData.templates.tailwind.withVariables;
     } else if (config.styleSystem === 'css') {
       data = baseColorData.templates.css.withVariables;
 

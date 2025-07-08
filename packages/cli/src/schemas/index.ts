@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 export const DEFAULT_TYPESCRIPT_CONFIG = 'tsconfig.json';
-export const DEFAULT_TAILWIND_BASE_COLOR = 'slate';
+export const DEFAULT_TAILWIND_BASE_COLOR = 'zinc';
 
 // Common field schemas
 // These are reusable field definitions that can be composed into larger schemas
@@ -16,7 +16,6 @@ export const commonFields = {
 
 export const tailwindFields = {
   config: z.string(),
-  cssVariables: z.boolean().default(true),
   prefix: z.string().optional(),
 };
 
@@ -60,7 +59,6 @@ export const registryBaseColorSchema = z.object({
   }),
   templates: z.object({
     tailwind: z.object({
-      withoutVariables: z.string(),
       withVariables: z.string(),
     }),
     css: z.object({
@@ -79,7 +77,6 @@ export const rawConfigSchema = z.object({
   baseColor: commonFields.baseColor,
   tailwind: z.object({
     config: tailwindFields.config,
-    cssVariables: tailwindFields.cssVariables,
     prefix: tailwindFields.prefix,
   }),
   aliases: z.object({
