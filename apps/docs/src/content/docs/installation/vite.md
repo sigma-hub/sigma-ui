@@ -56,7 +56,7 @@ createApp(App).mount('#app')
 
 ### Add components
 
-You can now start adding components to your project (learn more in: [CLI docs > add](/docs/cli.html)):
+You can now start adding [components](/components/accordion.html) to your project (learn more in: [CLI docs > add](/docs/cli.html)):
 
 ```bash
 npx sigma-ui add button
@@ -206,7 +206,7 @@ If you are using a separate `postcss.config.js` file, see the `postcss.config.js
 
 ### Add components
 
-You can now start adding components to your project (learn more in: [CLI docs > add](/docs/cli.html)):
+You can now start adding [components](/components/accordion.html) to your project (learn more in: [CLI docs > add](/docs/cli.html)):
 
 ```bash
 npx sigma-ui add button

@@ -93,7 +93,7 @@ export default defineConfig({
 
 ### Add components
 
-You can now start adding components to your project (learn more in: [CLI docs > add](/docs/cli.html)):
+You can now start adding [components](/components/accordion.html) to your project (learn more in: [CLI docs > add](/docs/cli.html)):
 
 ```bash
 npx sigma-ui add button
