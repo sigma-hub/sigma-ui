@@ -30,7 +30,7 @@ const props = withDefaults(defineProps<PaginationPrevProps>(), {
 }
 
 .sigma-ui-pagination-prev__icon {
-  height: 1rem;
   width: 1rem;
+  height: 1rem;
 }
 </style>

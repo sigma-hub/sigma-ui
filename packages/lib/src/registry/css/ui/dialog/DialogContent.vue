@@ -37,10 +37,10 @@ const forwarded = useForwardPropsEmits(props, emits);
 <style>
 .sigma-ui-dialog-overlay {
   position: fixed;
-  inset: 0;
   z-index: 50;
-  background-color: rgb(0 0 0 / 0.8);
   animation: fade-in 0.2s ease-out;
+  background-color: rgb(0 0 0 / 80%);
+  inset: 0;
 }
 
 .sigma-ui-dialog-overlay[data-state="open"] {
@@ -53,18 +53,18 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 .sigma-ui-dialog-content {
   position: fixed;
-  left: 50%;
-  top: 50%;
   z-index: 50;
+  top: 50%;
+  left: 50%;
   display: grid;
   width: 100%;
   max-width: 32rem;
-  transform: translate(-50%, -50%);
-  gap: 1rem;
+  padding: 1.5rem;
   border: 1px solid hsl(var(--border));
   background-color: hsl(var(--background));
-  padding: 1.5rem;
   box-shadow: var(--shadow-lg);
+  gap: 1rem;
+  transform: translate(-50%, -50%);
   transition-duration: 200ms;
 }
 
@@ -78,13 +78,13 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 .sigma-ui-dialog-close {
   position: absolute;
-  right: 1rem;
   top: 1rem;
+  right: 1rem;
   border-radius: var(--radius-sm);
   opacity: 0.7;
+  transition-duration: 150ms;
   transition-property: opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
 }
 
 .sigma-ui-dialog-close:hover {
@@ -92,8 +92,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-dialog-close:focus {
-  outline: none;
   box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--ring));
+  outline: none;
 }
 
 .sigma-ui-dialog-close[data-state="open"] {
@@ -112,20 +112,21 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 .sigma-ui-dialog-close__label {
   position: absolute;
+  overflow: hidden;
   width: 1px;
   height: 1px;
   padding: 0;
+  border-width: 0;
   margin: -1px;
-  overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  border-width: 0;
 }
 
 @keyframes fade-in {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -135,6 +136,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
@@ -145,6 +147,7 @@ const forwarded = useForwardPropsEmits(props, emits);
     opacity: 0;
     transform: translate(-50%, -48%) scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
@@ -156,13 +159,14 @@ const forwarded = useForwardPropsEmits(props, emits);
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
   }
+
   to {
     opacity: 0;
     transform: translate(-50%, -48%) scale(0.95);
   }
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .sigma-ui-dialog-content {
     border-radius: var(--radius-lg);
   }

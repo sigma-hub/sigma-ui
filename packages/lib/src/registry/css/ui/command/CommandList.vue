@@ -23,9 +23,8 @@ const forwarded = useForwardProps(props);
 
 <style>
 .sigma-ui-command-list {
+  overflow: hidden auto;
   max-height: 300px;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
 .sigma-ui-command-list__content {

@@ -20,15 +20,15 @@ const forwardedProps = useForwardProps(props);
 .sigma-ui-dropdown-menu-item {
   position: relative;
   display: flex;
-  cursor: default;
-  user-select: none;
   align-items: center;
-  border-radius: var(--radius-sm);
   padding: 0.375rem 0.5rem;
+  border-radius: var(--radius-sm);
+  cursor: default;
   font-size: 0.875rem;
   line-height: 1.25rem;
   outline: none;
   transition: background-color 150ms ease, color 150ms ease;
+  user-select: none;
 }
 
 .sigma-ui-dropdown-menu-item--inset {
@@ -41,7 +41,7 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-dropdown-menu-item[data-disabled] {
-  pointer-events: none;
   opacity: 0.5;
+  pointer-events: none;
 }
 </style>

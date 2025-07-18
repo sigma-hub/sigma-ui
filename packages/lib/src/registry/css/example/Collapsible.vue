@@ -54,8 +54,8 @@ const isOpen = ref(false);
 
 <style>
 .example-sigma-ui-collapsible {
-  width: 350px;
   display: flex;
+  width: 350px;
   flex-direction: column;
   gap: 0.5rem;
 }
@@ -83,9 +83,9 @@ const isOpen = ref(false);
 }
 
 .example-sigma-ui-collapsible__component {
-  border-radius: var(--radius);
-  border: 1px solid hsl(var(--border));
   padding: 0.75rem 1rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
   font-family: var(--font-mono);
   font-size: 0.875rem;
 }

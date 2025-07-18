@@ -79,8 +79,8 @@ const username = ref('');
 <style>
 .example-sigma-ui-sheet-side {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: 0.5rem;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .example-sigma-ui-sheet-side__content {
@@ -89,15 +89,15 @@ const username = ref('');
 
 .example-sigma-ui-sheet-side__form {
   display: grid;
-  gap: 1rem;
   padding: 1rem 0;
+  gap: 1rem;
 }
 
 .example-sigma-ui-sheet-side__form-row {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   align-items: center;
   gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .example-sigma-ui-sheet-side__label {

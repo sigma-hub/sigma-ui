@@ -25,8 +25,8 @@ const forwarded = useForwardProps(props);
   position: absolute;
   top: 50%;
   left: 0;
-  transform: translateY(-50%);
   padding: 0.75rem;
+  transform: translateY(-50%);
 }
 
 .sigma-ui-number-field-decrement:disabled {
@@ -35,7 +35,7 @@ const forwarded = useForwardProps(props);
 }
 
 .sigma-ui-number-field-decrement__icon {
-  height: 1rem;
   width: 1rem;
+  height: 1rem;
 }
 </style>

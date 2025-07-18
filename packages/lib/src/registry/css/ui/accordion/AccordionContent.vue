@@ -35,13 +35,14 @@ const forwarded = useForwardProps(props);
 }
 
 .sigma-ui-accordion-content-inner {
-  padding: 0 0 1rem 0;
+  padding: 0 0 1rem;
 }
 
 @keyframes accordion-up {
   from {
     height: var(--reka-accordion-content-height);
   }
+
   to {
     height: 0;
   }
@@ -51,6 +52,7 @@ const forwarded = useForwardProps(props);
   from {
     height: 0;
   }
+
   to {
     height: var(--reka-accordion-content-height);
   }

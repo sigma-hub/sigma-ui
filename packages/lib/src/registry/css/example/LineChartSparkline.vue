@@ -286,7 +286,7 @@ const data = [
 
 <style>
 .example-sigma-ui-line-chart-sparkline {
-  height: 100px;
   width: 400px;
+  height: 100px;
 }
 </style>

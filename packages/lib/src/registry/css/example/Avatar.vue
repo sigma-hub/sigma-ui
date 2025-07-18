@@ -37,11 +37,11 @@ import { Avatar } from '@ui/registry/css/ui/avatar';
 <style>
 .example-sigma-ui-avatar-row {
   display: flex;
-  gap: 2rem;
   flex-wrap: wrap;
+  gap: 2rem;
 }
 
 .example-sigma-ui-avatar__text {
-  color: hsl(var(--primary) / 0.5);
+  color: hsl(var(--primary) / 50%);
 }
 </style>

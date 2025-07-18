@@ -49,21 +49,21 @@ function copy(id: string) {
 
 <style>
 .example-sigma-ui-data-table-menu__button {
-  height: 2rem;
   width: 2rem;
+  height: 2rem;
   padding: 0;
 }
 
 .example-sigma-ui-data-table-menu__button-label {
   position: absolute;
+  overflow: hidden;
   width: 1px;
   height: 1px;
   padding: 0;
+  border: 0;
   margin: -1px;
-  overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  border: 0;
 }
 
 .example-sigma-ui-data-table-menu__button-icon {

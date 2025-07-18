@@ -15,15 +15,15 @@ const forwardedProps = useForwardProps(props);
 
 <style>
 .sigma-ui-tags-input-input {
-  flex: 1;
   min-height: 1.5rem;
-  padding-inline: 0.25rem;
-  font-size: 0.875rem;
+  flex: 1;
   background-color: transparent;
+  font-size: 0.875rem;
+  padding-inline: 0.25rem;
 }
 
 .sigma-ui-tags-input-input:focus-visible {
-  outline: none;
   box-shadow: none;
+  outline: none;
 }
 </style>

@@ -19,9 +19,9 @@ const forwardedProps = useForwardProps(props);
 .sigma-ui-navigation-menu-list {
   display: flex;
   flex: 1;
-  list-style: none;
   align-items: center;
   justify-content: center;
   gap: 0.25rem;
+  list-style: none;
 }
 </style>

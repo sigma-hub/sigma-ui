@@ -18,15 +18,15 @@ const forwardedProps = useForwardProps(props);
 <style>
 .sigma-ui-menubar-trigger {
   display: flex;
-  cursor: default;
-  user-select: none;
   align-items: center;
-  border-radius: var(--radius-sm);
   padding: 0.375rem 0.75rem;
+  border-radius: var(--radius-sm);
+  cursor: default;
   font-size: 0.875rem;
   font-weight: 500;
   outline: none;
   transition: background-color 0.2s ease, color 0.2s ease;
+  user-select: none;
 }
 
 .sigma-ui-menubar-trigger:hover {

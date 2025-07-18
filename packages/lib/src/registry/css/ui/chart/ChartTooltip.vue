@@ -61,10 +61,10 @@ defineProps<{
 }
 
 .sigma-ui-chart-tooltip__content {
-  padding: 0.75rem;
-  min-width: 180px;
   display: flex;
+  min-width: 180px;
   flex-direction: column;
+  padding: 0.75rem;
   gap: 0.25rem;
 }
 
@@ -85,7 +85,7 @@ defineProps<{
 }
 
 .sigma-ui-chart-tooltip__item-value {
-  font-weight: 600;
   margin-left: 1rem;
+  font-weight: 600;
 }
 </style>

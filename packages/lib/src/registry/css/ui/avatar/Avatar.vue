@@ -32,18 +32,18 @@ const props = withDefaults(defineProps<{
 <style>
 .sigma-ui-avatar {
   display: inline-flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  font-weight: normal;
   color: hsl(var(--foreground));
+  font-weight: normal;
   user-select: none;
-  flex-shrink: 0;
 }
 
 .sigma-ui-avatar__fallback-icon {
   width: 40%;
   height: 40%;
-  color: hsl(var(--primary) / 0.5);
+  color: hsl(var(--primary) / 50%);
 }
 
 .sigma-ui-avatar--xs {

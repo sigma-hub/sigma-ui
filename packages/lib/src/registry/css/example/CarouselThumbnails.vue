@@ -87,7 +87,7 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
   width: 100%;
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .example-sigma-ui-carousel-thumbnails {
     width: auto;
   }
@@ -107,10 +107,10 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
   display: flex;
   align-items: center;
   justify-content: center;
-  aspect-ratio: 1;
   padding: 1.5rem;
-  border-radius: var(--radius);
   border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  aspect-ratio: 1;
   font-size: 2.25rem;
   font-weight: 600;
   user-select: none;
@@ -124,13 +124,13 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
 
 .example-sigma-ui-carousel-thumbnails__nav-content {
   display: flex;
-  gap: 0.25rem;
   margin-left: 0;
+  gap: 0.25rem;
 }
 
 .example-sigma-ui-carousel-thumbnails__nav-slide {
-  padding-left: 0;
   flex-basis: 25%;
+  padding-left: 0;
   cursor: pointer;
 }
 
@@ -147,10 +147,10 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
   display: flex;
   align-items: center;
   justify-content: center;
-  aspect-ratio: 1;
   padding: 1.5rem;
-  border-radius: var(--radius);
   border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  aspect-ratio: 1;
   font-size: 1.25rem;
   font-weight: 600;
   user-select: none;

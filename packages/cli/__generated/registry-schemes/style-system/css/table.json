@@ -5,7 +5,7 @@
   "files": [
     {
       "name": "Table.vue",
-      "content": "<script setup lang=\"ts\">\n\n</script>\n\n<template>\n  <div class=\"sigma-ui-table-wrapper\">\n    <table\n      class=\"sigma-ui-table\"\n      :class=\"[$attrs.class]\"\n    >\n      <slot />\n    </table>\n  </div>\n</template>\n\n<style>\n.sigma-ui-table-wrapper {\n  position: relative;\n  width: 100%;\n  overflow: auto;\n}\n\n.sigma-ui-table {\n  width: 100%;\n  caption-side: bottom;\n  font-size: 0.875rem;\n}\n</style>\n"
+      "content": "<script setup lang=\"ts\">\n\n</script>\n\n<template>\n  <div class=\"sigma-ui-table-wrapper\">\n    <table\n      class=\"sigma-ui-table\"\n      :class=\"[$attrs.class]\"\n    >\n      <slot />\n    </table>\n  </div>\n</template>\n\n<style>\n.sigma-ui-table-wrapper {\n  position: relative;\n  overflow: auto;\n  width: 100%;\n}\n\n.sigma-ui-table {\n  width: 100%;\n  caption-side: bottom;\n  font-size: 0.875rem;\n}\n</style>\n"
     },
     {
       "name": "TableBody.vue",
@@ -13,23 +13,23 @@
     },
     {
       "name": "TableCaption.vue",
-      "content": "<script setup lang=\"ts\">\n\n</script>\n\n<template>\n  <caption\n    class=\"sigma-ui-table-caption\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </caption>\n</template>\n\n<style>\n.sigma-ui-table-caption {\n  margin-top: 1rem;\n  font-size: 0.875rem;\n  color: hsl(var(--muted-foreground));\n}\n</style>\n"
+      "content": "<script setup lang=\"ts\">\n\n</script>\n\n<template>\n  <caption\n    class=\"sigma-ui-table-caption\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </caption>\n</template>\n\n<style>\n.sigma-ui-table-caption {\n  margin-top: 1rem;\n  color: hsl(var(--muted-foreground));\n  font-size: 0.875rem;\n}\n</style>\n"
     },
     {
       "name": "TableCell.vue",
-      "content": "<script setup lang=\"ts\">\n\n</script>\n\n<template>\n  <td\n    class=\"sigma-ui-table-cell\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </td>\n</template>\n\n<style>\n.sigma-ui-table-cell {\n  padding: 1rem;\n  vertical-align: middle;\n}\n\n.sigma-ui-table-cell:has([role=checkbox]) {\n  padding-right: 0;\n}\n</style>\n"
+      "content": "<script setup lang=\"ts\">\n\n</script>\n\n<template>\n  <td\n    class=\"sigma-ui-table-cell\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </td>\n</template>\n\n<style>\n.sigma-ui-table-cell {\n  padding: 1rem;\n  vertical-align: middle;\n}\n\n.sigma-ui-table-cell:has([role=\"checkbox\"]) {\n  padding-right: 0;\n}\n</style>\n"
     },
     {
       "name": "TableEmpty.vue",
-      "content": "<script setup lang=\"ts\">\nimport TableRow from './TableRow.vue';\nimport TableCell from './TableCell.vue';\n\nconst props = withDefaults(defineProps<{\n  colspan?: number;\n}>(), {\n  colspan: 1,\n});\n</script>\n\n<template>\n  <TableRow>\n    <TableCell\n      class=\"sigma-ui-table-empty\"\n      :class=\"[$attrs.class]\"\n      v-bind=\"props\"\n    >\n      <div class=\"sigma-ui-table-empty__content\">\n        <slot />\n      </div>\n    </TableCell>\n  </TableRow>\n</template>\n\n<style>\n.sigma-ui-table-empty {\n  padding: 1rem;\n  white-space: nowrap;\n  vertical-align: middle;\n  font-size: 0.875rem;\n  color: hsl(var(--foreground));\n}\n\n.sigma-ui-table-empty__content {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding-top: 2.5rem;\n  padding-bottom: 2.5rem;\n}\n</style>\n"
+      "content": "<script setup lang=\"ts\">\nimport TableRow from './TableRow.vue';\nimport TableCell from './TableCell.vue';\n\nconst props = withDefaults(defineProps<{\n  colspan?: number;\n}>(), {\n  colspan: 1,\n});\n</script>\n\n<template>\n  <TableRow>\n    <TableCell\n      class=\"sigma-ui-table-empty\"\n      :class=\"[$attrs.class]\"\n      v-bind=\"props\"\n    >\n      <div class=\"sigma-ui-table-empty__content\">\n        <slot />\n      </div>\n    </TableCell>\n  </TableRow>\n</template>\n\n<style>\n.sigma-ui-table-empty {\n  padding: 1rem;\n  color: hsl(var(--foreground));\n  font-size: 0.875rem;\n  vertical-align: middle;\n  white-space: nowrap;\n}\n\n.sigma-ui-table-empty__content {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding-top: 2.5rem;\n  padding-bottom: 2.5rem;\n}\n</style>\n"
     },
     {
       "name": "TableFooter.vue",
-      "content": "<script setup lang=\"ts\">\n\n</script>\n\n<template>\n  <tfoot\n    class=\"sigma-ui-table-footer\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </tfoot>\n</template>\n\n<style>\n.sigma-ui-table-footer {\n  border-top: 1px solid hsl(var(--border));\n  background-color: hsl(var(--muted) / 0.5);\n  font-weight: 500;\n}\n\n.sigma-ui-table-footer > tr:last-child {\n  border-bottom: 0;\n}\n</style>\n"
+      "content": "<script setup lang=\"ts\">\n\n</script>\n\n<template>\n  <tfoot\n    class=\"sigma-ui-table-footer\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </tfoot>\n</template>\n\n<style>\n.sigma-ui-table-footer {\n  border-top: 1px solid hsl(var(--border));\n  background-color: hsl(var(--muted) / 50%);\n  font-weight: 500;\n}\n\n.sigma-ui-table-footer > tr:last-child {\n  border-bottom: 0;\n}\n</style>\n"
     },
     {
       "name": "TableHead.vue",
-      "content": "<script setup lang=\"ts\">\n\n</script>\n\n<template>\n  <th\n    class=\"sigma-ui-table-head\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </th>\n</template>\n\n<style>\n.sigma-ui-table-head {\n  height: 3rem;\n  padding-left: 1rem;\n  padding-right: 1rem;\n  text-align: left;\n  vertical-align: middle;\n  font-weight: 500;\n  color: hsl(var(--muted-foreground));\n}\n\n.sigma-ui-table-head:has([role=checkbox]) {\n  padding-right: 0;\n}\n</style>\n"
+      "content": "<script setup lang=\"ts\">\n\n</script>\n\n<template>\n  <th\n    class=\"sigma-ui-table-head\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </th>\n</template>\n\n<style>\n.sigma-ui-table-head {\n  height: 3rem;\n  padding-right: 1rem;\n  padding-left: 1rem;\n  color: hsl(var(--muted-foreground));\n  font-weight: 500;\n  text-align: left;\n  vertical-align: middle;\n}\n\n.sigma-ui-table-head:has([role=\"checkbox\"]) {\n  padding-right: 0;\n}\n</style>\n"
     },
     {
       "name": "TableHeader.vue",
@@ -37,7 +37,7 @@
     },
     {
       "name": "TableRow.vue",
-      "content": "<script setup lang=\"ts\">\n\n</script>\n\n<template>\n  <tr\n    class=\"sigma-ui-table-row\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </tr>\n</template>\n\n<style>\n.sigma-ui-table-row {\n  border-bottom: 1px solid hsl(var(--border));\n  transition-property: color, background-color, border-color;\n  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);\n  transition-duration: 150ms;\n}\n\n.sigma-ui-table-row:hover {\n  background-color: hsl(var(--muted) / 0.5);\n}\n\n.sigma-ui-table-row[data-state=\"selected\"] {\n  background-color: hsl(var(--muted));\n}\n</style>\n"
+      "content": "<script setup lang=\"ts\">\n\n</script>\n\n<template>\n  <tr\n    class=\"sigma-ui-table-row\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </tr>\n</template>\n\n<style>\n.sigma-ui-table-row {\n  border-bottom: 1px solid hsl(var(--border));\n  transition-duration: 150ms;\n  transition-property: color, background-color, border-color;\n  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);\n}\n\n.sigma-ui-table-row:hover {\n  background-color: hsl(var(--muted) / 50%);\n}\n\n.sigma-ui-table-row[data-state=\"selected\"] {\n  background-color: hsl(var(--muted));\n}\n</style>\n"
     },
     {
       "name": "index.ts",

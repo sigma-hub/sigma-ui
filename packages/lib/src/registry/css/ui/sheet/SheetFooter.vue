@@ -17,7 +17,7 @@
   flex-direction: column-reverse;
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .sigma-ui-sheet-footer {
     flex-direction: row;
     justify-content: flex-end;

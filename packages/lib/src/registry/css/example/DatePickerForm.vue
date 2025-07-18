@@ -119,8 +119,8 @@ const onSubmit = handleSubmit((values) => {
 .example-sigma-ui-date-picker-form__button {
   width: 240px;
   padding-left: 0.75rem;
-  text-align: start;
   font-weight: normal;
+  text-align: start;
 }
 
 .example-sigma-ui-date-picker-form__button--placeholder {
@@ -140,9 +140,9 @@ const onSubmit = handleSubmit((values) => {
 }
 
 .example-sigma-ui-date-picker-form__toast-pre {
-  margin-top: 0.5rem;
-  border-radius: var(--radius);
-  background-color: hsl(var(--muted) / 0.5);
   padding: 1rem;
+  border-radius: var(--radius);
+  margin-top: 0.5rem;
+  background-color: hsl(var(--muted) / 50%);
 }
 </style>

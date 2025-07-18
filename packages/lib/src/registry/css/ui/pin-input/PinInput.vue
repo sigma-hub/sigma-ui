@@ -21,7 +21,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 <style>
 .sigma-ui-pin-input {
   display: flex;
-  gap: 0.5rem;
   align-items: center;
+  gap: 0.5rem;
 }
 </style>

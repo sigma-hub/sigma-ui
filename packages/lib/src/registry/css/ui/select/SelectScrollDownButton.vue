@@ -22,14 +22,14 @@ const forwardedProps = useForwardProps(props);
 <style>
 .sigma-ui-select-scroll-down {
   display: flex;
-  cursor: default;
   align-items: center;
   justify-content: center;
   padding: 0.25rem 0;
+  cursor: default;
 }
 
 .sigma-ui-select-scroll-down__icon {
-  height: 1rem;
   width: 1rem;
+  height: 1rem;
 }
 </style>

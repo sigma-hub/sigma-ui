@@ -20,8 +20,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 <style>
 .sigma-ui-resizable-panel-group {
   display: flex;
-  height: 100%;
   width: 100%;
+  height: 100%;
 }
 
 .sigma-ui-resizable-panel-group[data-panel-group-direction="vertical"] {

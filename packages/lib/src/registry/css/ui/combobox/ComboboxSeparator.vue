@@ -16,9 +16,9 @@ const props = defineProps<ComboboxSeparatorProps>();
 
 <style>
 .sigma-ui-combobox-separator {
-  margin-left: -0.25rem;
-  margin-right: -0.25rem;
   height: 1px;
+  margin-right: -0.25rem;
+  margin-left: -0.25rem;
   background-color: hsl(var(--border));
 }
 </style>

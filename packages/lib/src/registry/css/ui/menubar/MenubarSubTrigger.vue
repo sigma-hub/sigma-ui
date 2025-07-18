@@ -21,13 +21,13 @@ const forwardedProps = useForwardProps(props);
 <style>
 .sigma-ui-menubar-subtrigger {
   display: flex;
-  cursor: default;
-  user-select: none;
   align-items: center;
-  border-radius: var(--radius-sm);
   padding: 0.375rem 0.5rem;
+  border-radius: var(--radius-sm);
+  cursor: default;
   font-size: 0.875rem;
   outline: none;
+  user-select: none;
 }
 
 .sigma-ui-menubar-subtrigger:focus {
@@ -45,8 +45,8 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-menubar-subtrigger__icon {
-  margin-left: auto;
-  height: 1rem;
   width: 1rem;
+  height: 1rem;
+  margin-left: auto;
 }
 </style>

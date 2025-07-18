@@ -22,26 +22,26 @@ const forwardedProps = useForwardProps(props);
 
 <style>
 .sigma-ui-calendar-prev {
-  height: 1.75rem;
   width: 1.75rem;
-  background-color: transparent;
+  height: 1.75rem;
   padding: 0;
-  opacity: 0.5;
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius-sm);
+  background-color: transparent;
+  opacity: 0.5;
+  transition-duration: 150ms;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
 }
 
 .sigma-ui-calendar-prev:hover {
-  opacity: 1;
   background-color: hsl(var(--accent));
   color: hsl(var(--accent-foreground));
+  opacity: 1;
 }
 
 .sigma-ui-calendar-prev__icon {
-  height: 1rem;
   width: 1rem;
+  height: 1rem;
 }
 </style>

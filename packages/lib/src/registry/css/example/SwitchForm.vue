@@ -101,8 +101,8 @@ const onSubmit = handleSubmit((values) => {
 
 <style>
 .example-sigma-ui-switch-form {
-  width: 100%;
   display: flex;
+  width: 100%;
   flex-direction: column;
   gap: 1.5rem;
 }
@@ -124,9 +124,9 @@ const onSubmit = handleSubmit((values) => {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border-radius: var(--radius);
-  border: 1px solid hsl(var(--border));
   padding: 1rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
 }
 
 .example-sigma-ui-switch-form__field-content {
@@ -144,9 +144,9 @@ const onSubmit = handleSubmit((values) => {
 }
 
 .example-sigma-ui-switch-form__toast-pre {
-  margin-top: 0.5rem;
-  border-radius: var(--radius);
-  background-color: hsl(var(--muted) / 0.5);
   padding: 1rem;
+  border-radius: var(--radius);
+  margin-top: 0.5rem;
+  background-color: hsl(var(--muted) / 50%);
 }
 </style>

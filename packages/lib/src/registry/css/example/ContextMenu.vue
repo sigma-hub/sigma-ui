@@ -78,12 +78,12 @@ import {
 <style>
 .example-sigma-ui-context__trigger {
   display: flex;
-  height: 150px;
   width: 300px;
+  height: 150px;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radius);
   border: 1px dashed hsl(var(--border));
+  border-radius: var(--radius);
   font-size: 0.875rem;
 }
 

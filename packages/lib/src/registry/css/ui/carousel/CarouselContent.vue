@@ -40,7 +40,7 @@ const { carouselRef, orientation } = useCarousel();
 }
 
 .sigma-ui-carousel-content__wrapper--vertical {
-  margin-top: -1rem;
   flex-direction: column;
+  margin-top: -1rem;
 }
 </style>

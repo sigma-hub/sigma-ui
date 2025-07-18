@@ -121,9 +121,9 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
 
 <style>
 .sigma-ui-line-chart {
+  display: flex;
   width: 100%;
   height: 400px;
-  display: flex;
   flex-direction: column;
   align-items: flex-end;
 }

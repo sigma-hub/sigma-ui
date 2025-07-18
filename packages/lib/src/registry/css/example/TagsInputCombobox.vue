@@ -88,18 +88,18 @@ const filteredFrameworks = computed(() => {
 <style>
 .example-sigma-ui-tags-input-combobox {
   display: flex;
+  width: 200px;
   align-items: center;
   padding: 0.5rem;
   gap: 8px;
-  width: 200px;
 }
 
 .example-sigma-ui-tags-input-combobox__items {
   display: flex;
-  gap: 0.5rem;
   flex-wrap: wrap;
   align-items: center;
   padding: 0;
+  gap: 0.5rem;
 }
 
 .example-sigma-ui-tags-input-combobox__combobox {
@@ -110,30 +110,31 @@ const filteredFrameworks = computed(() => {
   width: 100%;
   min-width: 50px;
   height: 24px;
-  border: none;
   padding: 0;
+  border: none;
 }
 
 .example-sigma-ui-tags-input-combobox__list {
   width: var(--reka-popper-anchor-width);
-  border-radius: var(--radius);
   border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
   background-color: hsl(var(--popover));
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
   color: hsl(var(--popover-foreground));
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   outline: none;
   transform-origin: var(--reka-popper-transform-origin);
 }
 
 .example-sigma-ui-tags-input-combobox__list[data-state="open"] {
-  animation: fadeIn 0.15s ease-out;
+  animation: fade-in 0.15s ease-out;
 }
 
-@keyframes fadeIn {
+@keyframes fade-in {
   from {
     opacity: 0;
     transform: scale(0.95) translateY(-8px);
   }
+
   to {
     opacity: 1;
     transform: scale(1) translateY(0);

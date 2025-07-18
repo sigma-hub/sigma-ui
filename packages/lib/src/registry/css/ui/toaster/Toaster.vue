@@ -23,25 +23,25 @@ const props = defineProps<ToasterProps>();
 
 <style>
 .sigma-ui-toaster {
-  z-index: 60;
   position: fixed;
+  z-index: 60;
   display: flex;
+  max-width: 420px;
   flex-direction: column;
   gap: 10px;
-  max-width: 420px;
   pointer-events: auto;
 }
 
 .sigma-ui-toast {
-  width: 100%;
-  cursor: default;
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
-  border-radius: var(--radius);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   display: flex;
-  gap: 0.5rem;
+  width: 100%;
   align-items: center;
+  border-radius: var(--radius);
+  background-color: hsl(var(--background));
+  box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+  color: hsl(var(--foreground));
+  cursor: default;
+  gap: 0.5rem;
 }
 
 .sigma-ui-toast[data-type="default"] {

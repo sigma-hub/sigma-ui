@@ -36,9 +36,9 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
   border-radius: var(--radius-md);
   font-size: 0.875rem;
   font-weight: 500;
+  transition-duration: 150ms;
   transition-property: color, background-color;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
 }
 
 .sigma-ui-toggle:hover {
@@ -47,13 +47,13 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 }
 
 .sigma-ui-toggle:focus-visible {
-  outline: none;
   box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--ring));
+  outline: none;
 }
 
 .sigma-ui-toggle:disabled {
-  pointer-events: none;
   opacity: 0.5;
+  pointer-events: none;
 }
 
 .sigma-ui-toggle[data-state="on"] {

@@ -18,33 +18,33 @@ const forwardedProps = useForwardProps(props);
 <style>
 .sigma-ui-tabs-trigger {
   display: inline-flex;
-  flex: 1;
   height: 100%;
+  flex: 1;
   align-items: center;
   justify-content: center;
-  white-space: nowrap;
   border-radius: var(--radius-sm);
-  padding-inline: 0.75rem;
   font-size: 0.875rem;
   font-weight: 500;
+  padding-inline: 0.75rem;
+  transition-duration: 150ms;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  white-space: nowrap;
 }
 
 .sigma-ui-tabs-trigger:focus-visible {
-  outline: none;
   box-shadow: 0 0 0 2px hsl(var(--ring)), 0 0 0 4px hsl(var(--background));
+  outline: none;
 }
 
 .sigma-ui-tabs-trigger:disabled {
-  pointer-events: none;
   opacity: 0.5;
+  pointer-events: none;
 }
 
 .sigma-ui-tabs-trigger[data-state="active"] {
   background-color: hsl(var(--background));
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
   color: hsl(var(--foreground));
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 }
 </style>

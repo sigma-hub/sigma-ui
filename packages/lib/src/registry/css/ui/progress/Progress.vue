@@ -29,17 +29,17 @@ const props = withDefaults(
 <style>
 .sigma-ui-progress {
   position: relative;
-  height: 1rem;
+  overflow: hidden;
   width: 100%;
   min-width: 50px;
-  overflow: hidden;
+  height: 1rem;
   border-radius: var(--radius-full);
   background-color: hsl(var(--secondary));
 }
 
 .sigma-ui-progress__indicator {
-  height: 100%;
   width: 100%;
+  height: 100%;
   flex: 1;
   background-color: hsl(var(--primary));
   transition: all 0.2s ease;

@@ -14,8 +14,8 @@
 <style>
 .sigma-ui-card__title {
   font-size: 1.5rem;
-  line-height: 1;
   font-weight: 600;
   letter-spacing: -0.025em;
+  line-height: 1;
 }
 </style>

@@ -56,8 +56,8 @@ import {
 .example-sigma-ui-resizable {
   max-width: 28rem;
   min-height: 200px;
-  border-radius: var(--radius);
   border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
 }
 
 .example-sigma-ui-resizable__nested-group {
@@ -66,10 +66,10 @@ import {
 
 .example-sigma-ui-resizable__panel {
   display: flex;
+  height: 100%;
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
-  height: 100%;
 }
 
 .example-sigma-ui-resizable__text {

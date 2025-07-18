@@ -13,7 +13,7 @@
     },
     {
       "name": "FormDescription.vue",
-      "content": "<script lang=\"ts\" setup>\nimport { useFormField } from './useFormField';\n\nconst { formDescriptionId } = useFormField();\n</script>\n\n<template>\n  <p\n    :id=\"formDescriptionId\"\n    class=\"sigma-ui-form-description\"\n    :class=\"$attrs.class\"\n  >\n    <slot />\n  </p>\n</template>\n\n<style>\n.sigma-ui-form-description {\n  font-size: 0.875rem;\n  line-height: 1.25rem;\n  color: hsl(var(--muted-foreground));\n}\n</style>\n"
+      "content": "<script lang=\"ts\" setup>\nimport { useFormField } from './useFormField';\n\nconst { formDescriptionId } = useFormField();\n</script>\n\n<template>\n  <p\n    :id=\"formDescriptionId\"\n    class=\"sigma-ui-form-description\"\n    :class=\"$attrs.class\"\n  >\n    <slot />\n  </p>\n</template>\n\n<style>\n.sigma-ui-form-description {\n  color: hsl(var(--muted-foreground));\n  font-size: 0.875rem;\n  line-height: 1.25rem;\n}\n</style>\n"
     },
     {
       "name": "FormItem.vue",
@@ -25,7 +25,7 @@
     },
     {
       "name": "FormMessage.vue",
-      "content": "<script lang=\"ts\" setup>\nimport { ErrorMessage } from 'vee-validate';\nimport { toValue } from 'vue';\nimport { useFormField } from './useFormField';\n\nconst { name, formMessageId } = useFormField();\n</script>\n\n<template>\n  <ErrorMessage\n    :id=\"formMessageId\"\n    as=\"p\"\n    :name=\"toValue(name)\"\n    class=\"sigma-ui-form-message\"\n  />\n</template>\n\n<style>\n.sigma-ui-form-message {\n  font-size: 0.875rem;\n  line-height: 1.25rem;\n  font-weight: 500;\n  color: hsl(var(--destructive));\n}\n</style>\n"
+      "content": "<script lang=\"ts\" setup>\nimport { ErrorMessage } from 'vee-validate';\nimport { toValue } from 'vue';\nimport { useFormField } from './useFormField';\n\nconst { name, formMessageId } = useFormField();\n</script>\n\n<template>\n  <ErrorMessage\n    :id=\"formMessageId\"\n    as=\"p\"\n    :name=\"toValue(name)\"\n    class=\"sigma-ui-form-message\"\n  />\n</template>\n\n<style>\n.sigma-ui-form-message {\n  color: hsl(var(--destructive));\n  font-size: 0.875rem;\n  font-weight: 500;\n  line-height: 1.25rem;\n}\n</style>\n"
     },
     {
       "name": "index.ts",

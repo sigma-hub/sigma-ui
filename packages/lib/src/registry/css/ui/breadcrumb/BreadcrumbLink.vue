@@ -19,9 +19,9 @@ const props = withDefaults(defineProps<PrimitiveProps>(), {
 
 <style>
 .sigma-ui-breadcrumb__link {
+  transition-duration: 150ms;
   transition-property: color;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
 }
 
 .sigma-ui-breadcrumb__link:hover {

@@ -27,21 +27,21 @@ const forwarded = useForwardPropsEmits(props, emits);
 <style>
 .sigma-ui-switch {
   display: inline-flex;
-  height: 1.5rem;
   width: 2.75rem;
+  height: 1.5rem;
   flex-shrink: 0;
-  cursor: pointer;
   align-items: center;
-  border-radius: var(--radius-full);
   border: 2px solid transparent;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition-duration: 150ms;
   transition-property: color, background-color, border-color;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
 }
 
 .sigma-ui-switch:focus-visible {
-  outline: none;
   box-shadow: 0 0 0 2px hsl(var(--ring)), 0 0 0 4px hsl(var(--background));
+  outline: none;
 }
 
 .sigma-ui-switch:disabled {
@@ -58,46 +58,50 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-switch__thumb {
-  pointer-events: none;
   display: block;
-  height: 1.25rem;
   width: 1.25rem;
+  height: 1.25rem;
   border-radius: var(--radius-full);
-  background-color: hsl(var(--background));
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
   animation: none;
+  background-color: hsl(var(--background));
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  pointer-events: none;
+  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .sigma-ui-switch__thumb[data-state="checked"] {
+  animation: thumb-motion-blur-in 150ms cubic-bezier(0.4, 0, 0.2, 1);
   transform: translateX(1.25rem);
-  animation: thumbMotionBlurIn 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .sigma-ui-switch__thumb[data-state="unchecked"] {
+  animation: thumb-motion-blur-out 150ms cubic-bezier(0.4, 0, 0.2, 1);
   transform: translateX(0);
-  animation: thumbMotionBlurOut 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes thumbMotionBlurIn {
+@keyframes thumb-motion-blur-in {
   0% {
     filter: blur(0);
   }
+
   50% {
     filter: blur(2px);
   }
+
   100% {
     filter: blur(0);
   }
 }
 
-@keyframes thumbMotionBlurOut {
+@keyframes thumb-motion-blur-out {
   0% {
     filter: blur(0);
   }
+
   50% {
     filter: blur(2px);
   }
+
   100% {
     filter: blur(0);
   }

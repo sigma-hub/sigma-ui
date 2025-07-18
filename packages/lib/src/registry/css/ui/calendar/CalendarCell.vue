@@ -18,11 +18,11 @@ const forwardedProps = useForwardProps(props);
 <style>
 .sigma-ui-calendar-cell {
   position: relative;
-  height: 2.25rem;
   width: 2.25rem;
+  height: 2.25rem;
   padding: 0;
-  text-align: center;
   font-size: 0.875rem;
+  text-align: center;
 }
 
 .sigma-ui-calendar-cell:focus-within {
@@ -36,6 +36,6 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-calendar-cell:has([data-selected][data-outside-month]) {
-  background-color: hsl(var(--accent) / 0.5);
+  background-color: hsl(var(--accent) / 50%);
 }
 </style>

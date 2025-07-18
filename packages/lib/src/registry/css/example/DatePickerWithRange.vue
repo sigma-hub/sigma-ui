@@ -59,8 +59,8 @@ const value = ref({
 .example-sigma-ui-date-picker__button {
   width: 280px;
   justify-content: flex-start;
-  text-align: left;
   font-weight: normal;
+  text-align: left;
 }
 
 .example-sigma-ui-date-picker__button--placeholder {

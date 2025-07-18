@@ -26,17 +26,17 @@ const { orientation, canScrollNext, scrollNext } = useCarousel();
 
 <style>
 .sigma-ui-carousel-next {
-  touch-action: manipulation;
   position: absolute;
-  height: 2rem;
   width: 2rem;
+  height: 2rem;
   padding: 0;
   border-radius: var(--radius);
+  touch-action: manipulation;
 }
 
 .sigma-ui-carousel-next--horizontal {
-  right: -3rem;
   top: 50%;
+  right: -3rem;
   transform: translateY(-50%);
 }
 
@@ -47,7 +47,7 @@ const { orientation, canScrollNext, scrollNext } = useCarousel();
 }
 
 .sigma-ui-carousel-next__icon {
-  height: 1rem;
   width: 1rem;
+  height: 1rem;
 }
 </style>

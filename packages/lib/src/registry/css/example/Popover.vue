@@ -91,8 +91,8 @@ import { Input } from '@ui/registry/css/ui/input';
 }
 
 .example-sigma-ui-popover__description {
-  font-size: 0.875rem;
   color: hsl(var(--muted-foreground));
+  font-size: 0.875rem;
 }
 
 .example-sigma-ui-popover__form {
@@ -102,13 +102,13 @@ import { Input } from '@ui/registry/css/ui/input';
 
 .example-sigma-ui-popover__form-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   align-items: center;
   gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .example-sigma-ui-popover__input {
-  grid-column: span 2;
   height: 2rem;
+  grid-column: span 2;
 }
 </style>

@@ -19,10 +19,10 @@ const forwardedProps = useForwardProps(props);
 <style>
 .sigma-ui-dropdown-menu-label {
   padding: 0.375rem 0.5rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 600;
   color: hsl(var(--foreground));
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25rem;
 }
 
 .sigma-ui-dropdown-menu-label--inset {

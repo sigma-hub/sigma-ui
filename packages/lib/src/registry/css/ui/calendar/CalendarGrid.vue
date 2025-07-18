@@ -17,10 +17,10 @@ const forwardedProps = useForwardProps(props);
 
 <style>
 .sigma-ui-calendar-grid {
-  width: 100%;
-  border-collapse: collapse;
   display: flex;
+  width: 100%;
   flex-direction: column;
+  border-collapse: collapse;
   gap: 0.25rem;
 }
 </style>

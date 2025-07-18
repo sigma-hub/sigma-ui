@@ -152,8 +152,8 @@ const remainingItems = computed(() => items.value.slice(-itemsToDisplay + 1));
 
 .example-sigma-ui-breadcrumb__drawer-content {
   display: grid;
-  gap: 0.25rem;
   padding: 0 1rem;
+  gap: 0.25rem;
 }
 
 .example-sigma-ui-breadcrumb__drawer-link {
@@ -167,13 +167,13 @@ const remainingItems = computed(() => items.value.slice(-itemsToDisplay + 1));
 
 .example-sigma-ui-breadcrumb__truncated-link,
 .example-sigma-ui-breadcrumb__truncated-page {
-  max-width: 5rem;
   overflow: hidden;
+  max-width: 5rem;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .example-sigma-ui-breadcrumb__truncated-link,
   .example-sigma-ui-breadcrumb__truncated-page {
     max-width: none;

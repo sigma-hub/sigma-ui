@@ -43,7 +43,7 @@ const handleComplete = (e: string[]) => alert(e.join(''));
 }
 
 .example-sigma-ui-pin-input-separator__input {
-  border-radius: var(--radius);
   border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
 }
 </style>

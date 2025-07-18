@@ -20,8 +20,8 @@ import { Skeleton } from '@ui/registry/css/ui/skeleton';
 }
 
 .example-sigma-ui-skeleton__avatar {
-  height: 3rem;
   width: 3rem;
+  height: 3rem;
   border-radius: var(--radius-full);
 }
 
@@ -32,12 +32,12 @@ import { Skeleton } from '@ui/registry/css/ui/skeleton';
 }
 
 .example-sigma-ui-skeleton__title {
-  height: 1rem;
   width: 15.625rem;
+  height: 1rem;
 }
 
 .example-sigma-ui-skeleton__description {
-  height: 1rem;
   width: 12.5rem;
+  height: 1rem;
 }
 </style>

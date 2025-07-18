@@ -16,13 +16,13 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.375rem;
-  word-break: break-word;
-  font-size: 0.875rem;
   color: hsl(var(--muted-foreground));
+  font-size: 0.875rem;
+  gap: 0.375rem;
+  overflow-wrap: break-word;
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .sigma-ui-breadcrumb__list {
     gap: 0.625rem;
   }

@@ -32,13 +32,13 @@ const forwarded = useForwardPropsEmits(props, emits);
 .sigma-ui-menubar-radio-item {
   position: relative;
   display: flex;
-  cursor: default;
-  user-select: none;
   align-items: center;
-  border-radius: var(--radius-sm);
   padding: 0.375rem 0.5rem 0.375rem 2rem;
+  border-radius: var(--radius-sm);
+  cursor: default;
   font-size: 0.875rem;
   outline: none;
+  user-select: none;
 }
 
 .sigma-ui-menubar-radio-item:focus {
@@ -47,16 +47,16 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-menubar-radio-item[data-disabled] {
-  pointer-events: none;
   opacity: 0.5;
+  pointer-events: none;
 }
 
 .sigma-ui-menubar-radio-item__indicator {
   position: absolute;
   left: 0.5rem;
   display: flex;
-  height: 0.875rem;
   width: 0.875rem;
+  height: 0.875rem;
   align-items: center;
   justify-content: center;
 }
@@ -64,6 +64,6 @@ const forwarded = useForwardPropsEmits(props, emits);
 .sigma-ui-menubar-radio-item__icon {
   width: 0.5rem;
   height: 0.5rem;
-  fill: currentColor;
+  fill: currentcolor;
 }
 </style>

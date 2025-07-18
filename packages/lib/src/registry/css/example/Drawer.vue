@@ -112,9 +112,9 @@ const data = [
 
 <style>
 .example-sigma-ui-drawer__container {
-  margin: 0 auto;
   width: 100%;
   max-width: 24rem;
+  margin: 0 auto;
 }
 
 .example-sigma-ui-drawer__content {
@@ -130,8 +130,8 @@ const data = [
 }
 
 .example-sigma-ui-drawer__goal-button {
-  height: 2rem;
   width: 2rem;
+  height: 2rem;
   flex-shrink: 0;
   border-radius: var(--radius-full);
 }
@@ -148,22 +148,22 @@ const data = [
 
 .example-sigma-ui-drawer__goal-value {
   font-size: 4.5rem;
-  line-height: 1;
   font-weight: 700;
   letter-spacing: -0.025em;
+  line-height: 1;
 }
 
 .example-sigma-ui-drawer__goal-label {
+  color: hsl(var(--muted-foreground));
   font-size: 0.7rem;
   line-height: 1;
   text-transform: uppercase;
-  color: hsl(var(--muted-foreground));
 }
 
 .example-sigma-ui-drawer__chart {
-  margin: 0.75rem;
-  padding: 0 0.75rem;
   height: 120px;
+  padding: 0 0.75rem;
+  margin: 0.75rem;
 }
 
 .example-sigma-ui-drawer__chart-container {

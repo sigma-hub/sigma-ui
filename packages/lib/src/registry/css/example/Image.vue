@@ -32,20 +32,20 @@ import { Image } from '@ui/registry/css/ui/image';
 <style scoped>
 .example-image-container {
   display: grid;
-  grid-template-columns: repeat(3, minmax(120px, 220px));
-  gap: 1rem;
+  height: 250px;
   align-items: center;
   justify-content: center;
-  height: 250px;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(120px, 220px));
 }
 
 .example-fallback-container {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
   align-items: center;
   justify-content: center;
   color: hsl(var(--muted-foreground));
+  gap: 0.25rem;
 }
 
 .example-fallback-icon {

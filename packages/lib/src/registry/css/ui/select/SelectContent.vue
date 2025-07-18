@@ -48,83 +48,88 @@ const forwarded = useForwardPropsEmits(props, emits);
 .sigma-ui-select-content {
   position: relative;
   z-index: 50;
-  max-height: 24rem;
-  min-width: 8rem;
   overflow: hidden;
-  border-radius: var(--radius-md);
+  min-width: 8rem;
+  max-height: 24rem;
   border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-md);
   background-color: hsl(var(--popover));
+  box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
   color: hsl(var(--popover-foreground));
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   transform-origin: var(--reka-popover-content-transform-origin);
 }
 
 .sigma-ui-select-content[data-state="open"][data-side="bottom"] {
-  animation: slideFromTop 150ms ease-out;
+  animation: slide-from-top 150ms ease-out;
 }
 
 .sigma-ui-select-content[data-state="open"][data-side="top"] {
-  animation: slideFromBottom 150ms ease-out;
+  animation: slide-from-bottom 150ms ease-out;
 }
 
 .sigma-ui-select-content[data-state="open"][data-side="left"] {
-  animation: slideFromRight 150ms ease-out;
+  animation: slide-from-right 150ms ease-out;
 }
 
 .sigma-ui-select-content[data-state="open"][data-side="right"] {
-  animation: slideFromLeft 150ms ease-out;
+  animation: slide-from-left 150ms ease-out;
 }
 
-@keyframes slideFromTop {
+@keyframes slide-from-top {
   from {
+    filter: blur(4px);
     transform: translateY(-1rem) scaleY(0.98);
-    filter: blur(4px);
   }
+
   to {
+    filter: blur(0);
     transform: translateY(0) scaleY(1);
-    filter: blur(0px);
   }
 }
 
-@keyframes slideFromBottom {
+@keyframes slide-from-bottom {
   from {
+    filter: blur(4px);
     transform: translateY(1rem) scaleY(0.98);
-    filter: blur(4px);
   }
+
   to {
+    filter: blur(0);
     transform: translateY(0) scaleY(1);
-    filter: blur(0px);
   }
 }
 
-@keyframes slideFromLeft {
+@keyframes slide-from-left {
   from {
+    filter: blur(4px);
     transform: translateX(-1rem) scaleY(0.98);
-    filter: blur(4px);
   }
+
   to {
+    filter: blur(0);
     transform: translateX(0) scaleY(1);
-    filter: blur(0px);
   }
 }
 
-@keyframes slideFromRight {
+@keyframes slide-from-right {
   from {
-    transform: translateX(1rem) scaleY(0.98);
     filter: blur(4px);
+    transform: translateX(1rem) scaleY(0.98);
   }
+
   to {
+    filter: blur(0);
     transform: translateX(0) scaleY(1);
-    filter: blur(0px);
   }
 }
+
 .sigma-ui-select-content__viewport {
   padding: 0.25rem;
 }
 
 .sigma-ui-select-content__viewport--popper {
-  height: var(--reka-select-trigger-height);
   width: 100%;
   min-width: var(--reka-select-trigger-width);
+  height: var(--reka-select-trigger-height);
 }
 </style>

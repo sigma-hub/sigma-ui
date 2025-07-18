@@ -63,11 +63,11 @@ import {
 }
 
 .example-sigma-ui-toaster-dialog__button {
-  padding-left: 0.75rem;
   padding-right: 0.75rem;
+  padding-left: 0.75rem;
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .example-sigma-ui-toaster-dialog {
     max-width: 28rem;
   }

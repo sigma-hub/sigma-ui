@@ -7,9 +7,9 @@
 
 <style>
 .example-sigma-ui-typography__blockquote {
-  margin-top: 1.5rem;
-  border-left: 2px solid hsl(var(--border));
   padding-left: 1.5rem;
+  border-left: 2px solid hsl(var(--border));
+  margin-top: 1.5rem;
   font-style: italic;
 }
 </style>

@@ -17,7 +17,7 @@
   vertical-align: middle;
 }
 
-.sigma-ui-table-cell:has([role=checkbox]) {
+.sigma-ui-table-cell:has([role="checkbox"]) {
   padding-right: 0;
 }
 </style>

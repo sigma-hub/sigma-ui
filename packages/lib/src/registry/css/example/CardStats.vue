@@ -102,7 +102,7 @@ const lineY = (d: Data) => d.revenue;
   gap: 1rem;
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .example-sigma-ui-card-stats {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -123,8 +123,8 @@ const lineY = (d: Data) => d.revenue;
 }
 
 .example-sigma-ui-card-stats__change {
-  font-size: 0.75rem;
   color: hsl(var(--muted-foreground));
+  font-size: 0.75rem;
 }
 
 .example-sigma-ui-card-stats__chart {

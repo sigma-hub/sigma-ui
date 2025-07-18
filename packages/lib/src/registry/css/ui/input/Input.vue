@@ -15,14 +15,14 @@ const model = defineModel<string | number>();
 <style>
 .sigma-ui-input {
   display: flex;
-  height: 2.5rem;
   width: 100%;
-  border-radius: var(--radius-md);
+  height: 2.5rem;
   border: 1px solid hsl(var(--input));
+  border-radius: var(--radius-md);
   background-color: hsl(var(--background));
-  padding-inline: 0.75rem;
-  padding-block: 0.5rem;
   font-size: 0.875rem;
+  padding-block: 0.5rem;
+  padding-inline: 0.75rem;
 }
 
 .sigma-ui-input::file-selector-button {
@@ -37,9 +37,9 @@ const model = defineModel<string | number>();
 }
 
 .sigma-ui-input:focus-visible {
-  outline: none;
   box-shadow: 0 0 0 2px hsl(var(--background)),
               0 0 0 4px hsl(var(--ring));
+  outline: none;
 }
 
 .sigma-ui-input:disabled {

@@ -139,9 +139,9 @@ const formatter = useDateFormatter('en');
 
 <style>
 .example-sigma-ui-calendar-select {
-  border-radius: var(--radius-md);
-  border: 1px solid hsl(var(--border));
   padding: 0.75rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-md);
 }
 
 .example-sigma-ui-calendar-select__heading {
@@ -168,8 +168,8 @@ const formatter = useDateFormatter('en');
 .example-sigma-ui-calendar-select__grid-container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   padding-top: 1rem;
+  gap: 1rem;
 }
 
 .example-sigma-ui-calendar-select__grid {
@@ -177,11 +177,11 @@ const formatter = useDateFormatter('en');
 }
 
 .example-sigma-ui-calendar-select__week-row {
-  margin-top: 0.5rem;
   width: 100%;
+  margin-top: 0.5rem;
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .example-sigma-ui-calendar-select__grid-container {
     flex-direction: row;
     gap: 1rem;

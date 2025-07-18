@@ -14,9 +14,9 @@
 <style>
 .sigma-ui-dropdown-menu-shortcut {
   margin-left: auto;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  letter-spacing: 0.1em;
   color: hsl(var(--muted-foreground));
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  line-height: 1rem;
 }
 </style>

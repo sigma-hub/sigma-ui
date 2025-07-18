@@ -133,8 +133,8 @@ const onSubmit = handleSubmit((values) => {
 }
 
 .example-sigma-ui-command-form__trigger {
-  width: 200px;
   display: flex;
+  width: 200px;
   justify-content: space-between;
 }
 
@@ -143,10 +143,10 @@ const onSubmit = handleSubmit((values) => {
 }
 
 .example-sigma-ui-command-form__chevron {
-  margin-left: 0.5rem;
   width: 1rem;
   height: 1rem;
   flex-shrink: 0;
+  margin-left: 0.5rem;
   opacity: 0.5;
 }
 
@@ -156,9 +156,9 @@ const onSubmit = handleSubmit((values) => {
 }
 
 .example-sigma-ui-command-form__check {
-  margin-right: 0.5rem;
   width: 1rem;
   height: 1rem;
+  margin-right: 0.5rem;
   opacity: 0;
 }
 
@@ -167,9 +167,9 @@ const onSubmit = handleSubmit((values) => {
 }
 
 .example-sigma-ui-command-form__toast-pre {
-  margin-top: 0.5rem;
-  border-radius: var(--radius);
-  background-color: hsl(var(--muted) / 0.5);
   padding: 1rem;
+  border-radius: var(--radius);
+  margin-top: 0.5rem;
+  background-color: hsl(var(--muted) / 50%);
 }
 </style>

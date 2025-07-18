@@ -21,8 +21,8 @@ const { orientation } = useCarousel();
 <style>
 .sigma-ui-carousel-item {
   min-width: 0;
-  flex-shrink: 0;
   flex-basis: 100%;
+  flex-shrink: 0;
 }
 
 .sigma-ui-carousel-item--horizontal {

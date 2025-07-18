@@ -18,7 +18,7 @@ const forwardedProps = useForwardProps(props);
 <style>
 .sigma-ui-range-calendar-grid-row {
   display: flex;
-  margin-top: 0.5rem;
   width: 100%;
+  margin-top: 0.5rem;
 }
 </style>

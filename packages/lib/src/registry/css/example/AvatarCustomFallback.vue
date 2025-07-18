@@ -23,6 +23,6 @@ import { Avatar } from '@ui/registry/css/ui/avatar';
 }
 
 .example-sigma-ui-avatar__text {
-  color: hsl(var(--primary) / 0.5);
+  color: hsl(var(--primary) / 50%);
 }
 </style>

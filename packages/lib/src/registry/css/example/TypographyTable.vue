@@ -43,8 +43,8 @@
 
 <style>
 .example-sigma-ui-typography__table-container {
-  margin: 1.5rem 0;
   width: 100%;
+  margin: 1.5rem 0;
   overflow-y: auto;
 }
 
@@ -53,9 +53,9 @@
 }
 
 .example-sigma-ui-typography__table-row {
-  margin: 0;
-  border-top: 1px solid hsl(var(--border));
   padding: 0;
+  border-top: 1px solid hsl(var(--border));
+  margin: 0;
 }
 
 .example-sigma-ui-typography__table tbody tr:nth-child(even) {
@@ -64,8 +64,8 @@
 
 .example-sigma-ui-typography__table-header,
 .example-sigma-ui-typography__table-cell {
-  border: 1px solid hsl(var(--border));
   padding: 0.5rem 1rem;
+  border: 1px solid hsl(var(--border));
   text-align: left;
 }
 

@@ -16,8 +16,8 @@ import { Label } from '@ui/registry/css/ui/label';
 <style>
 .example-sigma-ui-input-file {
   display: flex;
-  flex-direction: column;
   max-width: 24rem;
+  flex-direction: column;
   gap: 0.5rem;
 }
 </style>

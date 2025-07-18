@@ -80,10 +80,10 @@ const onSubmit = handleSubmit((values) => {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 0.75rem;
-  border-radius: var(--radius);
-  border: 1px solid hsl(var(--border));
   padding: 1rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  gap: 0.75rem;
 }
 
 .example-sigma-ui-checkbox-form__content {
@@ -94,9 +94,9 @@ const onSubmit = handleSubmit((values) => {
 }
 
 .example-sigma-ui-checkbox-form__toast-pre {
-  margin-top: 0.5rem;
-  border-radius: var(--radius-md);
-  background-color: hsl(var(--muted) / 0.5);
   padding: 0.5rem;
+  border-radius: var(--radius-md);
+  margin-top: 0.5rem;
+  background-color: hsl(var(--muted) / 50%);
 }
 </style>

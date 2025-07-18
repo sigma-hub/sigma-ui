@@ -148,10 +148,10 @@ function getActionProps(item: BreadcrumbItem, isLast: boolean): ActionProps {
 
 <style>
 .sigma-ui-breadcrumb__action {
-  cursor: pointer;
   display: flex;
   align-items: center;
   color: hsl(var(--muted-foreground));
+  cursor: pointer;
 }
 
 .sigma-ui-breadcrumb__action--active {

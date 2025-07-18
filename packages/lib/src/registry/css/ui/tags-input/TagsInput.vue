@@ -20,12 +20,12 @@ const forwarded = useForwardPropsEmits(props, emits);
 .sigma-ui-tags-input {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
   align-items: center;
-  border-radius: var(--radius-md);
-  border: 1px solid hsl(var(--input));
-  background-color: hsl(var(--background));
   padding: 0.5rem 0.75rem;
+  border: 1px solid hsl(var(--input));
+  border-radius: var(--radius-md);
+  background-color: hsl(var(--background));
   font-size: 0.875rem;
+  gap: 0.5rem;
 }
 </style>

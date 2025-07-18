@@ -12,12 +12,12 @@ import { NumberFieldInput } from 'reka-ui';
 <style>
 .sigma-ui-number-field-input {
   display: flex;
-  height: 2.5rem;
   width: 100%;
-  border-radius: var(--radius);
-  border: 1px solid hsl(var(--input));
-  background-color: hsl(var(--background));
+  height: 2.5rem;
   padding: 0.5rem;
+  border: 1px solid hsl(var(--input));
+  border-radius: var(--radius);
+  background-color: hsl(var(--background));
   font-size: 0.875rem;
   text-align: center;
 }
@@ -27,8 +27,8 @@ import { NumberFieldInput } from 'reka-ui';
 }
 
 .sigma-ui-number-field-input:focus-visible {
-  outline: none;
   box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--ring));
+  outline: none;
 }
 
 .sigma-ui-number-field-input:disabled {

@@ -14,15 +14,15 @@
 <style>
 .sigma-ui-table-head {
   height: 3rem;
-  padding-left: 1rem;
   padding-right: 1rem;
+  padding-left: 1rem;
+  color: hsl(var(--muted-foreground));
+  font-weight: 500;
   text-align: left;
   vertical-align: middle;
-  font-weight: 500;
-  color: hsl(var(--muted-foreground));
 }
 
-.sigma-ui-table-head:has([role=checkbox]) {
+.sigma-ui-table-head:has([role="checkbox"]) {
   padding-right: 0;
 }
 </style>

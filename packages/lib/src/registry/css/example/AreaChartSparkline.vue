@@ -34,7 +34,7 @@ const data = [
 
 <style>
 .example-sigma-ui-area-chart-sparkline {
-  height: 100px;
   width: 400px;
+  height: 100px;
 }
 </style>

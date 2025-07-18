@@ -23,111 +23,117 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <style>
 .sigma-ui-navigation-menu-content {
-  left: 0;
   top: 0;
+  left: 0;
   width: 100%;
 }
 
 .sigma-ui-navigation-menu-content[data-state^="open"] {
-  animation: fadeIn 200ms ease-in-out;
+  animation: fade-in 200ms ease-in-out;
 }
 
 .sigma-ui-navigation-menu-content[data-state^="closed"] {
-  animation: fadeOut 200ms ease-in-out;
+  animation: fade-out 200ms ease-in-out;
 }
 
 .sigma-ui-navigation-menu-content[data-motion="from-end"] {
-  animation: slideInFromRight 200ms ease-in-out;
+  animation: slide-in-from-right 200ms ease-in-out;
 }
 
 .sigma-ui-navigation-menu-content[data-motion="from-start"] {
-  animation: slideInFromLeft 200ms ease-in-out;
+  animation: slide-in-from-left 200ms ease-in-out;
 }
 
 .sigma-ui-navigation-menu-content[data-motion="to-end"] {
-  animation: slideOutToRight 200ms ease-in-out;
+  animation: slide-out-to-right 200ms ease-in-out;
 }
 
 .sigma-ui-navigation-menu-content[data-motion="to-start"] {
-  animation: slideOutToLeft 200ms ease-in-out;
+  animation: slide-out-to-left 200ms ease-in-out;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .sigma-ui-navigation-menu-content {
     position: absolute;
     width: auto;
   }
 }
 
-@keyframes fadeIn {
+@keyframes fade-in {
   from {
-    opacity: 0;
     filter: blur(12px);
+    opacity: 0;
   }
+
   to {
-    opacity: 1;
     filter: blur(0);
+    opacity: 1;
   }
 }
 
-@keyframes fadeOut {
+@keyframes fade-out {
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
 }
 
-@keyframes slideInFromRight {
+@keyframes slide-in-from-right {
   from {
+    filter: blur(12px);
     opacity: 0;
     transform: translateX(13rem);
-    filter: blur(12px);
   }
+
   to {
+    filter: blur(0);
     opacity: 1;
     transform: translateX(0);
-    filter: blur(0);
   }
 }
 
-@keyframes slideInFromLeft {
+@keyframes slide-in-from-left {
   from {
+    filter: blur(12px);
     opacity: 0;
     transform: translateX(-13rem);
-    filter: blur(12px);
   }
+
   to {
+    filter: blur(0);
     opacity: 1;
     transform: translateX(0);
-    filter: blur(0);
   }
 }
 
-@keyframes slideOutToRight {
+@keyframes slide-out-to-right {
   from {
+    filter: blur(0);
     opacity: 1;
     transform: translateX(0);
-    filter: blur(0);
   }
+
   to {
+    filter: blur(12px);
+    opacity: 0;
     transform: translateX(13rem);
-    filter: blur(12px);
-    opacity: 0;
   }
 }
 
-@keyframes slideOutToLeft {
+@keyframes slide-out-to-left {
   from {
+    filter: blur(0);
     opacity: 1;
     transform: translateX(0);
-    filter: blur(0);
   }
+
   to {
+    filter: blur(12px);
     opacity: 0;
     transform: translateX(-13rem);
-    filter: blur(12px);
   }
 }
 </style>

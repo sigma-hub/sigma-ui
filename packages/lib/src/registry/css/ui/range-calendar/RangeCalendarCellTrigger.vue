@@ -19,15 +19,15 @@ const forwardedProps = useForwardProps(props);
 
 <style>
 .sigma-ui-range-calendar-cell-trigger {
-  height: 2.25rem;
   width: 2.25rem;
+  height: 2.25rem;
   padding: 0;
-  font-weight: normal;
-  background-color: transparent;
   border-radius: var(--radius-sm);
+  background-color: transparent;
+  font-weight: normal;
+  transition-duration: 150ms;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
 }
 
 .sigma-ui-range-calendar-cell-trigger[data-selected] {
@@ -54,13 +54,13 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-range-calendar-cell-trigger[data-outside-month] {
-  pointer-events: none;
   color: hsl(var(--muted-foreground));
   opacity: 0.5;
+  pointer-events: none;
 }
 
 .sigma-ui-range-calendar-cell-trigger[data-outside-month][data-selected] {
-  background-color: hsl(var(--accent) / 0.5);
+  background-color: hsl(var(--accent) / 50%);
   color: hsl(var(--muted-foreground));
   opacity: 0.3;
 }

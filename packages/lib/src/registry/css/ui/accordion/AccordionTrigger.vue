@@ -37,8 +37,8 @@ const forwarded = useForwardProps(props);
 }
 
 .sigma-ui-accordion-trigger-icon {
-  height: 1rem;
   width: 1rem;
+  height: 1rem;
   flex-shrink: 0;
   transition: transform 0.2s;
 }

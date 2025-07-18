@@ -30,9 +30,9 @@ import { Input } from '@ui/registry/css/ui/input';
 
 .example-sigma-ui-input-with-icon__icon-wrapper {
   position: absolute;
-  left: 0;
   top: 0;
   bottom: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;

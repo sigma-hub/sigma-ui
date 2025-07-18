@@ -15,7 +15,7 @@ import { Alert, AlertDescription, AlertTitle } from '@ui/registry/css/ui/alert';
 
 <style>
 .example-sigma-ui-alert__icon {
-  height: 1rem;
   width: 1rem;
+  height: 1rem;
 }
 </style>

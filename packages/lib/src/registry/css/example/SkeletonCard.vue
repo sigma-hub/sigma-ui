@@ -20,8 +20,8 @@ import { Skeleton } from '@ui/registry/css/ui/skeleton';
 }
 
 .example-sigma-ui-skeleton-card__image {
-  height: 7.8125rem;
   width: 15.625rem;
+  height: 7.8125rem;
   border-radius: var(--radius);
 }
 
@@ -32,12 +32,12 @@ import { Skeleton } from '@ui/registry/css/ui/skeleton';
 }
 
 .example-sigma-ui-skeleton-card__title {
-  height: 1rem;
   width: 15.625rem;
+  height: 1rem;
 }
 
 .example-sigma-ui-skeleton-card__description {
-  height: 1rem;
   width: 12.5rem;
+  height: 1rem;
 }
 </style>

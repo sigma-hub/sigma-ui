@@ -22,8 +22,8 @@ const forwardedProps = useForwardProps(props);
 .sigma-ui-tags-input-item-delete {
   display: flex;
   border-radius: var(--radius-sm);
-  background-color: transparent;
   margin-right: 0.25rem;
+  background-color: transparent;
   cursor: pointer;
 }
 

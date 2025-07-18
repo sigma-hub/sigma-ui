@@ -19,12 +19,12 @@ const model = defineModel<string | number>();
 <style>
 .sigma-ui-textarea {
   display: flex;
-  min-height: 5rem;
   width: 100%;
-  border-radius: var(--radius-md);
-  border: 1px solid hsl(var(--input));
-  background-color: hsl(var(--background));
+  min-height: 5rem;
   padding: 0.5rem 0.75rem;
+  border: 1px solid hsl(var(--input));
+  border-radius: var(--radius-md);
+  background-color: hsl(var(--background));
   font-size: 0.875rem;
 }
 
@@ -33,8 +33,8 @@ const model = defineModel<string | number>();
 }
 
 .sigma-ui-textarea:focus-visible {
-  outline: none;
   box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--ring));
+  outline: none;
 }
 
 .sigma-ui-textarea:disabled {

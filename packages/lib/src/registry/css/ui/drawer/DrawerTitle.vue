@@ -18,7 +18,7 @@ const props = defineProps<DrawerTitleProps>();
 .sigma-ui-drawer-title {
   font-size: 1.125rem;
   font-weight: 600;
-  line-height: 1;
   letter-spacing: -0.025em;
+  line-height: 1;
 }
 </style>

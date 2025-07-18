@@ -127,8 +127,8 @@ const selectedStatus = ref<Status>();
 }
 
 .example-sigma-ui-command-popover__label {
-  font-size: 0.875rem;
   color: hsl(var(--muted-foreground));
+  font-size: 0.875rem;
 }
 
 .example-sigma-ui-command-popover__trigger {
@@ -137,10 +137,10 @@ const selectedStatus = ref<Status>();
 }
 
 .example-sigma-ui-command-popover__icon {
-  margin-right: 0.5rem;
   width: 1rem;
   height: 1rem;
   flex-shrink: 0;
+  margin-right: 0.5rem;
 }
 
 .example-sigma-ui-command-popover__content {
@@ -148,9 +148,9 @@ const selectedStatus = ref<Status>();
 }
 
 .example-sigma-ui-command-popover__status-icon {
-  margin-right: 0.5rem;
   width: 1rem;
   height: 1rem;
+  margin-right: 0.5rem;
   opacity: 0.4;
 }
 

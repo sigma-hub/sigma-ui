@@ -74,15 +74,15 @@ import {
 
 .example-sigma-ui-sheet__form {
   display: grid;
-  gap: 1rem;
   padding: 1rem 0;
+  gap: 1rem;
 }
 
 .example-sigma-ui-sheet__form-row {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   align-items: center;
   gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .example-sigma-ui-sheet__label {

@@ -153,11 +153,11 @@ function handleEscKeydown(event: KeyboardEvent) {
 
 <style scoped>
 .card-lightbox {
-  margin: 0 auto;
+  display: flex;
   width: 100%;
   max-width: 990px;
-  display: flex;
   flex-direction: column;
+  margin: 0 auto;
   container-type: inline-size;
 }
 
@@ -168,20 +168,20 @@ function handleEscKeydown(event: KeyboardEvent) {
 
 .card-lightbox__grid {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  gap: 20px;
   padding: 0;
   margin: 0;
+  gap: 20px;
+  grid-template-columns: repeat(10, 1fr);
   list-style: none;
 }
 
 .card-lightbox__card {
   position: relative;
-  padding: 0px;
-  height: 420px;
-  grid-column: span 4;
-  box-sizing: border-box;
   overflow: hidden;
+  height: 420px;
+  box-sizing: border-box;
+  padding: 0;
+  grid-column: span 4;
 }
 
 .card-lightbox__card:focus-visible {
@@ -198,104 +198,104 @@ function handleEscKeydown(event: KeyboardEvent) {
 }
 
 .theme-light .card-lightbox__image-overlay {
-  content: '';
   position: absolute;
-  inset: 0;
-  background: linear-gradient(160deg, rgba(0, 0, 0, 0.95) -8%, rgba(0, 0, 0, 0) 30%);
   z-index: 1;
+  background: linear-gradient(160deg, rgb(0 0 0 / 95%) -8%, rgb(0 0 0 / 0%) 30%);
+  content: '';
+  inset: 0;
   pointer-events: none;
 }
 
 .theme-dark .card-lightbox__image-overlay {
-  content: '';
   position: absolute;
-  inset: 0;
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.95) -8%, rgba(255, 255, 255, 0) 30%);
   z-index: 1;
+  background: linear-gradient(160deg, rgb(255 255 255 / 95%) -8%, rgb(255 255 255 / 0%) 30%);
+  content: '';
+  inset: 0;
   pointer-events: none;
 }
 
 .card-lightbox__expanded-container {
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  display: flex;
-  flex-direction: column;
-  top: 0;
-  left: 0;
-  right: 0;
   position: fixed;
   z-index: 51;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
   overflow: hidden;
-  padding: 40px 0;
-  justify-content: center;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  pointer-events: none;
 }
 
 .card-lightbox__card-content,
 .card-lightbox__expanded-content {
-  pointer-events: auto;
-  user-select: none;
   position: relative;
-  border-radius: 20px;
-  background: hsl(var(--card));
   overflow: hidden;
   width: 100%;
   height: 100%;
+  border-radius: 20px;
   margin: 0 auto;
+  background: hsl(var(--card));
+  pointer-events: auto;
+  user-select: none;
 }
 
 .card-lightbox__expanded-content {
+  overflow: hidden;
   width: unset;
   max-width: 700px;
-  overflow: hidden;
-  pointer-events: auto;
-  overflow-y: auto;
   height: 70dvh;
+  overflow-y: auto;
+  pointer-events: auto;
 }
 
 .card-lightbox__card-image-container,
 .card-lightbox__expanded-image-container {
-  overflow: hidden;
-  height: 420px;
   position: relative;
+  overflow: hidden;
   width: 100%;
+  height: 420px;
 }
 
 .card-lightbox__card-image,
 .card-lightbox__expanded-image {
+  position: absolute;
   z-index: 1;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   pointer-events: none;
-  position: absolute;
-  top: 0;
-  left: 0;
   transform: none;
 }
 
 .card-lightbox__card-title-container {
-  z-index: 2;
   position: absolute;
-  top: 0px;
-  left: 0px;
+  z-index: 2;
+  top: 0;
+  left: 0;
   max-width: 300px;
   padding: 20px;
   text-align: left;
 }
 
 .card-lightbox__expanded-title-container {
-  z-index: 2;
   position: absolute;
+  z-index: 2;
   top: 0;
   left: 0;
   padding: 20px;
 }
 
 .card-lightbox__expanded-close-button {
-  z-index: 2;
   position: absolute;
+  z-index: 2;
   top: 0;
   right: 0;
   padding: 20px;
@@ -304,41 +304,42 @@ function handleEscKeydown(event: KeyboardEvent) {
 
 .card-lightbox__card-title,
 .card-lightbox__expanded-title {
-  color: hsl(0 0% 100%);
   margin: 8px 0;
+  color: hsl(0deg 0% 100%);
   font-size: 20px;
   font-weight: 600;
 }
 
 .card-lightbox__card-category,
 .card-lightbox__expanded-category {
-  color: hsl(0 0% 100%);
-  background: hsl(0 0% 100% / 0.12);
-  backdrop-filter: blur(8px);
   padding: 4px 8px;
   border-radius: 12px;
+  backdrop-filter: blur(8px);
+  background: hsl(0deg 0% 100% / 12%);
+  color: hsl(0deg 0% 100%);
   font-size: 12px;
   text-transform: uppercase;
 }
 
 .theme-dark .card-lightbox__card-category,
 .theme-dark .card-lightbox__expanded-category {
-  background: hsl(240 10% 3.9% / 0.2);
+  background: hsl(240deg 10% 3.9% / 20%);
 }
 
 .card-lightbox__expanded-overlay {
-  inset: 0;
-  z-index: 50;
   position: fixed;
+  z-index: 50;
   backdrop-filter: blur(12px);
-  background: rgba(0, 0, 0, 0.2);
+  background: rgb(0 0 0 / 20%);
+  inset: 0;
   will-change: opacity;
 }
 
 .card-lightbox__expanded-body {
-  padding: 35px;
-  max-width: 700px;
   width: 100vw;
+  max-width: 700px;
+  padding: 35px;
+  color: hsl(var(--primary));
 }
 
 .theme-dark .card-lightbox__card-category,
@@ -346,34 +347,30 @@ function handleEscKeydown(event: KeyboardEvent) {
 .theme-dark .card-lightbox__expanded-title-container,
 .theme-dark .card-lightbox__expanded-title,
 .theme-dark .card-lightbox__expanded-category {
-  color: hsl(240 10% 3.9% / 0.9);
+  color: hsl(240deg 10% 3.9% / 90%);
 }
 
 .theme-dark svg {
-  stroke: hsl(240 10% 3.9% / 0.9);
+  stroke: hsl(240deg 10% 3.9% / 90%);
 }
 
 .theme-light svg {
-  stroke: hsl(0 0% 100%);
+  stroke: hsl(0deg 0% 100%);
 }
 
-.card-lightbox__expanded-body {
-  color: hsl(var(--primary));
-}
-
-@media only screen and (max-width: 990px) {
+@media only screen and (width <= 990px) {
   .card-lightbox__expanded-container {
     padding: 0;
   }
 
   .card-lightbox__expanded-content {
     overflow: hidden;
-    pointer-events: auto;
-    overflow-y: auto;
     width: 100vw;
     max-width: 100vw;
     height: 100dvh;
     border-radius: 0;
+    overflow-y: auto;
+    pointer-events: auto;
   }
 
   .card-lightbox__card-image-container,
@@ -389,8 +386,8 @@ function handleEscKeydown(event: KeyboardEvent) {
 
   .card-lightbox {
     padding: 60px 20px;
-    padding-left: 10px;
     padding-right: 10px;
+    padding-left: 10px;
   }
 
   .card-lightbox__grid {
@@ -399,9 +396,9 @@ function handleEscKeydown(event: KeyboardEvent) {
   }
 
   .card-lightbox__card {
-    grid-column: auto / auto;
-    height: 280px;
     width: 100%;
+    height: 280px;
+    grid-column: auto / auto;
   }
 
   .card-lightbox__card:nth-child(4n + 1),
@@ -410,11 +407,11 @@ function handleEscKeydown(event: KeyboardEvent) {
   }
 
   .card-lightbox__card-image {
+    position: absolute;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    position: absolute;
     inset: 0;
+    object-fit: cover;
   }
 }
 </style>

@@ -30,7 +30,7 @@ const props = withDefaults(defineProps<PaginationNextProps>(), {
 }
 
 .sigma-ui-pagination-next__icon {
-  height: 1rem;
   width: 1rem;
+  height: 1rem;
 }
 </style>

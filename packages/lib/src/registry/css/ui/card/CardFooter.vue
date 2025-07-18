@@ -14,7 +14,7 @@
 <style>
 .sigma-ui-card__footer {
   display: flex;
+  padding: 0 1.5rem 1.5rem;
   gap: 0.5rem;
-  padding: 0 1.5rem 1.5rem 1.5rem;
 }
 </style>

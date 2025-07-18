@@ -25,15 +25,15 @@ const forwardedProps = useForwardProps(props);
 <style>
 .sigma-ui-dropdown-menu-sub-trigger {
   display: flex;
-  cursor: default;
-  user-select: none;
   align-items: center;
-  border-radius: var(--radius-sm);
   padding: 0.375rem 0.5rem;
+  border-radius: var(--radius-sm);
+  cursor: default;
   font-size: 0.875rem;
   line-height: 1.25rem;
   outline: none;
   transition: background-color 150ms ease, color 150ms ease;
+  user-select: none;
 }
 
 .sigma-ui-dropdown-menu-sub-trigger:focus {
@@ -51,8 +51,8 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-dropdown-menu-sub-trigger__icon {
-  margin-left: auto;
-  height: 1rem;
   width: 1rem;
+  height: 1rem;
+  margin-left: auto;
 }
 </style>

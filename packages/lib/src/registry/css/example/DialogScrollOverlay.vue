@@ -44,7 +44,7 @@ import {
   max-width: 425px;
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .example-sigma-ui-dialog__content {
     max-width: 425px;
   }
@@ -52,8 +52,8 @@ import {
 
 .example-sigma-ui-dialog__scroll-content {
   display: grid;
-  gap: 1rem;
-  padding: 1rem 0;
   height: 300dvh;
+  padding: 1rem 0;
+  gap: 1rem;
 }
 </style>

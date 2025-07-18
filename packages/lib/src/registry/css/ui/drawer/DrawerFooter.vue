@@ -12,10 +12,10 @@
 
 <style>
 .sigma-ui-drawer-footer {
-  margin-top: auto;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
   padding: 1rem;
+  margin-top: auto;
+  gap: 0.5rem;
 }
 </style>

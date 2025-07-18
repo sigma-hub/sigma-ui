@@ -71,8 +71,8 @@ const value = ref<DateValue>();
 .example-sigma-ui-date-picker__button {
   width: 280px;
   justify-content: flex-start;
-  text-align: left;
   font-weight: normal;
+  text-align: left;
 }
 
 .example-sigma-ui-date-picker__button--placeholder {
@@ -92,7 +92,7 @@ const value = ref<DateValue>();
 .example-sigma-ui-date-picker__presets {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
   padding: 0.5rem;
+  gap: 0.5rem;
 }
 </style>

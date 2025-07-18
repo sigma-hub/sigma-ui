@@ -30,17 +30,17 @@ const forwarded = useForwardPropsEmits(props, emits);
   display: flex;
   width: 100%;
   min-width: 50px;
+  align-items: center;
   touch-action: none;
   user-select: none;
-  align-items: center;
 }
 
 .sigma-ui-slider__track {
   position: relative;
-  height: 0.5rem;
-  width: 100%;
-  flex-grow: 1;
   overflow: hidden;
+  width: 100%;
+  height: 0.5rem;
+  flex-grow: 1;
   border-radius: var(--radius-full);
   background-color: hsl(var(--secondary));
 }
@@ -53,23 +53,23 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 .sigma-ui-slider__thumb {
   display: block;
-  height: 1.25rem;
   width: 1.25rem;
-  border-radius: var(--radius-full);
+  height: 1.25rem;
   border: 2px solid hsl(var(--primary));
+  border-radius: var(--radius-full);
   background-color: hsl(var(--background));
+  transition-duration: 150ms;
   transition-property: color, background-color, border-color;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
 }
 
 .sigma-ui-slider__thumb:focus-visible {
-  outline: none;
   box-shadow: 0 0 0 2px hsl(var(--ring)), 0 0 0 4px hsl(var(--background));
+  outline: none;
 }
 
 .sigma-ui-slider__thumb:disabled {
-  pointer-events: none;
   opacity: 0.5;
+  pointer-events: none;
 }
 </style>

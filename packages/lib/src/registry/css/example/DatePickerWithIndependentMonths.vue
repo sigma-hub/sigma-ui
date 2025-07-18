@@ -258,8 +258,8 @@ watch(secondMonthPlaceholder, (_secondMonthPlaceholder) => {
 .example-sigma-ui-date-picker__button {
   width: 280px;
   justify-content: flex-start;
-  text-align: left;
   font-weight: normal;
+  text-align: left;
 }
 
 .example-sigma-ui-date-picker__button--placeholder {
@@ -284,15 +284,15 @@ watch(secondMonthPlaceholder, (_secondMonthPlaceholder) => {
 .example-sigma-ui-date-picker__months {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   margin-top: 1rem;
+  gap: 1rem;
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .example-sigma-ui-date-picker__months {
     flex-direction: row;
-    gap: 1rem;
     margin-top: 0;
+    gap: 1rem;
   }
 }
 
@@ -310,15 +310,15 @@ watch(secondMonthPlaceholder, (_secondMonthPlaceholder) => {
 
 .example-sigma-ui-date-picker__month-button {
   display: flex;
+  width: 1.75rem;
+  height: 1.75rem;
   align-items: center;
   justify-content: center;
-  height: 1.75rem;
-  width: 1.75rem;
-  background-color: transparent;
   padding: 0;
-  opacity: 0.5;
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius);
+  background-color: transparent;
+  opacity: 0.5;
 }
 
 .example-sigma-ui-date-picker__month-button:hover {
@@ -340,7 +340,7 @@ watch(secondMonthPlaceholder, (_secondMonthPlaceholder) => {
 }
 
 .example-sigma-ui-date-picker__week {
-  margin-top: 0.5rem;
   width: 100%;
+  margin-top: 0.5rem;
 }
 </style>

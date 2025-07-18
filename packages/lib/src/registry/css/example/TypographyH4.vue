@@ -6,9 +6,9 @@
 
 <style>
 .example-sigma-ui-typography__heading-4 {
-  scroll-margin-top: 5rem;
   font-size: 1.25rem;
   font-weight: 600;
   letter-spacing: -0.025em;
+  scroll-margin-top: 5rem;
 }
 </style>

@@ -33,40 +33,41 @@ const forwardedProps = useForwardProps(props);
 <style>
 .sigma-ui-menubar-content {
   z-index: 50;
-  min-width: 12rem;
   overflow: hidden;
-  border-radius: var(--radius-md);
-  border: 1px solid hsl(var(--border));
-  background-color: hsl(var(--popover));
-  color: hsl(var(--popover-foreground));
+  min-width: 12rem;
   padding: 0.25rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-md);
+  background-color: hsl(var(--popover));
   box-shadow: var(--shadow-md);
-  transform-origin: var(--reka-menubar-content-transform-origin);
+  color: hsl(var(--popover-foreground));
   opacity: 0;
-  transform: scale(0.96) translateY(-2px);
-  transition: transform 150ms ease-out, opacity 150ms ease-out;
   pointer-events: none;
+  transform: scale(0.96) translateY(-2px);
+  transform-origin: var(--reka-menubar-content-transform-origin);
+  transition: transform 150ms ease-out, opacity 150ms ease-out;
 }
 
 .sigma-ui-menubar-content[data-state="open"] {
+  animation: content-show 150ms ease-out;
   opacity: 1;
-  transform: scale(1) translateY(0);
   pointer-events: auto;
-  animation: contentShow 150ms ease-out;
+  transform: scale(1) translateY(0);
 }
 
 .sigma-ui-menubar-content[data-state="closed"] {
   opacity: 0;
+  pointer-events: none;
   transform: scale(0.96) translateY(-2px);
   transition: transform 100ms ease-in, opacity 100ms ease-in;
-  pointer-events: none;
 }
 
-@keyframes contentShow {
+@keyframes content-show {
   0% {
     opacity: 0;
     transform: scale(0.96) translateY(-2px);
   }
+
   100% {
     opacity: 1;
     transform: scale(1) translateY(0);

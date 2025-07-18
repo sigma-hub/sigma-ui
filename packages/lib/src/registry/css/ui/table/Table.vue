@@ -16,8 +16,8 @@
 <style>
 .sigma-ui-table-wrapper {
   position: relative;
-  width: 100%;
   overflow: auto;
+  width: 100%;
 }
 
 .sigma-ui-table {

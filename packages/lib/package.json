@@ -8,7 +8,9 @@
   "scripts": {
     "ts": "vue-tsc --noEmit --skipLibCheck",
     "ts:registry": "vue-tsc --noEmit --skipLibCheck -p tsconfig.json",
-    "docs:gen": "tsx ./scripts/autogen.ts"
+    "docs:gen": "tsx ./scripts/autogen.ts",
+    "lint:fix": "eslint . --fix",
+    "stylelint:fix": "stylelint \"src/**/*.{css,vue}\" --fix"
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.2",
@@ -44,6 +46,12 @@
     "tsx": "^4.19.2",
     "typescript": "^5.7.3",
     "vite": "^6.1.0",
-    "vue-tsc": "^2.2.0"
+    "vue-tsc": "^2.2.0",
+    "stylelint": "^16.21.1",
+    "stylelint-config-css-modules": "^4.5.1",
+    "stylelint-config-idiomatic-order": "^10.0.0",
+    "stylelint-config-recommended-vue": "^1.6.1",
+    "stylelint-config-standard": "^38.0.0",
+    "stylelint-selector-bem-pattern": "^4.0.1"
   }
 }

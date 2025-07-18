@@ -30,10 +30,10 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
   display: flex;
   align-items: center;
   justify-content: center;
-  aspect-ratio: 1;
   padding: 1.5rem;
-  border-radius: var(--radius);
   border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  aspect-ratio: 1;
   font-size: 2.25rem;
   font-weight: 600;
   user-select: none;

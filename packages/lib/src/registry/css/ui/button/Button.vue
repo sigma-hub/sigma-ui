@@ -39,50 +39,53 @@ const props = withDefaults(defineProps<Props>(), {
 <style>
 .sigma-ui-button {
   display: inline-flex;
+  width: fit-content;
   align-items: center;
   justify-content: center;
-  width: fit-content;
-  white-space: nowrap;
   border-radius: var(--radius);
   font-size: 0.875rem;
   font-weight: 500;
   outline: none;
-  user-select: none;
   transition: background-color 0.1s ease, colors 0.2s;
+  user-select: none;
+  white-space: nowrap;
 }
 
 .sigma-ui-button:focus-visible {
-  outline: none;
   box-shadow:
     0 0 0 2px hsl(var(--background)),
     0 0 0 4px hsl(var(--ring));
+  outline: none;
 }
 
 .sigma-ui-button:disabled {
-  pointer-events: none;
   opacity: 0.5;
+  pointer-events: none;
 }
 
 .sigma-ui-button--default {
   background-color: hsl(var(--primary));
   color: hsl(var(--primary-foreground));
 }
+
 .sigma-ui-button--default:hover {
-  background-color: hsl(var(--primary) / 0.9);
+  background-color: hsl(var(--primary) / 90%);
 }
 
 .sigma-ui-button--destructive {
   background-color: hsl(var(--destructive));
   color: hsl(var(--destructive-foreground));
 }
+
 .sigma-ui-button--destructive:hover {
-  background-color: hsl(var(--destructive) / 0.9);
+  background-color: hsl(var(--destructive) / 90%);
 }
 
 .sigma-ui-button--outline {
   border: 1px solid hsl(var(--input));
   background-color: hsl(var(--background));
 }
+
 .sigma-ui-button--outline:hover {
   background-color: hsl(var(--accent));
   color: hsl(var(--accent-foreground));
@@ -92,8 +95,9 @@ const props = withDefaults(defineProps<Props>(), {
   background-color: hsl(var(--secondary));
   color: hsl(var(--secondary-foreground));
 }
+
 .sigma-ui-button--secondary:hover {
-  background-color: hsl(var(--secondary) / 0.8);
+  background-color: hsl(var(--secondary) / 80%);
 }
 
 .sigma-ui-button--ghost:hover {
@@ -134,8 +138,8 @@ const props = withDefaults(defineProps<Props>(), {
 }
 
 .sigma-ui-button--size-icon {
-  height: 2.5rem;
   width: 2.5rem;
+  height: 2.5rem;
 }
 
 .sigma-ui-button__loader {
@@ -149,6 +153,7 @@ const props = withDefaults(defineProps<Props>(), {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

@@ -29,38 +29,40 @@ const forwarded = useForwardPropsEmits(props, emits);
 <style>
 .sigma-ui-dropdown-menu-sub-content {
   z-index: 50;
-  min-width: 8rem;
   overflow: hidden;
-  border-radius: var(--radius-md);
-  border: 1px solid hsl(var(--border));
-  background-color: hsl(var(--popover));
+  min-width: 8rem;
   padding: 0.25rem;
-  color: hsl(var(--popover-foreground));
-  box-shadow: var(--shadow-md);
-  transform-origin: var(--reka-dropdown-menu-content-transform-origin);
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-md);
   animation: fadeOut 100ms ease-in forwards;
+  background-color: hsl(var(--popover));
+  box-shadow: var(--shadow-md);
+  color: hsl(var(--popover-foreground));
+  transform-origin: var(--reka-dropdown-menu-content-transform-origin);
 }
 
 .sigma-ui-dropdown-menu-sub-content[data-state="open"] {
-  animation: fadeIn 200ms ease-out;
+  animation: fade-in 200ms ease-out;
 }
 
-@keyframes fadeIn {
+@keyframes fade-in {
   from {
     opacity: 0;
     transform: scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
   }
 }
 
-@keyframes fadeOut {
+@keyframes fade-out {
   from {
     opacity: 1;
     transform: scale(1);
   }
+
   to {
     opacity: 0;
     transform: scale(0.95);

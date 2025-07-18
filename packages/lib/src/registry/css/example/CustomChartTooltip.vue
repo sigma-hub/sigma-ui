@@ -38,17 +38,17 @@ defineProps<{
 }
 
 .example-sigma-ui-custom-chart-tooltip__content {
-  padding: 0.75rem;
-  min-width: 180px;
   display: flex;
+  min-width: 180px;
   flex-direction: column;
+  padding: 0.75rem;
   gap: 0.5rem;
 }
 
 .example-sigma-ui-custom-chart-tooltip__item {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 .example-sigma-ui-custom-chart-tooltip__item-label {
@@ -59,12 +59,12 @@ defineProps<{
 .example-sigma-ui-custom-chart-tooltip__color-indicator {
   width: 4px;
   height: 28px;
-  margin-right: 1rem;
   border-radius: 9999px;
+  margin-right: 1rem;
 }
 
 .example-sigma-ui-custom-chart-tooltip__value {
-  font-weight: 600;
   margin-left: 1rem;
+  font-weight: 600;
 }
 </style>

@@ -88,19 +88,19 @@ const handleComplete = (e: string[]) => console.log(e.join(''));
 
 <style>
 .example-sigma-ui-pin-input-form {
-  width: 66%;
-  margin-left: auto;
-  margin-right: auto;
   display: flex;
+  width: 66%;
   flex-direction: column;
+  margin-right: auto;
+  margin-left: auto;
   gap: 1.5rem;
 }
 
 .example-sigma-ui-pin-input-form__input {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
   margin-top: 0.25rem;
+  gap: 0.5rem;
 }
 
 .example-sigma-ui-pin-input-form__button {
@@ -108,9 +108,9 @@ const handleComplete = (e: string[]) => console.log(e.join(''));
 }
 
 .example-sigma-ui-pin-input-form__toast-pre {
-  margin-top: 0.5rem;
-  border-radius: var(--radius);
-  background-color: hsl(var(--muted) / 0.5);
   padding: 1rem;
+  border-radius: var(--radius);
+  margin-top: 0.5rem;
+  background-color: hsl(var(--muted) / 50%);
 }
 </style>

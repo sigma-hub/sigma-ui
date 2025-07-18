@@ -15,9 +15,9 @@ const forwardedProps = useForwardProps(props);
 
 <style>
 .sigma-ui-menubar-separator {
-  margin-inline: -0.25rem;
-  margin-block: 0.25rem;
   height: 1px;
   background-color: hsl(var(--muted));
+  margin-block: 0.25rem;
+  margin-inline: -0.25rem;
 }
 </style>

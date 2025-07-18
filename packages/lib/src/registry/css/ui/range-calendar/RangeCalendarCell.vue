@@ -18,11 +18,11 @@ const forwardedProps = useForwardProps(props);
 <style>
 .sigma-ui-range-calendar-cell {
   position: relative;
-  height: 2.25rem;
   width: 2.25rem;
+  height: 2.25rem;
   padding: 0;
-  text-align: center;
   font-size: 0.875rem;
+  text-align: center;
 }
 
 .sigma-ui-range-calendar-cell:focus-within {
@@ -35,26 +35,26 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-range-calendar-cell:first-child:has([data-selected]) {
-  border-top-left-radius: var(--radius-md);
   border-bottom-left-radius: var(--radius-md);
+  border-top-left-radius: var(--radius-md);
 }
 
 .sigma-ui-range-calendar-cell:last-child:has([data-selected]) {
-  border-top-right-radius: var(--radius-md);
   border-bottom-right-radius: var(--radius-md);
+  border-top-right-radius: var(--radius-md);
 }
 
 .sigma-ui-range-calendar-cell:has([data-selected][data-outside-month]) {
-  background-color: hsl(var(--accent) / 0.5);
+  background-color: hsl(var(--accent) / 50%);
 }
 
 .sigma-ui-range-calendar-cell:has([data-selected][data-selection-end]) {
-  border-top-right-radius: var(--radius-md);
   border-bottom-right-radius: var(--radius-md);
+  border-top-right-radius: var(--radius-md);
 }
 
 .sigma-ui-range-calendar-cell:has([data-selected][data-selection-start]) {
-  border-top-left-radius: var(--radius-md);
   border-bottom-left-radius: var(--radius-md);
+  border-top-left-radius: var(--radius-md);
 }
 </style>

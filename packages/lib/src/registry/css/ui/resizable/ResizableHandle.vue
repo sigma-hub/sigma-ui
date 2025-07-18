@@ -32,28 +32,28 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-resizable-handle::after {
-  content: '';
   position: absolute;
-  inset-block: 0;
   left: 50%;
   width: 4px;
+  content: '';
+  inset-block: 0;
   transform: translateX(-50%);
 }
 
 .sigma-ui-resizable-handle:focus-visible {
-  outline: none;
   box-shadow: 0 0 0 1px hsl(var(--ring)), 0 0 0 2px hsl(var(--background));
+  outline: none;
 }
 
 .sigma-ui-resizable-handle[data-orientation="vertical"] {
-  height: 1px;
   width: 100%;
+  height: 1px;
 }
 
 .sigma-ui-resizable-handle[data-orientation="vertical"]::after {
   left: 0;
-  height: 4px;
   width: 100%;
+  height: 4px;
   transform: translateY(-50%);
 }
 
@@ -64,17 +64,17 @@ const forwarded = useForwardPropsEmits(props, emits);
 .sigma-ui-resizable-handle__grip {
   z-index: 10;
   display: flex;
-  height: 1rem;
   width: 0.75rem;
+  height: 1rem;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radius-sm);
   border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-sm);
   background-color: hsl(var(--border));
 }
 
 .sigma-ui-resizable-handle__grip-icon {
-  height: 0.625rem;
   width: 0.625rem;
+  height: 0.625rem;
 }
 </style>

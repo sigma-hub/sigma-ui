@@ -40,8 +40,8 @@ import { Separator } from '@ui/registry/css/ui/separator';
 }
 
 .example-sigma-ui-separator__description {
-  font-size: 0.875rem;
   color: hsl(var(--muted-foreground));
+  font-size: 0.875rem;
 }
 
 .example-sigma-ui-separator__divider {
@@ -52,7 +52,7 @@ import { Separator } from '@ui/registry/css/ui/separator';
   display: flex;
   height: 1.25rem;
   align-items: center;
-  gap: 1rem;
   font-size: 0.875rem;
+  gap: 1rem;
 }
 </style>

@@ -42,13 +42,13 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
   padding-left: 0.25rem;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .example-sigma-ui-carousel-spacing__slide {
     flex-basis: 50%;
   }
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .example-sigma-ui-carousel-spacing__slide {
     flex-basis: 33%;
   }
@@ -63,11 +63,11 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
-  border-radius: var(--radius);
   border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
   font-size: 2.25rem;
-  line-height: 1.1;
   font-weight: 600;
+  line-height: 1.1;
   user-select: none;
 }
 </style>

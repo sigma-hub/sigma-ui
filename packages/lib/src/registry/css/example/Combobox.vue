@@ -54,9 +54,9 @@ const frameworks = [
 <style>
 .example-sigma-ui-combobox {
   position: relative;
+  display: flex;
   width: 100%;
   max-width: 24rem;
-  display: flex;
   align-items: center;
 }
 
@@ -66,9 +66,9 @@ const frameworks = [
 
 .example-sigma-ui-combobox__icon {
   position: absolute;
-  left: 0;
   top: 0;
   bottom: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,15 +82,15 @@ const frameworks = [
 }
 
 .example-sigma-ui-combobox__check-icon {
-  margin-left: auto;
   width: 1rem;
   height: 1rem;
+  margin-left: auto;
 }
 
 .example-sigma-ui-combobox__trigger {
   position: absolute;
-  right: 0;
   top: 0;
+  right: 0;
   bottom: 0;
   display: flex;
   align-items: center;

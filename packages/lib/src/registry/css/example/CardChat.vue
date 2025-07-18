@@ -238,16 +238,16 @@ const filteredUsers = computed(() => users.value.filter(user => user.name.toLowe
 }
 
 .example-sigma-ui-card-chat__user-email {
-  font-size: 0.875rem;
   color: hsl(var(--muted-foreground));
+  font-size: 0.875rem;
 }
 
 .example-sigma-ui-card-chat__new-message {
-  border-radius: var(--radius-full);
-  padding: 0.625rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0.625rem;
+  border-radius: var(--radius-full);
 }
 
 .example-sigma-ui-card-chat__new-message-icon {
@@ -262,13 +262,13 @@ const filteredUsers = computed(() => users.value.filter(user => user.name.toLowe
 }
 
 .example-sigma-ui-card-chat__message {
-  max-width: 75%;
   display: flex;
+  max-width: 75%;
   flex-direction: column;
-  gap: 0.5rem;
-  border-radius: var(--radius);
   padding: 0.75rem;
+  border-radius: var(--radius);
   font-size: 0.875rem;
+  gap: 0.5rem;
 }
 
 .example-sigma-ui-card-chat__message--agent {
@@ -293,10 +293,10 @@ const filteredUsers = computed(() => users.value.filter(user => user.name.toLowe
 }
 
 .example-sigma-ui-card-chat__send {
-  padding: 0.625rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0.625rem;
 }
 
 .example-sigma-ui-card-chat__send-icon {
@@ -305,20 +305,20 @@ const filteredUsers = computed(() => users.value.filter(user => user.name.toLowe
 }
 
 .example-sigma-ui-card-chat__dialog {
-  gap: 0;
   padding: 0;
+  gap: 0;
   outline: none;
 }
 
 .example-sigma-ui-card-chat__dialog-header {
-  padding: 1.25rem 1rem 1rem 1rem;
+  padding: 1.25rem 1rem 1rem;
 }
 
 .example-sigma-ui-card-chat__command {
   overflow: hidden;
+  border-top: 1px solid hsl(var(--border));
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  border-top: 1px solid hsl(var(--border));
 }
 
 .example-sigma-ui-card-chat__command-group {
@@ -342,14 +342,14 @@ const filteredUsers = computed(() => users.value.filter(user => user.name.toLowe
 }
 
 .example-sigma-ui-card-chat__command-user-email {
-  font-size: 0.875rem;
   color: hsl(var(--muted-foreground));
+  font-size: 0.875rem;
 }
 
 .example-sigma-ui-card-chat__command-check {
-  margin-left: auto;
   width: 1.25rem;
   height: 1.25rem;
+  margin-left: auto;
   color: hsl(var(--primary));
 }
 
@@ -357,14 +357,14 @@ const filteredUsers = computed(() => users.value.filter(user => user.name.toLowe
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid hsl(var(--border));
   padding: 1rem;
+  border-top: 1px solid hsl(var(--border));
 }
 
 .example-sigma-ui-card-chat__selected-users {
   display: flex;
-  margin-left: -0.5rem;
   overflow: hidden;
+  margin-left: -0.5rem;
 }
 
 .example-sigma-ui-card-chat__selected-avatar {
@@ -373,7 +373,7 @@ const filteredUsers = computed(() => users.value.filter(user => user.name.toLowe
 }
 
 .example-sigma-ui-card-chat__empty-selection {
-  font-size: 0.875rem;
   color: hsl(var(--muted-foreground));
+  font-size: 0.875rem;
 }
 </style>

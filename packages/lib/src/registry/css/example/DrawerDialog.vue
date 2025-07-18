@@ -105,8 +105,8 @@ const isOpen = ref(false);
 .example-sigma-ui-drawer-dialog__form {
   display: grid;
   align-items: start;
-  gap: 1rem;
   padding: 0 1rem;
+  gap: 1rem;
 }
 
 .example-sigma-ui-drawer-dialog__field {
@@ -118,7 +118,7 @@ const isOpen = ref(false);
   max-width: 425px;
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .example-sigma-ui-drawer-dialog__content {
     max-width: 425px;
   }

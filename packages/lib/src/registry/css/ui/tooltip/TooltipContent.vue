@@ -30,99 +30,102 @@ const forwarded = useForwardPropsEmits(props, emits);
 .sigma-ui-tooltip-content {
   z-index: 50;
   overflow: hidden;
-  border-radius: var(--radius-md);
-  border: 1px solid hsl(var(--border));
-  background-color: hsl(var(--popover));
-  color: hsl(var(--popover-foreground));
   padding: 0.375rem 0.75rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-md);
+  animation: tooltip-in 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  background-color: hsl(var(--popover));
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  color: hsl(var(--popover-foreground));
   font-size: 0.875rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.sigma-ui-tooltip-content {
-  animation: tooltipIn 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .sigma-ui-tooltip-content[data-side="bottom"] {
-  animation: tooltipInBottom 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  animation: tooltip-in-bottom 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .sigma-ui-tooltip-content[data-side="top"] {
-  animation: tooltipInTop 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  animation: tooltip-in-top 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .sigma-ui-tooltip-content[data-side="left"] {
-  animation: tooltipInLeft 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  animation: tooltip-in-left 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .sigma-ui-tooltip-content[data-side="right"] {
-  animation: tooltipInRight 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  animation: tooltip-in-right 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .sigma-ui-tooltip-content[data-state="closed"] {
-  animation: tooltipOut 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  animation: tooltip-out 250ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes tooltipIn {
+@keyframes tooltip-in {
   from {
     opacity: 0;
     transform: scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
   }
 }
 
-@keyframes tooltipOut {
+@keyframes tooltip-out {
   from {
     opacity: 1;
     transform: scale(1);
   }
+
   to {
     opacity: 0;
     transform: scale(0.95);
   }
 }
 
-@keyframes tooltipInBottom {
+@keyframes tooltip-in-bottom {
   from {
     opacity: 0;
     transform: translateY(-0.5rem);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-@keyframes tooltipInTop {
+@keyframes tooltip-in-top {
   from {
     opacity: 0;
     transform: translateY(0.5rem);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-@keyframes tooltipInLeft {
+@keyframes tooltip-in-left {
   from {
     opacity: 0;
     transform: translateX(0.5rem);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
   }
 }
 
-@keyframes tooltipInRight {
+@keyframes tooltip-in-right {
   from {
     opacity: 0;
     transform: translateX(-0.5rem);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);

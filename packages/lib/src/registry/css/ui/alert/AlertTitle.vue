@@ -17,7 +17,7 @@ const attrs = useAttrs();
 .sigma-ui-alert-title {
   margin-bottom: 0.25rem;
   font-weight: 500;
-  line-height: 1;
   letter-spacing: -0.025em;
+  line-height: 1;
 }
 </style>

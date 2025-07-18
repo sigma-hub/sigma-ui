@@ -39,90 +39,95 @@ const forwarded = useForwardPropsEmits(props, emits);
 .sigma-ui-popover-content {
   z-index: 50;
   width: 18rem;
-  border-radius: var(--radius);
-  border: 1px solid hsl(var(--border));
-  background-color: hsl(var(--popover));
-  color: hsl(var(--popover-foreground));
   padding: 1rem;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  background-color: hsl(var(--popover));
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%);
+  color: hsl(var(--popover-foreground));
   outline: none;
   transform-origin: var(--reka-popover-content-transform-origin);
 }
 
 .sigma-ui-popover-content[data-state="open"][data-side="bottom"] {
-  animation: slideFromTop 150ms ease-out;
+  animation: slide-from-top 150ms ease-out;
 }
 
 .sigma-ui-popover-content[data-state="open"][data-side="top"] {
-  animation: slideFromBottom 150ms ease-out;
+  animation: slide-from-bottom 150ms ease-out;
 }
 
 .sigma-ui-popover-content[data-state="open"][data-side="left"] {
-  animation: slideFromRight 150ms ease-out;
+  animation: slide-from-right 150ms ease-out;
 }
 
 .sigma-ui-popover-content[data-state="open"][data-side="right"] {
-  animation: slideFromLeft 150ms ease-out;
+  animation: slide-from-left 150ms ease-out;
 }
 
 .sigma-ui-popover-content[data-state="closed"] {
-  animation: popoverOut 150ms ease-in;
+  animation: popover-out 150ms ease-in;
 }
 
-@keyframes popoverOut {
+@keyframes popover-out {
   from {
+    filter: blur(0);
     opacity: 1;
     transform: scaleY(1);
-    filter: blur(0px);
   }
+
   to {
+    filter: blur(4px);
     opacity: 0;
     transform: scaleY(0.98);
-    filter: blur(4px);
   }
 }
 
-@keyframes slideFromTop {
+@keyframes slide-from-top {
   from {
+    filter: blur(4px);
     transform: translateY(-1rem) scaleY(0.98);
-    filter: blur(4px);
   }
+
   to {
+    filter: blur(0);
     transform: translateY(0) scaleY(1);
-    filter: blur(0px);
   }
 }
 
-@keyframes slideFromBottom {
+@keyframes slide-from-bottom {
   from {
+    filter: blur(4px);
     transform: translateY(1rem) scaleY(0.98);
-    filter: blur(4px);
   }
+
   to {
+    filter: blur(0);
     transform: translateY(0) scaleY(1);
-    filter: blur(0px);
   }
 }
 
-@keyframes slideFromLeft {
+@keyframes slide-from-left {
   from {
+    filter: blur(4px);
     transform: translateX(-1rem) scaleY(0.98);
-    filter: blur(4px);
   }
+
   to {
+    filter: blur(0);
     transform: translateX(0) scaleY(1);
-    filter: blur(0px);
   }
 }
 
-@keyframes slideFromRight {
+@keyframes slide-from-right {
   from {
-    transform: translateX(1rem) scaleY(0.98);
     filter: blur(4px);
+    transform: translateX(1rem) scaleY(0.98);
   }
+
   to {
+    filter: blur(0);
     transform: translateX(0) scaleY(1);
-    filter: blur(0px);
   }
 }
 </style>

@@ -22,21 +22,21 @@ const forwardedProps = useForwardProps(props);
 <style>
 .sigma-ui-select-trigger {
   display: flex;
-  height: 2.5rem;
   width: 100%;
+  height: 2.5rem;
   align-items: center;
   justify-content: space-between;
-  border-radius: var(--radius-md);
-  border: 1px solid hsl(var(--input));
-  background-color: hsl(var(--background));
   padding: 0.5rem 0.75rem;
+  border: 1px solid hsl(var(--input));
+  border-radius: var(--radius-md);
+  background-color: hsl(var(--background));
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
 .sigma-ui-select-trigger:focus {
-  outline: none;
   box-shadow: 0 0 0 2px hsl(var(--ring)), 0 0 0 4px hsl(var(--background));
+  outline: none;
 }
 
 .sigma-ui-select-trigger:disabled {
@@ -46,9 +46,9 @@ const forwardedProps = useForwardProps(props);
 
 .sigma-ui-select-trigger > span {
   display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
   overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
 }
 
 .sigma-ui-select-trigger__icon {

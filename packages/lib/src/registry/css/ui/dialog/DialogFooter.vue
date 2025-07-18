@@ -16,7 +16,7 @@
   flex-direction: column-reverse;
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .sigma-ui-dialog-footer {
     flex-direction: row;
     justify-content: flex-end;

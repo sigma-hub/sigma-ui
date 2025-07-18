@@ -17,7 +17,7 @@ const forwardedProps = useForwardProps(props);
 
 <style>
 .sigma-ui-dialog-description {
-  font-size: 0.875rem;
   color: hsl(var(--muted-foreground));
+  font-size: 0.875rem;
 }
 </style>

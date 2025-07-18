@@ -22,9 +22,9 @@ const attrs = useAttrs();
 .sigma-ui-alert {
   position: relative;
   width: 100%;
-  border-radius: var(--radius);
-  border-width: 1px;
   padding: 1rem;
+  border-width: 1px;
+  border-radius: var(--radius);
 }
 
 .sigma-ui-alert > svg ~ * {
@@ -37,8 +37,8 @@ const attrs = useAttrs();
 
 .sigma-ui-alert > svg {
   position: absolute;
-  left: 1rem;
   top: 1rem;
+  left: 1rem;
   color: hsl(var(--foreground));
 }
 
@@ -48,13 +48,13 @@ const attrs = useAttrs();
 }
 
 .sigma-ui-alert-destructive {
-  border-color: hsl(var(--destructive) / 0.5);
+  border-color: hsl(var(--destructive) / 50%);
   color: hsl(var(--destructive));
 }
 
 .dark .sigma-ui-alert-destructive {
   border-color: hsl(var(--destructive));
-  background-color: hsl(var(--destructive) / 0.2);
+  background-color: hsl(var(--destructive) / 20%);
   color: hsl(var(--red-500));
 }
 

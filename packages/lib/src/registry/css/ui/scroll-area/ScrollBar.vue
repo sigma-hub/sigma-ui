@@ -19,24 +19,24 @@ const props = withDefaults(defineProps<ScrollAreaScrollbarProps>(), {
 .sigma-ui-scroll-area-scrollbar {
   display: flex;
   touch-action: none;
-  user-select: none;
+  transition-duration: 150ms;
   transition-property: color, background-color, border-color;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  user-select: none;
 }
 
 .sigma-ui-scroll-area-scrollbar[data-orientation="vertical"] {
-  height: 100%;
   width: 0.625rem;
-  border-left: 1px solid transparent;
+  height: 100%;
   padding: 1px;
+  border-left: 1px solid transparent;
 }
 
 .sigma-ui-scroll-area-scrollbar[data-orientation="horizontal"] {
   height: 0.625rem;
   flex-direction: column;
-  border-top: 1px solid transparent;
   padding: 1px;
+  border-top: 1px solid transparent;
 }
 
 .sigma-ui-scroll-area-scrollbar__thumb {

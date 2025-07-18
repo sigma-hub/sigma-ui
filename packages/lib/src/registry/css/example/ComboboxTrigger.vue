@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { cn } from '@ui/utils';
 import { Button } from '@ui/registry/css/ui/button';
 import {
   Combobox,
@@ -80,8 +79,8 @@ const value = ref<typeof frameworks[0]>();
 
 <style>
 .example-sigma-ui-combobox-trigger__trigger {
-  width: 200px;
   display: flex;
+  width: 200px;
   justify-content: space-between;
 }
 
@@ -94,10 +93,10 @@ const value = ref<typeof frameworks[0]>();
 }
 
 .example-sigma-ui-combobox-trigger__chevron {
-  margin-left: 0.5rem;
   width: 1rem;
   height: 1rem;
   flex-shrink: 0;
+  margin-left: 0.5rem;
   opacity: 0.5;
 }
 
@@ -108,9 +107,9 @@ const value = ref<typeof frameworks[0]>();
 }
 
 .example-sigma-ui-combobox-trigger__check {
-  margin-left: auto;
   width: 1rem;
   height: 1rem;
+  margin-left: auto;
   opacity: 0;
 }
 
@@ -123,23 +122,23 @@ const value = ref<typeof frameworks[0]>();
   padding-left: 2.25rem;
   border: none;
   border-radius: 0;
-  outline: none;
-  box-shadow: 1px 1px 0 0 hsl(var(--border));
   background-color: transparent;
+  box-shadow: 1px 1px 0 0 hsl(var(--border));
   color: hsl(var(--muted-foreground));
+  outline: none;
 }
 
 .sigma-ui-combobox-input:focus-visible {
-  outline: none;
-  box-shadow: none;
   border-bottom: 1px solid hsl(var(--border));
+  box-shadow: none;
+  outline: none;
 }
 
 .example-sigma-ui-combobox-trigger__search-icon {
   position: absolute;
-  left: 0;
   top: 0;
   bottom: 0;
+  left: 0;
   display: flex;
   align-items: center;
   padding: 0 0.75rem;

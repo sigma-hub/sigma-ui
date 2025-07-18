@@ -69,7 +69,7 @@ import { Label } from '@ui/registry/css/ui/label';
   max-width: 425px;
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .example-sigma-ui-dialog__content {
     max-width: 425px;
   }
@@ -77,15 +77,15 @@ import { Label } from '@ui/registry/css/ui/label';
 
 .example-sigma-ui-dialog__form {
   display: grid;
-  gap: 1rem;
   padding: 1rem 0;
+  gap: 1rem;
 }
 
 .example-sigma-ui-dialog__form-row {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   align-items: center;
   gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .example-sigma-ui-dialog__label {

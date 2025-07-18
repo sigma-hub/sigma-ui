@@ -14,7 +14,7 @@
 <style>
 .sigma-ui-table-caption {
   margin-top: 1rem;
-  font-size: 0.875rem;
   color: hsl(var(--muted-foreground));
+  font-size: 0.875rem;
 }
 </style>

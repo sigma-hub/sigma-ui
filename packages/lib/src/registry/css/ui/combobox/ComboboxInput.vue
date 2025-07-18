@@ -26,22 +26,22 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 <style>
 .sigma-ui-combobox-input {
   display: flex;
-  height: 2.25rem;
   width: 100%;
-  border-radius: 0.375rem;
-  border: 1px solid hsl(var(--input));
-  background-color: transparent;
+  height: 2.25rem;
   padding: 0.25rem 0.75rem;
+  border: 1px solid hsl(var(--input));
+  border-radius: 0.375rem;
+  background-color: transparent;
   font-size: 0.875rem;
   line-height: 1.25rem;
+  transition-duration: 150ms;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
 }
 
 .sigma-ui-combobox-input:focus-visible {
-  outline: none;
   box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--ring));
+  outline: none;
 }
 
 .sigma-ui-combobox-input:disabled {

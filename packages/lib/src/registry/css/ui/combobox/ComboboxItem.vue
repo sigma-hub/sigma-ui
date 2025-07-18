@@ -21,16 +21,16 @@ const forwarded = useForwardPropsEmits(props, emits);
 .sigma-ui-combobox-item {
   position: relative;
   display: flex;
-  cursor: default;
-  gap: 0.5rem;
-  user-select: none;
-  justify-content: space-between;
   align-items: center;
-  border-radius: 0.125rem;
+  justify-content: space-between;
   padding: 0.375rem 0.5rem;
+  border-radius: 0.125rem;
+  cursor: default;
   font-size: 0.875rem;
+  gap: 0.5rem;
   line-height: 1.25rem;
   outline: none;
+  user-select: none;
 }
 
 .sigma-ui-combobox-item[data-highlighted] {
@@ -39,8 +39,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-combobox-item[data-disabled] {
-  pointer-events: none;
   opacity: 0.5;
+  pointer-events: none;
 }
 
 .sigma-ui-combobox-item svg {

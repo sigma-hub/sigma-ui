@@ -34,15 +34,15 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 }
 
 .example-sigma-ui-carousel-orientation__content {
-  margin-top: -0.25rem;
   height: 200px;
+  margin-top: -0.25rem;
 }
 
 .example-sigma-ui-carousel-orientation__slide {
   padding: 0.25rem;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .example-sigma-ui-carousel-orientation__slide {
     flex-basis: 50%;
   }
@@ -53,11 +53,11 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
-  border-radius: var(--radius);
   border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
   font-size: 2.25rem;
-  line-height: 1.1;
   font-weight: 600;
+  line-height: 1.1;
   user-select: none;
 }
 </style>

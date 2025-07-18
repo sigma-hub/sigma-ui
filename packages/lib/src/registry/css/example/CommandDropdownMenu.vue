@@ -119,12 +119,12 @@ const open = ref(false);
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  border-radius: var(--radius);
-  border: 1px solid hsl(var(--border));
   padding: 0.75rem 1rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .example-sigma-ui-command-dropdown {
     flex-direction: row;
     align-items: center;
@@ -138,12 +138,12 @@ const open = ref(false);
 }
 
 .example-sigma-ui-command-dropdown__label {
-  margin-right: 0.5rem;
-  border-radius: var(--radius-lg);
-  background-color: hsl(var(--primary));
   padding: 0.25rem 0.5rem;
-  font-size: 0.75rem;
+  border-radius: var(--radius-lg);
+  margin-right: 0.5rem;
+  background-color: hsl(var(--primary));
   color: hsl(var(--primary-foreground));
+  font-size: 0.75rem;
 }
 
 .example-sigma-ui-command-dropdown__description {
@@ -155,9 +155,9 @@ const open = ref(false);
 }
 
 .example-sigma-ui-command-dropdown__icon {
-  margin-right: 0.5rem;
   width: 1rem;
   height: 1rem;
+  margin-right: 0.5rem;
 }
 
 .example-sigma-ui-command-dropdown__sub-content {

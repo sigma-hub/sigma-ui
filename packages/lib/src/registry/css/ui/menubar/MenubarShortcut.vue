@@ -14,8 +14,8 @@
 <style>
 .sigma-ui-menubar-shortcut {
   margin-left: auto;
+  color: hsl(var(--muted-foreground));
   font-size: 0.75rem;
   letter-spacing: 0.05em;
-  color: hsl(var(--muted-foreground));
 }
 </style>

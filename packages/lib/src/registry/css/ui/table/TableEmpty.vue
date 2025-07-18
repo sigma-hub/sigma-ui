@@ -26,10 +26,10 @@ const props = withDefaults(defineProps<{
 <style>
 .sigma-ui-table-empty {
   padding: 1rem;
-  white-space: nowrap;
-  vertical-align: middle;
-  font-size: 0.875rem;
   color: hsl(var(--foreground));
+  font-size: 0.875rem;
+  vertical-align: middle;
+  white-space: nowrap;
 }
 
 .sigma-ui-table-empty__content {

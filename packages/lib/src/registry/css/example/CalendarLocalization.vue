@@ -144,9 +144,9 @@ formatter.setLocale(locale.value);
 
 <style>
 .example-sigma-ui-calendar-localization {
-  border-radius: var(--radius-md);
-  border: 1px solid hsl(var(--border));
   padding: 0.75rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-md);
 }
 
 .example-sigma-ui-calendar-localization__heading {
@@ -173,8 +173,8 @@ formatter.setLocale(locale.value);
 .example-sigma-ui-calendar-localization__grid-container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   padding-top: 1rem;
+  gap: 1rem;
 }
 
 .example-sigma-ui-calendar-localization__grid {
@@ -182,11 +182,11 @@ formatter.setLocale(locale.value);
 }
 
 .example-sigma-ui-calendar-localization__week-row {
-  margin-top: 0.5rem;
   width: 100%;
+  margin-top: 0.5rem;
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .example-sigma-ui-calendar-localization__grid-container {
     flex-direction: row;
     gap: 1rem;

@@ -22,16 +22,16 @@ const forwardedProps = useForwardProps(props);
 
 <style>
 .sigma-ui-range-calendar-next {
-  height: 1.75rem;
   width: 1.75rem;
-  background-color: transparent;
+  height: 1.75rem;
   padding: 0;
-  opacity: 0.5;
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius-md);
+  background-color: transparent;
+  opacity: 0.5;
+  transition-duration: 150ms;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
 }
 
 .sigma-ui-range-calendar-next:hover {
@@ -39,7 +39,7 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-range-calendar-next__icon {
-  height: 1rem;
   width: 1rem;
+  height: 1rem;
 }
 </style>

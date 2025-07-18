@@ -46,9 +46,9 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 <style>
 .sigma-ui-sheet-overlay {
   position: fixed;
-  inset: 0;
   z-index: 50;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgb(0 0 0 / 80%);
+  inset: 0;
 }
 
 .sigma-ui-sheet-overlay[data-state="open"] {
@@ -64,87 +64,87 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
   z-index: 50;
   padding: 1.5rem;
   background-color: hsl(var(--background));
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
   transition: all 0.3s ease-in-out;
 }
 
 .sigma-ui-sheet-content__base[data-state="open"] {
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   animation-duration: 500ms;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .sigma-ui-sheet-content__base[data-state="closed"] {
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   animation-duration: 300ms;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .sigma-ui-sheet-content--top {
-  inset-inline: 0;
   top: 0;
   border-bottom: 1px solid hsl(var(--border));
+  inset-inline: 0;
 }
 
 .sigma-ui-sheet-content--top[data-state="closed"] {
-  animation-name: slideOutToTop;
+  animation-name: slide-out-to-top;
 }
 
 .sigma-ui-sheet-content--top[data-state="open"] {
-  animation-name: slideInFromTop;
+  animation-name: slide-in-from-top;
 }
 
 .sigma-ui-sheet-content--bottom {
-  inset-inline: 0;
   bottom: 0;
   border-top: 1px solid hsl(var(--border));
+  inset-inline: 0;
 }
 
 .sigma-ui-sheet-content--bottom[data-state="closed"] {
-  animation-name: slideOutToBottom;
+  animation-name: slide-out-to-bottom;
 }
 
 .sigma-ui-sheet-content--bottom[data-state="open"] {
-  animation-name: slideInFromBottom;
+  animation-name: slide-in-from-bottom;
 }
 
 .sigma-ui-sheet-content--left {
-  inset-block: 0;
   left: 0;
-  height: 100%;
   width: 75%;
+  height: 100%;
   border-right: 1px solid hsl(var(--border));
+  inset-block: 0;
 }
 
 .sigma-ui-sheet-content--left[data-state="closed"] {
-  animation-name: slideOutToLeft;
+  animation-name: slide-out-to-left;
 }
 
 .sigma-ui-sheet-content--left[data-state="open"] {
-  animation-name: slideInFromLeft;
+  animation-name: slide-in-from-left;
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .sigma-ui-sheet-content--left {
     max-width: 24rem;
   }
 }
 
 .sigma-ui-sheet-content--right {
-  inset-block: 0;
   right: 0;
-  height: 100%;
   width: 75%;
+  height: 100%;
   border-left: 1px solid hsl(var(--border));
+  inset-block: 0;
 }
 
 .sigma-ui-sheet-content--right[data-state="closed"] {
-  animation-name: slideOutToRight;
+  animation-name: slide-out-to-right;
 }
 
 .sigma-ui-sheet-content--right[data-state="open"] {
-  animation-name: slideInFromRight;
+  animation-name: slide-in-from-right;
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .sigma-ui-sheet-content--right {
     max-width: 24rem;
   }
@@ -152,8 +152,8 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 
 .sigma-ui-sheet-close {
   position: absolute;
-  right: 1rem;
   top: 1rem;
+  right: 1rem;
   border-radius: var(--radius-sm);
   opacity: 0.7;
   transition: opacity 0.2s;
@@ -164,8 +164,8 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 }
 
 .sigma-ui-sheet-close:focus {
-  outline: none;
   box-shadow: 0 0 0 2px hsl(var(--ring)), 0 0 0 4px hsl(var(--background));
+  outline: none;
 }
 
 .sigma-ui-sheet-close:disabled {
@@ -182,91 +182,101 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
   color: hsl(var(--muted-foreground));
 }
 
-@keyframes overlayShow {
+@keyframes overlay-show {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
 
-@keyframes overlayHide {
+@keyframes overlay-hide {
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
 }
 
-@keyframes slideInFromTop {
+@keyframes slide-in-from-top {
   from {
     transform: translateY(-100%);
   }
+
   to {
     transform: translateY(0);
   }
 }
 
-@keyframes slideOutToTop {
+@keyframes slide-out-to-top {
   from {
     transform: translateY(0);
   }
+
   to {
     transform: translateY(-100%);
   }
 }
 
-@keyframes slideInFromBottom {
+@keyframes slide-in-from-bottom {
   from {
     transform: translateY(100%);
   }
+
   to {
     transform: translateY(0);
   }
 }
 
-@keyframes slideOutToBottom {
+@keyframes slide-out-to-bottom {
   from {
     transform: translateY(0);
   }
+
   to {
     transform: translateY(100%);
   }
 }
 
-@keyframes slideInFromLeft {
+@keyframes slide-in-from-left {
   from {
     transform: translateX(-100%);
   }
+
   to {
     transform: translateX(0);
   }
 }
 
-@keyframes slideOutToLeft {
+@keyframes slide-out-to-left {
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(-100%);
   }
 }
 
-@keyframes slideInFromRight {
+@keyframes slide-in-from-right {
   from {
     transform: translateX(100%);
   }
+
   to {
     transform: translateX(0);
   }
 }
 
-@keyframes slideOutToRight {
+@keyframes slide-out-to-right {
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(100%);
   }

@@ -93,8 +93,8 @@ const onSubmit = handleSubmit((values) => {
 
 <style>
 .example-sigma-ui-number-field-form {
-  width: 66%;
   display: flex;
+  width: 66%;
   flex-direction: column;
   gap: 1.5rem;
 }
@@ -108,9 +108,9 @@ const onSubmit = handleSubmit((values) => {
 }
 
 .example-sigma-ui-number-field-form__toast-pre {
-  margin-top: 0.5rem;
-  border-radius: var(--radius);
-  background-color: hsl(var(--muted) / 0.5);
   padding: 1rem;
+  border-radius: var(--radius);
+  margin-top: 0.5rem;
+  background-color: hsl(var(--muted) / 50%);
 }
 </style>

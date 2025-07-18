@@ -18,8 +18,8 @@ const props = defineProps<ComboboxEmptyProps>();
 .sigma-ui-combobox-empty {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-  text-align: center;
   font-size: 0.875rem;
   line-height: 1.25rem;
+  text-align: center;
 }
 </style>

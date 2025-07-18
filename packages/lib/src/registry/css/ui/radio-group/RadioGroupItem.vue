@@ -27,13 +27,13 @@ const forwardedProps = useForwardProps(props);
 
 <style>
 .sigma-ui-radio-group-item {
-  aspect-ratio: 1;
-  height: 1rem;
   width: 1rem;
-  border-radius: var(--radius-full);
+  height: 1rem;
   border: 1px solid hsl(var(--primary));
-  color: hsl(var(--primary));
+  border-radius: var(--radius-full);
+  aspect-ratio: 1;
   background-color: transparent;
+  color: hsl(var(--primary));
   transition: all 150ms ease-out;
 }
 
@@ -58,43 +58,45 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-radio-group-item__icon {
-  height: 0.625rem;
   width: 0.625rem;
-  fill: currentColor;
-  color: currentColor;
+  height: 0.625rem;
+  color: currentcolor;
+  fill: currentcolor;
 }
 
 .sigma-ui-radio-group-item[data-state="checked"] .sigma-ui-radio-group-item__icon {
-  animation: radioCheck 150ms ease-out;
+  animation: radio-check 150ms ease-out;
 }
 
 .sigma-ui-radio-group-item[data-state="unchecked"] .sigma-ui-radio-group-item__icon {
-  animation: radioUncheck 150ms ease-in;
+  animation: radio-uncheck 150ms ease-in;
 }
 
-@keyframes radioCheck {
+@keyframes radio-check {
   from {
+    filter: blur(4px);
     opacity: 0;
     transform: scale(0.8);
-    filter: blur(4px);
   }
+
   to {
+    filter: blur(0);
     opacity: 1;
     transform: scale(1);
-    filter: blur(0);
   }
 }
 
-@keyframes radioUncheck {
+@keyframes radio-uncheck {
   from {
+    filter: blur(0);
     opacity: 1;
     transform: scale(1);
-    filter: blur(0);
   }
+
   to {
+    filter: blur(4px);
     opacity: 0;
     transform: scale(0.8);
-    filter: blur(4px);
   }
 }
 </style>

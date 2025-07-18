@@ -18,47 +18,49 @@ const forwardedProps = useForwardProps(props);
 <style>
 .sigma-ui-navigation-menu-indicator {
   position: relative;
-  top: 100%;
   z-index: 1;
+  top: 100%;
   display: flex;
+  overflow: hidden;
   height: 0.375rem;
   align-items: flex-end;
   justify-content: center;
-  overflow: hidden;
 }
 
 .sigma-ui-navigation-menu-indicator[data-state="visible"] {
-  animation: navigationMenuIndicatorIn 0.2s ease;
+  animation: navigation-menu-indicator-in 0.2s ease;
 }
 
 .sigma-ui-navigation-menu-indicator[data-state="hidden"] {
-  animation: navigationMenuIndicatorOut 0.2s ease;
+  animation: navigation-menu-indicator-out 0.2s ease;
 }
 
 .sigma-ui-navigation-menu-indicator__pointer {
   position: relative;
   top: 60%;
-  height: 0.5rem;
   width: 0.5rem;
-  transform: rotate(45deg);
-  border-top-left-radius: 0.125rem;
+  height: 0.5rem;
   background-color: hsl(var(--border));
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  border-top-left-radius: 0.125rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%);
+  transform: rotate(45deg);
 }
 
-@keyframes navigationMenuIndicatorIn {
+@keyframes navigation-menu-indicator-in {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
 
-@keyframes navigationMenuIndicatorOut {
+@keyframes navigation-menu-indicator-out {
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }

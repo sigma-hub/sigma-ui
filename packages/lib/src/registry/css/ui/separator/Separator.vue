@@ -21,9 +21,9 @@ const props = defineProps<
 
 <style>
 .sigma-ui-separator {
+  position: relative;
   flex-shrink: 0;
   background-color: hsl(var(--border));
-  position: relative;
 }
 
 .sigma-ui-separator[data-orientation="vertical"] {
@@ -32,21 +32,21 @@ const props = defineProps<
 }
 
 .sigma-ui-separator[data-orientation="horizontal"] {
-  height: 1px;
   width: 100%;
+  height: 1px;
 }
 
 .sigma-ui-separator__label {
-  font-size: 0.75rem;
-  color: hsl(var(--muted-foreground));
-  background-color: hsl(var(--background));
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  background-color: hsl(var(--background));
+  color: hsl(var(--muted-foreground));
+  font-size: 0.75rem;
+  transform: translate(-50%, -50%);
 }
 
 .sigma-ui-separator[data-orientation="vertical"] .sigma-ui-separator__label {

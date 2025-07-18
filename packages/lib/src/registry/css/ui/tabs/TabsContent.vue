@@ -19,7 +19,7 @@ const props = defineProps<TabsContentProps>();
 }
 
 .sigma-ui-tabs-content:focus-visible {
-  outline: none;
   box-shadow: 0 0 0 2px hsl(var(--ring)), 0 0 0 4px hsl(var(--background));
+  outline: none;
 }
 </style>

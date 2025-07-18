@@ -155,21 +155,21 @@ const components: { title: string; href: string; description: string }[] = [
 <style>
 .example-sigma-ui-nav-menu__grid {
   display: grid;
-  gap: 0.75rem;
   padding: 1.5rem;
+  gap: 0.75rem;
 }
 
 .example-sigma-ui-nav-menu__grid--getting-started {
   width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .example-sigma-ui-nav-menu__grid--getting-started {
     width: 400px;
   }
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .example-sigma-ui-nav-menu__grid--getting-started {
     width: 500px;
     grid-template-columns: minmax(0, 0.75fr) minmax(0, 1fr);
@@ -178,18 +178,18 @@ const components: { title: string; href: string; description: string }[] = [
 
 .example-sigma-ui-nav-menu__grid--components {
   width: 400px;
-  gap: 0.75rem;
   padding: 1rem;
+  gap: 0.75rem;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .example-sigma-ui-nav-menu__grid--components {
     width: 500px;
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .example-sigma-ui-nav-menu__grid--components {
     width: 600px;
   }
@@ -201,25 +201,25 @@ const components: { title: string; href: string; description: string }[] = [
 
 .example-sigma-ui-nav-menu__featured-link {
   display: flex;
-  height: 100%;
   width: 100%;
+  height: 100%;
   flex-direction: column;
   justify-content: flex-end;
-  border-radius: var(--radius);
-  background-image: linear-gradient(to bottom, hsl(var(--muted) / 0.5), hsl(var(--muted)));
   padding: 1.5rem;
-  text-decoration: none;
+  border-radius: var(--radius);
+  background-image: linear-gradient(to bottom, hsl(var(--muted) / 50%), hsl(var(--muted)));
   outline: none;
+  text-decoration: none;
   user-select: none;
 }
 
 .example-sigma-ui-nav-menu__featured-link:focus {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%);
 }
 
 .example-sigma-ui-nav-menu__logo {
-  height: 1.5rem;
   width: 1.5rem;
+  height: 1.5rem;
 }
 
 .example-sigma-ui-nav-menu__title {
@@ -230,19 +230,19 @@ const components: { title: string; href: string; description: string }[] = [
 }
 
 .example-sigma-ui-nav-menu__description {
+  color: hsl(var(--muted-foreground));
   font-size: 0.875rem;
   line-height: 1.25;
-  color: hsl(var(--muted-foreground));
 }
 
 .example-sigma-ui-nav-menu__link {
   display: block;
   padding: 0.75rem;
-  text-decoration: none;
-  outline: none;
-  user-select: none;
   border-radius: var(--radius);
+  outline: none;
+  text-decoration: none;
   transition: background-color 0.2s, color 0.2s;
+  user-select: none;
 }
 
 .example-sigma-ui-nav-menu__link:hover,
@@ -259,11 +259,11 @@ const components: { title: string; href: string; description: string }[] = [
 
 .example-sigma-ui-nav-menu__link-description {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
   overflow: hidden;
-  font-size: 0.875rem;
-  line-height: 1.25;
+  -webkit-box-orient: vertical;
   color: hsl(var(--muted-foreground));
+  font-size: 0.875rem;
+  -webkit-line-clamp: 2;
+  line-height: 1.25;
 }
 </style>

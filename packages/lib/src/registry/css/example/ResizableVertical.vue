@@ -34,10 +34,10 @@ import {
 
 <style>
 .example-sigma-ui-resizable-vertical {
-  min-height: 200px;
   max-width: 28rem;
-  border-radius: var(--radius);
+  min-height: 200px;
   border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
 }
 
 .example-sigma-ui-resizable-vertical__panel {

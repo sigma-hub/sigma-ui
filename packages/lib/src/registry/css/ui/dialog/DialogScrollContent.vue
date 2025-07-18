@@ -47,13 +47,13 @@ const forwarded = useForwardPropsEmits(props, emits);
 <style>
 .sigma-ui-dialog-scroll-overlay {
   position: fixed;
-  inset: 0;
   z-index: 50;
   display: grid;
-  place-items: center;
-  overflow-y: auto;
-  background-color: rgb(0 0 0 / 0.8);
   animation: fade-in 0.2s ease-out;
+  background-color: rgb(0 0 0 / 80%);
+  inset: 0;
+  overflow-y: auto;
+  place-items: center;
 }
 
 .sigma-ui-dialog-scroll-overlay[data-state="open"] {
@@ -70,12 +70,12 @@ const forwarded = useForwardPropsEmits(props, emits);
   display: grid;
   width: 100%;
   max-width: 32rem;
-  margin: 2rem 0;
-  gap: 1rem;
-  border: 1px solid hsl(var(--border));
-  background-color: hsl(var(--background));
   padding: 1.5rem;
+  border: 1px solid hsl(var(--border));
+  margin: 2rem 0;
+  background-color: hsl(var(--background));
   box-shadow: var(--shadow-lg);
+  gap: 1rem;
   transition-duration: 200ms;
 }
 
@@ -85,9 +85,9 @@ const forwarded = useForwardPropsEmits(props, emits);
   right: 0.75rem;
   padding: 0.125rem;
   border-radius: var(--radius-md);
+  transition-duration: 150ms;
   transition-property: background-color;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
 }
 
 .sigma-ui-dialog-scroll-close:hover {
@@ -101,23 +101,23 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 .sigma-ui-dialog-scroll-close__label {
   position: absolute;
+  overflow: hidden;
   width: 1px;
   height: 1px;
   padding: 0;
+  border-width: 0;
   margin: -1px;
-  overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  border-width: 0;
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .sigma-ui-dialog-scroll-content {
     border-radius: var(--radius-lg);
   }
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .sigma-ui-dialog-scroll-content {
     width: 100%;
   }
@@ -127,6 +127,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -136,6 +137,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }

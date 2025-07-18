@@ -27,25 +27,25 @@ const forwarded = useForwardPropsEmits(props, emits);
 <style>
 .sigma-ui-drawer-content {
   position: fixed;
-  inset-inline: 0;
-  bottom: 0;
   z-index: 50;
-  margin-top: 6rem;
+  bottom: 0;
   display: flex;
   height: auto;
   flex-direction: column;
+  border: 1px solid hsl(var(--border));
+  margin-top: 6rem;
+  background-color: hsl(var(--background));
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  border: 1px solid hsl(var(--border));
-  background-color: hsl(var(--background));
+  inset-inline: 0;
 }
 
 .sigma-ui-drawer-content__handle {
-  margin-inline: auto;
-  margin-top: 1rem;
-  height: 0.5rem;
   width: 100px;
+  height: 0.5rem;
   border-radius: var(--radius-full);
+  margin-top: 1rem;
   background-color: hsl(var(--muted));
+  margin-inline: auto;
 }
 </style>

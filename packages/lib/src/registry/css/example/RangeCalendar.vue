@@ -22,7 +22,7 @@ const value = ref({
 
 <style>
 .example-sigma-ui-range-calendar {
-  border-radius: var(--radius);
   border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
 }
 </style>

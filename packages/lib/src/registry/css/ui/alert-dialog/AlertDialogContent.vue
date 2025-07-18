@@ -32,9 +32,9 @@ const forwarded = useForwardPropsEmits(props, emits);
 <style>
 .sigma-ui-alert-dialog-overlay {
   position: fixed;
-  inset: 0;
   z-index: 50;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgb(0 0 0 / 80%);
+  inset: 0;
 }
 
 .sigma-ui-alert-dialog-overlay[data-state='open'] {
@@ -47,22 +47,22 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 .sigma-ui-alert-dialog-content {
   position: fixed;
-  left: 50%;
-  top: 50%;
   z-index: 50;
+  top: 50%;
+  left: 50%;
   display: grid;
   width: 100%;
   max-width: 32rem;
-  transform: translate(-50%, -50%);
-  gap: 1rem;
+  padding: 1.5rem;
   border: 1px solid hsl(var(--border));
   background-color: hsl(var(--background));
-  padding: 1.5rem;
   box-shadow: var(--shadow-lg);
+  gap: 1rem;
+  transform: translate(-50%, -50%);
   transition-duration: 200ms;
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .sigma-ui-alert-dialog-content {
     border-radius: var(--radius);
   }
@@ -78,11 +78,13 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 @keyframes fade-in {
   from { opacity: 0; }
+
   to { opacity: 1; }
 }
 
 @keyframes fade-out {
   from { opacity: 1; }
+
   to { opacity: 0; }
 }
 
@@ -91,6 +93,7 @@ const forwarded = useForwardPropsEmits(props, emits);
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
@@ -102,6 +105,7 @@ const forwarded = useForwardPropsEmits(props, emits);
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
   }
+
   to {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.95);

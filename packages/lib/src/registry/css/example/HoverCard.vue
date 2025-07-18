@@ -81,7 +81,7 @@ import {
 }
 
 .example-sigma-ui-hover__date {
-  font-size: 0.75rem;
   color: hsl(var(--muted-foreground));
+  font-size: 0.75rem;
 }
 </style>

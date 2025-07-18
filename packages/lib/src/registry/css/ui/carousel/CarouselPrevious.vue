@@ -26,17 +26,17 @@ const { orientation, canScrollPrev, scrollPrev } = useCarousel();
 
 <style>
 .sigma-ui-carousel-previous {
-  touch-action: manipulation;
   position: absolute;
-  height: 2rem;
   width: 2rem;
+  height: 2rem;
   padding: 0;
   border-radius: var(--radius);
+  touch-action: manipulation;
 }
 
 .sigma-ui-carousel-previous--horizontal {
-  left: -3rem;
   top: 50%;
+  left: -3rem;
   transform: translateY(-50%);
 }
 
@@ -47,7 +47,7 @@ const { orientation, canScrollPrev, scrollPrev } = useCarousel();
 }
 
 .sigma-ui-carousel-previous__icon {
-  height: 1rem;
   width: 1rem;
+  height: 1rem;
 }
 </style>

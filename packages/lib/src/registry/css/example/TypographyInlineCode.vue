@@ -7,9 +7,9 @@
 <style>
 .example-sigma-ui-typography__inline-code {
   position: relative;
+  padding: 0.2rem 0.3rem;
   border-radius: 0.25rem;
   background-color: hsl(var(--muted));
-  padding: 0.2rem 0.3rem;
   font-family: var(--font-mono);
   font-size: 0.875rem;
   font-weight: 600;

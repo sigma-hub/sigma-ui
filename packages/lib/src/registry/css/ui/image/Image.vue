@@ -116,16 +116,16 @@ function onLoad() {
 }
 
 .sigma-ui-image {
+  display: flex;
   width: 100%;
   height: 100%;
-  display: flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  font-weight: normal;
-  color: hsl(var(--foreground));
-  user-select: none;
-  flex-shrink: 0;
   background-color: hsl(var(--secondary) / 90%);
+  color: hsl(var(--foreground));
+  font-weight: normal;
+  user-select: none;
 }
 
 .dark .sigma-ui-image {
@@ -139,19 +139,19 @@ function onLoad() {
 .sigma-ui-image__error,
 .sigma-ui-image__loader {
   display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   height: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .sigma-ui-image__fallback-container {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
   align-items: center;
   justify-content: center;
   color: hsl(var(--foreground) / 50%);
+  gap: 0.25rem;
 }
 
 .sigma-ui-image__fallback-icon {
@@ -162,28 +162,28 @@ function onLoad() {
 }
 
 .sigma-ui-image__spinner {
-  animation: spin 1s linear infinite;
   width: 20px;
   height: 20px;
+  animation: spin 1s linear infinite;
 }
 
 .sigma-ui-image__img-glow {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
   width: 110%;
   height: 110%;
-  object-fit: cover;
-  position: absolute;
-  left: 0;
-  top: 0;
   filter: blur(16px) brightness(200%) saturate(200%);
-  z-index: 1;
+  object-fit: cover;
 }
 
 .sigma-ui-image__img {
+  position: relative;
+  z-index: 2;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  position: relative;
-  z-index: 2;
 }
 
 @media (prefers-color-scheme: dark) {

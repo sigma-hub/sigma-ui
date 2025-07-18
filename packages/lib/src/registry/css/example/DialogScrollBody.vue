@@ -50,12 +50,12 @@ import {
 
 .example-sigma-ui-dialog-scroll__content--scroll {
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto;
-  padding: 0;
   max-height: 90dvh;
+  padding: 0;
+  grid-template-rows: auto minmax(0, 1fr) auto;
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .example-sigma-ui-dialog-scroll__content {
     max-width: 425px;
   }
@@ -68,16 +68,16 @@ import {
 
 .example-sigma-ui-dialog-scroll__body {
   display: grid;
-  gap: 1rem;
   padding: 1.5rem;
+  gap: 1rem;
   overflow-y: auto;
 }
 
 .example-sigma-ui-dialog-scroll__scroll-content {
   display: flex;
+  height: 300dvh;
   flex-direction: column;
   justify-content: space-between;
-  height: 300dvh;
 }
 
 .example-sigma-ui-dialog-scroll__footer {

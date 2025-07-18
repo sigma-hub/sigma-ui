@@ -15,10 +15,10 @@ import { Image } from '@ui/registry/css/ui/image';
 <style scoped>
 .example-image-container {
   display: flex;
-  gap: 1rem;
+  width: 250px;
+  height: 300px;
   align-items: center;
   justify-content: center;
-  height: 300px;
-  width: 250px;
+  gap: 1rem;
 }
 </style>

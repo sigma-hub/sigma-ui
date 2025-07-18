@@ -66,16 +66,16 @@ const forwarded = useForwardPropsEmits(props, emits);
 .sigma-ui-calendar__grid-container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   margin-top: 1rem;
+  gap: 1rem;
 }
 
 .sigma-ui-calendar__week-row {
-  margin-top: 0.5rem;
   width: 100%;
+  margin-top: 0.5rem;
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .sigma-ui-calendar__grid-container {
     flex-direction: row;
     gap: 1rem;

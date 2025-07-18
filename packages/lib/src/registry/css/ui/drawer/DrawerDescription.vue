@@ -16,7 +16,7 @@ const props = defineProps<DrawerDescriptionProps>();
 
 <style>
 .sigma-ui-drawer-description {
-  font-size: 0.875rem;
   color: hsl(var(--muted-foreground));
+  font-size: 0.875rem;
 }
 </style>

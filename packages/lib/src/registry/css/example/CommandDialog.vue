@@ -104,20 +104,20 @@ function handleSelect(event: any) {
 
 <style>
 .example-sigma-ui-command-dialog__text {
-  font-size: 0.875rem;
   color: hsl(var(--muted-foreground));
+  font-size: 0.875rem;
 }
 
 .example-sigma-ui-command-dialog__kbd {
-  pointer-events: none;
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
   border-radius: var(--radius-sm);
   background-color: hsl(var(--muted));
-  padding: 0.25rem 0.5rem;
-  font-family: var(--font-mono);
   color: hsl(var(--muted-foreground));
+  font-family: var(--font-mono);
+  gap: 0.25rem;
+  pointer-events: none;
 }
 
 .example-sigma-ui-command-dialog__kbd-meta {

@@ -71,8 +71,8 @@ import { Checkbox } from '@ui/registry/css/ui/checkbox';
 }
 
 .example-sigma-ui-checkbox-custom__description {
+  color: hsl(var(--muted-foreground));
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: hsl(var(--muted-foreground));
 }
 </style>

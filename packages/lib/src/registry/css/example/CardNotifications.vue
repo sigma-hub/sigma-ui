@@ -85,15 +85,15 @@ const notifications = [
 .example-sigma-ui-card-notifications__switch {
   display: flex;
   align-items: center;
-  gap: 1rem;
   padding: 1rem;
-  border-radius: var(--radius);
   border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  gap: 1rem;
 }
 
 .example-sigma-ui-card-notifications__switch-content {
-  flex: 1;
   display: flex;
+  flex: 1;
   flex-direction: column;
   gap: 0.25rem;
 }
@@ -105,29 +105,29 @@ const notifications = [
 }
 
 .example-sigma-ui-card-notifications__switch-description {
-  font-size: 0.875rem;
   color: hsl(var(--muted-foreground));
+  font-size: 0.875rem;
 }
 
 .example-sigma-ui-card-notifications__item {
   display: grid;
-  grid-template-columns: 25px minmax(0, 1fr);
   align-items: start;
-  margin-bottom: 1rem;
   padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  grid-template-columns: 25px minmax(0, 1fr);
 }
 
 .example-sigma-ui-card-notifications__item:last-child {
-  margin-bottom: 0;
   padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 .example-sigma-ui-card-notifications__item-dot {
   width: 0.5rem;
   height: 0.5rem;
-  margin-top: 0.25rem;
   border-radius: var(--radius-full);
-  background-color: hsl(200 98% 39%);
+  margin-top: 0.25rem;
+  background-color: hsl(200deg 98% 39%);
 }
 
 .example-sigma-ui-card-notifications__item-content {
@@ -143,8 +143,8 @@ const notifications = [
 }
 
 .example-sigma-ui-card-notifications__item-description {
-  font-size: 0.875rem;
   color: hsl(var(--muted-foreground));
+  font-size: 0.875rem;
 }
 
 .example-sigma-ui-card-notifications__button {

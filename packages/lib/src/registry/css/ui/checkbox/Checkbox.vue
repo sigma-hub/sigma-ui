@@ -65,20 +65,20 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-checkbox {
-  height: 1rem;
-  width: 1rem;
-  flex-shrink: 0;
-  border-radius: var(--radius-xs);
-  border: 1px solid hsl(var(--primary));
-  background-color: hsl(var(--background));
   overflow: hidden;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  border: 1px solid hsl(var(--primary));
+  border-radius: var(--radius-xs);
+  background-color: hsl(var(--background));
 }
 
 .sigma-ui-checkbox:focus-visible {
-  outline: none;
   box-shadow:
     0 0 0 2px hsl(var(--background)),
     0 0 0 4px hsl(var(--ring));
+  outline: none;
 }
 
 .sigma-ui-checkbox:disabled {
@@ -93,11 +93,11 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 .sigma-ui-checkbox__indicator {
   display: flex;
-  height: 100%;
   width: 100%;
+  height: 100%;
   align-items: center;
   justify-content: center;
-  color: currentColor;
+  color: currentcolor;
 }
 
 .sigma-ui-checkbox__content {
@@ -120,9 +120,9 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-checkbox__description {
+  color: hsl(var(--muted-foreground));
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: hsl(var(--muted-foreground));
   user-select: none;
 }
 </style>

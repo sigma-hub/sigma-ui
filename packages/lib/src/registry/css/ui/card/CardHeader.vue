@@ -15,7 +15,7 @@
 .sigma-ui-card__header {
   display: flex;
   flex-direction: column;
-  gap: 0.375rem;
   padding: 1.5rem;
+  gap: 0.375rem;
 }
 </style>

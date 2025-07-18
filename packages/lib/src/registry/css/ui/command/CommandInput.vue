@@ -29,27 +29,27 @@ const forwardedProps = useForwardProps(props);
 .sigma-ui-command-input {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid hsl(var(--border));
-  padding-left: 0.75rem;
   padding-right: 0.75rem;
+  padding-left: 0.75rem;
+  border-bottom: 1px solid hsl(var(--border));
 }
 
 .sigma-ui-command-input__icon {
-  margin-right: 0.5rem;
-  height: 1rem;
   width: 1rem;
+  height: 1rem;
   flex-shrink: 0;
+  margin-right: 0.5rem;
   opacity: 0.5;
 }
 
 .sigma-ui-command-input__field {
   display: flex;
-  height: 2.75rem;
   width: 100%;
-  border-radius: var(--radius-md);
-  background-color: transparent;
+  height: 2.75rem;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+  border-radius: var(--radius-md);
+  background-color: transparent;
   font-size: 0.875rem;
   line-height: 1.25rem;
   outline: none;
