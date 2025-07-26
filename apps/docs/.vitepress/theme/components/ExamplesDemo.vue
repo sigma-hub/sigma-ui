@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import { useExamplesStore } from '@/stores/examples';
 
-const { currentExample } = useExamplesStore();
+const examplesStore = useExamplesStore();
 </script>
 
 <template>
   <transition name="fade-in">
-    <div :key="currentExample?.name">
+    <div :key="examplesStore.currentExample?.name">
       <Component
-        :is="currentExample?.component"
-        v-if="currentExample?.component"
+        :is="examplesStore.currentExample?.component"
+        v-if="examplesStore.currentExample?.component"
       />
     </div>
   </transition>

@@ -12,7 +12,7 @@ import ExamplesDemoNav from '../components/ExamplesDemoNav.vue';
 import { GithubIcon } from 'lucide-vue-next';
 import { baseColors } from '../../../src/lib/registry/colors';
 
-const { currentExample } = useExamplesStore();
+const examplesStore = useExamplesStore();
 const { config } = useConfigStore();
 
 onMounted(() => {
@@ -38,8 +38,8 @@ watch(() => config.value.radius, (radius) => {
       <ExamplesDemoNav />
       <div class="flex gap-4 items-center">
         <a
-          v-if="currentExample?.code"
-          :href="currentExample.code"
+          v-if="examplesStore.currentExample?.code"
+          :href="examplesStore.currentExample.code"
           target="_blank"
           rel="nofollow"
           class="hidden items-center rounded-[0.5rem] text-sm font-medium md:flex"

@@ -1,5 +1,5 @@
-import { computed } from 'vue';
-import { useStorage } from '@vueuse/core';
+import { computed, ref } from 'vue';
+import { defineStore } from 'pinia';
 import type { Example } from '../../.vitepress/theme/types/examples';
 import Mix from '../examples/mix/Example.vue';
 import Mail from '../examples/mail/Example.vue';
@@ -9,7 +9,7 @@ import Forms from '../examples/forms/Example.vue';
 import Music from '../examples/music/Example.vue';
 import Authentication from '../examples/authentication/Example.vue';
 
-export function useExamplesStore() {
+export const useExamplesStore = defineStore('examples', () => {
   const examples = computed<Example[]>(() => (
     [
       {
@@ -49,7 +49,8 @@ export function useExamplesStore() {
       },
     ]
   ));
-  const exampleName = useStorage<Example['name']>('example', 'mix');
+
+  const exampleName = ref<Example['name']>('mix');
   const currentExample = computed(() => examples.value.find(e => e.name === exampleName.value));
 
   const setSelectedExample = (name: Example['name']) => {
@@ -61,4 +62,4 @@ export function useExamplesStore() {
     currentExample,
     setSelectedExample,
   };
-}
+});

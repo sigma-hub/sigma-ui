@@ -1,5 +1,6 @@
 // https://vitepress.dev/guide/custom-theme
 import type { Theme } from 'vitepress';
+import { createPinia } from 'pinia';
 import Layout from './layout/MainLayout.vue';
 import DocsLayout from './layout/DocsLayout.vue';
 import ComponentsLayout from './layout/ComponentsLayout.vue';
@@ -14,6 +15,7 @@ import './styles/themes.css';
 export default {
   Layout,
   enhanceApp({ app }) {
+    app.use(createPinia());
     app.component('Docs', DocsLayout);
     app.component('Components', ComponentsLayout);
     app.component('Blocks', BlocksLayout);
