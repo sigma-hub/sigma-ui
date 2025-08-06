@@ -4,15 +4,23 @@ title: Introduction
 
 ## Quick start
 
-- Step 1: <a href="/docs/installation.html">Initialize SIGMA-UI in your project</a>
-- Step 2: <a href="/components/accordion.html">Add components</a> to your project "components" dir
-- Step 3: Modify the code of the components to your needs.
+Step 1: Initialize SIGMA-UI config in your project:
+
+```
+npx sigma-ui init
+```
+
+Step 2: Add <a href="/components/accordion.html">components</a> to your project:
+
+```
+npx sigma-ui add
+```
+
+Step 3: Use the added components, modify their code to your needs.
 
 ## About
 
-**SIGMA-UI** - is a collection of fully customizable well-built components for Vue. 
-
-The components are distributed via the method I call GOAT (Git Obtained As Template) - you copy the components from git registry directly to your project components directory via `npx` commands.
+**SIGMA-UI** - is a collection of fully customizable well-built components and blocks for Vue.
 
 ## Main problem it solves
 
@@ -27,7 +35,7 @@ It takes away the burden of recreating the same components (like dialogs, select
 - **Is open-source**: Yes, MIT licensed.
 - **Accessibility**: Supported.
 - **Based upon**: Radix Vue primitives.
-- **Installation method**: GOAT (Git Obtained As Template) - copy components via npx commands. Unlike NPM modules, these components are copied from git registry directly into your project's components directory and give you full control over customization, instead of using just props and css overrides.
+- **Installation method**: The components are distributed via the method I call GOAT (Git Obtained As Template) - run `npx` commands to clone the components from git registry directly to your project components directory. Unlike NPM modules, these components are copied from git registry directly into your project and give you full control over customization, instead of using just props and css overrides.
 
 ## Comparison
 

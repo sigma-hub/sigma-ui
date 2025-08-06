@@ -9,10 +9,17 @@ It takes away the burden of recreating the same components from scratch for ever
 
 ![preview](.npm/og.png)
 
+
 ## About
 
 **Website**: https://sigma-ui.dev
 <br/>**NPM**: https://www.npmjs.com/package/sigma-ui
+
+## Community links
+[Discord](https://discord.gg/jH2X4VGBA4) | [YouTube](https://www.youtube.com/@sigma-dev) | [X (Twitter)](https://twitter.com/sigma__dev) | [Telegram](https://t.me/sigma_devs)
+<br>Thanks to everyone who has been sharing this project with others!
+
+## Features
 
 - **Supported frameworks**: Vue, Nuxt, Laravel, Astro.
 - **Supported languages**: TS (all components are typed, JS projects are not supported).
@@ -21,15 +28,23 @@ It takes away the burden of recreating the same components from scratch for ever
 - **Is open-source**: Yes, MIT licensed.
 - **Accessibility**: Supported.
 - **Based upon**: Radix Vue primitives.
-- **Installation method**: GOAT (Git Obtained As Template) via npx commands. Unlike NPM modules, these components are copied from git repository directly into your project's components directory and give you full control over customization, instead of using just props and css overrides.
-- **Main problem it solves**: You are a developer, you create a new project, it needs 20+ components like dialogs, selects, skeletons, etc, and they all need to follow your companies' / your own design system:
-  - **What sad devs do:** spend a year creating every component from scratch for every new project they work on, end up with a broken buggy mess of components without any basic keyboard navigation support, modals that you cannot close with Esc, and no accessibility at all.
-  - **What Beta devs do:** use a conventional library (e.g Vuetify, Quasar) and monkey patch components' css with `!important`, trying to make their components follow their design system, and failing to modify baked-in Material design and animations.
-  - **What Sigma devs do:** add these GOAT components directly to your main (or uikit) project "components" dir, spend a little time modifying their design and functionality as needed. Profit.
+- **Installation method**: The components are distributed via the method I call GOAT (Git Obtained As Template) - run `npx` commands to clone the components from git registry directly to your project components directory. Unlike NPM modules, these components are copied from git registry directly into your project and give you full control over customization, instead of using just props and css overrides.
 
-## Community links
-[Discord](https://discord.gg/jH2X4VGBA4) | [YouTube](https://www.youtube.com/@sigma-dev) | [X (Twitter)](https://twitter.com/sigma__dev) | [Telegram](https://t.me/sigma_devs)
-<br>Thanks to everyone who has been sharing this project with others!
+## Usage
+
+Step 1: Initialize SIGMA-UI config in your project:
+
+```
+npx sigma-ui init
+```
+
+Step 2: Add components to your project:
+
+```
+npx sigma-ui add
+```
+
+Step 3: Use the added components, modify their code to your needs.
 
 
 ## Credits
