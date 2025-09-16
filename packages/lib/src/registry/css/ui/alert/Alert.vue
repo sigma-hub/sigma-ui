@@ -55,10 +55,10 @@ const attrs = useAttrs();
 .dark .sigma-ui-alert-destructive {
   border-color: hsl(var(--destructive));
   background-color: hsl(var(--destructive) / 20%);
-  color: hsl(var(--red-500));
+  color: hsl(356.94deg 96% 58%);
 }
 
 .sigma-ui-alert-destructive > svg {
-  color: hsl(var(--red-500));
+  color: hsl(356.94deg 96% 58%);
 }
 </style>

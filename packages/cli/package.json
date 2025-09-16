@@ -1,7 +1,7 @@
 {
   "name": "sigma-ui",
   "type": "module",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "CLI for SIGMA-UI components.",
   "publishConfig": {
     "access": "public"

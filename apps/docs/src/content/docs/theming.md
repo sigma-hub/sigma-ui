@@ -57,12 +57,6 @@ Secondary colors for components like `<Button />`, `<Slider />`, and `<Calendar 
 --secondary-foreground: 222.2 47.4% 11.2%;
 ```
 
-Used for accents such as hover effects on `<DropdownMenuItem />`, `<SelectItem />`, etc
-```
---accent: 210 40% 96.1%;
---accent-foreground: 222.2 47.4% 11.2%;
-```
-
 Used for destructive actions such as `<Button variant="destructive">`
 ```
 --destructive: 0 100% 50%;

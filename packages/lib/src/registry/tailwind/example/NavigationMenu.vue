@@ -79,7 +79,7 @@ const components: { title: string; href: string; description: string }[] = [
               <NavigationMenuLink as-child>
                 <a
                   href="/docs"
-                  class="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-hidden transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                  class="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-hidden transition-colors hover:bg-secondary hover:text-secondary-foreground focus:bg-secondary focus:text-secondary-foreground"
                 >
                   <div class="text-sm font-medium leading-none">Introduction</div>
                   <p class="line-clamp-2 text-sm leading-snug text-muted-foreground">
@@ -92,7 +92,7 @@ const components: { title: string; href: string; description: string }[] = [
               <NavigationMenuLink as-child>
                 <a
                   href="/docs/installation"
-                  class="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-hidden transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                  class="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-hidden transition-colors hover:bg-secondary hover:text-secondary-foreground focus:bg-secondary focus:text-secondary-foreground"
                 >
                   <div class="text-sm font-medium leading-none">Installation</div>
                   <p class="line-clamp-2 text-sm leading-snug text-muted-foreground">
@@ -105,7 +105,7 @@ const components: { title: string; href: string; description: string }[] = [
               <NavigationMenuLink as-child>
                 <a
                   href="/docs/primitives/typography"
-                  class="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-hidden transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                  class="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-hidden transition-colors hover:bg-secondary hover:text-secondary-foreground focus:bg-secondary focus:text-secondary-foreground"
                 >
                   <div class="text-sm font-medium leading-none">Typography</div>
                   <p class="line-clamp-2 text-sm leading-snug text-muted-foreground">
@@ -128,7 +128,7 @@ const components: { title: string; href: string; description: string }[] = [
               <NavigationMenuLink as-child>
                 <a
                   :href="component.href"
-                  class="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-hidden transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                  class="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-hidden transition-colors hover:bg-secondary hover:text-secondary-foreground focus:bg-secondary focus:text-secondary-foreground"
                 >
                   <div class="text-sm font-medium leading-none">{{ component.title }}</div>
                   <p class="line-clamp-2 text-sm leading-snug text-muted-foreground">

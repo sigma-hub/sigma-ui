@@ -41,7 +41,7 @@ import {
           />
           <Label
             for="card"
-            class="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
+            class="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-secondary hover:text-secondary-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +73,7 @@ import {
           />
           <Label
             for="paypal"
-            class="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
+            class="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-secondary hover:text-secondary-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
           >
             <svg
               role="img"
@@ -96,7 +96,7 @@ import {
           />
           <Label
             for="apple"
-            class="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
+            class="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-secondary hover:text-secondary-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
           >
             <svg
               role="img"

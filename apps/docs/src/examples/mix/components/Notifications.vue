@@ -18,7 +18,7 @@ import { BellIcon, EyeOffIcon, UserRoundIcon } from 'lucide-vue-next';
       </CardDescription>
     </CardHeader>
     <CardContent class="grid gap-1 cursor-pointer">
-      <div class="-mx-2 flex items- space-x-4 rounded-md p-2 transition-all hover:bg-accent hover:text-accent-foreground">
+      <div class="-mx-2 flex items- space-x-4 rounded-md p-2 transition-all hover:bg-secondary hover:text-secondary-foreground">
         <BellIcon class="mt-px h-5 w-5" />
         <div class="space-y-1">
           <p class="text-sm font-medium leading-none">
@@ -29,7 +29,7 @@ import { BellIcon, EyeOffIcon, UserRoundIcon } from 'lucide-vue-next';
           </p>
         </div>
       </div>
-      <div class="-mx-2 flex items- space-x-4 rounded-md bg-accent p-2 text-accent-foreground transition-all">
+      <div class="-mx-2 flex items- space-x-4 rounded-md bg-secondary p-2 text-secondary-foreground transition-all">
         <UserRoundIcon class="mt-px h-5 w-5" />
         <div class="space-y-1">
           <p class="text-sm font-medium leading-none">
@@ -40,7 +40,7 @@ import { BellIcon, EyeOffIcon, UserRoundIcon } from 'lucide-vue-next';
           </p>
         </div>
       </div>
-      <div class="-mx-2 flex items- space-x-4 rounded-md p-2 transition-all hover:bg-accent hover:text-accent-foreground">
+      <div class="-mx-2 flex items- space-x-4 rounded-md p-2 transition-all hover:bg-secondary hover:text-secondary-foreground">
         <EyeOffIcon class="mt-px h-5 w-5" />
         <div class="space-y-1">
           <p class="text-sm font-medium leading-none">

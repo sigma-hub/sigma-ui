@@ -83,8 +83,8 @@ const props = withDefaults(defineProps<Props>(), {
   background-color: hsl(var(--background));
 }
 .sigma-ui-button--outline:hover {
-  background-color: hsl(var(--accent));
-  color: hsl(var(--accent-foreground));
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
 }
 
 .sigma-ui-button--secondary {
@@ -96,8 +96,8 @@ const props = withDefaults(defineProps<Props>(), {
 }
 
 .sigma-ui-button--ghost:hover {
-  background-color: hsl(var(--accent));
-  color: hsl(var(--accent-foreground));
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
 }
 
 .sigma-ui-button--link {

@@ -32,8 +32,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-command-item[data-highlighted] {
-  background-color: hsl(var(--accent));
-  color: hsl(var(--accent-foreground));
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
 }
 
 .sigma-ui-command-item[data-disabled] {

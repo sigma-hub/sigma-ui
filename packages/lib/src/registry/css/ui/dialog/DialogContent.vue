@@ -97,7 +97,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-dialog-close[data-state="open"] {
-  background-color: hsl(var(--accent));
+  background-color: hsl(var(--secondary));
   color: hsl(var(--muted-foreground));
 }
 

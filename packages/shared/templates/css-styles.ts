@@ -35,8 +35,6 @@ export const CSS_STYLES_WITH_VARS_TEMPLATE = `@layer base {
     --primary-foreground: <%- colors.light["primary-foreground"] %>;
     --secondary: <%- colors.light["secondary"] %>;
     --secondary-foreground: <%- colors.light["secondary-foreground"] %>;
-    --accent: <%- colors.light["accent"] %>;
-    --accent-foreground: <%- colors.light["accent-foreground"] %>;
     --destructive: <%- colors.light["destructive"] %>;
     --destructive-foreground: <%- colors.light["destructive-foreground"] %>;
     --ring: <%- colors.light["ring"] %>;
@@ -57,8 +55,6 @@ export const CSS_STYLES_WITH_VARS_TEMPLATE = `@layer base {
     --primary-foreground: <%- colors.dark["primary-foreground"] %>;
     --secondary: <%- colors.dark["secondary"] %>;
     --secondary-foreground: <%- colors.dark["secondary-foreground"] %>;
-    --accent: <%- colors.dark["accent"] %>;
-    --accent-foreground: <%- colors.dark["accent-foreground"] %>;
     --destructive: <%- colors.dark["destructive"] %>;
     --destructive-foreground: <%- colors.dark["destructive-foreground"] %>;
     --ring: <%- colors.dark["ring"] %>;
