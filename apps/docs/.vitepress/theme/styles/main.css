@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@config "../../tailwind.config.js";
+@config "../../../tailwind.config.js";
 
 @custom-variant hover (&:hover);
 
@@ -40,7 +40,6 @@
 	}
 		
 	:root {
-		--red-500: 356.94 96% 58%;
 		--vis-primary-color: var(--primary);
 		--vis-secondary-color: 160 81% 40%;
 		--vis-text-color: var(--muted-foreground);
@@ -68,8 +67,6 @@
 		--secondary-foreground: 240 5.9% 10%;
 		--muted: 240 4.8% 95.9%;
 		--muted-foreground: 240 3.8% 46.1%;
-		--accent: 240 4.8% 95.9%;
-		--accent-foreground: 240 5.9% 10%;
 		--destructive: 0 72.22% 50.59%;
 		--destructive-foreground: 0 0% 98%;
 		--border: 240 5.9% 90%;
@@ -90,8 +87,6 @@
     --secondary-foreground: 0 0% 98%;
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 85.7% 97.3%;
     --border: 240 3.7% 15.9%;
@@ -199,7 +194,7 @@ pre code {
 }
 
 .line-numbers-wrapper, code {
-	--vp-code-line-height: 1.7;
+	--vp-code-line-height: 1.5;
 }
 
 .line-numbers-wrapper {

@@ -25,7 +25,7 @@
     },
     {
       "name": "CommandItem.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { ComboboxItemEmits, ComboboxItemProps } from 'reka-ui';\nimport { ComboboxItem, useForwardPropsEmits } from 'reka-ui';\nimport { cn } from '@ui/utils';\n\nconst props = defineProps<ComboboxItemProps>();\nconst emits = defineEmits<ComboboxItemEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <ComboboxItem\n    v-bind=\"forwarded\"\n    :class=\"cn('relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-hidden data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50', $attrs.class ?? '')\"\n  >\n    <slot />\n  </ComboboxItem>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport type { ComboboxItemEmits, ComboboxItemProps } from 'reka-ui';\nimport { ComboboxItem, useForwardPropsEmits } from 'reka-ui';\nimport { cn } from '@ui/utils';\n\nconst props = defineProps<ComboboxItemProps>();\nconst emits = defineEmits<ComboboxItemEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <ComboboxItem\n    v-bind=\"forwarded\"\n    :class=\"cn('relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-hidden data-[highlighted]:bg-secondary data-[highlighted]:text-secondary-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50', $attrs.class ?? '')\"\n  >\n    <slot />\n  </ComboboxItem>\n</template>\n"
     },
     {
       "name": "CommandList.vue",

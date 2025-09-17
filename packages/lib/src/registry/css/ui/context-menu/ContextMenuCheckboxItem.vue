@@ -43,8 +43,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-context-menu-checkbox-item:focus {
-  background-color: hsl(var(--accent));
-  color: hsl(var(--accent-foreground));
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
 }
 
 .sigma-ui-context-menu-checkbox-item[data-disabled] {

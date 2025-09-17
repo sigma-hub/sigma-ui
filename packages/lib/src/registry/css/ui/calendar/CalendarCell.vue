@@ -32,10 +32,10 @@ const forwardedProps = useForwardProps(props);
 
 .sigma-ui-calendar-cell:has([data-selected]) {
   border-radius: var(--radius-md);
-  background-color: hsl(var(--accent));
+  background-color: hsl(var(--secondary));
 }
 
 .sigma-ui-calendar-cell:has([data-selected][data-outside-month]) {
-  background-color: hsl(var(--accent) / 50%);
+  background-color: hsl(var(--secondary) / 50%);
 }
 </style>

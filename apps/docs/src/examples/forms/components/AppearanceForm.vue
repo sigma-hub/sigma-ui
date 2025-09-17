@@ -67,7 +67,7 @@ const onSubmit = handleSubmit((values) => {
                   class="sr-only"
                 />
               </FormControl>
-              <div class="items-center rounded-md border-2 border-muted p-1 hover:border-accent">
+              <div class="items-center rounded-md border-2 border-muted p-1 hover:border-secondary">
                 <div class="space-y-2 rounded-sm bg-[#ecedef] p-2">
                   <div class="space-y-2 rounded-md bg-white p-2 shadow-sm">
                     <div class="h-2 w-20 rounded-lg bg-[#ecedef]" />
@@ -96,7 +96,7 @@ const onSubmit = handleSubmit((values) => {
                   class="sr-only"
                 />
               </FormControl>
-              <div class="items-center rounded-md border-2 border-muted bg-popover p-1 hover:bg-accent hover:text-accent-foreground">
+              <div class="items-center rounded-md border-2 border-muted bg-popover p-1 hover:bg-secondary hover:text-secondary-foreground">
                 <div class="space-y-2 rounded-sm bg-slate-950 p-2">
                   <div class="space-y-2 rounded-md bg-slate-800 p-2 shadow-sm">
                     <div class="h-2 w-20 rounded-lg bg-slate-400" />

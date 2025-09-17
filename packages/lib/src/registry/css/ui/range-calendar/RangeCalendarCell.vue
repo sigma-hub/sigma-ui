@@ -31,7 +31,7 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-range-calendar-cell:has([data-selected]) {
-  background-color: hsl(var(--accent));
+  background-color: hsl(var(--secondary));
 }
 
 .sigma-ui-range-calendar-cell:first-child:has([data-selected]) {
@@ -45,7 +45,7 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-range-calendar-cell:has([data-selected][data-outside-month]) {
-  background-color: hsl(var(--accent) / 50%);
+  background-color: hsl(var(--secondary) / 50%);
 }
 
 .sigma-ui-range-calendar-cell:has([data-selected][data-selection-end]) {

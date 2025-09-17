@@ -247,8 +247,8 @@ const components: { title: string; href: string; description: string }[] = [
 
 .example-sigma-ui-nav-menu__link:hover,
 .example-sigma-ui-nav-menu__link:focus {
-  background-color: hsl(var(--accent));
-  color: hsl(var(--accent-foreground));
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
 }
 
 .example-sigma-ui-nav-menu__link-title {

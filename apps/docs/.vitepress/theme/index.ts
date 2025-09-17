@@ -7,7 +7,7 @@ import ComponentsLayout from './layout/ComponentsLayout.vue';
 import BlocksLayout from './layout/BlocksLayout.vue';
 import ExamplesLayout from './layout/ExamplesLayout.vue';
 import * as components from './components';
-import './style.css';
+import './styles/main.css';
 import './styles/vp-doc.css';
 import './styles/shiki.css';
 import './styles/themes.css';

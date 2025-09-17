@@ -13,7 +13,7 @@ const forwardedProps = useForwardProps(props);
     :class="cn(
       buttonVariants({ variant: 'ghost' }),
       'h-9 w-9 p-0 font-normal',
-      '[&[data-today]:not([data-selected])]:bg-accent [&[data-today]:not([data-selected])]:text-accent-foreground',
+      '[&[data-today]:not([data-selected])]:bg-secondary [&[data-today]:not([data-selected])]:text-secondary-foreground',
       // Selected
       'data-[selected]:bg-primary data-[selected]:text-primary-foreground data-[selected]:opacity-100 data-[selected]:hover:bg-primary data-[selected]:hover:text-primary-foreground data-[selected]:focus:bg-primary data-[selected]:focus:text-primary-foreground',
       // Disabled
@@ -21,7 +21,7 @@ const forwardedProps = useForwardProps(props);
       // Unavailable
       'data-[unavailable]:text-destructive-foreground data-[unavailable]:line-through',
       // Outside months
-      'data-[outside-month]:pointer-events-none data-[outside-month]:text-muted-foreground data-[outside-month]:opacity-50 [&[data-outside-month][data-selected]]:bg-accent/50 [&[data-outside-month][data-selected]]:text-muted-foreground [&[data-outside-month][data-selected]]:opacity-30',
+      'data-[outside-month]:pointer-events-none data-[outside-month]:text-muted-foreground data-[outside-month]:opacity-50 [&[data-outside-month][data-selected]]:bg-secondary/50 [&[data-outside-month][data-selected]]:text-muted-foreground [&[data-outside-month][data-selected]]:opacity-30',
       $attrs.class ?? '',
     )"
     v-bind="forwardedProps"

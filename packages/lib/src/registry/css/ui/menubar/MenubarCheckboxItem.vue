@@ -42,8 +42,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-menubar-checkbox-item:focus {
-  background-color: hsl(var(--accent));
-  color: hsl(var(--accent-foreground));
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
 }
 
 .sigma-ui-menubar-checkbox-item[data-disabled] {

@@ -3,6 +3,12 @@ title: Changelog
 description: Latest updates and announcements.
 ---
 
+## September 2025
+
+#### Changes
+
+- `v1.0.16`: Removed redundant "accent" color (now components use existing "secondary" color);
+
 ## June 2025
 
 ### Project version 1.0 released 🎉

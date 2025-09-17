@@ -4,7 +4,7 @@ exports[`transform css vars 1`] = `
 "<script setup lang="ts"></script>
 <template>
   <div
-    class="bg-background hover:bg-muted text-primary-foreground sm:focus:text-accent-foreground"
+    class="bg-background hover:bg-muted text-primary-foreground sm:focus:text-secondary-foreground"
   >
     foo
   </div>

@@ -57,8 +57,8 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 }
 
 .sigma-ui-toggle[data-state="on"] {
-  background-color: hsl(var(--accent));
-  color: hsl(var(--accent-foreground));
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
 }
 
 .sigma-ui-toggle--default {
@@ -71,8 +71,8 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 }
 
 .sigma-ui-toggle--outline:hover {
-  background-color: hsl(var(--accent));
-  color: hsl(var(--accent-foreground));
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
 }
 
 .sigma-ui-toggle--size-default {

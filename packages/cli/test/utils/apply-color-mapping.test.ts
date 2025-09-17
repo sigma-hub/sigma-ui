@@ -41,8 +41,8 @@ describe('split class', () => {
       ],
     },
     {
-      input: 'sm:focus:text-accent-foreground/30',
-      output: ['sm:focus', 'text-accent-foreground', '30'],
+      input: 'sm:focus:text-secondary-foreground/30',
+      output: ['sm:focus', 'text-secondary-foreground', '30'],
     },
   ])('splitClassName($input) -> $output', ({ input, output }) => {
     expect(splitClassName(input)).toStrictEqual(output);

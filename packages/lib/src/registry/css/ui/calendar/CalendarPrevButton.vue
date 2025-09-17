@@ -35,8 +35,8 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-calendar-prev:hover {
-  background-color: hsl(var(--accent));
-  color: hsl(var(--accent-foreground));
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
   opacity: 1;
 }
 
