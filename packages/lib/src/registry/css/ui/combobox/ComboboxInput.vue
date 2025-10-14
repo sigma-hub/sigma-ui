@@ -29,7 +29,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
   width: 100%;
   height: 2.25rem;
   padding: 0.25rem 0.75rem;
-  border: 1px solid hsl(var(--input));
+  border: 1px solid hsl(var(--border));
   border-radius: 0.375rem;
   background-color: transparent;
   font-size: 0.875rem;

@@ -240,7 +240,7 @@ function handleEscKeydown(event: KeyboardEvent) {
   height: 100%;
   border-radius: 20px;
   margin: 0 auto;
-  background: hsl(var(--card));
+  background: hsl(var(--background));
   pointer-events: auto;
   user-select: none;
 }

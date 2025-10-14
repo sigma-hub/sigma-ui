@@ -39,6 +39,10 @@ export const docsConfig: DocsConfig = {
       title: 'Blocks',
       href: '/blocks/auth',
     },
+    {
+      title: 'Changelog',
+      href: '/docs/changelog',
+    },
   ],
   sidebarNav: [
     {

@@ -82,8 +82,8 @@ const props = withDefaults(defineProps<Props>(), {
 }
 
 .sigma-ui-button--outline {
-  border: 1px solid hsl(var(--input));
-  background-color: hsl(var(--background));
+  border: 1px solid hsl(var(--border));
+  background-color: transparent;
 }
 
 .sigma-ui-button--outline:hover {

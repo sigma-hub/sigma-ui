@@ -1,7 +1,7 @@
 {
   "styleSystem": "tailwind",
   "cssPath": "./src/assets/css/tailwind.css",
-  "baseColor": "zinc",
+  "baseColor": "grayscale",
   "tailwind": {
     "config": "./tailwind.config.ts"
   },

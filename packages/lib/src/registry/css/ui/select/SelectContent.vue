@@ -53,6 +53,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   max-height: 24rem;
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius-md);
+  backdrop-filter: blur(var(--backdrop-filter-blur));
   background-color: hsl(var(--popover));
   box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
   color: hsl(var(--popover-foreground));

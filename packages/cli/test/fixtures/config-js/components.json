@@ -3,7 +3,7 @@
   "tailwind": {
     "config": "./tailwind.config.js",
     "css": "./src/assets/css/tailwind.css",
-    "baseColor": "zinc"
+    "baseColor": "grayscale"
   },
   "aliases": {
     "utils": "@/lib/utils",

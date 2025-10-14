@@ -5,7 +5,7 @@
   "setupTailwind": false,
   "framework": "vite",
   "cssPath": "src/assets/index.css",
-  "baseColor": "zinc",
+  "baseColor": "grayscale",
   "tailwind": {
     "config": ""
   },

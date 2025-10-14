@@ -34,6 +34,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius-md);
   animation: fadeOut 100ms ease-in forwards;
+  backdrop-filter: blur(var(--backdrop-filter-blur));
   background-color: hsl(var(--popover));
   box-shadow: var(--shadow-md);
   color: hsl(var(--popover-foreground));

@@ -1,30 +1,29 @@
 export const baseColors = [
-  { name: 'zinc', label: 'Zinc' },
-  { name: 'gray', label: 'Gray' },
+  { name: 'grayscale', label: 'Grayscale' },
+  { name: 'frosted-glass', label: 'Frosted glass' },
   { name: 'blue', label: 'Blue' },
   { name: 'rose', label: 'Rose' },
   { name: 'red', label: 'Red' },
   { name: 'orange', label: 'Orange' },
   { name: 'yellow', label: 'Yellow' },
   { name: 'green', label: 'Green' },
-  { name: 'violet', label: 'Violet' },
 ] as const;
 
 export const colors = {
-  inherit: 'inherit',
-  current: 'currentColor',
-  transparent: 'transparent',
-  black: {
+  'inherit': 'inherit',
+  'current': 'currentColor',
+  'transparent': 'transparent',
+  'black': {
     hex: '#000000',
     rgb: 'rgb(0,0,0)',
     hsl: 'hsl(0,0%,0%)',
   },
-  white: {
+  'white': {
     hex: '#ffffff',
     rgb: 'rgb(255,255,255)',
     hsl: 'hsl(0,0%,100%)',
   },
-  gray: [
+  'frosted-glass': [
     {
       scale: 50,
       hex: '#f9fafb',
@@ -92,7 +91,7 @@ export const colors = {
       hsl: 'hsl(224,71.4%,4.1%)',
     },
   ],
-  zinc: [
+  'grayscale': [
     {
       scale: 50,
       hex: '#fafafa',
@@ -160,7 +159,7 @@ export const colors = {
       hsl: 'hsl(240,10%,3.9%)',
     },
   ],
-  red: [
+  'red': [
     {
       scale: 50,
       hex: '#fef2f2',
@@ -228,7 +227,7 @@ export const colors = {
       hsl: 'hsl(0,74.7%,15.5%)',
     },
   ],
-  orange: [
+  'orange': [
     {
       scale: 50,
       hex: '#fff7ed',
@@ -296,7 +295,7 @@ export const colors = {
       hsl: 'hsl(13,81.1%,14.5%)',
     },
   ],
-  yellow: [
+  'yellow': [
     {
       scale: 50,
       hex: '#fefce8',
@@ -364,7 +363,7 @@ export const colors = {
       hsl: 'hsl(26,83.3%,14.1%)',
     },
   ],
-  green: [
+  'green': [
     {
       scale: 50,
       hex: '#f0fdf4',
@@ -432,7 +431,7 @@ export const colors = {
       hsl: 'hsl(144.9,80.4%,10%)',
     },
   ],
-  blue: [
+  'blue': [
     {
       scale: 50,
       hex: '#eff6ff',
@@ -500,75 +499,7 @@ export const colors = {
       hsl: 'hsl(226.2,57%,21%)',
     },
   ],
-  violet: [
-    {
-      scale: 50,
-      hex: '#f5f3ff',
-      rgb: 'rgb(245,243,255)',
-      hsl: 'hsl(250,100%,97.6%)',
-    },
-    {
-      scale: 100,
-      hex: '#ede9fe',
-      rgb: 'rgb(237,233,254)',
-      hsl: 'hsl(251.4,91.3%,95.5%)',
-    },
-    {
-      scale: 200,
-      hex: '#ddd6fe',
-      rgb: 'rgb(221,214,254)',
-      hsl: 'hsl(250.5,95.2%,91.8%)',
-    },
-    {
-      scale: 300,
-      hex: '#c4b5fd',
-      rgb: 'rgb(196,181,253)',
-      hsl: 'hsl(252.5,94.7%,85.1%)',
-    },
-    {
-      scale: 400,
-      hex: '#a78bfa',
-      rgb: 'rgb(167,139,250)',
-      hsl: 'hsl(255.1,91.7%,76.3%)',
-    },
-    {
-      scale: 500,
-      hex: '#8b5cf6',
-      rgb: 'rgb(139,92,246)',
-      hsl: 'hsl(258.3,89.5%,66.3%)',
-    },
-    {
-      scale: 600,
-      hex: '#7c3aed',
-      rgb: 'rgb(124,58,237)',
-      hsl: 'hsl(262.1,83.3%,57.8%)',
-    },
-    {
-      scale: 700,
-      hex: '#6d28d9',
-      rgb: 'rgb(109,40,217)',
-      hsl: 'hsl(263.4,70%,50.4%)',
-    },
-    {
-      scale: 800,
-      hex: '#5b21b6',
-      rgb: 'rgb(91,33,182)',
-      hsl: 'hsl(263.4,69.3%,42.2%)',
-    },
-    {
-      scale: 900,
-      hex: '#4c1d95',
-      rgb: 'rgb(76,29,149)',
-      hsl: 'hsl(263.5,67.4%,34.9%)',
-    },
-    {
-      scale: 950,
-      hex: '#1e1b4b',
-      rgb: 'rgb(46,16,101)',
-      hsl: 'hsl(261.2,72.6%,22.9%)',
-    },
-  ],
-  rose: [
+  'rose': [
     {
       scale: 50,
       hex: '#fff1f2',

@@ -18,7 +18,7 @@ import Card from '@ui/registry/tailwind/ui/card/Card.vue';
         Login
       </a>
       <div class="relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex">
-        <div class="absolute inset-0 bg-zinc-900" />
+        <div class="absolute inset-0 bg-grayscale-900" />
         <div class="relative z-20 flex items-center text-lg font-medium">
           <svg
             xmlns="http://www.w3.org/2000/svg"

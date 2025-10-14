@@ -43,7 +43,7 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-tabs-trigger[data-state="active"] {
-  background-color: hsl(var(--background));
+  background-color: hsl(var(--input));
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
   color: hsl(var(--foreground));
 }

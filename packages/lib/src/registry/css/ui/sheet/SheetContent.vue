@@ -52,11 +52,11 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 }
 
 .sigma-ui-sheet-overlay[data-state="open"] {
-  animation: overlayShow 150ms ease-out;
+  animation: overlay-show 150ms ease-out;
 }
 
 .sigma-ui-sheet-overlay[data-state="closed"] {
-  animation: overlayHide 150ms ease-in;
+  animation: overlay-hide 150ms ease-in forwards;
 }
 
 .sigma-ui-sheet-content__base {

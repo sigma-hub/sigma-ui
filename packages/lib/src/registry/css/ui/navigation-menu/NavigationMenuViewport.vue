@@ -37,6 +37,7 @@ const forwardedProps = useForwardProps(props);
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius);
   margin-top: 0.375rem;
+  backdrop-filter: blur(var(--backdrop-filter-blur));
   background-color: hsl(var(--popover));
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
   color: hsl(var(--popover-foreground));

@@ -121,7 +121,7 @@ function handleEscKeydown(event: KeyboardEvent) {
         ]"
       >
         <motion.div
-          class="relative pointer-events-auto select-none bg-card overflow-hidden m-auto overflow-y-auto w-screen max-w-full h-screen rounded-none lg:w-auto lg:max-w-[700px] lg:h-[70dvh] lg:rounded-[20px]"
+          class="relative pointer-events-auto select-none bg-background overflow-hidden m-auto overflow-y-auto w-screen max-w-full h-screen rounded-none lg:w-auto lg:max-w-[700px] lg:h-[70dvh] lg:rounded-[20px]"
           :layout-id="`card-container-${openId}`"
         >
           <motion.div

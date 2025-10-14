@@ -31,7 +31,7 @@ const forwarded = useForwardPropsEmits(props, emits);
       :class="
         cn(
           [
-            'z-50 w-72 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-hidden',
+            'z-50 w-72 rounded-md border bg-popover backdrop-blur-(--backdrop-filter-blur) p-4 text-popover-foreground shadow-md outline-hidden',
             'data-[state=closed]:animate-popover-fade-scale-blur-out',
             'data-[side=bottom]:data-[state=open]:animate-popover-slide-blur-from-top',
             'data-[side=left]:data-[state=open]:animate-popover-slide-blur-from-right',

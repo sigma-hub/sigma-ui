@@ -17,6 +17,7 @@ const { config } = useConfigStore();
 
 onMounted(() => {
   document.documentElement.style.setProperty('--radius', `${config.value.radius}rem`);
+  document.documentElement.style.setProperty('--backdrop-filter-blur', `${config.value.backdropFilterBlur}px`);
   document.documentElement.classList.add(`theme-${config.value.theme}`);
 });
 
@@ -29,6 +30,10 @@ watch(() => config.value.theme, (theme) => {
 
 watch(() => config.value.radius, (radius) => {
   document.documentElement.style.setProperty('--radius', `${radius}rem`);
+});
+
+watch(() => config.value.backdropFilterBlur, (backdropFilterBlur) => {
+  document.documentElement.style.setProperty('--backdrop-filter-blur', `${backdropFilterBlur}px`);
 });
 </script>
 
@@ -65,7 +70,7 @@ watch(() => config.value.radius, (radius) => {
           <PopoverContent
             :side-offset="8"
             align="end"
-            class="w-96"
+            class="w-[500px]"
           >
             <ThemeCustomizer />
           </PopoverContent>

@@ -4,8 +4,9 @@ export const CSS_STYLES_WITH_VARS_TEMPLATE = `@layer base {
   [role="button"]:not(:disabled) {
     cursor: pointer;
   }
-
+    
   :root {
+    --backdrop-filter-blur: <%- sizes.backdropFilterBlur %>px;
     --radius: <%- sizes.radius %>rem;
     --radius-full: 9999px;
     --radius-xl: calc(var(--radius) + 4px);
@@ -18,9 +19,7 @@ export const CSS_STYLES_WITH_VARS_TEMPLATE = `@layer base {
       0 4px 6px -1px rgba(0, 0, 0, 0.02), 
       0 2px 4px -1px rgba(0, 0, 0, 0.02),
       0 12px 24px rgba(0, 0, 0, 0.05);
-  }
-
-  :root {
+      
     --background: <%- colors.light["background"] %>;
     --foreground: <%- colors.light["foreground"] %>;
     --muted: <%- colors.light["muted"] %>;

@@ -3,11 +3,28 @@ title: Changelog
 description: Latest updates and announcements.
 ---
 
+## October 2025
+
+#### Changes
+
+`v1.0.17`: 
+- Updated themes: 
+  - frosted-glass (new)
+  - grayscale (former zinc)
+  - gray (removed)
+  - violet (removed)
+- Improved style config: 
+  - Removed repeating :root selector from css configs to avoid linter errors (duplicating selectors).
+- Fixed content display issues with contextMenu, dropdown, sheet:
+  - CSS, Tailwind: Fixed submenu content being cut-off
+  - CSS: Fixed problem with contextMenu and sheet not dismissing 
+
 ## September 2025
 
 #### Changes
 
-- `v1.0.16`: Removed redundant "accent" color (now components use existing "secondary" color);
+`v1.0.16`: 
+- Removed redundant "accent" color (now components use existing "secondary" color);
 
 ## June 2025
 

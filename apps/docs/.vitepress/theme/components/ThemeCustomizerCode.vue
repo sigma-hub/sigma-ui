@@ -37,6 +37,7 @@ async function getCodeTemplate() {
       colors: activeTheme.value?.cssVars,
       sizes: {
         radius: config.value.radius,
+        backdropFilterBlur: config.value.backdropFilterBlur,
       },
     }),
     {
@@ -52,7 +53,7 @@ async function getCodeTemplate() {
     <div class="grid overflow-x-auto">
       <div
         ref="codeRef"
-        class="h-[450px] rounded-lg border bg-zinc-950 !py-0 dark:bg-zinc-900"
+        class="h-[450px] rounded-lg border bg-grayscale-950 !py-0 dark:bg-grayscale-900"
         v-html="code"
       />
     </div>

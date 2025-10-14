@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useMagicKeys, useToggle } from '@vueuse/core';
-import { onMounted, ref, watch } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 import { Content, useData, useRoute, useRouter } from 'vitepress';
 import { CircleIcon, FileIcon, GithubIcon, MoonIcon, SearchIcon, SunIcon } from 'lucide-vue-next';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@ui/registry/tailwind/ui/command';
@@ -26,6 +26,7 @@ const { config } = useConfigStore();
 
 onMounted(() => {
   document.documentElement.style.setProperty('--radius', `${config.value.radius}rem`);
+  document.documentElement.style.setProperty('--backdrop-filter-blur', `${config.value.backdropFilterBlur}px`);
   document.documentElement.classList.add(`theme-${config.value.theme}`);
 });
 
@@ -82,6 +83,10 @@ function isRouteActive(href: string) {
 
   return $route.path.startsWith(`/${href.split('/')[1]}`);
 }
+
+const appVersion = computed(() => {
+  return `v${import.meta.env.VITE_APP_VERSION}`;
+});
 </script>
 
 <template>
@@ -120,6 +125,10 @@ function isRouteActive(href: string) {
                   <InfoLabel
                     v-if="route.title === 'Blocks'"
                     text="Alpha"
+                  />
+                  <InfoLabel
+                    v-if="route.title === 'Changelog' && appVersion"
+                    :text="appVersion"
                   />
                 </a>
               </nav>

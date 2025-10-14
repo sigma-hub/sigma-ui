@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 export const DEFAULT_TYPESCRIPT_CONFIG = 'tsconfig.json';
-export const DEFAULT_TAILWIND_BASE_COLOR = 'zinc';
+export const DEFAULT_TAILWIND_BASE_COLOR = 'grayscale';
 
 // Common field schemas
 // These are reusable field definitions that can be composed into larger schemas

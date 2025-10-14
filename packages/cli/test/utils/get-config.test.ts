@@ -16,7 +16,7 @@ it('get raw config', async () => {
     tailwind: {
       config: './tailwind.config.ts',
       css: './src/assets/css/tailwind.css',
-      baseColor: 'zinc',
+      baseColor: 'grayscale',
     },
     tsConfigPath: './tsconfig.json',
     aliases: {
@@ -46,7 +46,7 @@ it('get config', async () => {
     tailwind: {
       config: './tailwind.config.ts',
       css: './src/assets/css/tailwind.css',
-      baseColor: 'zinc',
+      baseColor: 'grayscale',
     },
     aliases: {
       components: '@/components',
@@ -89,7 +89,7 @@ it('get config', async () => {
     style: 'css',
     tailwind: {
       config: 'tailwind.config.ts',
-      baseColor: 'zinc',
+      baseColor: 'grayscale',
       css: 'src/app/globals.css',
       prefix: 'tw-',
     },
@@ -136,7 +136,7 @@ it('get config', async () => {
     tailwind: {
       config: './tailwind.config.js',
       css: './src/assets/css/tailwind.css',
-      baseColor: 'zinc',
+      baseColor: 'grayscale',
     },
     aliases: {
       components: '@/components',

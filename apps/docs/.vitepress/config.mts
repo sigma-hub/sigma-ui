@@ -1,4 +1,5 @@
 import path from 'node:path';
+import fs from 'node:fs';
 import { defineConfig } from 'vitepress';
 import tailwindcss from '@tailwindcss/vite';
 import { transformerMetaWordHighlight } from '@shikijs/transformers';
@@ -62,6 +63,16 @@ export default defineConfig({
     plugins: [
       tailwindcss(),
     ],
+    define: {
+      'import.meta.env.VITE_APP_VERSION': JSON.stringify(
+        JSON.parse(
+          fs.readFileSync(
+            path.resolve(__dirname, '../../../packages/cli/package.json'),
+            'utf-8',
+          ),
+        ).version,
+      ),
+    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '../src'),

@@ -7,7 +7,7 @@
   "files": [
     {
       "name": "TagsInput.vue",
-      "content": "<script setup lang=\"ts\">\nimport { TagsInputRoot, type TagsInputRootEmits, type TagsInputRootProps, useForwardPropsEmits } from 'reka-ui';\n\nconst props = defineProps<TagsInputRootProps>();\nconst emits = defineEmits<TagsInputRootEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <TagsInputRoot\n    v-bind=\"forwarded\"\n    class=\"sigma-ui-tags-input\"\n  >\n    <slot />\n  </TagsInputRoot>\n</template>\n\n<style>\n.sigma-ui-tags-input {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  padding: 0.5rem 0.75rem;\n  border: 1px solid hsl(var(--input));\n  border-radius: var(--radius-md);\n  background-color: hsl(var(--background));\n  font-size: 0.875rem;\n  gap: 0.5rem;\n}\n</style>\n"
+      "content": "<script setup lang=\"ts\">\nimport { TagsInputRoot, type TagsInputRootEmits, type TagsInputRootProps, useForwardPropsEmits } from 'reka-ui';\n\nconst props = defineProps<TagsInputRootProps>();\nconst emits = defineEmits<TagsInputRootEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <TagsInputRoot\n    v-bind=\"forwarded\"\n    class=\"sigma-ui-tags-input\"\n  >\n    <slot />\n  </TagsInputRoot>\n</template>\n\n<style>\n.sigma-ui-tags-input {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  padding: 0.5rem 0.75rem;\n  border: 1px solid hsl(var(--border));\n  border-radius: var(--radius-md);\n  background-color: hsl(var(--input));\n  font-size: 0.875rem;\n  gap: 0.5rem;\n}\n</style>\n"
     },
     {
       "name": "TagsInputInput.vue",

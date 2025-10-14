@@ -114,6 +114,11 @@ const filteredFrameworks = computed(() => {
   border: none;
 }
 
+.example-sigma-ui-tags-input-combobox__input:focus-visible {
+  box-shadow: none;
+  outline: none;
+}
+
 .example-sigma-ui-tags-input-combobox__list {
   width: var(--reka-popper-anchor-width);
   border: 1px solid hsl(var(--border));

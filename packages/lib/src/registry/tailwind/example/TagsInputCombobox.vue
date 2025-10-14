@@ -54,7 +54,7 @@ const filteredFrameworks = computed(() => {
         >
           <TagsInputInput
             placeholder="Framework..."
-            class="w-full p-0 border-none focus-visible:ring-0 h-auto"
+            class="w-full min-w-[50px] p-0 border-none focus-visible:ring-0 focus-visible:ring-offset-0 h-auto"
             @keydown.enter.prevent
           />
         </ComboboxInput>

@@ -6,6 +6,10 @@ import {
   useForwardPropsEmits,
 } from 'reka-ui';
 
+defineOptions({
+  inheritAttrs: false,
+});
+
 const props = defineProps<ContextMenuSubContentProps>();
 const emits = defineEmits<ContextMenuSubContentEmits>();
 
@@ -14,8 +18,9 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <ContextMenuSubContent
-    v-bind="forwarded"
+    v-bind="{ ...forwarded, ...$attrs }"
     class="sigma-ui-context-menu-sub-content"
+    :class="$attrs.class"
   >
     <slot />
   </ContextMenuSubContent>
@@ -29,7 +34,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   padding: 0.25rem;
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius-md);
-  animation: fadeOut 100ms ease-in forwards;
+  backdrop-filter: blur(var(--backdrop-filter-blur));
   background-color: hsl(var(--popover));
   box-shadow: var(--shadow-md);
   color: hsl(var(--popover-foreground));
@@ -38,6 +43,10 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 .sigma-ui-context-menu-sub-content[data-state="open"] {
   animation: fade-in 200ms ease-out;
+}
+
+.sigma-ui-context-menu-sub-content[data-state="closed"] {
+  animation: fade-out 100ms ease-in forwards;
 }
 
 @keyframes fade-in {

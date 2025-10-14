@@ -6,12 +6,21 @@ import { colors } from '@/lib/registry';
 import { useConfigStore } from '@/stores/config';
 
 const { config, setTheme } = useConfigStore();
+
+const getButtonColor = (color: string) => {
+  if (color === 'frosted-glass') {
+    return '#587aa9';
+  }
+
+  // @ts-expect-error ignore
+  return colors[color][6].rgb;
+};
 </script>
 
 <template>
   <div>
     <TooltipProvider
-      v-for="(color, index) in baseColors.filter(color => ['zinc', 'red', 'blue', 'green'].includes(color.name))"
+      v-for="(color, index) in baseColors.filter(color => ['grayscale', 'frosted-glass', 'red', 'green'].includes(color.name))"
       :key="index"
     >
       <Tooltip>
@@ -27,8 +36,8 @@ const { config, setTheme } = useConfigStore();
             @click="setTheme(color.name)"
           >
             <span
-              class="flex h-[20px] w-[20px] items-center justify-center rounded-sm"
-              :style="{ backgroundColor: colors[color.name][6].rgb, opacity: 0.6 }"
+              class="flex h-[20px] w-[20px] border border-border opacity-60 items-center justify-center rounded-sm"
+              :style="{ backgroundColor: getButtonColor(color.name) }"
             >
               <CheckIcon
                 v-if="color.name === config.theme"
@@ -40,7 +49,7 @@ const { config, setTheme } = useConfigStore();
         <TooltipContent
           align="center"
           :side-offset="1"
-          class="capitalize bg-zinc-900 text-zinc-50"
+          class="capitalize bg-grayscale-900 text-grayscale-50"
         >
           {{ color.label }}
         </TooltipContent>

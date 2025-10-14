@@ -118,7 +118,7 @@ This is used to generate the default color palette for your components.
 ```json title="sigma-ui.config.json"
 {
   "tailwind": {
-    "baseColor": "zinc" | "blue" | "red" | ...
+    "baseColor": "grayscale" | "blue" | "red" | ...
   }
 }
 ```

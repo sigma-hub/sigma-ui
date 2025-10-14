@@ -17,7 +17,7 @@
     },
     {
       "name": "TabsTrigger.vue",
-      "content": "<script setup lang=\"ts\">\nimport { TabsTrigger, type TabsTriggerProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@ui/utils';\n\nconst props = defineProps<TabsTriggerProps>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <TabsTrigger\n    v-bind=\"forwardedProps\"\n    :class=\"cn(\n      'inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 h-full text-sm font-medium ring-offset-background transition-all focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm',\n      $attrs.class ?? '',\n    )\"\n  >\n    <slot />\n  </TabsTrigger>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { TabsTrigger, type TabsTriggerProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@ui/utils';\n\nconst props = defineProps<TabsTriggerProps>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <TabsTrigger\n    v-bind=\"forwardedProps\"\n    :class=\"cn(\n      'inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 h-full text-sm font-medium ring-offset-background transition-all focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-input data-[state=active]:text-foreground data-[state=active]:shadow-sm',\n      $attrs.class ?? '',\n    )\"\n  >\n    <slot />\n  </TabsTrigger>\n</template>\n"
     },
     {
       "name": "index.ts",

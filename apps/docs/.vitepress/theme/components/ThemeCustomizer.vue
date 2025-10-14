@@ -3,17 +3,30 @@ import { useData } from 'vitepress';
 import { CheckIcon, MoonIcon, PanelBottomOpenIcon, SunIcon } from 'lucide-vue-next';
 import { useToggle } from '@vueuse/core';
 import { Button } from '@ui/registry/tailwind/ui/button';
+import { Collapsible, CollapsibleContent } from '@ui/registry/tailwind/ui/collapsible';
 import { Separator } from '@ui/registry/tailwind/ui/separator';
 import { Label } from '@ui/registry/tailwind/ui/label';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@ui/registry/tailwind/ui/dialog';
 import { baseColors } from '../../../src/lib/registry/colors';
 import ThemeCustomizerCode from '../components/ThemeCustomizerCode.vue';
 import { colors } from '@/lib/registry';
-import { RADII, useConfigStore } from '@/stores/config';
+import { BACKDROP_FILTER_BLURS, RADII, useConfigStore } from '@/stores/config';
+import { computed } from 'vue';
 
-const { config, setRadius, setTheme } = useConfigStore();
+const { config, setBackdropFilterBlur, setRadius, setTheme } = useConfigStore();
 const { isDark } = useData();
 const toggleDark = useToggle(isDark);
+
+const showBackdropFilterBlur = computed(() => config.value.theme === 'frosted-glass');
+
+const getButtonColor = (color: string) => {
+  if (color === 'frosted-glass') {
+    return '#587aa9';
+  }
+
+  // @ts-expect-error ignore
+  return colors[color][7].rgb;
+};
 </script>
 
 <template>
@@ -68,8 +81,8 @@ const toggleDark = useToggle(isDark);
           @click="setTheme(color.name)"
         >
           <span
-            class="h-5 w-5 rounded-sm flex items-center justify-center"
-            :style="{ backgroundColor: colors[color.name][7].rgb }"
+            class="h-5 w-5 rounded-sm border border-border flex items-center justify-center"
+            :style="{ backgroundColor: getButtonColor(color.name) }"
           >
             <CheckIcon
               v-if="color.name === config.theme"
@@ -111,6 +124,39 @@ const toggleDark = useToggle(isDark);
       </div>
     </div>
 
+    <Collapsible
+      v-model:open="showBackdropFilterBlur"
+      class="flex flex-col gap-2"
+    >
+      <CollapsibleContent>
+        <Label
+          for="radius"
+          class="text-xs"
+        >
+          Backdrop Filter Blur
+        </Label>
+
+        <div class="grid grid-cols-5 gap-2">
+          <Button
+            v-for="(value, index) in BACKDROP_FILTER_BLURS"
+            :key="index"
+            variant="outline"
+            class="h-8 flex w-full justify-center px-3"
+            :class="
+              value === config.backdropFilterBlur
+                ? 'border-foreground border-2'
+                : ''
+            "
+            @click="setBackdropFilterBlur(value)"
+          >
+            <span class="text-xs">
+              {{ value }}px
+            </span>
+          </Button>
+        </div>
+      </CollapsibleContent>
+    </Collapsible>
+
     <div class="flex flex-col gap-y-2">
       <Label
         for="theme"
@@ -127,7 +173,7 @@ const toggleDark = useToggle(isDark);
               Show CSS variables
             </Button>
           </DialogTrigger>
-          <DialogContent class="sm:max-w-[625px]">
+          <DialogContent class="w-[500px] sm:max-w-[625px]">
             <DialogHeader>
               <DialogTitle>Theme</DialogTitle>
               <DialogDescription>

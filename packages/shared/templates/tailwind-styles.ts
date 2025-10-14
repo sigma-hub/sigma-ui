@@ -12,10 +12,9 @@ export const TAILWIND_STYLES_WITH_VARS_TEMPLATE = `@import "tailwindcss";
   }
 
   :root {
+    --backdrop-filter-blur: <%- sizes.backdropFilterBlur %>px;
     --radius: <%- sizes.radius %>rem;
-  }
- 
-  :root {
+
     --background: <%- colors.light["background"] %>;
     --foreground: <%- colors.light["foreground"] %>;
     --muted: <%- colors.light["muted"] %>;

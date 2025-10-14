@@ -35,7 +35,7 @@
     },
     "baseColor": {
       "type": "string",
-      "default": "zinc"
+      "default": "grayscale"
     },
     "tailwind": {
       "type": "object",

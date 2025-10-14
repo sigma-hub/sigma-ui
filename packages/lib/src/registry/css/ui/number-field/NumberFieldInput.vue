@@ -15,9 +15,9 @@ import { NumberFieldInput } from 'reka-ui';
   width: 100%;
   height: 2.5rem;
   padding: 0.5rem;
-  border: 1px solid hsl(var(--input));
+  border: 1px solid hsl(var(--border));
   border-radius: var(--radius);
-  background-color: hsl(var(--background));
+  background-color: transparent;
   font-size: 0.875rem;
   text-align: center;
 }

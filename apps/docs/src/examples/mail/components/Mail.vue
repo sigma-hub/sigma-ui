@@ -199,20 +199,20 @@ function onExpand() {
             <TabsList class="ml-auto">
               <TabsTrigger
                 value="all"
-                class="text-zinc-600 dark:text-zinc-200"
+                class="text-grayscale-600 dark:text-grayscale-200"
               >
                 All mail
               </TabsTrigger>
               <TabsTrigger
                 value="unread"
-                class="text-zinc-600 dark:text-zinc-200"
+                class="text-grayscale-600 dark:text-grayscale-200"
               >
                 Unread
               </TabsTrigger>
             </TabsList>
           </div>
           <Separator />
-          <div class="bg-background/95 p-4 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+          <div class="p-4">
             <form>
               <div class="relative">
                 <SearchIcon class="absolute left-2 top-2.5 size-4 text-muted-foreground" />

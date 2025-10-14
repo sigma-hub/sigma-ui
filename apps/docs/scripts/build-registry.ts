@@ -8,7 +8,6 @@ import { registrySchema } from '../src/lib/registry/schema';
 import { styleSystems } from '../src/lib/registry/style-system';
 import { buildRegistry } from '../src/lib/registry/registry';
 import {
-  TAILWIND_STYLES_TEMPLATE,
   TAILWIND_STYLES_WITH_VARS_TEMPLATE,
 } from '~/packages/shared/templates/tailwind-styles';
 import {
@@ -201,11 +200,11 @@ function buildBaseColors(colorsData: Record<string, any>) {
           const resolvedColor = value.replace(/\{\{base\}\}-/g, `${baseColor}-`);
           base.inlineColors[mode][key] = resolvedColor;
 
-          const [resolvedBase, scale] = resolvedColor.split('-');
-          const color = scale
-            ? colorsData[resolvedBase].find(
-                (item: any) => item.scale === Number.parseInt(scale),
-              )
+          const matchColorScale = resolvedColor.match(/^(.*)-(\d+)$/);
+          const resolvedBase = matchColorScale ? matchColorScale[1] : resolvedColor;
+          const scaleString = matchColorScale ? matchColorScale[2] : undefined;
+          const color = scaleString
+            ? colorsData[resolvedBase]?.find((colorEntry: any) => colorEntry.scale === Number.parseInt(scaleString))
             : colorsData[resolvedBase];
 
           if (color) {
@@ -219,6 +218,7 @@ function buildBaseColors(colorsData: Record<string, any>) {
       colors: base.cssVars,
       sizes: {
         radius: 0.5,
+        backdropFilterBlur: 32,
       },
     };
 

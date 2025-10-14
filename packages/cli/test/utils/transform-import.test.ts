@@ -13,7 +13,7 @@ it('transform import', async () => {
     import { cn } from "@/lib/utils"
     `,
       config: {
-        baseColor: 'zinc',
+        baseColor: 'grayscale',
         aliases: {
           components: '@/components',
           utils: '@/lib/utils',
