@@ -1,5 +1,5 @@
 import { DEFAULT_COMPONENTS, DEFAULT_UTILS } from '~/packages/shared/consts';
-import { computed, watch } from 'vue';
+import { computed } from 'vue';
 import { useStorage } from '@vueuse/core';
 import { useData } from 'vitepress';
 import { type Theme, themes } from './../lib/registry/themes';
@@ -21,18 +21,26 @@ interface CodeConfig {
 export const RADII = [0, 0.25, 0.5, 0.75, 1];
 export const BACKDROP_FILTER_BLURS = [16, 24, 32, 64, 128];
 
+const DEFAULT_CONFIG: Config = {
+  theme: 'grayscale',
+  radius: 0.5,
+  backdropFilterBlur: 32,
+  styleSystem: styleSystems[0].name,
+};
+
+const DEFAULT_CODE_CONFIG: CodeConfig = {
+  prefix: '',
+  componentsPath: DEFAULT_COMPONENTS,
+  utilsPath: DEFAULT_UTILS,
+};
+
 export function useConfigStore() {
   const { isDark } = useData();
-  const config = useStorage<Config>('config', {
-    theme: 'grayscale',
-    radius: 0.5,
-    backdropFilterBlur: 32,
-    styleSystem: styleSystems[0].name,
+  const config = useStorage<Config>('config', DEFAULT_CONFIG, undefined, {
+    mergeDefaults: true,
   });
-  const codeConfig = useStorage<CodeConfig>('code-config', {
-    prefix: '',
-    componentsPath: DEFAULT_COMPONENTS,
-    utilsPath: DEFAULT_UTILS,
+  const codeConfig = useStorage<CodeConfig>('code-config', DEFAULT_CODE_CONFIG, undefined, {
+    mergeDefaults: true,
   });
 
   const themeClass = computed(() => `theme-${config.value.theme}`);
