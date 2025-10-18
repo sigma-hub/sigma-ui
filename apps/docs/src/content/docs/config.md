@@ -32,30 +32,6 @@ You can see the JSON Schema for `sigma-ui.config.json` [here](https://sigma-ui.d
 
 # Config options
 
-## `typescript`
-
-This project and the components are written in TypeScript. It's highly recommended to use Typescript version of the components for your project as well.
-
-You can set `typescript` to `false` to opt-out of TypeScript.
-
-```json {2} title="sigma-ui.config.json"
-{
-  "typescript": false
-}
-```
-
-To configure import aliases in Javascript, you can add the following to your `jsconfig.json` file:
-
-```json {4} title="jsconfig.json"
-{
-  "compilerOptions": {
-    "paths": {
-      "@/*": ["./*"]
-    }
-  }
-}
-```
-
 ## `styleSystem`
 
 This field determines the style system for the components (CSS or Tailwind).
@@ -129,14 +105,14 @@ This is used to generate the default color palette for your components.
 
 ## `aliases`
 
-The CLI uses these values and the `paths` config from your `tsconfig.json` or `jsconfig.json` file to place generated components in the correct location.
+The CLI uses these values and the `paths` config from your `tsconfig.json` file to place generated components in the correct location.
 
-Path aliases have to be set up in your `tsconfig.json` or `jsconfig.json` file. It will fallback to `tsconfig.app.json` if no `paths` were found in `tsconfig.json`
+Path aliases have to be set up in your `tsconfig.json` file. It will fallback to `tsconfig.app.json` if no `paths` were found in `tsconfig.json`
 
 <Callout class="mt-6">
 
  **Important:** If you're using the `src` directory, make sure it is included
-  under `paths` in your `tsconfig.json` or `jsconfig.json` file.
+  under `paths` in your `tsconfig.json` file.
 
 </Callout>
 

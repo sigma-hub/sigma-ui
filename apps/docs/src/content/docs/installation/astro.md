@@ -45,20 +45,21 @@ npx astro add tailwind
 
 This will install `tailwindcss` and `@astrojs/tailwind` as dependencies and set them up in your `astro.config.mjs` file. It will also create a `tailwind.config.mjs` file with the needed configurations.
 
-### Check tsconfig/jsconfig
+### Check tsconfig
 
-Make sure your `tsconfig.json` or `jsconfig.json` is configured correctly so your app can resolve alias paths:
+Make sure your `tsconfig.json` is configured correctly so that SIGMA-UI CLI commands can resolve alias paths and install components into your components dir:
 
 ```json {3-6}
 {
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     }
   }
 }
 ```
+
 
 ### Initialize SIGMA-UI
 

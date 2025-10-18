@@ -54,6 +54,21 @@ import './assets/index.css'
 createApp(App).mount('#app')
 ```
 
+### Check tsconfig
+
+Make sure your `tsconfig.json` is configured correctly so that SIGMA-UI CLI commands can resolve alias paths and install components into your components dir:
+
+```json {3-6}
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}
+```
+
 ### Add components
 
 You can now start adding [components](/components/accordion.html) to your project (learn more in: [CLI docs > add](/docs/cli.html)):
@@ -110,9 +125,9 @@ import './assets/index.css'
 createApp(App).mount('#app')
 ```
 
-### Check tsconfig/jsconfig
+### Check tsconfig
 
-Make sure your `tsconfig.json` or `jsconfig.json` is configured correctly so your app can resolve alias paths:
+Make sure your `tsconfig.json` is configured correctly so that SIGMA-UI CLI commands can resolve alias paths and install components into your components dir:
 
 ```json {3-6}
 {

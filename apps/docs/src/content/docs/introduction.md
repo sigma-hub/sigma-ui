@@ -18,6 +18,8 @@ npx sigma-ui add
 
 Step 3: Use the added components, modify their code to your needs.
 
+See [installation page](/docs/installation.html) for more details.
+
 ## About
 
 **SIGMA-UI** - is a collection of fully customizable well-built components and blocks for Vue.
