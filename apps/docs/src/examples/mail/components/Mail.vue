@@ -199,13 +199,13 @@ function onExpand() {
             <TabsList class="ml-auto">
               <TabsTrigger
                 value="all"
-                class="text-grayscale-600 dark:text-grayscale-200"
+                class="text-gray-600 dark:text-gray-200"
               >
                 All mail
               </TabsTrigger>
               <TabsTrigger
                 value="unread"
-                class="text-grayscale-600 dark:text-grayscale-200"
+                class="text-gray-600 dark:text-gray-200"
               >
                 Unread
               </TabsTrigger>

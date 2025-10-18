@@ -7,9 +7,8 @@ import { Collapsible, CollapsibleContent } from '@ui/registry/tailwind/ui/collap
 import { Separator } from '@ui/registry/tailwind/ui/separator';
 import { Label } from '@ui/registry/tailwind/ui/label';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@ui/registry/tailwind/ui/dialog';
-import { baseColors } from '../../../src/lib/registry/colors';
+import { baseColors, themes } from '../../../src/lib/registry/themes';
 import ThemeCustomizerCode from '../components/ThemeCustomizerCode.vue';
-import { colors } from '@/lib/registry';
 import { BACKDROP_FILTER_BLURS, RADII, useConfigStore } from '@/stores/config';
 import { computed } from 'vue';
 
@@ -19,13 +18,8 @@ const toggleDark = useToggle(isDark);
 
 const showBackdropFilterBlur = computed(() => config.value.theme === 'frosted-glass');
 
-const getButtonColor = (color: string) => {
-  if (color === 'frosted-glass') {
-    return '#587aa9';
-  }
-
-  // @ts-expect-error ignore
-  return colors[color][7].rgb;
+const getButtonColor = (themeName: string) => {
+  return themes.find(t => t.name === themeName)?.previewColor || '#52525b';
 };
 </script>
 

@@ -1,6 +1,14 @@
 @import "tailwindcss";
 @config "../../../tailwind.config.js";
 
+html {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
 @custom-variant hover (&:hover);
 
 @layer base {

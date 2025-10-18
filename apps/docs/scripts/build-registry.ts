@@ -3,7 +3,7 @@ import path, { basename } from 'node:path';
 import { template } from 'lodash-es';
 import { rimraf } from 'rimraf';
 
-import { baseColors, colorMapping, colors } from '../src/lib/registry/colors';
+import { themes } from '../src/lib/registry/themes';
 import { registrySchema } from '../src/lib/registry/schema';
 import { styleSystems } from '../src/lib/registry/style-system';
 import { buildRegistry } from '../src/lib/registry/registry';
@@ -131,29 +131,7 @@ function buildRegistryIndex(registryData: any) {
   fs.writeFileSync(path.join(REGISTRY_PATH, 'index.json'), registryJson, 'utf8');
 }
 
-function processColorData(value: any) {
-  if (typeof value === 'string') {
-    return value;
-  }
-
-  if (Array.isArray(value)) {
-    return value.map(item => ({
-      ...item,
-      rgbChannel: item.rgb.replace(/^rgb\((\d+),(\d+),(\d+)\)$/, '$1 $2 $3'),
-      hslChannel: item.hsl.replace(/^hsl\(([\d.]+),([\d.]+%),([\d.]+%)\)$/, '$1 $2 $3'),
-    }));
-  }
-
-  if (typeof value === 'object') {
-    return {
-      ...value,
-      rgbChannel: value.rgb.replace(/^rgb\((\d+),(\d+),(\d+)\)$/, '$1 $2 $3'),
-      hslChannel: value.hsl.replace(/^hsl\(([\d.]+),([\d.]+%),([\d.]+%)\)$/, '$1 $2 $3'),
-    };
-  }
-}
-
-function buildColorsRegistry() {
+function buildBaseColors() {
   const colorsTargetPath = path.join(REGISTRY_PATH, 'colors');
   rimraf.sync(colorsTargetPath);
 
@@ -161,26 +139,13 @@ function buildColorsRegistry() {
     fs.mkdirSync(colorsTargetPath, { recursive: true });
   }
 
-  const colorsData: Record<string, any> = {};
-
-  for (const [color, value] of Object.entries(colors)) {
-    colorsData[color] = processColorData(value);
-  }
-
-  fs.writeFileSync(
-    path.join(colorsTargetPath, 'index.json'),
-    JSON.stringify(colorsData, null, 2),
-    'utf8',
-  );
-
-  return colorsData;
-}
-
-function buildBaseColors(colorsData: Record<string, any>) {
-  for (const baseColor of baseColors.map(item => item.name)) {
-    const base: Record<string, any> = {
-      inlineColors: {},
-      cssVars: {},
+  for (const theme of themes) {
+    const base = {
+      inlineColors: {
+        light: {},
+        dark: {},
+      },
+      cssVars: theme.cssVars,
       templates: {
         tailwind: {
           withVariables: '',
@@ -191,31 +156,8 @@ function buildBaseColors(colorsData: Record<string, any>) {
       },
     };
 
-    for (const [mode, values] of Object.entries(colorMapping)) {
-      base.inlineColors[mode] = {};
-      base.cssVars[mode] = {};
-
-      for (const [key, value] of Object.entries(values)) {
-        if (typeof value === 'string') {
-          const resolvedColor = value.replace(/\{\{base\}\}-/g, `${baseColor}-`);
-          base.inlineColors[mode][key] = resolvedColor;
-
-          const matchColorScale = resolvedColor.match(/^(.*)-(\d+)$/);
-          const resolvedBase = matchColorScale ? matchColorScale[1] : resolvedColor;
-          const scaleString = matchColorScale ? matchColorScale[2] : undefined;
-          const color = scaleString
-            ? colorsData[resolvedBase]?.find((colorEntry: any) => colorEntry.scale === Number.parseInt(scaleString))
-            : colorsData[resolvedBase];
-
-          if (color) {
-            base.cssVars[mode][key] = color.hslChannel;
-          }
-        }
-      }
-    }
-
     const config = {
-      colors: base.cssVars,
+      colors: theme.cssVars,
       sizes: {
         radius: 0.5,
         backdropFilterBlur: 32,
@@ -226,7 +168,7 @@ function buildBaseColors(colorsData: Record<string, any>) {
     base.templates.css.withVariables = template(CSS_STYLES_WITH_VARS_TEMPLATE)(config);
 
     fs.writeFileSync(
-      path.join(REGISTRY_PATH, `colors/${baseColor}.json`),
+      path.join(colorsTargetPath, `${theme.name}.json`),
       JSON.stringify(base, null, 2),
       'utf8',
     );
@@ -238,8 +180,7 @@ async function main() {
   buildGeneratedIndex(registryData);
   buildStylesRegistry(registryData);
   buildRegistryIndex(registryData);
-  const colorsData = buildColorsRegistry();
-  buildBaseColors(colorsData);
+  buildBaseColors();
   console.log('✅ Done');
 }
 

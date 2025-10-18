@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'pathe';
 import type * as z from 'zod';
-import { baseColors } from '../../../../../apps/docs/src/lib/registry/colors';
+import { baseColors } from '../../../../../apps/docs/src/lib/registry/themes';
 import {
   registryBaseColorSchema,
   registryIndexSchema,

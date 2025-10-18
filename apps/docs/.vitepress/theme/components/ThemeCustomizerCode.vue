@@ -53,7 +53,7 @@ async function getCodeTemplate() {
     <div class="grid overflow-x-auto">
       <div
         ref="codeRef"
-        class="h-[450px] rounded-lg border bg-grayscale-950 !py-0 dark:bg-grayscale-900"
+        class="h-[450px] rounded-lg border bg-gray-950 !py-0 dark:bg-gray-900"
         v-html="code"
       />
     </div>

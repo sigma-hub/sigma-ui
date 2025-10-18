@@ -10,11 +10,12 @@ import * as components from './components';
 import './styles/main.css';
 import './styles/vp-doc.css';
 import './styles/shiki.css';
-import './styles/themes.css';
+import { useThemeStyles } from './composables/useThemeStyles';
 
 export default {
   Layout,
   enhanceApp({ app }) {
+    useThemeStyles();
     app.use(createPinia());
     app.component('Docs', DocsLayout);
     app.component('Components', ComponentsLayout);

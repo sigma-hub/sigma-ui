@@ -5,7 +5,7 @@ import { Button } from '@ui/registry/tailwind/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@ui/registry/tailwind/ui/popover';
 import ThemeCustomizer from './ThemeCustomizer.vue';
 import { useConfigStore } from '@/stores/config';
-import { baseColors } from '../../../src/lib/registry/colors';
+import { baseColors } from '../../../src/lib/registry/themes';
 
 const { config } = useConfigStore();
 

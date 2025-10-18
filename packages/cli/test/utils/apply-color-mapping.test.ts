@@ -53,12 +53,12 @@ describe('apply color mapping', async () => {
   it.each([
     {
       input: 'bg-background text-foreground',
-      output: 'bg-white text-grayscale-950 dark:bg-grayscale-950 dark:text-grayscale-50',
+      output: 'bg-white text-gray-950 dark:bg-gray-950 dark:text-gray-50',
     },
     {
       input: 'rounded-lg border bg-card text-card-foreground shadow-sm',
       output:
-        'rounded-lg border border-grayscale-200 bg-white text-grayscale-950 shadow-sm dark:border-grayscale-800 dark:bg-grayscale-950 dark:text-grayscale-50',
+        'rounded-lg border border-grayscale-200 bg-white text-gray-950 shadow-sm dark:border-grayscale-800 dark:bg-gray-950 dark:text-gray-50',
     },
     {
       input:
@@ -70,13 +70,13 @@ describe('apply color mapping', async () => {
       input:
         'flex h-full w-full items-center justify-center rounded-full bg-muted',
       output:
-        'flex h-full w-full items-center justify-center rounded-full bg-grayscale-100 dark:bg-grayscale-800',
+        'flex h-full w-full items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800',
     },
     {
       input:
         'absolute right-4 top-4 bg-primary rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-hidden focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary',
       output:
-        'absolute right-4 top-4 bg-grayscale-900 rounded-sm opacity-70 ring-offset-white transition-opacity hover:opacity-100 focus:outline-hidden focus:ring-2 focus:ring-grayscale-400 focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-grayscale-100 dark:bg-grayscale-50 dark:ring-offset-grayscale-950 dark:focus:ring-grayscale-800 dark:data-[state=open]:bg-grayscale-800',
+        'absolute right-4 top-4 bg-gray-900 rounded-sm opacity-70 ring-offset-white transition-opacity hover:opacity-100 focus:outline-hidden focus:ring-2 focus:ring-grayscale-400 focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-gray-100 dark:bg-gray-50 dark:ring-offset-grayscale-950 dark:focus:ring-grayscale-800 dark:data-[state=open]:bg-gray-800',
     },
   ])('applyColorMapping($input) -> $output', ({ input, output }) => {
     expect(applyColorMapping(input, baseColor.inlineColors)).toBe(output);

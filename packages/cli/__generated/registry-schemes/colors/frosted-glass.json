@@ -1,90 +1,54 @@
 {
   "inlineColors": {
-    "light": {
-      "background": "white",
-      "foreground": "frosted-glass-950",
-      "card": "white",
-      "card-foreground": "frosted-glass-950",
-      "popover": "white",
-      "popover-foreground": "frosted-glass-950",
-      "primary": "frosted-glass-900",
-      "primary-foreground": "frosted-glass-50",
-      "secondary": "frosted-glass-100",
-      "secondary-foreground": "frosted-glass-900",
-      "muted": "frosted-glass-100",
-      "muted-foreground": "frosted-glass-500",
-      "destructive": "red-500",
-      "destructive-foreground": "frosted-glass-50",
-      "border": "frosted-glass-200",
-      "input": "frosted-glass-200",
-      "ring": "frosted-glass-950"
-    },
-    "dark": {
-      "background": "frosted-glass-950",
-      "foreground": "frosted-glass-50",
-      "card": "frosted-glass-950",
-      "card-foreground": "frosted-glass-50",
-      "popover": "frosted-glass-950",
-      "popover-foreground": "frosted-glass-50",
-      "primary": "frosted-glass-50",
-      "primary-foreground": "frosted-glass-900",
-      "secondary": "frosted-glass-800",
-      "secondary-foreground": "frosted-glass-50",
-      "muted": "frosted-glass-800",
-      "muted-foreground": "frosted-glass-400",
-      "destructive": "red-900",
-      "destructive-foreground": "frosted-glass-50",
-      "border": "frosted-glass-800",
-      "input": "frosted-glass-800",
-      "ring": "frosted-glass-300"
-    }
+    "light": {},
+    "dark": {}
   },
   "cssVars": {
     "light": {
       "background": "0 0% 100%",
       "foreground": "224 71.4% 4.1%",
-      "card": "0 0% 100%",
-      "card-foreground": "224 71.4% 4.1%",
-      "popover": "0 0% 100%",
+      "muted": "220 14.3% 95.9%",
+      "muted-foreground": "220 8.9% 46.1%",
+      "popover": "0 0% 100% / 10%",
       "popover-foreground": "224 71.4% 4.1%",
+      "card": "0 0% 100% / 10%",
+      "card-foreground": "224 71.4% 4.1%",
+      "border": "220 13% 91%",
+      "input": "0 0% 100%",
       "primary": "220.9 39.3% 11%",
       "primary-foreground": "210 20% 98%",
       "secondary": "220 14.3% 95.9%",
       "secondary-foreground": "220.9 39.3% 11%",
-      "muted": "220 14.3% 95.9%",
-      "muted-foreground": "220 8.9% 46.1%",
       "destructive": "0 84.2% 60.2%",
       "destructive-foreground": "210 20% 98%",
-      "border": "220 13% 91%",
-      "input": "220 13% 91%",
       "ring": "224 71.4% 4.1%"
     },
     "dark": {
       "background": "224 71.4% 4.1%",
       "foreground": "210 20% 98%",
-      "card": "224 71.4% 4.1%",
-      "card-foreground": "210 20% 98%",
-      "popover": "224 71.4% 4.1%",
-      "popover-foreground": "210 20% 98%",
-      "primary": "210 20% 98%",
-      "primary-foreground": "220.9 39.3% 11%",
-      "secondary": "215 27.9% 16.9%",
-      "secondary-foreground": "210 20% 98%",
       "muted": "215 27.9% 16.9%",
       "muted-foreground": "217.9 10.6% 64.9%",
+      "popover": "224 71.4% 4.1% / 20%",
+      "popover-foreground": "210 20% 98%",
+      "card": "215 27.9% 16.9% / 30%",
+      "card-foreground": "210 20% 98%",
+      "border": "215 27.9% 16.9%",
+      "input": "224 71.4% 4.1%  / 50%",
+      "primary": "210 20% 98%",
+      "primary-foreground": "220.9 39.3% 11%",
+      "secondary": "215 27.9% 16.9% / 50%",
+      "secondary-foreground": "210 20% 98%",
       "destructive": "0 62.8% 30.6%",
       "destructive-foreground": "210 20% 98%",
-      "border": "215 27.9% 16.9%",
-      "input": "215 27.9% 16.9%",
       "ring": "216 12.2% 83.9%"
     }
   },
   "templates": {
     "tailwind": {
-      "withVariables": "@import \"tailwindcss\";\n@config \"../../tailwind.config.js\";\n\n@layer base {\n  /* Override Tailwind 4 default hover cursor for buttons and button-like elements */\n  button:not(:disabled),\n  [role=\"button\"]:not(:disabled) {\n    cursor: pointer;\n  }\n\n  :root {\n    --backdrop-filter-blur: 32px;\n    --radius: 0.5rem;\n\n    --background: 0 0% 100%;\n    --foreground: 224 71.4% 4.1%;\n    --muted: 220 14.3% 95.9%;\n    --muted-foreground: 220 8.9% 46.1%;\n    --popover: 0 0% 100%;\n    --popover-foreground: 224 71.4% 4.1%;\n    --card: 0 0% 100%;\n    --card-foreground: 224 71.4% 4.1%;\n    --border: 220 13% 91%;\n    --input: 220 13% 91%;\n    --primary: 220.9 39.3% 11%;\n    --primary-foreground: 210 20% 98%;\n    --secondary: 220 14.3% 95.9%;\n    --secondary-foreground: 220.9 39.3% 11%;\n    --destructive: 0 84.2% 60.2%;\n    --destructive-foreground: 210 20% 98%;\n    --ring: 224 71.4% 4.1%;\n  }\n \n  .dark {\n    --background: 224 71.4% 4.1%;\n    --foreground: 210 20% 98%;\n    --muted: 215 27.9% 16.9%;\n    --muted-foreground: 217.9 10.6% 64.9%;\n    --popover: 224 71.4% 4.1%;\n    --popover-foreground: 210 20% 98%;\n    --card: 224 71.4% 4.1%;\n    --card-foreground: 210 20% 98%;\n    --border: 215 27.9% 16.9%;\n    --input: 215 27.9% 16.9%;\n    --primary: 210 20% 98%;\n    --primary-foreground: 220.9 39.3% 11%;\n    --secondary: 215 27.9% 16.9%;\n    --secondary-foreground: 210 20% 98%;\n    --destructive: 0 62.8% 30.6%;\n    --destructive-foreground: 210 20% 98%;\n    --ring: 216 12.2% 83.9%;\n  }\n\n  * {\n    @apply border-border;\n  }\n\n  body {\n    @apply bg-background text-foreground;\n  }\n\n  .fade-slide-top-enter-active,\n  .fade-slide-top-leave-active {\n    transition: all 0.3s ease;\n  }\n\n  .fade-slide-top-enter-from,\n  .fade-slide-top-leave-to {\n    opacity: 0;\n    filter: blur(4px);\n    transform: translateY(8px);\n  }\n}"
+      "withVariables": "@import \"tailwindcss\";\n@config \"../../tailwind.config.js\";\n\n@layer base {\n  /* Override Tailwind 4 default hover cursor for buttons and button-like elements */\n  button:not(:disabled),\n  [role=\"button\"]:not(:disabled) {\n    cursor: pointer;\n  }\n\n  :root {\n    --backdrop-filter-blur: 32px;\n    --radius: 0.5rem;\n\n    --background: 0 0% 100%;\n    --foreground: 224 71.4% 4.1%;\n    --muted: 220 14.3% 95.9%;\n    --muted-foreground: 220 8.9% 46.1%;\n    --popover: 0 0% 100% / 10%;\n    --popover-foreground: 224 71.4% 4.1%;\n    --card: 0 0% 100% / 10%;\n    --card-foreground: 224 71.4% 4.1%;\n    --border: 220 13% 91%;\n    --input: 0 0% 100%;\n    --primary: 220.9 39.3% 11%;\n    --primary-foreground: 210 20% 98%;\n    --secondary: 220 14.3% 95.9%;\n    --secondary-foreground: 220.9 39.3% 11%;\n    --destructive: 0 84.2% 60.2%;\n    --destructive-foreground: 210 20% 98%;\n    --ring: 224 71.4% 4.1%;\n  }\n \n  .dark {\n    --background: 224 71.4% 4.1%;\n    --foreground: 210 20% 98%;\n    --muted: 215 27.9% 16.9%;\n    --muted-foreground: 217.9 10.6% 64.9%;\n    --popover: 224 71.4% 4.1% / 20%;\n    --popover-foreground: 210 20% 98%;\n    --card: 215 27.9% 16.9% / 30%;\n    --card-foreground: 210 20% 98%;\n    --border: 215 27.9% 16.9%;\n    --input: 224 71.4% 4.1%  / 50%;\n    --primary: 210 20% 98%;\n    --primary-foreground: 220.9 39.3% 11%;\n    --secondary: 215 27.9% 16.9% / 50%;\n    --secondary-foreground: 210 20% 98%;\n    --destructive: 0 62.8% 30.6%;\n    --destructive-foreground: 210 20% 98%;\n    --ring: 216 12.2% 83.9%;\n  }\n\n  * {\n    @apply border-border;\n  }\n\n  body {\n    @apply bg-background text-foreground;\n  }\n\n  .fade-slide-top-enter-active,\n  .fade-slide-top-leave-active {\n    transition: all 0.3s ease;\n  }\n\n  .fade-slide-top-enter-from,\n  .fade-slide-top-leave-to {\n    opacity: 0;\n    filter: blur(4px);\n    transform: translateY(8px);\n  }\n}"
     },
     "css": {
-      "withVariables": "@layer base {\n  /* Override preflight default hover cursor for buttons and button-like elements */\n  button:not(:disabled),\n  [role=\"button\"]:not(:disabled) {\n    cursor: pointer;\n  }\n    \n  :root {\n    --backdrop-filter-blur: 32px;\n    --radius: 0.5rem;\n    --radius-full: 9999px;\n    --radius-xl: calc(var(--radius) + 4px);\n    --radius-lg: var(--radius);\n    --radius-md: calc(var(--radius) - 2px);\n    --radius-sm: calc(var(--radius) - 4px);\n    --radius-xs: min(calc(var(--radius) / 2.5), 6px);\n    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace;\n    --shadow-md: \n      0 4px 6px -1px rgba(0, 0, 0, 0.02), \n      0 2px 4px -1px rgba(0, 0, 0, 0.02),\n      0 12px 24px rgba(0, 0, 0, 0.05);\n      \n    --background: 0 0% 100%;\n    --foreground: 224 71.4% 4.1%;\n    --muted: 220 14.3% 95.9%;\n    --muted-foreground: 220 8.9% 46.1%;\n    --popover: 0 0% 100%;\n    --popover-foreground: 224 71.4% 4.1%;\n    --card: 0 0% 100%;\n    --card-foreground: 224 71.4% 4.1%;\n    --border: 220 13% 91%;\n    --input: 220 13% 91%;\n    --primary: 220.9 39.3% 11%;\n    --primary-foreground: 210 20% 98%;\n    --secondary: 220 14.3% 95.9%;\n    --secondary-foreground: 220.9 39.3% 11%;\n    --destructive: 0 84.2% 60.2%;\n    --destructive-foreground: 210 20% 98%;\n    --ring: 224 71.4% 4.1%;\n  }\n \n  .dark {\n    --background: 224 71.4% 4.1%;\n    --foreground: 210 20% 98%;\n    --muted: 215 27.9% 16.9%;\n    --muted-foreground: 217.9 10.6% 64.9%;\n    --popover: 224 71.4% 4.1%;\n    --popover-foreground: 210 20% 98%;\n    --card: 224 71.4% 4.1%;\n    --card-foreground: 210 20% 98%;\n    --border: 215 27.9% 16.9%;\n    --input: 215 27.9% 16.9%;\n    --primary: 210 20% 98%;\n    --primary-foreground: 220.9 39.3% 11%;\n    --secondary: 215 27.9% 16.9%;\n    --secondary-foreground: 210 20% 98%;\n    --destructive: 0 62.8% 30.6%;\n    --destructive-foreground: 210 20% 98%;\n    --ring: 216 12.2% 83.9%;\n  }\n\n  * {\n    border-color: hsl(var(--border));\n  }\n    \n  body {\n    background-color: hsl(var(--background));\n    color: hsl(var(--foreground));\n  }\n\n  .sr-only {\n    position: absolute;\n    width: 1px;\n    height: 1px;\n    padding: 0;\n    margin: -1px;\n    overflow: hidden;\n    clip: rect(0, 0, 0, 0);\n    white-space: nowrap;\n    border-width: 0;\n  }\n  \n  @keyframes fade-in {\n    from {\n      opacity: 0;\n    }\n    to {\n      opacity: 1;\n    }\n  }\n\n  @keyframes spin {\n    from {\n      transform: rotate(0deg);\n    }\n    to {\n      transform: rotate(360deg);\n    }\n  }\n\n  @keyframes collapsible-down {\n    from {\n      height: 0;\n    }\n    to {\n      height: var(--reka-collapsible-content-height);\n    }\n  }\n\n  @keyframes collapsible-up {\n    from {\n      height: var(--reka-collapsible-content-height);\n    }\n    to {\n      height: 0;\n    }\n  }\n\n  .animate-fade-in {\n    animation: fade-in 0.5s ease;\n  }\n\n  .animate-spin {\n    animation: spin 1s linear infinite;\n  }\n\n  .fade-slide-top-enter-active,\n  .fade-slide-top-leave-active {\n    transition: all 0.3s ease;\n  }\n\n  .fade-slide-top-enter-from,\n  .fade-slide-top-leave-to {\n    opacity: 0;\n    filter: blur(4px);\n    transform: translateY(8px);\n  }\n}"
+      "withVariables": "@layer base {\n  /* Override preflight default hover cursor for buttons and button-like elements */\n  button:not(:disabled),\n  [role=\"button\"]:not(:disabled) {\n    cursor: pointer;\n  }\n    \n  :root {\n    --backdrop-filter-blur: 32px;\n    --radius: 0.5rem;\n    --radius-full: 9999px;\n    --radius-xl: calc(var(--radius) + 4px);\n    --radius-lg: var(--radius);\n    --radius-md: calc(var(--radius) - 2px);\n    --radius-sm: calc(var(--radius) - 4px);\n    --radius-xs: min(calc(var(--radius) / 2.5), 6px);\n    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace;\n    --shadow-md: \n      0 4px 6px -1px rgba(0, 0, 0, 0.02), \n      0 2px 4px -1px rgba(0, 0, 0, 0.02),\n      0 12px 24px rgba(0, 0, 0, 0.05);\n      \n    --background: 0 0% 100%;\n    --foreground: 224 71.4% 4.1%;\n    --muted: 220 14.3% 95.9%;\n    --muted-foreground: 220 8.9% 46.1%;\n    --popover: 0 0% 100% / 10%;\n    --popover-foreground: 224 71.4% 4.1%;\n    --card: 0 0% 100% / 10%;\n    --card-foreground: 224 71.4% 4.1%;\n    --border: 220 13% 91%;\n    --input: 0 0% 100%;\n    --primary: 220.9 39.3% 11%;\n    --primary-foreground: 210 20% 98%;\n    --secondary: 220 14.3% 95.9%;\n    --secondary-foreground: 220.9 39.3% 11%;\n    --destructive: 0 84.2% 60.2%;\n    --destructive-foreground: 210 20% 98%;\n    --ring: 224 71.4% 4.1%;\n  }\n \n  .dark {\n    --background: 224 71.4% 4.1%;\n    --foreground: 210 20% 98%;\n    --muted: 215 27.9% 16.9%;\n    --muted-foreground: 217.9 10.6% 64.9%;\n    --popover: 224 71.4% 4.1% / 20%;\n    --popover-foreground: 210 20% 98%;\n    --card: 215 27.9% 16.9% / 30%;\n    --card-foreground: 210 20% 98%;\n    --border: 215 27.9% 16.9%;\n    --input: 224 71.4% 4.1%  / 50%;\n    --primary: 210 20% 98%;\n    --primary-foreground: 220.9 39.3% 11%;\n    --secondary: 215 27.9% 16.9% / 50%;\n    --secondary-foreground: 210 20% 98%;\n    --destructive: 0 62.8% 30.6%;\n    --destructive-foreground: 210 20% 98%;\n    --ring: 216 12.2% 83.9%;\n  }\n\n  * {\n    border-color: hsl(var(--border));\n  }\n    \n  body {\n    background-color: hsl(var(--background));\n    color: hsl(var(--foreground));\n  }\n\n  .sr-only {\n    position: absolute;\n    width: 1px;\n    height: 1px;\n    padding: 0;\n    margin: -1px;\n    overflow: hidden;\n    clip: rect(0, 0, 0, 0);\n    white-space: nowrap;\n    border-width: 0;\n  }\n  \n  @keyframes fade-in {\n    from {\n      opacity: 0;\n    }\n    to {\n      opacity: 1;\n    }\n  }\n\n  @keyframes spin {\n    from {\n      transform: rotate(0deg);\n    }\n    to {\n      transform: rotate(360deg);\n    }\n  }\n\n  @keyframes collapsible-down {\n    from {\n      height: 0;\n    }\n    to {\n      height: var(--reka-collapsible-content-height);\n    }\n  }\n\n  @keyframes collapsible-up {\n    from {\n      height: var(--reka-collapsible-content-height);\n    }\n    to {\n      height: 0;\n    }\n  }\n\n  .animate-fade-in {\n    animation: fade-in 0.5s ease;\n  }\n\n  .animate-spin {\n    animation: spin 1s linear infinite;\n  }\n\n  .fade-slide-top-enter-active,\n  .fade-slide-top-leave-active {\n    transition: all 0.3s ease;\n  }\n\n  .fade-slide-top-enter-from,\n  .fade-slide-top-leave-to {\n    opacity: 0;\n    filter: blur(4px);\n    transform: translateY(8px);\n  }\n}"
     }
   }
 }

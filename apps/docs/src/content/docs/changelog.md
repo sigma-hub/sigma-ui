@@ -7,17 +7,20 @@ description: Latest updates and announcements.
 
 #### Changes
 
+`v1.0.19`: 
+- Updated themes: fix incorrect colors;
+
 `v1.0.18`: 
 - Updated themes: 
-  - frosted-glass (new)
-  - grayscale (former zinc)
-  - gray (removed)
-  - violet (removed)
+  - frosted-glass (new);
+  - grayscale (former zinc);
+  - gray (removed);
+  - violet (removed);
 - Improved style config: 
-  - Removed repeating :root selector from css configs to avoid linter errors (duplicating selectors).
+  - Removed repeating :root selector from css configs to avoid linter errors (duplicating selectors);
 - Fixed content display issues with contextMenu, dropdown, sheet:
-  - CSS, Tailwind: Fixed submenu content being cut-off
-  - CSS: Fixed problem with contextMenu and sheet not dismissing 
+  - CSS, Tailwind: Fixed submenu content being cut-off;
+  - CSS: Fixed problem with contextMenu and sheet not dismissing;
 
 ## September 2025
 

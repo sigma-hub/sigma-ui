@@ -1,19 +1,13 @@
 <script lang="ts" setup>
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@ui/registry/tailwind/ui/tooltip';
 import { CheckIcon } from 'lucide-vue-next';
-import { baseColors } from '../../../src/lib/registry/colors';
-import { colors } from '@/lib/registry';
+import { baseColors, themes } from '@/lib/registry/themes';
 import { useConfigStore } from '@/stores/config';
 
 const { config, setTheme } = useConfigStore();
 
-const getButtonColor = (color: string) => {
-  if (color === 'frosted-glass') {
-    return '#587aa9';
-  }
-
-  // @ts-expect-error ignore
-  return colors[color][6].rgb;
+const getButtonColor = (themeName: string) => {
+  return themes.find(t => t.name === themeName)?.previewColor || '#52525b';
 };
 </script>
 
@@ -49,7 +43,7 @@ const getButtonColor = (color: string) => {
         <TooltipContent
           align="center"
           :side-offset="1"
-          class="capitalize bg-grayscale-900 text-grayscale-50"
+          class="capitalize bg-gray-900 text-gray-50"
         >
           {{ color.label }}
         </TooltipContent>

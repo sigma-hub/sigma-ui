@@ -10,7 +10,7 @@ import { useConfigStore } from '@/stores/config';
 import { useExamplesStore } from '@/stores/examples';
 import ExamplesDemoNav from '../components/ExamplesDemoNav.vue';
 import { GithubIcon } from 'lucide-vue-next';
-import { baseColors } from '../../../src/lib/registry/colors';
+import { baseColors } from '../../../src/lib/registry/themes';
 
 const examplesStore = useExamplesStore();
 const { config } = useConfigStore();
