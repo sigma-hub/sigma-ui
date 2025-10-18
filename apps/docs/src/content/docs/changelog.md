@@ -7,7 +7,7 @@ description: Latest updates and announcements.
 
 #### Changes
 
-`v1.0.17`: 
+`v1.0.18`: 
 - Updated themes: 
   - frosted-glass (new)
   - grayscale (former zinc)
