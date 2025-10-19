@@ -420,7 +420,8 @@
     "dependencies": [],
     "registryDependencies": [],
     "files": [
-      "infusion/Infusion.vue"
+      "infusion/Infusion.vue",
+      "infusion/index.ts"
     ],
     "type": "components:ui"
   },

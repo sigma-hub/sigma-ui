@@ -7,6 +7,7 @@ import { CheckIcon, SaveIcon, Settings2Icon } from 'lucide-vue-next';
 import { useClipboard } from '@vueuse/core';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import { Input } from '@ui/registry/tailwind/ui/input';
+import { Separator } from '@ui/registry/tailwind/ui/separator';
 import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@ui/registry/tailwind/ui/form';
 import { Popover, PopoverContent, PopoverTrigger } from '@ui/registry/tailwind/ui/popover';
 import { useConfigStore } from '@/stores/config';

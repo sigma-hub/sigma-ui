@@ -7,6 +7,9 @@ description: Latest updates and announcements.
 
 #### Changes
 
+`v1.1.0`: 
+- New: added Infusion component;
+
 `v1.0.19`: 
 - Updated themes: fix incorrect colors;
 

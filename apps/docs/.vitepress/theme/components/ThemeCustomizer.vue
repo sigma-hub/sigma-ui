@@ -6,6 +6,7 @@ import { Button } from '@ui/registry/tailwind/ui/button';
 import { Collapsible, CollapsibleContent } from '@ui/registry/tailwind/ui/collapsible';
 import { Separator } from '@ui/registry/tailwind/ui/separator';
 import { Label } from '@ui/registry/tailwind/ui/label';
+import { Switch } from '@ui/registry/tailwind/ui/switch';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@ui/registry/tailwind/ui/dialog';
 import { baseColors, themes } from '../../../src/lib/registry/themes';
 import ThemeCustomizerCode from '../components/ThemeCustomizerCode.vue';
@@ -150,6 +151,29 @@ const getButtonColor = (themeName: string) => {
         </div>
       </CollapsibleContent>
     </Collapsible>
+
+    <div class="flex flex-col gap-y-2">
+      <Label
+        for="infusion"
+        class="text-xs"
+      >
+        Infusion Effect
+      </Label>
+
+      <div class="flex items-center justify-between rounded-lg border p-3">
+        <div class="space-y-0.5">
+          <div class="text-sm font-medium">
+            Enable Infusion
+          </div>
+          <div class="text-xs text-muted-foreground">
+            Visual overlay effect for the entire page
+          </div>
+        </div>
+        <Switch
+          v-model="config.infusionEnabled"
+        />
+      </div>
+    </div>
 
     <div class="flex flex-col gap-y-2">
       <Label

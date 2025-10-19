@@ -10,6 +10,12 @@ interface Config {
   radius: number;
   backdropFilterBlur: number;
   styleSystem: StyleSystem;
+  infusionEnabled: boolean;
+  infusionImageOpacity: number;
+  infusionImageOpacityDark: number;
+  infusionBlur: number;
+  infusionNoiseIntensity: number;
+  infusionNoiseOpacity: number;
 }
 
 interface CodeConfig {
@@ -26,6 +32,12 @@ const DEFAULT_CONFIG: Config = {
   radius: 0.5,
   backdropFilterBlur: 32,
   styleSystem: styleSystems[0].name,
+  infusionEnabled: true,
+  infusionImageOpacity: 0.2,
+  infusionImageOpacityDark: 0.3,
+  infusionBlur: 64,
+  infusionNoiseIntensity: 0.5,
+  infusionNoiseOpacity: 0.05,
 };
 
 const DEFAULT_CODE_CONFIG: CodeConfig = {
@@ -68,6 +80,30 @@ export function useConfigStore() {
     config.value.backdropFilterBlur = newBackdropFilterBlur;
   };
 
+  const setInfusionEnabled = (enabled: boolean) => {
+    config.value.infusionEnabled = enabled;
+  };
+
+  const setInfusionImageOpacity = (opacity: number) => {
+    config.value.infusionImageOpacity = opacity;
+  };
+
+  const setInfusionImageOpacityDark = (opacity: number) => {
+    config.value.infusionImageOpacityDark = opacity;
+  };
+
+  const setInfusionBlur = (blur: number) => {
+    config.value.infusionBlur = blur;
+  };
+
+  const setInfusionNoiseIntensity = (intensity: number) => {
+    config.value.infusionNoiseIntensity = intensity;
+  };
+
+  const setInfusionNoiseOpacity = (opacity: number) => {
+    config.value.infusionNoiseOpacity = opacity;
+  };
+
   return {
     config,
     themeClass,
@@ -77,5 +113,11 @@ export function useConfigStore() {
     setRadius,
     setBackdropFilterBlur,
     setCodeConfig,
+    setInfusionEnabled,
+    setInfusionImageOpacity,
+    setInfusionImageOpacityDark,
+    setInfusionBlur,
+    setInfusionNoiseIntensity,
+    setInfusionNoiseOpacity,
   };
 }

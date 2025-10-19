@@ -95,7 +95,15 @@ const appVersion = computed(() => {
       <Content :key="$route.path" />
     </template>
     <template v-else>
-      <Infusion src="/blur-xl-noise-bg.jpg" />
+      <Infusion
+        v-if="config.infusionEnabled"
+        src="/infusion-bg.png"
+        :opacity="config.infusionImageOpacity"
+        :opacity-dark="config.infusionImageOpacityDark"
+        :blur="config.infusionBlur"
+        :noise-intensity="config.infusionNoiseIntensity"
+        :noise-opacity="config.infusionNoiseOpacity"
+      />
       <div
         vaul-drawer-wrapper
         class="flex min-h-screen flex-col bg-background"

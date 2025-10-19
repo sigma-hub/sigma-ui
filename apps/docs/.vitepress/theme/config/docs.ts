@@ -228,6 +228,11 @@ export const docsConfig: DocsConfig = {
           href: '/components/hover-card',
         },
         {
+          title: 'Infusion',
+          href: '/components/infusion',
+          label: 'New',
+        },
+        {
           title: 'Input',
           href: '/components/input',
         },
