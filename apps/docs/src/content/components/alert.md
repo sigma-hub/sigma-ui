@@ -1,7 +1,7 @@
 ---
 title: Alert
 description: Displays a callout for user attention.
-source: apps/docs/src/lib/registry/tailwind/ui/alert
+source: packages/lib/src/registry/tailwind/ui/alert
 ---
 
 ## Preview

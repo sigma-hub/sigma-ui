@@ -1,7 +1,7 @@
 ---
 title: Bar
 description: A line chart visually represents data using rectangular bars of varying lengths to compare quantities across different categories or groups.
-source: apps/docs/src/lib/registry/tailwind/ui/chart-bar
+source: packages/lib/src/registry/tailwind/ui/chart-bar
 label: Alpha
 ---
 

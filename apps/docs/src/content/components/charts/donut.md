@@ -1,7 +1,7 @@
 ---
 title: Donut
 description: A line chart visually represents data in a circular form, similar to a pie chart but with a central void, emphasizing proportions within categories.
-source: apps/docs/src/lib/registry/tailwind/ui/chart-donut
+source: packages/lib/src/registry/tailwind/ui/chart-donut
 label: Alpha
 ---
 

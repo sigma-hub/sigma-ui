@@ -1,7 +1,7 @@
 ---
 title: Tags Input
 description: Tag inputs render tags inside an input, followed by an actual text input.
-source: apps/docs/src/lib/registry/tailwind/ui/tags-input
+source: packages/lib/src/registry/tailwind/ui/tags-input
 primitive: https://www.reka-ui.com/docs/components/tags-input.html
 ---
 

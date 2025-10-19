@@ -1,7 +1,7 @@
 ---
 title: Line
 description: A line chart  visually displays data points connected by straight lines, illustrating trends or relationships over a continuous axis.
-source: apps/docs/src/lib/registry/tailwind/ui/chart-line
+source: packages/lib/src/registry/tailwind/ui/chart-line
 label: Alpha
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Popover
 description: Displays a popover card with some content over the main content.
-source: apps/docs/src/lib/registry/tailwind/ui/popover
+source: packages/lib/src/registry/tailwind/ui/popover
 primitive: https://www.reka-ui.com/docs/components/popover.html
 ---
 

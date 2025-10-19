@@ -1,7 +1,7 @@
 ---
 title: Navigation Menu
 description: A collection of links for navigating websites.
-source: apps/docs/src/lib/registry/tailwind/ui/navigation-menu
+source: packages/lib/src/registry/tailwind/ui/navigation-menu
 primitive: https://www.reka-ui.com/docs/components/navigation-menu.html
 ---
 

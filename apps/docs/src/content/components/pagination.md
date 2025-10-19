@@ -1,7 +1,7 @@
 ---
 title: Pagination
 description: Displays data in paged format and provides navigation between pages.
-source: apps/docs/src/lib/registry/tailwind/ui/pagination
+source: packages/lib/src/registry/tailwind/ui/pagination
 primitive: https://www.reka-ui.com/docs/components/pagination.html
 ---
 

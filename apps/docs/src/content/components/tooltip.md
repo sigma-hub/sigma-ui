@@ -1,7 +1,7 @@
 ---
 title: Tooltip
 description: A popup that displays information related to an element when the element is hovered or receives keyboard focus.
-source: apps/docs/src/lib/registry/tailwind/ui/tooltip
+source: packages/lib/src/registry/tailwind/ui/tooltip
 primitive: https://www.reka-ui.com/docs/components/tooltip.html
 ---
 

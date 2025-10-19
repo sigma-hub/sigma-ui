@@ -1,8 +1,7 @@
 ---
 title: Infusion
 description: Displays a visual effect layer that changes appearance of all components
-source: apps/docs/src/lib/registry/tailwind/ui/infusion
-primitive: https://www.reka-ui.com/docs/components/infusion.html
+source: packages/lib/src/registry/tailwind/ui/infusion
 ---
 
 <script setup>

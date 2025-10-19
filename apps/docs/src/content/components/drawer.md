@@ -1,7 +1,7 @@
 ---
 title: Drawer
 description: Mobile-style drawer panel that slides in from the bottom of the screen.
-source: apps/docs/src/lib/registry/tailwind/ui/drawer
+source: packages/lib/src/registry/tailwind/ui/drawer
 primitive: https://github.com/unovue/vaul-vue
 ---
 

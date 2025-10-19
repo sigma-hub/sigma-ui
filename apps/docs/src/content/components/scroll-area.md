@@ -1,7 +1,7 @@
 ---
 title: Scroll-area
 description: Augments native scroll functionality for custom, cross-browser styling.
-source: apps/docs/src/lib/registry/tailwind/ui/scroll-area
+source: packages/lib/src/registry/tailwind/ui/scroll-area
 primitive: https://www.reka-ui.com/docs/components/scroll-area.html
 ---
 

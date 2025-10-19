@@ -1,7 +1,7 @@
 ---
 title: Dialog
 description: Container for displaying content on top of other content.
-source: apps/docs/src/lib/registry/tailwind/ui/dialog
+source: packages/lib/src/registry/tailwind/ui/dialog
 primitive: https://www.reka-ui.com/docs/components/dialog.html
 ---
 

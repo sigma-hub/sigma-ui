@@ -1,7 +1,7 @@
 ---
 title: Select
 description: Displays a list of options for the user to pick from—triggered by a button.
-source: apps/docs/src/lib/registry/tailwind/ui/select
+source: packages/lib/src/registry/tailwind/ui/select
 primitive: https://www.reka-ui.com/docs/components/select.html
 ---
 

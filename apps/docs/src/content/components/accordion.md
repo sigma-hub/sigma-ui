@@ -1,7 +1,7 @@
 ---
 title: Accordion
 description: Set of interactive collapsible sections.
-source: apps/docs/src/lib/registry/tailwind/ui/accordion
+source: packages/lib/src/registry/tailwind/ui/accordion
 primitive: https://www.reka-ui.com/docs/components/accordion.html
 ---
 

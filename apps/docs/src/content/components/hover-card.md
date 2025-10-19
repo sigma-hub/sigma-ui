@@ -1,7 +1,7 @@
 ---
 title: Hover Card
 description: For displaying additional content that appears when hovering over a trigger element.
-source: apps/docs/src/lib/registry/tailwind/ui/hover-card
+source: packages/lib/src/registry/tailwind/ui/hover-card
 primitive: https://www.reka-ui.com/docs/components/hover-card.html
 ---
 

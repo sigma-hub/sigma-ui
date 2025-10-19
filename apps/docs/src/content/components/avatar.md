@@ -1,7 +1,7 @@
 ---
 title: Avatar
 description: An image element with a fallback for representing the user.
-source: apps/docs/src/lib/registry/tailwind/ui/avatar
+source: packages/lib/src/registry/tailwind/ui/avatar
 primitive: https://www.reka-ui.com/docs/components/avatar.html
 ---
 

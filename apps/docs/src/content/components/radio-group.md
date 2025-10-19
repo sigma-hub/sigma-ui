@@ -1,7 +1,7 @@
 ---
 title: Radio Group
 description: A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time.
-source: apps/docs/src/lib/registry/tailwind/ui/radio-group
+source: packages/lib/src/registry/tailwind/ui/radio-group
 primitive: https://www.reka-ui.com/docs/components/radio-group.html
 ---
 

@@ -35,6 +35,16 @@ watch(() => route.path, () => {
 
 <template>
   <ul :class="cn('m-0 list-none max-h-[50vh]', { 'pl-4': level !== 1 })">
+    <a
+      v-if="level === 1"
+      href="#"
+      :class="
+        cn('inline-block no-underline transition-colors hover:text-foreground',
+           '#' === hash
+             ? 'font-medium text-foreground'
+             : 'text-muted-foreground')"
+    >Links
+    </a>
     <template v-if="tree.items?.length">
       <li
         v-for="item in tree.items"

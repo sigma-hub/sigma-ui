@@ -1,7 +1,7 @@
 ---
 title: Range Calendar
 description: A calendar component that allows users to select a range of dates.
-source: apps/docs/src/lib/registry/tailwind/ui/range-calendar
+source: packages/lib/src/registry/tailwind/ui/range-calendar
 primitive: https://www.reka-ui.com/docs/components/range-calendar.html
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Dropdown Menu
 description: Displays a menu located at the trigger element.
-source: apps/docs/src/lib/registry/tailwind/ui/dropdown-menu
+source: packages/lib/src/registry/tailwind/ui/dropdown-menu
 primitive: https://www.reka-ui.com/docs/components/dropdown-menu.html
 ---
 

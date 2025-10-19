@@ -1,7 +1,7 @@
 ---
 title: Badge
 description: Displays a badge or a component that looks like a badge.
-source: apps/docs/src/lib/registry/tailwind/ui/badge
+source: packages/lib/src/registry/tailwind/ui/badge
 ---
 
 ## Preview

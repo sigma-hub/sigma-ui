@@ -1,7 +1,7 @@
 ---
 title: Context Menu
 description: Displays a menu located at the pointer, triggered by a right-click or a long-press.
-source: apps/docs/src/lib/registry/tailwind/ui/context-menu
+source: packages/lib/src/registry/tailwind/ui/context-menu
 primitive: https://www.reka-ui.com/docs/components/context-menu.html
 ---
 
