@@ -7,7 +7,7 @@ description: Latest updates and announcements.
 
 #### Changes
 
-`v1.1.0`: 
+`v1.1.1`: 
 - New: added Infusion component;
 
 `v1.0.19`: 
