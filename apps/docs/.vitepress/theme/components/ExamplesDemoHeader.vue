@@ -51,7 +51,9 @@ const examplesStore = useExamplesStore();
             <ThemeCustomizer />
           </PopoverContent>
         </Popover>
-        <ThemePickerMini class="gap-x-0 flex md:gap-x-1" />
+        <ClientOnly>
+          <ThemePickerMini class="gap-x-0 flex md:gap-x-1" />
+        </ClientOnly>
       </div>
     </CardContent>
   </Card>
