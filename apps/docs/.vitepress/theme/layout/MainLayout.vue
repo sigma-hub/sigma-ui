@@ -16,6 +16,7 @@ import MobileNav from '../components/MobileNav.vue';
 import Logo from '../components/Logo.vue';
 import { type NavItem, docsConfig } from '../config/docs';
 import { useConfigStore } from '@/stores/config';
+import { baseColors } from '../../../src/lib/registry/themes';
 import {
   Tooltip,
   TooltipContent,
@@ -28,6 +29,14 @@ onMounted(() => {
   document.documentElement.style.setProperty('--radius', `${config.value.radius}rem`);
   document.documentElement.style.setProperty('--backdrop-filter-blur', `${config.value.backdropFilterBlur}px`);
   document.documentElement.classList.add(`theme-${config.value.theme}`);
+
+  if (config.value.infusionEnabled) {
+    document.documentElement.style.setProperty('--infusion-opacity', config.value.infusionImageOpacity.toString());
+    document.documentElement.style.setProperty('--infusion-opacity-dark', config.value.infusionImageOpacityDark.toString());
+    document.documentElement.style.setProperty('--infusion-blur', `${config.value.infusionBlur}px`);
+    document.documentElement.style.setProperty('--infusion-noise-intensity', config.value.infusionNoiseIntensity.toString());
+    document.documentElement.style.setProperty('--infusion-noise-opacity', config.value.infusionNoiseOpacity.toString());
+  }
 });
 
 const { frontmatter, isDark } = useData();
@@ -87,6 +96,55 @@ function isRouteActive(href: string) {
 const appVersion = computed(() => {
   return `v${import.meta.env.VITE_APP_VERSION}`;
 });
+
+const isConfigReady = computed(() => {
+  return config.value && typeof config.value.infusionNoiseIntensity === 'number';
+});
+
+watch(() => config.value.radius, (radius) => {
+  document.documentElement.style.setProperty('--radius', `${radius}rem`);
+});
+
+watch(() => config.value.backdropFilterBlur, (backdropFilterBlur) => {
+  document.documentElement.style.setProperty('--backdrop-filter-blur', `${backdropFilterBlur}px`);
+});
+
+watch(() => config.value.infusionEnabled, (enabled) => {
+  if (enabled) {
+    document.documentElement.style.setProperty('--infusion-opacity', config.value.infusionImageOpacity.toString());
+    document.documentElement.style.setProperty('--infusion-opacity-dark', config.value.infusionImageOpacityDark.toString());
+    document.documentElement.style.setProperty('--infusion-blur', `${config.value.infusionBlur}px`);
+    document.documentElement.style.setProperty('--infusion-noise-intensity', config.value.infusionNoiseIntensity.toString());
+    document.documentElement.style.setProperty('--infusion-noise-opacity', config.value.infusionNoiseOpacity.toString());
+  }
+});
+
+watch(() => config.value.infusionImageOpacity, (opacity) => {
+  document.documentElement.style.setProperty('--infusion-opacity', opacity.toString());
+});
+
+watch(() => config.value.infusionImageOpacityDark, (opacity) => {
+  document.documentElement.style.setProperty('--infusion-opacity-dark', opacity.toString());
+});
+
+watch(() => config.value.infusionBlur, (blur) => {
+  document.documentElement.style.setProperty('--infusion-blur', `${blur}px`);
+});
+
+watch(() => config.value.infusionNoiseIntensity, (intensity) => {
+  document.documentElement.style.setProperty('--infusion-noise-intensity', intensity.toString());
+});
+
+watch(() => config.value.infusionNoiseOpacity, (opacity) => {
+  document.documentElement.style.setProperty('--infusion-noise-opacity', opacity.toString());
+});
+
+watch(() => config.value.theme, (theme) => {
+  document.documentElement.classList.remove(
+    ...baseColors.map(color => `theme-${color.name}`),
+  );
+  document.documentElement.classList.add(`theme-${theme}`);
+});
 </script>
 
 <template>
@@ -96,7 +154,7 @@ const appVersion = computed(() => {
     </template>
     <template v-else>
       <Infusion
-        v-if="config.infusionEnabled"
+        v-if="config.infusionEnabled && isConfigReady"
         src="/infusion-bg.png"
         :opacity="config.infusionImageOpacity"
         :opacity-dark="config.infusionImageOpacityDark"

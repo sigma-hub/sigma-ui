@@ -1,34 +1,8 @@
 <script setup lang="ts">
 import { PaintbrushIcon } from 'lucide-vue-next';
-import { onMounted, watch } from 'vue';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@ui/registry/tailwind/ui/popover';
 import ThemeCustomizer from './ThemeCustomizer.vue';
-import { useConfigStore } from '@/stores/config';
-import { baseColors } from '../../../src/lib/registry/themes';
-
-const { config } = useConfigStore();
-
-onMounted(() => {
-  document.documentElement.style.setProperty('--radius', `${config.value.radius}rem`);
-  document.documentElement.style.setProperty('--backdrop-filter-blur', `${config.value.backdropFilterBlur}px`);
-  document.documentElement.classList.add(`theme-${config.value.theme}`);
-});
-
-watch(() => config.value.theme, (theme) => {
-  document.documentElement.classList.remove(
-    ...baseColors.map(color => `theme-${color.name}`),
-  );
-  document.documentElement.classList.add(`theme-${theme}`);
-});
-
-watch(() => config.value.radius, (radius) => {
-  document.documentElement.style.setProperty('--radius', `${radius}rem`);
-});
-
-watch(() => config.value.backdropFilterBlur, (backdropFilterBlur) => {
-  document.documentElement.style.setProperty('--backdrop-filter-blur', `${backdropFilterBlur}px`);
-});
 </script>
 
 <template>
