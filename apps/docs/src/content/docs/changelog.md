@@ -8,7 +8,9 @@ description: Latest updates and announcements.
 #### Changes
 
 `v1.1.1`: 
-- New: added Infusion component;
+![Project version 1.0 released](../../assets/sigma-ui-infusion-preview.png)
+
+- New: added [Infusion](https://sigma-ui.dev/components/infusion.html) component;
 
 `v1.0.19`: 
 - Updated themes: fix incorrect colors;
