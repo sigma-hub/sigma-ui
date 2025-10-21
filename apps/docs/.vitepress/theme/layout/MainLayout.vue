@@ -26,6 +26,13 @@ import {
 const { config } = useConfigStore();
 
 onMounted(() => {
+  setTimeout(() => {
+    console.log('config', config.value);
+    console.log('config.infusionNoiseOpacity', config.value.infusionNoiseOpacity);
+  }, 1000);
+  console.log('config', config.value);
+  console.log('config.infusionNoiseOpacity', config.value.infusionNoiseOpacity);
+
   document.documentElement.style.setProperty('--radius', `${config.value.radius}rem`);
   document.documentElement.style.setProperty('--backdrop-filter-blur', `${config.value.backdropFilterBlur}px`);
   document.documentElement.classList.add(`theme-${config.value.theme}`);
