@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useMagicKeys, useToggle } from '@vueuse/core';
-import { computed, onMounted, ref, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { Content, useData, useRoute, useRouter } from 'vitepress';
 import { CircleIcon, FileIcon, GithubIcon, MoonIcon, SearchIcon, SunIcon } from 'lucide-vue-next';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@ui/registry/tailwind/ui/command';
@@ -24,27 +24,6 @@ import {
 } from '@ui/registry/tailwind/ui/tooltip';
 
 const { config } = useConfigStore();
-
-onMounted(() => {
-  setTimeout(() => {
-    console.log('config', config.value);
-    console.log('config.infusionNoiseOpacity', config.value.infusionNoiseOpacity);
-  }, 1000);
-  console.log('config', config.value);
-  console.log('config.infusionNoiseOpacity', config.value.infusionNoiseOpacity);
-
-  document.documentElement.style.setProperty('--radius', `${config.value.radius}rem`);
-  document.documentElement.style.setProperty('--backdrop-filter-blur', `${config.value.backdropFilterBlur}px`);
-  document.documentElement.classList.add(`theme-${config.value.theme}`);
-
-  if (config.value.infusionEnabled) {
-    document.documentElement.style.setProperty('--infusion-opacity', config.value.infusionImageOpacity.toString());
-    document.documentElement.style.setProperty('--infusion-opacity-dark', config.value.infusionImageOpacityDark.toString());
-    document.documentElement.style.setProperty('--infusion-blur', `${config.value.infusionBlur}px`);
-    document.documentElement.style.setProperty('--infusion-noise-intensity', config.value.infusionNoiseIntensity.toString());
-    document.documentElement.style.setProperty('--infusion-noise-opacity', config.value.infusionNoiseOpacity.toString());
-  }
-});
 
 const { frontmatter, isDark } = useData();
 
@@ -105,7 +84,7 @@ const appVersion = computed(() => {
 });
 
 const isConfigReady = computed(() => {
-  return config.value && typeof config.value.infusionNoiseIntensity === 'number';
+  return config.value && typeof config.value.radius === 'number';
 });
 
 watch(() => config.value.radius, (radius) => {
@@ -152,6 +131,22 @@ watch(() => config.value.theme, (theme) => {
   );
   document.documentElement.classList.add(`theme-${theme}`);
 });
+
+watch(isConfigReady, (ready) => {
+  if (ready) {
+    document.documentElement.style.setProperty('--radius', `${config.value.radius}rem`);
+    document.documentElement.style.setProperty('--backdrop-filter-blur', `${config.value.backdropFilterBlur}px`);
+    document.documentElement.classList.add(`theme-${config.value.theme}`);
+
+    if (config.value.infusionEnabled) {
+      document.documentElement.style.setProperty('--infusion-opacity', config.value.infusionImageOpacity.toString());
+      document.documentElement.style.setProperty('--infusion-opacity-dark', config.value.infusionImageOpacityDark.toString());
+      document.documentElement.style.setProperty('--infusion-blur', `${config.value.infusionBlur}px`);
+      document.documentElement.style.setProperty('--infusion-noise-intensity', config.value.infusionNoiseIntensity.toString());
+      document.documentElement.style.setProperty('--infusion-noise-opacity', config.value.infusionNoiseOpacity.toString());
+    }
+  }
+}, { immediate: true });
 </script>
 
 <template>
