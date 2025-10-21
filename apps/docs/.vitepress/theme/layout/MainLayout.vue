@@ -84,7 +84,21 @@ const appVersion = computed(() => {
 });
 
 const isConfigReady = computed(() => {
-  return config.value && typeof config.value.radius === 'number';
+  return config.value
+    && typeof config.value.radius === 'number'
+    && typeof config.value.infusionNoiseIntensity === 'number'
+    && typeof config.value.infusionNoiseOpacity === 'number'
+    && typeof config.value.infusionImageOpacity === 'number'
+    && typeof config.value.infusionImageOpacityDark === 'number'
+    && typeof config.value.infusionBlur === 'number';
+});
+
+const infusionKey = computed(() => {
+  if (!isConfigReady.value) {
+    return 'infusion-loading';
+  }
+
+  return `infusion-${config.value.infusionNoiseIntensity}-${config.value.infusionNoiseOpacity}-${config.value.infusionImageOpacity}-${config.value.infusionImageOpacityDark}-${config.value.infusionBlur}`;
 });
 
 watch(() => config.value.radius, (radius) => {
@@ -155,15 +169,18 @@ watch(isConfigReady, (ready) => {
       <Content :key="$route.path" />
     </template>
     <template v-else>
-      <Infusion
-        v-if="config.infusionEnabled && isConfigReady"
-        src="/infusion-bg.png"
-        :opacity="config.infusionImageOpacity"
-        :opacity-dark="config.infusionImageOpacityDark"
-        :blur="config.infusionBlur"
-        :noise-intensity="config.infusionNoiseIntensity"
-        :noise-opacity="config.infusionNoiseOpacity"
-      />
+      <ClientOnly>
+        <Infusion
+          v-if="config.infusionEnabled && isConfigReady"
+          :key="infusionKey"
+          src="/infusion-bg.png"
+          :opacity="config.infusionImageOpacity"
+          :opacity-dark="config.infusionImageOpacityDark"
+          :blur="config.infusionBlur"
+          :noise-intensity="config.infusionNoiseIntensity"
+          :noise-opacity="config.infusionNoiseOpacity"
+        />
+      </ClientOnly>
       <div
         vaul-drawer-wrapper
         class="flex min-h-screen flex-col bg-background"
