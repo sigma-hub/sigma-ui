@@ -1,13 +1,13 @@
 import fs from 'node:fs';
 import path from 'pathe';
-import { addDependency } from 'nypm';
+import { addDependency } from '../../src/utils/package-manager';
 import { afterEach, expect, it, vi } from 'vitest';
 
 import { runInit } from '../../src/commands/init';
 import { getConfig } from '../../src/utils/get-config';
 import * as registry from '../../src/utils/registry';
 
-vi.mock('nypm');
+vi.mock('../../src/utils/package-manager');
 vi.mock('fs/promises', () => ({
   writeFile: vi.fn(),
   mkdir: vi.fn(),
@@ -16,12 +16,16 @@ vi.mock('ora');
 
 it('init config-full', async () => {
   vi.spyOn(registry, 'getRegistryBaseColor').mockResolvedValue({
-    inlineColors: {},
-    cssVars: {},
-    inlineColorsTemplate:
-      '@tailwind base;\n@tailwind components;\n@tailwind utilities;\n',
-    cssVarsTemplate:
-      '@tailwind base;\n@tailwind components;\n@tailwind utilities;\n',
+    inlineColors: { light: {}, dark: {} },
+    cssVars: { light: {}, dark: {} },
+    templates: {
+      tailwind: {
+        withVariables: '@tailwind base;\n@tailwind components;\n@tailwind utilities;\n',
+      },
+      css: {
+        withVariables: '@tailwind base;\n@tailwind components;\n@tailwind utilities;\n',
+      },
+    },
   });
   const mockMkdir = vi.spyOn(fs.promises, 'mkdir').mockResolvedValue(undefined);
   const mockWriteFile = vi.spyOn(fs.promises, 'writeFile').mockResolvedValue();
@@ -85,12 +89,16 @@ it('init config-full', async () => {
 
 it('init config-partial', async () => {
   vi.spyOn(registry, 'getRegistryBaseColor').mockResolvedValue({
-    inlineColors: {},
-    cssVars: {},
-    inlineColorsTemplate:
-      '@tailwind base;\n@tailwind components;\n@tailwind utilities;\n',
-    cssVarsTemplate:
-      '@tailwind base;\n@tailwind components;\n@tailwind utilities;\n',
+    inlineColors: { light: {}, dark: {} },
+    cssVars: { light: {}, dark: {} },
+    templates: {
+      tailwind: {
+        withVariables: '@tailwind base;\n@tailwind components;\n@tailwind utilities;\n',
+      },
+      css: {
+        withVariables: '@tailwind base;\n@tailwind components;\n@tailwind utilities;\n',
+      },
+    },
   });
   const mockMkdir = vi.spyOn(fs.promises, 'mkdir').mockResolvedValue(undefined);
   const mockWriteFile = vi.spyOn(fs.promises, 'writeFile').mockResolvedValue();

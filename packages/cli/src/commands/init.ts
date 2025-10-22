@@ -6,10 +6,9 @@ import { template } from 'lodash-es';
 import ora from 'ora';
 import prompts from 'prompts';
 import { z } from 'zod';
-import { addDependency, addDevDependency, detectPackageManager } from 'nypm';
+import { addDependency, addDevDependency } from '../utils/package-manager';
 import { consola } from 'consola';
 import { colors } from 'consola/utils';
-import { execSync } from 'node:child_process';
 import prettier from 'prettier';
 import { Project, SyntaxKind } from 'ts-morph';
 import { getProjectInfo } from '../utils/get-project-info';
@@ -256,9 +255,12 @@ async function handleNuxtProject() {
 
   if (isNuxt) {
     consola.log('');
-    sigmaUiNuxtModuleInfo
-      ? consola.info(`Detected a Nuxt project with 'sigma-ui-nuxt' v${sigmaUiNuxtModuleInfo.version}`)
-      : consola.warn(`Detected a Nuxt project without 'sigma-ui-nuxt' module. It's recommended to install it.`);
+
+    if (sigmaUiNuxtModuleInfo) {
+      consola.info(`Detected a Nuxt project with 'sigma-ui-nuxt' v${sigmaUiNuxtModuleInfo.version}`);
+    } else {
+      consola.warn(`Detected a Nuxt project without 'sigma-ui-nuxt' module. It's recommended to install it.`);
+    }
   }
 }
 
@@ -393,51 +395,9 @@ async function installDependencies(config: Config, cwd: string) {
       dependenciesSpinner.text = `Installing ${task.type}...`;
       await task.installer(task.deps, { cwd, silent: true });
     } catch (error) {
-      consola.warn(`nypm failed to install ${task.type}:`, error);
-
-      // Check if the error is the corepack signature issue
-      const isCorepackError = error instanceof Error && error.message?.includes('corepack');
-
-      if (isCorepackError) {
-        consola.info(`Falling back to direct package manager execution for ${task.type}...`);
-
-        // Determine install command based on package manager
-        const pm = await detectPackageManager(cwd);
-        let command = '';
-        const depsString = task.deps.join(' ');
-        const devFlag = task.type === 'devDependencies' ? '-D ' : '';
-
-        switch (pm?.name) {
-          case 'npm':
-            command = `npm install ${devFlag}${depsString}`;
-            break;
-          case 'yarn':
-            command = `yarn add ${devFlag}${depsString}`;
-            break;
-          case 'bun':
-            command = `bun add ${devFlag}${depsString}`;
-            break;
-          case 'pnpm':
-          default:
-            // Default to pnpm if detection fails or it's explicitly pnpm
-            command = `pnpm add ${devFlag}${depsString}`;
-            break;
-        }
-
-        try {
-          consola.info(`Running: ${command}`);
-          execSync(command, { cwd, stdio: 'inherit' });
-          consola.success(`Successfully installed ${task.type} using direct package manager execution.`);
-        } catch (fallbackError) {
-          const errorMessage = fallbackError instanceof Error ? fallbackError.message : 'Unknown error';
-          consola.error(`Fallback package manager execution failed for ${task.type}:`, errorMessage);
-          // Don't throw here to allow other tasks to continue
-        }
-      } else {
-        // It's a different error, log it but continue
-        const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-        consola.error(`Failed to install ${task.type} using nypm: ${errorMessage}`);
-      }
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      consola.error(`Failed to install ${task.type}: ${errorMessage}`);
+      // Don't throw here to allow other tasks to continue
     }
   }
 

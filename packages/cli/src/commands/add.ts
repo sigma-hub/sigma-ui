@@ -1,4 +1,3 @@
-import { execSync } from 'node:child_process';
 import { existsSync, promises as fs } from 'node:fs';
 import process from 'node:process';
 import path from 'pathe';
@@ -8,7 +7,7 @@ import { Command } from 'commander';
 import ora from 'ora';
 import prompts from 'prompts';
 import { z } from 'zod';
-import { addDependency, addDevDependency, detectPackageManager } from 'nypm';
+import { addDependency, addDevDependency } from '../utils/package-manager';
 import { transform } from '@/src/utils/transformers';
 import { getConfig, handleConfigIsMissing } from '@/src/utils/get-config';
 import { handleError } from '@/src/utils/handle-error';
@@ -96,7 +95,7 @@ export const add = new Command()
     }
   });
 
-function parseOptions(components: string[], opts: any): AddOptions {
+function parseOptions(components: string[], opts: Record<string, unknown>): AddOptions {
   return addOptionsSchema.parse({
     components,
     ...opts,
@@ -273,61 +272,15 @@ async function installDependencies(
 
   for (const task of installTasks) {
     try {
-      consola.info(`Attempting to install ${task.type} using nypm: ${task.deps.join(', ')}`);
+      consola.info(`Installing ${task.type}: ${task.deps.join(', ')}`);
       await task.installer(task.deps, { cwd });
-      consola.success(`Successfully installed ${task.type} using nypm.`);
+      consola.success(`Successfully installed ${task.type}.`);
     } catch (error) {
-      consola.warn(`nypm failed to install ${task.type}:`, error);
-
-      // Check if the error is the corepack signature issue
-      const isCorepackError = error instanceof Error && error.message?.includes('corepack');
-
-      if (isCorepackError) {
-        consola.info(`Falling back to direct pnpm execution for ${task.type}...`);
-
-        // Determine install command based on package manager
-        const pm = await detectPackageManager(cwd);
-        let command = '';
-        const depsString = task.deps.join(' ');
-        const devFlag = task.type === 'devDependencies' ? '-D ' : '';
-
-        switch (pm?.name) {
-          case 'npm':
-            command = `npm install ${devFlag}${depsString}`;
-            break;
-          case 'yarn':
-            command = `yarn add ${devFlag}${depsString}`;
-            break;
-          case 'bun':
-            command = `bun add ${devFlag}${depsString}`;
-            break;
-          case 'pnpm':
-          default:
-            // Default to pnpm if detection fails or it's explicitly pnpm
-            command = `pnpm add ${devFlag}${depsString}`;
-            break;
-        }
-
-        try {
-          consola.info(`Running: ${command}`);
-          execSync(command, { cwd, stdio: 'inherit' });
-          consola.success(`Successfully installed ${task.type} using direct pnpm execution.`);
-        } catch (fallbackError) {
-          const errorMessage = fallbackError instanceof Error ? fallbackError.message : 'Unknown error';
-          consola.error(`Fallback pnpm execution failed for ${task.type}:`, errorMessage);
-          throw new ComponentInstallError(
-            `Failed to install ${task.type} (nypm and fallback failed): ${errorMessage}`,
-            item.name,
-          );
-        }
-      } else {
-        // It's a different error, re-throw it
-        const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-        throw new ComponentInstallError(
-          `Failed to install ${task.type} using nypm: ${errorMessage}`,
-          item.name,
-        );
-      }
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      throw new ComponentInstallError(
+        `Failed to install ${task.type}: ${errorMessage}`,
+        item.name,
+      );
     }
   }
 }
