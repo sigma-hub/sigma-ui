@@ -7,6 +7,9 @@ description: Latest updates and announcements.
 
 #### Changes
 
+`v1.1.2`: 
+- CLI: removed corepack and nypm
+
 `v1.1.1`: 
 ![Project version 1.0 released](../../assets/sigma-ui-infusion-preview.png)
 
