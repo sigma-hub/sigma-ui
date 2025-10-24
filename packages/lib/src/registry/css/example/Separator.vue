@@ -6,7 +6,7 @@ import { Separator } from '@ui/registry/css/ui/separator';
   <div>
     <div class="example-sigma-ui-separator__header">
       <h4 class="example-sigma-ui-separator__title">
-        Radix Primitives
+        Reka Primitives
       </h4>
       <p class="example-sigma-ui-separator__description">
         An open-source UI component library.

@@ -27,7 +27,7 @@ It takes away the burden of recreating the same components from scratch for ever
 - **Supported style systems**: CSS, Tailwind 4.
 - **Is open-source**: Yes, MIT licensed.
 - **Accessibility**: Supported.
-- **Based upon**: Radix Vue primitives.
+- **Based upon**: Reka (formerly Radix-Vue) primitives.
 - **Installation method**: The components are distributed via the method I call GOAT (Git Obtained As Template) - run `npx` commands to clone the components from git registry directly to your project components directory. Unlike NPM modules, these components are copied from git registry directly into your project and give you full control over customization, instead of using just props and css overrides.
 
 ## Usage

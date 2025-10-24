@@ -16,7 +16,7 @@ primitive: https://www.reka-ui.com/docs/components/calendar.html
 
 ## Dependencies
 
-- [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/index.html): solves problems with internationalization. See [Dates & Times in Radix Vue](https://reka-ui.com/docs/guides/dates) for more details.
+- [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/index.html): solves problems with internationalization. See [Dates & Times in Reka](https://reka-ui.com/docs/guides/dates) for more details.
 
 ## Installation
 

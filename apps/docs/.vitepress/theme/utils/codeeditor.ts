@@ -22,7 +22,7 @@ export function makeStackblitzParams(componentName: string, style: StyleSystem, 
   Object.entries(constructFiles(componentName, style, sources)).forEach(([k, v]) => (files[`${k}`] = typeof v.content === 'object' ? JSON.stringify(v.content, null, 2) : v.content));
 
   return sdk.openProject({
-    title: `${componentName} - Radix Vue`,
+    title: `${componentName} - SIGMA-UI`,
     files,
     template: 'node',
   }, {

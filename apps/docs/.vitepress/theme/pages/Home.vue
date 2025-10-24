@@ -16,11 +16,12 @@ import ExamplesDemo from '../../theme/components/ExamplesDemo.vue';
     <Announcement />
     <PageHeaderHeading>Sigma-UI components</PageHeaderHeading>
     <PageHeaderDescription>
-      Well designed <span class="whitespace-nowrap font-mono bg-muted dark:bg-muted/60 font-bold rounded-md px-2 py-1">Vue</span> components. Copy to your project with a single
+      Well designed <span class="whitespace-nowrap font-mono bg-muted dark:bg-muted/60 font-bold rounded-md px-2 py-1">Vue</span> components.
+      Built on Reka (formerly Radix-Vue). Minimally styled. Accessible. Fully customizable. Open Source.
+      <br>
+      Copy to your project with a single
       <span class="whitespace-nowrap font-mono bg-muted dark:bg-muted/60 font-bold rounded-md px-2 py-1">npx sigma-ui add</span>
       command.
-      <br>Using GOAT (Git Obtained As Template) distribution method.
-      <br>Built on Radix. Minimally styled. Accessible. Fully customizable. Open Source.
     </PageHeaderDescription>
     <PageAction>
       <a
