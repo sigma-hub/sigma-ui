@@ -7,6 +7,9 @@ description: Latest updates and announcements.
 
 #### Changes
 
+`v1.1.3`: 
+- Dev: fix pnpm-lock build error
+
 `v1.1.2`: 
 - CLI: removed corepack and nypm
 
