@@ -3,6 +3,16 @@ title: Changelog
 description: Latest updates and announcements.
 ---
 
+## January 2026
+
+#### Changes
+
+`v1.2.0`:
+- CLI: Added component naming convention option - choose between PascalCase (`ui/Button/Button.vue`) or kebab-case (`ui/button/button.vue`) for generated component directories and files;
+- CLI: Simplified init script - auto-detects framework, tsconfig, and CSS paths. Only 3 essential prompts: style system, theme color, and naming convention;
+- CLI: Added `-d, --defaults` flag for zero-prompt initialization with sensible defaults;
+- CLI: Tailwind v4 support - new projects now use CSS-based configuration with `@theme` directive instead of JavaScript config files. Existing projects with `tailwind.config.js` continue to work via `@config` directive;
+
 ## October 2025
 
 #### Changes
