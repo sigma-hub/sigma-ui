@@ -7,6 +7,21 @@ export function pascalToKebab(pascalCase: string): string {
     .toLowerCase();
 }
 
+export function kebabToPascal(kebabCase: string): string {
+  return kebabCase
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join('');
+}
+
+export function transformDirectoryName(dirName: string, naming: ComponentNaming): string {
+  if (naming === 'kebab-case') {
+    return dirName;
+  }
+
+  return kebabToPascal(dirName);
+}
+
 export function transformFileName(fileName: string, naming: ComponentNaming): string {
   if (naming === 'pascal-case') {
     return fileName;

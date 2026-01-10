@@ -1,6 +1,8 @@
 import { expect, it, describe } from 'vitest';
 import {
   pascalToKebab,
+  kebabToPascal,
+  transformDirectoryName,
   transformFileName,
   transformLocalVueImports,
 } from '../../src/utils/transformers/transform-component-naming';
@@ -21,6 +23,33 @@ describe('pascalToKebab', () => {
   it('should handle consecutive uppercase letters', () => {
     expect(pascalToKebab('HTMLParser')).toBe('html-parser');
     expect(pascalToKebab('XMLHttpRequest')).toBe('xml-http-request');
+  });
+});
+
+describe('kebabToPascal', () => {
+  it('should convert kebab-case to PascalCase', () => {
+    expect(kebabToPascal('button')).toBe('Button');
+    expect(kebabToPascal('alert-dialog')).toBe('AlertDialog');
+    expect(kebabToPascal('alert-dialog-content')).toBe('AlertDialogContent');
+    expect(kebabToPascal('data-table-faceted-filter')).toBe('DataTableFacetedFilter');
+  });
+
+  it('should handle single word', () => {
+    expect(kebabToPascal('button')).toBe('Button');
+    expect(kebabToPascal('card')).toBe('Card');
+  });
+});
+
+describe('transformDirectoryName', () => {
+  it('should keep kebab-case when using kebab-case naming', () => {
+    expect(transformDirectoryName('button', 'kebab-case')).toBe('button');
+    expect(transformDirectoryName('alert-dialog', 'kebab-case')).toBe('alert-dialog');
+  });
+
+  it('should convert to PascalCase when using pascal-case naming', () => {
+    expect(transformDirectoryName('button', 'pascal-case')).toBe('Button');
+    expect(transformDirectoryName('alert-dialog', 'pascal-case')).toBe('AlertDialog');
+    expect(transformDirectoryName('context-menu', 'pascal-case')).toBe('ContextMenu');
   });
 });
 
