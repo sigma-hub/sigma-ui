@@ -199,6 +199,16 @@ export async function promptForConfig(
       active: 'yes',
       inactive: 'no',
     },
+    {
+      type: 'select',
+      name: 'componentNaming',
+      message: `Choose ${highlight('component naming')} convention:`,
+      choices: [
+        { title: 'PascalCase (Button.vue)', value: 'pascal-case' },
+        { title: 'kebab-case (button.vue)', value: 'kebab-case' },
+      ],
+      initial: 0,
+    },
   ]);
 
   if (!skip) {
@@ -237,6 +247,7 @@ function createConfig(options: Awaited<ReturnType<typeof prompts>>): Config {
       components: options.components,
     },
     generatePreflight: options.generatePreflight,
+    componentNaming: options.componentNaming || 'pascal-case',
   } satisfies z.infer<typeof rawConfigSchema>);
 
   return config as Config;

@@ -9,6 +9,7 @@ import prompts from 'prompts';
 import { z } from 'zod';
 import { addDependency, addDevDependency } from '../utils/package-manager';
 import { transform } from '@/src/utils/transformers';
+import { transformFileName, transformLocalVueImports } from '@/src/utils/transformers/transform-component-naming';
 import { getConfig, handleConfigIsMissing } from '@/src/utils/get-config';
 import { handleError } from '@/src/utils/handle-error';
 import {
@@ -295,21 +296,25 @@ async function writeComponentFiles(
     await fs.mkdir(componentDir, { recursive: true });
   }
 
+  const componentNaming = config.componentNaming ?? 'pascal-case';
+
   const files = item.files.map(file => ({
     ...file,
-    path: path.resolve(componentDir, file.name),
+    originalName: file.name,
+    name: transformFileName(file.name, componentNaming),
+    path: path.resolve(componentDir, transformFileName(file.name, componentNaming)),
   }));
 
   for (const file of files) {
+    const fileContent = transformLocalVueImports(file.content, componentNaming);
+
     const content = await transform({
       filename: file.path,
-      raw: file.content,
+      raw: fileContent,
       config,
       baseColor,
     });
 
-    const filePath = file.path;
-
-    await fs.writeFile(filePath, content);
+    await fs.writeFile(file.path, content);
   }
 }

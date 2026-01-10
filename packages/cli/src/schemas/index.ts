@@ -67,6 +67,9 @@ export const registryBaseColorSchema = z.object({
   }),
 });
 
+export const componentNamingSchema = z.enum(['pascal-case', 'kebab-case']).default('pascal-case');
+export type ComponentNaming = z.infer<typeof componentNamingSchema>;
+
 export const rawConfigSchema = z.object({
   $schema: z.string().optional(),
   styleSystem: commonFields.styleSystem,
@@ -84,6 +87,7 @@ export const rawConfigSchema = z.object({
     components: z.string(),
   }),
   generatePreflight: z.boolean().optional().default(true),
+  componentNaming: componentNamingSchema,
 });
 
 export type RawConfig = z.infer<typeof rawConfigSchema>;
