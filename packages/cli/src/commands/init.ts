@@ -224,7 +224,7 @@ export async function promptForConfig(
     tailwindConfigType: detectedConfig.tailwindConfigType,
     setupTailwind: options.styleSystem === 'tailwind' ? detectedConfig.setupTailwind : false,
     components: DEFAULT_COMPONENTS,
-    utils: DEFAULT_UTILS,
+    utils: options.styleSystem === 'tailwind' ? DEFAULT_UTILS : '',
     generatePreflight: options.styleSystem === 'css',
   });
 
