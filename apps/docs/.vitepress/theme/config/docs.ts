@@ -220,6 +220,11 @@ export const docsConfig: DocsConfig = {
           href: '/components/dropdown-menu',
         },
         {
+          title: 'Faceted Filter',
+          href: '/components/faceted-filter',
+          label: 'New',
+        },
+        {
           title: 'Form',
           href: '/components/form',
         },

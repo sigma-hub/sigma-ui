@@ -374,6 +374,16 @@
     "type": "components:ui"
   },
   {
+    "name": "faceted-filter",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "faceted-filter/FacetedFilter.vue",
+      "faceted-filter/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
     "name": "form",
     "dependencies": [
       "vee-validate",
