@@ -106,6 +106,7 @@ export type Config = z.infer<typeof configSchema>;
 export const initOptionsSchema = z.object({
   cwd: commonFields.cwd,
   yes: commonFields.yes,
+  defaults: z.boolean().default(false),
 });
 
 export const addOptionsSchema = z.object({

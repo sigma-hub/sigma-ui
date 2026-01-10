@@ -4,54 +4,94 @@ import fs from 'fs-extra';
 import { readPackageJSON } from 'pkg-types';
 import type { PackageJson } from 'pkg-types';
 
-export async function getProjectInfo() {
-  const info = {
-    tsconfig: null,
-    isNuxt: false,
-    sigmaUiNuxtModuleInfo: undefined,
-    isVueVite: false,
-    srcDir: false,
-    componentsUiDir: false,
-    srcComponentsUiDir: false,
+export type Framework = 'vite' | 'nuxt' | 'laravel' | 'astro';
+
+export interface ProjectInfo {
+  framework: Framework;
+  tsConfigPath: string;
+  srcDir: boolean;
+  srcComponentsUiDir: boolean;
+  componentsUiDir: boolean;
+  hasTailwind: boolean;
+  sigmaUiNuxtModuleInfo: PackageJson | undefined;
+}
+
+export async function getProjectInfo(cwd: string = process.cwd()): Promise<ProjectInfo> {
+  const framework = detectFramework(cwd);
+  const tsConfigPath = detectTsConfigPath(cwd, framework);
+  const hasTailwind = await detectTailwind(cwd);
+  const sigmaUiNuxtModuleInfo = framework === 'nuxt' ? await getSigmaUiNuxtInfo() : undefined;
+
+  return {
+    framework,
+    tsConfigPath,
+    srcDir: existsSync(path.resolve(cwd, 'src')),
+    srcComponentsUiDir: existsSync(path.resolve(cwd, 'src/components/ui')),
+    componentsUiDir: existsSync(path.resolve(cwd, 'components/ui')),
+    hasTailwind,
+    sigmaUiNuxtModuleInfo,
   };
+}
 
+function detectFramework(cwd: string): Framework {
+  if (existsSync(path.resolve(cwd, 'nuxt.config.js')) || existsSync(path.resolve(cwd, 'nuxt.config.ts'))) {
+    return 'nuxt';
+  }
+
+  if (existsSync(path.resolve(cwd, 'astro.config.mjs')) || existsSync(path.resolve(cwd, 'astro.config.ts'))) {
+    return 'astro';
+  }
+
+  if (existsSync(path.resolve(cwd, 'artisan'))) {
+    return 'laravel';
+  }
+
+  return 'vite';
+}
+
+function detectTsConfigPath(cwd: string, framework: Framework): string {
+  if (framework === 'nuxt') {
+    return '.nuxt/tsconfig.json';
+  }
+
+  const possiblePaths = [
+    'tsconfig.json',
+    'tsconfig.app.json',
+  ];
+
+  for (const tsPath of possiblePaths) {
+    if (existsSync(path.resolve(cwd, tsPath))) {
+      return tsPath;
+    }
+  }
+
+  return 'tsconfig.json';
+}
+
+async function detectTailwind(cwd: string): Promise<boolean> {
   try {
-    const tsconfig = await getTsConfig();
-
-    const isNuxt = existsSync(path.resolve('./nuxt.config.js')) || existsSync(path.resolve('./nuxt.config.ts'));
-    const sigmaUiNuxtModuleInfo = isNuxt ? await getSigmaUiNuxtInfo() : undefined;
-
-    return {
-      tsconfig,
-      isNuxt,
-      sigmaUiNuxtModuleInfo,
-      isVueVite: existsSync(path.resolve('./vite.config.js')) || existsSync(path.resolve('./vite.config.ts')),
-      srcDir: existsSync(path.resolve('./src')),
-      srcComponentsUiDir: existsSync(path.resolve('./src/components/ui')),
-      componentsUiDir: existsSync(path.resolve('./components/ui')),
+    const packageJson = await readPackageJSON(cwd);
+    const allDeps = {
+      ...packageJson.dependencies,
+      ...packageJson.devDependencies,
     };
-  } catch (error) {
-    console.log(error);
-    return info;
+    return 'tailwindcss' in allDeps;
+  } catch {
+    return false;
   }
 }
 
-async function getSigmaUiNuxtInfo() {
-  let nuxtModule: PackageJson | undefined;
-
+async function getSigmaUiNuxtInfo(): Promise<PackageJson | undefined> {
   try {
-    nuxtModule = await readPackageJSON('sigma-ui-nuxt');
-  } catch (error) {
-    console.log(error);
-    nuxtModule = undefined;
+    return await readPackageJSON('sigma-ui-nuxt');
+  } catch {
+    return undefined;
   }
-
-  return nuxtModule;
 }
 
-export async function getTsConfig() {
+export async function getTsConfig(cwd: string = process.cwd()) {
   try {
-    const tsconfigPath = path.join('tsconfig.json');
+    const tsconfigPath = path.join(cwd, 'tsconfig.json');
     const tsconfig = await fs.readJSON(tsconfigPath);
 
     if (!tsconfig) {
@@ -59,8 +99,7 @@ export async function getTsConfig() {
     }
 
     return tsconfig;
-  } catch (error) {
-    console.log(error);
+  } catch {
     return null;
   }
 }
