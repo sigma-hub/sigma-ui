@@ -21,11 +21,17 @@ npx sigma-ui add switch
 
 ```vue
 <script setup lang="ts">
+import { ref } from 'vue'
 import { Switch } from '@/components/ui/switch'
+
+const airplaneMode = ref(false)
 </script>
 
 <template>
-  <Switch />
+  <Switch
+    :model-value="airplaneMode"
+    @update:model-value="airplaneMode = $event"
+  />
 </template>
 ```
 

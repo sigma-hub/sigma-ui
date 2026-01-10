@@ -1,11 +1,19 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import { Checkbox } from '@ui/registry/css/ui/checkbox';
+
+const termsAccepted = ref<boolean | 'indeterminate'>(false);
+const disabledTerms = ref<boolean | 'indeterminate'>(false);
 </script>
 
 <template>
   <div class="example-sigma-ui-checkbox-custom__container">
     <div class="example-sigma-ui-checkbox-custom">
-      <Checkbox id="checkbox-custom-1" />
+      <Checkbox
+        id="checkbox-custom-1"
+        :model-value="termsAccepted"
+        @update:model-value="termsAccepted = $event"
+      />
       <div class="example-sigma-ui-checkbox-custom__content">
         <label
           for="checkbox-custom-1"
@@ -23,6 +31,8 @@ import { Checkbox } from '@ui/registry/css/ui/checkbox';
       <Checkbox
         id="checkbox-custom-disabled-2"
         disabled
+        :model-value="disabledTerms"
+        @update:model-value="disabledTerms = $event"
       />
       <div class="example-sigma-ui-checkbox-custom__content">
         <label
