@@ -164,7 +164,7 @@ function onLoad() {
 .sigma-ui-image__spinner {
   width: 20px;
   height: 20px;
-  animation: spin 1s linear infinite;
+  animation: sigma-ui-spin 1s linear infinite;
 }
 
 .sigma-ui-image__img-glow {

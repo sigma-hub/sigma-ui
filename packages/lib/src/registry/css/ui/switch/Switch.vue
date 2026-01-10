@@ -70,16 +70,16 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-switch__thumb[data-state="checked"] {
-  animation: thumb-motion-blur-in 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  animation: sigma-ui-switch-thumb-in 150ms cubic-bezier(0.4, 0, 0.2, 1);
   transform: translateX(1.25rem);
 }
 
 .sigma-ui-switch__thumb[data-state="unchecked"] {
-  animation: thumb-motion-blur-out 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  animation: sigma-ui-switch-thumb-out 150ms cubic-bezier(0.4, 0, 0.2, 1);
   transform: translateX(0);
 }
 
-@keyframes thumb-motion-blur-in {
+@keyframes sigma-ui-switch-thumb-in {
   0% {
     filter: blur(0);
   }
@@ -93,7 +93,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   }
 }
 
-@keyframes thumb-motion-blur-out {
+@keyframes sigma-ui-switch-thumb-out {
   0% {
     filter: blur(0);
   }

@@ -80,7 +80,8 @@ export const CSS_STYLES_WITH_VARS_TEMPLATE = `@layer base {
     border-width: 0;
   }
   
-  @keyframes fade-in {
+  /* Shared keyframes */
+  @keyframes sigma-ui-fade-in {
     from {
       opacity: 0;
     }
@@ -89,7 +90,38 @@ export const CSS_STYLES_WITH_VARS_TEMPLATE = `@layer base {
     }
   }
 
-  @keyframes spin {
+  @keyframes sigma-ui-fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes sigma-ui-fade-in-scale {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes sigma-ui-fade-out-scale {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+  }
+
+  @keyframes sigma-ui-spin {
     from {
       transform: rotate(0deg);
     }
@@ -98,7 +130,7 @@ export const CSS_STYLES_WITH_VARS_TEMPLATE = `@layer base {
     }
   }
 
-  @keyframes collapsible-down {
+  @keyframes sigma-ui-collapsible-down {
     from {
       height: 0;
     }
@@ -107,7 +139,7 @@ export const CSS_STYLES_WITH_VARS_TEMPLATE = `@layer base {
     }
   }
 
-  @keyframes collapsible-up {
+  @keyframes sigma-ui-collapsible-up {
     from {
       height: var(--reka-collapsible-content-height);
     }
@@ -116,14 +148,34 @@ export const CSS_STYLES_WITH_VARS_TEMPLATE = `@layer base {
     }
   }
 
+  @keyframes sigma-ui-accordion-up {
+    from {
+      height: var(--reka-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
+  @keyframes sigma-ui-accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--reka-accordion-content-height);
+    }
+  }
+    
+  /* CSS animations */
   .animate-fade-in {
-    animation: fade-in 0.5s ease;
+    animation: sigma-ui-fade-in 0.5s ease;
   }
 
-  .animate-spin {
-    animation: spin 1s linear infinite;
+  .animate-sigma-ui-spin {
+    animation: sigma-ui-spin 1s linear infinite;
   }
 
+  /* Vue transitions */
   .fade-slide-top-enter-active,
   .fade-slide-top-leave-active {
     transition: all 0.3s ease;

@@ -49,7 +49,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   position: fixed;
   z-index: 50;
   display: grid;
-  animation: fade-in 0.2s ease-out;
+  animation: sigma-ui-fade-in 0.2s ease-out;
   background-color: rgb(0 0 0 / 80%);
   inset: 0;
   overflow-y: auto;
@@ -57,11 +57,11 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-dialog-scroll-overlay[data-state="open"] {
-  animation: fade-in 0.2s ease-out;
+  animation: sigma-ui-fade-in 0.2s ease-out;
 }
 
 .sigma-ui-dialog-scroll-overlay[data-state="closed"] {
-  animation: fade-out 0.2s ease-in;
+  animation: sigma-ui-fade-out 0.2s ease-in;
 }
 
 .sigma-ui-dialog-scroll-content {
@@ -123,23 +123,4 @@ const forwarded = useForwardPropsEmits(props, emits);
   }
 }
 
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fade-out {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
-}
 </style>

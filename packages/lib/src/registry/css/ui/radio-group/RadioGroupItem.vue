@@ -65,14 +65,14 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-radio-group-item[data-state="checked"] .sigma-ui-radio-group-item__icon {
-  animation: radio-check 150ms ease-out;
+  animation: sigma-ui-radio-check 150ms ease-out;
 }
 
 .sigma-ui-radio-group-item[data-state="unchecked"] .sigma-ui-radio-group-item__icon {
-  animation: radio-uncheck 150ms ease-in;
+  animation: sigma-ui-radio-uncheck 150ms ease-in;
 }
 
-@keyframes radio-check {
+@keyframes sigma-ui-radio-check {
   from {
     filter: blur(4px);
     opacity: 0;
@@ -86,7 +86,7 @@ const forwardedProps = useForwardProps(props);
   }
 }
 
-@keyframes radio-uncheck {
+@keyframes sigma-ui-radio-uncheck {
   from {
     filter: blur(0);
     opacity: 1;

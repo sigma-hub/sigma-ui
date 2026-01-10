@@ -29,27 +29,27 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-navigation-menu-content[data-state^="open"] {
-  animation: fade-in 200ms ease-in-out;
+  animation: sigma-ui-nav-fade-in 200ms ease-in-out;
 }
 
 .sigma-ui-navigation-menu-content[data-state^="closed"] {
-  animation: fade-out 200ms ease-in-out;
+  animation: sigma-ui-nav-fade-out 200ms ease-in-out;
 }
 
 .sigma-ui-navigation-menu-content[data-motion="from-end"] {
-  animation: slide-in-from-right 200ms ease-in-out;
+  animation: sigma-ui-nav-slide-in-from-right 200ms ease-in-out;
 }
 
 .sigma-ui-navigation-menu-content[data-motion="from-start"] {
-  animation: slide-in-from-left 200ms ease-in-out;
+  animation: sigma-ui-nav-slide-in-from-left 200ms ease-in-out;
 }
 
 .sigma-ui-navigation-menu-content[data-motion="to-end"] {
-  animation: slide-out-to-right 200ms ease-in-out;
+  animation: sigma-ui-nav-slide-out-to-right 200ms ease-in-out;
 }
 
 .sigma-ui-navigation-menu-content[data-motion="to-start"] {
-  animation: slide-out-to-left 200ms ease-in-out;
+  animation: sigma-ui-nav-slide-out-to-left 200ms ease-in-out;
 }
 
 @media (width >= 768px) {
@@ -59,7 +59,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   }
 }
 
-@keyframes fade-in {
+@keyframes sigma-ui-nav-fade-in {
   from {
     filter: blur(12px);
     opacity: 0;
@@ -71,7 +71,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   }
 }
 
-@keyframes fade-out {
+@keyframes sigma-ui-nav-fade-out {
   from {
     opacity: 1;
   }
@@ -81,7 +81,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   }
 }
 
-@keyframes slide-in-from-right {
+@keyframes sigma-ui-nav-slide-in-from-right {
   from {
     filter: blur(12px);
     opacity: 0;
@@ -95,7 +95,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   }
 }
 
-@keyframes slide-in-from-left {
+@keyframes sigma-ui-nav-slide-in-from-left {
   from {
     filter: blur(12px);
     opacity: 0;
@@ -109,7 +109,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   }
 }
 
-@keyframes slide-out-to-right {
+@keyframes sigma-ui-nav-slide-out-to-right {
   from {
     filter: blur(0);
     opacity: 1;
@@ -123,7 +123,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   }
 }
 
-@keyframes slide-out-to-left {
+@keyframes sigma-ui-nav-slide-out-to-left {
   from {
     filter: blur(0);
     opacity: 1;

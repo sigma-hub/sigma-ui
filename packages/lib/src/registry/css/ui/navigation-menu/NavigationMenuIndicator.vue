@@ -28,11 +28,11 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-navigation-menu-indicator[data-state="visible"] {
-  animation: navigation-menu-indicator-in 0.2s ease;
+  animation: sigma-ui-nav-indicator-in 0.2s ease;
 }
 
 .sigma-ui-navigation-menu-indicator[data-state="hidden"] {
-  animation: navigation-menu-indicator-out 0.2s ease;
+  animation: sigma-ui-nav-indicator-out 0.2s ease;
 }
 
 .sigma-ui-navigation-menu-indicator__pointer {
@@ -46,7 +46,7 @@ const forwardedProps = useForwardProps(props);
   transform: rotate(45deg);
 }
 
-@keyframes navigation-menu-indicator-in {
+@keyframes sigma-ui-nav-indicator-in {
   from {
     opacity: 0;
   }
@@ -56,7 +56,7 @@ const forwardedProps = useForwardProps(props);
   }
 }
 
-@keyframes navigation-menu-indicator-out {
+@keyframes sigma-ui-nav-indicator-out {
   from {
     opacity: 1;
   }

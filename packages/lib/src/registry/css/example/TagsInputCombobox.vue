@@ -131,18 +131,6 @@ const filteredFrameworks = computed(() => {
 }
 
 .example-sigma-ui-tags-input-combobox__list[data-state="open"] {
-  animation: fade-in 0.15s ease-out;
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: scale(0.95) translateY(-8px);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
+  animation: sigma-ui-fade-in 0.15s ease-out;
 }
 </style>

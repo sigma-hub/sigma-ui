@@ -141,15 +141,6 @@ const props = withDefaults(defineProps<Props>(), {
   width: 1rem;
   height: 1rem;
   margin-right: 0.5rem;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  animation: sigma-ui-spin 1s linear infinite;
 }
 </style>

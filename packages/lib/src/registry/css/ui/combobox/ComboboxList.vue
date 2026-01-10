@@ -39,38 +39,38 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-combobox-list[data-state="open"][data-side="bottom"] {
-  animation: slide-from-top 150ms ease-out;
+  animation: sigma-ui-combobox-slide-from-top 150ms ease-out;
 }
 
 .sigma-ui-combobox-list[data-state="closed"][data-side="bottom"] {
-  animation: slide-to-top 150ms ease-in;
+  animation: sigma-ui-combobox-slide-to-top 150ms ease-in;
 }
 
 .sigma-ui-combobox-list[data-state="open"][data-side="top"] {
-  animation: slide-from-bottom 150ms ease-out;
+  animation: sigma-ui-combobox-slide-from-bottom 150ms ease-out;
 }
 
 .sigma-ui-combobox-list[data-state="closed"][data-side="top"] {
-  animation: slide-to-bottom 150ms ease-in;
+  animation: sigma-ui-combobox-slide-to-bottom 150ms ease-in;
 }
 
 .sigma-ui-combobox-list[data-state="open"][data-side="left"] {
-  animation: slide-from-right 150ms ease-out;
+  animation: sigma-ui-combobox-slide-from-right 150ms ease-out;
 }
 
 .sigma-ui-combobox-list[data-state="closed"][data-side="left"] {
-  animation: slide-to-right 150ms ease-in;
+  animation: sigma-ui-combobox-slide-to-right 150ms ease-in;
 }
 
 .sigma-ui-combobox-list[data-state="open"][data-side="right"] {
-  animation: slide-from-left 150ms ease-out;
+  animation: sigma-ui-combobox-slide-from-left 150ms ease-out;
 }
 
 .sigma-ui-combobox-list[data-state="closed"][data-side="right"] {
-  animation: slide-to-left 150ms ease-in;
+  animation: sigma-ui-combobox-slide-to-left 150ms ease-in;
 }
 
-@keyframes slide-from-top {
+@keyframes sigma-ui-combobox-slide-from-top {
   from {
     filter: blur(4px);
     transform: translateY(-1rem) scaleY(0.98);
@@ -82,7 +82,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   }
 }
 
-@keyframes slide-to-top {
+@keyframes sigma-ui-combobox-slide-to-top {
   from {
     filter: blur(0);
     transform: translateY(0) scaleY(1);
@@ -94,7 +94,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   }
 }
 
-@keyframes slide-from-bottom {
+@keyframes sigma-ui-combobox-slide-from-bottom {
   from {
     filter: blur(4px);
     transform: translateY(1rem) scaleY(0.98);
@@ -106,7 +106,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   }
 }
 
-@keyframes slide-to-bottom {
+@keyframes sigma-ui-combobox-slide-to-bottom {
   from {
     filter: blur(0);
     transform: translateY(0) scaleY(1);
@@ -118,7 +118,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   }
 }
 
-@keyframes slide-from-left {
+@keyframes sigma-ui-combobox-slide-from-left {
   from {
     filter: blur(4px);
     transform: translateX(-1rem) scaleY(0.98);
@@ -130,7 +130,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   }
 }
 
-@keyframes slide-to-left {
+@keyframes sigma-ui-combobox-slide-to-left {
   from {
     filter: blur(0);
     transform: translateX(0) scaleY(1);
@@ -142,7 +142,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   }
 }
 
-@keyframes slide-from-right {
+@keyframes sigma-ui-combobox-slide-from-right {
   from {
     filter: blur(4px);
     transform: translateX(1rem) scaleY(0.98);
@@ -154,7 +154,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   }
 }
 
-@keyframes slide-to-right {
+@keyframes sigma-ui-combobox-slide-to-right {
   from {
     filter: blur(0);
     transform: translateX(0) scaleY(1);

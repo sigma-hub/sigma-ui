@@ -61,33 +61,33 @@ module.exports = {
         xs: 'min(calc(var(--radius) / 2.5), 6px)',
       },
       keyframes: {
-        'fade-in': {
+        'sigma-ui-fade-in': {
           from: { opacity: 0 },
           to: { opacity: 1 },
         },
-        'accordion-down': {
+        'sigma-ui-accordion-down': {
           from: { height: 0 },
           to: { height: 'var(--reka-accordion-content-height)' },
         },
-        'accordion-up': {
+        'sigma-ui-accordion-up': {
           from: { height: 'var(--reka-accordion-content-height)' },
           to: { height: 0 },
         },
-        'collapsible-down': {
+        'sigma-ui-collapsible-down': {
           from: { height: 0 },
           to: { height: 'var(--reka-collapsible-content-height)' },
         },
-        'collapsible-up': {
+        'sigma-ui-collapsible-up': {
           from: { height: 'var(--reka-collapsible-content-height)' },
           to: { height: 0 },
         },
       },
       animation: {
-        'fade-in': 'fade-in 0.5s ease-in-out',
-        'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out',
-        'collapsible-down': 'collapsible-down 0.2s ease-in-out',
-        'collapsible-up': 'collapsible-up 0.2s ease-in-out',
+        'fade-in': 'sigma-ui-fade-in 0.5s ease-in-out',
+        'accordion-down': 'sigma-ui-accordion-down 0.2s ease-out',
+        'accordion-up': 'sigma-ui-accordion-up 0.2s ease-out',
+        'collapsible-down': 'sigma-ui-collapsible-down 0.2s ease-in-out',
+        'collapsible-up': 'sigma-ui-collapsible-up 0.2s ease-in-out',
       },
     },
   },

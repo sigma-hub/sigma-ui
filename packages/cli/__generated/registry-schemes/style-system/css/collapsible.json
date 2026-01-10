@@ -9,7 +9,7 @@
     },
     {
       "name": "CollapsibleContent.vue",
-      "content": "<script setup lang=\"ts\">\nimport { CollapsibleContent, type CollapsibleContentProps } from 'reka-ui';\n\nconst props = defineProps<CollapsibleContentProps>();\n</script>\n\n<template>\n  <CollapsibleContent\n    v-bind=\"props\"\n    class=\"sigma-ui-collapsible__content\"\n  >\n    <slot />\n  </CollapsibleContent>\n</template>\n\n<style>\n.sigma-ui-collapsible__content {\n  overflow: hidden;\n}\n\n.sigma-ui-collapsible__content[data-state=\"open\"] {\n  animation: collapsible-down 0.2s ease-out;\n}\n\n.sigma-ui-collapsible__content[data-state=\"closed\"] {\n  animation: collapsible-up 0.2s ease-out;\n}\n</style>\n"
+      "content": "<script setup lang=\"ts\">\nimport { CollapsibleContent, type CollapsibleContentProps } from 'reka-ui';\n\nconst props = defineProps<CollapsibleContentProps>();\n</script>\n\n<template>\n  <CollapsibleContent\n    v-bind=\"props\"\n    class=\"sigma-ui-collapsible__content\"\n  >\n    <slot />\n  </CollapsibleContent>\n</template>\n\n<style>\n.sigma-ui-collapsible__content {\n  overflow: hidden;\n}\n\n.sigma-ui-collapsible__content[data-state=\"open\"] {\n  animation: sigma-ui-collapsible-down 0.2s ease-out;\n}\n\n.sigma-ui-collapsible__content[data-state=\"closed\"] {\n  animation: sigma-ui-collapsible-up 0.2s ease-out;\n}\n</style>\n"
     },
     {
       "name": "CollapsibleTrigger.vue",

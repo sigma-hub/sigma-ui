@@ -38,11 +38,11 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-alert-dialog-overlay[data-state='open'] {
-  animation: fade-in 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  animation: sigma-ui-fade-in 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .sigma-ui-alert-dialog-overlay[data-state='closed'] {
-  animation: fade-out 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  animation: sigma-ui-fade-out 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .sigma-ui-alert-dialog-content {
@@ -69,26 +69,14 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-alert-dialog-content[data-state='open'] {
-  animation: content-show 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  animation: sigma-ui-alert-dialog-show 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .sigma-ui-alert-dialog-content[data-state='closed'] {
-  animation: content-hide 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  animation: sigma-ui-alert-dialog-hide 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes fade-in {
-  from { opacity: 0; }
-
-  to { opacity: 1; }
-}
-
-@keyframes fade-out {
-  from { opacity: 1; }
-
-  to { opacity: 0; }
-}
-
-@keyframes content-show {
+@keyframes sigma-ui-alert-dialog-show {
   from {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.95);
@@ -100,7 +88,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   }
 }
 
-@keyframes content-hide {
+@keyframes sigma-ui-alert-dialog-hide {
   from {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);

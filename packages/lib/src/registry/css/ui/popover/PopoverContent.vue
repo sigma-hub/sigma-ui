@@ -51,26 +51,26 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-popover-content[data-state="open"][data-side="bottom"] {
-  animation: slide-from-top 150ms ease-out;
+  animation: sigma-ui-popover-slide-from-top 150ms ease-out;
 }
 
 .sigma-ui-popover-content[data-state="open"][data-side="top"] {
-  animation: slide-from-bottom 150ms ease-out;
+  animation: sigma-ui-popover-slide-from-bottom 150ms ease-out;
 }
 
 .sigma-ui-popover-content[data-state="open"][data-side="left"] {
-  animation: slide-from-right 150ms ease-out;
+  animation: sigma-ui-popover-slide-from-right 150ms ease-out;
 }
 
 .sigma-ui-popover-content[data-state="open"][data-side="right"] {
-  animation: slide-from-left 150ms ease-out;
+  animation: sigma-ui-popover-slide-from-left 150ms ease-out;
 }
 
 .sigma-ui-popover-content[data-state="closed"] {
-  animation: popover-out 150ms ease-in;
+  animation: sigma-ui-popover-out 150ms ease-in;
 }
 
-@keyframes popover-out {
+@keyframes sigma-ui-popover-out {
   from {
     filter: blur(0);
     opacity: 1;
@@ -84,7 +84,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   }
 }
 
-@keyframes slide-from-top {
+@keyframes sigma-ui-popover-slide-from-top {
   from {
     filter: blur(4px);
     transform: translateY(-1rem) scaleY(0.98);
@@ -96,7 +96,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   }
 }
 
-@keyframes slide-from-bottom {
+@keyframes sigma-ui-popover-slide-from-bottom {
   from {
     filter: blur(4px);
     transform: translateY(1rem) scaleY(0.98);
@@ -108,7 +108,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   }
 }
 
-@keyframes slide-from-left {
+@keyframes sigma-ui-popover-slide-from-left {
   from {
     filter: blur(4px);
     transform: translateX(-1rem) scaleY(0.98);
@@ -120,7 +120,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   }
 }
 
-@keyframes slide-from-right {
+@keyframes sigma-ui-popover-slide-from-right {
   from {
     filter: blur(4px);
     transform: translateX(1rem) scaleY(0.98);

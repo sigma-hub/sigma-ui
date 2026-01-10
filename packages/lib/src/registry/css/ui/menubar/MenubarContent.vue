@@ -50,7 +50,7 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-menubar-content[data-state="open"] {
-  animation: content-show 150ms ease-out;
+  animation: sigma-ui-menubar-show 150ms ease-out;
   opacity: 1;
   pointer-events: auto;
   transform: scale(1) translateY(0);
@@ -63,7 +63,7 @@ const forwardedProps = useForwardProps(props);
   transition: transform 100ms ease-in, opacity 100ms ease-in;
 }
 
-@keyframes content-show {
+@keyframes sigma-ui-menubar-show {
   0% {
     opacity: 0;
     transform: scale(0.96) translateY(-2px);

@@ -51,14 +51,14 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-navigation-menu-viewport[data-state="open"] {
-  animation: navigation-menu-viewport-in 0.2s ease;
+  animation: sigma-ui-nav-viewport-in 0.2s ease;
 }
 
 .sigma-ui-navigation-menu-viewport[data-state="closed"] {
-  animation: navigation-menu-viewport-out 0.2s ease;
+  animation: sigma-ui-nav-viewport-out 0.2s ease;
 }
 
-@keyframes navigation-menu-viewport-in {
+@keyframes sigma-ui-nav-viewport-in {
   from {
     opacity: 0;
     transform: scale(0.9);
@@ -70,7 +70,7 @@ const forwardedProps = useForwardProps(props);
   }
 }
 
-@keyframes navigation-menu-viewport-out {
+@keyframes sigma-ui-nav-viewport-out {
   from {
     opacity: 1;
     transform: scale(1);

@@ -1,32 +1,57 @@
 const TAILWIND_KEYFRAMES = `
-"fade-in": {
+"sigma-ui-fade-in": {
   from: { opacity: 0 },
   to: { opacity: 1 },
 },
-"accordion-down": {
+"sigma-ui-accordion-down": {
   from: { height: 0 },
   to: { height: "var(--reka-accordion-content-height)" },
 },
-"accordion-up": {
+"sigma-ui-accordion-up": {
   from: { height: "var(--reka-accordion-content-height)" },
   to: { height: 0 },
 },
-"collapsible-down": {
+"sigma-ui-collapsible-down": {
   from: { height: 0 },
-  to: { height: 'var(--reka-collapsible-content-height)' },
+  to: { height: "var(--reka-collapsible-content-height)" },
 },
-"collapsible-up": {
-  from: { height: 'var(--reka-collapsible-content-height)' },
+"sigma-ui-collapsible-up": {
+  from: { height: "var(--reka-collapsible-content-height)" },
   to: { height: 0 },
+},
+"sigma-ui-popover-slide-blur-from-top": {
+  from: { opacity: 0, transform: "translateY(-1rem) scaleY(0.98)", filter: "blur(4px)" },
+  to: { opacity: 1, transform: "translateY(0) scaleY(1)", filter: "blur(0px)" },
+},
+"sigma-ui-popover-slide-blur-from-bottom": {
+  from: { opacity: 0, transform: "translateY(1rem) scaleY(0.98)", filter: "blur(4px)" },
+  to: { opacity: 1, transform: "translateY(0) scaleY(1)", filter: "blur(0px)" },
+},
+"sigma-ui-popover-slide-blur-from-left": {
+  from: { opacity: 0, transform: "translateX(-1rem) scaleY(0.98)", filter: "blur(4px)" },
+  to: { opacity: 1, transform: "translateX(0) scaleY(1)", filter: "blur(0px)" },
+},
+"sigma-ui-popover-slide-blur-from-right": {
+  from: { opacity: 0, transform: "translateX(1rem) scaleY(0.98)", filter: "blur(4px)" },
+  to: { opacity: 1, transform: "translateX(0) scaleY(1)", filter: "blur(0px)" },
+},
+"sigma-ui-popover-fade-scale-blur-out": {
+  from: { opacity: 1, transform: "scaleY(1)", filter: "blur(0px)" },
+  to: { opacity: 0, transform: "scaleY(0.98)", filter: "blur(4px)" },
 },
 `;
 
 const TAILWIND_ANIMATION = `
-"fade-in": "fade-in 0.5s ease-in-out",
-"accordion-down": "accordion-down 0.2s ease-out",
-"accordion-up": "accordion-up 0.2s ease-out",
-"collapsible-down": "collapsible-down 0.2s ease-in-out",
-"collapsible-up": "collapsible-up 0.2s ease-in-out",
+"fade-in": "sigma-ui-fade-in 0.5s ease-in-out",
+"accordion-down": "sigma-ui-accordion-down 0.2s ease-out",
+"accordion-up": "sigma-ui-accordion-up 0.2s ease-out",
+"collapsible-down": "sigma-ui-collapsible-down 0.2s ease-in-out",
+"collapsible-up": "sigma-ui-collapsible-up 0.2s ease-in-out",
+"popover-slide-blur-from-top": "sigma-ui-popover-slide-blur-from-top 150ms ease-out",
+"popover-slide-blur-from-bottom": "sigma-ui-popover-slide-blur-from-bottom 150ms ease-out",
+"popover-slide-blur-from-left": "sigma-ui-popover-slide-blur-from-left 150ms ease-out",
+"popover-slide-blur-from-right": "sigma-ui-popover-slide-blur-from-right 150ms ease-out",
+"popover-fade-scale-blur-out": "sigma-ui-popover-fade-scale-blur-out 150ms ease-in",
 `;
 
 export const UTILS_TEMPLATE = `import { type ClassValue, clsx } from 'clsx'

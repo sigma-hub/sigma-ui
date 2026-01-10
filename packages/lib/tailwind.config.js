@@ -58,33 +58,33 @@ export default {
         switch: 'rgba(0, 0, 0, 0.3) 0px 0px 1px, rgba(0, 0, 0, 0.2) 0px 1px 2px',
       },
       keyframes: {
-        'accordion-down': {
+        'sigma-ui-accordion-down': {
           from: { height: 0 },
           to: { height: 'var(--reka-accordion-content-height)' },
         },
-        'accordion-up': {
+        'sigma-ui-accordion-up': {
           from: { height: 'var(--reka-accordion-content-height)' },
           to: { height: 0 },
         },
-        'collapsible-down': {
+        'sigma-ui-collapsible-down': {
           from: { height: 0 },
           to: { height: 'var(--reka-collapsible-content-height)' },
         },
-        'collapsible-up': {
+        'sigma-ui-collapsible-up': {
           from: { height: 'var(--reka-collapsible-content-height)' },
           to: { height: 0 },
         },
-        'fade-in': {
+        'sigma-ui-fade-in': {
           from: { opacity: 0 },
           to: { opacity: 1 },
         },
       },
       animation: {
-        'accordion-down': 'accordion-down 0.2s ease-in-out',
-        'accordion-up': 'accordion-up 0.2s ease-in-out',
-        'collapsible-down': 'collapsible-down 0.2s ease-in-out',
-        'collapsible-up': 'collapsible-up 0.2s ease-in-out',
-        'fade-in': 'fade-in 1s ease',
+        'accordion-down': 'sigma-ui-accordion-down 0.2s ease-in-out',
+        'accordion-up': 'sigma-ui-accordion-up 0.2s ease-in-out',
+        'collapsible-down': 'sigma-ui-collapsible-down 0.2s ease-in-out',
+        'collapsible-up': 'sigma-ui-collapsible-up 0.2s ease-in-out',
+        'fade-in': 'sigma-ui-fade-in 1s ease',
       },
     },
   },

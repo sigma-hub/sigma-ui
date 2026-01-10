@@ -52,11 +52,11 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 }
 
 .sigma-ui-sheet-overlay[data-state="open"] {
-  animation: overlay-show 150ms ease-out;
+  animation: sigma-ui-fade-in 150ms ease-out;
 }
 
 .sigma-ui-sheet-overlay[data-state="closed"] {
-  animation: overlay-hide 150ms ease-in forwards;
+  animation: sigma-ui-fade-out 150ms ease-in forwards;
 }
 
 .sigma-ui-sheet-content__base {
@@ -85,11 +85,11 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 }
 
 .sigma-ui-sheet-content--top[data-state="closed"] {
-  animation-name: slide-out-to-top;
+  animation-name: sigma-ui-slide-out-to-top;
 }
 
 .sigma-ui-sheet-content--top[data-state="open"] {
-  animation-name: slide-in-from-top;
+  animation-name: sigma-ui-slide-in-from-top;
 }
 
 .sigma-ui-sheet-content--bottom {
@@ -99,11 +99,11 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 }
 
 .sigma-ui-sheet-content--bottom[data-state="closed"] {
-  animation-name: slide-out-to-bottom;
+  animation-name: sigma-ui-slide-out-to-bottom;
 }
 
 .sigma-ui-sheet-content--bottom[data-state="open"] {
-  animation-name: slide-in-from-bottom;
+  animation-name: sigma-ui-slide-in-from-bottom;
 }
 
 .sigma-ui-sheet-content--left {
@@ -115,11 +115,11 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 }
 
 .sigma-ui-sheet-content--left[data-state="closed"] {
-  animation-name: slide-out-to-left;
+  animation-name: sigma-ui-slide-out-to-left;
 }
 
 .sigma-ui-sheet-content--left[data-state="open"] {
-  animation-name: slide-in-from-left;
+  animation-name: sigma-ui-slide-in-from-left;
 }
 
 @media (width >= 640px) {
@@ -137,11 +137,11 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 }
 
 .sigma-ui-sheet-content--right[data-state="closed"] {
-  animation-name: slide-out-to-right;
+  animation-name: sigma-ui-slide-out-to-right;
 }
 
 .sigma-ui-sheet-content--right[data-state="open"] {
-  animation-name: slide-in-from-right;
+  animation-name: sigma-ui-slide-in-from-right;
 }
 
 @media (width >= 640px) {
@@ -182,27 +182,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
   color: hsl(var(--muted-foreground));
 }
 
-@keyframes overlay-show {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes overlay-hide {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes slide-in-from-top {
+@keyframes sigma-ui-slide-in-from-top {
   from {
     transform: translateY(-100%);
   }
@@ -212,7 +192,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
   }
 }
 
-@keyframes slide-out-to-top {
+@keyframes sigma-ui-slide-out-to-top {
   from {
     transform: translateY(0);
   }
@@ -222,7 +202,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
   }
 }
 
-@keyframes slide-in-from-bottom {
+@keyframes sigma-ui-slide-in-from-bottom {
   from {
     transform: translateY(100%);
   }
@@ -232,7 +212,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
   }
 }
 
-@keyframes slide-out-to-bottom {
+@keyframes sigma-ui-slide-out-to-bottom {
   from {
     transform: translateY(0);
   }
@@ -242,7 +222,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
   }
 }
 
-@keyframes slide-in-from-left {
+@keyframes sigma-ui-slide-in-from-left {
   from {
     transform: translateX(-100%);
   }
@@ -252,7 +232,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
   }
 }
 
-@keyframes slide-out-to-left {
+@keyframes sigma-ui-slide-out-to-left {
   from {
     transform: translateX(0);
   }
@@ -262,7 +242,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
   }
 }
 
-@keyframes slide-in-from-right {
+@keyframes sigma-ui-slide-in-from-right {
   from {
     transform: translateX(100%);
   }
@@ -272,7 +252,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
   }
 }
 
-@keyframes slide-out-to-right {
+@keyframes sigma-ui-slide-out-to-right {
   from {
     transform: translateX(0);
   }

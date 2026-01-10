@@ -47,34 +47,10 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-dropdown-menu-sub-content[data-state="open"] {
-  animation: fade-in 200ms ease-out;
+  animation: sigma-ui-fade-in-scale 200ms ease-out;
 }
 
 .sigma-ui-dropdown-menu-sub-content[data-state="closed"] {
-  animation: fade-out 100ms ease-in forwards;
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes fade-out {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  to {
-    opacity: 0;
-    transform: scale(0.95);
-  }
+  animation: sigma-ui-fade-out-scale 100ms ease-in forwards;
 }
 </style>

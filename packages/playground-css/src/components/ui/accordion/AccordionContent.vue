@@ -27,32 +27,14 @@ const forwarded = useForwardProps(props);
 }
 
 .sigma-ui-accordion-content[data-state='closed'] {
-  animation: accordion-up 0.2s ease-out;
+  animation: sigma-ui-accordion-up 0.2s ease-out;
 }
 
 .sigma-ui-accordion-content[data-state='open'] {
-  animation: accordion-down 0.2s ease-out;
+  animation: sigma-ui-accordion-down 0.2s ease-out;
 }
 
 .sigma-ui-accordion-content-inner {
   padding: 0 0 1rem 0;
-}
-
-@keyframes accordion-up {
-  from {
-    height: var(--reka-accordion-content-height);
-  }
-  to {
-    height: 0;
-  }
-}
-
-@keyframes accordion-down {
-  from {
-    height: 0;
-  }
-  to {
-    height: var(--reka-accordion-content-height);
-  }
 }
 </style>

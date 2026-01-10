@@ -33,7 +33,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   padding: 0.25rem;
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius-md);
-  animation: fadeOut 100ms ease-in forwards;
+  animation: sigma-ui-fade-out-scale 100ms ease-in forwards;
   backdrop-filter: blur(var(--backdrop-filter-blur));
   background-color: hsl(var(--popover));
   box-shadow: var(--shadow-md);
@@ -42,30 +42,6 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-menubar-subcontent[data-state="open"] {
-  animation: fade-in 200ms ease-out;
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes fade-out {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  to {
-    opacity: 0;
-    transform: scale(0.95);
-  }
+  animation: sigma-ui-fade-in-scale 200ms ease-out;
 }
 </style>

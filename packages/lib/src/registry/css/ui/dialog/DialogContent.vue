@@ -38,17 +38,17 @@ const forwarded = useForwardPropsEmits(props, emits);
 .sigma-ui-dialog-overlay {
   position: fixed;
   z-index: 50;
-  animation: fade-in 0.2s ease-out;
+  animation: sigma-ui-fade-in 0.2s ease-out;
   background-color: rgb(0 0 0 / 80%);
   inset: 0;
 }
 
 .sigma-ui-dialog-overlay[data-state="open"] {
-  animation: fade-in 0.2s ease-out;
+  animation: sigma-ui-fade-in 0.2s ease-out;
 }
 
 .sigma-ui-dialog-overlay[data-state="closed"] {
-  animation: fade-out 0.2s ease-in;
+  animation: sigma-ui-fade-out 0.2s ease-in;
 }
 
 .sigma-ui-dialog-content {
@@ -69,11 +69,11 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-dialog-content[data-state="open"] {
-  animation: dialog-show 0.2s ease-out;
+  animation: sigma-ui-dialog-show 0.2s ease-out;
 }
 
 .sigma-ui-dialog-content[data-state="closed"] {
-  animation: dialog-hide 0.2s ease-in;
+  animation: sigma-ui-dialog-hide 0.2s ease-in;
 }
 
 .sigma-ui-dialog-close {
@@ -122,27 +122,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   white-space: nowrap;
 }
 
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fade-out {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes dialog-show {
+@keyframes sigma-ui-dialog-show {
   from {
     opacity: 0;
     transform: translate(-50%, -48%) scale(0.95);
@@ -154,7 +134,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   }
 }
 
-@keyframes dialog-hide {
+@keyframes sigma-ui-dialog-hide {
   from {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);

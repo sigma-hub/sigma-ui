@@ -153,7 +153,7 @@ const components: { title: string; href: string; description: string }[] = [
 </template>
 
 <style>
-@keyframes content-show {
+@keyframes sigma-ui-nav-content-show {
   from {
     opacity: 0;
     transform: scale(0.95);
@@ -165,7 +165,7 @@ const components: { title: string; href: string; description: string }[] = [
   }
 }
 
-@keyframes content-hide {
+@keyframes sigma-ui-nav-content-hide {
   from {
     opacity: 1;
     transform: scale(1);
@@ -178,10 +178,10 @@ const components: { title: string; href: string; description: string }[] = [
 }
 
 .sigma-ui-navigation-menu-content {
-  animation: content-hide 100ms ease-in forwards;
+  animation: sigma-ui-nav-content-hide 100ms ease-in forwards;
 }
 
 .sigma-ui-navigation-menu-content[data-state="open"] {
-  animation: content-show 200ms ease-out;
+  animation: sigma-ui-nav-content-show 200ms ease-out;
 }
 </style>
