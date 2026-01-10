@@ -6,48 +6,6 @@ exports[`handle tailwind config template correctly 1`] = `
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ["class"],
-  content: [
-    './pages/**/*.{<%- extension %>,<%- extension %>x,vue}',
-    './components/**/*.{<%- extension %>,<%- extension %>x,vue}',
-    './app/**/*.{<%- extension %>,<%- extension %>x,vue}',
-    './src/**/*.{<%- extension %>,<%- extension %>x,vue}',
-	],
-  prefix: "<%- prefix %>",
-  theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
-    extend: {
-      keyframes: {
-        "accordion-down": {
-          from: { height: 0 },
-          to: { height: "var(--reka-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--reka-accordion-content-height)" },
-          to: { height: 0 },
-        },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-      },
-    },
-  },
-  plugins: [animate],
-}"
-`;
-
-exports[`handle tailwind config template correctly 2`] = `
-"import animate from "tailwindcss-animate"
-
-/** @type {import('tailwindcss').Config} */
-export default {
-  darkMode: ["class"],
   safelist: ["dark"],
   prefix: "<%- prefix %>",
   <% if (framework === 'vite') { %>
@@ -56,7 +14,7 @@ export default {
     './components/**/*.{<%- extension %>,<%- extension %>x,vue}',
     './app/**/*.{<%- extension %>,<%- extension %>x,vue}',
     './src/**/*.{<%- extension %>,<%- extension %>x,vue}',
-	],
+  ],
   <% } else if (framework === 'laravel') { %>
   content: [
     "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
@@ -110,34 +68,69 @@ export default {
         },
       },
       borderRadius: {
-      	xl: "calc(var(--radius) + 4px)",
+        xl: "calc(var(--radius) + 4px)",
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        xs: 'min(calc(var(--radius) / 2.5), 6px)',
       },
       keyframes: {
-        "accordion-down": {
-          from: { height: 0 },
-          to: { height: "var(--reka-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--reka-accordion-content-height)" },
-          to: { height: 0 },
-        },
-        "collapsible-down": {
-          from: { height: 0 },
-          to: { height: 'var(--reka-collapsible-content-height)' },
-        },
-        "collapsible-up": {
-          from: { height: 'var(--reka-collapsible-content-height)' },
-          to: { height: 0 },
-        },
+        
+"sigma-ui-fade-in": {
+  from: { opacity: 0 },
+  to: { opacity: 1 },
+},
+"sigma-ui-accordion-down": {
+  from: { height: 0 },
+  to: { height: "var(--reka-accordion-content-height)" },
+},
+"sigma-ui-accordion-up": {
+  from: { height: "var(--reka-accordion-content-height)" },
+  to: { height: 0 },
+},
+"sigma-ui-collapsible-down": {
+  from: { height: 0 },
+  to: { height: "var(--reka-collapsible-content-height)" },
+},
+"sigma-ui-collapsible-up": {
+  from: { height: "var(--reka-collapsible-content-height)" },
+  to: { height: 0 },
+},
+"sigma-ui-popover-slide-blur-from-top": {
+  from: { opacity: 0, transform: "translateY(-1rem) scaleY(0.98)", filter: "blur(4px)" },
+  to: { opacity: 1, transform: "translateY(0) scaleY(1)", filter: "blur(0px)" },
+},
+"sigma-ui-popover-slide-blur-from-bottom": {
+  from: { opacity: 0, transform: "translateY(1rem) scaleY(0.98)", filter: "blur(4px)" },
+  to: { opacity: 1, transform: "translateY(0) scaleY(1)", filter: "blur(0px)" },
+},
+"sigma-ui-popover-slide-blur-from-left": {
+  from: { opacity: 0, transform: "translateX(-1rem) scaleY(0.98)", filter: "blur(4px)" },
+  to: { opacity: 1, transform: "translateX(0) scaleY(1)", filter: "blur(0px)" },
+},
+"sigma-ui-popover-slide-blur-from-right": {
+  from: { opacity: 0, transform: "translateX(1rem) scaleY(0.98)", filter: "blur(4px)" },
+  to: { opacity: 1, transform: "translateX(0) scaleY(1)", filter: "blur(0px)" },
+},
+"sigma-ui-popover-fade-scale-blur-out": {
+  from: { opacity: 1, transform: "scaleY(1)", filter: "blur(0px)" },
+  to: { opacity: 0, transform: "scaleY(0.98)", filter: "blur(4px)" },
+},
+
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-        "collapsible-down": "collapsible-down 0.2s ease-in-out",
-        "collapsible-up": "collapsible-up 0.2s ease-in-out",
+        
+"fade-in": "sigma-ui-fade-in 0.5s ease-in-out",
+"accordion-down": "sigma-ui-accordion-down 0.2s ease-out",
+"accordion-up": "sigma-ui-accordion-up 0.2s ease-out",
+"collapsible-down": "sigma-ui-collapsible-down 0.2s ease-in-out",
+"collapsible-up": "sigma-ui-collapsible-up 0.2s ease-in-out",
+"popover-slide-blur-from-top": "sigma-ui-popover-slide-blur-from-top 150ms ease-out",
+"popover-slide-blur-from-bottom": "sigma-ui-popover-slide-blur-from-bottom 150ms ease-out",
+"popover-slide-blur-from-left": "sigma-ui-popover-slide-blur-from-left 150ms ease-out",
+"popover-slide-blur-from-right": "sigma-ui-popover-slide-blur-from-right 150ms ease-out",
+"popover-fade-scale-blur-out": "sigma-ui-popover-fade-scale-blur-out 150ms ease-in",
+
       },
     },
   },

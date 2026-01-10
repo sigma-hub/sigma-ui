@@ -20,6 +20,7 @@
     "build:cli": "pnpm --filter sigma-ui build",
     "build:registry": "pnpm --filter=docs build:registry",
     "bumpp": "bumpp package.json packages/*/package.json apps/*/package.json",
+    "prerelease": "pnpm ts:cli && pnpm build:registry && pnpm build:cli",
     "pub:beta": "pnpm --filter sigma-ui pub:beta",
     "pub:release": "pnpm --filter sigma-ui pub:release",
     "test": "pnpm --filter sigma-ui test",
