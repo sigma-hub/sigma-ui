@@ -7,6 +7,9 @@ description: Latest updates and announcements.
 
 #### Changes
 
+`v1.3.0`:
+- New: added [Faceted Filter](/components/faceted-filter) component - a filter component with multi-select options, search functionality, and optional item creation;
+
 `v1.2.0`:
 - CLI: Added component naming convention option - choose between PascalCase (`ui/Button/Button.vue`) or kebab-case (`ui/button/button.vue`) for generated component directories and files;
 - CLI: Simplified init script - auto-detects framework, tsconfig, and CSS paths. Only 3 essential prompts: style system, theme color, and naming convention;
