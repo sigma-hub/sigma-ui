@@ -185,4 +185,55 @@ describe('getProjectInfo', () => {
       expect(result.componentsUiDir).toBe(true);
     });
   });
+
+  describe('tailwind config type detection', () => {
+    it('should detect js config when tailwind.config.js exists', async () => {
+      vi.mocked(existsSync).mockImplementation((filePath: unknown) => {
+        const pathStr = String(filePath);
+        return pathStr.includes('tailwind.config.js');
+      });
+      vi.mocked(readPackageJSON).mockResolvedValue({ dependencies: {} });
+
+      const result = await getProjectInfo('/test/project');
+
+      expect(result.tailwindConfigType).toBe('js');
+      expect(result.tailwindConfigPath).toBe('tailwind.config.js');
+    });
+
+    it('should detect js config when tailwind.config.ts exists', async () => {
+      vi.mocked(existsSync).mockImplementation((filePath: unknown) => {
+        const pathStr = String(filePath);
+        return pathStr.includes('tailwind.config.ts');
+      });
+      vi.mocked(readPackageJSON).mockResolvedValue({ dependencies: {} });
+
+      const result = await getProjectInfo('/test/project');
+
+      expect(result.tailwindConfigType).toBe('js');
+      expect(result.tailwindConfigPath).toBe('tailwind.config.ts');
+    });
+
+    it('should detect js config when tailwind.config.mjs exists', async () => {
+      vi.mocked(existsSync).mockImplementation((filePath: unknown) => {
+        const pathStr = String(filePath);
+        return pathStr.includes('tailwind.config.mjs');
+      });
+      vi.mocked(readPackageJSON).mockResolvedValue({ dependencies: {} });
+
+      const result = await getProjectInfo('/test/project');
+
+      expect(result.tailwindConfigType).toBe('js');
+      expect(result.tailwindConfigPath).toBe('tailwind.config.mjs');
+    });
+
+    it('should return css config type when no js config exists', async () => {
+      vi.mocked(existsSync).mockReturnValue(false);
+      vi.mocked(readPackageJSON).mockResolvedValue({ dependencies: {} });
+
+      const result = await getProjectInfo('/test/project');
+
+      expect(result.tailwindConfigType).toBe('css');
+      expect(result.tailwindConfigPath).toBe(null);
+    });
+  });
 });

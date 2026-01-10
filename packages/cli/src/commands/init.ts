@@ -11,7 +11,7 @@ import { consola } from 'consola';
 import { colors } from 'consola/utils';
 import prettier from 'prettier';
 import { Project, SyntaxKind } from 'ts-morph';
-import { getProjectInfo, type Framework } from '../utils/get-project-info';
+import { getProjectInfo, type Framework, type TailwindConfigType } from '../utils/get-project-info';
 import {
   getRegistryBaseColor,
   getRegistryBaseColors,
@@ -30,7 +30,12 @@ import {
 } from '../schemas';
 import { transformCJSToESM } from '../utils/transformers/transform-cjs-to-esm';
 import { applyPrefixesCss } from '../utils/transformers/transform-tw-prefix';
-import { TAILWIND_CONFIG_TEMPLATE, UTILS_TEMPLATE } from '~/packages/shared/templates/tailwind-config';
+import {
+  TAILWIND_CONFIG_JS_TEMPLATE,
+  TAILWIND_V4_CSS_TEMPLATE,
+  TAILWIND_CSS_WITH_JS_CONFIG_TEMPLATE,
+  UTILS_TEMPLATE,
+} from '~/packages/shared/templates/tailwind-config';
 import { PREFLIGHT_CSS_TEMPLATE } from '~/packages/shared/templates/preflight';
 
 const PROJECT_DEPENDENCIES = {
@@ -102,18 +107,20 @@ interface DetectedConfig {
   framework: Framework;
   tsConfigPath: string;
   cssPath: string;
-  tailwindConfig: string;
+  tailwindConfigPath: string;
+  tailwindConfigType: TailwindConfigType;
   setupTailwind: boolean;
 }
 
 function getDetectedConfig(projectInfo: Awaited<ReturnType<typeof getProjectInfo>>): DetectedConfig {
-  const { framework, tsConfigPath, hasTailwind } = projectInfo;
+  const { framework, tsConfigPath, hasTailwind, tailwindConfigType, tailwindConfigPath } = projectInfo;
 
   return {
     framework,
     tsConfigPath,
     cssPath: TAILWIND_CSS_PATH[framework],
-    tailwindConfig: framework === 'astro' ? 'tailwind.config.mjs' : DEFAULT_TAILWIND_CONFIG,
+    tailwindConfigPath: tailwindConfigPath ?? (framework === 'astro' ? 'tailwind.config.mjs' : DEFAULT_TAILWIND_CONFIG),
+    tailwindConfigType: tailwindConfigType,
     setupTailwind: !hasTailwind,
   };
 }
@@ -142,7 +149,8 @@ export async function promptForConfig(
       componentNaming: 'pascal-case',
       tsConfigPath: detectedConfig.tsConfigPath,
       cssPath: detectedConfig.cssPath,
-      tailwindConfig: detectedConfig.tailwindConfig,
+      tailwindConfigPath: detectedConfig.tailwindConfigPath,
+      tailwindConfigType: detectedConfig.tailwindConfigType,
       setupTailwind: detectedConfig.setupTailwind,
       components: DEFAULT_COMPONENTS,
       utils: DEFAULT_UTILS,
@@ -212,7 +220,8 @@ export async function promptForConfig(
     framework: detectedConfig.framework,
     tsConfigPath: detectedConfig.tsConfigPath,
     cssPath: detectedConfig.cssPath,
-    tailwindConfig: options.styleSystem === 'tailwind' ? detectedConfig.tailwindConfig : '',
+    tailwindConfigPath: options.styleSystem === 'tailwind' ? detectedConfig.tailwindConfigPath : '',
+    tailwindConfigType: detectedConfig.tailwindConfigType,
     setupTailwind: options.styleSystem === 'tailwind' ? detectedConfig.setupTailwind : false,
     components: DEFAULT_COMPONENTS,
     utils: DEFAULT_UTILS,
@@ -230,7 +239,8 @@ interface ConfigOptions {
   componentNaming: ComponentNaming;
   tsConfigPath: string;
   cssPath: string;
-  tailwindConfig: string;
+  tailwindConfigPath: string;
+  tailwindConfigType: TailwindConfigType;
   setupTailwind: boolean;
   components: string;
   utils: string;
@@ -238,6 +248,8 @@ interface ConfigOptions {
 }
 
 function createConfig(options: ConfigOptions): Config {
+  const usesJsConfig = options.tailwindConfigType === 'js';
+
   const config = rawConfigSchema.parse({
     $schema: 'https://sigma-ui.dev/schema.json',
     styleSystem: options.styleSystem,
@@ -247,7 +259,7 @@ function createConfig(options: ConfigOptions): Config {
     cssPath: options.cssPath,
     baseColor: options.tailwindBaseColor,
     tailwind: {
-      config: options.tailwindConfig || '',
+      config: usesJsConfig ? options.tailwindConfigPath : '',
     },
     aliases: {
       utils: options.utils || '',
@@ -292,23 +304,25 @@ async function writeFiles(config: Config, cwd: string) {
   await handleNuxtProject(cwd);
   await ensureDirectoriesExist(config);
 
-  if (config.tailwind.config) {
-    writeTailwindConfig(config);
+  const hasJsConfig = Boolean(config.tailwind.config && config.tailwind.config.length > 0);
 
-    if (config.framework === 'vite' && config.setupTailwind) {
-      await updateViteConfig();
-    }
+  if (hasJsConfig) {
+    await writeTailwindJsConfig(config);
   }
 
-  writeCssFile(config);
+  if (config.framework === 'vite' && config.setupTailwind) {
+    await updateViteConfig();
+  }
+
+  await writeCssFile(config, hasJsConfig);
   writeCnFile(config);
   await writePreflightCss(config);
 
   writeFilesSpinner?.succeed();
 }
 
-async function writeTailwindConfig(config: Config) {
-  const unformattedConfig = template(TAILWIND_CONFIG_TEMPLATE)({
+async function writeTailwindJsConfig(config: Config) {
+  const unformattedConfig = template(TAILWIND_CONFIG_JS_TEMPLATE)({
     framework: config.framework,
     prefix: config.tailwind.prefix,
     extension: 'ts',
@@ -333,27 +347,56 @@ async function writeTailwindConfig(config: Config) {
   );
 }
 
-async function writeCssFile(config: Config) {
+async function writeCssFile(config: Config, hasJsConfig: boolean) {
   const baseColorData = await getRegistryBaseColor(config.baseColor);
 
-  if (baseColorData) {
-    const file = config.resolvedPaths.tailwindCss;
-    let data = '';
+  if (!baseColorData) {
+    return;
+  }
 
-    if (config.styleSystem === 'tailwind') {
-      data = config.tailwind.prefix
-        ? applyPrefixesCss(baseColorData.templates.tailwind.withVariables, config.tailwind.prefix)
-        : baseColorData.templates.tailwind.withVariables;
-    } else if (config.styleSystem === 'css') {
-      data = baseColorData.templates.css.withVariables;
+  const file = config.resolvedPaths.tailwindCss;
+  let data = '';
 
-      if (config.generatePreflight) {
-        data = `@import "./preflight.css";\n\n${data}`;
-      }
+  if (config.styleSystem === 'tailwind') {
+    const cssVarsLight = generateCssVars(baseColorData.cssVars.light);
+    const cssVarsDark = generateCssVars(baseColorData.cssVars.dark);
+
+    if (hasJsConfig) {
+      data = template(TAILWIND_CSS_WITH_JS_CONFIG_TEMPLATE)({
+        configPath: config.tailwind.config,
+        cssVarsLight,
+        cssVarsDark,
+      });
+    } else {
+      data = template(TAILWIND_V4_CSS_TEMPLATE)({
+        cssVarsLight,
+        cssVarsDark,
+      });
     }
 
-    await fs.writeFile(file, data, 'utf8');
+    if (config.tailwind.prefix) {
+      data = applyPrefixesCss(data, config.tailwind.prefix);
+    }
+  } else if (config.styleSystem === 'css') {
+    data = baseColorData.templates.css.withVariables;
+
+    if (config.generatePreflight) {
+      data = `@import "./preflight.css";\n\n${data}`;
+    }
   }
+
+  const formattedCss = await prettier.format(data, {
+    parser: 'css',
+    singleQuote: true,
+  });
+
+  await fs.writeFile(file, formattedCss, 'utf8');
+}
+
+function generateCssVars(vars: Record<string, string>): string {
+  return Object.entries(vars)
+    .map(([key, value]) => `--${key}: ${value};`)
+    .join('\n    ');
 }
 
 async function writeCnFile(config: Config) {

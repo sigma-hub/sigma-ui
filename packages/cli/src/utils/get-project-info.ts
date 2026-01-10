@@ -6,6 +6,8 @@ import type { PackageJson } from 'pkg-types';
 
 export type Framework = 'vite' | 'nuxt' | 'laravel' | 'astro';
 
+export type TailwindConfigType = 'css' | 'js' | 'none';
+
 export interface ProjectInfo {
   framework: Framework;
   tsConfigPath: string;
@@ -13,6 +15,8 @@ export interface ProjectInfo {
   srcComponentsUiDir: boolean;
   componentsUiDir: boolean;
   hasTailwind: boolean;
+  tailwindConfigType: TailwindConfigType;
+  tailwindConfigPath: string | null;
   sigmaUiNuxtModuleInfo: PackageJson | undefined;
 }
 
@@ -20,6 +24,7 @@ export async function getProjectInfo(cwd: string = process.cwd()): Promise<Proje
   const framework = detectFramework(cwd);
   const tsConfigPath = detectTsConfigPath(cwd, framework);
   const hasTailwind = await detectTailwind(cwd);
+  const { configType: tailwindConfigType, configPath: tailwindConfigPath } = detectTailwindConfigType(cwd);
   const sigmaUiNuxtModuleInfo = framework === 'nuxt' ? await getSigmaUiNuxtInfo() : undefined;
 
   return {
@@ -29,8 +34,27 @@ export async function getProjectInfo(cwd: string = process.cwd()): Promise<Proje
     srcComponentsUiDir: existsSync(path.resolve(cwd, 'src/components/ui')),
     componentsUiDir: existsSync(path.resolve(cwd, 'components/ui')),
     hasTailwind,
+    tailwindConfigType,
+    tailwindConfigPath,
     sigmaUiNuxtModuleInfo,
   };
+}
+
+function detectTailwindConfigType(cwd: string): { configType: TailwindConfigType; configPath: string | null } {
+  const jsConfigPaths = [
+    'tailwind.config.js',
+    'tailwind.config.ts',
+    'tailwind.config.mjs',
+    'tailwind.config.cjs',
+  ];
+
+  for (const configPath of jsConfigPaths) {
+    if (existsSync(path.resolve(cwd, configPath))) {
+      return { configType: 'js', configPath };
+    }
+  }
+
+  return { configType: 'css', configPath: null };
 }
 
 function detectFramework(cwd: string): Framework {

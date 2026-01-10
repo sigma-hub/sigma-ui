@@ -1,4 +1,107 @@
-const TAILWIND_KEYFRAMES = `
+export const UTILS_TEMPLATE = `import { type ClassValue, clsx } from 'clsx'
+import { twMerge } from 'tailwind-merge'
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+`;
+
+export const TAILWIND_V4_CSS_TEMPLATE = `@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-ring: hsl(var(--ring));
+
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-xs: min(calc(var(--radius) / 2.5), 6px);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-collapsible-down: collapsible-down 0.2s ease-in-out;
+  --animate-collapsible-up: collapsible-up 0.2s ease-in-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--reka-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--reka-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
+  @keyframes collapsible-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--reka-collapsible-content-height);
+    }
+  }
+
+  @keyframes collapsible-up {
+    from {
+      height: var(--reka-collapsible-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+
+@layer base {
+  :root {
+    --backdrop-filter-blur: 32px;
+    --radius: 0.5rem;
+
+    <%- cssVarsLight %>
+  }
+ 
+  .dark {
+    <%- cssVarsDark %>
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+`;
+
+const TAILWIND_KEYFRAMES_JS = `
 "sigma-ui-fade-in": {
   from: { opacity: 0 },
   to: { opacity: 1 },
@@ -41,7 +144,7 @@ const TAILWIND_KEYFRAMES = `
 },
 `;
 
-const TAILWIND_ANIMATION = `
+const TAILWIND_ANIMATION_JS = `
 "fade-in": "sigma-ui-fade-in 0.5s ease-in-out",
 "accordion-down": "sigma-ui-accordion-down 0.2s ease-out",
 "accordion-up": "sigma-ui-accordion-up 0.2s ease-out",
@@ -54,15 +157,7 @@ const TAILWIND_ANIMATION = `
 "popover-fade-scale-blur-out": "sigma-ui-popover-fade-scale-blur-out 150ms ease-in",
 `;
 
-export const UTILS_TEMPLATE = `import { type ClassValue, clsx } from 'clsx'
-import { twMerge } from 'tailwind-merge'
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}
-`;
-
-export const TAILWIND_CONFIG_TEMPLATE = `const animate = require("tailwindcss-animate")
+export const TAILWIND_CONFIG_JS_TEMPLATE = `const animate = require("tailwindcss-animate")
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -136,12 +231,37 @@ module.exports = {
         xs: 'min(calc(var(--radius) / 2.5), 6px)',
       },
       keyframes: {
-        ${TAILWIND_KEYFRAMES}
+        ${TAILWIND_KEYFRAMES_JS}
       },
       animation: {
-        ${TAILWIND_ANIMATION}
+        ${TAILWIND_ANIMATION_JS}
       },
     },
   },
   plugins: [animate],
 }`;
+
+export const TAILWIND_CSS_WITH_JS_CONFIG_TEMPLATE = `@import "tailwindcss";
+@config "<%- configPath %>";
+
+@layer base {
+  :root {
+    --backdrop-filter-blur: 32px;
+    --radius: 0.5rem;
+
+    <%- cssVarsLight %>
+  }
+ 
+  .dark {
+    <%- cssVarsDark %>
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+`;
