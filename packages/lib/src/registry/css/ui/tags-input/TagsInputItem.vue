@@ -25,6 +25,7 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-tags-input-item[data-state="active"] {
-  box-shadow: 0 0 0 2px hsl(var(--ring)), 0 0 0 4px hsl(var(--background));
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
 }
 </style>

@@ -28,13 +28,8 @@ const props = defineProps<{
 }
 
 .sigma-ui-badge:focus {
-  box-shadow:
-    0 0 0 var(--ring-offset) hsl(var(--background)),
-    0 0 0 calc(var(--ring-offset) + var(--ring-width)) hsl(var(--ring));
-  outline: none;
-
-  --ring-offset: 2px;
-  --ring-width: 2px;
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
 }
 
 .sigma-ui-badge--default {

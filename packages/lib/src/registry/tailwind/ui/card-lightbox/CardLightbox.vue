@@ -43,7 +43,7 @@ function handleEscKeydown(event: KeyboardEvent) {
         :key="card.id"
         :data-open="openId === card.id"
         :class="[
-          'relative p-0 overflow-hidden focus-visible:rounded-[20px] focus-visible:shadow-[0_0_0_2px_hsl(var(--background)),_0_0_0_4px_hsl(var(--ring))] focus-visible:outline-none',
+          'relative p-0 overflow-hidden focus-visible:rounded-[20px] focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2',
           'h-[280px] w-full col-span-1',
           '@lg/card-lightbox:h-[420px]',
           card.theme === 'dark' ? 'group theme-dark' : '',

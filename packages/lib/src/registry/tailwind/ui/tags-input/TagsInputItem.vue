@@ -10,7 +10,7 @@ const forwardedProps = useForwardProps(props);
 <template>
   <TagsInputItem
     v-bind="forwardedProps"
-    :class="cn('flex h-6 items-center rounded bg-secondary data-[state=active]:ring-ring data-[state=active]:ring-2 data-[state=active]:ring-offset-2 ring-offset-background', $attrs.class ?? '')"
+    :class="cn('flex h-6 items-center rounded bg-secondary data-[state=active]:outline-2 data-[state=active]:outline-ring data-[state=active]:outline-offset-2', $attrs.class ?? '')"
   >
     <slot />
   </TagsInputItem>

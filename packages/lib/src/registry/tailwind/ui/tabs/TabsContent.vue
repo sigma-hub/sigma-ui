@@ -7,7 +7,7 @@ const props = defineProps<TabsContentProps>();
 
 <template>
   <TabsContent
-    :class="cn('mt-2 ring-offset-background focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2', $attrs.class ?? '')"
+    :class="cn('mt-2 focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2', $attrs.class ?? '')"
     v-bind="props"
   >
     <slot />

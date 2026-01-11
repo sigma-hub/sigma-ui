@@ -42,8 +42,8 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-radio-group-item:focus-visible {
-  box-shadow: 0 0 0 2px hsl(var(--background)),
-              0 0 0 4px hsl(var(--ring));
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
 }
 
 .sigma-ui-radio-group-item:disabled {

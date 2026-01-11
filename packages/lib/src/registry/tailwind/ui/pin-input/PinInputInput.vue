@@ -10,6 +10,6 @@ const forwardedProps = useForwardProps(props);
 <template>
   <PinInputInput
     v-bind="forwardedProps"
-    :class="cn('relative text-center focus:outline-hidden focus:ring-2 focus:ring-ring focus:relative focus:z-10 flex h-10 w-10 items-center justify-center border-y border-r border-input text-sm transition-all first:rounded-l-md first:border-l last:rounded-r-md', $attrs.class ?? '')"
+    :class="cn('relative text-center focus:outline-2 focus:outline-ring focus:-outline-offset-1 focus:relative focus:z-10 flex h-10 w-10 items-center justify-center border-y border-r border-input text-sm transition-all first:rounded-l-md first:border-l last:rounded-r-md', $attrs.class ?? '')"
   />
 </template>

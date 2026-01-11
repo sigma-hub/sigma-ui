@@ -186,10 +186,8 @@ function handleEscKeydown(event: KeyboardEvent) {
 
 .card-lightbox__card:focus-visible {
   border-radius: 20px;
-  box-shadow:
-    0 0 0 2px hsl(var(--background)),
-    0 0 0 4px hsl(var(--ring));
-  outline: none;
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
 }
 
 .card-lightbox__card:nth-child(4n + 1),

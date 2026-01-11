@@ -42,7 +42,7 @@ const forwardedProps = useForwardProps(props);
 .sigma-ui-pin-input-input:focus {
   position: relative;
   z-index: 10;
-  box-shadow: 0 0 0 2px hsl(var(--ring));
-  outline: none;
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: -1px;
 }
 </style>
