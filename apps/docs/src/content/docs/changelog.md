@@ -7,6 +7,9 @@ description: Latest updates and announcements.
 
 #### Changes
 
+`v1.4.0`:
+- New: added [ConfirmButton](/components/button#confirm) component - a button variant that shows a checkmark icon temporarily after clicking to confirm an action was completed;
+
 `v1.3.0`:
 - New: added [Faceted Filter](/components/faceted-filter) component - a filter component with multi-select options, search functionality, and optional item creation;
 
