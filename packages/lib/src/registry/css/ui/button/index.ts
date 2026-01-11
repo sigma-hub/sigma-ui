@@ -1,6 +1,7 @@
 import { type VariantProps, cva } from 'class-variance-authority';
 
 export { default as Button } from './Button.vue';
+export { default as ConfirmButton } from './ConfirmButton.vue';
 
 export const buttonVariants = cva(
   'sigma-ui-button',

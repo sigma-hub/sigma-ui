@@ -71,6 +71,12 @@ npx sigma-ui add button
 
 <ComponentPreview name="ButtonLoading" size="unset" />
 
+### Confirm
+
+Shows a checkmark icon temporarily after clicking to confirm the action was completed.
+
+<ComponentPreview name="ButtonConfirm" size="unset" />
+
 ### As Child
 
 <ComponentPreview name="ButtonAsChild" size="unset" />

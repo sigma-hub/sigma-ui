@@ -241,6 +241,13 @@ export const Index = {
       component: () => import("../../../packages/lib/src/registry/tailwind/example/ButtonAsChild.vue").then((m) => m.default),
       files: ["../../../packages/lib/src/registry/tailwind/example/ButtonAsChild.vue"],
     },
+    "ButtonConfirm": {
+      name: "ButtonConfirm",
+      type: "components:example",
+      registryDependencies: [],
+      component: () => import("../../../packages/lib/src/registry/tailwind/example/ButtonConfirm.vue").then((m) => m.default),
+      files: ["../../../packages/lib/src/registry/tailwind/example/ButtonConfirm.vue"],
+    },
     "ButtonDestructive": {
       name: "ButtonDestructive",
       type: "components:example",
@@ -1711,6 +1718,13 @@ export const Index = {
       registryDependencies: [],
       component: () => import("../../../packages/lib/src/registry/css/example/ButtonAsChild.vue").then((m) => m.default),
       files: ["../../../packages/lib/src/registry/css/example/ButtonAsChild.vue"],
+    },
+    "ButtonConfirm": {
+      name: "ButtonConfirm",
+      type: "components:example",
+      registryDependencies: [],
+      component: () => import("../../../packages/lib/src/registry/css/example/ButtonConfirm.vue").then((m) => m.default),
+      files: ["../../../packages/lib/src/registry/css/example/ButtonConfirm.vue"],
     },
     "ButtonDestructive": {
       name: "ButtonDestructive",

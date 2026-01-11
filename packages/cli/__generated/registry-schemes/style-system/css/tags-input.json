@@ -15,7 +15,7 @@
     },
     {
       "name": "TagsInputItem.vue",
-      "content": "<script setup lang=\"ts\">\nimport { TagsInputItem, type TagsInputItemProps, useForwardProps } from 'reka-ui';\n\nconst props = defineProps<TagsInputItemProps>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <TagsInputItem\n    v-bind=\"forwardedProps\"\n    class=\"sigma-ui-tags-input-item\"\n  >\n    <slot />\n  </TagsInputItem>\n</template>\n\n<style>\n.sigma-ui-tags-input-item {\n  display: flex;\n  height: 1.5rem;\n  align-items: center;\n  border-radius: var(--radius-sm);\n  background-color: hsl(var(--secondary));\n}\n\n.sigma-ui-tags-input-item[data-state=\"active\"] {\n  box-shadow: 0 0 0 2px hsl(var(--ring)), 0 0 0 4px hsl(var(--background));\n}\n</style>\n"
+      "content": "<script setup lang=\"ts\">\nimport { TagsInputItem, type TagsInputItemProps, useForwardProps } from 'reka-ui';\n\nconst props = defineProps<TagsInputItemProps>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <TagsInputItem\n    v-bind=\"forwardedProps\"\n    class=\"sigma-ui-tags-input-item\"\n  >\n    <slot />\n  </TagsInputItem>\n</template>\n\n<style>\n.sigma-ui-tags-input-item {\n  display: flex;\n  height: 1.5rem;\n  align-items: center;\n  border-radius: var(--radius-sm);\n  background-color: hsl(var(--secondary));\n}\n\n.sigma-ui-tags-input-item[data-state=\"active\"] {\n  outline: 2px solid hsl(var(--ring));\n  outline-offset: 2px;\n}\n</style>\n"
     },
     {
       "name": "TagsInputItemDelete.vue",

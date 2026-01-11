@@ -85,6 +85,7 @@
     "registryDependencies": [],
     "files": [
       "button/Button.vue",
+      "button/ConfirmButton.vue",
       "button/index.ts"
     ],
     "type": "components:ui"

@@ -1,6 +1,7 @@
 import { type VariantProps, cva } from 'class-variance-authority';
 
 export { default as Button } from './Button.vue';
+export { default as ConfirmButton } from './ConfirmButton.vue';
 
 export const buttonVariants = cva(
   'w-[fit-content] inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2 disabled:pointer-events-none disabled:opacity-50 select-none',

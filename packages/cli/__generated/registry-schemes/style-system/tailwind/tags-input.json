@@ -15,7 +15,7 @@
     },
     {
       "name": "TagsInputItem.vue",
-      "content": "<script setup lang=\"ts\">\nimport { TagsInputItem, type TagsInputItemProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@ui/utils';\n\nconst props = defineProps<TagsInputItemProps>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <TagsInputItem\n    v-bind=\"forwardedProps\"\n    :class=\"cn('flex h-6 items-center rounded bg-secondary data-[state=active]:ring-ring data-[state=active]:ring-2 data-[state=active]:ring-offset-2 ring-offset-background', $attrs.class ?? '')\"\n  >\n    <slot />\n  </TagsInputItem>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { TagsInputItem, type TagsInputItemProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@ui/utils';\n\nconst props = defineProps<TagsInputItemProps>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <TagsInputItem\n    v-bind=\"forwardedProps\"\n    :class=\"cn('flex h-6 items-center rounded bg-secondary data-[state=active]:outline-2 data-[state=active]:outline-ring data-[state=active]:outline-offset-2', $attrs.class ?? '')\"\n  >\n    <slot />\n  </TagsInputItem>\n</template>\n"
     },
     {
       "name": "TagsInputItemDelete.vue",
