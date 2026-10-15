@@ -9,14 +9,16 @@ import type { StyleSystem } from '@sigma-ui/shared/style-systems';
 
 const props = defineProps<{
   name: string;
-  dependencies: Record<StyleSystem, ComponentDependencies>;
-  files: Record<StyleSystem, RenderedSourceFile[]>;
+  dependencies?: Record<StyleSystem, ComponentDependencies>;
+  files?: Record<StyleSystem, RenderedSourceFile[]>;
 }>();
 
+const EMPTY_DEPENDENCIES: ComponentDependencies = { packages: [], components: [], usesUtils: false };
 const STEP_CLASS = 'relative list-none [counter-increment:install-step] before:absolute before:-left-[38px] before:flex before:h-7 before:w-7 before:items-center before:justify-center before:rounded-full before:border-4 before:border-background before:bg-muted before:text-xs before:font-medium before:content-[counter(install-step)]';
 
 const styleSystem = useActiveStyleSystem();
-const activeDependencies = computed(() => props.dependencies[styleSystem.value]);
+const activeDependencies = computed(() => props.dependencies?.[styleSystem.value] ?? EMPTY_DEPENDENCIES);
+const activeFiles = computed(() => props.files?.[styleSystem.value] ?? []);
 </script>
 
 <template>
@@ -85,7 +87,7 @@ const activeDependencies = computed(() => props.dependencies[styleSystem.value])
             Copy the source files into <code class="rounded bg-muted px-1 font-mono text-sm">components/ui/{{ name }}</code>:
           </p>
           <SourceFile
-            v-for="file in files[styleSystem]"
+            v-for="file in activeFiles"
             :key="`${styleSystem}-${file.name}`"
             :name="file.name"
             :html="file.html"
