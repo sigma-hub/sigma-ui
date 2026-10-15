@@ -41,7 +41,7 @@ import { getBaseColors, getStyleSystems, getTheme } from '@/src/utils/themes';
 import { applyPrefixesCss } from '@/src/utils/transformers/transform-tw-prefix';
 
 const UTILS_DEPENDENCIES = ['clsx', 'tailwind-merge'];
-const TAILWIND_DEPENDENCIES = ['tailwindcss-animate'];
+const TAILWIND_DEPENDENCIES = ['tw-animate-css'];
 const TAILWIND_DEV_DEPENDENCIES = ['tailwindcss', '@tailwindcss/vite'];
 
 interface ConfigAnswers {

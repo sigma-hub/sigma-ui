@@ -75,7 +75,7 @@ describe('init', () => {
     expect(read(cwd, 'vite.config.ts')).toMatch(/['"]@['"]:\s*fileURLToPath\(new URL\('\.\/src', import\.meta\.url\)\)/);
     expect(read(cwd, 'src/main.ts').startsWith('import \'./assets/index.css\';\n')).toBe(true);
     expect(existsSync(path.join(cwd, 'tailwind.config.js'))).toBe(false);
-    expect(installPackages).toHaveBeenCalledWith(['clsx', 'tailwind-merge', 'tailwindcss-animate'], { cwd, silent: true });
+    expect(installPackages).toHaveBeenCalledWith(['clsx', 'tailwind-merge', 'tw-animate-css'], { cwd, silent: true });
     expect(installPackages).toHaveBeenCalledWith(['tailwindcss', '@tailwindcss/vite'], { cwd, dev: true, silent: true });
   });
 
