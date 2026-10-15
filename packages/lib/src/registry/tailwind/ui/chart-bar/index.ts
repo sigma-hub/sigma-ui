@@ -21,6 +21,14 @@ export interface BaseChartProps<T extends Record<string, any>> {
    * Change the default colors.
    */
   colors?: string[];
+  config?: Record<string, {
+    label?: string;
+    color?: string;
+    theme?: {
+      light?: string;
+      dark?: string;
+    };
+  }>;
   /**
    * Margin of each the container
    */
