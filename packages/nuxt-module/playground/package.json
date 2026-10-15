@@ -6,7 +6,7 @@
     "dev": "nuxt dev",
     "build": "nuxt build",
     "generate": "nuxt generate",
-    "components": "nuxt prepare && sigma-ui add accordion badge button card --overwrite --cwd ."
+    "components": "nuxt prepare && SIGMA_UI_REGISTRY_URL=../../../apps/docs/src/public/r sigma-ui add accordion badge button card --overwrite --cwd ."
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
