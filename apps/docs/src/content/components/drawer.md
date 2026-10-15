@@ -9,22 +9,17 @@ primitive: https://github.com/unovue/vaul-vue
 
 <ComponentPreview name="Drawer" />
 
-## About
+## Installation
+
+<ComponentInstall name="drawer" />
+
+## Usage
 
 Drawer is built on top of [Vaul Vue](https://github.com/unovue/vaul-vue).
 
-## Installation
-
-```bash
-npx sigma-ui add drawer
-```
-
-## Examples
-
-### Basic
-
-```vue:line-numbers
+```vue
 <script setup lang="ts">
+import { Button } from '@/components/ui/button';
 import {
   Drawer,
   DrawerClose,
@@ -34,7 +29,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from '@/components/ui/drawer'
+} from '@/components/ui/drawer';
 </script>
 
 <template>
@@ -47,7 +42,7 @@ import {
       </DrawerHeader>
       <DrawerFooter>
         <Button>Submit</Button>
-        <DrawerClose>
+        <DrawerClose as-child>
           <Button variant="outline">
             Cancel
           </Button>
@@ -58,16 +53,37 @@ import {
 </template>
 ```
 
+- Use `v-model:open` on `<Drawer>` to control the open state.
+- The user can close the drawer by dragging it down, clicking the overlay, or pressing <kbd>Esc</kbd>.
+
 ### Scale Background
 
-If you want the background to have a zoom effect, you need to add the `vaul-drawer-wrapper` attribute to the root component.
+`shouldScaleBackground` is enabled by default. For the background to get a zoom effect, add the `vaul-drawer-wrapper` attribute to the root element of your app.
 
 ```html
 <div vaul-drawer-wrapper id="app"></div>
 ```
 
+## Examples
+
 ### Responsive Dialog
 
-You can combine the `Dialog` and `Drawer` components to create a responsive dialog. This renders a `Dialog` component on desktop and a `Drawer` on mobile.
+Combine the `Dialog` and `Drawer` components to create a responsive dialog. It renders a `Dialog` on desktop and a `Drawer` on mobile.
 
 <ComponentPreview name="DrawerDialog" />
+
+## API Reference
+
+<!-- @include: @/content/meta/drawer.md -->
+
+## Accessibility
+
+Renders as a modal dialog following the [Dialog (Modal) WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/). Vaul Vue builds on the Reka UI dialog, which traps focus inside the drawer and returns it to the trigger on close.
+
+| Key | Description |
+| --- | --- |
+| <kbd>Space</kbd> | Opens or closes the drawer. |
+| <kbd>Enter</kbd> | Opens or closes the drawer. |
+| <kbd>Tab</kbd> | Moves focus to the next focusable element. |
+| <kbd>Shift</kbd> + <kbd>Tab</kbd> | Moves focus to the previous focusable element. |
+| <kbd>Esc</kbd> | Closes the drawer and moves focus to the trigger. |
