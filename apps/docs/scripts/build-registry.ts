@@ -1,10 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { rimraf } from 'rimraf';
-import { zodToJsonSchema } from 'zod-to-json-schema';
 import { styleSystems } from '@sigma-ui/shared/style-systems';
 import { crawlRegistry, toPublicImports, writeRegistry } from '@sigma-ui/shared/registry';
-import { rawConfigSchema, type RegistryItem } from '@sigma-ui/shared/schemas';
+import { createConfigJsonSchema, type RegistryItem } from '@sigma-ui/shared/schemas';
 
 const DOCS_ROOT = process.cwd();
 const LIB_REGISTRY_PATH = path.join(DOCS_ROOT, '../../packages/lib/src/registry');
@@ -72,8 +71,8 @@ async function buildPublicRegistry(registries: Record<string, RegistryItem[]>) {
 }
 
 function buildConfigSchema() {
-  const schema = zodToJsonSchema(rawConfigSchema, { target: 'jsonSchema7', $refStrategy: 'none' });
-  fs.writeFileSync(CONFIG_SCHEMA_PATH, `${JSON.stringify({ $schema: 'http://json-schema.org/draft-07/schema#', title: 'sigma-ui.config.json', ...schema }, null, 2)}\n`, 'utf8');
+  const { $schema, ...schema } = createConfigJsonSchema();
+  fs.writeFileSync(CONFIG_SCHEMA_PATH, `${JSON.stringify({ $schema, title: 'sigma-ui.config.json', ...schema }, null, 2)}\n`, 'utf8');
 }
 
 async function main() {

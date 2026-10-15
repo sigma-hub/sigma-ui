@@ -55,3 +55,15 @@ export const rawConfigSchema = z.object({
 
 export type RawConfig = z.infer<typeof rawConfigSchema>;
 export type RawConfigInput = z.input<typeof rawConfigSchema>;
+
+export function createConfigJsonSchema() {
+  return z.toJSONSchema(rawConfigSchema, {
+    target: 'draft-7',
+    io: 'input',
+    override: ({ zodSchema, jsonSchema }) => {
+      if (zodSchema._zod.def.type === 'object') {
+        jsonSchema.additionalProperties = false;
+      }
+    },
+  });
+}
