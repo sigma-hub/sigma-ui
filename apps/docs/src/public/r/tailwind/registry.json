@@ -113,6 +113,24 @@
       ]
     },
     {
+      "name": "aspect-ratio",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui@^2.2.1"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ui/aspect-ratio/AspectRatio.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/aspect-ratio/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "avatar",
       "type": "registry:ui",
       "dependencies": [
