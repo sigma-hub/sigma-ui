@@ -2,38 +2,105 @@ name: CI
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+  push:
+    branches:
+      - main
 
 permissions:
   contents: read
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
-  build:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    # Known to fail until the phase 3 lint cleanup. Remove continue-on-error then.
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup
+      - run: pnpm lint
+
+  typecheck:
+    name: Typecheck (${{ matrix.package }})
+    runs-on: ubuntu-latest
+    # lib (component and example type errors) and docs (code fences in form.md) are known to fail
+    # until phase 3. Remove the known-failing flag from their matrix entries then.
+    continue-on-error: ${{ matrix.known-failing }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - package: cli
+            known-failing: false
+          - package: shared
+            known-failing: false
+          - package: nuxt
+            known-failing: false
+          - package: lib
+            known-failing: true
+          - package: docs
+            known-failing: true
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup
+      - run: pnpm ts:${{ matrix.package }}
+
+  registry:
+    name: Registry is up to date
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup
+      - run: pnpm build:registry
+      - name: Check for uncommitted registry changes
+        run: |
+          git add --intent-to-add .
+          git diff --exit-code --stat || {
+            echo "::error::The generated registry is stale. Run 'pnpm build:registry' and commit the result."
+            exit 1
+          }
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10.2.1
+  build-cli:
+    name: Build CLI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup
+      - run: pnpm build:cli
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: pnpm
-          cache-dependency-path: pnpm-lock.yaml
+  build-docs:
+    name: Build docs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup
+      - run: pnpm build
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+  nuxt:
+    name: Nuxt module
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup
+      - run: pnpm build:nuxt
+      - run: pnpm --filter sigma-ui-nuxt test
+      - name: Add playground components with the CLI and build the playground
+        run: |
+          pnpm build:cli
+          pnpm --filter sigma-ui-nuxt dev:prepare
+          pnpm --filter sigma-ui-nuxt dev:components
+          pnpm --filter sigma-ui-nuxt dev:build
 
-      - name: Build
-        run: pnpm build
-
-
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
+    # Known to fail until the phase 3 test fixes. Remove continue-on-error then.
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup
+      - run: pnpm -r --if-present --filter '!sigma-ui-nuxt' test
