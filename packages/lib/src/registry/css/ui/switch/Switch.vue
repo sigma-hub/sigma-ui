@@ -19,6 +19,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   <SwitchRoot
     v-bind="forwarded"
     class="sigma-ui-switch"
+    data-slot="switch"
   >
     <SwitchThumb class="sigma-ui-switch__thumb" />
   </SwitchRoot>

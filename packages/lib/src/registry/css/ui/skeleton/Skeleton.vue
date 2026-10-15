@@ -5,6 +5,7 @@
   <div
     class="sigma-ui-skeleton"
     :class="[$attrs.class]"
+    data-slot="skeleton"
   />
 </template>
 

@@ -6,6 +6,7 @@
   <h3
     class="sigma-ui-card__title"
     :class="[$attrs.class]"
+    data-slot="card-title"
   >
     <slot />
   </h3>

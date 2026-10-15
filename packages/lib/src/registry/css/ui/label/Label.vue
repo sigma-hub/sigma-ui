@@ -8,7 +8,7 @@ const props = defineProps<LabelProps>();
   <Label
     v-bind="props"
     class="sigma-ui-label"
-  >
+   data-slot="label">
     <slot />
   </Label>
 </template>

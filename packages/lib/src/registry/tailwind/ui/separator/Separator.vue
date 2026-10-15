@@ -21,7 +21,7 @@ const props = defineProps<
       )
 
     "
-  >
+   data-slot="separator">
     <span
       v-if="props.label"
       :class="cn('text-xs text-muted-foreground bg-background absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center',

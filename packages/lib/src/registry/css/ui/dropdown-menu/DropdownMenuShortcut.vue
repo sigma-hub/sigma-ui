@@ -6,6 +6,7 @@
   <span
     class="sigma-ui-dropdown-menu-shortcut"
     :class="$attrs.class"
+    data-slot="dropdown-menu-shortcut"
   >
     <slot />
   </span>

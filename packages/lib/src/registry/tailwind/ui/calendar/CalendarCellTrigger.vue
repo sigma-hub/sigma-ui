@@ -25,7 +25,7 @@ const forwardedProps = useForwardProps(props);
       $attrs.class ?? '',
     )"
     v-bind="forwardedProps"
-  >
+   data-slot="calendar-cell-trigger">
     <slot />
   </CalendarCellTrigger>
 </template>

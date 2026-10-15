@@ -12,5 +12,5 @@ const props = defineProps<DropdownMenuSeparatorProps>();
   <DropdownMenuSeparator
     v-bind="props"
     :class="cn('-mx-1 my-1 h-px bg-muted', $attrs.class ?? '')"
-  />
+   data-slot="dropdown-menu-separator"/>
 </template>

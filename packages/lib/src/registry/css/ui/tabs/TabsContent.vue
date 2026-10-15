@@ -8,7 +8,7 @@ const props = defineProps<TabsContentProps>();
   <TabsContent
     v-bind="props"
     class="sigma-ui-tabs-content"
-  >
+   data-slot="tabs-content">
     <slot />
   </TabsContent>
 </template>

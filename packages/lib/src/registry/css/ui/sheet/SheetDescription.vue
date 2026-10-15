@@ -8,6 +8,7 @@ const props = defineProps<DialogDescriptionProps>();
   <DialogDescription
     class="sigma-ui-sheet-description"
     v-bind="props"
+    data-slot="sheet-description"
   >
     <slot />
   </DialogDescription>

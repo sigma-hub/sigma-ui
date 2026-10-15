@@ -6,6 +6,7 @@
   <span
     class="sigma-ui-menubar-shortcut"
     :class="[$attrs.class]"
+    data-slot="menubar-shortcut"
   >
     <slot />
   </span>

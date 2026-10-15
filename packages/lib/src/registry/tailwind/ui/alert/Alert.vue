@@ -12,6 +12,7 @@ const props = defineProps<{
   <div
     :class="cn(alertVariants({ variant }), $attrs.class ?? '')"
     role="alert"
+    data-slot="alert"
   >
     <slot />
   </div>

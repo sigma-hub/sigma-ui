@@ -19,7 +19,7 @@ const forwardedProps = useForwardProps(props);
     data-slot="select-item"
     v-bind="forwardedProps"
     class="sigma-ui-select-item"
-  >
+   data-slot="select-item">
     <span class="sigma-ui-select-item__indicator-wrapper">
       <SelectItemIndicator>
         <CheckIcon class="sigma-ui-select-item__check-icon" />

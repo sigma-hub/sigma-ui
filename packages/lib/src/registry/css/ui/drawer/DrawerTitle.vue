@@ -9,7 +9,7 @@ const props = defineProps<DrawerTitleProps>();
   <DrawerTitle
     v-bind="props"
     class="sigma-ui-drawer-title"
-  >
+   data-slot="drawer-title">
     <slot />
   </DrawerTitle>
 </template>

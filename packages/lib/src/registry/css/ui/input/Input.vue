@@ -16,6 +16,7 @@ defineEmits<{
     class="sigma-ui-input"
     :class="[$attrs.class]"
     autocomplete="off"
+    data-slot="input"
   >
 </template>
 

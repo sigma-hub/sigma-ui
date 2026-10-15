@@ -9,6 +9,7 @@ const forwardedProps = useForwardProps(props);
   <Primitive
     v-bind="forwardedProps"
     class="sigma-ui-pin-input-group"
+    data-slot="pin-input-group"
   >
     <slot />
   </Primitive>

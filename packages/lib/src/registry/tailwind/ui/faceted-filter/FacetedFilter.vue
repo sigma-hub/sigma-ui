@@ -47,14 +47,25 @@ const trimmedSearchQuery = computed(() => searchQuery.value.trim());
 const selectedValues = computed(() => new Set(props.modelValue));
 const filteredOptions = computed(() => {
   const normalizedSearch = searchQuery.value.trim().toLowerCase();
-  if (!normalizedSearch) return props.options;
+
+  if (!normalizedSearch) {
+    return props.options;
+  }
+
   return props.options.filter(option => option.toLowerCase().includes(normalizedSearch));
 });
 
 const canCreate = computed(() => {
-  if (!props.allowCreate) return false;
+  if (!props.allowCreate) {
+    return false;
+  }
+
   const value = trimmedSearchQuery.value;
-  if (value.length === 0) return false;
+
+  if (value.length === 0) {
+    return false;
+  }
+
   const normalizedValue = value.toLowerCase();
   return !props.options.some(option => option.toLowerCase() === normalizedValue);
 });
@@ -67,14 +78,23 @@ const contentStyle = computed(() => props.minWidth ? ({ minWidth: `${props.minWi
 
 function toggleValue(value: string) {
   const next = new Set(props.modelValue);
-  if (next.has(value)) next.delete(value);
-  else next.add(value);
+
+  if (next.has(value)) {
+    next.delete(value);
+  } else {
+    next.add(value);
+  }
+
   emit('update:modelValue', Array.from(next));
 }
 
 function createFromSearchQuery() {
   const value = trimmedSearchQuery.value;
-  if (!value) return;
+
+  if (!value) {
+    return;
+  }
+
   emit('create', value);
   clearSearch();
   commandKey.value += 1;
@@ -86,7 +106,8 @@ function clearSearch() {
 </script>
 
 <template>
-  <Popover>
+  <Popover
+    data-slot="faceted-filter">
     <PopoverTrigger as-child>
       <Button
         variant="outline"

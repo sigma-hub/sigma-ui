@@ -11,7 +11,7 @@ const forwarded = useForwardProps(props);
   <ComboboxAnchor
     v-bind="{ ...forwarded, ...$attrs }"
     :class="['sigma-ui-combobox-anchor', $attrs.class]"
-  >
+   data-slot="combobox-anchor">
     <slot />
   </ComboboxAnchor>
 </template>

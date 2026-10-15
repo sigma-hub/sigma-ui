@@ -16,7 +16,7 @@ const forwardedProps = useForwardProps(props);
       v-bind="forwardedProps"
       class="sigma-ui-navigation-menu-viewport"
       :class="$attrs.class"
-    />
+     data-slot="navigation-menu-viewport"/>
   </div>
 </template>
 

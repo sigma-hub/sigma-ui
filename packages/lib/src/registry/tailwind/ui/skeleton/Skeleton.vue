@@ -4,5 +4,6 @@ import { cn } from '@ui/utils';
 </script>
 
 <template>
-  <div :class="cn('animate-pulse rounded-md bg-muted', $attrs.class ?? '')" />
+  <div :class="cn('animate-pulse rounded-md bg-muted', $attrs.class ?? '')"
+  data-slot="skeleton" />
 </template>

@@ -15,6 +15,7 @@ const forwardedProps = useForwardProps(props);
   <div
     class="sigma-ui-command-input"
     cmdk-input-wrapper
+    data-slot="command-input"
   >
     <SearchIcon class="sigma-ui-command-input__icon" />
     <ComboboxInput

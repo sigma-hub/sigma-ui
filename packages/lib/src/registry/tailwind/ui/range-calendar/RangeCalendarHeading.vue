@@ -12,7 +12,7 @@ const forwardedProps = useForwardProps(props);
     v-slot="{ headingValue }"
     :class="cn('text-sm font-medium', $attrs.class ?? '')"
     v-bind="forwardedProps"
-  >
+   data-slot="range-calendar-heading">
     <slot :heading-value>
       {{ headingValue }}
     </slot>

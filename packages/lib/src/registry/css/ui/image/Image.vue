@@ -71,6 +71,7 @@ function onLoad() {
       },
     ]"
     class="sigma-ui-image__container"
+    data-slot="image"
   >
     <div
       v-if="isError"

@@ -20,7 +20,7 @@ const forwarded = useForwardPropsEmits(props, emits);
     v-bind="forwarded"
     class="sigma-ui-context-menu-item"
     :class="[{ 'sigma-ui-context-menu-item--inset': inset }]"
-  >
+   data-slot="context-menu-item">
     <slot />
   </ContextMenuItem>
 </template>

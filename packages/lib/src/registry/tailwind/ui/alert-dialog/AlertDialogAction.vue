@@ -10,7 +10,7 @@ const props = defineProps<AlertDialogActionProps>();
   <AlertDialogAction
     v-bind="props"
     :class="cn(buttonVariants(), $attrs.class ?? '')"
-  >
+   data-slot="alert-dialog-action">
     <slot />
   </AlertDialogAction>
 </template>

@@ -6,6 +6,7 @@
   <p
     class="sigma-ui-card__description"
     :class="[$attrs.class]"
+    data-slot="card-description"
   >
     <slot />
   </p>

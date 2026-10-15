@@ -12,7 +12,7 @@ const props = defineProps<ComboboxGroupProps & {
   <ComboboxGroup
     v-bind="{ ...props, ...$attrs }"
     :class="['sigma-ui-combobox-group', $attrs.class]"
-  >
+   data-slot="combobox-group">
     <ComboboxLabel
       v-if="heading"
       class="sigma-ui-combobox-group__heading"

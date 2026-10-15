@@ -26,6 +26,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   <ToggleGroupRoot
     v-bind="forwarded"
     class="sigma-ui-toggle-group"
+    data-slot="toggle-group"
   >
     <slot />
   </ToggleGroupRoot>

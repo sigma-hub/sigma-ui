@@ -10,7 +10,7 @@ const forwarded = useForwardProps(props);
   <AccordionItem
     v-bind="forwarded"
     :class="cn('border-b', $attrs.class ?? '')"
-  >
+   data-slot="accordion-item">
     <slot />
   </AccordionItem>
 </template>

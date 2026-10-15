@@ -16,6 +16,7 @@ const forwarded = useForwardPropsEmits(props, emits);
       'relative flex w-full min-w-[50px] touch-none select-none items-center',
       $attrs.class ?? '',
     )"
+    data-slot="slider"
   >
     <SliderTrack class="relative h-2 w-full grow overflow-hidden rounded-full bg-secondary">
       <SliderRange class="absolute h-full bg-primary" />

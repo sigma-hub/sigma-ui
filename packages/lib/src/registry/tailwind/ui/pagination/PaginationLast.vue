@@ -12,7 +12,8 @@ const props = withDefaults(defineProps<PaginationLastProps>(), {
 </script>
 
 <template>
-  <PaginationLast v-bind="props">
+  <PaginationLast v-bind="props"
+  data-slot="pagination-last">
     <Button
       :class="cn('w-10 h-10 p-0', $attrs.class ?? '')"
       variant="outline"

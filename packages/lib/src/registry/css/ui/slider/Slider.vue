@@ -12,6 +12,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   <SliderRoot
     class="sigma-ui-slider"
     v-bind="forwarded"
+    data-slot="slider"
   >
     <SliderTrack class="sigma-ui-slider__track">
       <SliderRange class="sigma-ui-slider__range" />

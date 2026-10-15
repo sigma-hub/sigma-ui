@@ -13,6 +13,7 @@ const props = defineProps<ComboboxGroupProps & {
   <ComboboxGroup
     v-bind="props"
     :class="cn('overflow-hidden p-1 text-foreground [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground', $attrs.class ?? '')"
+    data-slot="command-group"
   >
     <ComboboxLabel
       v-if="heading"

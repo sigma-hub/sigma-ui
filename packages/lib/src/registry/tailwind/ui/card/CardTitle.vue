@@ -8,6 +8,7 @@ import { cn } from '@ui/utils';
     :class="
       cn('text-2xl font-semibold leading-none tracking-tight', $attrs.class ?? '')
     "
+    data-slot="card-title"
   >
     <slot />
   </h3>

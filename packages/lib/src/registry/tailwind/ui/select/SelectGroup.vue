@@ -9,7 +9,7 @@ const props = defineProps<SelectGroupProps>();
   <SelectGroup
     :class="cn('p-1 w-full', $attrs.class ?? '')"
     v-bind="props"
-  >
+   data-slot="select-group">
     <slot />
   </SelectGroup>
 </template>

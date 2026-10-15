@@ -22,7 +22,7 @@ const forwarded = useForwardPropsEmits(props, emits);
         $attrs.class ?? '',
       )
     "
-  >
+   data-slot="context-menu-sub-content">
     <slot />
   </ContextMenuSubContent>
 </template>

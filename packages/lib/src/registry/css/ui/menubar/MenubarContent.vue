@@ -24,7 +24,7 @@ const forwardedProps = useForwardProps(props);
       v-bind="forwardedProps"
       class="sigma-ui-menubar-content"
       :class="[$attrs.class]"
-    >
+     data-slot="menubar-content">
       <slot />
     </MenubarContent>
   </MenubarPortal>

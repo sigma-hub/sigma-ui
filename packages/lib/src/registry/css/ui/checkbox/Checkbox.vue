@@ -21,6 +21,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   <div
     class="sigma-ui-checkbox-wrapper"
     :class="[{ 'sigma-ui-checkbox-wrapper--flex-start': props.description }]"
+    data-slot="checkbox"
   >
     <CheckboxRoot
       v-bind="forwarded"

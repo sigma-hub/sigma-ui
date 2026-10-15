@@ -24,7 +24,7 @@ const forwarded = useForwardPropsEmits(props, emits);
           $attrs.class ?? '',
         )
       "
-    >
+     data-slot="menubar-sub-content">
       <slot />
     </MenubarSubContent>
   </MenubarPortal>

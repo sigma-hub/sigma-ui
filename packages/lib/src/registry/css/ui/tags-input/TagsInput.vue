@@ -11,6 +11,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   <TagsInputRoot
     v-bind="forwarded"
     class="sigma-ui-tags-input"
+    data-slot="tags-input"
   >
     <slot />
   </TagsInputRoot>

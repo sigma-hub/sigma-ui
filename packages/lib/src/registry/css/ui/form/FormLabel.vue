@@ -13,6 +13,7 @@ const { error, formItemId } = useFormField();
     class="sigma-ui-form-label"
     :class="[$attrs.class ?? '', { 'sigma-ui-form-label--error': error }]"
     :for="formItemId"
+    data-slot="form-label"
   >
     <slot />
   </Label>

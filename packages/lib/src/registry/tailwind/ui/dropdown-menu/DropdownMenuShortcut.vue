@@ -4,7 +4,8 @@ import { cn } from '@ui/utils';
 </script>
 
 <template>
-  <span :class="cn('ml-auto text-xs tracking-widest opacity-60', $attrs.class ?? '')">
+  <span :class="cn('ml-auto text-xs tracking-widest opacity-60', $attrs.class ?? '')"
+  data-slot="dropdown-menu-shortcut">
     <slot />
   </span>
 </template>

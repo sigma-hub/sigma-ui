@@ -9,7 +9,8 @@ const props = withDefaults(defineProps<PaginationFirstProps>(), {
 </script>
 
 <template>
-  <PaginationFirst v-bind="props">
+  <PaginationFirst v-bind="props"
+  data-slot="pagination-first">
     <Button
       class="sigma-ui-pagination-first"
       :class="$attrs.class"

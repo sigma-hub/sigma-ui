@@ -11,7 +11,7 @@ const forwardedProps = useForwardProps(props);
   <CalendarGridRow
     :class="cn('flex', $attrs.class ?? '')"
     v-bind="forwardedProps"
-  >
+   data-slot="calendar-grid-row">
     <slot />
   </CalendarGridRow>
 </template>

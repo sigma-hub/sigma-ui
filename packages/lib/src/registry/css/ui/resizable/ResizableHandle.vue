@@ -15,6 +15,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   <SplitterResizeHandle
     v-bind="forwarded"
     class="sigma-ui-resizable-handle"
+    data-slot="resizable-handle"
   >
     <template v-if="props.withHandle">
       <div class="sigma-ui-resizable-handle__grip">

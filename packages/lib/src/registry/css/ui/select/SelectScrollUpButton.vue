@@ -11,7 +11,7 @@ const forwardedProps = useForwardProps(props);
   <SelectScrollUpButton
     v-bind="forwardedProps"
     class="sigma-ui-select-scroll-up"
-  >
+   data-slot="select-scroll-up-button">
     <slot>
       <ChevronUpIcon class="sigma-ui-select-scroll-up__icon" />
     </slot>

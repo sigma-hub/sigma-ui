@@ -15,6 +15,7 @@ const props = defineProps<ScrollAreaRootProps>();
   <ScrollAreaRoot
     v-bind="props"
     class="sigma-ui-scroll-area"
+    data-slot="scroll-area"
   >
     <ScrollAreaViewport class="sigma-ui-scroll-area__viewport">
       <slot />

@@ -10,7 +10,7 @@ const forwardedProps = useForwardProps(props);
   <TagsInputItem
     v-bind="forwardedProps"
     class="sigma-ui-tags-input-item"
-  >
+   data-slot="tags-input-item">
     <slot />
   </TagsInputItem>
 </template>

@@ -20,6 +20,7 @@ defineEmits<{
     class="sigma-ui-textarea"
     :class="[$attrs.class]"
     autocomplete="off"
+    data-slot="textarea"
   />
 </template>
 

@@ -5,7 +5,8 @@ const props = defineProps<ContextMenuPortalProps>();
 </script>
 
 <template>
-  <ContextMenuPortal v-bind="props">
+  <ContextMenuPortal v-bind="props"
+  data-slot="context-menu-portal">
     <slot />
   </ContextMenuPortal>
 </template>

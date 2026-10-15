@@ -10,7 +10,7 @@ const forwardedProps = useForwardProps(props);
   <TabsTrigger
     v-bind="forwardedProps"
     class="sigma-ui-tabs-trigger"
-  >
+   data-slot="tabs-trigger">
     <slot />
   </TabsTrigger>
 </template>

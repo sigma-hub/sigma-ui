@@ -6,6 +6,7 @@
   <span
     class="sigma-ui-command-shortcut"
     :class="$attrs.class"
+    data-slot="command-shortcut"
   >
     <slot />
   </span>

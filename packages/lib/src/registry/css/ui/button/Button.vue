@@ -32,6 +32,7 @@ const props = withDefaults(defineProps<Props>(), {
     :as-child="asChild"
     :class="[buttonVariants({ variant, size }), $attrs.class]"
     :disabled="isLoading || $attrs.disabled"
+    data-slot="button"
   >
     <Loader2Icon
       v-if="isLoading"

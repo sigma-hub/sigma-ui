@@ -22,7 +22,7 @@ const forwardedProps = useForwardProps(props);
         $attrs.class ?? '',
       )
     "
-  >
+   data-slot="radio-group-item">
     <RadioGroupIndicator
       class="flex items-center justify-center"
     >

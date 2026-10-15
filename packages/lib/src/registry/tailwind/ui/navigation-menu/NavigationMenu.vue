@@ -18,6 +18,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   <NavigationMenuRoot
     v-bind="forwarded"
     :class="cn('relative z-10 flex max-w-max flex-1 items-center justify-center', $attrs.class ?? '')"
+    data-slot="navigation-menu"
   >
     <slot />
     <NavigationMenuViewport />

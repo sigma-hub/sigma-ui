@@ -13,6 +13,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   <PinInputRoot
     v-bind="forwarded"
     class="sigma-ui-pin-input"
+    data-slot="pin-input"
   >
     <slot />
   </PinInputRoot>

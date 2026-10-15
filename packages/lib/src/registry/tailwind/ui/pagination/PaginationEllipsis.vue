@@ -10,7 +10,7 @@ const props = defineProps<PaginationEllipsisProps>();
   <PaginationEllipsis
     v-bind="props"
     :class="cn('w-9 h-9 flex items-center justify-center', $attrs.class ?? '')"
-  >
+   data-slot="pagination-ellipsis">
     <slot>
       <MoreHorizontalIcon class="w-4 h-4" />
     </slot>

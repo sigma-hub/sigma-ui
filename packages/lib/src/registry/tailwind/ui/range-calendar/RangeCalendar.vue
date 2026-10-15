@@ -14,6 +14,7 @@ const forwarded = useForwardPropsEmits(props, emits);
     v-slot="{ grid, weekDays }"
     :class="cn('p-3', $attrs.class ?? '')"
     v-bind="forwarded"
+    data-slot="range-calendar"
   >
     <RangeCalendarHeader>
       <RangeCalendarPrevButton />

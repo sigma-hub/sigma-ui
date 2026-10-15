@@ -10,7 +10,8 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div :class="cn(badgeVariants({ variant }), $attrs.class ?? '')">
+  <div :class="cn(badgeVariants({ variant }), $attrs.class ?? '')"
+  data-slot="badge">
     <slot />
   </div>
 </template>

@@ -6,6 +6,7 @@
   <td
     class="sigma-ui-table-cell"
     :class="[$attrs.class]"
+    data-slot="table-cell"
   >
     <slot />
   </td>

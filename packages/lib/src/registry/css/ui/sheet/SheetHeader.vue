@@ -6,6 +6,7 @@
   <div
     class="sigma-ui-sheet-header"
     :class="[$attrs.class]"
+    data-slot="sheet-header"
   >
     <slot />
   </div>

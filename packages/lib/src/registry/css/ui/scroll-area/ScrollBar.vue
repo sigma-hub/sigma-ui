@@ -10,6 +10,7 @@ const props = withDefaults(defineProps<ScrollAreaScrollbarProps>(), {
   <ScrollAreaScrollbar
     v-bind="props"
     class="sigma-ui-scroll-area-scrollbar"
+    data-slot="scroll-bar"
   >
     <ScrollAreaThumb class="sigma-ui-scroll-area-scrollbar__thumb" />
   </ScrollAreaScrollbar>

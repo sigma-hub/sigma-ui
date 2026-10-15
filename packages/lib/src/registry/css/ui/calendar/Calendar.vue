@@ -13,6 +13,7 @@ const forwarded = useForwardPropsEmits(props, emits);
     v-slot="{ grid, weekDays }"
     class="sigma-ui-calendar"
     v-bind="forwarded"
+    data-slot="calendar"
   >
     <CalendarHeader>
       <CalendarPrevButton />

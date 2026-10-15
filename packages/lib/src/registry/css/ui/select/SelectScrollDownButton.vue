@@ -12,7 +12,7 @@ const forwardedProps = useForwardProps(props);
   <SelectScrollDownButton
     v-bind="forwardedProps"
     class="sigma-ui-select-scroll-down"
-  >
+   data-slot="select-scroll-down-button">
     <slot>
       <ChevronDownIcon class="sigma-ui-select-scroll-down__icon" />
     </slot>

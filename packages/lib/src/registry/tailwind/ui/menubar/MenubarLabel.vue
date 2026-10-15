@@ -9,7 +9,8 @@ const props = defineProps<MenubarLabelProps & {
 </script>
 
 <template>
-  <MenubarLabel :class="cn('px-2 py-1.5 text-sm font-semibold', inset && 'pl-8', $attrs.class ?? '')">
+  <MenubarLabel :class="cn('px-2 py-1.5 text-sm font-semibold', inset && 'pl-8', $attrs.class ?? '')"
+  data-slot="menubar-label">
     <slot />
   </MenubarLabel>
 </template>

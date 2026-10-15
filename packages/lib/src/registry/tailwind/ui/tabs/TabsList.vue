@@ -12,7 +12,7 @@ const props = defineProps<TabsListProps>();
       'flex items-center justify-center w-[fit-content] h-10 p-[2px] rounded-md bg-muted text-muted-foreground',
       $attrs.class ?? '',
     )"
-  >
+   data-slot="tabs-list">
     <slot />
   </TabsList>
 </template>

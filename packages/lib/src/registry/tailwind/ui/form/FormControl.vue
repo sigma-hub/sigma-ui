@@ -10,6 +10,7 @@ const { error, formItemId, formDescriptionId, formMessageId } = useFormField();
     :id="formItemId"
     :aria-describedby="!error ? `${formDescriptionId}` : `${formDescriptionId} ${formMessageId}`"
     :aria-invalid="!!error"
+    data-slot="form-control"
   >
     <slot />
   </Slot>

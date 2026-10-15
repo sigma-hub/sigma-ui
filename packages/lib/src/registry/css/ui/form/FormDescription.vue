@@ -9,6 +9,7 @@ const { formDescriptionId } = useFormField();
     :id="formDescriptionId"
     class="sigma-ui-form-description"
     :class="$attrs.class"
+    data-slot="form-description"
   >
     <slot />
   </p>

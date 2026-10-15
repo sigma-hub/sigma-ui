@@ -3,7 +3,8 @@
 </script>
 
 <template>
-  <div class="sigma-ui-table-wrapper">
+  <div class="sigma-ui-table-wrapper"
+  data-slot="table">
     <table
       class="sigma-ui-table"
       :class="[$attrs.class]"

@@ -12,6 +12,7 @@ const { name, formMessageId } = useFormField();
     as="p"
     :name="toValue(name)"
     class="sigma-ui-form-message"
+    data-slot="form-message"
   />
 </template>
 

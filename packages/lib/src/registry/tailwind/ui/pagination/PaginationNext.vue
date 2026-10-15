@@ -12,7 +12,8 @@ const props = withDefaults(defineProps<PaginationNextProps>(), {
 </script>
 
 <template>
-  <PaginationNext v-bind="props">
+  <PaginationNext v-bind="props"
+  data-slot="pagination-next">
     <Button
       :class="cn('w-10 h-10 p-0', $attrs.class ?? '')"
       variant="outline"

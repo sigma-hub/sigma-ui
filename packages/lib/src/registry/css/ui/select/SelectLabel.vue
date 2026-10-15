@@ -9,7 +9,7 @@ const props = defineProps<SelectLabelProps>();
     data-slot="select-label"
     class="sigma-ui-select-label"
     :class="[$attrs.class]"
-  >
+   data-slot="select-label">
     <slot />
   </SelectLabel>
 </template>

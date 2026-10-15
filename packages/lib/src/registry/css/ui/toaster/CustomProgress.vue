@@ -24,7 +24,8 @@ const emit = defineEmits<Emits>();
 </script>
 
 <template>
-  <div class="sigma-ui-toaster-progress">
+  <div class="sigma-ui-toaster-progress"
+  data-slot="custom-progress">
     <div class="sigma-ui-toaster-progress__content">
       <div class="sigma-ui-toaster-progress__header">
         {{ props.data.title }}

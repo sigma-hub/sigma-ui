@@ -16,7 +16,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   <NavigationMenuContent
     v-bind="forwarded"
     class="sigma-ui-navigation-menu-content"
-  >
+   data-slot="navigation-menu-content">
     <slot />
   </NavigationMenuContent>
 </template>

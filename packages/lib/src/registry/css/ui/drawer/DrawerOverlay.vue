@@ -9,7 +9,7 @@ const props = defineProps<DialogOverlayProps>();
   <DrawerOverlay
     v-bind="props"
     class="sigma-ui-drawer-overlay"
-  />
+   data-slot="drawer-overlay"/>
 </template>
 
 <style>

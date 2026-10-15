@@ -6,6 +6,7 @@
   <div
     class="sigma-ui-card__header"
     :class="[$attrs.class]"
+    data-slot="card-header"
   >
     <slot />
   </div>

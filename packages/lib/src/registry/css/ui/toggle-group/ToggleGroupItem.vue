@@ -29,7 +29,7 @@ const forwardedProps = useForwardProps(delegatedProps);
         size: context?.size || size,
       }),
     ]"
-  >
+   data-slot="toggle-group-item">
     <slot />
   </ToggleGroupItem>
 </template>

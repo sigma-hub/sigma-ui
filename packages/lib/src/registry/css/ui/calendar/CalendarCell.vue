@@ -10,7 +10,7 @@ const forwardedProps = useForwardProps(props);
   <CalendarCell
     class="sigma-ui-calendar-cell"
     v-bind="forwardedProps"
-  >
+   data-slot="calendar-cell">
     <slot />
   </CalendarCell>
 </template>

@@ -99,6 +99,7 @@ const noiseClass = 'absolute top-0 left-0 w-full h-full bg-repeat mix-blend-over
   <div
     :class="containerClass"
     :style="imageStyle"
+    data-slot="infusion"
   >
     <img
       v-if="props.type === 'image'"

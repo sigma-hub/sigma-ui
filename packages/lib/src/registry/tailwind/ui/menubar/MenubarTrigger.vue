@@ -16,7 +16,7 @@ const forwardedProps = useForwardProps(props);
         $attrs.class ?? '',
       )
     "
-  >
+   data-slot="menubar-trigger">
     <slot />
   </MenubarTrigger>
 </template>

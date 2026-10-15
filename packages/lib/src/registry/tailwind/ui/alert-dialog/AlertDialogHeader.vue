@@ -6,6 +6,7 @@ import { cn } from '@ui/utils';
 <template>
   <div
     :class="cn('flex flex-col gap-y-2 text-center sm:text-left', $attrs.class ?? '')"
+    data-slot="alert-dialog-header"
   >
     <slot />
   </div>

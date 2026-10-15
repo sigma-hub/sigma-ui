@@ -10,7 +10,7 @@ const props = defineProps<DrawerDescriptionProps>();
   <DrawerDescription
     v-bind="props"
     :class="cn('text-sm text-muted-foreground', $attrs.class ?? '')"
-  >
+   data-slot="drawer-description">
     <slot />
   </DrawerDescription>
 </template>

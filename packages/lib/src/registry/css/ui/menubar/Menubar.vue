@@ -16,6 +16,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   <MenubarRoot
     v-bind="forwarded"
     class="sigma-ui-menubar"
+    data-slot="menubar"
   >
     <slot />
   </MenubarRoot>

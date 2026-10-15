@@ -10,7 +10,7 @@ const forwardedProps = useForwardProps(props);
   <NavigationMenuList
     v-bind="forwardedProps"
     class="sigma-ui-navigation-menu-list"
-  >
+   data-slot="navigation-menu-list">
     <slot />
   </NavigationMenuList>
 </template>

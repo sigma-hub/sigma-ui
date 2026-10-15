@@ -10,7 +10,7 @@ const forwardedProps = useForwardProps(props);
   <PinInputInput
     v-bind="forwardedProps"
     class="sigma-ui-pin-input-input"
-  />
+   data-slot="pin-input-input"/>
 </template>
 
 <style>

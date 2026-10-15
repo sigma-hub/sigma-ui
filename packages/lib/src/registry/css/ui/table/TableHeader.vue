@@ -6,6 +6,7 @@
   <thead
     class="sigma-ui-table-header"
     :class="[$attrs.class]"
+    data-slot="table-header"
   >
     <slot />
   </thead>

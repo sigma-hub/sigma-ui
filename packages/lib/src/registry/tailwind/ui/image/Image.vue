@@ -71,6 +71,7 @@ function onLoad() {
       },
     ]"
     class="relative"
+    data-slot="image"
   >
     <div
       v-if="isError"

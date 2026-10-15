@@ -3,7 +3,8 @@ import { cn } from '@ui/utils';
 </script>
 
 <template>
-  <div :class="cn('grid gap-1.5 p-4 text-center sm:text-left', $attrs.class ?? '')">
+  <div :class="cn('grid gap-1.5 p-4 text-center sm:text-left', $attrs.class ?? '')"
+  data-slot="drawer-header">
     <slot />
   </div>
 </template>

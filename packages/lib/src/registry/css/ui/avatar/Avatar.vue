@@ -26,7 +26,8 @@ defineSlots<{
 </script>
 
 <template>
-  <div :class="[avatarVariants({ size }), $attrs.class]">
+  <div :class="[avatarVariants({ size }), $attrs.class]"
+  data-slot="avatar">
     <Image
       v-bind="props"
     >

@@ -9,6 +9,7 @@ const props = defineProps<ComboboxEmptyProps>();
   <ComboboxEmpty
     v-bind="props"
     class="sigma-ui-command-empty"
+    data-slot="command-empty"
   >
     <slot />
   </ComboboxEmpty>

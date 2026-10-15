@@ -11,7 +11,7 @@ const forwardedProps = useForwardProps(props);
   <TagsInputItemDelete
     v-bind="forwardedProps"
     class="sigma-ui-tags-input-item-delete"
-  >
+   data-slot="tags-input-item-delete">
     <slot>
       <XIcon class="sigma-ui-tags-input-item-delete__icon" />
     </slot>
