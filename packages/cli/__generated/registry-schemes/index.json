@@ -1,7 +1,10 @@
 [
   {
     "name": "accordion",
-    "dependencies": [],
+    "dependencies": [
+      "lucide-vue-next@^0.475.0",
+      "reka-ui@^2.2.1"
+    ],
     "registryDependencies": [],
     "files": [
       "accordion/Accordion.vue",
@@ -14,7 +17,9 @@
   },
   {
     "name": "alert",
-    "dependencies": [],
+    "dependencies": [
+      "class-variance-authority@^0.7.1"
+    ],
     "registryDependencies": [],
     "files": [
       "alert/Alert.vue",
@@ -26,8 +31,12 @@
   },
   {
     "name": "alert-dialog",
-    "dependencies": [],
-    "registryDependencies": [],
+    "dependencies": [
+      "reka-ui@^2.2.1"
+    ],
+    "registryDependencies": [
+      "button"
+    ],
     "files": [
       "alert-dialog/AlertDialog.vue",
       "alert-dialog/AlertDialogAction.vue",
@@ -44,8 +53,13 @@
   },
   {
     "name": "avatar",
-    "dependencies": [],
-    "registryDependencies": [],
+    "dependencies": [
+      "class-variance-authority@^0.7.1",
+      "lucide-vue-next@^0.475.0"
+    ],
+    "registryDependencies": [
+      "image"
+    ],
     "files": [
       "avatar/Avatar.vue",
       "avatar/index.ts"
@@ -54,7 +68,9 @@
   },
   {
     "name": "badge",
-    "dependencies": [],
+    "dependencies": [
+      "class-variance-authority@^0.7.1"
+    ],
     "registryDependencies": [],
     "files": [
       "badge/Badge.vue",
@@ -64,7 +80,10 @@
   },
   {
     "name": "breadcrumb",
-    "dependencies": [],
+    "dependencies": [
+      "lucide-vue-next@^0.475.0",
+      "reka-ui@^2.2.1"
+    ],
     "registryDependencies": [],
     "files": [
       "breadcrumb/Breadcrumb.vue",
@@ -81,7 +100,11 @@
   },
   {
     "name": "button",
-    "dependencies": [],
+    "dependencies": [
+      "class-variance-authority@^0.7.1",
+      "lucide-vue-next@^0.475.0",
+      "reka-ui@^2.2.1"
+    ],
     "registryDependencies": [],
     "files": [
       "button/Button.vue",
@@ -92,8 +115,13 @@
   },
   {
     "name": "calendar",
-    "dependencies": [],
-    "registryDependencies": [],
+    "dependencies": [
+      "lucide-vue-next@^0.475.0",
+      "reka-ui@^2.2.1"
+    ],
+    "registryDependencies": [
+      "button"
+    ],
     "files": [
       "calendar/Calendar.vue",
       "calendar/CalendarCell.vue",
@@ -129,7 +157,8 @@
   {
     "name": "card-lightbox",
     "dependencies": [
-      "motion-v"
+      "lucide-vue-next@^0.475.0",
+      "motion-v@1.0.0"
     ],
     "registryDependencies": [],
     "files": [
@@ -142,10 +171,13 @@
   {
     "name": "carousel",
     "dependencies": [
-      "embla-carousel-vue",
-      "@vueuse/core"
+      "@vueuse/core@^12.5.0",
+      "embla-carousel-vue@^8.5.2",
+      "lucide-vue-next@^0.475.0"
     ],
-    "registryDependencies": [],
+    "registryDependencies": [
+      "button"
+    ],
     "files": [
       "carousel/Carousel.vue",
       "carousel/CarouselContent.vue",
@@ -161,10 +193,13 @@
   {
     "name": "chart",
     "dependencies": [
-      "@unovis/vue",
-      "@unovis/ts"
+      "@unovis/ts@^1.5.0",
+      "@unovis/vue@^1.5.0"
     ],
-    "registryDependencies": [],
+    "registryDependencies": [
+      "button",
+      "card"
+    ],
     "files": [
       "chart/ChartCrosshair.vue",
       "chart/ChartLegend.vue",
@@ -178,11 +213,14 @@
   {
     "name": "chart-area",
     "dependencies": [
-      "@unovis/vue",
-      "@unovis/ts",
-      "@vueuse/core"
+      "@unovis/ts@^1.5.0",
+      "@unovis/vue@^1.5.0",
+      "@vueuse/core@^12.5.0",
+      "reka-ui@^2.2.1"
     ],
-    "registryDependencies": [],
+    "registryDependencies": [
+      "chart"
+    ],
     "files": [
       "chart-area/AreaChart.vue",
       "chart-area/index.ts"
@@ -192,11 +230,13 @@
   {
     "name": "chart-bar",
     "dependencies": [
-      "@unovis/vue",
-      "@unovis/ts",
-      "@vueuse/core"
+      "@unovis/ts@^1.5.0",
+      "@unovis/vue@^1.5.0",
+      "@vueuse/core@^12.5.0"
     ],
-    "registryDependencies": [],
+    "registryDependencies": [
+      "chart"
+    ],
     "files": [
       "chart-bar/BarChart.vue",
       "chart-bar/index.ts"
@@ -206,11 +246,13 @@
   {
     "name": "chart-donut",
     "dependencies": [
-      "@unovis/vue",
-      "@unovis/ts",
-      "@vueuse/core"
+      "@unovis/ts@^1.5.0",
+      "@unovis/vue@^1.5.0",
+      "@vueuse/core@^12.5.0"
     ],
-    "registryDependencies": [],
+    "registryDependencies": [
+      "chart"
+    ],
     "files": [
       "chart-donut/DonutChart.vue",
       "chart-donut/index.ts"
@@ -220,11 +262,13 @@
   {
     "name": "chart-line",
     "dependencies": [
-      "@unovis/vue",
-      "@unovis/ts",
-      "@vueuse/core"
+      "@unovis/ts@^1.5.0",
+      "@unovis/vue@^1.5.0",
+      "@vueuse/core@^12.5.0"
     ],
-    "registryDependencies": [],
+    "registryDependencies": [
+      "chart"
+    ],
     "files": [
       "chart-line/LineChart.vue",
       "chart-line/index.ts"
@@ -233,7 +277,10 @@
   },
   {
     "name": "checkbox",
-    "dependencies": [],
+    "dependencies": [
+      "lucide-vue-next@^0.475.0",
+      "reka-ui@^2.2.1"
+    ],
     "registryDependencies": [],
     "files": [
       "checkbox/Checkbox.vue",
@@ -243,7 +290,9 @@
   },
   {
     "name": "collapsible",
-    "dependencies": [],
+    "dependencies": [
+      "reka-ui@^2.2.1"
+    ],
     "registryDependencies": [],
     "files": [
       "collapsible/Collapsible.vue",
@@ -256,7 +305,8 @@
   {
     "name": "combobox",
     "dependencies": [
-      "@vueuse/core"
+      "@vueuse/core@^12.5.0",
+      "reka-ui@^2.2.1"
     ],
     "registryDependencies": [],
     "files": [
@@ -275,8 +325,13 @@
   },
   {
     "name": "command",
-    "dependencies": [],
-    "registryDependencies": [],
+    "dependencies": [
+      "lucide-vue-next@^0.475.0",
+      "reka-ui@^2.2.1"
+    ],
+    "registryDependencies": [
+      "dialog"
+    ],
     "files": [
       "command/Command.vue",
       "command/CommandDialog.vue",
@@ -293,7 +348,10 @@
   },
   {
     "name": "context-menu",
-    "dependencies": [],
+    "dependencies": [
+      "lucide-vue-next@^0.475.0",
+      "reka-ui@^2.2.1"
+    ],
     "registryDependencies": [],
     "files": [
       "context-menu/ContextMenu.vue",
@@ -317,7 +375,10 @@
   },
   {
     "name": "dialog",
-    "dependencies": [],
+    "dependencies": [
+      "lucide-vue-next@^0.475.0",
+      "reka-ui@^2.2.1"
+    ],
     "registryDependencies": [],
     "files": [
       "dialog/Dialog.vue",
@@ -336,7 +397,8 @@
   {
     "name": "drawer",
     "dependencies": [
-      "vaul-vue"
+      "reka-ui@^2.2.1",
+      "vaul-vue@^0.2.1"
     ],
     "registryDependencies": [],
     "files": [
@@ -353,7 +415,10 @@
   },
   {
     "name": "dropdown-menu",
-    "dependencies": [],
+    "dependencies": [
+      "lucide-vue-next@^0.475.0",
+      "reka-ui@^2.2.1"
+    ],
     "registryDependencies": [],
     "files": [
       "dropdown-menu/DropdownMenu.vue",
@@ -376,8 +441,15 @@
   },
   {
     "name": "faceted-filter",
-    "dependencies": [],
-    "registryDependencies": [],
+    "dependencies": [
+      "lucide-vue-next@^0.475.0"
+    ],
+    "registryDependencies": [
+      "button",
+      "command",
+      "popover",
+      "separator"
+    ],
     "files": [
       "faceted-filter/FacetedFilter.vue",
       "faceted-filter/index.ts"
@@ -387,11 +459,12 @@
   {
     "name": "form",
     "dependencies": [
-      "vee-validate",
-      "@vee-validate/zod",
-      "zod"
+      "reka-ui@^2.2.1",
+      "vee-validate@4.15.0"
     ],
-    "registryDependencies": [],
+    "registryDependencies": [
+      "label"
+    ],
     "files": [
       "form/FormControl.vue",
       "form/FormDescription.vue",
@@ -406,7 +479,9 @@
   },
   {
     "name": "hover-card",
-    "dependencies": [],
+    "dependencies": [
+      "reka-ui@^2.2.1"
+    ],
     "registryDependencies": [],
     "files": [
       "hover-card/HoverCard.vue",
@@ -418,7 +493,11 @@
   },
   {
     "name": "image",
-    "dependencies": [],
+    "dependencies": [
+      "class-variance-authority@^0.7.1",
+      "lucide-vue-next@^0.475.0",
+      "reka-ui@^2.2.1"
+    ],
     "registryDependencies": [],
     "files": [
       "image/Image.vue",
@@ -448,7 +527,9 @@
   },
   {
     "name": "label",
-    "dependencies": [],
+    "dependencies": [
+      "reka-ui@^2.2.1"
+    ],
     "registryDependencies": [],
     "files": [
       "label/Label.vue",
@@ -458,7 +539,10 @@
   },
   {
     "name": "menubar",
-    "dependencies": [],
+    "dependencies": [
+      "lucide-vue-next@^0.475.0",
+      "reka-ui@^2.2.1"
+    ],
     "registryDependencies": [],
     "files": [
       "menubar/Menubar.vue",
@@ -482,7 +566,11 @@
   },
   {
     "name": "navigation-menu",
-    "dependencies": [],
+    "dependencies": [
+      "class-variance-authority@^0.7.1",
+      "lucide-vue-next@^0.475.0",
+      "reka-ui@^2.2.1"
+    ],
     "registryDependencies": [],
     "files": [
       "navigation-menu/NavigationMenu.vue",
@@ -499,7 +587,10 @@
   },
   {
     "name": "number-field",
-    "dependencies": [],
+    "dependencies": [
+      "lucide-vue-next@^0.475.0",
+      "reka-ui@^2.2.1"
+    ],
     "registryDependencies": [],
     "files": [
       "number-field/NumberField.vue",
@@ -513,8 +604,13 @@
   },
   {
     "name": "pagination",
-    "dependencies": [],
-    "registryDependencies": [],
+    "dependencies": [
+      "lucide-vue-next@^0.475.0",
+      "reka-ui@^2.2.1"
+    ],
+    "registryDependencies": [
+      "button"
+    ],
     "files": [
       "pagination/PaginationEllipsis.vue",
       "pagination/PaginationFirst.vue",
@@ -527,7 +623,10 @@
   },
   {
     "name": "pin-input",
-    "dependencies": [],
+    "dependencies": [
+      "lucide-vue-next@^0.475.0",
+      "reka-ui@^2.2.1"
+    ],
     "registryDependencies": [],
     "files": [
       "pin-input/PinInput.vue",
@@ -540,7 +639,9 @@
   },
   {
     "name": "popover",
-    "dependencies": [],
+    "dependencies": [
+      "reka-ui@^2.2.1"
+    ],
     "registryDependencies": [],
     "files": [
       "popover/Popover.vue",
@@ -552,7 +653,9 @@
   },
   {
     "name": "progress",
-    "dependencies": [],
+    "dependencies": [
+      "reka-ui@^2.2.1"
+    ],
     "registryDependencies": [],
     "files": [
       "progress/Progress.vue",
@@ -562,7 +665,10 @@
   },
   {
     "name": "radio-group",
-    "dependencies": [],
+    "dependencies": [
+      "lucide-vue-next@^0.475.0",
+      "reka-ui@^2.2.1"
+    ],
     "registryDependencies": [],
     "files": [
       "radio-group/RadioGroup.vue",
@@ -573,8 +679,13 @@
   },
   {
     "name": "range-calendar",
-    "dependencies": [],
-    "registryDependencies": [],
+    "dependencies": [
+      "lucide-vue-next@^0.475.0",
+      "reka-ui@^2.2.1"
+    ],
+    "registryDependencies": [
+      "button"
+    ],
     "files": [
       "range-calendar/RangeCalendar.vue",
       "range-calendar/RangeCalendarCell.vue",
@@ -594,7 +705,10 @@
   },
   {
     "name": "resizable",
-    "dependencies": [],
+    "dependencies": [
+      "lucide-vue-next@^0.475.0",
+      "reka-ui@^2.2.1"
+    ],
     "registryDependencies": [],
     "files": [
       "resizable/ResizableHandle.vue",
@@ -605,7 +719,9 @@
   },
   {
     "name": "scroll-area",
-    "dependencies": [],
+    "dependencies": [
+      "reka-ui@^2.2.1"
+    ],
     "registryDependencies": [],
     "files": [
       "scroll-area/ScrollArea.vue",
@@ -616,7 +732,10 @@
   },
   {
     "name": "select",
-    "dependencies": [],
+    "dependencies": [
+      "lucide-vue-next@^0.475.0",
+      "reka-ui@^2.2.1"
+    ],
     "registryDependencies": [],
     "files": [
       "select/Select.vue",
@@ -636,7 +755,9 @@
   },
   {
     "name": "separator",
-    "dependencies": [],
+    "dependencies": [
+      "reka-ui@^2.2.1"
+    ],
     "registryDependencies": [],
     "files": [
       "separator/Separator.vue",
@@ -646,7 +767,11 @@
   },
   {
     "name": "sheet",
-    "dependencies": [],
+    "dependencies": [
+      "class-variance-authority@^0.7.1",
+      "lucide-vue-next@^0.475.0",
+      "reka-ui@^2.2.1"
+    ],
     "registryDependencies": [],
     "files": [
       "sheet/Sheet.vue",
@@ -673,7 +798,9 @@
   },
   {
     "name": "slider",
-    "dependencies": [],
+    "dependencies": [
+      "reka-ui@^2.2.1"
+    ],
     "registryDependencies": [],
     "files": [
       "slider/Slider.vue",
@@ -683,7 +810,9 @@
   },
   {
     "name": "switch",
-    "dependencies": [],
+    "dependencies": [
+      "reka-ui@^2.2.1"
+    ],
     "registryDependencies": [],
     "files": [
       "switch/Switch.vue",
@@ -711,7 +840,9 @@
   },
   {
     "name": "tabs",
-    "dependencies": [],
+    "dependencies": [
+      "reka-ui@^2.2.1"
+    ],
     "registryDependencies": [],
     "files": [
       "tabs/Tabs.vue",
@@ -725,7 +856,9 @@
   {
     "name": "tags-input",
     "dependencies": [
-      "@vueuse/core"
+      "@vueuse/core@^12.5.0",
+      "lucide-vue-next@^0.475.0",
+      "reka-ui@^2.2.1"
     ],
     "registryDependencies": [],
     "files": [
@@ -751,9 +884,11 @@
   {
     "name": "toaster",
     "dependencies": [
-      "vue-sonner"
+      "vue-sonner@^1.3.0"
     ],
-    "registryDependencies": [],
+    "registryDependencies": [
+      "button"
+    ],
     "files": [
       "toaster/CustomProgress.vue",
       "toaster/CustomSimple.vue",
@@ -764,7 +899,10 @@
   },
   {
     "name": "toggle",
-    "dependencies": [],
+    "dependencies": [
+      "class-variance-authority@^0.7.1",
+      "reka-ui@^2.2.1"
+    ],
     "registryDependencies": [],
     "files": [
       "toggle/Toggle.vue",
@@ -774,8 +912,13 @@
   },
   {
     "name": "toggle-group",
-    "dependencies": [],
-    "registryDependencies": [],
+    "dependencies": [
+      "class-variance-authority@^0.7.1",
+      "reka-ui@^2.2.1"
+    ],
+    "registryDependencies": [
+      "toggle"
+    ],
     "files": [
       "toggle-group/ToggleGroup.vue",
       "toggle-group/ToggleGroupItem.vue",
@@ -785,7 +928,9 @@
   },
   {
     "name": "tooltip",
-    "dependencies": [],
+    "dependencies": [
+      "reka-ui@^2.2.1"
+    ],
     "registryDependencies": [],
     "files": [
       "tooltip/Tooltip.vue",

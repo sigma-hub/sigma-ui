@@ -1,7 +1,11 @@
 {
   "name": "alert-dialog",
-  "dependencies": [],
-  "registryDependencies": [],
+  "dependencies": [
+    "reka-ui@^2.2.1"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
   "files": [
     {
       "name": "AlertDialog.vue",

@@ -1,10 +1,13 @@
 {
   "name": "carousel",
   "dependencies": [
-    "embla-carousel-vue",
-    "@vueuse/core"
+    "@vueuse/core@^12.5.0",
+    "embla-carousel-vue@^8.5.2",
+    "lucide-vue-next@^0.475.0"
   ],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
   "files": [
     {
       "name": "Carousel.vue",

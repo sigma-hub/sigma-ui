@@ -1,7 +1,12 @@
 {
   "name": "command",
-  "dependencies": [],
-  "registryDependencies": [],
+  "dependencies": [
+    "lucide-vue-next@^0.475.0",
+    "reka-ui@^2.2.1"
+  ],
+  "registryDependencies": [
+    "dialog"
+  ],
   "files": [
     {
       "name": "Command.vue",

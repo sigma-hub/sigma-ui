@@ -1,7 +1,8 @@
 {
   "name": "combobox",
   "dependencies": [
-    "@vueuse/core"
+    "@vueuse/core@^12.5.0",
+    "reka-ui@^2.2.1"
   ],
   "registryDependencies": [],
   "files": [

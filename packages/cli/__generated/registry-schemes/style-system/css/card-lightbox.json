@@ -1,7 +1,8 @@
 {
   "name": "card-lightbox",
   "dependencies": [
-    "motion-v"
+    "lucide-vue-next@^0.475.0",
+    "motion-v@1.0.0"
   ],
   "registryDependencies": [],
   "files": [

@@ -1,10 +1,13 @@
 {
   "name": "chart",
   "dependencies": [
-    "@unovis/vue",
-    "@unovis/ts"
+    "@unovis/ts@^1.5.0",
+    "@unovis/vue@^1.5.0"
   ],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "button",
+    "card"
+  ],
   "files": [
     {
       "name": "ChartCrosshair.vue",

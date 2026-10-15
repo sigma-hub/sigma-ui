@@ -1,7 +1,14 @@
 {
   "name": "faceted-filter",
-  "dependencies": [],
-  "registryDependencies": [],
+  "dependencies": [
+    "lucide-vue-next@^0.475.0"
+  ],
+  "registryDependencies": [
+    "button",
+    "command",
+    "popover",
+    "separator"
+  ],
   "files": [
     {
       "name": "FacetedFilter.vue",

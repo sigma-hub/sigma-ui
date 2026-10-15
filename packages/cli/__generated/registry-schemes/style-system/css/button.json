@@ -1,6 +1,10 @@
 {
   "name": "button",
-  "dependencies": [],
+  "dependencies": [
+    "class-variance-authority@^0.7.1",
+    "lucide-vue-next@^0.475.0",
+    "reka-ui@^2.2.1"
+  ],
   "registryDependencies": [],
   "files": [
     {

@@ -1,9 +1,11 @@
 {
   "name": "toaster",
   "dependencies": [
-    "vue-sonner"
+    "vue-sonner@^1.3.0"
   ],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
   "files": [
     {
       "name": "CustomProgress.vue",
