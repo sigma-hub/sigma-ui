@@ -1,5 +1,4 @@
 <script setup lang="ts">
-;
 import { Primitive, type PrimitiveProps } from 'reka-ui';
 import { Loader2Icon } from 'lucide-vue-next';
 import { cn } from '@ui/utils';
