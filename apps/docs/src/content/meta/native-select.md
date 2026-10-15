@@ -23,7 +23,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p><code>NativeSelectOption</code> and <code>NativeSelectOptGroup</code> children.</p>"
   }
 ]' />
@@ -33,7 +33,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p><code>NativeSelectOption</code> children of this group.</p>"
   }
 ]' />
@@ -43,7 +43,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Label of the option.</p>"
   }
 ]' />
