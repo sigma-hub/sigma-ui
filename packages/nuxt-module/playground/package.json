@@ -16,7 +16,7 @@
     "reka-ui": "catalog:",
     "sigma-ui-nuxt": "workspace:*",
     "tailwind-merge": "catalog:",
-    "tailwindcss-animate": "catalog:",
+    "tw-animate-css": "catalog:",
     "vue": "catalog:"
   },
   "devDependencies": {

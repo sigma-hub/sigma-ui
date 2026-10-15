@@ -66,7 +66,7 @@
     "shiki": "^2.5.0",
     "tailwind-merge": "catalog:",
     "tailwindcss": "catalog:",
-    "tailwindcss-animate": "catalog:",
+    "tw-animate-css": "catalog:",
     "tsx": "catalog:",
     "typescript": "catalog:",
     "vitepress": "^1.6.4",
