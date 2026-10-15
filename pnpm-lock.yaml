@@ -443,9 +443,6 @@ importers:
       '@nuxt/kit':
         specifier: ^4.6.1
         version: 4.6.1(@nuxt/schema@4.6.1)(confbox@0.3.1)(dotenv@17.4.2)(giget@3.3.1)(jiti@2.7.0)(magic-string@1.4.3)(mlly@1.8.2)(oxc-parser@0.154.0)(rolldown@1.2.14)(unplugin@3.4.0(esbuild@0.28.2)(rolldown@1.2.14)(rollup@4.64.7)(vite@8.3.4(@types/node@22.15.21)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.38.1)(tsx@4.19.2)(yaml@2.7.0)))
-      '@tailwindcss/vite':
-        specifier: ^4.0.0
-        version: 4.1.14(vite@8.3.4(@types/node@22.15.21)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.38.1)(tsx@4.19.2)(yaml@2.7.0))
       oxc-parser:
         specifier: ^0.154.0
         version: 0.154.0
@@ -462,12 +459,24 @@ importers:
       '@sigma-ui/shared':
         specifier: workspace:*
         version: link:../shared
+      '@tailwindcss/vite':
+        specifier: ^4.1.14
+        version: 4.1.14(vite@8.3.4(@types/node@22.15.21)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.38.1)(tsx@4.19.2)(yaml@2.7.0))
       '@types/node':
         specifier: ^22.13.1
         version: 22.15.21
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
       nuxt:
         specifier: ^4.6.1
         version: 4.6.1(@babel/plugin-proposal-decorators@7.25.9(@babel/core@7.29.7))(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7))(@oxc-project/types@0.154.0)(@types/node@22.15.21)(@vue/compiler-sfc@3.5.44)(acorn@8.14.0)(confbox@0.3.1)(db0@0.3.4)(dotenv@17.4.2)(encoding@0.1.13)(esbuild@0.28.2)(eslint@9.20.0(jiti@2.7.0))(giget@3.3.1)(ioredis@5.11.1)(lightningcss@1.33.0)(meow@13.2.0)(mlly@1.8.2)(optionator@0.9.4)(oxc-parser@0.154.0)(rolldown@1.2.14)(rollup-plugin-visualizer@7.1.1(rolldown@1.2.14)(rollup@4.64.7))(rollup@4.64.7)(srvx@1.0.5)(terser@5.38.1)(tsx@4.19.2)(typescript@5.9.3)(vite@8.3.4(@types/node@22.15.21)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.38.1)(tsx@4.19.2)(yaml@2.7.0))(vue-tsc@3.3.13(typescript@5.9.3))(yaml@2.7.0)
+      tailwind-merge:
+        specifier: ^3.3.1
+        version: 3.3.1
+      tailwindcss:
+        specifier: ^4.1.14
+        version: 4.1.14
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -13231,7 +13240,7 @@ snapshots:
   cliui@9.0.1:
     dependencies:
       string-width: 7.2.0
-      strip-ansi: 7.1.0
+      strip-ansi: 7.2.0
       wrap-ansi: 9.0.2
 
   clsx@2.1.1: {}
@@ -18888,7 +18897,7 @@ snapshots:
     dependencies:
       ansi-styles: 6.2.1
       string-width: 7.2.0
-      strip-ansi: 7.1.0
+      strip-ansi: 7.2.0
 
   wrappy@1.0.2: {}
 

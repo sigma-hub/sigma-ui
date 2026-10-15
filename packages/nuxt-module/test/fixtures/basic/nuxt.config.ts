@@ -1,7 +1,11 @@
-import MyModule from '../../../src/module'
+import SigmaUiNuxt from '../../../src/module';
 
 export default defineNuxtConfig({
-  modules: [
-    MyModule,
-  ],
-})
+  modules: [SigmaUiNuxt],
+  sigmaUi: {
+    prefix: 'Ui',
+    componentDir: './components/ui',
+    tailwind: false,
+  },
+  compatibilityDate: '2026-10-01',
+});

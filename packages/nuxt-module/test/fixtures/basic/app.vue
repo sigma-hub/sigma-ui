@@ -1,6 +1,6 @@
 <template>
-  <div>basic</div>
+  <main>
+    <UiFixtureButton>Fixture button</UiFixtureButton>
+    <UiFixtureButtonGroup />
+  </main>
 </template>
-
-<script setup>
-</script>
