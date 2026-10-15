@@ -142,6 +142,7 @@ watch(secondMonthPlaceholder, (_secondMonthPlaceholder) => {
         v-slot="{ weekDays }"
         v-model="value"
         v-model:placeholder="placeholder"
+        :week-starts-on="0"
         class="p-3"
       >
         <div

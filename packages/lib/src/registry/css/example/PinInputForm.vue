@@ -20,13 +20,13 @@ import {
 } from '@ui/registry/css/ui/form';
 
 const formSchema = toTypedSchema(z.object({
-  pin: z.array(z.coerce.string()).length(5, { message: 'Invalid input' }),
+  pin: z.array(z.coerce.number()).length(5, { message: 'Invalid input' }),
 }));
 
 const { handleSubmit, setFieldValue } = useForm({
   validationSchema: formSchema,
   initialValues: {
-    pin: ['1', '2', '3'],
+    pin: [1, 2, 3],
   },
 });
 
@@ -36,7 +36,7 @@ const onSubmit = handleSubmit(({ pin }) => {
   });
 });
 
-const handleComplete = (e: string[]) => console.log(e.join(''));
+const handleComplete = (digits: (number | undefined)[]) => console.log(digits.join(''));
 </script>
 
 <template>
@@ -60,8 +60,8 @@ const handleComplete = (e: string[]) => console.log(e.join(''));
             type="number"
             :name="componentField.name"
             @complete="handleComplete"
-            @update:model-value="(arrStr) => {
-              setFieldValue('pin', arrStr.filter(Boolean))
+            @update:model-value="(digits) => {
+              setFieldValue('pin', digits.filter((digit) => digit !== undefined))
             }"
           >
             <PinInputGroup>
