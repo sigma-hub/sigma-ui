@@ -75,3 +75,9 @@ export const buildOptionsSchema = z.object({
   output: z.string(),
   cwd: z.string(),
 });
+
+export const migrateOptionsSchema = z.object({
+  cwd: z.string(),
+  yes: z.boolean(),
+  dryRun: z.boolean(),
+});
