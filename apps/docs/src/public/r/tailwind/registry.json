@@ -1315,6 +1315,34 @@
       ]
     },
     {
+      "name": "native-select",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vueuse/core@^12.5.0",
+        "lucide-vue-next@^0.475.0",
+        "reka-ui@^2.2.1"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ui/native-select/NativeSelect.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/native-select/NativeSelectOptGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/native-select/NativeSelectOption.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/native-select/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "navigation-menu",
       "type": "registry:ui",
       "dependencies": [

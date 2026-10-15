@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "native-select",
+  "type": "registry:ui",
+  "dependencies": [
+    "@vueuse/core@^12.5.0",
+    "lucide-vue-next@^0.475.0",
+    "reka-ui@^2.2.1"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/native-select/NativeSelect.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { AcceptableValue } from 'reka-ui';\nimport { reactiveOmit } from '@vueuse/core';\nimport { ChevronDownIcon } from 'lucide-vue-next';\nimport { useAttrs } from 'vue';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst model = defineModel<AcceptableValue | AcceptableValue[]>({\n  default: '',\n});\n\nconst attrs = useAttrs();\nconst selectAttrs = reactiveOmit(attrs, 'class');\n\ndefineSlots<{\n  /**\n   * `NativeSelectOption` and `NativeSelectOptGroup` children.\n   */\n  default?: () => unknown;\n}>();\n</script>\n\n<template>\n  <div\n    data-slot=\"native-select-wrapper\"\n    class=\"sigma-ui-native-select\"\n    :class=\"[attrs.class]\"\n  >\n    <select\n      v-bind=\"selectAttrs\"\n      v-model=\"model\"\n      data-slot=\"native-select\"\n      class=\"sigma-ui-native-select__control\"\n    >\n      <slot />\n    </select>\n    <ChevronDownIcon\n      class=\"sigma-ui-native-select__icon\"\n      aria-hidden=\"true\"\n      data-slot=\"native-select-icon\"\n    />\n  </div>\n</template>\n\n<style>\n.sigma-ui-native-select {\n  position: relative;\n  width: fit-content;\n}\n\n.sigma-ui-native-select:has(select:disabled) {\n  opacity: 0.5;\n}\n\n.sigma-ui-native-select__control {\n  display: flex;\n  width: 100%;\n  height: 2.5rem;\n  min-width: 0;\n  appearance: none;\n  padding: 0.5rem 2.25rem 0.5rem 0.75rem;\n  border: 1px solid hsl(var(--border));\n  border-radius: var(--radius-md);\n  background-color: hsl(var(--input));\n  font-size: 0.875rem;\n  outline: none;\n}\n\n.sigma-ui-native-select__control:focus-visible {\n  outline: 2px solid hsl(var(--ring));\n  outline-offset: 2px;\n}\n\n.sigma-ui-native-select__control:disabled {\n  cursor: not-allowed;\n}\n\n.sigma-ui-native-select__control[aria-invalid=\"true\"] {\n  border-color: hsl(var(--destructive));\n}\n\n.sigma-ui-native-select__icon {\n  position: absolute;\n  top: 50%;\n  right: 0.75rem;\n  width: 1rem;\n  height: 1rem;\n  color: hsl(var(--muted-foreground));\n  opacity: 0.5;\n  pointer-events: none;\n  transform: translateY(-50%);\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/native-select/NativeSelectOptGroup.vue",
+      "content": "<script setup lang=\"ts\">\ndefineSlots<{\n  /**\n   * `NativeSelectOption` children of this group.\n   */\n  default?: () => unknown;\n}>();\n</script>\n\n<template>\n  <optgroup\n    data-slot=\"native-select-optgroup\"\n    class=\"sigma-ui-native-select-optgroup\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </optgroup>\n</template>\n\n<style>\n.sigma-ui-native-select-optgroup {\n  background-color: hsl(var(--popover));\n  color: hsl(var(--popover-foreground));\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/native-select/NativeSelectOption.vue",
+      "content": "<script setup lang=\"ts\">\ndefineSlots<{\n  /**\n   * Label of the option.\n   */\n  default?: () => unknown;\n}>();\n</script>\n\n<template>\n  <option\n    data-slot=\"native-select-option\"\n    class=\"sigma-ui-native-select-option\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </option>\n</template>\n\n<style>\n.sigma-ui-native-select-option {\n  background-color: hsl(var(--popover));\n  color: hsl(var(--popover-foreground));\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/native-select/index.ts",
+      "content": "export { default as NativeSelect } from './NativeSelect.vue';\nexport { default as NativeSelectOptGroup } from './NativeSelectOptGroup.vue';\nexport { default as NativeSelectOption } from './NativeSelectOption.vue';\n",
+      "type": "registry:ui"
+    }
+  ]
+}
