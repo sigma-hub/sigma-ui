@@ -4,7 +4,7 @@ import { Icon } from '@iconify/vue';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import { makeStackblitzParams } from '../utils/codeeditor';
 import Tooltip from './Tooltip.vue';
-import type { StyleSystem } from '@/lib/registry/style-system';
+import type { StyleSystem } from '@sigma-ui/shared/style-systems';
 
 const props = defineProps<{
   name: string;

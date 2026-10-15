@@ -11,7 +11,7 @@ import { Separator } from '@ui/registry/tailwind/ui/separator';
 import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@ui/registry/tailwind/ui/form';
 import { Popover, PopoverContent, PopoverTrigger } from '@ui/registry/tailwind/ui/popover';
 import { useConfigStore } from '@/stores/config';
-import { DEFAULT_COMPONENTS, DEFAULT_UTILS } from '~/packages/shared/consts';
+import { DEFAULT_COMPONENTS, DEFAULT_UTILS } from '@sigma-ui/shared/consts';
 
 const { codeConfig, config, setCodeConfig } = useConfigStore();
 

@@ -1,0 +1,21 @@
+{
+  "name": "@sigma-ui/shared",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Schemas, themes, templates, and the registry builder shared by the SIGMA-UI CLI, docs, and Nuxt module.",
+  "license": "MIT",
+  "exports": {
+    "./consts": "./src/consts.ts",
+    "./themes": "./src/themes.ts",
+    "./style-systems": "./src/style-systems.ts",
+    "./templates/*": "./src/templates/*.ts"
+  },
+  "scripts": {
+    "ts": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.1",
+    "typescript": "^5.7.3"
+  }
+}

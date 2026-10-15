@@ -38,6 +38,7 @@
     "@nuxt/module-builder": "^0.8.4",
     "@nuxt/schema": "^3.15.4",
     "@nuxt/test-utils": "^3.15.4",
+    "@sigma-ui/shared": "workspace:*",
     "@types/node": "latest",
     "changelogen": "^0.5.7",
     "eslint": "^9.19.0",

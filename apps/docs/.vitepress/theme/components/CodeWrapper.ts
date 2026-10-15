@@ -1,6 +1,6 @@
 import { type VNode, type VNodeArrayChildren, cloneVNode, defineComponent } from 'vue';
 import { useConfigStore } from '@/stores/config';
-import { DEFAULT_COMPONENTS } from '~/packages/shared/consts';
+import { DEFAULT_COMPONENTS } from '@sigma-ui/shared/consts';
 
 function crawlSpan(children: VNodeArrayChildren, cb: (vnode: VNode) => void) {
   children.forEach((childNode) => {

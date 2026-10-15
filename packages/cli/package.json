@@ -85,6 +85,7 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@sigma-ui/shared": "workspace:*",
     "@tailwindcss/vite": "^4.1.14",
     "@types/diff": "^7.0.1",
     "@types/fs-extra": "^11.0.4",

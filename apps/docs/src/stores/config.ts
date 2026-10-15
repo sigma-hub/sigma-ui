@@ -1,9 +1,9 @@
-import { DEFAULT_COMPONENTS, DEFAULT_UTILS } from '~/packages/shared/consts';
+import { DEFAULT_COMPONENTS, DEFAULT_UTILS } from '@sigma-ui/shared/consts';
 import { computed } from 'vue';
 import { useStorage } from '@vueuse/core';
 import { useData } from 'vitepress';
-import { type Theme, themes } from './../lib/registry/themes';
-import { type StyleSystem, styleSystems } from '@/lib/registry/style-system';
+import { type Theme, themes } from '@sigma-ui/shared/themes';
+import { type StyleSystem, styleSystems } from '@sigma-ui/shared/style-systems';
 
 interface Config {
   theme?: Theme['name'];

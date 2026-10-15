@@ -12,7 +12,7 @@ import {
   rawConfigSchema,
   type RawConfig,
 } from '@/src/schemas';
-import { INIT_COMMAND, CONFIG_FILE_PATH } from '~/packages/shared/consts';
+import { INIT_COMMAND, CONFIG_FILE_PATH } from '@sigma-ui/shared/consts';
 
 export async function getConfig(cwd: string) {
   const config = await getRawConfig(cwd);
