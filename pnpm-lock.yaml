@@ -34,13 +34,13 @@ catalogs:
       specifier: ^3.0.5
       version: 3.0.5
     '@vue/compiler-core':
-      specifier: ^3.5.13
+      specifier: ^3.5.44
       version: 3.5.44
     '@vue/compiler-dom':
-      specifier: ^3.5.13
+      specifier: ^3.5.44
       version: 3.5.44
     '@vue/compiler-sfc':
-      specifier: ^3.5.13
+      specifier: ^3.5.44
       version: 3.5.44
     '@vue/tsconfig':
       specifier: ^0.7.0
@@ -103,7 +103,7 @@ catalogs:
       specifier: ^3.0.5
       version: 3.0.5
     vue:
-      specifier: ^3.5.13
+      specifier: ^3.5.44
       version: 3.5.44
     vue-component-meta:
       specifier: ^2.2.0
