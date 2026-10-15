@@ -14,6 +14,7 @@ export default [
       '**/.vitepress/dist/**',
       '**/.nuxt/**',
       '**/.output/**',
+      'packages/nuxt-module/playground/app/components/ui/**',
     ],
   },
   pluginJs.configs.recommended,

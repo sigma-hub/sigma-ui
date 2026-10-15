@@ -3,13 +3,25 @@
   "name": "sigma-ui-nuxt-playground",
   "type": "module",
   "scripts": {
-    "dev": "nuxi dev",
-    "build": "nuxi build",
-    "generate": "nuxi generate"
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "components": "nuxt prepare && sigma-ui add accordion badge button card --overwrite --cwd ."
   },
   "dependencies": {
-    "lucide-vue-next": "^0.474.0",
-    "nuxt": "^3.15.4",
-    "sigma-ui-nuxt": "file:../"
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-vue-next": "^0.544.0",
+    "nuxt": "^4.6.1",
+    "reka-ui": "^2.2.1",
+    "sigma-ui-nuxt": "workspace:*",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss-animate": "^1.0.7",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.14",
+    "sigma-ui": "workspace:*",
+    "tailwindcss": "^4.1.14"
   }
 }

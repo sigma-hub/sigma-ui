@@ -47,6 +47,7 @@
     "dev": "nuxt dev playground",
     "dev:build": "nuxt build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxt prepare playground",
+    "dev:components": "pnpm --dir playground components",
     "ts": "nuxt-module-build prepare && vue-tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest watch"
