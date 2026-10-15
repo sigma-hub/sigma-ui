@@ -1,52 +1,69 @@
 ---
 title: Donut
-description: A line chart visually represents data in a circular form, similar to a pie chart but with a central void, emphasizing proportions within categories.
+description: A donut chart shows parts of a whole as slices around an empty center.
 source: chart-donut
 label: Alpha
 ---
 
-<ComponentPreview name="DonutChart"  />
+## Preview
+
+<ComponentPreview name="DonutChart" />
 
 ## Installation
 
-<Callout>
-Requires Vue >= 3.3
-</Callout>
-
-<Steps>
-
-### Run the following command
-
-```bash
-npx sigma-ui add chart card chart-donut
-```
+<ComponentInstall name="chart-donut" />
 
 ### Setup
 
-Follow the [guide](/components/charts.html#installation) to complete the setup.
+Charts need the Unovis color variables from the [Charts installation](/components/charts#installation).
 
-</Steps>
+## Usage
 
-## API
+```vue
+<script setup lang="ts">
+import { DonutChart } from '@/components/ui/chart-donut';
 
-<!-- @include: @/content/meta/chart-donut.md -->
+const data = [
+  { name: 'Direct', total: 400 },
+  { name: 'Referral', total: 250 },
+];
+</script>
+
+<template>
+  <DonutChart
+    :data="data"
+    index="name"
+    category="total"
+  />
+</template>
+```
+
+Set `type` to `pie` for a filled pie chart. Pass `colors` to override the generated palette.
 
 ## Examples
 
-### Pie Chart
+### Pie
 
-If you want to render pie chart instead, pass `type` as `pie`.
-
-<ComponentPreview name="DonutChartPie"  />
+<ComponentPreview name="DonutChartPie" />
 
 ### Color
 
-We generate colors automatically based on the primary and secondary color and assigned them accordingly. Feel free to pass in your own array of colors.
+<ComponentPreview name="DonutChartColor" />
 
-<ComponentPreview name="DonutChartColor"  />
+### Custom tooltip
 
-### Custom Tooltip
+Pass a component to `customTooltip`. It receives `title` and `data`. See the [Charts](/components/charts#custom-tooltip) page for the prop shape.
 
-If you want to render custom tooltip, you can easily pass in a custom component. Refer to prop definition [here](/components/charts.html#custom-tooltip).
+<ComponentPreview name="DonutChartCustomTooltip" />
 
-<ComponentPreview name="DonutChartCustomTooltip"  />
+## API Reference
+
+<!-- @include: @/content/meta/chart-donut.md -->
+
+## Accessibility
+
+The chart is an SVG graphic. The legend lists each slice. Give the surrounding section a heading that states what the chart measures, and do not rely on color alone to tell the slices apart.
+
+| Key | Description |
+| --- | --- |
+| <kbd>Tab</kbd> | Moves focus past the chart. Slices are not individually focusable. |

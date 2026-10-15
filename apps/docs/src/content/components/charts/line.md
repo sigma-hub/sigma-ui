@@ -1,46 +1,67 @@
 ---
 title: Line
-description: A line chart  visually displays data points connected by straight lines, illustrating trends or relationships over a continuous axis.
+description: A line chart connects values along a continuous axis to show a trend.
 source: chart-line
 label: Alpha
 ---
 
-<ComponentPreview name="LineChart"  />
+## Preview
+
+<ComponentPreview name="LineChart" />
 
 ## Installation
 
-<Callout>
-  Requires Vue >= 3.3
-</Callout>
-
-<Steps>
-
-### Run the following command
-
-```bash
-npx sigma-ui add chart card chart-line
-```
+<ComponentInstall name="chart-line" />
 
 ### Setup
 
-Follow the [guide](/components/charts.html#installation) to complete the setup.
+Charts need the Unovis color variables from the [Charts installation](/components/charts#installation).
 
-</Steps>
+## Usage
 
-## API
+```vue
+<script setup lang="ts">
+import { LineChart } from '@/components/ui/chart-line';
 
-<!-- @include: @/content/meta/chart-line.md -->
+const data = [
+  { name: 'Jan', total: 1200, predicted: 900 },
+  { name: 'Feb', total: 1600, predicted: 1100 },
+];
+</script>
+
+<template>
+  <LineChart
+    :data="data"
+    index="name"
+    :categories="['total', 'predicted']"
+  />
+</template>
+```
+
+`index` is the property used for the x axis. `categories` lists the series to plot.
 
 ## Examples
 
 ### Sparkline
 
-We can turn the chart into sparkline chart by hiding axis, gridline and legends.
+Hide the axes, grid, and legend to render a sparkline.
 
-<ComponentPreview name="LineChartSparkline"  />
+<ComponentPreview name="LineChartSparkline" />
 
-### Custom Tooltip
+### Custom tooltip
 
-If you want to render custom tooltip, you can easily pass in a custom component. Refer to prop definition [here](/components/charts.html#custom-tooltip).
+Pass a component to `customTooltip`. It receives `title` and `data`. See the [Charts](/components/charts#custom-tooltip) page for the prop shape.
 
-<ComponentPreview name="LineChartCustomTooltip"  />
+<ComponentPreview name="LineChartCustomTooltip" />
+
+## API Reference
+
+<!-- @include: @/content/meta/chart-line.md -->
+
+## Accessibility
+
+The chart is an SVG graphic. Hovering a point shows a tooltip. Give the surrounding section a heading or caption that states what the chart measures, and provide the same numbers in a table when the exact values matter.
+
+| Key | Description |
+| --- | --- |
+| <kbd>Tab</kbd> | Moves focus past the chart. Points are not individually focusable. |
