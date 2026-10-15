@@ -8,6 +8,7 @@ import { cssVariables } from './theme/config/shiki';
 import { siteConfig } from './theme/config/site';
 import ComponentPreviewPlugin from './theme/plugins/previewer';
 import CodeWrapperPlugin from './theme/plugins/codewrapper';
+import ComponentInstallPlugin from './theme/plugins/component-install';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -39,6 +40,12 @@ export default defineConfig({
   themeConfig: {
     search: {
       provider: 'local',
+      options: {
+        _render(src, env, md) {
+          const html = md.render(src, Object.assign(env, { isSearchIndex: true }));
+          return env.frontmatter?.search === false ? '' : html;
+        },
+      },
     },
     editLink: {
       pattern: 'https://github.com/sigma-hub/sigma-ui/tree/main/apps/docs/src/:path',
@@ -55,6 +62,7 @@ export default defineConfig({
     config(md) {
       md.use(ComponentPreviewPlugin);
       md.use(CodeWrapperPlugin);
+      md.use(ComponentInstallPlugin);
     },
   },
   rewrites: {
