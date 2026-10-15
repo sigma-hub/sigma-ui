@@ -1,6 +1,6 @@
 import { computed } from 'vue';
 import { useMounted } from '@vueuse/core';
-import { type StyleSystem, styleSystems } from '@/lib/registry/style-system';
+import { type StyleSystem, styleSystems } from '@sigma-ui/shared/style-systems';
 import { useConfigStore } from '@/stores/config';
 
 export function useActiveStyleSystem() {

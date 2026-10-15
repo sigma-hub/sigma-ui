@@ -30,6 +30,18 @@ export function createFence(state: StateCore, content: string, language: string,
   return token;
 }
 
+export function renderFence(md: MarkdownRenderer, state: StateCore, content: string, language: string) {
+  const fenceRule = md.renderer.rules.fence;
+
+  if (!fenceRule) {
+    throw new Error('The markdown renderer has no fence rule');
+  }
+
+  const token = createFence(state, content, language);
+  token.meta = { isRenderedToHtml: true };
+  return fenceRule([token], 0, md.options, state.env, md.renderer);
+}
+
 export function replaceHtmlBlocks(
   md: MarkdownRenderer,
   ruleName: string,

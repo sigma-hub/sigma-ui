@@ -15,4 +15,3 @@ export { default as Description } from './Description.vue';
 export { default as StyleSwitcher } from './StyleSwitcher.vue';
 export { default as ComponentInstall } from './ComponentInstall.vue';
 export { default as PackageManagerCommand } from './PackageManagerCommand.vue';
-export { default as SourceFile } from './SourceFile.vue';

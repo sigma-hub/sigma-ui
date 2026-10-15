@@ -11,7 +11,7 @@ export default function (md: MarkdownRenderer) {
     const token = tokens[idx];
     const isAllowedExtension = (token.info.includes('vue') || token.info.includes('astro') || token.info.includes('ts'));
 
-    if (token && token.tag === 'code' && isAllowedExtension) {
+    if (token && token.tag === 'code' && isAllowedExtension && !token.meta?.isRenderedToHtml) {
       return `<CodeWrapper>${defaultFenceRenderer(tokens, idx, options, env, self)}</CodeWrapper>`;
     }
 

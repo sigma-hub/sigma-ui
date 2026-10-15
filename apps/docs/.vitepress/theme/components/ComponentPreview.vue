@@ -7,6 +7,7 @@ import { useCodePathRewrite } from '../composables/useCodePathRewrite';
 import ComponentLoader from './ComponentLoader.vue';
 import Stackblitz from './Stackblitz.vue';
 import CodeSandbox from './CodeSandbox.vue';
+import type { StyleSystem } from '@sigma-ui/shared/style-systems';
 
 defineOptions({
   inheritAttrs: false,
@@ -16,13 +17,12 @@ const props = withDefaults(defineProps<{
   name: string;
   align?: 'center' | 'start' | 'end';
   size?: 'unset' | 'md' | 'lg';
+  codeHtml: Record<StyleSystem, string>;
 }>(), { align: 'center', size: 'md' });
 
 const styleSystem = useActiveStyleSystem();
 const rawString = ref('');
-const codeContainer = ref<HTMLElement>();
-
-useCodePathRewrite(codeContainer);
+const rewriteCodePaths = useCodePathRewrite();
 
 watch(styleSystem, async () => {
   try {
@@ -100,11 +100,9 @@ watch(styleSystem, async () => {
         class="vp-doc m-0 p-2"
       >
         <div
-          ref="codeContainer"
           class="component-preview-code"
-        >
-          <slot :name="`code-${styleSystem}`" />
-        </div>
+          v-html="rewriteCodePaths(codeHtml[styleSystem])"
+        />
       </TabsContent>
     </Tabs>
   </div>
