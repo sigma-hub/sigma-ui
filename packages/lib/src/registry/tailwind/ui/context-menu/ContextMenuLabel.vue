@@ -2,7 +2,10 @@
 import { ContextMenuLabel, type ContextMenuLabelProps } from 'reka-ui';
 import { cn } from '@ui/utils';
 
-const props = defineProps<ContextMenuLabelProps & { inset?: boolean }>();
+const props = defineProps<ContextMenuLabelProps & {
+  /** Adds left padding to align with items that have an icon or indicator. */
+  inset?: boolean;
+}>();
 </script>
 
 <template>

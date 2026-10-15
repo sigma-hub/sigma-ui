@@ -2,7 +2,10 @@
 import { DropdownMenuItem, type DropdownMenuItemProps, useForwardProps } from 'reka-ui';
 import { cn } from '@ui/utils';
 
-const props = defineProps<DropdownMenuItemProps & { inset?: boolean }>();
+const props = defineProps<DropdownMenuItemProps & {
+  /** Adds left padding to align with items that have an icon or indicator. */
+  inset?: boolean;
+}>();
 
 const forwardedProps = useForwardProps(props);
 </script>

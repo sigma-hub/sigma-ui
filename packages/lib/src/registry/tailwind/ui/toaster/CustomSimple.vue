@@ -2,12 +2,16 @@
 import { Button } from '@ui/registry/tailwind/ui/button';
 
 type Props = {
+  /** Heading of the toast. */
   title: string;
+  /** Secondary text below the title. */
   description: string;
+  /** Label of the action button. */
   actionText: string;
 };
 
 type Emits = {
+  /** Emitted when the action button is clicked. */
   action: [];
 };
 

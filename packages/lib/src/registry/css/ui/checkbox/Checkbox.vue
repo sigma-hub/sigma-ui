@@ -4,7 +4,9 @@ import { CheckboxIndicator, CheckboxRoot, useForwardPropsEmits } from 'reka-ui';
 import { CheckIcon } from 'lucide-vue-next';
 
 interface Props extends CheckboxRootProps {
+  /** Text label rendered next to the checkbox. */
   label?: string;
+  /** Secondary text rendered below the label. */
   description?: string;
   id?: string;
 }

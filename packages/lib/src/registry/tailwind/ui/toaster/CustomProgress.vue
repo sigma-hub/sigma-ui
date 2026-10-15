@@ -2,6 +2,7 @@
 import { Button } from '@ui/registry/tailwind/ui/button';
 
 export type ToastItem = {
+  /** Toast content and progress state; `progress` is a percentage from 0 to 100 and the counter is hidden once it reaches 100. */
   data: {
     id: number | string;
     title: string;
@@ -14,6 +15,7 @@ export type ToastItem = {
 };
 
 type Emits = {
+  /** Emitted when the action button is clicked. */
   action: [];
 };
 

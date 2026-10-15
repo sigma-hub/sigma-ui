@@ -6,15 +6,20 @@ import { type ImageVariants, imageVariants } from '.';
 import { cn } from '@ui/utils';
 
 type Emits = {
+  /** Emitted when the image finishes loading. */
   load: [];
+  /** Emitted when the image fails to load. */
   error: [];
 };
 
 const props = withDefaults(defineProps<{
+  /** Image URL; the fallback is shown when it is empty or fails to load. */
   src?: string;
+  /** Alternative text for the image. */
   alt?: string;
+  /** Renders a blurred, saturated copy of the image behind it as a glow effect. */
   glow?: boolean;
-
+  /** Corner style of the image. */
   shape?: ImageVariants['shape'];
 }>(), {
   alt: 'image',
@@ -24,6 +29,7 @@ const props = withDefaults(defineProps<{
 const emit = defineEmits<Emits>();
 
 defineSlots<{
+  /** Replaces the default "no photo" placeholder shown when the image is missing or fails to load. */
   fallback: () => any;
 }>();
 

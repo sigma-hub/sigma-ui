@@ -5,7 +5,9 @@ import { CheckIcon } from 'lucide-vue-next';
 import { cn } from '@ui/utils';
 
 interface Props extends CheckboxRootProps {
+  /** Text label rendered next to the checkbox. */
   label?: string;
+  /** Secondary text rendered below the label. */
   description?: string;
   id?: string;
 }

@@ -3,6 +3,7 @@ import TableRow from './TableRow.vue';
 import TableCell from './TableCell.vue';
 
 const props = withDefaults(defineProps<{
+  /** Number of columns the empty-state cell spans; usually the column count of the table. */
   colspan?: number;
 }>(), {
   colspan: 1,

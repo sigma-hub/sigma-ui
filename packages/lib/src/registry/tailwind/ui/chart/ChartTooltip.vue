@@ -2,7 +2,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@ui/registry/tailwind/ui/card';
 
 defineProps<{
+  /** Heading shown above the values. */
   title?: string;
+  /** Rows to list, each with a name, color swatch, and value. */
   data: {
     name: string;
     color: string;

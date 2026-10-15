@@ -5,6 +5,7 @@ import type { Item } from './types';
 import { XIcon } from 'lucide-vue-next';
 
 type Props = {
+  /** Cards to show in the grid; clicking one expands it into a lightbox. */
   items: Item[];
 };
 

@@ -5,6 +5,13 @@ import { cn } from '@ui/utils';
 
 const props = defineProps<AccordionTriggerProps>();
 const forwarded = useForwardProps(props);
+
+defineSlots<{
+  /** The trigger label. */
+  default?: () => unknown;
+  /** Replaces the chevron icon that rotates when the item opens. */
+  icon?: () => unknown;
+}>();
 </script>
 
 <template>

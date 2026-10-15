@@ -2,6 +2,7 @@
 import { type BadgeVariants, badgeVariants } from '.';
 
 const props = defineProps<{
+  /** Visual style of the badge. */
   variant?: BadgeVariants['variant'];
 
 }>();

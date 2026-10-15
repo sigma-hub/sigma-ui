@@ -3,6 +3,7 @@ import type { ComboboxGroupProps } from 'reka-ui';
 import { ComboboxGroup, ComboboxLabel } from 'reka-ui';
 
 const props = defineProps<ComboboxGroupProps & {
+  /** Label shown above the group items. */
   heading?: string;
 }>();
 </script>

@@ -13,6 +13,7 @@ import { XIcon } from 'lucide-vue-next';
 import { type SheetVariants, sheetVariants } from '.';
 
 interface SheetContentProps extends DialogContentProps {
+  /** Edge of the screen the sheet slides in from. */
   side?: SheetVariants['side'];
 }
 

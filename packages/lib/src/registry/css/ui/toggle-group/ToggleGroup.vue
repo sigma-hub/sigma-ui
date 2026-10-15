@@ -7,8 +7,9 @@ import type { toggleVariants } from '@ui/registry/css/ui/toggle';
 type ToggleGroupVariants = VariantProps<typeof toggleVariants>;
 
 const props = defineProps<ToggleGroupRootProps & {
-
+  /** Visual style applied to every item in the group. */
   variant?: ToggleGroupVariants['variant'];
+  /** Size applied to every item in the group. */
   size?: ToggleGroupVariants['size'];
 }>();
 const emits = defineEmits<ToggleGroupRootEmits>();

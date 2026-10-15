@@ -9,11 +9,17 @@ import {
 } from '@ui/registry/css/ui/command';
 
 const props = withDefaults(defineProps<{
+  /** Label of the trigger button, also used as the search placeholder. */
   title: string;
+  /** Values the user can pick from. */
   options: string[];
+  /** Currently selected values; use with `v-model`. */
   modelValue: string[];
+  /** Maximum number of selected values shown as badges in the trigger before collapsing into a "+N" badge. */
   maxBadges?: number;
+  /** Shows an "Add" button that emits `create` when the search text matches no option. */
   allowCreate?: boolean;
+  /** Minimum width of the dropdown, in pixels. */
   minWidth?: number;
 }>(), {
   maxBadges: 2,
@@ -22,8 +28,15 @@ const props = withDefaults(defineProps<{
 });
 
 const emit = defineEmits<{
+  /** Emitted with the new selection when an option is toggled. */
   'update:modelValue': [value: string[]];
+  /** Emitted with the trimmed search text when the user clicks the "Add" button. */
   'create': [value: string];
+}>();
+
+defineSlots<{
+  /** Content rendered below the options, separated by a divider. */
+  footer?: () => unknown;
 }>();
 
 const searchQuery = ref('');

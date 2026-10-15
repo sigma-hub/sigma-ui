@@ -2,7 +2,10 @@
 import { SplitterResizeHandle, type SplitterResizeHandleEmits, type SplitterResizeHandleProps, useForwardPropsEmits } from 'reka-ui';
 import { GripVerticalIcon } from 'lucide-vue-next';
 
-const props = defineProps<SplitterResizeHandleProps & { withHandle?: boolean }>();
+const props = defineProps<SplitterResizeHandleProps & {
+  /** Shows a visible grip icon on the handle. */
+  withHandle?: boolean;
+}>();
 const emits = defineEmits<SplitterResizeHandleEmits>();
 
 const forwarded = useForwardPropsEmits(props, emits);

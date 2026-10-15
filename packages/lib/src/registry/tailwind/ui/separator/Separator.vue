@@ -3,7 +3,10 @@ import { Separator, type SeparatorProps } from 'reka-ui';
 import { cn } from '@ui/utils';
 
 const props = defineProps<
-  SeparatorProps & { label?: string }
+  SeparatorProps & {
+    /** Text displayed centered on the line. */
+    label?: string;
+  }
 >();
 </script>
 

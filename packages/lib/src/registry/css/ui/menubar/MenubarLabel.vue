@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { MenubarLabel, type MenubarLabelProps } from 'reka-ui';
 
-const props = defineProps<MenubarLabelProps & { inset?: boolean }>();
+const props = defineProps<MenubarLabelProps & {
+  /** Adds left padding so the text lines up with items that have an icon or indicator. */
+  inset?: boolean;
+}>();
 </script>
 
 <template>

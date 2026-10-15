@@ -6,7 +6,10 @@ import {
   useForwardPropsEmits,
 } from 'reka-ui';
 
-const props = defineProps<MenubarItemProps & { inset?: boolean }>();
+const props = defineProps<MenubarItemProps & {
+  /** Adds left padding so the text lines up with items that have an icon or indicator. */
+  inset?: boolean;
+}>();
 const emits = defineEmits<MenubarItemEmits>();
 
 const forwarded = useForwardPropsEmits(props, emits);

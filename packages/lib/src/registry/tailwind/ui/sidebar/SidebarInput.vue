@@ -2,7 +2,13 @@
 import { Input } from '@ui/registry/tailwind/ui/input';
 import { cn } from '@ui/utils';
 
+/** Current value of the input; use with `v-model`. */
 const model = defineModel<string | number>();
+
+defineEmits<{
+  /** Emitted when the user changes the value. */
+  'update:modelValue': [value: string | number];
+}>();
 </script>
 
 <template>
