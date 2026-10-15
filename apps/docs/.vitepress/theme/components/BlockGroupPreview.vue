@@ -16,7 +16,7 @@ const blockNames = computed(() => {
 
   return getBlocksByCategory(props.category)
     .map(block => block.name)
-    .filter(name => styleIndex[name]?.type === 'components:block');
+    .filter(name => styleIndex[name]?.type === 'registry:block');
 });
 </script>
 
