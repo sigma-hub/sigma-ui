@@ -12,6 +12,7 @@
     "./style-systems": "./src/style-systems.ts",
     "./schemas": "./src/schemas/index.ts",
     "./registry": "./src/registry/index.ts",
+    "./registry/*": "./src/registry/*.ts",
     "./templates/*": "./src/templates/*.ts"
   },
   "scripts": {

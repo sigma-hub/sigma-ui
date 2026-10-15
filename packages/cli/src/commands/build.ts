@@ -5,7 +5,7 @@ import path from 'pathe';
 import { Command } from 'commander';
 import { consola } from 'consola';
 import { colors } from 'consola/utils';
-import { writeRegistry } from '@sigma-ui/shared/registry';
+import { writeRegistry } from '@sigma-ui/shared/registry/output';
 import { buildOptionsSchema, registrySchema } from '@/src/schemas';
 import { handleError } from '@/src/utils/handle-error';
 
