@@ -12,6 +12,8 @@ export default [
       '**/__generated/**',
       '**/.vitepress/cache/**',
       '**/.vitepress/dist/**',
+      '**/.nuxt/**',
+      '**/.output/**',
     ],
   },
   pluginJs.configs.recommended,
