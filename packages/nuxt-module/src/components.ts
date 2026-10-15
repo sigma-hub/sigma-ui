@@ -1,6 +1,6 @@
 import { existsSync } from 'node:fs';
 import { readdir, readFile } from 'node:fs/promises';
-import { join } from 'node:path';
+import { join, relative, sep } from 'node:path';
 import { findPath } from '@nuxt/kit';
 import { parseSync } from 'oxc-parser';
 
@@ -11,6 +11,16 @@ export interface ComponentExport {
 
 const INDEX_EXTENSIONS = ['.ts', '.js'];
 const COMPONENT_EXPORT_PATTERN = /^[A-Z]/;
+
+export function isComponentIndexFile(componentsPath: string, filePath: string): boolean {
+  const segments = relative(componentsPath, filePath).split(sep);
+
+  if (segments.length !== 2 || segments[0] === '..') {
+    return false;
+  }
+
+  return INDEX_EXTENSIONS.some(extension => segments[1] === `index${extension}`);
+}
 
 export function getComponentExportNames(filePath: string, source: string): string[] {
   const { module, errors } = parseSync(filePath, source, { sourceType: 'module' });
