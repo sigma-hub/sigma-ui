@@ -83,7 +83,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -115,7 +115,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -160,7 +160,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -186,11 +186,11 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The trigger label.</p>"
   },
   {
     "name": "icon",
     "scope": "",
-    "description": ""
+    "description": "<p>Replaces the chevron icon that rotates when the item opens.</p>"
   }
 ]' />

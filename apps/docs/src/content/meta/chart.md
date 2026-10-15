@@ -7,13 +7,13 @@
     "name": "title",
     "type": "string",
     "required": false,
-    "description": ""
+    "description": "<p>Heading shown above the values.</p>"
   },
   {
     "name": "data",
     "type": "{ name: string; color: string; value: any; }[]",
     "required": true,
-    "description": ""
+    "description": "<p>Rows to list, each with a name, color swatch, and value.</p>"
   }
 ]' />
 
@@ -24,32 +24,32 @@
     "name": "selector",
     "type": "string",
     "required": true,
-    "description": ""
+    "description": "<p>CSS selector of the chart elements that show the tooltip on hover.</p>"
   },
   {
     "name": "index",
     "type": "string",
     "required": true,
-    "description": ""
+    "description": "<p>Data key used as the tooltip title.</p>"
   },
   {
     "name": "items",
     "type": "BulletLegendItemInterface[]",
     "required": false,
-    "description": ""
+    "description": "<p>Legend items used to look up the name and color of each value.</p>"
   },
   {
     "name": "valueFormatter",
     "type": "((tick: number, i?: number, ticks?: number[]) => string)",
     "default": "`${tick}`",
     "required": false,
-    "description": ""
+    "description": "<p>Formats each value before it is shown.</p>"
   },
   {
     "name": "customTooltip",
     "type": "Component",
     "required": false,
-    "description": ""
+    "description": "<p>Component rendered instead of ChartTooltip; receives title and data props.</p>"
   }
 ]' />
 
@@ -61,7 +61,7 @@
     "type": "BulletLegendItemInterface[]",
     "default": "[]",
     "required": true,
-    "description": ""
+    "description": "<p>Legend entries; inactive items are shown as filtered out.</p>"
   }
 ]' />
 
@@ -69,12 +69,12 @@
   {
     "name": "legendItemClick",
     "payload": "[d: BulletLegendItemInterface, i: number]",
-    "description": ""
+    "description": "<p>Emitted when a legend item is clicked, with the item and its index.</p>"
   },
   {
     "name": "update:items",
     "payload": "[payload: BulletLegendItemInterface[]]",
-    "description": ""
+    "description": "<p>Emitted with the new items after a click isolates one series or resets the filter.</p>"
   }
 ]' />
 
@@ -86,24 +86,24 @@
     "type": "string[]",
     "default": "[]",
     "required": true,
-    "description": ""
+    "description": "<p>Crosshair point color for each series, in category order.</p>"
   },
   {
     "name": "index",
     "type": "string",
     "required": true,
-    "description": ""
+    "description": "<p>Data key used as the tooltip title.</p>"
   },
   {
     "name": "items",
     "type": "BulletLegendItemInterface[]",
     "required": true,
-    "description": ""
+    "description": "<p>Legend items used to look up the name and color of each value.</p>"
   },
   {
     "name": "customTooltip",
     "type": "Component",
     "required": false,
-    "description": ""
+    "description": "<p>Component rendered instead of ChartTooltip; receives title and data props.</p>"
   }
 ]' />

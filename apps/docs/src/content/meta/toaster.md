@@ -114,19 +114,19 @@
     "name": "title",
     "type": "string",
     "required": true,
-    "description": ""
+    "description": "<p>Heading of the toast.</p>"
   },
   {
     "name": "description",
     "type": "string",
     "required": true,
-    "description": ""
+    "description": "<p>Secondary text below the title.</p>"
   },
   {
     "name": "actionText",
     "type": "string",
     "required": true,
-    "description": ""
+    "description": "<p>Label of the action button.</p>"
   }
 ]' />
 
@@ -134,7 +134,7 @@
   {
     "name": "action",
     "payload": "[]",
-    "description": ""
+    "description": "<p>Emitted when the action button is clicked.</p>"
   }
 ]' />
 
@@ -145,7 +145,7 @@
     "name": "data",
     "type": "{ id: string | number; title: string; description: string; progress: number; timer: number; actionText: string; cleanup: () => void; }",
     "required": true,
-    "description": ""
+    "description": "<p>Toast content and progress state; <code>progress</code> is a percentage from 0 to 100 and the counter is hidden once it reaches 100.</p>"
   }
 ]' />
 
@@ -153,6 +153,6 @@
   {
     "name": "action",
     "payload": "[]",
-    "description": ""
+    "description": "<p>Emitted when the action button is clicked.</p>"
   }
 ]' />

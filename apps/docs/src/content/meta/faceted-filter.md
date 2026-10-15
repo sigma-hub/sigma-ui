@@ -7,40 +7,40 @@
     "name": "title",
     "type": "string",
     "required": true,
-    "description": ""
+    "description": "<p>Label of the trigger button, also used as the search placeholder.</p>"
   },
   {
     "name": "options",
     "type": "string[]",
     "required": true,
-    "description": ""
+    "description": "<p>Values the user can pick from.</p>"
   },
   {
     "name": "modelValue",
     "type": "string[]",
     "required": true,
-    "description": ""
+    "description": "<p>Currently selected values; use with <code>v-model</code>.</p>"
   },
   {
     "name": "maxBadges",
     "type": "number",
     "default": "2",
     "required": false,
-    "description": ""
+    "description": "<p>Maximum number of selected values shown as badges in the trigger before collapsing into a &amp;quot;+N&amp;quot; badge.</p>"
   },
   {
     "name": "allowCreate",
     "type": "boolean",
     "default": "false",
     "required": false,
-    "description": ""
+    "description": "<p>Shows an &amp;quot;Add&amp;quot; button that emits <code>create</code> when the search text matches no option.</p>"
   },
   {
     "name": "minWidth",
     "type": "number",
     "default": "200",
     "required": false,
-    "description": ""
+    "description": "<p>Minimum width of the dropdown, in pixels.</p>"
   }
 ]' />
 
@@ -48,12 +48,12 @@
   {
     "name": "update:modelValue",
     "payload": "[value: string[]]",
-    "description": ""
+    "description": "<p>Emitted with the new selection when an option is toggled.</p>"
   },
   {
     "name": "create",
     "payload": "[value: string]",
-    "description": ""
+    "description": "<p>Emitted with the trimmed search text when the user clicks the &amp;quot;Add&amp;quot; button.</p>"
   }
 ]' />
 
@@ -61,6 +61,6 @@
   {
     "name": "footer",
     "scope": "",
-    "description": ""
+    "description": "<p>Content rendered below the options, separated by a divider.</p>"
   }
 ]' />

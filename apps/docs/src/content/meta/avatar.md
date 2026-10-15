@@ -7,33 +7,33 @@
     "name": "src",
     "type": "string",
     "required": false,
-    "description": ""
+    "description": "<p>URL of the avatar image.</p>"
   },
   {
     "name": "alt",
     "type": "string",
     "required": false,
-    "description": ""
+    "description": "<p>Alternative text for the image.</p>"
   },
   {
     "name": "glow",
     "type": "boolean",
     "required": false,
-    "description": ""
+    "description": "<p>Renders a blurred, saturated copy of the image behind it as a glow.</p>"
   },
   {
     "name": "size",
     "type": "\"base\" | \"xs\" | \"sm\" | \"lg\"",
     "default": "\"base\"",
     "required": false,
-    "description": ""
+    "description": "<p>Size of the avatar.</p>"
   },
   {
     "name": "shape",
     "type": "\"circle\" | \"rounded\" | null",
     "default": "\"circle\"",
     "required": false,
-    "description": ""
+    "description": "<p>Corner style of the avatar: circle or rounded.</p>"
   }
 ]' />
 
@@ -41,6 +41,6 @@
   {
     "name": "fallback",
     "scope": "",
-    "description": ""
+    "description": "<p>Content shown when there is no image or it fails to load; defaults to a user icon.</p>"
   }
 ]' />

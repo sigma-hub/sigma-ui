@@ -7,27 +7,27 @@
     "name": "src",
     "type": "string",
     "required": false,
-    "description": ""
+    "description": "<p>Image URL; the fallback is shown when it is empty or fails to load.</p>"
   },
   {
     "name": "alt",
     "type": "string",
     "default": "\"image\"",
     "required": false,
-    "description": ""
+    "description": "<p>Alternative text for the image.</p>"
   },
   {
     "name": "glow",
     "type": "boolean",
     "required": false,
-    "description": ""
+    "description": "<p>Renders a blurred, saturated copy of the image behind it as a glow effect.</p>"
   },
   {
     "name": "shape",
     "type": "\"circle\" | \"rounded\" | null",
     "default": "\"rounded\"",
     "required": false,
-    "description": ""
+    "description": "<p>Corner style of the image.</p>"
   }
 ]' />
 
@@ -35,19 +35,19 @@
   {
     "name": "error",
     "payload": "[]",
-    "description": ""
+    "description": "<p>Emitted when the image fails to load.</p>"
   },
   {
     "name": "load",
     "payload": "[]",
-    "description": ""
+    "description": "<p>Emitted when the image finishes loading.</p>"
   }
 ]' />
 
 <ApiTable kind="slots" :items='[
   {
     "name": "fallback",
-    "scope": "any",
-    "description": ""
+    "scope": "",
+    "description": "<p>Replaces the default &amp;quot;no photo&amp;quot; placeholder shown when the image is missing or fails to load.</p>"
   }
 ]' />

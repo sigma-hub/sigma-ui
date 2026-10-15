@@ -7,20 +7,20 @@
     "name": "opts",
     "type": "MaybeRef<Partial<OptionsType>>",
     "required": false,
-    "description": ""
+    "description": "<p>Embla Carousel options, such as loop or align.</p>"
   },
   {
     "name": "plugins",
     "type": "MaybeRef<CreatePluginType<LoosePluginType, {}>[]>",
     "required": false,
-    "description": ""
+    "description": "<p>Embla Carousel plugins, such as autoplay.</p>"
   },
   {
     "name": "orientation",
     "type": "\"vertical\" | \"horizontal\"",
     "default": "\"horizontal\"",
     "required": false,
-    "description": ""
+    "description": "<p>Scroll axis of the carousel; also sets which arrow keys navigate it.</p>"
   }
 ]' />
 
@@ -28,7 +28,7 @@
   {
     "name": "init-api",
     "payload": "[payload: EmblaCarouselType]",
-    "description": ""
+    "description": "<p>Emitted on mount with the Embla Carousel API instance.</p>"
   }
 ]' />
 
@@ -36,7 +36,7 @@
   {
     "name": "default",
     "scope": "{ carouselRef: Ref<HTMLElement, HTMLElement>; carouselApi: Ref<EmblaCarouselType, EmblaCarouselType>; canScrollPrev: Ref<boolean, boolean>; canScrollNext: Ref<boolean, boolean>; scrollPrev: () => void; scrollNext: () => void; orientation: \"vertical\" | \"horizontal\"; }",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -44,32 +44,32 @@
   {
     "name": "carouselRef",
     "type": "HTMLElement",
-    "description": ""
+    "description": "<p>Template ref of the Embla viewport element.</p>"
   },
   {
     "name": "carouselApi",
     "type": "EmblaCarouselType",
-    "description": ""
+    "description": "<p>Embla Carousel API instance, available after mount.</p>"
   },
   {
     "name": "canScrollPrev",
     "type": "boolean",
-    "description": ""
+    "description": "<p>Whether the carousel can scroll to a previous slide.</p>"
   },
   {
     "name": "canScrollNext",
     "type": "boolean",
-    "description": ""
+    "description": "<p>Whether the carousel can scroll to a next slide.</p>"
   },
   {
     "name": "scrollPrev",
     "type": "() => void",
-    "description": ""
+    "description": "<p>Scrolls to the previous slide.</p>"
   },
   {
     "name": "scrollNext",
     "type": "() => void",
-    "description": ""
+    "description": "<p>Scrolls to the next slide.</p>"
   }
 ]' />
 
@@ -79,7 +79,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -89,7 +89,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -99,7 +99,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -109,6 +109,6 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />

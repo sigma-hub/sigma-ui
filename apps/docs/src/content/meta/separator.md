@@ -32,6 +32,6 @@
     "name": "label",
     "type": "string",
     "required": false,
-    "description": ""
+    "description": "<p>Text displayed centered on the line.</p>"
   }
 ]' />

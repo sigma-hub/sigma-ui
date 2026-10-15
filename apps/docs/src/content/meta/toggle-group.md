@@ -80,13 +80,13 @@
     "name": "variant",
     "type": "\"default\" | \"outline\" | null",
     "required": false,
-    "description": ""
+    "description": "<p>Visual style applied to every item in the group.</p>"
   },
   {
     "name": "size",
     "type": "\"default\" | \"sm\" | \"lg\" | null",
     "required": false,
-    "description": ""
+    "description": "<p>Size applied to every item in the group.</p>"
   }
 ]' />
 
@@ -102,7 +102,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -138,13 +138,13 @@
     "name": "variant",
     "type": "\"default\" | \"outline\" | null",
     "required": false,
-    "description": ""
+    "description": "<p>Visual style of the item; ignored when the parent group sets a variant.</p>"
   },
   {
     "name": "size",
     "type": "\"default\" | \"sm\" | \"lg\" | null",
     "required": false,
-    "description": ""
+    "description": "<p>Size of the item; ignored when the parent group sets a size.</p>"
   }
 ]' />
 
@@ -152,6 +152,6 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />

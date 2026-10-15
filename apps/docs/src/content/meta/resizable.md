@@ -60,7 +60,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -108,7 +108,7 @@
     "name": "withHandle",
     "type": "boolean",
     "required": false,
-    "description": ""
+    "description": "<p>Shows a visible grip icon on the handle.</p>"
   }
 ]' />
 
