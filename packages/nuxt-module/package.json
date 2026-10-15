@@ -26,39 +26,44 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/types.d.ts",
-      "import": "./dist/module.mjs",
-      "require": "./dist/module.cjs"
+      "types": "./dist/types.d.mts",
+      "import": "./dist/module.mjs"
     }
   },
-  "main": "./dist/module.cjs",
-  "types": "./dist/types.d.ts",
+  "main": "./dist/module.mjs",
+  "typesVersions": {
+    "*": {
+      ".": [
+        "./dist/types.d.mts"
+      ]
+    }
+  },
   "files": [
     "dist"
   ],
   "scripts": {
-    "prepack": "nuxt-module-build build",
-    "dev": "nuxi dev playground",
-    "dev:build": "nuxi build playground",
-    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+    "build": "nuxt-module-build prepare && nuxt-module-build build",
+    "prepack": "pnpm build",
+    "dev": "nuxt dev playground",
+    "dev:build": "nuxt build playground",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxt prepare playground",
+    "ts": "nuxt-module-build prepare && vue-tsc --noEmit",
     "test": "vitest run",
-    "test:watch": "vitest watch",
-    "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
+    "test:watch": "vitest watch"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.15.4",
+    "@nuxt/kit": "^4.6.1",
     "@oxc-parser/wasm": "^0.52.0"
   },
   "devDependencies": {
-    "@nuxt/devtools": "^1.7.0",
-    "@nuxt/module-builder": "^0.8.4",
-    "@nuxt/schema": "^3.15.4",
-    "@nuxt/test-utils": "^3.15.4",
+    "@nuxt/module-builder": "^1.0.3",
+    "@nuxt/schema": "^4.6.1",
+    "@nuxt/test-utils": "^4.3.3",
     "@sigma-ui/shared": "workspace:*",
-    "@types/node": "latest",
-    "nuxt": "^3.15.4",
-    "typescript": "~5.7.3",
-    "vitest": "^3.0.5",
-    "vue-tsc": "^2.2.0"
+    "@types/node": "^22.13.1",
+    "nuxt": "^4.6.1",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.5",
+    "vue-tsc": "^3.3.13"
   }
 }
