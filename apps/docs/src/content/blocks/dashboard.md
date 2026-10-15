@@ -7,4 +7,4 @@ description: Dashboard-related building blocks
 import BlockGroupPreview from '../../../.vitepress/theme/components/BlockGroupPreview.vue'
 </script>
 
-<BlockGroupPreview dir="dashboard" />
+<BlockGroupPreview category="dashboard" />

@@ -1,5 +1,5 @@
 import { readFile, readdir } from 'node:fs/promises';
-import { join, normalize, resolve } from 'pathe';
+import { join, normalize, relative, resolve } from 'pathe';
 import { getImportSources } from './imports';
 import { classifyImportSources } from './dependencies';
 import { readPackageVersions } from './package-versions';
@@ -17,8 +17,8 @@ export async function buildRegistry(registryRoot: string) {
   const examplePath = resolve(registryRoot, 'tailwind/example');
   const exampleRegistry = await crawlDirectory(examplePath, 'example', packageVersions);
 
-  const blockPath = resolve(registryRoot, 'tailwind/block');
-  const blockRegistry = await crawlDirectory(blockPath, 'block', packageVersions);
+  const blockPath = resolve(registryRoot, 'tailwind/blocks');
+  const blockRegistry = await crawlBlocks(blockPath, packageVersions);
 
   return uiRegistry.concat(exampleRegistry).concat(blockRegistry);
 }
@@ -45,7 +45,7 @@ async function crawlUI(rootPath: string, packageVersions: Record<string, string>
   return uiRegistry;
 }
 
-async function crawlDirectory(rootPath: string, typeName: 'example' | 'block', packageVersions: Record<string, string>) {
+async function crawlDirectory(rootPath: string, typeName: 'example', packageVersions: Record<string, string>) {
   const type = `components:${typeName}` as const;
 
   const dir = await readdir(rootPath, {
@@ -68,6 +68,34 @@ async function crawlDirectory(rootPath: string, typeName: 'example' | 'block', p
       name,
       type,
       files: [filePath],
+      registryDependencies,
+      dependencies,
+    });
+  }
+
+  return registry;
+}
+
+async function crawlBlocks(rootPath: string, packageVersions: Record<string, string>) {
+  const blockDirectories = (await readdir(rootPath, { withFileTypes: true })).filter(dirent => dirent.isDirectory());
+  const registry: Registry = [];
+
+  for (const blockDirectory of blockDirectories) {
+    const blockPath = join(rootPath, blockDirectory.name);
+    const fileNames = (await readdir(blockPath, { recursive: true, withFileTypes: true }))
+      .filter(dirent => dirent.isFile())
+      .map(dirent => relative(blockPath, join(dirent.parentPath, dirent.name)))
+      .sort();
+    const { dependencies, registryDependencies } = await getDependencies(
+      fileNames.map(fileName => join(blockPath, fileName)),
+      blockDirectory.name,
+      packageVersions,
+    );
+
+    registry.push({
+      name: blockDirectory.name,
+      type: 'components:block',
+      files: fileNames.map(fileName => join('blocks', blockDirectory.name, fileName)),
       registryDependencies,
       dependencies,
     });

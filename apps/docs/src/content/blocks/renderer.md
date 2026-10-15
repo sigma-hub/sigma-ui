@@ -11,5 +11,5 @@ const params = useUrlSearchParams('hash-params')
 </script>
 
 <div v-if="params.name && params.styleSystem" :class="params.containerClass">
-  <ComponentLoader :key="params.styleSystem?.toString()" :name="params.name?.toString()" :type-name="'block'" :block-dir="params.blockDir?.toString()" />
+  <ComponentLoader :key="params.styleSystem?.toString()" :name="params.name?.toString()" :type-name="'block'" />
 </div>
