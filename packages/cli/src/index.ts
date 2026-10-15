@@ -22,7 +22,7 @@ process.stdout.on('error', (error: NodeJS.ErrnoException) => {
 });
 
 async function main() {
-  const packageInfo = await getPackageInfo();
+  const packageInfo = getPackageInfo();
 
   const program = new Command()
     .name('sigma-ui')
