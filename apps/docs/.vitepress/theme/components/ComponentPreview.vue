@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<{
   name: string;
   align?: 'center' | 'start' | 'end';
   size?: 'unset' | 'md' | 'lg';
-  codeHtml: Record<StyleSystem, string>;
+  codeHtml?: Record<StyleSystem, string>;
 }>(), { align: 'center', size: 'md' });
 
 const styleSystem = useActiveStyleSystem();
@@ -100,6 +100,7 @@ watch(styleSystem, async () => {
         class="vp-doc m-0 p-2"
       >
         <div
+          v-if="codeHtml"
           class="component-preview-code"
           v-html="rewriteCodePaths(codeHtml[styleSystem])"
         />
