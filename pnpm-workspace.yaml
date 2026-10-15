@@ -22,7 +22,7 @@ catalog:
   clsx: ^2.1.1
   date-fns: ^4.1.0
   lodash-es: ^4.17.21
-  lucide-vue-next: ^0.544.0
+  lucide-vue-next: ^1.0.0
   magic-string: ^0.30.17
   motion-v: 1.0.0
   nuxt: ^4.6.1
