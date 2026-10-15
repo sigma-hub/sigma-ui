@@ -28,6 +28,7 @@ const props = withDefaults(defineProps<BaseChartProps<T> & {
 });
 
 const emits = defineEmits<{
+  /** Emitted when a legend item is clicked, with the item and its index. */
   legendItemClick: [d: BulletLegendItemInterface, i: number];
 }>();
 

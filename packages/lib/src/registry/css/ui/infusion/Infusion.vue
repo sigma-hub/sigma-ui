@@ -2,16 +2,27 @@
 import { computed, type CSSProperties } from 'vue';
 
 interface Props {
+  /** URL of the image or video used as the background. */
   src: string;
+  /** Opacity of the media in light mode, from 0 to 1. */
   opacity?: number;
+  /** Opacity of the media in dark mode, from 0 to 1. */
   opacityDark?: number;
+  /** CSS z-index of the overlay. */
   zIndex?: number;
+  /** Blur radius applied to the media, in pixels. */
   blur?: number;
+  /** Alpha of the generated noise pixels, from 0 to 1; 0 disables the noise layer. */
   noiseIntensity?: number;
+  /** Scale multiplier of the noise tile (256px at 1). */
   noiseScale?: number;
+  /** Opacity of the noise layer, from 0 to 1. */
   noiseOpacity?: number;
+  /** CSS `mix-blend-mode` of the overlay. */
   blendMode?: CSSProperties['mixBlendMode'];
+  /** Fills the nearest positioned parent instead of the whole viewport. */
   relative?: boolean;
+  /** Whether `src` points to an image or a looping, muted video. */
   type?: 'image' | 'video';
 }
 

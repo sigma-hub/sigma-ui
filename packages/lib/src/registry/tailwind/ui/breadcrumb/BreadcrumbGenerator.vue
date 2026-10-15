@@ -25,8 +25,19 @@ interface ActionProps {
 }
 
 const props = defineProps<{
+  /** Item rendered first, before the model items. */
   home?: BreadcrumbItem;
+  /** Items to render in order; the last one is marked as the current page. */
   model?: BreadcrumbItem[];
+}>();
+
+defineSlots<{
+  /** Replaces the rendering of the home item. */
+  home?: (props: { item: BreadcrumbItem; props: { action: ActionProps } }) => unknown;
+  /** Replaces the chevron icon between items. */
+  separator?: () => unknown;
+  /** Replaces the rendering of each model item. */
+  item?: (props: { item: BreadcrumbItem; props: { action: ActionProps } }) => unknown;
 }>();
 
 function getActionProps(item: BreadcrumbItem, isLast: boolean): ActionProps {

@@ -3,6 +3,7 @@ import { useAttrs } from 'vue';
 import { type AlertVariants, alertVariants } from '.';
 
 const { variant } = defineProps<{
+  /** Visual style of the alert, such as destructive for errors. */
   variant?: AlertVariants['variant'];
 }>();
 const attrs = useAttrs();

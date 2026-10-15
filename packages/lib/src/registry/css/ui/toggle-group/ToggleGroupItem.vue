@@ -7,7 +7,9 @@ import { toggleVariants } from '@ui/registry/css/ui/toggle';
 type ToggleGroupVariants = VariantProps<typeof toggleVariants>;
 
 const props = defineProps<ToggleGroupItemProps & {
+  /** Visual style of the item; ignored when the parent group sets a variant. */
   variant?: ToggleGroupVariants['variant'];
+  /** Size of the item; ignored when the parent group sets a size. */
   size?: ToggleGroupVariants['size'];
 }>();
 

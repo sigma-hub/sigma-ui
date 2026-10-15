@@ -6,10 +6,15 @@ import { type Component, createApp } from 'vue';
 import { ChartTooltip } from '.';
 
 const props = withDefaults(defineProps<{
+  /** CSS selector of the chart elements that show the tooltip on hover. */
   selector: string;
+  /** Data key used as the tooltip title. */
   index: string;
+  /** Legend items used to look up the name and color of each value. */
   items?: BulletLegendItemInterface[];
+  /** Formats each value before it is shown. */
   valueFormatter?: (tick: number, i?: number, ticks?: number[]) => string;
+  /** Component rendered instead of ChartTooltip; receives title and data props. */
   customTooltip?: Component;
 }>(), {
   valueFormatter: (tick: number) => `${tick}`,

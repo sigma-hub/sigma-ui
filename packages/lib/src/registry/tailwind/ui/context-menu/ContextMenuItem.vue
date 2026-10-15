@@ -7,7 +7,10 @@ import {
 } from 'reka-ui';
 import { cn } from '@ui/utils';
 
-const props = defineProps<ContextMenuItemProps & { inset?: boolean }>();
+const props = defineProps<ContextMenuItemProps & {
+  /** Adds left padding to align with items that have an icon or indicator. */
+  inset?: boolean;
+}>();
 const emits = defineEmits<ContextMenuItemEmits>();
 
 const forwarded = useForwardPropsEmits(props, emits);

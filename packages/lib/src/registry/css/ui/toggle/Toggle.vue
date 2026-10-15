@@ -4,7 +4,9 @@ import { Toggle, type ToggleEmits, type ToggleProps, useForwardPropsEmits } from
 import { type ToggleVariants, toggleVariants } from '.';
 
 const props = withDefaults(defineProps<ToggleProps & {
+  /** Visual style of the toggle. */
   variant?: ToggleVariants['variant'];
+  /** Height and horizontal padding of the toggle. */
   size?: ToggleVariants['size'];
 }>(), {
   variant: 'default',

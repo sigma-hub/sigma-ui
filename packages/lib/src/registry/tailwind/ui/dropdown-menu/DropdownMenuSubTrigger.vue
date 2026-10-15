@@ -7,7 +7,10 @@ import {
 import { ChevronRightIcon } from 'lucide-vue-next';
 import { cn } from '@ui/utils';
 
-const props = defineProps<DropdownMenuSubTriggerProps & { inset?: boolean }>();
+const props = defineProps<DropdownMenuSubTriggerProps & {
+  /** Adds left padding to align with items that have an icon or indicator. */
+  inset?: boolean;
+}>();
 
 const forwardedProps = useForwardProps(props);
 </script>

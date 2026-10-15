@@ -5,15 +5,25 @@ import { Image, type ImageVariants } from '@ui/registry/tailwind/ui/image';
 import { cn } from '@ui/utils';
 
 const props = withDefaults(defineProps<{
+  /** URL of the avatar image. */
   src?: string;
+  /** Alternative text for the image. */
   alt?: string;
+  /** Renders a blurred, saturated copy of the image behind it as a glow. */
   glow?: boolean;
+  /** Size of the avatar. */
   size?: 'xs' | 'sm' | 'base' | 'lg';
+  /** Corner style of the avatar: circle or rounded. */
   shape?: ImageVariants['shape'];
 }>(), {
   size: 'base',
   shape: 'circle',
 });
+
+defineSlots<{
+  /** Content shown when there is no image or it fails to load; defaults to a user icon. */
+  fallback?: () => unknown;
+}>();
 </script>
 
 <template>

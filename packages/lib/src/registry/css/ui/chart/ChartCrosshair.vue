@@ -6,9 +6,13 @@ import { type Component, createApp } from 'vue';
 import { ChartTooltip } from '.';
 
 const props = withDefaults(defineProps<{
+  /** Crosshair point color for each series, in category order. */
   colors: string[];
+  /** Data key used as the tooltip title. */
   index: string;
+  /** Legend items used to look up the name and color of each value. */
   items: BulletLegendItemInterface[];
+  /** Component rendered instead of ChartTooltip; receives title and data props. */
   customTooltip?: Component;
 }>(), {
   colors: () => [],

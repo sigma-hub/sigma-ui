@@ -14,6 +14,7 @@ import { type SheetVariants, sheetVariants } from '.';
 import { cn } from '@ui/utils';
 
 interface SheetContentProps extends DialogContentProps {
+  /** Edge of the screen the sheet slides in from. */
   side?: SheetVariants['side'];
 }
 

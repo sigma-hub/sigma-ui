@@ -4,6 +4,7 @@ import TableCell from './TableCell.vue';
 import { cn } from '@ui/utils';
 
 const props = withDefaults(defineProps<{
+  /** Number of columns the empty-state cell spans; usually the column count of the table. */
   colspan?: number;
 }>(), {
   colspan: 1,

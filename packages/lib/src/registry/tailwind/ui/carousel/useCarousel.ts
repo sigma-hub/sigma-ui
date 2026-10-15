@@ -1,14 +1,14 @@
 import { createInjectionState } from '@vueuse/core';
 import emblaCarouselVue from 'embla-carousel-vue';
 import { onMounted, ref } from 'vue';
-import type { UnwrapRefCarouselApi as CarouselApi, CarouselEmits, CarouselProps } from './interface';
+import type { UnwrapRefCarouselApi as CarouselApi, CarouselProps } from './interface';
 
 const [useProvideCarousel, useInjectCarousel] = createInjectionState(
   ({
     opts,
     orientation,
     plugins,
-  }: CarouselProps, emits: CarouselEmits) => {
+  }: CarouselProps, emits: (event: 'init-api', payload: CarouselApi) => void) => {
     const [emblaNode, emblaApi] = emblaCarouselVue({
       ...opts,
       axis: orientation === 'horizontal' ? 'x' : 'y',
@@ -42,7 +42,21 @@ const [useProvideCarousel, useInjectCarousel] = createInjectionState(
       emits('init-api', emblaApi.value);
     });
 
-    return { carouselRef: emblaNode, carouselApi: emblaApi, canScrollPrev, canScrollNext, scrollPrev, scrollNext, orientation };
+    return {
+      /** Template ref of the Embla viewport element. */
+      carouselRef: emblaNode,
+      /** Embla Carousel API instance, available after mount. */
+      carouselApi: emblaApi,
+      /** Whether the carousel can scroll to a previous slide. */
+      canScrollPrev,
+      /** Whether the carousel can scroll to a next slide. */
+      canScrollNext,
+      /** Scrolls to the previous slide. */
+      scrollPrev,
+      /** Scrolls to the next slide. */
+      scrollNext,
+      orientation,
+    };
   },
 );
 

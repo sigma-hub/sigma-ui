@@ -3,7 +3,10 @@ import { MenubarSubTrigger, type MenubarSubTriggerProps, useForwardProps } from 
 import { ChevronRightIcon } from 'lucide-vue-next';
 import { cn } from '@ui/utils';
 
-const props = defineProps<MenubarSubTriggerProps & { inset?: boolean }>();
+const props = defineProps<MenubarSubTriggerProps & {
+  /** Adds left padding so the text lines up with items that have an icon or indicator. */
+  inset?: boolean;
+}>();
 
 const forwardedProps = useForwardProps(props);
 </script>

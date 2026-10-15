@@ -2,10 +2,17 @@
 import { cn } from '@ui/utils';
 
 const props = defineProps<{
+  /** Current value of the textarea; use with `v-model`. */
   modelValue?: string | number;
 }>();
 
+/** Current value of the textarea; use with `v-model`. */
 const model = defineModel<string | number>();
+
+defineEmits<{
+  /** Emitted when the user changes the value. */
+  'update:modelValue': [value: string | number];
+}>();
 </script>
 
 <template>

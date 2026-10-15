@@ -5,9 +5,13 @@ import { cn } from '@ui/utils';
 import { type ButtonVariants, buttonVariants } from '.';
 
 interface Props extends PrimitiveProps {
+  /** Visual style of the button. */
   variant?: ButtonVariants['variant'];
+  /** Height and padding preset; icon makes a square button. */
   size?: ButtonVariants['size'];
+  /** Shows a spinner and disables the button. */
   isLoading?: boolean;
+  /** Text that replaces the button content while loading; the content stays visible when empty. */
   loadingText?: string;
 }
 

@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { DropdownMenuLabel, type DropdownMenuLabelProps, useForwardProps } from 'reka-ui';
 
-const props = defineProps<DropdownMenuLabelProps & { inset?: boolean }>();
+const props = defineProps<DropdownMenuLabelProps & {
+  /** Adds left padding to align with items that have an icon or indicator. */
+  inset?: boolean;
+}>();
 
 const forwardedProps = useForwardProps(props);
 </script>
