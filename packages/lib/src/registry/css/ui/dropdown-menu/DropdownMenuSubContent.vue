@@ -10,12 +10,7 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const props = withDefaults(
-  defineProps<DropdownMenuSubContentProps>(),
-  {
-    sideOffset: 4,
-  },
-);
+const props = defineProps<DropdownMenuSubContentProps>();
 const emits = defineEmits<DropdownMenuSubContentEmits>();
 
 const forwarded = useForwardPropsEmits(props, emits);
