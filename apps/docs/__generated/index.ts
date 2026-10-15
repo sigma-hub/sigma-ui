@@ -178,6 +178,14 @@ export const Index = {
       component: () => import("../../../packages/lib/src/registry/tailwind/example/AreaChartSparkline.vue").then((m) => m.default),
       files: ["example/AreaChartSparkline.vue"],
     },
+    "AspectRatio": {
+      name: "AspectRatio",
+      type: "registry:example",
+      registryDependencies: ["aspect-ratio"],
+      dependencies: [],
+      component: () => import("../../../packages/lib/src/registry/tailwind/example/AspectRatio.vue").then((m) => m.default),
+      files: ["example/AspectRatio.vue"],
+    },
     "Avatar": {
       name: "Avatar",
       type: "registry:example",
@@ -2011,6 +2019,14 @@ export const Index = {
       dependencies: ["@unovis/ts@^1.5.0"],
       component: () => import("../../../packages/lib/src/registry/css/example/AreaChartSparkline.vue").then((m) => m.default),
       files: ["example/AreaChartSparkline.vue"],
+    },
+    "AspectRatio": {
+      name: "AspectRatio",
+      type: "registry:example",
+      registryDependencies: ["aspect-ratio"],
+      dependencies: [],
+      component: () => import("../../../packages/lib/src/registry/css/example/AspectRatio.vue").then((m) => m.default),
+      files: ["example/AspectRatio.vue"],
     },
     "Avatar": {
       name: "Avatar",
