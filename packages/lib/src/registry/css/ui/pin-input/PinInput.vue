@@ -1,10 +1,10 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="Type extends 'text' | 'number' = 'text'">
 import { PinInputRoot, type PinInputRootEmits, type PinInputRootProps, useForwardPropsEmits } from 'reka-ui';
 
-const props = withDefaults(defineProps<PinInputRootProps>(), {
+const props = withDefaults(defineProps<PinInputRootProps<Type>>(), {
   modelValue: () => [],
 });
-const emits = defineEmits<PinInputRootEmits>();
+const emits = defineEmits<PinInputRootEmits<Type>>();
 
 const forwarded = useForwardPropsEmits(props, emits);
 </script>

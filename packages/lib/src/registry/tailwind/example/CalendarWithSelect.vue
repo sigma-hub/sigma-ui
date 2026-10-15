@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { type Ref, computed } from 'vue';
+import type { Ref } from 'vue';
 import { CalendarRoot, type CalendarRootEmits, type CalendarRootProps, useDateFormatter, useForwardPropsEmits } from 'reka-ui';
 import { createDecade, createYear, toDate } from 'reka-ui/date';
 import { type DateValue, getLocalTimeZone, today } from '@internationalized/date';
-import { useVModel } from '@vueuse/core';
+import { reactiveOmit, useVModel } from '@vueuse/core';
 import { CalendarCell, CalendarCellTrigger, CalendarGrid, CalendarGridBody, CalendarGridHead, CalendarGridRow, CalendarHeadCell, CalendarHeader, CalendarHeading } from '@ui/registry/tailwind/ui/calendar';
 import {
   Select,
@@ -23,7 +23,7 @@ const props = withDefaults(defineProps<CalendarRootProps>(), {
 });
 const emits = defineEmits<CalendarRootEmits>();
 
-const delegatedProps = computed(() => ({ ...props, placeholder: undefined }));
+const delegatedProps = reactiveOmit(props, 'placeholder');
 const forwarded = useForwardPropsEmits(delegatedProps, emits);
 
 const placeholder = useVModel(props, 'modelValue', emits, {
