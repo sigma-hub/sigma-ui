@@ -9,15 +9,28 @@ import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@ui/regist
 import { Separator } from '@ui/registry/tailwind/ui/separator';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@ui/registry/tailwind/ui/tabs';
 import { ToggleGroup, ToggleGroupItem } from '@ui/registry/tailwind/ui/toggle-group';
+import { Index } from '../../../__generated';
 import { cssVariables } from '../config/shiki';
-import { getBlockComponentName, getBlockMeta } from '../utils/blocks';
+import { getBlockFileTree, getBlockMainFile, getBlockMeta, type BlockFileNode } from '../utils/blocks';
 import BlockCopyButton from './BlockCopyButton.vue';
+import PackageManagerCommand from './PackageManagerCommand.vue';
 import Spinner from './Spinner.vue';
 import { useConfigStore } from '@/stores/config';
 
 const props = defineProps<{
   name: string;
 }>();
+
+interface BlockIndexEntry {
+  registryDependencies?: string[];
+  dependencies?: string[];
+  files?: string[];
+}
+
+const blockSources = import.meta.glob<string>(
+  '../../../../../packages/lib/src/registry/*/blocks/**/*.{vue,ts}',
+  { query: '?raw', import: 'default' },
+);
 
 const { config, codeConfig } = useConfigStore();
 
@@ -26,27 +39,79 @@ const tabValue = ref('preview');
 const resizableRef = ref<InstanceType<typeof ResizablePanel>>();
 const rawString = ref('');
 const codeHtml = ref('');
+const selectedPath = ref('');
 const blockMeta = computed(() => getBlockMeta(props.name));
+const blockEntry = computed(() => {
+  const styleIndex = Index[config.value.styleSystem] as Record<string, BlockIndexEntry>;
+  return styleIndex[props.name];
+});
+const fileTree = computed(() => getBlockFileTree(props.name, blockEntry.value?.files ?? []));
+const requirements = computed(() => ({
+  components: (blockEntry.value?.registryDependencies ?? []).filter(dependency => dependency !== 'utils'),
+  packages: (blockEntry.value?.dependencies ?? []).map(stripVersion),
+}));
 
-function transformImportPath(code: string) {
-  const s = new MagicString(code);
-  s.replaceAll(`@ui/registry/${config.value.styleSystem}/ui`, codeConfig.value.componentsPath);
-  s.replaceAll(`@ui/utils`, codeConfig.value.utilsPath);
-  return s.toString();
+function stripVersion(dependency: string) {
+  const versionAt = dependency.startsWith('@') ? dependency.indexOf('@', 1) : dependency.indexOf('@');
+  return versionAt === -1 ? dependency : dependency.slice(0, versionAt);
 }
 
-watch([() => config.value.styleSystem, codeConfig], async () => {
-  try {
-    const baseRawString = await import(`@ui/registry/${config.value.styleSystem}/blocks/${props.name}/${getBlockComponentName(props.name)}.vue?raw`)
-      .then(res => res.default.trim());
-    rawString.value = transformImportPath(baseRawString);
+function languageFor(filePath: string) {
+  if (filePath.endsWith('.vue')) {
+    return 'vue';
+  }
 
+  if (filePath.endsWith('.ts')) {
+    return 'typescript';
+  }
+
+  if (filePath.endsWith('.css')) {
+    return 'css';
+  }
+
+  return 'plaintext';
+}
+
+function selectFile(node: BlockFileNode) {
+  if (node.path) {
+    selectedPath.value = node.path;
+  }
+}
+
+function transformImportPath(code: string) {
+  const source = new MagicString(code);
+  source.replaceAll(`@ui/registry/${config.value.styleSystem}/ui`, codeConfig.value.componentsPath);
+  source.replaceAll(`@ui/utils`, codeConfig.value.utilsPath);
+  return source.toString();
+}
+
+watch(fileTree, (nodes) => {
+  const selectablePaths = nodes.flatMap(node => node.path ? [node.path] : []);
+  const mainFile = selectablePaths.find(filePath => filePath.endsWith(getBlockMainFile(props.name)));
+
+  if (!selectedPath.value || !selectablePaths.includes(selectedPath.value)) {
+    selectedPath.value = mainFile ?? selectablePaths[0] ?? '';
+  }
+}, { immediate: true });
+
+watch([() => config.value.styleSystem, () => selectedPath.value, codeConfig], async () => {
+  const filePath = selectedPath.value;
+  const loader = blockSources[`../../../../../packages/lib/src/registry/${config.value.styleSystem}/blocks/${props.name}/${filePath}`];
+
+  if (!loader) {
+    rawString.value = '';
+    codeHtml.value = '';
+    return;
+  }
+
+  try {
+    rawString.value = transformImportPath((await loader()).trim());
     codeHtml.value = await codeToHtml(rawString.value, {
-      lang: 'vue',
+      lang: languageFor(filePath),
       theme: cssVariables,
     });
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
   }
 }, { immediate: true, deep: true });
 </script>
@@ -135,6 +200,30 @@ watch([() => config.value.styleSystem, codeConfig], async () => {
         </div>
       </div>
     </div>
+    <p
+      v-if="requirements.components.length || requirements.packages.length"
+      class="text-sm text-muted-foreground"
+    >
+      Requires:
+      <template
+        v-for="(component, index) in requirements.components"
+        :key="component"
+      >
+        <a
+          :href="`/components/${component}`"
+          class="font-mono text-foreground underline underline-offset-4"
+        >{{ component }}</a><span v-if="index < requirements.components.length - 1">, </span>
+      </template>
+      <template v-if="requirements.packages.length">
+        <span v-if="requirements.components.length"> · </span>
+        <span
+          v-for="(packageName, index) in requirements.packages"
+          :key="packageName"
+          class="font-mono"
+        >{{ packageName }}<span v-if="index < requirements.packages.length - 1">, </span></span>
+      </template>
+    </p>
+    <PackageManagerCommand :run="`sigma-ui@latest add ${name}`" />
     <TabsContent
       v-show="tabValue === 'preview'"
       force-mount
@@ -181,10 +270,26 @@ watch([() => config.value.styleSystem, codeConfig], async () => {
       value="code"
       class="h-(--container-height)"
     >
-      <div
-        class="language-vue !h-full !max-h-[none] !mt-0"
-        v-html="codeHtml"
-      />
+      <div class="flex h-full overflow-hidden rounded-lg border">
+        <div class="w-56 shrink-0 overflow-auto border-r bg-muted/30 py-2">
+          <button
+            v-for="node in fileTree"
+            :key="`${node.depth}-${node.path ?? node.name}`"
+            type="button"
+            class="block w-full truncate py-1 pr-2 text-left font-mono text-xs"
+            :class="node.path === selectedPath ? 'bg-muted text-foreground' : 'text-muted-foreground hover:text-foreground'"
+            :style="{ paddingLeft: `${node.depth * 12 + 8}px` }"
+            :disabled="!node.path"
+            @click="selectFile(node)"
+          >
+            {{ node.name }}
+          </button>
+        </div>
+        <div
+          class="language-vue min-w-0 flex-1 overflow-auto !mt-0"
+          v-html="codeHtml"
+        />
+      </div>
     </TabsContent>
   </Tabs>
 </template>
