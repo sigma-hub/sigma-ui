@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { InfoIcon, MonitorIcon, SmartphoneIcon, TabletIcon } from 'lucide-vue-next';
-import { reactive, ref, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { codeToHtml } from 'shiki';
-import { compileScript, parse, walk } from 'vue/compiler-sfc';
 import MagicString from 'magic-string';
 import { Badge } from '@ui/registry/tailwind/ui/badge';
 import { Popover, PopoverContent, PopoverTrigger } from '@ui/registry/tailwind/ui/popover';
@@ -11,13 +10,13 @@ import { Separator } from '@ui/registry/tailwind/ui/separator';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@ui/registry/tailwind/ui/tabs';
 import { ToggleGroup, ToggleGroupItem } from '@ui/registry/tailwind/ui/toggle-group';
 import { cssVariables } from '../config/shiki';
+import { getBlockComponentName, getBlockMeta } from '../utils/blocks';
 import BlockCopyButton from './BlockCopyButton.vue';
 import Spinner from './Spinner.vue';
 import { useConfigStore } from '@/stores/config';
 
 const props = defineProps<{
   name: string;
-  blockDir: string;
 }>();
 
 const { config, codeConfig } = useConfigStore();
@@ -27,25 +26,7 @@ const tabValue = ref('preview');
 const resizableRef = ref<InstanceType<typeof ResizablePanel>>();
 const rawString = ref('');
 const codeHtml = ref('');
-const metadata = reactive({
-  description: null as string | null,
-  iframeHeight: null as string | null,
-  containerClass: null as string | null,
-});
-
-function removeScript(code: string) {
-  const s = new MagicString(code);
-  const scriptTagRegex = /<script\s+lang="ts"\s*>[\s\S]+?<\/script>/g;
-  let match;
-
-  while ((match = scriptTagRegex.exec(code)) !== null) {
-    const start = match.index;
-    const end = match.index + match[0].length;
-    s.overwrite(start, end, '');
-  }
-
-  return s.trimStart().toString();
-}
+const blockMeta = computed(() => getBlockMeta(props.name));
 
 function transformImportPath(code: string) {
   const s = new MagicString(code);
@@ -56,27 +37,9 @@ function transformImportPath(code: string) {
 
 watch([() => config.value.styleSystem, codeConfig], async () => {
   try {
-    const baseRawString = await import(`@ui/registry/${config.value.styleSystem}/block/${props.blockDir}/${props.name}.vue?raw`)
+    const baseRawString = await import(`@ui/registry/${config.value.styleSystem}/blocks/${props.name}/${getBlockComponentName(props.name)}.vue?raw`)
       .then(res => res.default.trim());
-    rawString.value = transformImportPath(removeScript(baseRawString));
-
-    if (!metadata.description) {
-      const { descriptor } = parse(baseRawString);
-      const ast = compileScript(descriptor, { id: '' });
-      walk(ast.scriptAst, {
-        enter(node: any) {
-          const declaration = node.declaration;
-
-          if (declaration?.type === 'VariableDeclaration') {
-            // Extract variable names and their values
-            declaration.declarations.forEach((decl: any) => {
-              // @ts-expect-error ignore missing type
-              metadata[decl.id.name] = decl.init ? decl.init.value : null;
-            });
-          }
-        },
-      });
-    }
+    rawString.value = transformImportPath(baseRawString);
 
     codeHtml.value = await codeToHtml(rawString.value, {
       lang: 'vue',
@@ -94,7 +57,7 @@ watch([() => config.value.styleSystem, codeConfig], async () => {
     v-model="tabValue"
     class="relative grid w-full scroll-m-20 gap-4"
     :style=" {
-      '--container-height': metadata.iframeHeight ?? '600px',
+      '--container-height': blockMeta?.meta.iframeHeight ?? '600px',
     }"
   >
     <div class="flex gap-4">
@@ -134,7 +97,7 @@ watch([() => config.value.styleSystem, codeConfig], async () => {
                   :side-offset="10"
                   class="text-sm"
                 >
-                  {{ metadata.description }}
+                  {{ blockMeta?.description }}
                 </PopoverContent>
               </Popover>
             </div>
@@ -198,7 +161,7 @@ watch([() => config.value.styleSystem, codeConfig], async () => {
           </div>
           <iframe
             v-show="!isLoading"
-            :src="`/blocks/renderer#name=${name}&styleSystem=${config.styleSystem}&blockDir=${props.blockDir}&blockType=${name.split(/(?=[A-Z])/)[0].toLowerCase()}&containerClass=${encodeURIComponent(metadata.containerClass ?? '')}`"
+            :src="`/blocks/renderer#name=${name}&styleSystem=${config.styleSystem}&containerClass=${encodeURIComponent(blockMeta?.meta.containerClass ?? '')}`"
             class="relative z-20 w-full bg-background h-(--container-height)"
             @load="isLoading = false"
           />

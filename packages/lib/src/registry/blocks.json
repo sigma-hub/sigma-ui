@@ -1,0 +1,140 @@
+[
+  {
+    "name": "login-simple",
+    "title": "Simple login",
+    "description": "A simple login form with email and password. The submit button says 'Sign in'.",
+    "categories": [
+      "authentication",
+      "login"
+    ],
+    "meta": {
+      "iframeHeight": "600px",
+      "containerClass": "w-full h-screen flex items-center justify-center px-4"
+    }
+  },
+  {
+    "name": "login-social",
+    "title": "Login with social provider",
+    "description": "A login form with email and password. There's an option to login with Google and a link to sign up if you don't have an account.",
+    "categories": [
+      "authentication",
+      "login"
+    ],
+    "meta": {
+      "iframeHeight": "600px",
+      "containerClass": "w-full h-screen flex items-center justify-center px-4"
+    }
+  },
+  {
+    "name": "signup-card",
+    "title": "Sign up card",
+    "description": "A sign up form with first name, last name, email and password inside a card. There's an option to sign up with GitHub and a link to login if you already have an account",
+    "categories": [
+      "authentication",
+      "signup"
+    ],
+    "meta": {
+      "iframeHeight": "600px",
+      "containerClass": "w-full h-screen flex items-center justify-center px-4"
+    }
+  },
+  {
+    "name": "login-split-image",
+    "title": "Login with cover image",
+    "description": "A login page with two columns. The first column has the login form with email and password. There's a Forgot your password link and a link to sign up if you do not have an account. The second column has a cover image.",
+    "categories": [
+      "authentication",
+      "login"
+    ],
+    "meta": {
+      "iframeHeight": "800px",
+      "containerClass": "w-full h-full p-4 lg:p-0"
+    }
+  },
+  {
+    "name": "dashboard-analytics",
+    "title": "Analytics dashboard",
+    "description": "An application shell with a header and main content area. The header has a navbar, a search input and and a user nav dropdown. The user nav is toggled by a button with an avatar image. The main content area is divided into two rows. The first row has a grid of cards with statistics. The second row has a grid of cards with a table of recent transactions and a list of recent sales.",
+    "categories": [
+      "dashboard"
+    ],
+    "meta": {
+      "iframeHeight": "825px",
+      "containerClass": "w-full h-full"
+    }
+  },
+  {
+    "name": "dashboard-sidebar",
+    "title": "Dashboard with sidebar",
+    "description": "A products dashboard with a sidebar navigation and a main content area. The dashboard has a header with a search input and a user menu. The sidebar has a logo, navigation links, and a card with a call to action. The main content area shows an empty state with a call to action.",
+    "categories": [
+      "dashboard",
+      "sidebar"
+    ],
+    "meta": {
+      "iframeHeight": "800px",
+      "containerClass": "w-full h-full"
+    }
+  },
+  {
+    "name": "dashboard-ai-playground",
+    "title": "AI playground",
+    "description": "An AI playground with a sidebar navigation and a main content area. The playground has a header with a settings drawer and a share button. The sidebar has navigation links and a user menu. The main content area shows a form to configure the model and messages.",
+    "categories": [
+      "dashboard"
+    ],
+    "meta": {
+      "iframeHeight": "740px",
+      "containerClass": "w-full h-full"
+    }
+  },
+  {
+    "name": "dashboard-settings",
+    "title": "Settings page",
+    "description": "A settings page. The settings page has a sidebar navigation and a main content area. The main content area has a form to update the store name and a form to update the plugins directory. The sidebar navigation has links to general, security, integrations, support, organizations, and advanced settings.",
+    "categories": [
+      "dashboard",
+      "settings"
+    ],
+    "meta": {
+      "iframeHeight": "780px",
+      "containerClass": "w-full h-full"
+    }
+  },
+  {
+    "name": "dashboard-orders",
+    "title": "Orders dashboard",
+    "description": "An orders dashboard with a sidebar navigation. The sidebar has icon navigation. The content area has a breadcrumb and search in the header. The main area has a list of recent orders with a filter and export button. The main area also has a detailed view of a single order with order details, shipping information, billing information, customer information, and payment information.",
+    "categories": [
+      "dashboard"
+    ],
+    "meta": {
+      "iframeHeight": "1112px",
+      "containerClass": "w-full h-full"
+    }
+  },
+  {
+    "name": "dashboard-products",
+    "title": "Products dashboard",
+    "description": "An products dashboard with a sidebar navigation. The sidebar has icon navigation. The content area has a breadcrumb and search in the header. It displays a list of products in a table with actions.",
+    "categories": [
+      "dashboard"
+    ],
+    "meta": {
+      "iframeHeight": "938px",
+      "containerClass": "w-full h-full"
+    }
+  },
+  {
+    "name": "dashboard-product-edit",
+    "title": "Product edit page",
+    "description": "A product edit page. The product edit page has a form to edit the product details, stock, product category, product status, and product images. The product edit page has a sidebar navigation and a main content area. The main content area has a form to edit the product details, stock, product category, product status, and product images. The sidebar navigation has links to product details, stock, product category, product status, and product images.",
+    "categories": [
+      "dashboard"
+    ],
+    "meta": {
+      "iframeHeight": "1200px",
+      "containerClass": "w-full h-full"
+    }
+  }
+]
