@@ -8,6 +8,10 @@ import { ScrollArea } from '@ui/registry/tailwind/ui/scroll-area';
 const headers = shallowRef<TableOfContents>();
 
 function getHeadingsWithHierarchy(divId: string) {
+  if (typeof document === 'undefined') {
+    return { items: [] };
+  }
+
   const div = document.querySelector(divId);
 
   if (!div) {
