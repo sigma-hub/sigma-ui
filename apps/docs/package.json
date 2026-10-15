@@ -13,7 +13,8 @@
     "ts:registry": "vue-tsc --noEmit --skipLibCheck -p tsconfig.registry.json",
     "build:registry": "tsx ./scripts/build-registry.ts",
     "build:registry-strict": "pnpm ts:registry && tsx ./scripts/build-registry.ts",
-    "docs:gen": "tsx ./scripts/autogen.ts"
+    "docs:gen": "tsx ./scripts/api-docs/gen-api.ts",
+    "docs:check": "tsx ./scripts/api-docs/gen-api.ts --check"
   },
   "dependencies": {
     "@internationalized/date": "^3.7.0",
@@ -66,7 +67,7 @@
     "tsx": "^4.19.2",
     "typescript": "^5.7.3",
     "vitepress": "^1.6.3",
-    "vue-component-meta": "^2.2.0",
+    "vue-component-meta": "^3.3.13",
     "vue-tsc": "^2.2.0"
   }
 }

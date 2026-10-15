@@ -29,7 +29,7 @@ Follow the [guide](/components/charts.html#installation) to complete the setup.
 
 ## API
 
-<!-- @include: @/content/meta/BarChart.md -->
+<!-- @include: @/content/meta/chart-bar.md -->
 
 ## Examples
 

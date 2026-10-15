@@ -8,7 +8,6 @@
   "scripts": {
     "ts": "vue-tsc --noEmit --skipLibCheck",
     "ts:registry": "vue-tsc --noEmit --skipLibCheck -p tsconfig.json",
-    "docs:gen": "tsx ./scripts/autogen.ts",
     "lint:fix": "eslint . --fix",
     "stylelint:fix": "stylelint \"src/**/*.{css,vue}\" --fix"
   },
