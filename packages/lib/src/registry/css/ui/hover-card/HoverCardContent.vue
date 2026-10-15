@@ -32,12 +32,12 @@ const forwardedProps = useForwardProps(props);
 .sigma-ui-hover-card-content {
   z-index: 50;
   padding: 1rem;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
   animation: sigma-ui-fade-out-scale 100ms ease-in forwards;
-  background-color: hsl(var(--popover));
+  background-color: var(--popover);
   box-shadow: var(--shadow-md);
-  color: hsl(var(--popover-foreground));
+  color: var(--popover-foreground);
   outline: none;
   transform-origin: var(--reka-popper-transform-origin);
 }

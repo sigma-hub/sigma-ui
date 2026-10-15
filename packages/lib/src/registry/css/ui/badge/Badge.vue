@@ -19,7 +19,7 @@ const props = defineProps<{
   display: inline-flex;
   align-items: center;
   padding: 0.125rem 0.625rem;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius-full);
   font-size: 0.75rem;
   font-weight: 600;
@@ -29,41 +29,41 @@ const props = defineProps<{
 }
 
 .sigma-ui-badge:focus {
-  outline: 2px solid hsl(var(--ring));
+  outline: 2px solid var(--ring);
   outline-offset: 2px;
 }
 
 .sigma-ui-badge--default {
   border-color: transparent;
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  background-color: var(--primary);
+  color: var(--primary-foreground);
 }
 
 .sigma-ui-badge--default:hover {
-  background-color: hsl(var(--primary) / 80%);
+  background-color: color-mix(in oklch, var(--primary) 80%, transparent);
 }
 
 .sigma-ui-badge--secondary {
   border-color: transparent;
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
 }
 
 .sigma-ui-badge--secondary:hover {
-  background-color: hsl(var(--secondary) / 80%);
+  background-color: color-mix(in oklch, var(--secondary) 80%, transparent);
 }
 
 .sigma-ui-badge--destructive {
   border-color: transparent;
-  background-color: hsl(var(--destructive));
-  color: hsl(var(--destructive-foreground));
+  background-color: var(--destructive);
+  color: var(--destructive-foreground);
 }
 
 .sigma-ui-badge--destructive:hover {
-  background-color: hsl(var(--destructive) / 80%);
+  background-color: color-mix(in oklch, var(--destructive) 80%, transparent);
 }
 
 .sigma-ui-badge--outline {
-  color: hsl(var(--foreground));
+  color: var(--foreground);
 }
 </style>

@@ -15,7 +15,7 @@ import { NumberFieldInput } from 'reka-ui';
   width: 100%;
   height: 2.5rem;
   padding: 0.5rem;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   background-color: transparent;
   font-size: 0.875rem;
@@ -23,11 +23,11 @@ import { NumberFieldInput } from 'reka-ui';
 }
 
 .sigma-ui-number-field-input::placeholder {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 .sigma-ui-number-field-input:focus-visible {
-  outline: 2px solid hsl(var(--ring));
+  outline: 2px solid var(--ring);
   outline-offset: 2px;
 }
 

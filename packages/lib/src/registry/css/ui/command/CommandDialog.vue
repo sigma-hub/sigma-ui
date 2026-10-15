@@ -30,7 +30,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 .sigma-ui-command-dialog__command [cmdk-group-heading] {
   padding-right: 0.5rem;
   padding-left: 0.5rem;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-weight: 500;
 }
 

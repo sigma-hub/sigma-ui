@@ -29,7 +29,7 @@ defineSlots<{
   justify-content: center;
   padding: 0 0.25rem;
   border-radius: var(--radius-md);
-  color: hsl(var(--foreground));
+  color: var(--foreground);
   font-size: 0.75rem;
   font-variant-numeric: tabular-nums;
   font-weight: 500;
@@ -39,7 +39,7 @@ defineSlots<{
 
 .sigma-ui-sidebar-menu-button:hover ~ .sigma-ui-sidebar-menu-badge,
 .sigma-ui-sidebar-menu-button[data-active="true"] ~ .sigma-ui-sidebar-menu-badge {
-  color: hsl(var(--secondary-foreground));
+  color: var(--secondary-foreground);
 }
 
 .sigma-ui-sidebar-menu-button[data-size="sm"] ~ .sigma-ui-sidebar-menu-badge {

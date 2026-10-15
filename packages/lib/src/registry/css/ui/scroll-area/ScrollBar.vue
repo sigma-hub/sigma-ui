@@ -43,6 +43,6 @@ const props = withDefaults(defineProps<ScrollAreaScrollbarProps>(), {
   position: relative;
   flex: 1;
   border-radius: var(--radius-full);
-  background-color: hsl(var(--border));
+  background-color: var(--border);
 }
 </style>

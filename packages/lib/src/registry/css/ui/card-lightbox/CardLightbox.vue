@@ -187,7 +187,7 @@ function handleEscKeydown(event: KeyboardEvent) {
 
 .card-lightbox__card:focus-visible {
   border-radius: 20px;
-  outline: 2px solid hsl(var(--ring));
+  outline: 2px solid var(--ring);
   outline-offset: 2px;
 }
 
@@ -239,7 +239,7 @@ function handleEscKeydown(event: KeyboardEvent) {
   height: 100%;
   border-radius: 20px;
   margin: 0 auto;
-  background: hsl(var(--background));
+  background: var(--background);
   pointer-events: auto;
   user-select: none;
 }
@@ -338,7 +338,7 @@ function handleEscKeydown(event: KeyboardEvent) {
   width: 100vw;
   max-width: 700px;
   padding: 35px;
-  color: hsl(var(--primary));
+  color: var(--primary);
 }
 
 .theme-dark .card-lightbox__card-category,

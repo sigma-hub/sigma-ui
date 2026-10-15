@@ -40,22 +40,22 @@ const attrs = useAttrs();
   position: absolute;
   top: 1rem;
   left: 1rem;
-  color: hsl(var(--foreground));
+  color: var(--foreground);
 }
 
 .sigma-ui-alert-default {
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 .sigma-ui-alert-destructive {
-  border-color: hsl(var(--destructive) / 50%);
-  color: hsl(var(--destructive));
+  border-color: color-mix(in oklch, var(--destructive) 50%, transparent);
+  color: var(--destructive);
 }
 
 .dark .sigma-ui-alert-destructive {
-  border-color: hsl(var(--destructive));
-  background-color: hsl(var(--destructive) / 20%);
+  border-color: var(--destructive);
+  background-color: color-mix(in oklch, var(--destructive) 20%, transparent);
   color: hsl(356.94deg 96% 58%);
 }
 

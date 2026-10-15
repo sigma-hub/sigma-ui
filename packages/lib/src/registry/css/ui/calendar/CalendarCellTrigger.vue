@@ -31,46 +31,46 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-calendar-cell-trigger:hover {
-  background-color: hsl(var(--muted));
-  color: hsl(var(--muted-foreground));
+  background-color: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .sigma-ui-calendar-cell-trigger[data-today]:not([data-selected]) {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
 }
 
 .sigma-ui-calendar-cell-trigger[data-selected] {
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  background-color: var(--primary);
+  color: var(--primary-foreground);
   opacity: 1;
 }
 
 .sigma-ui-calendar-cell-trigger[data-selected]:hover,
 .sigma-ui-calendar-cell-trigger[data-selected]:focus {
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  background-color: var(--primary);
+  color: var(--primary-foreground);
 }
 
 .sigma-ui-calendar-cell-trigger[data-disabled] {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   opacity: 0.5;
 }
 
 .sigma-ui-calendar-cell-trigger[data-unavailable] {
-  color: hsl(var(--destructive-foreground));
+  color: var(--destructive-foreground);
   text-decoration: line-through;
 }
 
 .sigma-ui-calendar-cell-trigger[data-outside-month] {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   opacity: 0.5;
   pointer-events: none;
 }
 
 .sigma-ui-calendar-cell-trigger[data-outside-month][data-selected] {
-  background-color: hsl(var(--secondary) / 50%);
-  color: hsl(var(--muted-foreground));
+  background-color: color-mix(in oklch, var(--secondary) 50%, transparent);
+  color: var(--muted-foreground);
   opacity: 0.3;
 }
 </style>

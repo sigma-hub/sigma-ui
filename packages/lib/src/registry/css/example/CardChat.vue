@@ -238,7 +238,7 @@ const filteredUsers = computed(() => users.value.filter(user => user.name.toLowe
 }
 
 .example-sigma-ui-card-chat__user-email {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.875rem;
 }
 
@@ -272,13 +272,13 @@ const filteredUsers = computed(() => users.value.filter(user => user.name.toLowe
 }
 
 .example-sigma-ui-card-chat__message--agent {
-  background-color: hsl(var(--muted));
+  background-color: var(--muted);
 }
 
 .example-sigma-ui-card-chat__message--user {
   margin-left: auto;
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  background-color: var(--primary);
+  color: var(--primary-foreground);
 }
 
 .example-sigma-ui-card-chat__form {
@@ -316,7 +316,7 @@ const filteredUsers = computed(() => users.value.filter(user => user.name.toLowe
 
 .example-sigma-ui-card-chat__command {
   overflow: hidden;
-  border-top: 1px solid hsl(var(--border));
+  border-top: 1px solid var(--border);
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
@@ -342,7 +342,7 @@ const filteredUsers = computed(() => users.value.filter(user => user.name.toLowe
 }
 
 .example-sigma-ui-card-chat__command-user-email {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.875rem;
 }
 
@@ -350,7 +350,7 @@ const filteredUsers = computed(() => users.value.filter(user => user.name.toLowe
   width: 1.25rem;
   height: 1.25rem;
   margin-left: auto;
-  color: hsl(var(--primary));
+  color: var(--primary);
 }
 
 .example-sigma-ui-card-chat__dialog-footer {
@@ -358,7 +358,7 @@ const filteredUsers = computed(() => users.value.filter(user => user.name.toLowe
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
-  border-top: 1px solid hsl(var(--border));
+  border-top: 1px solid var(--border);
 }
 
 .example-sigma-ui-card-chat__selected-users {
@@ -369,11 +369,11 @@ const filteredUsers = computed(() => users.value.filter(user => user.name.toLowe
 
 .example-sigma-ui-card-chat__selected-avatar {
   display: inline-block;
-  border: 2px solid hsl(var(--background));
+  border: 2px solid var(--background);
 }
 
 .example-sigma-ui-card-chat__empty-selection {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.875rem;
 }
 </style>

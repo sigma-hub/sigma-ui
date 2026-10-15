@@ -23,7 +23,7 @@ defineSlots<{
   min-width: 0;
   flex-direction: column;
   padding: 0.125rem 0.625rem;
-  border-left: 1px solid hsl(var(--border));
+  border-left: 1px solid var(--border);
   margin: 0 0.875rem;
   gap: 0.25rem;
   list-style: none;

@@ -91,7 +91,7 @@ import { Input } from '@ui/registry/css/ui/input';
 }
 
 .example-sigma-ui-popover__description {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.875rem;
 }
 

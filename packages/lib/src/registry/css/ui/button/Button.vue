@@ -74,7 +74,7 @@ const props = withDefaults(defineProps<Props>(), {
 }
 
 .sigma-ui-button:focus-visible {
-  outline: 2px solid hsl(var(--ring));
+  outline: 2px solid var(--ring);
   outline-offset: 2px;
 }
 
@@ -84,49 +84,49 @@ const props = withDefaults(defineProps<Props>(), {
 }
 
 .sigma-ui-button--default {
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  background-color: var(--primary);
+  color: var(--primary-foreground);
 }
 
 .sigma-ui-button--default:hover {
-  background-color: hsl(var(--primary) / 90%);
+  background-color: color-mix(in oklch, var(--primary) 90%, transparent);
 }
 
 .sigma-ui-button--destructive {
-  background-color: hsl(var(--destructive));
-  color: hsl(var(--destructive-foreground));
+  background-color: var(--destructive);
+  color: var(--destructive-foreground);
 }
 
 .sigma-ui-button--destructive:hover {
-  background-color: hsl(var(--destructive) / 90%);
+  background-color: color-mix(in oklch, var(--destructive) 90%, transparent);
 }
 
 .sigma-ui-button--outline {
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   background-color: transparent;
 }
 
 .sigma-ui-button--outline:hover {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
 }
 
 .sigma-ui-button--secondary {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
 }
 
 .sigma-ui-button--secondary:hover {
-  background-color: hsl(var(--secondary) / 80%);
+  background-color: color-mix(in oklch, var(--secondary) 80%, transparent);
 }
 
 .sigma-ui-button--ghost:hover {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
 }
 
 .sigma-ui-button--link {
-  color: hsl(var(--primary));
+  color: var(--primary);
   text-underline-offset: 4px;
 }
 

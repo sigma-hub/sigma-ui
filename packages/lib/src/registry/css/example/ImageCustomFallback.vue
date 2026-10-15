@@ -36,10 +36,10 @@ import { Image } from '@ui/registry/css/ui/image';
   align-items: center;
   justify-content: center;
   background-image:
-    linear-gradient(90deg, transparent 95%, hsl(var(--foreground) / 10%) 95%),
-    linear-gradient(0deg, transparent 95%, hsl(var(--foreground) / 10%) 95%);
+    linear-gradient(90deg, transparent 95%, color-mix(in oklch, var(--foreground) 10%, transparent) 95%),
+    linear-gradient(0deg, transparent 95%, color-mix(in oklch, var(--foreground) 10%, transparent) 95%);
   background-size: 16px 16px;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   gap: 0.25rem;
 }
 

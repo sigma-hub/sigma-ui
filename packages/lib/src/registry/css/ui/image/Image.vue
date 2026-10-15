@@ -128,14 +128,14 @@ function onLoad() {
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  background-color: hsl(var(--secondary) / 90%);
-  color: hsl(var(--foreground));
+  background-color: color-mix(in oklch, var(--secondary) 90%, transparent);
+  color: var(--foreground);
   font-weight: normal;
   user-select: none;
 }
 
 .dark .sigma-ui-image {
-  background-color: hsl(var(--secondary) / 30%);
+  background-color: color-mix(in oklch, var(--secondary) 30%, transparent);
 }
 
 .sigma-ui-image--no-overflow {
@@ -156,7 +156,7 @@ function onLoad() {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: hsl(var(--foreground) / 50%);
+  color: color-mix(in oklch, var(--foreground) 50%, transparent);
   gap: 0.25rem;
 }
 

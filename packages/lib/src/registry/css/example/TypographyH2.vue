@@ -7,7 +7,7 @@
 <style>
 .example-sigma-ui-typography__heading-2 {
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid hsl(var(--border));
+  border-bottom: 1px solid var(--border);
   font-size: 1.875rem;
   font-weight: 600;
   letter-spacing: -0.025em;

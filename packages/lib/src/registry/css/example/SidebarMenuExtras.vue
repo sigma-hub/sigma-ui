@@ -127,7 +127,7 @@ const projects = ['Design system', 'Marketing site'];
   overflow: hidden;
   width: 100%;
   height: 480px;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   transform: translateZ(0);
 }
@@ -138,7 +138,7 @@ const projects = ['Design system', 'Marketing site'];
 }
 
 .example-sidebar-extras .example-sidebar-extras__sidebar {
-  border-right: 1px solid hsl(var(--border));
+  border-right: 1px solid var(--border);
 }
 
 .example-sidebar-extras__main {
@@ -147,7 +147,7 @@ const projects = ['Design system', 'Marketing site'];
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.875rem;
 }
 </style>

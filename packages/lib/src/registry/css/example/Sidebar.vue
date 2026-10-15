@@ -201,7 +201,7 @@ const navigation: NavigationItem[] = [
   overflow: hidden;
   width: 100%;
   height: 520px;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   transform: translateZ(0);
 }
@@ -223,8 +223,8 @@ const navigation: NavigationItem[] = [
   align-items: center;
   justify-content: center;
   border-radius: var(--radius);
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  background-color: var(--primary);
+  color: var(--primary-foreground);
 }
 
 .example-sidebar-frame__avatar {
@@ -235,7 +235,7 @@ const navigation: NavigationItem[] = [
   align-items: center;
   justify-content: center;
   border-radius: var(--radius);
-  background-color: hsl(var(--secondary));
+  background-color: var(--secondary);
   font-size: 0.75rem;
   font-weight: 500;
 }
@@ -262,7 +262,7 @@ const navigation: NavigationItem[] = [
 
 .example-sidebar-frame__subtitle {
   overflow: hidden;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.75rem;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -287,7 +287,7 @@ const navigation: NavigationItem[] = [
   flex-shrink: 0;
   align-items: center;
   padding: 0 1rem;
-  border-bottom: 1px solid hsl(var(--border));
+  border-bottom: 1px solid var(--border);
   gap: 0.5rem;
 }
 
@@ -324,13 +324,13 @@ const navigation: NavigationItem[] = [
 .example-sidebar-frame__card {
   border-radius: calc(var(--radius) + 4px);
   aspect-ratio: 16 / 9;
-  background-color: hsl(var(--muted) / 50%);
+  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
 }
 
 .example-sidebar-frame__panel {
   min-height: 6rem;
   flex: 1;
   border-radius: calc(var(--radius) + 4px);
-  background-color: hsl(var(--muted) / 50%);
+  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
 }
 </style>

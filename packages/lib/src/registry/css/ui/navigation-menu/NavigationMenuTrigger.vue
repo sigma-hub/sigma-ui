@@ -39,7 +39,7 @@ const forwardedProps = useForwardProps(props);
   justify-content: center;
   padding: 0.5rem 1rem;
   border-radius: var(--radius);
-  background-color: hsl(var(--background));
+  background-color: var(--background);
   font-size: 0.875rem;
   font-weight: 500;
   transition-duration: 150ms;
@@ -48,13 +48,13 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-navigation-menu-trigger__base:hover {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
 }
 
 .sigma-ui-navigation-menu-trigger__base:focus {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
   outline: none;
 }
 
@@ -64,11 +64,11 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-navigation-menu-trigger__base[data-active] {
-  background-color: hsl(var(--secondary) / 50%);
+  background-color: color-mix(in oklch, var(--secondary) 50%, transparent);
 }
 
 .sigma-ui-navigation-menu-trigger__base[data-state="open"] {
-  background-color: hsl(var(--secondary) / 50%);
+  background-color: color-mix(in oklch, var(--secondary) 50%, transparent);
 }
 
 .sigma-ui-navigation-menu-trigger__icon {

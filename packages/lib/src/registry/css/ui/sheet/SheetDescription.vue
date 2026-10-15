@@ -15,7 +15,7 @@ const props = defineProps<DialogDescriptionProps>();
 
 <style>
 .sigma-ui-sheet-description {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.875rem;
 }
 </style>

@@ -45,8 +45,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-dropdown-menu-radio-item:focus {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
 }
 
 .sigma-ui-dropdown-menu-radio-item[data-disabled] {

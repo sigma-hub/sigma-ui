@@ -121,7 +121,7 @@ function onStatusSelect(status: Status) {
 }
 
 .example-sigma-ui-command-responsive__drawer-content {
-  border-top: 1px solid hsl(var(--border));
+  border-top: 1px solid var(--border);
   margin-top: 1rem;
 }
 </style>

@@ -25,7 +25,7 @@ const forwardedProps = useForwardProps(props);
   width: 1.75rem;
   height: 1.75rem;
   padding: 0;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background-color: transparent;
   opacity: 0.5;

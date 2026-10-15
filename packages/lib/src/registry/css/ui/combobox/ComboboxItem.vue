@@ -34,8 +34,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-combobox-item[data-highlighted] {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
 }
 
 .sigma-ui-combobox-item[data-disabled] {

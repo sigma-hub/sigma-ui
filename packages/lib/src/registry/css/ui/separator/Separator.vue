@@ -26,7 +26,7 @@ const props = defineProps<
 .sigma-ui-separator {
   position: relative;
   flex-shrink: 0;
-  background-color: hsl(var(--border));
+  background-color: var(--border);
 }
 
 .sigma-ui-separator[data-orientation="vertical"] {
@@ -46,8 +46,8 @@ const props = defineProps<
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: hsl(var(--background));
-  color: hsl(var(--muted-foreground));
+  background-color: var(--background);
+  color: var(--muted-foreground);
   font-size: 0.75rem;
   transform: translate(-50%, -50%);
 }

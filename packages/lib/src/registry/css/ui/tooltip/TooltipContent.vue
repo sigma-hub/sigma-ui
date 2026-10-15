@@ -31,12 +31,12 @@ const forwarded = useForwardPropsEmits(props, emits);
   z-index: 50;
   overflow: hidden;
   padding: 0.375rem 0.75rem;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
   animation: sigma-ui-tooltip-in 150ms cubic-bezier(0.16, 1, 0.3, 1);
-  background-color: hsl(var(--popover));
+  background-color: var(--popover);
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
-  color: hsl(var(--popover-foreground));
+  color: var(--popover-foreground);
   font-size: 0.875rem;
 }
 

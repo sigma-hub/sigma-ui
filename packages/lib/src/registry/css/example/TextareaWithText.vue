@@ -24,7 +24,7 @@ import { Label } from '@ui/registry/css/ui/label';
 }
 
 .example-sigma-ui-textarea-with-text__help-text {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.875rem;
 }
 </style>

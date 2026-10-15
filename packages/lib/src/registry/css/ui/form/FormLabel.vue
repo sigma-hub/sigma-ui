@@ -20,10 +20,10 @@ const { error, formItemId } = useFormField();
 
 <style>
 .sigma-ui-form-label {
-  color: hsl(var(--foreground));
+  color: var(--foreground);
 }
 
 .sigma-ui-form-label--error {
-  color: hsl(var(--destructive));
+  color: var(--destructive);
 }
 </style>

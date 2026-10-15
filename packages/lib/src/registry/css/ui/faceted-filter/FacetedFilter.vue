@@ -202,8 +202,8 @@ function clearSearch() {
   justify-content: center;
   padding: 0 0.375rem;
   border-radius: 0.375rem;
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
   font-size: 0.6875rem;
 }
 
@@ -219,8 +219,8 @@ function clearSearch() {
   justify-content: center;
   padding: 0 0.375rem;
   border-radius: 0.375rem;
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
   font-size: 0.6875rem;
 }
 
@@ -251,7 +251,7 @@ function clearSearch() {
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: 0.25rem;
   margin-right: 0.625rem;
   opacity: 0.6;
@@ -262,15 +262,15 @@ function clearSearch() {
 }
 
 .sigma-ui-faceted-filter__checkbox[data-selected] {
-  border-color: hsl(var(--primary) / 60%);
-  background: hsl(var(--primary) / 15%);
+  border-color: color-mix(in oklch, var(--primary) 60%, transparent);
+  background: color-mix(in oklch, var(--primary) 15%, transparent);
   opacity: 1;
 }
 
 .sigma-ui-faceted-filter__check {
   width: 0.875rem;
   height: 0.875rem;
-  color: hsl(var(--primary));
+  color: var(--primary);
 }
 
 .sigma-ui-faceted-filter__option-text {

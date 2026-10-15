@@ -9,7 +9,7 @@
   position: relative;
   padding: 0.2rem 0.3rem;
   border-radius: 0.25rem;
-  background-color: hsl(var(--muted));
+  background-color: var(--muted);
   font-family: var(--font-mono);
   font-size: 0.875rem;
   font-weight: 600;

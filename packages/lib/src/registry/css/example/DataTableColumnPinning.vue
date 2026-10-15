@@ -339,7 +339,7 @@ const table = useVueTable({
 }
 
 .example-sigma-ui-data-table__container {
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
 }
 
@@ -350,7 +350,7 @@ const table = useVueTable({
 
 .example-sigma-ui-data-table__cell--pinned {
   position: sticky;
-  background-color: hsl(var(--background) / 95%);
+  background-color: color-mix(in oklch, var(--background) 95%, transparent);
 }
 
 .example-sigma-ui-data-table__cell--pinned-left {
@@ -371,7 +371,7 @@ const table = useVueTable({
 
 .example-sigma-ui-data-table__footer-info {
   flex: 1;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.875rem;
 }
 

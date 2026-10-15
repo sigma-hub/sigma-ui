@@ -58,7 +58,7 @@ const works: Artwork[] = [
 <style>
 .example-sigma-ui-scroll-area-horizontal {
   width: 24rem;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   white-space: nowrap;
 }
@@ -88,12 +88,12 @@ const works: Artwork[] = [
 
 .example-sigma-ui-scroll-area-horizontal__caption {
   padding-top: 0.5rem;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.75rem;
 }
 
 .example-sigma-ui-scroll-area-horizontal__artist {
-  color: hsl(var(--foreground));
+  color: var(--foreground);
   font-weight: 600;
 }
 </style>

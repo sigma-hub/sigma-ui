@@ -127,7 +127,7 @@ const selectedStatus = ref<Status>();
 }
 
 .example-sigma-ui-command-popover__label {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.875rem;
 }
 

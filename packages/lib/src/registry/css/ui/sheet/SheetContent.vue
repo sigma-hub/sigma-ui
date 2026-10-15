@@ -64,7 +64,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
   position: fixed;
   z-index: 50;
   padding: 1.5rem;
-  background-color: hsl(var(--background));
+  background-color: var(--background);
   box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
   transition: all 0.3s ease-in-out;
 }
@@ -81,7 +81,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 
 .sigma-ui-sheet-content--top {
   top: 0;
-  border-bottom: 1px solid hsl(var(--border));
+  border-bottom: 1px solid var(--border);
   inset-inline: 0;
 }
 
@@ -95,7 +95,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 
 .sigma-ui-sheet-content--bottom {
   bottom: 0;
-  border-top: 1px solid hsl(var(--border));
+  border-top: 1px solid var(--border);
   inset-inline: 0;
 }
 
@@ -111,7 +111,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
   left: 0;
   width: 75%;
   height: 100%;
-  border-right: 1px solid hsl(var(--border));
+  border-right: 1px solid var(--border);
   inset-block: 0;
 }
 
@@ -133,7 +133,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
   right: 0;
   width: 75%;
   height: 100%;
-  border-left: 1px solid hsl(var(--border));
+  border-left: 1px solid var(--border);
   inset-block: 0;
 }
 
@@ -165,7 +165,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 }
 
 .sigma-ui-sheet-close:focus {
-  outline: 2px solid hsl(var(--ring));
+  outline: 2px solid var(--ring);
   outline-offset: 2px;
 }
 
@@ -174,13 +174,13 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 }
 
 .sigma-ui-sheet-close[data-state="open"] {
-  background-color: hsl(var(--secondary));
+  background-color: var(--secondary);
 }
 
 .sigma-ui-sheet-close__icon {
   width: 1rem;
   height: 1rem;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 @keyframes sigma-ui-slide-in-from-top {

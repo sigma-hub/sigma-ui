@@ -19,6 +19,6 @@ const props = defineProps<ComboboxSeparatorProps>();
   height: 1px;
   margin-right: -0.25rem;
   margin-left: -0.25rem;
-  background-color: hsl(var(--border));
+  background-color: var(--border);
 }
 </style>

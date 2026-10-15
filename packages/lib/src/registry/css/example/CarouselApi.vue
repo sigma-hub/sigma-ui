@@ -80,7 +80,7 @@ watchOnce(api, (api) => {
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   aspect-ratio: 1;
   font-size: 2.25rem;
@@ -90,7 +90,7 @@ watchOnce(api, (api) => {
 
 .example-sigma-ui-carousel-api__counter {
   padding-top: 0.5rem;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.875rem;
   text-align: center;
 }

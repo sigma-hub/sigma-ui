@@ -30,11 +30,11 @@ const forwarded = useForwardPropsEmits(props, emits);
   position: relative;
   z-index: 50;
   width: 200px;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
   backdrop-filter: blur(var(--backdrop-filter-blur));
-  background-color: hsl(var(--popover));
-  color: hsl(var(--popover-foreground));
+  background-color: var(--popover);
+  color: var(--popover-foreground);
   transform-origin: var(--reka-popover-content-transform-origin);
 }
 

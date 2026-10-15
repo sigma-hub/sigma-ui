@@ -54,18 +54,18 @@
 
 .example-sigma-ui-typography__table-row {
   padding: 0;
-  border-top: 1px solid hsl(var(--border));
+  border-top: 1px solid var(--border);
   margin: 0;
 }
 
 .example-sigma-ui-typography__table tbody tr:nth-child(even) {
-  background-color: hsl(var(--muted));
+  background-color: var(--muted);
 }
 
 .example-sigma-ui-typography__table-header,
 .example-sigma-ui-typography__table-cell {
   padding: 0.5rem 1rem;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   text-align: left;
 }
 

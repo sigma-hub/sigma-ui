@@ -39,18 +39,18 @@ defineSlots<{
   border-radius: var(--radius-md);
   aspect-ratio: 1 / 1;
   background-color: transparent;
-  color: hsl(var(--foreground));
+  color: var(--foreground);
   outline: none;
   transition: transform 150ms;
 }
 
 .sigma-ui-sidebar-group-action:hover {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
 }
 
 .sigma-ui-sidebar-group-action:focus-visible {
-  box-shadow: 0 0 0 2px hsl(var(--ring));
+  box-shadow: 0 0 0 2px var(--ring);
 }
 
 .sigma-ui-sidebar-group-action > svg {

@@ -120,7 +120,7 @@ const open = ref(false);
   align-items: flex-start;
   justify-content: space-between;
   padding: 0.75rem 1rem;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius);
 }
 
@@ -141,13 +141,13 @@ const open = ref(false);
   padding: 0.25rem 0.5rem;
   border-radius: var(--radius-lg);
   margin-right: 0.5rem;
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  background-color: var(--primary);
+  color: var(--primary-foreground);
   font-size: 0.75rem;
 }
 
 .example-sigma-ui-command-dropdown__description {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 .example-sigma-ui-command-dropdown__content {
@@ -165,6 +165,6 @@ const open = ref(false);
 }
 
 .example-sigma-ui-command-dropdown__delete {
-  color: hsl(var(--destructive));
+  color: var(--destructive);
 }
 </style>

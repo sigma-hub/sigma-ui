@@ -34,14 +34,14 @@ const props = withDefaults(
   min-width: 50px;
   height: 1rem;
   border-radius: var(--radius-full);
-  background-color: hsl(var(--secondary));
+  background-color: var(--secondary);
 }
 
 .sigma-ui-progress__indicator {
   width: 100%;
   height: 100%;
   flex: 1;
-  background-color: hsl(var(--primary));
+  background-color: var(--primary);
   transition: all 0.2s ease;
 }
 </style>

@@ -109,16 +109,16 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
   width: var(--sidebar-width);
   height: 100%;
   flex-direction: column;
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 .sigma-ui-sheet-content__base.sigma-ui-sidebar--mobile {
   width: var(--sidebar-width);
   max-width: none;
   padding: 0;
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 .sigma-ui-sidebar--mobile > .sigma-ui-sheet-close {
@@ -134,7 +134,7 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
 
 .sigma-ui-sidebar {
   display: none;
-  color: hsl(var(--foreground));
+  color: var(--foreground);
 }
 
 .sigma-ui-sidebar__gap {
@@ -159,7 +159,7 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
   width: 100%;
   height: 100%;
   flex-direction: column;
-  background-color: hsl(var(--background));
+  background-color: var(--background);
 }
 
 .sigma-ui-sidebar[data-side="left"] .sigma-ui-sidebar__container {
@@ -187,11 +187,11 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
 }
 
 .sigma-ui-sidebar[data-variant="sidebar"][data-side="left"] .sigma-ui-sidebar__container {
-  border-right: 1px solid hsl(var(--border));
+  border-right: 1px solid var(--border);
 }
 
 .sigma-ui-sidebar[data-variant="sidebar"][data-side="right"] .sigma-ui-sidebar__container {
-  border-left: 1px solid hsl(var(--border));
+  border-left: 1px solid var(--border);
 }
 
 .sigma-ui-sidebar[data-variant="sidebar"][data-collapsible="icon"] .sigma-ui-sidebar__gap,
@@ -215,7 +215,7 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
 }
 
 .sigma-ui-sidebar[data-variant="floating"] .sigma-ui-sidebar__inner {
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: 0 1px 3px rgb(0 0 0 / 10%), 0 1px 2px -1px rgb(0 0 0 / 10%);
 }

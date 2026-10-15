@@ -90,7 +90,7 @@ function handleSelect(event: any) {
 <style>
 .example-sigma-ui-command {
   max-width: 450px;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%);
 }

@@ -13,6 +13,6 @@
 
 <style>
 .sigma-ui-table-header tr {
-  border-bottom: 1px solid hsl(var(--border));
+  border-bottom: 1px solid var(--border);
 }
 </style>

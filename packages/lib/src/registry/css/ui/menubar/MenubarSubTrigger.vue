@@ -34,13 +34,13 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-menubar-subtrigger:focus {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
 }
 
 .sigma-ui-menubar-subtrigger[data-state="open"] {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
 }
 
 .sigma-ui-menubar-subtrigger--inset {

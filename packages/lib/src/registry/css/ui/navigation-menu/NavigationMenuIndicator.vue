@@ -40,7 +40,7 @@ const forwardedProps = useForwardProps(props);
   top: 60%;
   width: 0.5rem;
   height: 0.5rem;
-  background-color: hsl(var(--border));
+  background-color: var(--border);
   border-top-left-radius: 0.125rem;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%);
   transform: rotate(45deg);

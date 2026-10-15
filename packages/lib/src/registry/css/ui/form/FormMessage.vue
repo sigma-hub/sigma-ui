@@ -17,7 +17,7 @@ const { name, formMessageId } = useFormField();
 
 <style>
 .sigma-ui-form-message {
-  color: hsl(var(--destructive));
+  color: var(--destructive);
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.25rem;

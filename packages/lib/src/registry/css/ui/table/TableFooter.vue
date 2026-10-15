@@ -13,8 +13,8 @@
 
 <style>
 .sigma-ui-table-footer {
-  border-top: 1px solid hsl(var(--border));
-  background-color: hsl(var(--muted) / 50%);
+  border-top: 1px solid var(--border);
+  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
   font-weight: 500;
 }
 

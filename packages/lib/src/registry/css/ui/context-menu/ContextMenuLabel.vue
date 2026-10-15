@@ -20,7 +20,7 @@ const props = defineProps<ContextMenuLabelProps & {
 <style>
 .sigma-ui-context-menu-label {
   padding: 0.375rem 0.5rem;
-  color: hsl(var(--foreground));
+  color: var(--foreground);
   font-size: 0.875rem;
   font-weight: 600;
   line-height: 1.25rem;

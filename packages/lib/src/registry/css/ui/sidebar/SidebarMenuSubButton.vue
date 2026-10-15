@@ -49,7 +49,7 @@ defineSlots<{
   align-items: center;
   padding: 0 0.5rem;
   border-radius: var(--radius-md);
-  color: hsl(var(--foreground));
+  color: var(--foreground);
   font-size: 0.875rem;
   gap: 0.5rem;
   outline: none;
@@ -64,12 +64,12 @@ defineSlots<{
 .sigma-ui-sidebar-menu-sub-button:hover,
 .sigma-ui-sidebar-menu-sub-button:active,
 .sigma-ui-sidebar-menu-sub-button[data-active="true"] {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
 }
 
 .sigma-ui-sidebar-menu-sub-button:focus-visible {
-  box-shadow: 0 0 0 2px hsl(var(--ring));
+  box-shadow: 0 0 0 2px var(--ring);
 }
 
 .sigma-ui-sidebar-menu-sub-button:disabled,
@@ -82,7 +82,7 @@ defineSlots<{
   width: 1rem;
   height: 1rem;
   flex-shrink: 0;
-  color: hsl(var(--secondary-foreground));
+  color: var(--secondary-foreground);
 }
 
 .sigma-ui-sidebar-menu-sub-button > span:last-child {

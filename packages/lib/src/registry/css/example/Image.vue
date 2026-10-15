@@ -44,7 +44,7 @@ import { Image } from '@ui/registry/css/ui/image';
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   gap: 0.25rem;
 }
 

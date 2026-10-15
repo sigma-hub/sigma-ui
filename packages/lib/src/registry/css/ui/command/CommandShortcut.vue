@@ -14,7 +14,7 @@
 <style>
 .sigma-ui-command-shortcut {
   margin-left: auto;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   line-height: 1rem;

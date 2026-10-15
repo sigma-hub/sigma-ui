@@ -23,7 +23,7 @@ defineSlots<{
   width: 100%;
   flex: 1;
   flex-direction: column;
-  background-color: hsl(var(--background));
+  background-color: var(--background);
 }
 
 @media (width >= 768px) {

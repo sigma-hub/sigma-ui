@@ -104,7 +104,7 @@ function handleSelect(event: any) {
 
 <style>
 .example-sigma-ui-command-dialog__text {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.875rem;
 }
 
@@ -113,8 +113,8 @@ function handleSelect(event: any) {
   align-items: center;
   padding: 0.25rem 0.5rem;
   border-radius: var(--radius-sm);
-  background-color: hsl(var(--muted));
-  color: hsl(var(--muted-foreground));
+  background-color: var(--muted);
+  color: var(--muted-foreground);
   font-family: var(--font-mono);
   gap: 0.25rem;
   pointer-events: none;

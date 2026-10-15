@@ -40,13 +40,13 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-dropdown-menu-sub-trigger:focus {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
 }
 
 .sigma-ui-dropdown-menu-sub-trigger[data-state="open"] {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
 }
 
 .sigma-ui-dropdown-menu-sub-trigger--inset {

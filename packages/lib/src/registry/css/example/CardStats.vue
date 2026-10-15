@@ -48,13 +48,13 @@ const lineY = (d: Data) => d.revenue;
             <VisLine
               :x="lineX"
               :y="lineY"
-              color="hsl(var(--primary))"
+              color="var(--primary)"
             />
             <VisScatter
               :x="lineX"
               :y="lineY"
               :size="6"
-              stroke-color="hsl(var(--primary))"
+              stroke-color="var(--primary)"
               :stroke-width="2"
               color="white"
             />
@@ -87,7 +87,7 @@ const lineY = (d: Data) => d.revenue;
               :y="(d: Data) => d.subscription"
               :bar-padding="0.1"
               :rounded-corners="0"
-              color="hsl(var(--primary))"
+              color="var(--primary)"
             />
           </VisXYContainer>
         </div>
@@ -123,7 +123,7 @@ const lineY = (d: Data) => d.revenue;
 }
 
 .example-sigma-ui-card-stats__change {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.75rem;
 }
 
