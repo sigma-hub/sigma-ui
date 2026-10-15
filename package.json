@@ -24,10 +24,9 @@
     "docs:check": "pnpm --filter docs docs:check",
     "docs:lint": "pnpm --filter docs docs:lint",
     "new:component": "pnpm --filter docs new:component",
-    "bumpp": "bumpp package.json packages/*/package.json apps/*/package.json",
-    "prerelease": "pnpm ts:cli && pnpm build:registry && pnpm build:cli",
-    "pub:beta": "pnpm --filter sigma-ui pub:beta",
-    "pub:release": "pnpm --filter sigma-ui pub:release",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "changeset publish",
     "test": "pnpm -r --if-present test",
     "ts:docs": "pnpm --filter docs ts",
     "ts:cli": "pnpm --filter sigma-ui ts",
@@ -37,6 +36,8 @@
     "ts": "pnpm run ts:cli && pnpm run ts:shared && pnpm run ts:nuxt && pnpm run ts:lib && pnpm run ts:docs"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^1.0.1",
+    "@changesets/cli": "^3.0.3",
     "@commitlint/cli": "^19.7.1",
     "@commitlint/config-conventional": "^19.7.1",
     "@eslint/js": "^9.20.0",
