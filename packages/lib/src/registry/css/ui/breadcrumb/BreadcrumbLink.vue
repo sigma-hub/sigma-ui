@@ -25,6 +25,6 @@ const props = withDefaults(defineProps<PrimitiveProps>(), {
 }
 
 .sigma-ui-breadcrumb__link:hover {
-  color: hsl(var(--foreground));
+  color: var(--foreground);
 }
 </style>

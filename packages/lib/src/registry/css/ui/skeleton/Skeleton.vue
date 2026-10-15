@@ -12,7 +12,7 @@
 .sigma-ui-skeleton {
   border-radius: var(--radius-md);
   animation: sigma-ui-skeleton-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  background-color: hsl(var(--muted));
+  background-color: var(--muted);
 }
 
 @keyframes sigma-ui-skeleton-pulse {

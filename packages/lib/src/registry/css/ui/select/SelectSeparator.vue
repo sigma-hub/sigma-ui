@@ -16,7 +16,7 @@ const props = defineProps<SelectSeparatorProps>();
 .sigma-ui-select-separator {
   height: 1px;
   margin: 0.25rem -0.25rem;
-  background-color: hsl(var(--border));
+  background-color: var(--border);
   pointer-events: none;
 }
 </style>

@@ -25,9 +25,9 @@ defineEmits<{
   width: 100%;
   min-width: 0;
   height: 2.25rem;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  background-color: hsl(var(--input));
+  background-color: var(--input);
   font-size: 1rem;
   padding-block: 0.25rem;
   padding-inline: 0.75rem;
@@ -44,26 +44,26 @@ defineEmits<{
   height: 1.75rem;
   border: 0;
   background-color: transparent;
-  color: hsl(var(--foreground));
+  color: var(--foreground);
   font-size: 0.875rem;
   font-weight: 500;
 }
 
 .sigma-ui-input::selection {
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  background-color: var(--primary);
+  color: var(--primary-foreground);
 }
 
 .sigma-ui-input[aria-invalid="true"] {
-  border-color: hsl(var(--destructive));
+  border-color: var(--destructive);
 }
 
 .sigma-ui-input::placeholder {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 .sigma-ui-input:focus-visible {
-  outline: 2px solid hsl(var(--ring));
+  outline: 2px solid var(--ring);
   outline-offset: 2px;
 }
 

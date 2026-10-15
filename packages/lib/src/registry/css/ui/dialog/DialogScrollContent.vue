@@ -71,9 +71,9 @@ const forwarded = useForwardPropsEmits(props, emits);
   width: 100%;
   max-width: 32rem;
   padding: 1.5rem;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   margin: 2rem 0;
-  background-color: hsl(var(--background));
+  background-color: var(--background);
   box-shadow: var(--shadow-lg);
   gap: 1rem;
   transition-duration: 200ms;
@@ -91,7 +91,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-dialog-scroll-close:hover {
-  background-color: hsl(var(--secondary));
+  background-color: var(--secondary);
 }
 
 .sigma-ui-dialog-scroll-close__icon {

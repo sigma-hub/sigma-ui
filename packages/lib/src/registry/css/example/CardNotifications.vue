@@ -86,7 +86,7 @@ const notifications = [
   display: flex;
   align-items: center;
   padding: 1rem;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   gap: 1rem;
 }
@@ -105,7 +105,7 @@ const notifications = [
 }
 
 .example-sigma-ui-card-notifications__switch-description {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.875rem;
 }
 
@@ -143,7 +143,7 @@ const notifications = [
 }
 
 .example-sigma-ui-card-notifications__item-description {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.875rem;
 }
 

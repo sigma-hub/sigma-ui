@@ -32,7 +32,7 @@ const tags = Array.from({ length: 50 }).map(
 .example-sigma-ui-scroll-area {
   width: 12rem;
   height: 18rem;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius);
 }
 

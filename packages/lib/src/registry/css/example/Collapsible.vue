@@ -84,7 +84,7 @@ const isOpen = ref(false);
 
 .example-sigma-ui-collapsible__component {
   padding: 0.75rem 1rem;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   font-family: var(--font-mono);
   font-size: 0.875rem;

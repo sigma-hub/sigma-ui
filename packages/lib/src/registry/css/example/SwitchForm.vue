@@ -125,7 +125,7 @@ const onSubmit = handleSubmit((values) => {
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius);
 }
 
@@ -147,6 +147,6 @@ const onSubmit = handleSubmit((values) => {
   padding: 1rem;
   border-radius: var(--radius);
   margin-top: 0.5rem;
-  background-color: hsl(var(--muted) / 50%);
+  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
 }
 </style>

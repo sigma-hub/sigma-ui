@@ -84,7 +84,7 @@ const data = [
               class="h-[120px]"
               :style="{
                 'opacity': 0.9,
-                '--theme-primary': `hsl(var(--foreground))`,
+                '--theme-primary': `var(--foreground)`,
               }"
             >
               <VisStackedBar

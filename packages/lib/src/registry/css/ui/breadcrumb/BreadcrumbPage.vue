@@ -16,7 +16,7 @@
 
 <style>
 .sigma-ui-breadcrumb__page {
-  color: hsl(var(--foreground));
+  color: var(--foreground);
   font-weight: normal;
 }
 </style>

@@ -81,7 +81,7 @@ const disabledTerms = ref<boolean | 'indeterminate'>(false);
 }
 
 .example-sigma-ui-checkbox-custom__description {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.875rem;
   line-height: 1.25rem;
 }

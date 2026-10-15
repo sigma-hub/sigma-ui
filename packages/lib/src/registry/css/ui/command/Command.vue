@@ -29,7 +29,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   height: 100%;
   flex-direction: column;
   border-radius: var(--radius-md);
-  background-color: hsl(var(--popover));
-  color: hsl(var(--popover-foreground));
+  background-color: var(--popover);
+  color: var(--popover-foreground);
 }
 </style>

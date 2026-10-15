@@ -140,7 +140,7 @@ const formatter = useDateFormatter('en');
 <style>
 .example-sigma-ui-calendar-select {
   padding: 0.75rem;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
 }
 

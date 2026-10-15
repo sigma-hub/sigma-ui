@@ -84,7 +84,7 @@ const data = [
               class="example-sigma-ui-drawer__chart-container"
               :style="{
                 'opacity': 0.9,
-                '--theme-primary': `hsl(var(--foreground))`,
+                '--theme-primary': `var(--foreground)`,
               }"
             >
               <VisStackedBar
@@ -154,7 +154,7 @@ const data = [
 }
 
 .example-sigma-ui-drawer__goal-label {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.7rem;
   line-height: 1;
   text-transform: uppercase;

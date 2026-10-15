@@ -7,7 +7,7 @@
 
 <style>
 .example-sigma-ui-typography__lead {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 1.25rem;
 }
 </style>

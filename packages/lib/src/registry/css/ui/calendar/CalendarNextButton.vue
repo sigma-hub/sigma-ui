@@ -25,7 +25,7 @@ const forwardedProps = useForwardProps(props);
   width: 1.75rem;
   height: 1.75rem;
   padding: 0;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   background-color: transparent;
   opacity: 0.5;
@@ -35,8 +35,8 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-calendar-next:hover {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
   opacity: 1;
 }
 

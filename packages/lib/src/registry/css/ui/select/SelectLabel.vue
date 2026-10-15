@@ -17,7 +17,7 @@ const props = defineProps<SelectLabelProps>();
 <style>
 .sigma-ui-select-label {
   padding: 0.375rem 0.5rem;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.75rem;
 }
 </style>

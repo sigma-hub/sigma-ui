@@ -35,43 +35,43 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-range-calendar-cell-trigger[data-today]:not([data-selected]) {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
 }
 
 .sigma-ui-range-calendar-cell-trigger[data-selection-start],
 .sigma-ui-range-calendar-cell-trigger[data-selection-end] {
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  background-color: var(--primary);
+  color: var(--primary-foreground);
 }
 
 .sigma-ui-range-calendar-cell-trigger[data-selection-start]:hover,
 .sigma-ui-range-calendar-cell-trigger[data-selection-start]:focus,
 .sigma-ui-range-calendar-cell-trigger[data-selection-end]:hover,
 .sigma-ui-range-calendar-cell-trigger[data-selection-end]:focus {
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  background-color: var(--primary);
+  color: var(--primary-foreground);
 }
 
 .sigma-ui-range-calendar-cell-trigger[data-outside-month] {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   opacity: 0.5;
   pointer-events: none;
 }
 
 .sigma-ui-range-calendar-cell-trigger[data-outside-month][data-selected] {
-  background-color: hsl(var(--secondary) / 50%);
-  color: hsl(var(--muted-foreground));
+  background-color: color-mix(in oklch, var(--secondary) 50%, transparent);
+  color: var(--muted-foreground);
   opacity: 0.3;
 }
 
 .sigma-ui-range-calendar-cell-trigger[data-disabled] {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   opacity: 0.5;
 }
 
 .sigma-ui-range-calendar-cell-trigger[data-unavailable] {
-  color: hsl(var(--destructive-foreground));
+  color: var(--destructive-foreground);
   text-decoration: line-through;
 }
 </style>

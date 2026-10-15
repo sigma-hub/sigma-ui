@@ -75,7 +75,7 @@ const items = [
   overflow: hidden;
   width: 100%;
   height: 360px;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   transform: translateZ(0);
 }
@@ -100,7 +100,7 @@ const items = [
 
 .example-sidebar-controlled__text {
   margin: 0;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.875rem;
 }
 </style>

@@ -18,6 +18,6 @@ const props = defineProps<ContextMenuSeparatorProps>();
 .sigma-ui-context-menu-separator {
   height: 1px;
   margin: 0.25rem -0.25rem;
-  background-color: hsl(var(--border));
+  background-color: var(--border);
 }
 </style>

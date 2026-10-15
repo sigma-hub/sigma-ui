@@ -39,7 +39,7 @@ import {
 .example-sigma-ui-resizable-handle {
   max-width: 28rem;
   min-height: 200px;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius);
 }
 

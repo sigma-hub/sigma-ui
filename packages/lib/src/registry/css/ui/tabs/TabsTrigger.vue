@@ -33,7 +33,7 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-tabs-trigger:focus-visible {
-  outline: 2px solid hsl(var(--ring));
+  outline: 2px solid var(--ring);
   outline-offset: 2px;
 }
 
@@ -43,8 +43,8 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-tabs-trigger[data-state="active"] {
-  background-color: hsl(var(--input));
+  background-color: var(--input);
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
-  color: hsl(var(--foreground));
+  color: var(--foreground);
 }
 </style>

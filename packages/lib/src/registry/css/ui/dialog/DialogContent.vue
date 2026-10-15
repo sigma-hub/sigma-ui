@@ -60,8 +60,8 @@ const forwarded = useForwardPropsEmits(props, emits);
   width: 100%;
   max-width: 32rem;
   padding: 1.5rem;
-  border: 1px solid hsl(var(--border));
-  background-color: hsl(var(--background));
+  border: 1px solid var(--border);
+  background-color: var(--background);
   box-shadow: var(--shadow-lg);
   gap: 1rem;
   transform: translate(-50%, -50%);
@@ -92,13 +92,13 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-dialog-close:focus {
-  outline: 2px solid hsl(var(--ring));
+  outline: 2px solid var(--ring);
   outline-offset: 2px;
 }
 
 .sigma-ui-dialog-close[data-state="open"] {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--muted-foreground));
+  background-color: var(--secondary);
+  color: var(--muted-foreground);
 }
 
 .sigma-ui-dialog-close:disabled {

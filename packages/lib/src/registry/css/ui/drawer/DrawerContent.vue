@@ -32,9 +32,9 @@ const forwarded = useForwardPropsEmits(props, emits);
   display: flex;
   height: auto;
   flex-direction: column;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   margin-top: 6rem;
-  background-color: hsl(var(--background));
+  background-color: var(--background);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   inset-inline: 0;
@@ -45,7 +45,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   height: 0.5rem;
   border-radius: var(--radius-full);
   margin-top: 1rem;
-  background-color: hsl(var(--muted));
+  background-color: var(--muted);
   margin-inline: auto;
 }
 </style>

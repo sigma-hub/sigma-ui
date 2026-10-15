@@ -29,11 +29,11 @@ const forwardedProps = useForwardProps(props);
 .sigma-ui-radio-group-item {
   width: 1rem;
   height: 1rem;
-  border: 1px solid hsl(var(--primary));
+  border: 1px solid var(--primary);
   border-radius: var(--radius-full);
   aspect-ratio: 1;
   background-color: transparent;
-  color: hsl(var(--primary));
+  color: var(--primary);
   transition: all 150ms ease-out;
 }
 
@@ -42,7 +42,7 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-radio-group-item:focus-visible {
-  outline: 2px solid hsl(var(--ring));
+  outline: 2px solid var(--ring);
   outline-offset: 2px;
 }
 

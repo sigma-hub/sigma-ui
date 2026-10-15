@@ -42,7 +42,7 @@ const { toggleSidebar } = useSidebar();
 }
 
 .sigma-ui-sidebar-rail:hover::after {
-  background-color: hsl(var(--border));
+  background-color: var(--border);
 }
 
 .sigma-ui-sidebar[data-side="left"] .sigma-ui-sidebar-rail {
@@ -72,7 +72,7 @@ const { toggleSidebar } = useSidebar();
 }
 
 .sigma-ui-sidebar[data-collapsible="offcanvas"] .sigma-ui-sidebar-rail:hover {
-  background-color: hsl(var(--background));
+  background-color: var(--background);
 }
 
 .sigma-ui-sidebar[data-side="left"][data-collapsible="offcanvas"] .sigma-ui-sidebar-rail {

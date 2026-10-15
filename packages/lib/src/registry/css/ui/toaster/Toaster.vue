@@ -38,16 +38,16 @@ const props = defineProps<ToasterProps>();
   width: 100%;
   align-items: center;
   border-radius: var(--radius);
-  background-color: hsl(var(--background));
+  background-color: var(--background);
   box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
-  color: hsl(var(--foreground));
+  color: var(--foreground);
   cursor: default;
   gap: 0.5rem;
 }
 
 .sigma-ui-toast[data-type="default"] {
   padding: 0.75rem 1rem;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
 }
 
 .sigma-ui-toast[data-type="default"] [data-content] {
@@ -62,8 +62,8 @@ const props = defineProps<ToasterProps>();
 .sigma-ui-toast[data-type="default"] .sigma-ui-toast__action-button {
   padding: 2px 6px;
   border-radius: var(--radius-sm);
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  background-color: var(--primary);
+  color: var(--primary-foreground);
 }
 
 .sigma-ui-toast[data-type="default"] .sigma-ui-toast__action-button:hover {
@@ -73,8 +73,8 @@ const props = defineProps<ToasterProps>();
 .sigma-ui-toast[data-type="default"] .sigma-ui-toast__cancel-button {
   padding: 2px 6px;
   border-radius: var(--radius-sm);
-  background-color: hsl(var(--muted));
-  color: hsl(var(--muted-foreground));
+  background-color: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .sigma-ui-toast[data-type="default"] .sigma-ui-toast__cancel-button:hover {

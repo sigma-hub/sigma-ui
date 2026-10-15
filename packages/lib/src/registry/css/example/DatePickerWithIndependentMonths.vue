@@ -264,7 +264,7 @@ watch(secondMonthPlaceholder, (_secondMonthPlaceholder) => {
 }
 
 .example-sigma-ui-date-picker__button--placeholder {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 .example-sigma-ui-date-picker__button-icon {
@@ -316,7 +316,7 @@ watch(secondMonthPlaceholder, (_secondMonthPlaceholder) => {
   align-items: center;
   justify-content: center;
   padding: 0;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   background-color: transparent;
   opacity: 0.5;

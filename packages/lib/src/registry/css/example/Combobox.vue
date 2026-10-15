@@ -78,7 +78,7 @@ const frameworks = [
 .example-sigma-ui-combobox__search-icon {
   width: 1rem;
   height: 1rem;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 .example-sigma-ui-combobox__check-icon {
@@ -101,7 +101,7 @@ const frameworks = [
 .example-sigma-ui-combobox__chevron {
   width: 1rem;
   height: 1rem;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   opacity: 0.5;
 }
 </style>

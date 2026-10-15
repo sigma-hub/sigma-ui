@@ -27,6 +27,6 @@ const forwardedProps = useForwardProps(props);
 .sigma-ui-pin-input-separator__icon {
   width: 1rem;
   height: 1rem;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 </style>

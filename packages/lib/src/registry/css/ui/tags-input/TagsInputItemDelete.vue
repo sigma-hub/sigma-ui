@@ -28,7 +28,7 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-tags-input-item-delete:hover {
-  background-color: hsl(var(--muted));
+  background-color: var(--muted);
 }
 
 .sigma-ui-tags-input-item-delete__icon {

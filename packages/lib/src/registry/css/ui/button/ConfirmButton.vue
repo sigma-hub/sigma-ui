@@ -104,11 +104,11 @@ async function handleClick(event: MouseEvent) {
 }
 
 .sigma-ui-confirm-button__check {
-  color: hsl(var(--success, 142 76% 36%));
+  color: var(--success, oklch(0.623 0.169 149.178));
 }
 
 .sigma-ui-confirm-button--confirmed {
-  border-color: hsl(var(--success, 142 76% 36%) / 50%);
+  border-color: color-mix(in oklch, var(--success, oklch(0.623 0.169 149.178)) 50%, transparent);
 }
 
 .sigma-ui-confirm-button-check-enter-active,

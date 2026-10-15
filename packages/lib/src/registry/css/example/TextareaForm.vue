@@ -96,7 +96,7 @@ const onSubmit = handleSubmit((values) => {
   padding: 1rem;
   border-radius: var(--radius);
   margin-top: 0.5rem;
-  background-color: hsl(var(--muted) / 50%);
-  color: hsl(var(--foreground));
+  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  color: var(--foreground);
 }
 </style>

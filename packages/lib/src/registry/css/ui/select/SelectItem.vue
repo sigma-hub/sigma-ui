@@ -48,8 +48,8 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-select-item:focus {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
 }
 
 .sigma-ui-select-item[data-disabled] {

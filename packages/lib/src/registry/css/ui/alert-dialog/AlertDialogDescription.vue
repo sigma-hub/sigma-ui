@@ -21,7 +21,7 @@ const attrs = useAttrs();
 
 <style>
 .sigma-ui-alert-dialog-description {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.875rem;
 }
 </style>

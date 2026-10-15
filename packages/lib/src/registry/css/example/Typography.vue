@@ -139,7 +139,7 @@
 
 .example-sigma-ui-typography__heading-2 {
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid hsl(var(--border));
+  border-bottom: 1px solid var(--border);
   margin-top: 2.5rem;
   font-size: 1.875rem;
   font-weight: 600;
@@ -171,7 +171,7 @@
 }
 
 .example-sigma-ui-typography__link {
-  color: hsl(var(--primary));
+  color: var(--primary);
   font-weight: 500;
   text-decoration-line: underline;
   text-underline-offset: 4px;
@@ -179,7 +179,7 @@
 
 .example-sigma-ui-typography__blockquote {
   padding-left: 1.5rem;
-  border-left: 2px solid hsl(var(--border));
+  border-left: 2px solid var(--border);
   margin-top: 1.5rem;
   font-style: italic;
 }
@@ -205,14 +205,14 @@
 
 .example-sigma-ui-typography__table-row {
   padding: 0;
-  border-top: 1px solid hsl(var(--border));
+  border-top: 1px solid var(--border);
   margin: 0;
 }
 
 .example-sigma-ui-typography__table-header,
 .example-sigma-ui-typography__table-cell {
   padding: 0.5rem 1rem;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   text-align: left;
 }
 
@@ -231,6 +231,6 @@
 }
 
 .example-sigma-ui-typography__table tbody tr:nth-child(even) {
-  background-color: hsl(var(--muted));
+  background-color: var(--muted);
 }
 </style>

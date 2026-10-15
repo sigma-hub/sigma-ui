@@ -59,7 +59,7 @@ defineProps<{
 
 .sigma-ui-chart-tooltip__header {
   padding: 0.75rem;
-  border-bottom: 1px solid hsl(var(--border));
+  border-bottom: 1px solid var(--border);
 }
 
 .sigma-ui-chart-tooltip__content {

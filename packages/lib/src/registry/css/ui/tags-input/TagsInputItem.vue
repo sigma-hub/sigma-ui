@@ -21,11 +21,11 @@ const forwardedProps = useForwardProps(props);
   height: 1.5rem;
   align-items: center;
   border-radius: var(--radius-sm);
-  background-color: hsl(var(--secondary));
+  background-color: var(--secondary);
 }
 
 .sigma-ui-tags-input-item[data-state="active"] {
-  outline: 2px solid hsl(var(--ring));
+  outline: 2px solid var(--ring);
   outline-offset: 2px;
 }
 </style>

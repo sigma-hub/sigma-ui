@@ -21,7 +21,7 @@ const forwardedProps = useForwardProps(props);
   height: 2.5rem;
   align-items: center;
   justify-content: center;
-  border: 1px solid hsl(var(--input));
+  border: 1px solid var(--input);
   border-left: none;
   font-size: 0.875rem;
   text-align: center;
@@ -29,7 +29,7 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-pin-input-input:first-child {
-  border-left: 1px solid hsl(var(--input));
+  border-left: 1px solid var(--input);
   border-bottom-left-radius: 0.375rem;
   border-top-left-radius: 0.375rem;
 }
@@ -42,7 +42,7 @@ const forwardedProps = useForwardProps(props);
 .sigma-ui-pin-input-input:focus {
   position: relative;
   z-index: 10;
-  outline: 2px solid hsl(var(--ring));
+  outline: 2px solid var(--ring);
   outline-offset: -1px;
 }
 </style>

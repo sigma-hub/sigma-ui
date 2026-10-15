@@ -121,11 +121,11 @@ const filteredFrameworks = computed(() => {
 
 .example-sigma-ui-tags-input-combobox__list {
   width: var(--reka-popper-anchor-width);
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius);
-  background-color: hsl(var(--popover));
+  background-color: var(--popover);
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
-  color: hsl(var(--popover-foreground));
+  color: var(--popover-foreground);
   outline: none;
   transform-origin: var(--reka-popper-transform-origin);
 }

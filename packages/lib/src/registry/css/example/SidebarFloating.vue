@@ -69,9 +69,9 @@ const items = [
   overflow: hidden;
   width: 100%;
   height: 420px;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius);
-  background-color: hsl(var(--secondary) / 50%);
+  background-color: color-mix(in oklch, var(--secondary) 50%, transparent);
   transform: translateZ(0);
 }
 
@@ -94,7 +94,7 @@ const items = [
 
 .example-sidebar-floating__placeholder {
   flex: 1;
-  border: 1px dashed hsl(var(--border));
+  border: 1px dashed var(--border);
   border-radius: calc(var(--radius) + 4px);
 }
 </style>

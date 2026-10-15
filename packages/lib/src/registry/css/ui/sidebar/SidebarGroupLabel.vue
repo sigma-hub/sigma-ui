@@ -33,7 +33,7 @@ defineSlots<{
   align-items: center;
   padding: 0 0.5rem;
   border-radius: var(--radius-md);
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.75rem;
   font-weight: 500;
   outline: none;
@@ -41,7 +41,7 @@ defineSlots<{
 }
 
 .sigma-ui-sidebar-group-label:focus-visible {
-  box-shadow: 0 0 0 2px hsl(var(--ring));
+  box-shadow: 0 0 0 2px var(--ring);
 }
 
 .sigma-ui-sidebar-group-label > svg {

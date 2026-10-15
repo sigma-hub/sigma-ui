@@ -42,6 +42,6 @@ import { Input } from '@ui/registry/css/ui/input';
 .example-sigma-ui-input-with-icon__icon {
   width: 1.5rem;
   height: 1.5rem;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 </style>

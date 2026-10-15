@@ -82,7 +82,7 @@ const data = [
           <VisStackedBar
             :x="(d: Data, i :number) => i"
             :y="(d: Data) => d.goal"
-            color="hsl(var(--primary))"
+            color="var(--primary)"
             :bar-padding="0.1"
             :rounded-corners="0"
           />

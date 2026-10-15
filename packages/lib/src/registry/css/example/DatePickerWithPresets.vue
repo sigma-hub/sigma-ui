@@ -76,7 +76,7 @@ const value = ref<DateValue>();
 }
 
 .example-sigma-ui-date-picker__button--placeholder {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 .example-sigma-ui-date-picker__button-icon {

@@ -31,7 +31,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   width: 1px;
   align-items: center;
   justify-content: center;
-  background-color: hsl(var(--border));
+  background-color: var(--border);
 }
 
 .sigma-ui-resizable-handle::after {
@@ -44,7 +44,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-resizable-handle:focus-visible {
-  outline: 1px solid hsl(var(--ring));
+  outline: 1px solid var(--ring);
   outline-offset: 1px;
 }
 
@@ -71,9 +71,9 @@ const forwarded = useForwardPropsEmits(props, emits);
   height: 1rem;
   align-items: center;
   justify-content: center;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  background-color: hsl(var(--border));
+  background-color: var(--border);
 }
 
 .sigma-ui-resizable-handle__grip-icon {

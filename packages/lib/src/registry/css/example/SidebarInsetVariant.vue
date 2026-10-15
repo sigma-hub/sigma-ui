@@ -73,7 +73,7 @@ const items = [
   overflow: hidden;
   width: 100%;
   height: 420px;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   transform: translateZ(0);
 }
@@ -93,7 +93,7 @@ const items = [
   flex-shrink: 0;
   align-items: center;
   padding: 0 1rem;
-  border-bottom: 1px solid hsl(var(--border));
+  border-bottom: 1px solid var(--border);
   gap: 0.5rem;
 }
 
@@ -117,6 +117,6 @@ const items = [
 .example-sidebar-inset__panel {
   flex: 1;
   border-radius: calc(var(--radius) + 4px);
-  background-color: hsl(var(--muted) / 50%);
+  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
 }
 </style>

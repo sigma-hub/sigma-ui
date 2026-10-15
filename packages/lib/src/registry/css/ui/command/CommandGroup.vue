@@ -27,12 +27,12 @@ const props = defineProps<ComboboxGroupProps & {
 .sigma-ui-command-group {
   overflow: hidden;
   padding: 0.25rem;
-  color: hsl(var(--foreground));
+  color: var(--foreground);
 }
 
 .sigma-ui-command-group [cmdk-group-heading] {
   padding: 0.375rem 0.5rem;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.75rem;
   font-weight: 500;
   line-height: 1rem;
@@ -40,7 +40,7 @@ const props = defineProps<ComboboxGroupProps & {
 
 .sigma-ui-command-group__heading {
   padding: 0.375rem 0.5rem;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.75rem;
   font-weight: 500;
   line-height: 1rem;

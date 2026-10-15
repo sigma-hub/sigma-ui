@@ -45,9 +45,9 @@ const emit = defineEmits<Emits>();
   align-items: flex-end;
   justify-content: space-between;
   padding: 1rem;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius);
-  background-color: hsl(var(--background));
+  background-color: var(--background);
   box-shadow: var(--shadow-md);
 }
 
@@ -57,7 +57,7 @@ const emit = defineEmits<Emits>();
 }
 
 .sigma-ui-toaster-default__description {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.875rem;
 }
 </style>

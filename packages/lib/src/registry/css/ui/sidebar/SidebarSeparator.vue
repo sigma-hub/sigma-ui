@@ -14,6 +14,6 @@ import { Separator } from '@ui/registry/css/ui/separator';
 .sigma-ui-separator.sigma-ui-sidebar-separator {
   width: auto;
   margin: 0 0.5rem;
-  background-color: hsl(var(--border));
+  background-color: var(--border);
 }
 </style>

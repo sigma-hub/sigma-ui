@@ -31,7 +31,7 @@ const forwardedProps = useForwardProps(props);
   align-items: center;
   padding-right: 0.75rem;
   padding-left: 0.75rem;
-  border-bottom: 1px solid hsl(var(--border));
+  border-bottom: 1px solid var(--border);
 }
 
 .sigma-ui-command-input__icon {
@@ -56,7 +56,7 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-command-input__field::placeholder {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 .sigma-ui-command-input__field:disabled {

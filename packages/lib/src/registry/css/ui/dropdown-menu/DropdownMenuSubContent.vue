@@ -32,12 +32,12 @@ const forwarded = useForwardPropsEmits(props, emits);
   overflow: hidden;
   min-width: 8rem;
   padding: 0.25rem;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
   backdrop-filter: blur(var(--backdrop-filter-blur));
-  background-color: hsl(var(--popover));
+  background-color: var(--popover);
   box-shadow: var(--shadow-md);
-  color: hsl(var(--popover-foreground));
+  color: var(--popover-foreground);
   transform-origin: var(--reka-dropdown-menu-content-transform-origin);
 }
 

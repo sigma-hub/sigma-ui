@@ -139,7 +139,7 @@ const onSubmit = handleSubmit((values) => {
 }
 
 .example-sigma-ui-command-form__trigger--placeholder {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 .example-sigma-ui-command-form__chevron {
@@ -170,6 +170,6 @@ const onSubmit = handleSubmit((values) => {
   padding: 1rem;
   border-radius: var(--radius);
   margin-top: 0.5rem;
-  background-color: hsl(var(--muted) / 50%);
+  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
 }
 </style>

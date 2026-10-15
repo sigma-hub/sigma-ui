@@ -39,9 +39,9 @@ const forwardedProps = useForwardProps(reactiveOmit(props, 'size'));
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 0.75rem;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  background-color: hsl(var(--input));
+  background-color: var(--input);
   font-size: 0.875rem;
   gap: 0.5rem;
   line-height: 1.25rem;
@@ -58,11 +58,11 @@ const forwardedProps = useForwardProps(reactiveOmit(props, 'size'));
 }
 
 .sigma-ui-select-trigger[data-placeholder] {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 .sigma-ui-select-trigger:focus-visible {
-  outline: 2px solid hsl(var(--ring));
+  outline: 2px solid var(--ring);
   outline-offset: 2px;
 }
 
@@ -72,7 +72,7 @@ const forwardedProps = useForwardProps(reactiveOmit(props, 'size'));
 }
 
 .sigma-ui-select-trigger[aria-invalid="true"] {
-  border-color: hsl(var(--destructive));
+  border-color: var(--destructive);
 }
 
 .sigma-ui-select-trigger [data-slot="select-value"] {

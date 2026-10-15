@@ -45,7 +45,7 @@ defineSlots<{
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  color: hsl(var(--foreground));
+  color: var(--foreground);
   font-weight: normal;
   user-select: none;
 }
@@ -53,7 +53,7 @@ defineSlots<{
 .sigma-ui-avatar__fallback-icon {
   width: 40%;
   height: 40%;
-  color: hsl(var(--primary) / 50%);
+  color: color-mix(in oklch, var(--primary) 50%, transparent);
 }
 
 .sigma-ui-avatar--xs {

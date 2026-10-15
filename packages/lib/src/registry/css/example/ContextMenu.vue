@@ -82,7 +82,7 @@ import {
   height: 150px;
   align-items: center;
   justify-content: center;
-  border: 1px dashed hsl(var(--border));
+  border: 1px dashed var(--border);
   border-radius: var(--radius);
   font-size: 0.875rem;
 }

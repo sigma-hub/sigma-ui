@@ -40,7 +40,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-switch:focus-visible {
-  outline: 2px solid hsl(var(--ring));
+  outline: 2px solid var(--ring);
   outline-offset: 2px;
 }
 
@@ -50,7 +50,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-switch[data-state="checked"] {
-  background-color: hsl(var(--primary));
+  background-color: var(--primary);
 }
 
 .sigma-ui-switch[data-state="unchecked"] {
@@ -63,7 +63,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   height: 1.25rem;
   border-radius: var(--radius-full);
   animation: none;
-  background-color: hsl(var(--background));
+  background-color: var(--background);
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
   pointer-events: none;
   transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);

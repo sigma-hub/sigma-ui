@@ -207,7 +207,7 @@ const components: { title: string; href: string; description: string }[] = [
   justify-content: flex-end;
   padding: 1.5rem;
   border-radius: var(--radius);
-  background-image: linear-gradient(to bottom, hsl(var(--muted) / 50%), hsl(var(--muted)));
+  background-image: linear-gradient(to bottom, color-mix(in oklch, var(--muted) 50%, transparent), var(--muted));
   outline: none;
   text-decoration: none;
   user-select: none;
@@ -230,7 +230,7 @@ const components: { title: string; href: string; description: string }[] = [
 }
 
 .example-sigma-ui-nav-menu__description {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.875rem;
   line-height: 1.25;
 }
@@ -247,8 +247,8 @@ const components: { title: string; href: string; description: string }[] = [
 
 .example-sigma-ui-nav-menu__link:hover,
 .example-sigma-ui-nav-menu__link:focus {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
 }
 
 .example-sigma-ui-nav-menu__link-title {
@@ -261,7 +261,7 @@ const components: { title: string; href: string; description: string }[] = [
   display: -webkit-box;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.875rem;
   -webkit-line-clamp: 2;
   line-height: 1.25;
