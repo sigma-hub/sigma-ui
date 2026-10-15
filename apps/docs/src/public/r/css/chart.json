@@ -3,8 +3,8 @@
   "name": "chart",
   "type": "registry:ui",
   "dependencies": [
-    "@unovis/ts@^1.5.0",
-    "@unovis/vue@^1.5.0"
+    "@unovis/ts@^1.7.1",
+    "@unovis/vue@^1.7.1"
   ],
   "registryDependencies": [
     "button",

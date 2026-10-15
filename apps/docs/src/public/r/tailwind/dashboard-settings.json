@@ -5,7 +5,7 @@
   "title": "Settings page",
   "description": "A settings page. The settings page has a sidebar navigation and a main content area. The main content area has a form to update the store name and a form to update the plugins directory. The sidebar navigation has links to general, security, integrations, support, organizations, and advanced settings.",
   "dependencies": [
-    "lucide-vue-next@^0.475.0"
+    "lucide-vue-next@^1.0.0"
   ],
   "registryDependencies": [
     "button",

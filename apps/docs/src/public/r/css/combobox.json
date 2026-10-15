@@ -3,8 +3,8 @@
   "name": "combobox",
   "type": "registry:ui",
   "dependencies": [
-    "@vueuse/core@^12.5.0",
-    "reka-ui@^2.2.1"
+    "@vueuse/core@^14.4.0",
+    "reka-ui@^2.11.0"
   ],
   "registryDependencies": [],
   "files": [
