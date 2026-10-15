@@ -1,3 +1,9 @@
+import { themeColorKeys } from '../themes';
+
+const themeColorLines = themeColorKeys
+  .map(key => `  --color-${key}: var(--${key});`)
+  .join('\n');
+
 export const UTILS_TEMPLATE = `import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
@@ -7,29 +13,12 @@ export function cn(...inputs: ClassValue[]) {
 `;
 
 export const TAILWIND_V4_CSS_TEMPLATE = `@import "tailwindcss";
-
-@plugin "tailwindcss-animate";
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-background: hsl(var(--background));
-  --color-foreground: hsl(var(--foreground));
-  --color-muted: hsl(var(--muted));
-  --color-muted-foreground: hsl(var(--muted-foreground));
-  --color-popover: hsl(var(--popover));
-  --color-popover-foreground: hsl(var(--popover-foreground));
-  --color-card: hsl(var(--card));
-  --color-card-foreground: hsl(var(--card-foreground));
-  --color-border: hsl(var(--border));
-  --color-input: hsl(var(--input));
-  --color-primary: hsl(var(--primary));
-  --color-primary-foreground: hsl(var(--primary-foreground));
-  --color-secondary: hsl(var(--secondary));
-  --color-secondary-foreground: hsl(var(--secondary-foreground));
-  --color-destructive: hsl(var(--destructive));
-  --color-destructive-foreground: hsl(var(--destructive-foreground));
-  --color-ring: hsl(var(--ring));
+${themeColorLines}
 
   --radius-xl: calc(var(--radius) + 4px);
   --radius-lg: var(--radius);
@@ -39,8 +28,14 @@ export const TAILWIND_V4_CSS_TEMPLATE = `@import "tailwindcss";
 
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
-  --animate-collapsible-down: collapsible-down 0.2s ease-in-out;
-  --animate-collapsible-up: collapsible-up 0.2s ease-in-out;
+  --animate-collapsible-down: collapsible-down 0.2s ease-out;
+  --animate-collapsible-up: collapsible-up 0.2s ease-out;
+  --animate-fade-in: fade-in 1s ease;
+  --animate-popover-slide-blur-from-top: popover-slide-blur-from-top 150ms ease-out;
+  --animate-popover-slide-blur-from-bottom: popover-slide-blur-from-bottom 150ms ease-out;
+  --animate-popover-slide-blur-from-left: popover-slide-blur-from-left 150ms ease-out;
+  --animate-popover-slide-blur-from-right: popover-slide-blur-from-right 150ms ease-out;
+  --animate-popover-fade-scale-blur-out: popover-fade-scale-blur-out 150ms ease-in;
 
   @keyframes accordion-down {
     from {
@@ -76,6 +71,40 @@ export const TAILWIND_V4_CSS_TEMPLATE = `@import "tailwindcss";
     to {
       height: 0;
     }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes popover-slide-blur-from-top {
+    from { opacity: 0; transform: translateY(-1rem) scaleY(0.98); filter: blur(4px); }
+    to { opacity: 1; transform: translateY(0) scaleY(1); filter: blur(0px); }
+  }
+
+  @keyframes popover-slide-blur-from-bottom {
+    from { opacity: 0; transform: translateY(1rem) scaleY(0.98); filter: blur(4px); }
+    to { opacity: 1; transform: translateY(0) scaleY(1); filter: blur(0px); }
+  }
+
+  @keyframes popover-slide-blur-from-left {
+    from { opacity: 0; transform: translateX(-1rem) scaleY(0.98); filter: blur(4px); }
+    to { opacity: 1; transform: translateX(0) scaleY(1); filter: blur(0px); }
+  }
+
+  @keyframes popover-slide-blur-from-right {
+    from { opacity: 0; transform: translateX(1rem) scaleY(0.98); filter: blur(4px); }
+    to { opacity: 1; transform: translateX(0) scaleY(1); filter: blur(0px); }
+  }
+
+  @keyframes popover-fade-scale-blur-out {
+    from { opacity: 1; transform: scaleY(1); filter: blur(0px); }
+    to { opacity: 0; transform: scaleY(0.98); filter: blur(4px); }
   }
 }
 
@@ -157,9 +186,7 @@ const TAILWIND_ANIMATION_JS = `
 "popover-fade-scale-blur-out": "sigma-ui-popover-fade-scale-blur-out 150ms ease-in",
 `;
 
-export const TAILWIND_CONFIG_JS_TEMPLATE = `const animate = require("tailwindcss-animate")
-
-/** @type {import('tailwindcss').Config} */
+export const TAILWIND_CONFIG_JS_TEMPLATE = `/** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
   safelist: ["dark"],
@@ -193,34 +220,55 @@ module.exports = {
     },
     extend: {
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        border: "var(--border)",
+        input: "var(--input)",
+        ring: "var(--ring)",
+        background: "var(--background)",
+        foreground: "var(--foreground)",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "var(--primary)",
+          foreground: "var(--primary-foreground)",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "var(--secondary)",
+          foreground: "var(--secondary-foreground)",
         },
         destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+          DEFAULT: "var(--destructive)",
+          foreground: "var(--destructive-foreground)",
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          DEFAULT: "var(--muted)",
+          foreground: "var(--muted-foreground)",
+        },
+        accent: {
+          DEFAULT: "var(--accent)",
+          foreground: "var(--accent-foreground)",
         },
         popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+          DEFAULT: "var(--popover)",
+          foreground: "var(--popover-foreground)",
         },
         card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+          DEFAULT: "var(--card)",
+          foreground: "var(--card-foreground)",
+        },
+        sidebar: {
+          DEFAULT: "var(--sidebar)",
+          foreground: "var(--sidebar-foreground)",
+          primary: "var(--sidebar-primary)",
+          "primary-foreground": "var(--sidebar-primary-foreground)",
+          accent: "var(--sidebar-accent)",
+          "accent-foreground": "var(--sidebar-accent-foreground)",
+          border: "var(--sidebar-border)",
+          ring: "var(--sidebar-ring)",
+        },
+        chart: {
+          1: "var(--chart-1)",
+          2: "var(--chart-2)",
+          3: "var(--chart-3)",
+          4: "var(--chart-4)",
+          5: "var(--chart-5)",
         },
       },
       borderRadius: {
@@ -238,7 +286,7 @@ module.exports = {
       },
     },
   },
-  plugins: [animate],
+  plugins: [],
 }`;
 
 export const TAILWIND_CSS_WITH_JS_CONFIG_TEMPLATE = `@import "tailwindcss";
