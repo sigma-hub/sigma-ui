@@ -1,7 +1,7 @@
 import { existsSync } from 'node:fs';
+import { readFile } from 'node:fs/promises';
 import process from 'node:process';
 import path from 'pathe';
-import { loadConfig as c12LoadConfig } from 'c12';
 import { loadConfig as loadTsConfig, type ConfigLoaderSuccessResult } from 'tsconfig-paths';
 import consola from 'consola';
 import { colors } from 'consola/utils';
@@ -119,20 +119,17 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig): Promis
 }
 
 export async function readRawConfigFile(cwd: string): Promise<Record<string, unknown> | null> {
-  const configResult = await c12LoadConfig({
-    name: 'components',
-    configFile: CONFIG_FILE_PATH,
-    cwd,
-    rcFile: false,
-    globalRc: false,
-    dotenv: false,
-  });
+  const configPath = path.join(cwd, CONFIG_FILE_PATH);
 
-  if (!configResult.config || Object.keys(configResult.config).length === 0) {
+  if (!existsSync(configPath)) {
     return null;
   }
 
-  return configResult.config;
+  try {
+    return JSON.parse(await readFile(configPath, 'utf8'));
+  } catch (error) {
+    throw new Error(`Could not parse ${configPath}: ${error instanceof Error ? error.message : String(error)}`);
+  }
 }
 
 export async function getRawConfig(cwd: string): Promise<RawConfig | null> {
