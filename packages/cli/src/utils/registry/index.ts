@@ -10,6 +10,7 @@ import {
 
 export * from './location';
 export * from './fetch';
+export * from './search';
 
 export interface ResolvedRegistryItem {
   item: RegistryItem;

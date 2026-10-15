@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { rawConfigSchema } from '@sigma-ui/shared/schemas';
+import { rawConfigSchema, styleSystemSchema } from '@sigma-ui/shared/schemas';
 
 export {
   componentNamingSchema,
@@ -8,6 +8,7 @@ export {
   registryItemFileSchema,
   registryItemSchema,
   registrySchema,
+  styleSystemSchema,
   type ComponentNaming,
   type Framework,
   type RawConfig,
@@ -51,3 +52,24 @@ export const addOptionsSchema = z.object({
 });
 
 export type AddOptions = z.infer<typeof addOptionsSchema>;
+
+export const viewOptionsSchema = z.object({
+  items: z.array(z.string()).min(1),
+  cwd: z.string(),
+  style: styleSystemSchema.optional(),
+});
+
+export const searchOptionsSchema = z.object({
+  registries: z.array(z.string()),
+  cwd: z.string(),
+  query: z.string().optional(),
+  type: z.string().optional(),
+  style: styleSystemSchema.optional(),
+  json: z.boolean(),
+});
+
+export const buildOptionsSchema = z.object({
+  registry: z.string(),
+  output: z.string(),
+  cwd: z.string(),
+});
