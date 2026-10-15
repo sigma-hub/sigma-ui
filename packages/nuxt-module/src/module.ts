@@ -1,4 +1,4 @@
-import { addComponent, addComponentsDir, addTemplate, createResolver, defineNuxtModule, useLogger } from '@nuxt/kit';
+import { addComponent, addComponentsDir, addTemplate, defineNuxtModule, resolvePath, useLogger } from '@nuxt/kit';
 import { UTILS_TEMPLATE } from '@sigma-ui/shared/templates/tailwind-config';
 import { scanComponentExports } from './components';
 
@@ -8,13 +8,15 @@ export interface ModuleOptions {
    */
   prefix?: string;
   /**
-   * Directory that the components live in.
-   * @default "./components/ui"
+   * Directory that the components live in. Accepts Nuxt aliases (such as `@/` or `~/`, which point at `srcDir`)
+   * and paths relative to `rootDir`. Match it to `aliases.components` in `sigma-ui.config.json`.
+   * @default "@/components/ui"
    */
   componentDir?: string;
 }
 
 const UTILS_ALIAS = '@/lib/utils';
+const DEFAULT_COMPONENT_DIR = '@/components/ui';
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
@@ -23,13 +25,12 @@ export default defineNuxtModule<ModuleOptions>({
   },
   defaults: {
     prefix: '',
-    componentDir: './components/ui',
+    componentDir: DEFAULT_COMPONENT_DIR,
   },
   async setup(options, nuxt) {
     const logger = useLogger('sigma-ui-nuxt');
-    const { resolve } = createResolver(nuxt.options.rootDir);
     const prefix = options.prefix ?? '';
-    const componentsPath = resolve(options.componentDir ?? './components/ui');
+    const componentsPath = await resolvePath(options.componentDir ?? DEFAULT_COMPONENT_DIR, { type: 'dir' });
 
     const utilsTemplate = addTemplate({
       filename: 'sigma-ui-nuxt/utils.ts',
