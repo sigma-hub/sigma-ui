@@ -23,7 +23,7 @@
     "@internationalized/date": "catalog:",
     "@stackblitz/sdk": "^1.11.0",
     "@tanstack/vue-table": "catalog:",
-    "@vee-validate/zod": "catalog:",
+    "@vee-validate/zod": "catalog:forms",
     "@vueuse/core": "catalog:",
     "class-variance-authority": "catalog:",
     "clsx": "catalog:",
@@ -33,10 +33,10 @@
     "magic-string": "catalog:",
     "pinia": "^3.0.3",
     "reka-ui": "catalog:",
-    "vee-validate": "catalog:",
+    "vee-validate": "catalog:forms",
     "vue": "catalog:",
     "vue-sonner": "catalog:",
-    "zod": "catalog:"
+    "zod": "catalog:forms"
   },
   "devDependencies": {
     "@iconify-json/gravity-ui": "^1.2.4",
