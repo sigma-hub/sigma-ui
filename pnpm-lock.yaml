@@ -61,8 +61,8 @@ catalogs:
       specifier: ^4.17.21
       version: 4.17.21
     lucide-vue-next:
-      specifier: ^0.544.0
-      version: 0.544.0
+      specifier: ^1.0.0
+      version: 1.0.0
     magic-string:
       specifier: ^0.30.17
       version: 0.30.21
@@ -196,7 +196,7 @@ importers:
         version: 4.1.0
       lucide-vue-next:
         specifier: 'catalog:'
-        version: 0.544.0(vue@3.5.44(typescript@5.9.3))
+        version: 1.0.0(vue@3.5.44(typescript@5.9.3))
       magic-string:
         specifier: 'catalog:'
         version: 0.30.21
@@ -426,7 +426,7 @@ importers:
         version: 8.5.2(vue@3.5.44(typescript@5.9.3))
       lucide-vue-next:
         specifier: 'catalog:'
-        version: 0.544.0(vue@3.5.44(typescript@5.9.3))
+        version: 1.0.0(vue@3.5.44(typescript@5.9.3))
       magic-string:
         specifier: 'catalog:'
         version: 0.30.21
@@ -563,7 +563,7 @@ importers:
         version: 2.1.1
       lucide-vue-next:
         specifier: 'catalog:'
-        version: 0.544.0(vue@3.5.44(typescript@5.9.3))
+        version: 1.0.0(vue@3.5.44(typescript@5.9.3))
       nuxt:
         specifier: 'catalog:'
         version: 4.6.1(@babel/plugin-proposal-decorators@7.25.9(@babel/core@7.29.7))(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7))(@oxc-project/types@0.154.0)(@types/node@24.1.0)(@vue/compiler-sfc@3.5.44)(acorn@8.19.0)(confbox@0.3.1)(db0@0.3.4)(dotenv@17.4.2)(encoding@0.1.13)(esbuild@0.28.2)(eslint@9.20.0(jiti@2.7.0))(giget@3.3.1)(ioredis@5.11.1)(lightningcss@1.33.0)(meow@13.2.0)(mlly@1.8.2)(optionator@0.9.4)(oxc-parser@0.154.0)(rolldown@1.2.14)(rollup-plugin-visualizer@7.1.1(rolldown@1.2.14)(rollup@4.64.7))(rollup@4.64.7)(srvx@1.0.5)(terser@5.38.1)(tsx@4.19.2)(typescript@5.9.3)(vite@8.3.4(@types/node@24.1.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.38.1)(tsx@4.19.2)(yaml@2.9.1))(yaml@2.9.1)
@@ -6079,8 +6079,8 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
-  lucide-vue-next@0.544.0:
-    resolution: {integrity: sha512-mDp/AdGOPIDkpFHnFiTWgQgCST9aBXHVaiobZfOMIvv7nrOukzF/TP+7KoOwrngdWRaH9TMiepMBIX1vsgKJ3g==}
+  lucide-vue-next@1.0.0:
+    resolution: {integrity: sha512-V6SPvx1IHTj/UY+FrIYWV5faISsPSb8BnWSFDxAtezWKvWc9ZZ40PDrdu1/Qb5vg4lHWr1hs1BAMGVGm6V1Xdg==}
     deprecated: Package deprecated. Please use @lucide/vue instead.
     peerDependencies:
       vue: '>=3.0.1'
@@ -15127,7 +15127,7 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
-  lucide-vue-next@0.544.0(vue@3.5.44(typescript@5.9.3)):
+  lucide-vue-next@1.0.0(vue@3.5.44(typescript@5.9.3)):
     dependencies:
       vue: 3.5.44(typescript@5.9.3)
 
