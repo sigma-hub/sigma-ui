@@ -11,6 +11,7 @@ import { cn } from '@ui/utils';
         $attrs.class ?? '',
       )
     "
+    data-slot="dialog-footer"
   >
     <slot />
   </div>

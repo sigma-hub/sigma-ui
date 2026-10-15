@@ -5,6 +5,7 @@
   <div
     class="sigma-ui-dialog-footer"
     :class="[$attrs.class]"
+    data-slot="dialog-footer"
   >
     <slot />
   </div>

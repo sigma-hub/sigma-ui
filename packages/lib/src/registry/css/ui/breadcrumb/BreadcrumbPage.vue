@@ -9,6 +9,7 @@
     aria-current="page"
     class="sigma-ui-breadcrumb__page"
     :class="$attrs.class"
+    data-slot="breadcrumb-page"
   >
     <slot />
   </span>

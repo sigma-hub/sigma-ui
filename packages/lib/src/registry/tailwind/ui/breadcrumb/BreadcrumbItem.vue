@@ -6,6 +6,7 @@ import { cn } from '@ui/utils';
 <template>
   <li
     :class="cn('inline-flex items-center gap-1.5', $attrs.class ?? '')"
+    data-slot="breadcrumb-item"
   >
     <slot />
   </li>

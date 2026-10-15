@@ -9,6 +9,7 @@ import { cn } from '@ui/utils';
     aria-disabled="true"
     aria-current="page"
     :class="cn('font-normal text-foreground', $attrs.class ?? '')"
+    data-slot="breadcrumb-page"
   >
     <slot />
   </span>
