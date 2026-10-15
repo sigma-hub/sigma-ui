@@ -1,7 +1,7 @@
 ---
 title: Checkbox
 description: Customizable checkbox input element.
-source: packages/lib/src/registry/tailwind/ui/checkbox
+source: checkbox
 primitive: https://www.reka-ui.com/docs/components/checkbox.html
 ---
 

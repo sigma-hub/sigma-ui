@@ -1,7 +1,7 @@
 ---
 title: Progress
 description: Displays an indicator of progress.
-source: packages/lib/src/registry/tailwind/ui/progress
+source: progress
 primitive: https://www.reka-ui.com/docs/components/progress.html
 ---
 

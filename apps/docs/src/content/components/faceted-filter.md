@@ -1,7 +1,7 @@
 ---
 title: Faceted Filter
 description: A filter component with multi-select options, search functionality, and optional item creation.
-source: packages/lib/src/registry/tailwind/ui/faceted-filter
+source: faceted-filter
 ---
 
 ## Preview

@@ -1,7 +1,7 @@
 ---
 title: Command
 description: Composable command menu (command palette) with search.
-source: packages/lib/src/registry/tailwind/ui/command
+source: command
 primitive: https://www.reka-ui.com/docs/components/listbox
 ---
 

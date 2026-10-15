@@ -1,7 +1,7 @@
 ---
 title: Menubar
 description: Common in desktop applications, menu bar that provides quick access to a set of commands.
-source: packages/lib/src/registry/tailwind/ui/menubar
+source: menubar
 primitive: https://www.reka-ui.com/docs/components/menubar.html
 ---
 

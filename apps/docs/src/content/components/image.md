@@ -1,7 +1,7 @@
 ---
 title: Image
 description: An image element with a fallback.
-source: packages/lib/src/registry/tailwind/ui/image
+source: image
 ---
 
 ## Preview

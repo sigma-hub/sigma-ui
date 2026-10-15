@@ -1,7 +1,7 @@
 ---
 title: Carousel
 description: A carousel with motion and swipe built using Embla.
-source: packages/lib/src/registry/tailwind/ui/carousel
+source: carousel
 primitive: https://www.embla-carousel.com/api
 ---
 

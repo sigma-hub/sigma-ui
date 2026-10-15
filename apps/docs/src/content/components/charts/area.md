@@ -1,7 +1,7 @@
 ---
 title: Area
 description: An area chart visually represents data over time, displaying trends and patterns through filled-in areas under a line graph.
-source: packages/lib/src/registry/tailwind/ui/chart-area
+source: chart-area
 label: Alpha
 ---
 

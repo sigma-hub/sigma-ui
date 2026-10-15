@@ -1,7 +1,7 @@
 ---
 title: Combobox
 description: Autocomplete input with a list of suggestions.
-source: packages/lib/src/registry/tailwind/ui/combobox
+source: combobox
 primitive: https://www.reka-ui.com/docs/components/combobox.html
 ---
 

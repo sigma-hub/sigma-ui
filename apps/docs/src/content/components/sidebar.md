@@ -1,7 +1,7 @@
 ---
 title: Sidebar
 description: A composable, themeable, and collapsible sidebar for application layouts.
-source: packages/lib/src/registry/tailwind/ui/sidebar
+source: sidebar
 label: New
 ---
 

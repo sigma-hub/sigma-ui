@@ -1,7 +1,7 @@
 ---
 title: Label
 description: Renders an accessible label associated with controls.
-source: packages/lib/src/registry/tailwind/ui/label
+source: label
 primitive: https://www.reka-ui.com/docs/components/label.html
 ---
 

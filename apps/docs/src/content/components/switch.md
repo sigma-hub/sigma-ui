@@ -1,7 +1,7 @@
 ---
 title: Switch
 description: A control that allows the user to toggle between checked and not checked.
-source: packages/lib/src/registry/tailwind/ui/switch
+source: switch
 primitive: https://www.reka-ui.com/docs/components/switch.html
 ---
 

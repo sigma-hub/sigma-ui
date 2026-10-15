@@ -2,7 +2,7 @@
 title: Toaster
 description: An opinionated toast component for Vue.
 docs: https://vue-sonner.vercel.app
-source: packages/lib/src/registry/tailwind/ui/toaster
+source: toaster
 ---
 
 ## Preview
