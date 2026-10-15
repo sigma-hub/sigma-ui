@@ -28,8 +28,11 @@ const DEFAULT_COMPONENT_DIR = '@/components/ui';
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: 'sigmaUi',
+    name: 'sigma-ui-nuxt',
     configKey: 'sigmaUi',
+    compatibility: {
+      nuxt: '>=3.21.0',
+    },
   },
   defaults: {
     prefix: '',
