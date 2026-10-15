@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { Toaster, type ToasterProps } from 'vue-sonner';
+import 'vue-sonner/style.css';
 
 const props = defineProps<ToasterProps>();
 </script>
