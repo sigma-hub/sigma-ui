@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import type { AcceptableValue } from 'reka-ui';
-import { reactiveOmit } from '@vueuse/core';
 import { ChevronDownIcon } from 'lucide-vue-next';
-import { useAttrs } from 'vue';
+import { computed, useAttrs } from 'vue';
 
 defineOptions({
   inheritAttrs: false,
@@ -13,7 +12,9 @@ const model = defineModel<AcceptableValue | AcceptableValue[]>({
 });
 
 const attrs = useAttrs();
-const selectAttrs = reactiveOmit(attrs, 'class');
+const selectAttrs = computed(() => Object.fromEntries(
+  Object.entries(attrs).filter(([key]) => key !== 'class'),
+));
 
 defineSlots<{
   /**
@@ -58,12 +59,12 @@ defineSlots<{
 .sigma-ui-native-select__control {
   display: flex;
   width: 100%;
-  height: 2.5rem;
   min-width: 0;
-  appearance: none;
+  height: 2.5rem;
   padding: 0.5rem 2.25rem 0.5rem 0.75rem;
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius-md);
+  appearance: none;
   background-color: hsl(var(--input));
   font-size: 0.875rem;
   outline: none;

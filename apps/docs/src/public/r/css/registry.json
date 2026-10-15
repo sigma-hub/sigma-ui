@@ -1356,7 +1356,6 @@
       "name": "native-select",
       "type": "registry:ui",
       "dependencies": [
-        "@vueuse/core@^12.5.0",
         "lucide-vue-next@^0.475.0",
         "reka-ui@^2.2.1"
       ],

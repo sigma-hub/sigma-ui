@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import type { AcceptableValue } from 'reka-ui';
-import { reactiveOmit } from '@vueuse/core';
 import { ChevronDownIcon } from 'lucide-vue-next';
-import { useAttrs } from 'vue';
+import { computed, useAttrs } from 'vue';
 import { cn } from '@ui/utils';
 
 defineOptions({
@@ -14,7 +13,9 @@ const model = defineModel<AcceptableValue | AcceptableValue[]>({
 });
 
 const attrs = useAttrs();
-const selectAttrs = reactiveOmit(attrs, 'class');
+const selectAttrs = computed(() => Object.fromEntries(
+  Object.entries(attrs).filter(([key]) => key !== 'class'),
+));
 
 defineSlots<{
   /**
