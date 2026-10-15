@@ -956,6 +956,44 @@
       ]
     },
     {
+      "name": "empty",
+      "type": "registry:ui",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ui/empty/Empty.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/empty/EmptyContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/empty/EmptyDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/empty/EmptyHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/empty/EmptyMedia.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/empty/EmptyTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/empty/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "faceted-filter",
       "type": "registry:ui",
       "dependencies": [

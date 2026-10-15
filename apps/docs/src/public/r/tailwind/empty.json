@@ -1,0 +1,46 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "empty",
+  "type": "registry:ui",
+  "dependencies": [
+    "class-variance-authority@^0.7.1"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/empty/Empty.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils';\n\ndefineSlots<{\n  /**\n   * `EmptyHeader`, `EmptyMedia`, and `EmptyContent`.\n   */\n  default?: () => unknown;\n}>();\n</script>\n\n<template>\n  <div\n    data-slot=\"empty\"\n    :class=\"cn('flex min-w-0 flex-1 flex-col items-center justify-center gap-6 rounded-lg border border-dashed border-border p-6 text-center text-balance md:p-12', $attrs.class ?? '')\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/empty/EmptyContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils';\n\ndefineSlots<{\n  /**\n   * Actions, such as a button, under the description.\n   */\n  default?: () => unknown;\n}>();\n</script>\n\n<template>\n  <div\n    data-slot=\"empty-content\"\n    :class=\"cn('flex w-full max-w-sm min-w-0 flex-col items-center gap-4 text-sm text-balance', $attrs.class ?? '')\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/empty/EmptyDescription.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils';\n\ndefineSlots<{\n  /**\n   * Explanation of the empty state. Links inside it are underlined.\n   */\n  default?: () => unknown;\n}>();\n</script>\n\n<template>\n  <p\n    data-slot=\"empty-description\"\n    :class=\"cn('text-sm/relaxed text-muted-foreground [&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-primary', $attrs.class ?? '')\"\n  >\n    <slot />\n  </p>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/empty/EmptyHeader.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils';\n\ndefineSlots<{\n  /**\n   * `EmptyMedia`, `EmptyTitle`, and `EmptyDescription`.\n   */\n  default?: () => unknown;\n}>();\n</script>\n\n<template>\n  <div\n    data-slot=\"empty-header\"\n    :class=\"cn('flex max-w-sm flex-col items-center gap-2 text-center', $attrs.class ?? '')\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/empty/EmptyMedia.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils';\nimport { type EmptyMediaVariants, emptyMediaVariants } from '.';\n\ninterface EmptyMediaProps {\n  /**\n   * `icon` draws a muted tile behind the icon. `default` leaves the content unstyled.\n   */\n  variant?: EmptyMediaVariants['variant'];\n}\n\ndefineProps<EmptyMediaProps>();\n\ndefineSlots<{\n  /**\n   * Icon or illustration.\n   */\n  default?: () => unknown;\n}>();\n</script>\n\n<template>\n  <div\n    data-slot=\"empty-icon\"\n    :data-variant=\"variant\"\n    :class=\"cn(emptyMediaVariants({ variant }), $attrs.class ?? '')\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/empty/EmptyTitle.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils';\n\ndefineSlots<{\n  /**\n   * Short title of the empty state.\n   */\n  default?: () => unknown;\n}>();\n</script>\n\n<template>\n  <div\n    data-slot=\"empty-title\"\n    :class=\"cn('text-lg font-medium tracking-tight', $attrs.class ?? '')\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/empty/index.ts",
+      "content": "import { type VariantProps, cva } from 'class-variance-authority';\n\nexport { default as Empty } from './Empty.vue';\nexport { default as EmptyContent } from './EmptyContent.vue';\nexport { default as EmptyDescription } from './EmptyDescription.vue';\nexport { default as EmptyHeader } from './EmptyHeader.vue';\nexport { default as EmptyMedia } from './EmptyMedia.vue';\nexport { default as EmptyTitle } from './EmptyTitle.vue';\n\nexport const emptyMediaVariants = cva(\n  'mb-2 flex shrink-0 items-center justify-center [&_svg]:pointer-events-none [&_svg]:shrink-0',\n  {\n    variants: {\n      variant: {\n        default: 'bg-transparent',\n        icon: 'flex size-10 shrink-0 items-center justify-center rounded-lg bg-muted text-foreground [&_svg:not([class*=size-])]:size-6',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n    },\n  },\n);\n\nexport type EmptyMediaVariants = VariantProps<typeof emptyMediaVariants>;\n",
+      "type": "registry:ui"
+    }
+  ]
+}

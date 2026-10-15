@@ -954,6 +954,14 @@ export const Index = {
       component: () => import("../../../packages/lib/src/registry/tailwind/example/DropdownMenuRadioGroup.vue").then((m) => m.default),
       files: ["example/DropdownMenuRadioGroup.vue"],
     },
+    "Empty": {
+      name: "Empty",
+      type: "registry:example",
+      registryDependencies: ["button","empty"],
+      dependencies: ["lucide-vue-next@^0.475.0"],
+      component: () => import("../../../packages/lib/src/registry/tailwind/example/Empty.vue").then((m) => m.default),
+      files: ["example/Empty.vue"],
+    },
     "FacetedFilter": {
       name: "FacetedFilter",
       type: "registry:example",
@@ -2811,6 +2819,14 @@ export const Index = {
       dependencies: [],
       component: () => import("../../../packages/lib/src/registry/css/example/DropdownMenuRadioGroup.vue").then((m) => m.default),
       files: ["example/DropdownMenuRadioGroup.vue"],
+    },
+    "Empty": {
+      name: "Empty",
+      type: "registry:example",
+      registryDependencies: ["button","empty"],
+      dependencies: ["lucide-vue-next@^0.475.0"],
+      component: () => import("../../../packages/lib/src/registry/css/example/Empty.vue").then((m) => m.default),
+      files: ["example/Empty.vue"],
     },
     "FacetedFilter": {
       name: "FacetedFilter",
