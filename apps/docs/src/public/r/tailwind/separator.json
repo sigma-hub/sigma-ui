@@ -3,7 +3,7 @@
   "name": "separator",
   "type": "registry:ui",
   "dependencies": [
-    "reka-ui@^2.2.1"
+    "reka-ui@^2.11.0"
   ],
   "registryDependencies": [],
   "files": [

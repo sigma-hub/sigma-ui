@@ -5,7 +5,7 @@
   "title": "Orders dashboard",
   "description": "An orders dashboard with a sidebar navigation. The sidebar has icon navigation. The content area has a breadcrumb and search in the header. The main area has a list of recent orders with a filter and export button. The main area also has a detailed view of a single order with order details, shipping information, billing information, customer information, and payment information.",
   "dependencies": [
-    "lucide-vue-next@^0.475.0"
+    "lucide-vue-next@^1.0.0"
   ],
   "registryDependencies": [
     "badge",

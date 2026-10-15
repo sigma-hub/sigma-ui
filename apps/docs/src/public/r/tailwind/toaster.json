@@ -3,7 +3,7 @@
   "name": "toaster",
   "type": "registry:ui",
   "dependencies": [
-    "vue-sonner@^1.3.0"
+    "vue-sonner@^2.0.9"
   ],
   "registryDependencies": [
     "button"
@@ -21,7 +21,7 @@
     },
     {
       "path": "ui/toaster/Toaster.vue",
-      "content": "<script lang=\"ts\" setup>\nimport { Toaster, type ToasterProps } from 'vue-sonner';\n\nconst props = defineProps<ToasterProps>();\n</script>\n\n<template>\n  <Toaster\n    class=\"!z-[60] pointer-events-auto fixed flex flex-col gap-[10px] max-w-[420px]\"\n    v-bind=\"props\"\n    :toast-options=\"{\n      ...props.toastOptions,\n      unstyled: true,\n      classes: {\n        toast: 'group w-full cursor-default bg-background text-foreground rounded shadow-lg flex items-center gap-2 [&[data-type=default]]:p-3 [&[data-type=default]]:px-4 [&[data-type=default]]:border [&[data-type=default]]:border-border [&[data-type=default]_[data-content]]:flex [&[data-type=default]_[data-content]]:flex-1',\n        description: 'group-[&[data-type=default]]:text-muted-foreground ',\n        actionButton: 'group-[&[data-type=default]]:px-2 group-[&[data-type=default]]:py-0.5 group-[&[data-type=default]]:rounded group-[&[data-type=default]]:bg-primary group-[&[data-type=default]]:text-primary-foreground group-[&[data-type=default]]:hover:opacity-90',\n        cancelButton: 'group-[&[data-type=default]]:px-2 group-[&[data-type=default]]:py-0.5 group-[&[data-type=default]]:rounded group-[&[data-type=default]]:bg-muted group-[&[data-type=default]]:text-muted-foreground group-[&[data-type=default]]:hover:opacity-90',\n      },\n    }\"\n  />\n</template>\n",
+      "content": "<script lang=\"ts\" setup>\nimport { Toaster, type ToasterProps } from 'vue-sonner';\nimport 'vue-sonner/style.css';\n\nconst props = defineProps<ToasterProps>();\n</script>\n\n<template>\n  <Toaster\n    class=\"!z-[60] pointer-events-auto fixed flex flex-col gap-[10px] max-w-[420px]\"\n    v-bind=\"props\"\n    :toast-options=\"{\n      ...props.toastOptions,\n      unstyled: true,\n      classes: {\n        toast: 'group w-full cursor-default bg-background text-foreground rounded shadow-lg flex items-center gap-2 [&[data-type=default]]:p-3 [&[data-type=default]]:px-4 [&[data-type=default]]:border [&[data-type=default]]:border-border [&[data-type=default]_[data-content]]:flex [&[data-type=default]_[data-content]]:flex-1',\n        description: 'group-[&[data-type=default]]:text-muted-foreground ',\n        actionButton: 'group-[&[data-type=default]]:px-2 group-[&[data-type=default]]:py-0.5 group-[&[data-type=default]]:rounded group-[&[data-type=default]]:bg-primary group-[&[data-type=default]]:text-primary-foreground group-[&[data-type=default]]:hover:opacity-90',\n        cancelButton: 'group-[&[data-type=default]]:px-2 group-[&[data-type=default]]:py-0.5 group-[&[data-type=default]]:rounded group-[&[data-type=default]]:bg-muted group-[&[data-type=default]]:text-muted-foreground group-[&[data-type=default]]:hover:opacity-90',\n      },\n    }\"\n  />\n</template>\n",
       "type": "registry:ui"
     },
     {

@@ -3,8 +3,8 @@
   "name": "card-lightbox",
   "type": "registry:ui",
   "dependencies": [
-    "lucide-vue-next@^0.475.0",
-    "motion-v@1.0.0"
+    "lucide-vue-next@^1.0.0",
+    "motion-v@^2.7.0"
   ],
   "registryDependencies": [],
   "files": [

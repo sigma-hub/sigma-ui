@@ -5,7 +5,7 @@
   "title": "Products dashboard",
   "description": "An products dashboard with a sidebar navigation. The sidebar has icon navigation. The content area has a breadcrumb and search in the header. It displays a list of products in a table with actions.",
   "dependencies": [
-    "lucide-vue-next@^0.475.0"
+    "lucide-vue-next@^1.0.0"
   ],
   "registryDependencies": [
     "badge",

@@ -3,8 +3,8 @@
   "name": "drawer",
   "type": "registry:ui",
   "dependencies": [
-    "reka-ui@^2.2.1",
-    "vaul-vue@^0.2.1"
+    "reka-ui@^2.11.0",
+    "vaul-vue@^0.4.1"
   ],
   "registryDependencies": [],
   "files": [

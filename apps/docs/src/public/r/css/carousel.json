@@ -3,9 +3,9 @@
   "name": "carousel",
   "type": "registry:ui",
   "dependencies": [
-    "@vueuse/core@^12.5.0",
-    "embla-carousel-vue@^8.5.2",
-    "lucide-vue-next@^0.475.0"
+    "@vueuse/core@^14.4.0",
+    "embla-carousel-vue@^8.6.0",
+    "lucide-vue-next@^1.0.0"
   ],
   "registryDependencies": [
     "button"

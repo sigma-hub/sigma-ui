@@ -3,14 +3,14 @@
   "name": "pin-input",
   "type": "registry:ui",
   "dependencies": [
-    "lucide-vue-next@^0.475.0",
-    "reka-ui@^2.2.1"
+    "lucide-vue-next@^1.0.0",
+    "reka-ui@^2.11.0"
   ],
   "registryDependencies": [],
   "files": [
     {
       "path": "ui/pin-input/PinInput.vue",
-      "content": "<script setup lang=\"ts\">\nimport { PinInputRoot, type PinInputRootEmits, type PinInputRootProps, useForwardPropsEmits } from 'reka-ui';\n\nconst props = withDefaults(defineProps<PinInputRootProps>(), {\n  modelValue: () => [],\n});\nconst emits = defineEmits<PinInputRootEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <PinInputRoot\n    v-bind=\"forwarded\"\n    class=\"sigma-ui-pin-input\"\n  >\n    <slot />\n  </PinInputRoot>\n</template>\n\n<style>\n.sigma-ui-pin-input {\n  display: flex;\n  align-items: center;\n  gap: 0.5rem;\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\" generic=\"Type extends 'text' | 'number' = 'text'\">\nimport { PinInputRoot, type PinInputRootEmits, type PinInputRootProps, useForwardPropsEmits } from 'reka-ui';\n\nconst props = withDefaults(defineProps<PinInputRootProps<Type>>(), {\n  modelValue: () => [],\n});\nconst emits = defineEmits<PinInputRootEmits<Type>>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <PinInputRoot\n    v-bind=\"forwarded\"\n    class=\"sigma-ui-pin-input\"\n  >\n    <slot />\n  </PinInputRoot>\n</template>\n\n<style>\n.sigma-ui-pin-input {\n  display: flex;\n  align-items: center;\n  gap: 0.5rem;\n}\n</style>\n",
       "type": "registry:ui"
     },
     {

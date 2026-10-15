@@ -3,10 +3,10 @@
   "name": "chart-area",
   "type": "registry:ui",
   "dependencies": [
-    "@unovis/ts@^1.5.0",
-    "@unovis/vue@^1.5.0",
-    "@vueuse/core@^12.5.0",
-    "reka-ui@^2.2.1"
+    "@unovis/ts@^1.7.1",
+    "@unovis/vue@^1.7.1",
+    "@vueuse/core@^14.4.0",
+    "reka-ui@^2.11.0"
   ],
   "registryDependencies": [
     "chart"

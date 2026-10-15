@@ -7,8 +7,8 @@
       "name": "accordion",
       "type": "registry:ui",
       "dependencies": [
-        "lucide-vue-next@^0.475.0",
-        "reka-ui@^2.2.1"
+        "lucide-vue-next@^1.0.0",
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -64,7 +64,7 @@
       "name": "alert-dialog",
       "type": "registry:ui",
       "dependencies": [
-        "reka-ui@^2.2.1"
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [
         "button"
@@ -116,7 +116,7 @@
       "name": "aspect-ratio",
       "type": "registry:ui",
       "dependencies": [
-        "reka-ui@^2.2.1"
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -135,7 +135,7 @@
       "type": "registry:ui",
       "dependencies": [
         "class-variance-authority@^0.7.1",
-        "lucide-vue-next@^0.475.0"
+        "lucide-vue-next@^1.0.0"
       ],
       "registryDependencies": [
         "image"
@@ -173,8 +173,8 @@
       "name": "breadcrumb",
       "type": "registry:ui",
       "dependencies": [
-        "lucide-vue-next@^0.475.0",
-        "reka-ui@^2.2.1"
+        "lucide-vue-next@^1.0.0",
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -221,8 +221,8 @@
       "type": "registry:ui",
       "dependencies": [
         "class-variance-authority@^0.7.1",
-        "lucide-vue-next@^0.475.0",
-        "reka-ui@^2.2.1"
+        "lucide-vue-next@^1.0.0",
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -245,7 +245,7 @@
       "type": "registry:ui",
       "dependencies": [
         "class-variance-authority@^0.7.1",
-        "reka-ui@^2.2.1"
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [
         "separator"
@@ -273,8 +273,8 @@
       "name": "calendar",
       "type": "registry:ui",
       "dependencies": [
-        "lucide-vue-next@^0.475.0",
-        "reka-ui@^2.2.1"
+        "lucide-vue-next@^1.0.0",
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [
         "button"
@@ -374,8 +374,8 @@
       "name": "card-lightbox",
       "type": "registry:ui",
       "dependencies": [
-        "lucide-vue-next@^0.475.0",
-        "motion-v@1.0.0"
+        "lucide-vue-next@^1.0.0",
+        "motion-v@^2.7.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -397,9 +397,9 @@
       "name": "carousel",
       "type": "registry:ui",
       "dependencies": [
-        "@vueuse/core@^12.5.0",
-        "embla-carousel-vue@^8.5.2",
-        "lucide-vue-next@^0.475.0"
+        "@vueuse/core@^14.4.0",
+        "embla-carousel-vue@^8.6.0",
+        "lucide-vue-next@^1.0.0"
       ],
       "registryDependencies": [
         "button"
@@ -443,8 +443,8 @@
       "name": "chart",
       "type": "registry:ui",
       "dependencies": [
-        "@unovis/ts@^1.5.0",
-        "@unovis/vue@^1.5.0"
+        "@unovis/ts@^1.7.1",
+        "@unovis/vue@^1.7.1"
       ],
       "registryDependencies": [
         "button",
@@ -481,10 +481,10 @@
       "name": "chart-area",
       "type": "registry:ui",
       "dependencies": [
-        "@unovis/ts@^1.5.0",
-        "@unovis/vue@^1.5.0",
-        "@vueuse/core@^12.5.0",
-        "reka-ui@^2.2.1"
+        "@unovis/ts@^1.7.1",
+        "@unovis/vue@^1.7.1",
+        "@vueuse/core@^14.4.0",
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [
         "chart"
@@ -504,9 +504,9 @@
       "name": "chart-bar",
       "type": "registry:ui",
       "dependencies": [
-        "@unovis/ts@^1.5.0",
-        "@unovis/vue@^1.5.0",
-        "@vueuse/core@^12.5.0"
+        "@unovis/ts@^1.7.1",
+        "@unovis/vue@^1.7.1",
+        "@vueuse/core@^14.4.0"
       ],
       "registryDependencies": [
         "chart"
@@ -526,9 +526,9 @@
       "name": "chart-donut",
       "type": "registry:ui",
       "dependencies": [
-        "@unovis/ts@^1.5.0",
-        "@unovis/vue@^1.5.0",
-        "@vueuse/core@^12.5.0"
+        "@unovis/ts@^1.7.1",
+        "@unovis/vue@^1.7.1",
+        "@vueuse/core@^14.4.0"
       ],
       "registryDependencies": [
         "chart"
@@ -548,9 +548,9 @@
       "name": "chart-line",
       "type": "registry:ui",
       "dependencies": [
-        "@unovis/ts@^1.5.0",
-        "@unovis/vue@^1.5.0",
-        "@vueuse/core@^12.5.0"
+        "@unovis/ts@^1.7.1",
+        "@unovis/vue@^1.7.1",
+        "@vueuse/core@^14.4.0"
       ],
       "registryDependencies": [
         "chart"
@@ -570,8 +570,8 @@
       "name": "checkbox",
       "type": "registry:ui",
       "dependencies": [
-        "lucide-vue-next@^0.475.0",
-        "reka-ui@^2.2.1"
+        "lucide-vue-next@^1.0.0",
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -589,7 +589,7 @@
       "name": "collapsible",
       "type": "registry:ui",
       "dependencies": [
-        "reka-ui@^2.2.1"
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -615,8 +615,8 @@
       "name": "combobox",
       "type": "registry:ui",
       "dependencies": [
-        "@vueuse/core@^12.5.0",
-        "reka-ui@^2.2.1"
+        "@vueuse/core@^14.4.0",
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -666,8 +666,8 @@
       "name": "command",
       "type": "registry:ui",
       "dependencies": [
-        "lucide-vue-next@^0.475.0",
-        "reka-ui@^2.2.1"
+        "lucide-vue-next@^1.0.0",
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [
         "dialog"
@@ -719,8 +719,8 @@
       "name": "context-menu",
       "type": "registry:ui",
       "dependencies": [
-        "lucide-vue-next@^0.475.0",
-        "reka-ui@^2.2.1"
+        "lucide-vue-next@^1.0.0",
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -794,8 +794,8 @@
       "name": "dialog",
       "type": "registry:ui",
       "dependencies": [
-        "lucide-vue-next@^0.475.0",
-        "reka-ui@^2.2.1"
+        "lucide-vue-next@^1.0.0",
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -845,8 +845,8 @@
       "name": "drawer",
       "type": "registry:ui",
       "dependencies": [
-        "reka-ui@^2.2.1",
-        "vaul-vue@^0.2.1"
+        "reka-ui@^2.11.0",
+        "vaul-vue@^0.4.1"
       ],
       "registryDependencies": [],
       "files": [
@@ -888,8 +888,8 @@
       "name": "dropdown-menu",
       "type": "registry:ui",
       "dependencies": [
-        "lucide-vue-next@^0.475.0",
-        "reka-ui@^2.2.1"
+        "lucide-vue-next@^1.0.0",
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -997,7 +997,7 @@
       "name": "faceted-filter",
       "type": "registry:ui",
       "dependencies": [
-        "lucide-vue-next@^0.475.0"
+        "lucide-vue-next@^1.0.0"
       ],
       "registryDependencies": [
         "button",
@@ -1021,7 +1021,7 @@
       "type": "registry:ui",
       "dependencies": [
         "class-variance-authority@^0.7.1",
-        "reka-ui@^2.2.1"
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [
         "label",
@@ -1078,8 +1078,8 @@
       "name": "form",
       "type": "registry:ui",
       "dependencies": [
-        "reka-ui@^2.2.1",
-        "vee-validate@4.15.0"
+        "reka-ui@^2.11.0",
+        "vee-validate@^4.15.1"
       ],
       "registryDependencies": [
         "label"
@@ -1123,7 +1123,7 @@
       "name": "hover-card",
       "type": "registry:ui",
       "dependencies": [
-        "reka-ui@^2.2.1"
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -1150,8 +1150,8 @@
       "type": "registry:ui",
       "dependencies": [
         "class-variance-authority@^0.7.1",
-        "lucide-vue-next@^0.475.0",
-        "reka-ui@^2.2.1"
+        "lucide-vue-next@^1.0.0",
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -1244,7 +1244,7 @@
       "type": "registry:ui",
       "dependencies": [
         "class-variance-authority@^0.7.1",
-        "reka-ui@^2.2.1"
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [
         "separator"
@@ -1320,7 +1320,7 @@
       "name": "label",
       "type": "registry:ui",
       "dependencies": [
-        "reka-ui@^2.2.1"
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -1338,8 +1338,8 @@
       "name": "menubar",
       "type": "registry:ui",
       "dependencies": [
-        "lucide-vue-next@^0.475.0",
-        "reka-ui@^2.2.1"
+        "lucide-vue-next@^1.0.0",
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -1413,8 +1413,8 @@
       "name": "native-select",
       "type": "registry:ui",
       "dependencies": [
-        "lucide-vue-next@^0.475.0",
-        "reka-ui@^2.2.1"
+        "lucide-vue-next@^1.0.0",
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -1441,8 +1441,8 @@
       "type": "registry:ui",
       "dependencies": [
         "class-variance-authority@^0.7.1",
-        "lucide-vue-next@^0.475.0",
-        "reka-ui@^2.2.1"
+        "lucide-vue-next@^1.0.0",
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -1488,8 +1488,8 @@
       "name": "number-field",
       "type": "registry:ui",
       "dependencies": [
-        "lucide-vue-next@^0.475.0",
-        "reka-ui@^2.2.1"
+        "lucide-vue-next@^1.0.0",
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -1523,8 +1523,8 @@
       "name": "pagination",
       "type": "registry:ui",
       "dependencies": [
-        "lucide-vue-next@^0.475.0",
-        "reka-ui@^2.2.1"
+        "lucide-vue-next@^1.0.0",
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [
         "button"
@@ -1560,8 +1560,8 @@
       "name": "pin-input",
       "type": "registry:ui",
       "dependencies": [
-        "lucide-vue-next@^0.475.0",
-        "reka-ui@^2.2.1"
+        "lucide-vue-next@^1.0.0",
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -1591,7 +1591,7 @@
       "name": "popover",
       "type": "registry:ui",
       "dependencies": [
-        "reka-ui@^2.2.1"
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -1617,7 +1617,7 @@
       "name": "progress",
       "type": "registry:ui",
       "dependencies": [
-        "reka-ui@^2.2.1"
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -1635,8 +1635,8 @@
       "name": "radio-group",
       "type": "registry:ui",
       "dependencies": [
-        "lucide-vue-next@^0.475.0",
-        "reka-ui@^2.2.1"
+        "lucide-vue-next@^1.0.0",
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -1658,8 +1658,8 @@
       "name": "range-calendar",
       "type": "registry:ui",
       "dependencies": [
-        "lucide-vue-next@^0.475.0",
-        "reka-ui@^2.2.1"
+        "lucide-vue-next@^1.0.0",
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [
         "button"
@@ -1723,8 +1723,8 @@
       "name": "resizable",
       "type": "registry:ui",
       "dependencies": [
-        "lucide-vue-next@^0.475.0",
-        "reka-ui@^2.2.1"
+        "lucide-vue-next@^1.0.0",
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -1746,7 +1746,7 @@
       "name": "scroll-area",
       "type": "registry:ui",
       "dependencies": [
-        "reka-ui@^2.2.1"
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -1768,9 +1768,9 @@
       "name": "select",
       "type": "registry:ui",
       "dependencies": [
-        "@vueuse/core@^12.5.0",
-        "lucide-vue-next@^0.475.0",
-        "reka-ui@^2.2.1"
+        "@vueuse/core@^14.4.0",
+        "lucide-vue-next@^1.0.0",
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -1828,7 +1828,7 @@
       "name": "separator",
       "type": "registry:ui",
       "dependencies": [
-        "reka-ui@^2.2.1"
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -1847,8 +1847,8 @@
       "type": "registry:ui",
       "dependencies": [
         "class-variance-authority@^0.7.1",
-        "lucide-vue-next@^0.475.0",
-        "reka-ui@^2.2.1"
+        "lucide-vue-next@^1.0.0",
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -1894,10 +1894,10 @@
       "name": "sidebar",
       "type": "registry:ui",
       "dependencies": [
-        "@vueuse/core@^12.5.0",
+        "@vueuse/core@^14.4.0",
         "class-variance-authority@^0.7.1",
-        "lucide-vue-next@^0.475.0",
-        "reka-ui@^2.2.1"
+        "lucide-vue-next@^1.0.0",
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [
         "button",
@@ -2034,7 +2034,7 @@
       "name": "slider",
       "type": "registry:ui",
       "dependencies": [
-        "reka-ui@^2.2.1"
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -2052,7 +2052,7 @@
       "name": "spinner",
       "type": "registry:ui",
       "dependencies": [
-        "lucide-vue-next@^0.475.0"
+        "lucide-vue-next@^1.0.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -2070,7 +2070,7 @@
       "name": "stepper",
       "type": "registry:ui",
       "dependencies": [
-        "reka-ui@^2.2.1"
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -2112,7 +2112,7 @@
       "name": "switch",
       "type": "registry:ui",
       "dependencies": [
-        "reka-ui@^2.2.1"
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -2178,7 +2178,7 @@
       "name": "tabs",
       "type": "registry:ui",
       "dependencies": [
-        "reka-ui@^2.2.1"
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -2208,9 +2208,9 @@
       "name": "tags-input",
       "type": "registry:ui",
       "dependencies": [
-        "@vueuse/core@^12.5.0",
-        "lucide-vue-next@^0.475.0",
-        "reka-ui@^2.2.1"
+        "@vueuse/core@^14.4.0",
+        "lucide-vue-next@^1.0.0",
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -2260,7 +2260,7 @@
       "name": "toaster",
       "type": "registry:ui",
       "dependencies": [
-        "vue-sonner@^1.3.0"
+        "vue-sonner@^2.0.9"
       ],
       "registryDependencies": [
         "button"
@@ -2289,7 +2289,7 @@
       "type": "registry:ui",
       "dependencies": [
         "class-variance-authority@^0.7.1",
-        "reka-ui@^2.2.1"
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -2308,7 +2308,7 @@
       "type": "registry:ui",
       "dependencies": [
         "class-variance-authority@^0.7.1",
-        "reka-ui@^2.2.1"
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [
         "toggle"
@@ -2332,7 +2332,7 @@
       "name": "tooltip",
       "type": "registry:ui",
       "dependencies": [
-        "reka-ui@^2.2.1"
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -2364,7 +2364,7 @@
       "title": "AI playground",
       "description": "An AI playground with a sidebar navigation and a main content area. The playground has a header with a settings drawer and a share button. The sidebar has navigation links and a user menu. The main content area shows a form to configure the model and messages.",
       "dependencies": [
-        "lucide-vue-next@^0.475.0"
+        "lucide-vue-next@^1.0.0"
       ],
       "registryDependencies": [
         "badge",
@@ -2428,7 +2428,7 @@
       "title": "Analytics dashboard",
       "description": "An application shell with a header and main content area. The header has a navbar, a search input and and a user nav dropdown. The user nav is toggled by a button with an avatar image. The main content area is divided into two rows. The first row has a grid of cards with statistics. The second row has a grid of cards with a table of recent transactions and a list of recent sales.",
       "dependencies": [
-        "lucide-vue-next@^0.475.0"
+        "lucide-vue-next@^1.0.0"
       ],
       "registryDependencies": [
         "avatar",
@@ -2488,7 +2488,7 @@
       "title": "Orders dashboard",
       "description": "An orders dashboard with a sidebar navigation. The sidebar has icon navigation. The content area has a breadcrumb and search in the header. The main area has a list of recent orders with a filter and export button. The main area also has a detailed view of a single order with order details, shipping information, billing information, customer information, and payment information.",
       "dependencies": [
-        "lucide-vue-next@^0.475.0"
+        "lucide-vue-next@^1.0.0"
       ],
       "registryDependencies": [
         "badge",
@@ -2550,7 +2550,7 @@
       "title": "Product edit page",
       "description": "A product edit page. The product edit page has a form to edit the product details, stock, product category, product status, and product images. The product edit page has a sidebar navigation and a main content area. The main content area has a form to edit the product details, stock, product category, product status, and product images. The sidebar navigation has links to product details, stock, product category, product status, and product images.",
       "dependencies": [
-        "lucide-vue-next@^0.475.0"
+        "lucide-vue-next@^1.0.0"
       ],
       "registryDependencies": [
         "badge",
@@ -2627,7 +2627,7 @@
       "title": "Products dashboard",
       "description": "An products dashboard with a sidebar navigation. The sidebar has icon navigation. The content area has a breadcrumb and search in the header. It displays a list of products in a table with actions.",
       "dependencies": [
-        "lucide-vue-next@^0.475.0"
+        "lucide-vue-next@^1.0.0"
       ],
       "registryDependencies": [
         "badge",
@@ -2677,7 +2677,7 @@
       "title": "Settings page",
       "description": "A settings page. The settings page has a sidebar navigation and a main content area. The main content area has a form to update the store name and a form to update the plugins directory. The sidebar navigation has links to general, security, integrations, support, organizations, and advanced settings.",
       "dependencies": [
-        "lucide-vue-next@^0.475.0"
+        "lucide-vue-next@^1.0.0"
       ],
       "registryDependencies": [
         "button",
@@ -2736,7 +2736,7 @@
       "title": "Dashboard with sidebar",
       "description": "A products dashboard with a sidebar navigation and a main content area. The dashboard has a header with a search input and a user menu. The sidebar has a logo, navigation links, and a card with a call to action. The main content area shows an empty state with a call to action.",
       "dependencies": [
-        "lucide-vue-next@^0.475.0"
+        "lucide-vue-next@^1.0.0"
       ],
       "registryDependencies": [
         "badge",
