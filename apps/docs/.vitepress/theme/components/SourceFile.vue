@@ -6,14 +6,14 @@ import { useCodePathRewrite } from '../composables/useCodePathRewrite';
 
 defineProps<{
   name: string;
+  html: string;
 }>();
 
-const container = ref<HTMLElement>();
 const codeContainer = ref<HTMLElement>();
 const isExpanded = ref(false);
 const isOverflowing = ref(false);
 
-useCodePathRewrite(container);
+const rewriteCodePaths = useCodePathRewrite();
 
 useResizeObserver(codeContainer, () => {
   if (codeContainer.value && !isExpanded.value) {
@@ -24,7 +24,6 @@ useResizeObserver(codeContainer, () => {
 
 <template>
   <div
-    ref="container"
     class="my-4 overflow-hidden rounded-lg border"
   >
     <div class="flex items-center gap-2 border-b bg-muted/50 px-4 py-2 text-sm font-medium">
@@ -36,7 +35,7 @@ useResizeObserver(codeContainer, () => {
       class="source-file-code relative"
       :class="{ 'max-h-64 overflow-hidden': !isExpanded }"
     >
-      <slot />
+      <div v-html="rewriteCodePaths(html)" />
       <div
         v-if="isOverflowing && !isExpanded"
         class="absolute inset-x-0 bottom-0 flex h-24 items-end justify-center bg-gradient-to-t from-secondary-foreground to-transparent pb-3 dark:from-secondary"

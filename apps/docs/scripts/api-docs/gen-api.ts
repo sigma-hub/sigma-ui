@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { styleSystems } from '../../src/lib/registry/style-system';
+import { styleSystems } from '@sigma-ui/shared/style-systems';
 import type { ComponentApi } from '../../.vitepress/theme/types/api';
 import { createApiExtractor } from './extract';
 import { findApiDifferences } from './parity';
