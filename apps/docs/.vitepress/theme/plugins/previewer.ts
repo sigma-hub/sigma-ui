@@ -1,25 +1,32 @@
 import type { MarkdownRenderer } from 'vitepress';
+import { type StateCore, type Token, createFence, createHtmlBlock, replaceHtmlBlocks, toAttributeJson } from './markdown-tokens';
+import { STYLE_SYSTEMS, exampleExists, readExample, toDisplayCode } from './registry-source';
 import { parseProps } from './utils';
 
-export default function (md: MarkdownRenderer) {
-  function addRenderRule(type: string) {
-    const defaultRender = md.renderer.rules[type];
+const COMPONENT_PREVIEW_PATTERN = /^<ComponentPreview\s[^>]*\/>$/s;
 
-    md.renderer.rules[type] = (tokens, idx, options, env, self) => {
-      const token = tokens[idx];
-      const content = token.content.trim();
+function createPreviewTokens(state: StateCore, match: RegExpMatchArray, sourceToken: Token) {
+  const props = parseProps(match[0]);
+  const exampleName = props.name;
 
-      if (!content.match(/^<ComponentPreview\s/) || !content.endsWith('/>')) {
-        return defaultRender!(tokens, idx, options, env, self);
-      }
-
-      const props = parseProps(content);
-      const { attrs } = props;
-      const demoScripts = `<ComponentPreview ${attrs ?? ''} v-bind='${JSON.stringify(props)}'></ComponentPreview>`.trim();
-      return demoScripts;
-    };
+  if (typeof exampleName !== 'string' || !exampleExists(exampleName)) {
+    throw new Error(`<ComponentPreview name="${exampleName}" /> does not match an example in every style system`);
   }
 
-  addRenderRule('html_block');
-  addRenderRule('html_inline');
+  const tokens = [createHtmlBlock(state, `<ComponentPreview v-bind='${toAttributeJson(props)}'>`, sourceToken)];
+
+  for (const style of STYLE_SYSTEMS) {
+    tokens.push(
+      createHtmlBlock(state, `<template #code-${style}>`, sourceToken),
+      createFence(state, toDisplayCode(readExample(style, exampleName), style), 'vue', sourceToken),
+      createHtmlBlock(state, '</template>', sourceToken),
+    );
+  }
+
+  tokens.push(createHtmlBlock(state, '</ComponentPreview>', sourceToken));
+  return tokens;
+}
+
+export default function componentPreviewPlugin(md: MarkdownRenderer) {
+  replaceHtmlBlocks(md, 'component_preview', COMPONENT_PREVIEW_PATTERN, createPreviewTokens);
 }
