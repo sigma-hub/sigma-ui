@@ -70,7 +70,7 @@
     },
     {
       "path": "ui/dropdown-menu/DropdownMenuSubTrigger.vue",
-      "content": "<script setup lang=\"ts\">\nimport {\n  DropdownMenuSubTrigger,\n  type DropdownMenuSubTriggerProps,\n  useForwardProps,\n} from 'reka-ui';\nimport { ChevronRightIcon } from 'lucide-vue-next';\nimport { cn } from '@/lib/utils';\n\nconst props = defineProps<DropdownMenuSubTriggerProps>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <DropdownMenuSubTrigger\n    v-bind=\"forwardedProps\"\n    :class=\"cn(\n      'flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-hidden focus:bg-secondary data-[state=open]:bg-secondary',\n      $attrs.class ?? '',\n    )\"\n  >\n    <slot />\n    <ChevronRightIcon class=\"ml-auto h-4 w-4\" />\n  </DropdownMenuSubTrigger>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport {\n  DropdownMenuSubTrigger,\n  type DropdownMenuSubTriggerProps,\n  useForwardProps,\n} from 'reka-ui';\nimport { ChevronRightIcon } from 'lucide-vue-next';\nimport { cn } from '@/lib/utils';\n\nconst props = defineProps<DropdownMenuSubTriggerProps & { inset?: boolean }>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <DropdownMenuSubTrigger\n    v-bind=\"forwardedProps\"\n    :class=\"cn(\n      'flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-hidden focus:bg-secondary data-[state=open]:bg-secondary',\n      inset && 'pl-8',\n      $attrs.class ?? '',\n    )\"\n  >\n    <slot />\n    <ChevronRightIcon class=\"ml-auto h-4 w-4\" />\n  </DropdownMenuSubTrigger>\n</template>\n",
       "type": "registry:ui"
     },
     {

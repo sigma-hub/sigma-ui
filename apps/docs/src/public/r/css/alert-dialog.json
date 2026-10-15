@@ -51,7 +51,7 @@
     },
     {
       "path": "ui/alert-dialog/AlertDialogTrigger.vue",
-      "content": "<script setup lang=\"ts\">\nimport { AlertDialogTrigger } from 'reka-ui';\n</script>\n\n<template>\n  <AlertDialogTrigger>\n    <slot />\n  </AlertDialogTrigger>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { AlertDialogTrigger, type AlertDialogTriggerProps } from 'reka-ui';\n\nconst props = defineProps<AlertDialogTriggerProps>();\n</script>\n\n<template>\n  <AlertDialogTrigger v-bind=\"props\">\n    <slot />\n  </AlertDialogTrigger>\n</template>\n",
       "type": "registry:ui"
     },
     {
