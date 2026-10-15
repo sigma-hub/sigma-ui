@@ -1,17 +1,30 @@
 name: Setup
-description: Installs Node, pnpm and caches dependencies.
+description: Installs pnpm from the packageManager field, Node.js, and the workspace dependencies.
+
+inputs:
+  node-version:
+    description: Node.js version to install.
+    required: false
+    default: lts/*
+  registry-url:
+    description: npm registry to authenticate against, needed for publishing.
+    required: false
+    default: ''
 
 runs:
   using: composite
 
   steps:
     - name: Setup pnpm
-      uses: pnpm/action-setup@v4
-      with:
-        version: 10.2.1
+      uses: pnpm/action-setup@v6
 
     - name: Setup Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v7
       with:
-        node-version: lts/*
+        node-version: ${{ inputs.node-version }}
+        registry-url: ${{ inputs.registry-url }}
         cache: pnpm
+
+    - name: Install dependencies
+      shell: bash
+      run: pnpm install --frozen-lockfile
