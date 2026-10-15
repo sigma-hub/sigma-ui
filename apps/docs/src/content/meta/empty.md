@@ -5,7 +5,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p><code>EmptyHeader</code>, <code>EmptyMedia</code>, and <code>EmptyContent</code>.</p>"
   }
 ]' />
@@ -15,7 +15,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Actions, such as a button, under the description.</p>"
   }
 ]' />
@@ -25,7 +25,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Explanation of the empty state. Links inside it are underlined.</p>"
   }
 ]' />
@@ -35,7 +35,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p><code>EmptyMedia</code>, <code>EmptyTitle</code>, and <code>EmptyDescription</code>.</p>"
   }
 ]' />
@@ -54,7 +54,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Icon or illustration.</p>"
   }
 ]' />
@@ -64,7 +64,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Short title of the empty state.</p>"
   }
 ]' />
