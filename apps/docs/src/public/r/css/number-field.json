@@ -10,12 +10,12 @@
   "files": [
     {
       "path": "ui/number-field/NumberField.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { NumberFieldRootEmits, NumberFieldRootProps } from 'reka-ui';\nimport { NumberFieldRoot, useForwardPropsEmits } from 'reka-ui';\n\nconst props = defineProps<NumberFieldRootProps>();\nconst emits = defineEmits<NumberFieldRootEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <NumberFieldRoot\n    v-bind=\"forwarded\"\n    class=\"sigma-ui-number-field\"\n  >\n    <slot />\n  </NumberFieldRoot>\n</template>\n\n<style>\n.sigma-ui-number-field {\n  display: grid;\n  gap: 0.375rem;\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { NumberFieldRootEmits, NumberFieldRootProps } from 'reka-ui';\nimport { NumberFieldRoot, useForwardPropsEmits } from 'reka-ui';\n\nconst props = defineProps<NumberFieldRootProps>();\nconst emits = defineEmits<NumberFieldRootEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <NumberFieldRoot\n    v-bind=\"forwarded\"\n    class=\"sigma-ui-number-field\"\n    data-slot=\"number-field\"\n  >\n    <slot />\n  </NumberFieldRoot>\n</template>\n\n<style>\n.sigma-ui-number-field {\n  display: grid;\n  gap: 0.375rem;\n}\n</style>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/number-field/NumberFieldContent.vue",
-      "content": "<script setup lang=\"ts\">\n\n</script>\n\n<template>\n  <div\n    class=\"sigma-ui-number-field-content\"\n    :class=\"$attrs.class\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n.sigma-ui-number-field-content {\n  position: relative;\n}\n\n.sigma-ui-number-field-content > [data-slot=\"input\"]:has([data-slot=\"increment\"]) {\n  padding-right: 1.25rem;\n}\n\n.sigma-ui-number-field-content > [data-slot=\"input\"]:has([data-slot=\"decrement\"]) {\n  padding-left: 1.25rem;\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\n\n</script>\n\n<template>\n  <div\n    class=\"sigma-ui-number-field-content\"\n    :class=\"$attrs.class\"\n    data-slot=\"number-field-content\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n.sigma-ui-number-field-content {\n  position: relative;\n}\n\n.sigma-ui-number-field-content > [data-slot=\"input\"]:has([data-slot=\"increment\"]) {\n  padding-right: 1.25rem;\n}\n\n.sigma-ui-number-field-content > [data-slot=\"input\"]:has([data-slot=\"decrement\"]) {\n  padding-left: 1.25rem;\n}\n</style>\n",
       "type": "registry:ui"
     },
     {
@@ -30,7 +30,7 @@
     },
     {
       "path": "ui/number-field/NumberFieldInput.vue",
-      "content": "<script setup lang=\"ts\">\nimport { NumberFieldInput } from 'reka-ui';\n</script>\n\n<template>\n  <NumberFieldInput\n    data-slot=\"input\"\n    class=\"sigma-ui-number-field-input\"\n  />\n</template>\n\n<style>\n.sigma-ui-number-field-input {\n  display: flex;\n  width: 100%;\n  height: 2.5rem;\n  padding: 0.5rem;\n  border: 1px solid hsl(var(--border));\n  border-radius: var(--radius);\n  background-color: transparent;\n  font-size: 0.875rem;\n  text-align: center;\n}\n\n.sigma-ui-number-field-input::placeholder {\n  color: hsl(var(--muted-foreground));\n}\n\n.sigma-ui-number-field-input:focus-visible {\n  outline: 2px solid hsl(var(--ring));\n  outline-offset: 2px;\n}\n\n.sigma-ui-number-field-input:disabled {\n  cursor: not-allowed;\n  opacity: 0.5;\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\nimport { NumberFieldInput } from 'reka-ui';\n</script>\n\n<template>\n  <NumberFieldInput\n    data-slot=\"input\"\n    class=\"sigma-ui-number-field-input\"\n  />\n</template>\n\n<style>\n.sigma-ui-number-field-input {\n  display: flex;\n  width: 100%;\n  height: 2.5rem;\n  padding: 0.5rem;\n  border: 1px solid var(--border);\n  border-radius: var(--radius);\n  background-color: transparent;\n  font-size: 0.875rem;\n  text-align: center;\n}\n\n.sigma-ui-number-field-input::placeholder {\n  color: var(--muted-foreground);\n}\n\n.sigma-ui-number-field-input:focus-visible {\n  outline: 2px solid var(--ring);\n  outline-offset: 2px;\n}\n\n.sigma-ui-number-field-input:disabled {\n  cursor: not-allowed;\n  opacity: 0.5;\n}\n</style>\n",
       "type": "registry:ui"
     },
     {

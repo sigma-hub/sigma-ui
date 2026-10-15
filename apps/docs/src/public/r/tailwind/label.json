@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "ui/label/Label.vue",
-      "content": "<script setup lang=\"ts\">\nimport { Label, type LabelProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\nconst props = defineProps<LabelProps>();\n</script>\n\n<template>\n  <Label\n    v-bind=\"props\"\n    :class=\"\n\n      cn(\n        'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',\n        $attrs.class ?? '',\n      )\n    \"\n  >\n    <slot />\n  </Label>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { Label, type LabelProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\nconst props = defineProps<LabelProps>();\n</script>\n\n<template>\n  <Label\n    v-bind=\"props\"\n    :class=\"\n\n      cn(\n        'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',\n        $attrs.class ?? '',\n      )\n    \"\n   data-slot=\"label\">\n    <slot />\n  </Label>\n</template>\n",
       "type": "registry:ui"
     },
     {

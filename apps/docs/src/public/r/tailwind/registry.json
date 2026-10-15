@@ -452,6 +452,10 @@
       ],
       "files": [
         {
+          "path": "ui/chart/ChartContainer.vue",
+          "type": "registry:ui"
+        },
+        {
           "path": "ui/chart/ChartCrosshair.vue",
           "type": "registry:ui"
         },
@@ -794,6 +798,7 @@
       "name": "dialog",
       "type": "registry:ui",
       "dependencies": [
+        "@vueuse/core@^14.4.0",
         "lucide-vue-next@^1.0.0",
         "reka-ui@^2.11.0"
       ],

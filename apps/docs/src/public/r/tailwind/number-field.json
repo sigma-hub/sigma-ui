@@ -10,12 +10,12 @@
   "files": [
     {
       "path": "ui/number-field/NumberField.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { NumberFieldRootEmits, NumberFieldRootProps } from 'reka-ui';\nimport { NumberFieldRoot, useForwardPropsEmits } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\nconst props = defineProps<NumberFieldRootProps>();\nconst emits = defineEmits<NumberFieldRootEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <NumberFieldRoot\n    v-bind=\"forwarded\"\n    :class=\"cn('grid gap-1.5', $attrs.class ?? '')\"\n  >\n    <slot />\n  </NumberFieldRoot>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { NumberFieldRootEmits, NumberFieldRootProps } from 'reka-ui';\nimport { NumberFieldRoot, useForwardPropsEmits } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\nconst props = defineProps<NumberFieldRootProps>();\nconst emits = defineEmits<NumberFieldRootEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <NumberFieldRoot\n    v-bind=\"forwarded\"\n    :class=\"cn('grid gap-1.5', $attrs.class ?? '')\"\n    data-slot=\"number-field\"\n  >\n    <slot />\n  </NumberFieldRoot>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/number-field/NumberFieldContent.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils';\n\n</script>\n\n<template>\n  <div :class=\"cn('relative [&>[data-slot=input]]:has-[[data-slot=increment]]:pr-5 [&>[data-slot=input]]:has-[[data-slot=decrement]]:pl-5', $attrs.class ?? '')\">\n    <slot />\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils';\n\n</script>\n\n<template>\n  <div\n    data-slot=\"number-field-content\"\n    :class=\"cn('relative [&>[data-slot=input]]:has-[[data-slot=increment]]:pr-5 [&>[data-slot=input]]:has-[[data-slot=decrement]]:pl-5', $attrs.class ?? '')\"\n  >\n    <slot />\n  </div>\n</template>\n",
       "type": "registry:ui"
     },
     {

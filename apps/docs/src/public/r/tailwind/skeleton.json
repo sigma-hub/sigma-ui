@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "ui/skeleton/Skeleton.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils';\n\n</script>\n\n<template>\n  <div :class=\"cn('animate-pulse rounded-md bg-muted', $attrs.class ?? '')\" />\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils';\n\n</script>\n\n<template>\n  <div :class=\"cn('animate-pulse rounded-md bg-muted', $attrs.class ?? '')\"\n  data-slot=\"skeleton\" />\n</template>\n",
       "type": "registry:ui"
     },
     {

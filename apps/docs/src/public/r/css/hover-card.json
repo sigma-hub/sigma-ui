@@ -9,17 +9,17 @@
   "files": [
     {
       "path": "ui/hover-card/HoverCard.vue",
-      "content": "<script setup lang=\"ts\">\nimport { HoverCardRoot, type HoverCardRootEmits, type HoverCardRootProps, useForwardPropsEmits } from 'reka-ui';\n\nconst props = defineProps<HoverCardRootProps>();\nconst emits = defineEmits<HoverCardRootEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <HoverCardRoot v-bind=\"forwarded\">\n    <slot />\n  </HoverCardRoot>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { HoverCardRoot, type HoverCardRootEmits, type HoverCardRootProps, useForwardPropsEmits } from 'reka-ui';\n\nconst props = defineProps<HoverCardRootProps>();\nconst emits = defineEmits<HoverCardRootEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <HoverCardRoot v-bind=\"forwarded\"\n  data-slot=\"hover-card\">\n    <slot />\n  </HoverCardRoot>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/hover-card/HoverCardContent.vue",
-      "content": "<script setup lang=\"ts\">\nimport {\n  HoverCardContent,\n  type HoverCardContentProps,\n  HoverCardPortal,\n  useForwardProps,\n} from 'reka-ui';\n\nconst props = withDefaults(\n  defineProps<HoverCardContentProps>(),\n  {\n    sideOffset: 4,\n  },\n);\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <HoverCardPortal>\n    <HoverCardContent\n      v-bind=\"forwardedProps\"\n      class=\"sigma-ui-hover-card-content\"\n      :class=\"$attrs.class\"\n    >\n      <slot />\n    </HoverCardContent>\n  </HoverCardPortal>\n</template>\n\n<style>\n.sigma-ui-hover-card-content {\n  z-index: 50;\n  padding: 1rem;\n  border: 1px solid hsl(var(--border));\n  border-radius: var(--radius-md);\n  animation: sigma-ui-fade-out-scale 100ms ease-in forwards;\n  background-color: hsl(var(--popover));\n  box-shadow: var(--shadow-md);\n  color: hsl(var(--popover-foreground));\n  outline: none;\n  transform-origin: var(--reka-popper-transform-origin);\n}\n\n.sigma-ui-hover-card-content[data-state=\"open\"] {\n  animation: sigma-ui-fade-in-scale 200ms ease-out;\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\nimport {\n  HoverCardContent,\n  type HoverCardContentProps,\n  HoverCardPortal,\n  useForwardProps,\n} from 'reka-ui';\n\nconst props = withDefaults(\n  defineProps<HoverCardContentProps>(),\n  {\n    sideOffset: 4,\n  },\n);\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <HoverCardPortal>\n    <HoverCardContent\n      v-bind=\"forwardedProps\"\n      class=\"sigma-ui-hover-card-content\"\n      :class=\"$attrs.class\"\n     data-slot=\"hover-card-content\">\n      <slot />\n    </HoverCardContent>\n  </HoverCardPortal>\n</template>\n\n<style>\n.sigma-ui-hover-card-content {\n  z-index: 50;\n  padding: 1rem;\n  border: 1px solid var(--border);\n  border-radius: var(--radius-md);\n  animation: sigma-ui-fade-out-scale 100ms ease-in forwards;\n  background-color: var(--popover);\n  box-shadow: var(--shadow-md);\n  color: var(--popover-foreground);\n  outline: none;\n  transform-origin: var(--reka-popper-transform-origin);\n}\n\n.sigma-ui-hover-card-content[data-state=\"open\"] {\n  animation: sigma-ui-fade-in-scale 200ms ease-out;\n}\n</style>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/hover-card/HoverCardTrigger.vue",
-      "content": "<script setup lang=\"ts\">\nimport { HoverCardTrigger, type HoverCardTriggerProps } from 'reka-ui';\n\nconst props = defineProps<HoverCardTriggerProps>();\n</script>\n\n<template>\n  <HoverCardTrigger v-bind=\"props\">\n    <slot />\n  </HoverCardTrigger>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { HoverCardTrigger, type HoverCardTriggerProps } from 'reka-ui';\n\nconst props = defineProps<HoverCardTriggerProps>();\n</script>\n\n<template>\n  <HoverCardTrigger v-bind=\"props\"\n  data-slot=\"hover-card-trigger\">\n    <slot />\n  </HoverCardTrigger>\n</template>\n",
       "type": "registry:ui"
     },
     {
