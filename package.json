@@ -28,11 +28,13 @@
     "prerelease": "pnpm ts:cli && pnpm build:registry && pnpm build:cli",
     "pub:beta": "pnpm --filter sigma-ui pub:beta",
     "pub:release": "pnpm --filter sigma-ui pub:release",
-    "test": "pnpm --filter sigma-ui test",
+    "test": "pnpm -r --if-present test",
     "ts:docs": "pnpm --filter docs ts",
     "ts:cli": "pnpm --filter sigma-ui ts",
     "ts:nuxt": "pnpm --filter sigma-ui-nuxt ts",
-    "ts": "pnpm run ts:docs && pnpm run ts:cli && pnpm run ts:nuxt"
+    "ts:lib": "pnpm --filter lib ts",
+    "ts:shared": "pnpm --filter @sigma-ui/shared ts",
+    "ts": "pnpm run ts:cli && pnpm run ts:shared && pnpm run ts:nuxt && pnpm run ts:lib && pnpm run ts:docs"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.7.1",
