@@ -1,165 +1,131 @@
-import fs from 'node:fs';
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import path from 'pathe';
-import { addDependency } from '../../src/utils/package-manager';
-import { afterEach, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { createConfig, runInit } from '../../src/commands/init';
+import { getProjectInfo } from '../../src/utils/get-project-info';
+import { installPackages } from '../../src/utils/package-manager';
 
-import { runInit } from '../../src/commands/init';
-import { getConfig } from '../../src/utils/get-config';
-import * as registry from '../../src/utils/registry';
-
-vi.mock('../../src/utils/package-manager');
-vi.mock('fs/promises', () => ({
-  writeFile: vi.fn(),
-  mkdir: vi.fn(),
+vi.mock('../../src/utils/package-manager', async (importOriginal) => {
+  const original = await importOriginal<typeof import('../../src/utils/package-manager')>();
+  return { ...original, installPackages: vi.fn() };
+});
+vi.mock('ora', () => ({
+  default: () => ({ start: () => ({ stop: vi.fn(), succeed: vi.fn(), fail: vi.fn() }) }),
 }));
-vi.mock('ora');
+vi.mock('consola');
 
-it('init config-full', async () => {
-  vi.spyOn(registry, 'getRegistryBaseColor').mockResolvedValue({
-    inlineColors: { light: {}, dark: {} },
-    cssVars: { light: {}, dark: {} },
-    templates: {
-      tailwind: {
-        withVariables: '@tailwind base;\n@tailwind components;\n@tailwind utilities;\n',
-      },
-      css: {
-        withVariables: '@tailwind base;\n@tailwind components;\n@tailwind utilities;\n',
-      },
-    },
-  });
-  const mockMkdir = vi.spyOn(fs.promises, 'mkdir').mockResolvedValue(undefined);
-  const mockWriteFile = vi.spyOn(fs.promises, 'writeFile').mockResolvedValue();
+function createProject(files: Record<string, string>) {
+  const cwd = mkdtempSync(path.join(tmpdir(), 'sigma-ui-init-'));
 
-  const targetDir = path.resolve(__dirname, '../fixtures/config-full');
-  const config = await getConfig(targetDir);
+  for (const [filePath, content] of Object.entries(files)) {
+    mkdirSync(path.dirname(path.join(cwd, filePath)), { recursive: true });
+    writeFileSync(path.join(cwd, filePath), content);
+  }
 
-  await runInit(targetDir, config!);
+  return cwd;
+}
 
-  expect(mockMkdir).toHaveBeenNthCalledWith(
-    1,
-    expect.stringMatching(/src\/app$/),
-    expect.anything(),
-  );
-  expect(mockMkdir).toHaveBeenNthCalledWith(
-    2,
-    expect.stringMatching(/src\/lib$/),
-    expect.anything(),
-  );
-  expect(mockMkdir).toHaveBeenNthCalledWith(
-    3,
-    expect.stringMatching(/src\/components$/),
-    expect.anything(),
-  );
-  expect(mockWriteFile).toHaveBeenNthCalledWith(
-    1,
-    expect.stringMatching(/tailwind.config.ts$/),
-    expect.stringContaining('/** @type {import(\'tailwindcss\').Config} */'),
-    'utf8',
-  );
-  expect(mockWriteFile).toHaveBeenNthCalledWith(
-    2,
-    expect.stringMatching(/src\/app\/globals.css$/),
-    expect.stringContaining('@tailwind base'),
-    'utf8',
-  );
-  expect(mockWriteFile).toHaveBeenNthCalledWith(
-    3,
-    expect.stringMatching(/src\/lib\/utils.ts$/),
-    expect.stringContaining('import { type ClassValue, clsx } from \'clsx\''),
-    'utf8',
-  );
-  expect(addDependency).toHaveBeenCalledWith(
-    [
-      'tailwindcss-animate',
-      'class-variance-authority',
-      'clsx',
-      'tailwind-merge',
-      'reka-ui',
-      'lucide-vue-next',
-    ],
-    {
-      cwd: targetDir,
-      silent: true,
-    },
-  );
+const read = (cwd: string, filePath: string) => readFileSync(path.join(cwd, filePath), 'utf8');
 
-  mockMkdir.mockRestore();
-  mockWriteFile.mockRestore();
-});
+const VITE_PROJECT = {
+  'package.json': JSON.stringify({ dependencies: { vue: '^3.5.0' } }),
+  'tsconfig.json': JSON.stringify({ compilerOptions: { paths: { '@/*': ['./src/*'] } } }),
+  'vite.config.ts': `import { defineConfig } from 'vite'\nimport vue from '@vitejs/plugin-vue'\n\nexport default defineConfig({\n  plugins: [vue()],\n})\n`,
+  'src/main.ts': `import { createApp } from 'vue'\nimport App from './App.vue'\n\ncreateApp(App).mount('#app')\n`,
+};
 
-it('init config-partial', async () => {
-  vi.spyOn(registry, 'getRegistryBaseColor').mockResolvedValue({
-    inlineColors: { light: {}, dark: {} },
-    cssVars: { light: {}, dark: {} },
-    templates: {
-      tailwind: {
-        withVariables: '@tailwind base;\n@tailwind components;\n@tailwind utilities;\n',
-      },
-      css: {
-        withVariables: '@tailwind base;\n@tailwind components;\n@tailwind utilities;\n',
-      },
-    },
-  });
-  const mockMkdir = vi.spyOn(fs.promises, 'mkdir').mockResolvedValue(undefined);
-  const mockWriteFile = vi.spyOn(fs.promises, 'writeFile').mockResolvedValue();
+const NUXT_PROJECT = {
+  'package.json': JSON.stringify({ devDependencies: { nuxt: '^4.0.0' } }),
+  'nuxt.config.ts': `export default defineNuxtConfig({\n  devtools: { enabled: true },\n})\n`,
+  'app/app.vue': '<template><NuxtPage /></template>\n',
+};
 
-  const targetDir = path.resolve(__dirname, '../fixtures/config-partial');
-  const config = await getConfig(targetDir);
-
-  await runInit(targetDir, config!);
-
-  expect(mockMkdir).toHaveBeenNthCalledWith(
-    1,
-    expect.stringMatching(/src\/assets\/css$/),
-    expect.anything(),
-  );
-  expect(mockMkdir).toHaveBeenNthCalledWith(
-    2,
-    expect.stringMatching(/lib$/),
-    expect.anything(),
-  );
-  expect(mockMkdir).toHaveBeenNthCalledWith(
-    3,
-    expect.stringMatching(/components$/),
-    expect.anything(),
-  );
-  expect(mockWriteFile).toHaveBeenNthCalledWith(
-    1,
-    expect.stringMatching(/tailwind.config.ts$/),
-    expect.stringContaining('/** @type {import(\'tailwindcss\').Config} */'),
-    'utf8',
-  );
-  expect(mockWriteFile).toHaveBeenNthCalledWith(
-    2,
-    expect.stringMatching(/src\/assets\/css\/tailwind.css$/),
-    expect.stringContaining('@tailwind base'),
-    'utf8',
-  );
-  expect(mockWriteFile).toHaveBeenNthCalledWith(
-    3,
-    expect.stringMatching(/utils.ts$/),
-    expect.stringContaining('import { type ClassValue, clsx } from \'clsx\''),
-    'utf8',
-  );
-  expect(addDependency).toHaveBeenCalledWith(
-    [
-      'tailwindcss-animate',
-      'class-variance-authority',
-      'clsx',
-      'tailwind-merge',
-      'reka-ui',
-      'lucide-vue-next',
-    ],
-    {
-      cwd: targetDir,
-      silent: true,
-    },
-  );
-
-  mockMkdir.mockRestore();
-  mockWriteFile.mockRestore();
-});
+async function initProject(cwd: string, styleSystem: 'tailwind' | 'css') {
+  const projectInfo = await getProjectInfo(cwd);
+  const rawConfig = createConfig(cwd, projectInfo, { styleSystem, baseColor: 'grayscale', componentNaming: 'pascal-case' });
+  return runInit(cwd, rawConfig, { yes: true, projectInfo });
+}
 
 afterEach(() => {
-  vi.resetAllMocks();
+  vi.mocked(installPackages).mockReset();
+});
+
+describe('init', () => {
+  it('sets up a Vite project with Tailwind v4', async () => {
+    const cwd = createProject(VITE_PROJECT);
+    const config = await initProject(cwd, 'tailwind');
+
+    expect(JSON.parse(read(cwd, 'sigma-ui.config.json'))).toMatchObject({
+      $schema: 'https://sigma-ui.dev/schema.json',
+      styleSystem: 'tailwind',
+      framework: 'vite',
+      cssPath: 'src/assets/index.css',
+      setupTailwind: true,
+      tailwind: { config: '' },
+      aliases: { components: '@/components/ui', utils: '@/lib/utils' },
+    });
+    expect(config.resolvedPaths.components).toBe(path.join(cwd, 'src/components/ui'));
+    expect(existsSync(config.resolvedPaths.components)).toBe(true);
+    expect(read(cwd, 'src/assets/index.css')).toContain('@import "tailwindcss";');
+    expect(read(cwd, 'src/assets/index.css')).toMatch(/--background: /);
+    expect(read(cwd, 'src/lib/utils.ts')).toContain('twMerge');
+    expect(read(cwd, 'vite.config.ts')).toMatch(/import tailwindcss from ['"]@tailwindcss\/vite['"]/);
+    expect(read(cwd, 'vite.config.ts')).toMatch(/plugins: \[vue\(\), tailwindcss\(\)\]/);
+    expect(read(cwd, 'src/main.ts').startsWith('import \'./assets/index.css\';\n')).toBe(true);
+    expect(existsSync(path.join(cwd, 'tailwind.config.js'))).toBe(false);
+    expect(installPackages).toHaveBeenCalledWith(['clsx', 'tailwind-merge', 'tailwindcss-animate'], { cwd, silent: true });
+    expect(installPackages).toHaveBeenCalledWith(['tailwindcss', '@tailwindcss/vite'], { cwd, dev: true, silent: true });
+  });
+
+  it('is idempotent when run twice', async () => {
+    const cwd = createProject(VITE_PROJECT);
+    await initProject(cwd, 'tailwind');
+    const viteConfig = read(cwd, 'vite.config.ts');
+    const entry = read(cwd, 'src/main.ts');
+
+    await initProject(cwd, 'tailwind');
+
+    expect(read(cwd, 'vite.config.ts')).toBe(viteConfig);
+    expect(read(cwd, 'src/main.ts')).toBe(entry);
+  });
+
+  it('sets up a Nuxt 4 project with the CSS style system', async () => {
+    const cwd = createProject(NUXT_PROJECT);
+    const config = await initProject(cwd, 'css');
+
+    expect(config.cssPath).toBe('app/assets/css/tailwind.css');
+    expect(config.aliases.utils).toBe('');
+    expect(config.resolvedPaths.components).toBe(path.join(cwd, 'app/components/ui'));
+    expect(read(cwd, 'app/assets/css/tailwind.css')).toContain('@import "./preflight.css";');
+    expect(existsSync(path.join(cwd, 'app/assets/css/preflight.css'))).toBe(true);
+    expect(read(cwd, 'nuxt.config.ts')).toMatch(/css: \[['"]~\/assets\/css\/tailwind\.css['"]\]/);
+    expect(read(cwd, 'nuxt.config.ts')).not.toContain('@tailwindcss/vite');
+    expect(installPackages).not.toHaveBeenCalled();
+  });
+
+  it('registers @tailwindcss/vite in nuxt.config instead of @nuxtjs/tailwindcss', async () => {
+    const cwd = createProject(NUXT_PROJECT);
+    await initProject(cwd, 'tailwind');
+    const nuxtConfig = read(cwd, 'nuxt.config.ts');
+
+    expect(nuxtConfig).toMatch(/import tailwindcss from ['"]@tailwindcss\/vite['"]/);
+    expect(nuxtConfig).toMatch(/vite: \{\s*plugins: \[tailwindcss\(\)\]/);
+    expect(installPackages).toHaveBeenCalledWith(['tailwindcss', '@tailwindcss/vite'], { cwd, dev: true, silent: true });
+    expect(vi.mocked(installPackages).mock.calls.flat(2)).not.toContain('@nuxtjs/tailwindcss');
+  });
+
+  it('references an existing JS Tailwind config without overwriting it', async () => {
+    const tailwindConfig = 'module.exports = { content: [] }\n';
+    const cwd = createProject({
+      ...VITE_PROJECT,
+      'package.json': JSON.stringify({ dependencies: { vue: '^3.5.0' }, devDependencies: { tailwindcss: '^4.1.0' } }),
+      'tailwind.config.js': tailwindConfig,
+    });
+    await initProject(cwd, 'tailwind');
+
+    expect(read(cwd, 'tailwind.config.js')).toBe(tailwindConfig);
+    expect(read(cwd, 'src/assets/index.css')).toContain('@config "tailwind.config.js";');
+    expect(read(cwd, 'vite.config.ts')).not.toContain('@tailwindcss/vite');
+  });
 });

@@ -70,6 +70,7 @@
     "lodash-es": "^4.17.21",
     "lucide-vue-next": "^0.544.0",
     "magic-string": "^0.30.17",
+    "magicast": "^0.3.5",
     "ofetch": "^1.4.1",
     "ora": "^8.2.0",
     "pathe": "^2.0.2",
@@ -79,7 +80,6 @@
     "semver": "^7.7.1",
     "tailwind-merge": "^3.3.1",
     "tailwindcss-animate": "^1.0.7",
-    "ts-morph": "^25.0.1",
     "tsconfig-paths": "^4.2.0",
     "zod": "^3.24.1"
   },
@@ -92,7 +92,6 @@
     "@types/node": "^22.13.1",
     "@types/prompts": "^2.4.9",
     "@types/semver": "^7.5.8",
-    "prettier": "^3.5.0",
     "tailwindcss": "^4.1.14",
     "tsup": "^8.3.6",
     "type-fest": "^4.34.1",

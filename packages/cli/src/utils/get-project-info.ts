@@ -1,8 +1,6 @@
 import { existsSync } from 'node:fs';
 import path from 'pathe';
-import fs from 'fs-extra';
 import { readPackageJSON } from 'pkg-types';
-import type { PackageJson } from 'pkg-types';
 
 export type Framework = 'vite' | 'nuxt' | 'laravel' | 'astro';
 
@@ -17,15 +15,14 @@ export interface ProjectInfo {
   hasTailwind: boolean;
   tailwindConfigType: TailwindConfigType;
   tailwindConfigPath: string | null;
-  sigmaUiNuxtModuleInfo: PackageJson | undefined;
+  hasSigmaUiNuxtModule: boolean;
 }
 
 export async function getProjectInfo(cwd: string = process.cwd()): Promise<ProjectInfo> {
   const framework = detectFramework(cwd);
   const tsConfigPath = detectTsConfigPath(cwd, framework);
-  const hasTailwind = await detectTailwind(cwd);
+  const dependencies = await readDependencyNames(cwd);
   const { configType: tailwindConfigType, configPath: tailwindConfigPath } = detectTailwindConfigType(cwd);
-  const sigmaUiNuxtModuleInfo = framework === 'nuxt' ? await getSigmaUiNuxtInfo() : undefined;
 
   return {
     framework,
@@ -33,10 +30,10 @@ export async function getProjectInfo(cwd: string = process.cwd()): Promise<Proje
     srcDir: existsSync(path.resolve(cwd, 'src')),
     srcComponentsUiDir: existsSync(path.resolve(cwd, 'src/components/ui')),
     componentsUiDir: existsSync(path.resolve(cwd, 'components/ui')),
-    hasTailwind,
+    hasTailwind: dependencies.has('tailwindcss'),
     tailwindConfigType,
     tailwindConfigPath,
-    sigmaUiNuxtModuleInfo,
+    hasSigmaUiNuxtModule: framework === 'nuxt' && dependencies.has('sigma-ui-nuxt'),
   };
 }
 
@@ -92,38 +89,14 @@ function detectTsConfigPath(cwd: string, framework: Framework): string {
   return 'tsconfig.json';
 }
 
-async function detectTailwind(cwd: string): Promise<boolean> {
+async function readDependencyNames(cwd: string): Promise<Set<string>> {
   try {
     const packageJson = await readPackageJSON(cwd);
-    const allDeps = {
-      ...packageJson.dependencies,
-      ...packageJson.devDependencies,
-    };
-    return 'tailwindcss' in allDeps;
+    return new Set([
+      ...Object.keys(packageJson.dependencies ?? {}),
+      ...Object.keys(packageJson.devDependencies ?? {}),
+    ]);
   } catch {
-    return false;
-  }
-}
-
-async function getSigmaUiNuxtInfo(): Promise<PackageJson | undefined> {
-  try {
-    return await readPackageJSON('sigma-ui-nuxt');
-  } catch {
-    return undefined;
-  }
-}
-
-export async function getTsConfig(cwd: string = process.cwd()) {
-  try {
-    const tsconfigPath = path.join(cwd, 'tsconfig.json');
-    const tsconfig = await fs.readJSON(tsconfigPath);
-
-    if (!tsconfig) {
-      throw new Error('tsconfig.json is missing');
-    }
-
-    return tsconfig;
-  } catch {
-    return null;
+    return new Set();
   }
 }
