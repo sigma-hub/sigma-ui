@@ -8,18 +8,7 @@ import EditLink from '../components/EditLink.vue';
 import Sponsors from '../components/Sponsors.vue';
 
 const navItemGroups = computed(() => {
-  const extendedComponentsGroup = docsConfig.sidebarNav.filter(item => ['extended-components'].includes(item.name || ''));
-  const componentsGroup = docsConfig.sidebarNav.filter(item => ['components'].includes(item.name || ''));
-
-  const sortedComponentsGroup = componentsGroup.map((item) => {
-    item.items?.sort((a, b) => a.title.localeCompare(b.title));
-    return item;
-  });
-
-  return [
-    ...extendedComponentsGroup,
-    ...sortedComponentsGroup,
-  ];
+  return docsConfig.sidebarNav.filter(item => ['extended-components', 'components'].includes(item.name || ''));
 });
 </script>
 
