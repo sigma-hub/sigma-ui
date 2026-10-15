@@ -1,0 +1,48 @@
+<script setup lang="ts">
+import { Primitive, type PrimitiveProps } from 'reka-ui';
+
+withDefaults(defineProps<PrimitiveProps>(), {
+  as: 'div',
+});
+
+defineSlots<{
+  /**
+   * Static text or an icon, such as a URL prefix or a unit.
+   */
+  default?: () => unknown;
+}>();
+</script>
+
+<template>
+  <Primitive
+    data-slot="button-group-text"
+    :as="as"
+    :as-child="asChild"
+    class="sigma-ui-button-group-text"
+  >
+    <slot />
+  </Primitive>
+</template>
+
+<style>
+.sigma-ui-button-group-text {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-md);
+  background-color: hsl(var(--muted));
+  font-size: 0.875rem;
+  font-weight: 500;
+  gap: 0.5rem;
+}
+
+.sigma-ui-button-group-text svg {
+  pointer-events: none;
+}
+
+.sigma-ui-button-group-text svg:not([class*="size-"]) {
+  width: 1rem;
+  height: 1rem;
+}
+</style>
