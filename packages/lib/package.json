@@ -30,7 +30,7 @@
     "motion-v": "catalog:",
     "reka-ui": "catalog:",
     "tailwindcss-animate": "catalog:",
-    "vaul-vue": "^0.2.1",
+    "vaul-vue": "^0.4.1",
     "vee-validate": "catalog:",
     "vue": "catalog:",
     "vue-sonner": "catalog:",
