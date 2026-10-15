@@ -3,6 +3,10 @@ title: Changelog
 description: Latest updates and announcements.
 ---
 
+Nuxt module releases are listed in the [sigma-ui-nuxt changelog](https://github.com/sigma-hub/sigma-ui/blob/main/packages/nuxt-module/CHANGELOG.md).
+
+<!--@include: ../../../../../packages/cli/CHANGELOG.md{3,}-->
+
 ## January 2026
 
 #### Changes
