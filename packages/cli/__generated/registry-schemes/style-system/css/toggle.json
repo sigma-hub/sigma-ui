@@ -1,6 +1,9 @@
 {
   "name": "toggle",
-  "dependencies": [],
+  "dependencies": [
+    "class-variance-authority@^0.7.1",
+    "reka-ui@^2.2.1"
+  ],
   "registryDependencies": [],
   "files": [
     {

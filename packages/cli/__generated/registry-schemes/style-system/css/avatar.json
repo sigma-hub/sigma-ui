@@ -1,7 +1,12 @@
 {
   "name": "avatar",
-  "dependencies": [],
-  "registryDependencies": [],
+  "dependencies": [
+    "class-variance-authority@^0.7.1",
+    "lucide-vue-next@^0.475.0"
+  ],
+  "registryDependencies": [
+    "image"
+  ],
   "files": [
     {
       "name": "Avatar.vue",

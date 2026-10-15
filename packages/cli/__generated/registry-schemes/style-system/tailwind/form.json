@@ -1,11 +1,12 @@
 {
   "name": "form",
   "dependencies": [
-    "vee-validate",
-    "@vee-validate/zod",
-    "zod"
+    "reka-ui@^2.2.1",
+    "vee-validate@4.15.0"
   ],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "label"
+  ],
   "files": [
     {
       "name": "FormControl.vue",

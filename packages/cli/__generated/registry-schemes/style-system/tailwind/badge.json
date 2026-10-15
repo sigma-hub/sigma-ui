@@ -1,6 +1,8 @@
 {
   "name": "badge",
-  "dependencies": [],
+  "dependencies": [
+    "class-variance-authority@^0.7.1"
+  ],
   "registryDependencies": [],
   "files": [
     {

@@ -1,11 +1,13 @@
 {
   "name": "chart-line",
   "dependencies": [
-    "@unovis/vue",
-    "@unovis/ts",
-    "@vueuse/core"
+    "@unovis/ts@^1.5.0",
+    "@unovis/vue@^1.5.0",
+    "@vueuse/core@^12.5.0"
   ],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "chart"
+  ],
   "files": [
     {
       "name": "LineChart.vue",

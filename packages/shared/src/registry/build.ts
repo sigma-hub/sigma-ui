@@ -1,37 +1,29 @@
 import { readFile, readdir } from 'node:fs/promises';
 import { join, normalize, resolve } from 'pathe';
 import { getImportSources } from './imports';
+import { classifyImportSources } from './dependencies';
+import { readPackageVersions } from './package-versions';
 import type { Registry } from './schema';
-
-const DEPENDENCIES = new Map<string, string[]>([
-  ['@vueuse/core', []],
-  ['vue-sonner', []],
-  ['vaul-vue', []],
-  ['@tanstack/vue-table', []],
-  ['@unovis/vue', ['@unovis/ts']],
-  ['embla-carousel-vue', []],
-  ['vee-validate', ['@vee-validate/zod', 'zod']],
-  ['motion-v', []],
-]);
-const REGISTRY_DEPENDENCY = '@/';
 
 type ArrayItem<T> = T extends Array<infer X> ? X : never;
 type RegistryItem = ArrayItem<Registry>;
 
 export async function buildRegistry(registryRoot: string) {
+  const packageVersions = readPackageVersions(resolve(registryRoot, '../../package.json'));
+
   const uiPath = resolve(registryRoot, 'tailwind/ui');
-  const uiRegistry = await crawlUI(uiPath);
+  const uiRegistry = await crawlUI(uiPath, packageVersions);
 
   const examplePath = resolve(registryRoot, 'tailwind/example');
-  const exampleRegistry = await crawlDirectory(examplePath, 'example');
+  const exampleRegistry = await crawlDirectory(examplePath, 'example', packageVersions);
 
   const blockPath = resolve(registryRoot, 'tailwind/block');
-  const blockRegistry = await crawlDirectory(blockPath, 'block');
+  const blockRegistry = await crawlDirectory(blockPath, 'block', packageVersions);
 
   return uiRegistry.concat(exampleRegistry).concat(blockRegistry);
 }
 
-async function crawlUI(rootPath: string) {
+async function crawlUI(rootPath: string, packageVersions: Record<string, string>) {
   const dir = await readdir(rootPath, {
     recursive: true,
     withFileTypes: true,
@@ -46,14 +38,14 @@ async function crawlUI(rootPath: string) {
 
     const componentPath = resolve(rootPath, dirent.name);
 
-    const ui = await buildUIRegistry(componentPath, dirent.name);
+    const ui = await buildUIRegistry(componentPath, dirent.name, packageVersions);
     uiRegistry.push(ui);
   }
 
   return uiRegistry;
 }
 
-async function crawlDirectory(rootPath: string, typeName: 'example' | 'block') {
+async function crawlDirectory(rootPath: string, typeName: 'example' | 'block', packageVersions: Record<string, string>) {
   const type = `components:${typeName}` as const;
 
   const dir = await readdir(rootPath, {
@@ -64,101 +56,51 @@ async function crawlDirectory(rootPath: string, typeName: 'example' | 'block') {
   const registry: Registry = [];
 
   for (const dirent of dir) {
-    if (dirent.name === 'index.ts') {
+    if (dirent.name === 'index.ts' || !dirent.isFile()) {
       continue;
     }
 
-    if (dirent.isFile()) {
-      const [name] = dirent.name.split('.vue');
-      const file_path = join(typeName, normalize(dirent.path).split(`/${typeName}`)[1], dirent.name);
-      const { dependencies, registryDependencies }
-      = await getDependencies(join(dirent.path, dirent.name));
+    const [name] = dirent.name.split('.vue');
+    const filePath = join(typeName, normalize(dirent.path).split(`/${typeName}`)[1], dirent.name);
+    const { dependencies, registryDependencies } = await getDependencies([join(dirent.path, dirent.name)], name, packageVersions);
 
-      registry.push({
-        name,
-        type,
-        files: [file_path],
-        registryDependencies: Array.from(registryDependencies),
-        dependencies: Array.from(dependencies),
-      });
-    }
-
-    // ignoring examples with directories for now
-
-    // if (dirent.isDirectory()) {
-    //  const componentPath = resolve(rootPath, dirent.name);
-    //  const ui = await buildUIRegistry(componentPath, dirent.name);
-    //  registry.push({
-    //    ...ui,
-    //    type
-    //  });
-    // }
+    registry.push({
+      name,
+      type,
+      files: [filePath],
+      registryDependencies,
+      dependencies,
+    });
   }
 
   return registry;
 }
 
-async function buildUIRegistry(componentPath: string, componentName: string) {
+async function buildUIRegistry(componentPath: string, componentName: string, packageVersions: Record<string, string>) {
   const dir = await readdir(componentPath, {
     withFileTypes: true,
   });
 
-  const files: string[] = [];
-  const dependencies = new Set<string>();
-  const registryDependencies = new Set<string>();
-  const type = 'components:ui';
-
-  for (const dirent of dir) {
-    if (!dirent.isFile()) {
-      continue;
-    }
-
-    const file_path = join(componentName, dirent.name);
-    files.push(file_path);
-    files.sort();
-
-    // only grab deps from the vue files
-    if (dirent.name === 'index.ts') {
-      continue;
-    }
-
-    const deps = await getDependencies(join(componentPath, dirent.name));
-    deps.dependencies.forEach(dep => dependencies.add(dep));
-    deps.registryDependencies.forEach(dep =>
-      registryDependencies.add(dep),
-    );
-  }
+  const fileNames = dir.filter(dirent => dirent.isFile()).map(dirent => dirent.name).sort();
+  const { dependencies, registryDependencies } = await getDependencies(
+    fileNames.map(fileName => join(componentPath, fileName)),
+    componentName,
+    packageVersions,
+  );
 
   return {
     name: componentName,
-    type,
-    files,
-    registryDependencies: Array.from(registryDependencies),
-    dependencies: Array.from(dependencies),
+    type: 'components:ui',
+    files: fileNames.map(fileName => join(componentName, fileName)),
+    registryDependencies,
+    dependencies,
   } satisfies RegistryItem;
 }
 
-async function getDependencies(filename: string) {
-  const code = await readFile(filename, { encoding: 'utf8' });
+async function getDependencies(filenames: string[], itemName: string, packageVersions: Record<string, string>) {
+  const sources = await Promise.all(
+    filenames.map(async filename => getImportSources(await readFile(filename, 'utf8'), filename)),
+  );
 
-  const registryDependencies = new Set<string>();
-  const dependencies = new Set<string>();
-
-  const populateDeps = (source: string) => {
-    const peerDeps = DEPENDENCIES.get(source);
-
-    if (peerDeps !== undefined) {
-      dependencies.add(source);
-      peerDeps.forEach(dep => dependencies.add(dep));
-    }
-
-    if (source.startsWith(REGISTRY_DEPENDENCY)) {
-      const component = source.split('/').at(-1)!;
-      registryDependencies.add(component);
-    }
-  };
-
-  getImportSources(code, filename).forEach(populateDeps);
-
-  return { registryDependencies, dependencies };
+  return classifyImportSources(sources.flat(), { itemName, packageVersions });
 }

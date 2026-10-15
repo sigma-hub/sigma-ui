@@ -1,7 +1,8 @@
 {
   "name": "drawer",
   "dependencies": [
-    "vaul-vue"
+    "reka-ui@^2.2.1",
+    "vaul-vue@^0.2.1"
   ],
   "registryDependencies": [],
   "files": [
