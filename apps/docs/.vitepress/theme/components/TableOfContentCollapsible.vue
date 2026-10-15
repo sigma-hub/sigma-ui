@@ -9,6 +9,10 @@ import { buttonVariants } from '@ui/registry/tailwind/ui/button';
 const headers = shallowRef<TableOfContents>();
 
 function getHeadingsWithHierarchy(divId: string) {
+  if (typeof document === 'undefined') {
+    return { items: [] };
+  }
+
   const div = document.querySelector(divId);
 
   if (!div) {
