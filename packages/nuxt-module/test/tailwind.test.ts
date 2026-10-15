@@ -6,10 +6,9 @@ const STYLESHEET_LINK_PATTERN = /<link[^>]+rel="stylesheet"[^>]+href="([^"]+)"/g
 const INLINE_STYLE_PATTERN = /<style[^>]*>([\s\S]*?)<\/style>/g;
 
 async function collectStyles(html: string): Promise<string> {
-  const inlineStyles = [...html.matchAll(INLINE_STYLE_PATTERN)].map(match => match[1]);
-  const linkedStyles = await Promise.all(
-    [...html.matchAll(STYLESHEET_LINK_PATTERN)].map(match => $fetch<string>(match[1], { responseType: 'text' })),
-  );
+  const inlineStyles = [...html.matchAll(INLINE_STYLE_PATTERN)].map(([, content]) => content ?? '');
+  const stylesheetUrls = [...html.matchAll(STYLESHEET_LINK_PATTERN)].flatMap(([, href]) => href ? [href] : []);
+  const linkedStyles = await Promise.all(stylesheetUrls.map(href => $fetch<string>(href, { responseType: 'text' })));
 
   return [...inlineStyles, ...linkedStyles].join('\n');
 }
