@@ -1,7 +1,7 @@
 ---
 title: Card
 description: Displays a card with header, content, and footer.
-source: packages/lib/src/registry/tailwind/ui/card
+source: card
 ---
 
 ## Preview

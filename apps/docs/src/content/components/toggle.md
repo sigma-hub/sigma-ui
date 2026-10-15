@@ -1,7 +1,7 @@
 ---
 title: Toggle
 description: A two-state button that can be either on or off.
-source: packages/lib/src/registry/tailwind/ui/toggle
+source: toggle
 primitive: https://www.reka-ui.com/docs/components/toggle.html
 ---
 

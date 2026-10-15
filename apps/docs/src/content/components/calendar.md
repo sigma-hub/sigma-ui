@@ -1,7 +1,7 @@
 ---
 title: Calendar
 description: A date field component that allows users to enter and edit date.
-source: packages/lib/src/registry/tailwind/ui/calendar
+source: calendar
 primitive: https://www.reka-ui.com/docs/components/calendar.html
 ---
 

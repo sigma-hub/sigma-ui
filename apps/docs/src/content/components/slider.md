@@ -1,7 +1,7 @@
 ---
 title: Slider
 description: An input where the user selects a value from within a given range.
-source: packages/lib/src/registry/tailwind/ui/slider
+source: slider
 primitive: https://www.reka-ui.com/docs/components/slider.html
 ---
 

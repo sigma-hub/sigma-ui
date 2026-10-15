@@ -1,7 +1,7 @@
 ---
 title: Infusion
 description: Displays a visual effect layer that changes appearance of all components
-source: packages/lib/src/registry/tailwind/ui/infusion
+source: infusion
 ---
 
 <script setup>

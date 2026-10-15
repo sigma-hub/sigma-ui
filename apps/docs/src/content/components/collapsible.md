@@ -1,7 +1,7 @@
 ---
 title: Collapsible
 description: An interactive component which expands/collapses a panel.
-source: packages/lib/src/registry/tailwind/ui/collapsible
+source: collapsible
 primitive: https://www.reka-ui.com/docs/components/collapsible.html
 ---
 

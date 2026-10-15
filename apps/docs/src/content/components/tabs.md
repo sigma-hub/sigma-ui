@@ -1,7 +1,7 @@
 ---
 title: Tabs
 description: A set of layered sections of content—known as tab panels—that are displayed one at a time.
-source: packages/lib/src/registry/tailwind/ui/tabs
+source: tabs
 primitive: https://www.reka-ui.com/docs/components/tabs.html
 ---
 

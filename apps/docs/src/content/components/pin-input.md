@@ -1,7 +1,7 @@
 ---
 title: PIN Input
 description: Allows users to input a sequence of one-character alphanumeric inputs.
-source: packages/lib/src/registry/tailwind/ui/pin-input
+source: pin-input
 primitive: https://www.reka-ui.com/docs/components/pin-input.html
 ---
 

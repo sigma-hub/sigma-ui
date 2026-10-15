@@ -1,7 +1,7 @@
 ---
 title: Card lightbox
 description: A card that transitions into a view on click
-source: packages/lib/src/registry/tailwind/ui/card-lightbox
+source: card-lightbox
 ---
 
 ## Preview

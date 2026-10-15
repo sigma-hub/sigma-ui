@@ -1,7 +1,7 @@
 ---
 title: Resizable
 description: Accessible resizable panel groups and layouts with keyboard support.
-source: packages/lib/src/registry/tailwind/ui/resizable
+source: resizable
 primitive: https://www.reka-ui.com/docs/components/splitter.html
 ---
 

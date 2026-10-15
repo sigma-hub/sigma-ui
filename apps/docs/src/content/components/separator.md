@@ -1,7 +1,7 @@
 ---
 title: Separator
 description: Visually or semantically separates content.
-source: packages/lib/src/registry/tailwind/ui/separator
+source: separator
 primitive: https://www.reka-ui.com/docs/components/separator.html
 ---
 
