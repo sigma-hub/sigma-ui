@@ -1,0 +1,77 @@
+<script setup lang="ts">
+import { Primitive, type PrimitiveProps } from 'reka-ui';
+
+withDefaults(defineProps<PrimitiveProps>(), {
+  as: 'button',
+});
+
+defineSlots<{
+  /**
+   * Action icon. Add a visually hidden label for screen readers.
+   */
+  default?: () => unknown;
+}>();
+</script>
+
+<template>
+  <Primitive
+    data-slot="sidebar-group-action"
+    data-sidebar="group-action"
+    :as="as"
+    :as-child="asChild"
+    class="sigma-ui-sidebar-group-action"
+  >
+    <slot />
+  </Primitive>
+</template>
+
+<style>
+.sigma-ui-sidebar-group-action {
+  position: absolute;
+  top: 0.875rem;
+  right: 0.75rem;
+  display: flex;
+  width: 1.25rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-md);
+  aspect-ratio: 1 / 1;
+  background-color: transparent;
+  color: hsl(var(--foreground));
+  outline: none;
+  transition: transform 150ms;
+}
+
+.sigma-ui-sidebar-group-action:hover {
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
+}
+
+.sigma-ui-sidebar-group-action:focus-visible {
+  box-shadow: 0 0 0 2px hsl(var(--ring));
+}
+
+.sigma-ui-sidebar-group-action > svg {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.sigma-ui-sidebar-group-action::after {
+  position: absolute;
+  content: "";
+  inset: -0.5rem;
+}
+
+@media (width >= 768px) {
+  .sigma-ui-sidebar-group-action::after {
+    display: none;
+  }
+}
+
+.sigma-ui-sidebar[data-collapsible="icon"] .sigma-ui-sidebar-group-action {
+  display: none;
+}
+</style>

@@ -305,6 +305,11 @@ export const docsConfig: DocsConfig = {
           href: '/components/sheet',
         },
         {
+          title: 'Sidebar',
+          href: '/components/sidebar',
+          label: 'New',
+        },
+        {
           title: 'Skeleton',
           href: '/components/skeleton',
         },
