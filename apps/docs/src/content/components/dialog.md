@@ -2,7 +2,7 @@
 title: Dialog
 description: Container for displaying content on top of other content.
 source: dialog
-primitive: https://www.reka-ui.com/docs/components/dialog.html
+primitive: https://reka-ui.com/docs/components/dialog
 ---
 
 ## Preview
@@ -11,13 +11,9 @@ primitive: https://www.reka-ui.com/docs/components/dialog.html
 
 ## Installation
 
-```bash
-npx sigma-ui add dialog
-```
+<ComponentInstall name="dialog" />
 
-## Examples
-
-### Basic
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -29,7 +25,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog'
+} from '@/components/ui/dialog';
 </script>
 
 <template>
@@ -44,7 +40,6 @@ import {
           Make changes to your profile here. Click save when you're done.
         </DialogDescription>
       </DialogHeader>
-
       <DialogFooter>
         Save changes
       </DialogFooter>
@@ -53,47 +48,77 @@ import {
 </template>
 ```
 
+- Use `v-model:open` on `<Dialog>` to control the open state.
+- Use `<DialogClose>` to render your own close control.
+- Use `<DialogScrollContent>` instead of `<DialogContent>` when the overlay itself should scroll.
+
+### Opening from a menu
+
+To open a `Dialog` from a `Context Menu` or `Dropdown Menu`, wrap the menu in the `Dialog` component. For more information, see [this issue](https://github.com/radix-ui/primitives/issues/1836).
+
+```vue
+<template>
+  <Dialog>
+    <ContextMenu>
+      <ContextMenuTrigger>Right click</ContextMenuTrigger>
+      <ContextMenuContent>
+        <ContextMenuItem>Open</ContextMenuItem>
+        <ContextMenuItem>Download</ContextMenuItem>
+        <DialogTrigger as-child>
+          <ContextMenuItem>
+            <span>Delete</span>
+          </ContextMenuItem>
+        </DialogTrigger>
+      </ContextMenuContent>
+    </ContextMenu>
+    <DialogContent>
+      <DialogHeader>
+        <DialogTitle>Are you absolutely sure?</DialogTitle>
+        <DialogDescription>
+          This action cannot be undone. Are you sure you want to permanently
+          delete this file from our servers?
+        </DialogDescription>
+      </DialogHeader>
+      <DialogFooter>
+        <Button type="submit">
+          Confirm
+        </Button>
+      </DialogFooter>
+    </DialogContent>
+  </Dialog>
+</template>
+```
+
+## Examples
+
 ### Custom close button
 
 <ComponentPreview name="DialogCustomCloseButton" />
 
 ### Scroll body
 
+The content scrolls inside the dialog while the header and footer stay in place.
+
 <ComponentPreview name="DialogScrollBody" />
 
 ### Scroll overlay
 
+The whole dialog scrolls inside the overlay with `<DialogScrollContent>`.
+
 <ComponentPreview name="DialogScrollOverlay" />
 
-## Notes
+## API Reference
 
-To activate the `Dialog` component from within a `Context Menu` or `Dropdown Menu`, you must encase the `Context Menu` or `Dropdown Menu` component in the `Dialog` component. For more information, refer to the linked issue [here](https://github.com/radix-ui/primitives/issues/1836).
+<!-- @include: @/content/meta/dialog.md -->
 
-```js:line-numbers showLineNumber{14-25}
-<Dialog>
-  <ContextMenu>
-    <ContextMenuTrigger>Right click</ContextMenuTrigger>
-    <ContextMenuContent>
-      <ContextMenuItem>Open</ContextMenuItem>
-      <ContextMenuItem>Download</ContextMenuItem>
-      <DialogTrigger asChild>
-        <ContextMenuItem>
-          <span>Delete</span>
-        </ContextMenuItem>
-      </DialogTrigger>
-    </ContextMenuContent>
-  </ContextMenu>
-  <DialogContent>
-    <DialogHeader>
-      <DialogTitle>Are you absolutely sure?</DialogTitle>
-      <DialogDescription>
-        This action cannot be undone. Are you sure you want to permanently
-        delete this file from our servers?
-      </DialogDescription>
-    </DialogHeader>
-    <DialogFooter>
-      <Button type="submit">Confirm</Button>
-    </DialogFooter>
-  </DialogContent>
-</Dialog>
-```
+## Accessibility
+
+Adheres to the [Dialog (Modal) WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/). Reka UI traps focus inside the dialog and returns it to the trigger on close.
+
+| Key | Description |
+| --- | --- |
+| <kbd>Space</kbd> | Opens or closes the dialog. |
+| <kbd>Enter</kbd> | Opens or closes the dialog. |
+| <kbd>Tab</kbd> | Moves focus to the next focusable element. |
+| <kbd>Shift</kbd> + <kbd>Tab</kbd> | Moves focus to the previous focusable element. |
+| <kbd>Esc</kbd> | Closes the dialog and moves focus to the trigger. |

@@ -2,7 +2,7 @@
 title: Avatar
 description: An image element with a fallback for representing the user.
 source: avatar
-primitive: https://www.reka-ui.com/docs/components/avatar.html
+primitive: https://reka-ui.com/docs/components/avatar
 ---
 
 ## Preview
@@ -11,77 +11,55 @@ primitive: https://www.reka-ui.com/docs/components/avatar.html
 
 ## Installation
 
-```bash
-npx sigma-ui add avatar
+<ComponentInstall name="avatar" />
+
+## Usage
+
+```vue
+<script setup lang="ts">
+import { Avatar } from '@/components/ui/avatar';
+</script>
+
+<template>
+  <Avatar
+    src="/avatars/avatar.png"
+    alt="User avatar"
+  />
+</template>
 ```
+
+- `size` sets the dimensions: `xs`, `sm`, `base` (default), or `lg`.
+- `shape` is `circle` (default) or `rounded`.
+- If the image fails to load and you don't provide a `#fallback` slot, a default profile icon is rendered.
 
 ## Examples
 
 ### Basic
 
-<Description>
-  Image component with just <code>src</code> prop.
-</Description>
+An avatar with just the `src` prop.
 
 <ComponentPreview name="AvatarBasic" />
 
 ### Glow
 
-<Description>
-  Prop <code>glow: boolean</code> - adds glowing effect to the image.
-</Description>
+The `glow` prop adds a glowing effect to the image.
 
 <ComponentPreview name="AvatarGlow" />
 
 ### Custom fallback
 
-<Description>
-  Slot <code>#fallback</code> - let's you provide custom fallback content.
-
-  If you don't provide a fallback and the image fails to load, it will render default "profile" icon.
-</Description>
+Use the `#fallback` slot to provide custom content to show when the image fails to load.
 
 <ComponentPreview name="AvatarCustomFallback" />
 
-## API
+## API Reference
 
-### Props
+<!-- @include: @/content/meta/avatar.md -->
 
-#### `src`
+## Accessibility
 
-- Type: `string`
+Renders an `img` element, so pass a meaningful `alt` text (it defaults to `"image"`). It has no keyboard interactions of its own.
 
-#### `alt`
-
-- Type: `string`
-- Default: `'image'`
-
-The alt text for the image.
-
-#### `glow`
-
-- Type: `boolean`
-- Default: `false`
-
-Adds a glowing effect to the image.
-
-#### `class`
-
-- Type: `string`
-
-Additional CSS classes to apply to the image container.
-
-#### `shape`
-
-- Type: `'rounded' | 'circle'`
-- Default: `'rounded'`
-
-Determines the shape of the image.
-
----
-
-### Slots
-
-#### `fallback`
-
-Allows you to provide a custom fallback content. By default, it renders image icon with "no photo" text under it.
+| Key | Description |
+| --- | --- |
+| None | The avatar is not focusable. |
