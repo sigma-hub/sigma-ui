@@ -14,7 +14,8 @@ defineProps<{
 </script>
 
 <template>
-  <Card class="sigma-ui-chart-tooltip">
+  <Card class="sigma-ui-chart-tooltip"
+  data-slot="chart-tooltip">
     <CardHeader
       v-if="title"
       class="sigma-ui-chart-tooltip__header"

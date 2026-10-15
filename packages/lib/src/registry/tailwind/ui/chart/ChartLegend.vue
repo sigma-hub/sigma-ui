@@ -49,6 +49,7 @@ function onLegendItemClick(d: BulletLegendItemInterface, i: number) {
   <div
     ref="elRef"
     class="w-max"
+    data-slot="chart-legend"
   >
     <VisBulletLegend
       :items="items"

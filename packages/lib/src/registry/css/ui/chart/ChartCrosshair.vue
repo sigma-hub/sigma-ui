@@ -21,6 +21,10 @@ const props = withDefaults(defineProps<{
 const wm = new WeakMap();
 
 function template(d: any) {
+  if (typeof document === 'undefined') {
+    return '';
+  }
+
   if (wm.has(d)) {
     return wm.get(d);
   } else {
@@ -45,9 +49,11 @@ function color(d: unknown, i: number) {
   <VisTooltip
     :horizontal-shift="20"
     :vertical-shift="20"
+    data-slot="chart-crosshair"
   />
   <VisCrosshair
     :template="template"
     :color="color"
+    data-slot="chart-crosshair"
   />
 </template>

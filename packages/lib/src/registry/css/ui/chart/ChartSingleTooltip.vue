@@ -23,6 +23,10 @@ const props = withDefaults(defineProps<{
 const wm = new WeakMap();
 
 function template(d: any, i: number, elements: (HTMLElement | SVGElement)[]) {
+  if (typeof document === 'undefined') {
+    return '';
+  }
+
   if (props.index in d) {
     if (wm.has(d)) {
       return wm.get(d);
@@ -62,5 +66,6 @@ function template(d: any, i: number, elements: (HTMLElement | SVGElement)[]) {
     :triggers="{
       [selector]: template,
     }"
+    data-slot="chart-single-tooltip"
   />
 </template>

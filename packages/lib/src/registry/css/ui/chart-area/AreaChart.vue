@@ -6,7 +6,7 @@ import { type Component, computed, ref } from 'vue';
 import { useMounted } from '@vueuse/core';
 import { useId } from 'reka-ui';
 import type { BaseChartProps } from '.';
-import { ChartCrosshair, ChartLegend, defaultColors } from '@ui/registry/css/ui/chart';
+import { ChartContainer, ChartCrosshair, ChartLegend, colorsFromConfig } from '@ui/registry/css/ui/chart';
 
 const props = withDefaults(defineProps<BaseChartProps<T> & {
   /**
@@ -45,7 +45,7 @@ type Data = typeof props.data[number];
 const chartRef = useId();
 
 const index = computed(() => props.index as KeyOfT);
-const colors = computed(() => props.colors?.length ? props.colors : defaultColors(props.categories.length));
+const colors = computed(() => colorsFromConfig(props.categories, props.config, props.colors));
 
 const legendItems = ref<BulletLegendItemInterface[]>(props.categories.map((category, i) => ({
   name: category,
@@ -64,7 +64,12 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
   <div
     class="sigma-ui-area-chart"
     :class="$attrs.class"
+    data-slot="area-chart"
   >
+    <ChartContainer
+      :config="config"
+      passthrough
+    >
     <ChartLegend
       v-if="showLegend"
       v-model:items="legendItems"
@@ -180,6 +185,7 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
 
       <slot />
     </VisXYContainer>
+    </ChartContainer>
   </div>
 </template>
 

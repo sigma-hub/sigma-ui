@@ -6,7 +6,7 @@ import { type Component, computed, ref } from 'vue';
 import { useMounted } from '@vueuse/core';
 import { useId } from 'reka-ui';
 import type { BaseChartProps } from '.';
-import { ChartCrosshair, ChartLegend, defaultColors } from '@ui/registry/tailwind/ui/chart';
+import { ChartContainer, ChartCrosshair, ChartLegend, colorsFromConfig } from '@ui/registry/tailwind/ui/chart';
 import { cn } from '@ui/utils';
 
 const props = withDefaults(defineProps<BaseChartProps<T> & {
@@ -46,7 +46,7 @@ type Data = typeof props.data[number];
 const chartRef = useId();
 
 const index = computed(() => props.index as KeyOfT);
-const colors = computed(() => props.colors?.length ? props.colors : defaultColors(props.categories.length));
+const colors = computed(() => colorsFromConfig(props.categories, props.config, props.colors));
 
 const legendItems = ref<BulletLegendItemInterface[]>(props.categories.map((category, i) => ({
   name: category,
@@ -62,7 +62,12 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
 </script>
 
 <template>
-  <div :class="cn('w-full h-[400px] flex flex-col items-end', $attrs.class ?? '')">
+  <div :class="cn('w-full h-[400px] flex flex-col items-end', $attrs.class ?? '')"
+  data-slot="area-chart">
+    <ChartContainer
+      :config="config"
+      passthrough
+    >
     <ChartLegend
       v-if="showLegend"
       v-model:items="legendItems"
@@ -178,5 +183,6 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
 
       <slot />
     </VisXYContainer>
+    </ChartContainer>
   </div>
 </template>
