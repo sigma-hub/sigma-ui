@@ -10,6 +10,7 @@
     "packages/*"
   ],
   "scripts": {
+    "prepare": "husky",
     "dev": "pnpm --filter docs dev",
     "build": "pnpm --filter docs build",
     "preview": "pnpm --filter docs preview",
@@ -38,21 +39,20 @@
   "devDependencies": {
     "@changesets/changelog-github": "^1.0.1",
     "@changesets/cli": "^3.0.3",
-    "@commitlint/cli": "^19.7.1",
-    "@commitlint/config-conventional": "^19.7.1",
+    "@commitlint/cli": "^21.2.3",
     "@eslint/js": "^9.20.0",
     "@stylistic/eslint-plugin": "^3.1.0",
     "@vitest/ui": "^3.0.5",
     "eslint": "^9.20.0",
     "eslint-plugin-vue": "^9.32.0",
     "globals": "^15.14.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.23.0",
     "vitest": "^3.0.5"
   },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
+  "lint-staged": {
+    "*.{js,mjs,cjs,ts,vue}": "eslint --fix --no-warn-ignored"
   }
 }
