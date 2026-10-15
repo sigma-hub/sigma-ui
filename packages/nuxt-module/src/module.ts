@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { addComponent, addComponentsDir, addTemplate, defineNuxtModule, findPath, resolvePath, useLogger } from '@nuxt/kit';
 import { UTILS_TEMPLATE } from '@sigma-ui/shared/templates/tailwind-config';
@@ -58,11 +59,13 @@ export default defineNuxtModule<ModuleOptions>({
 
     await setupTailwind(options.tailwind ?? 'auto', nuxt, logger);
 
-    addComponentsDir({
-      path: componentsPath,
-      extensions: [],
-      ignore: ['**/*'],
-    }, { prepend: true });
+    if (existsSync(componentsPath)) {
+      addComponentsDir({
+        path: componentsPath,
+        extensions: [],
+        ignore: ['**/*'],
+      }, { prepend: true });
+    }
 
     const componentExports = await scanComponentExports(componentsPath, (filePath, error) => {
       logger.warn(`Skipped components from \`${filePath}\`: ${error instanceof Error ? error.message : String(error)}`);
