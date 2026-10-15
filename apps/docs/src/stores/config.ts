@@ -58,10 +58,9 @@ export function useConfigStore() {
   const themeClass = computed(() => `theme-${config.value.theme}`);
 
   const themePrimary = computed(() => {
-    const theme = themes.find(t => t.name === config.value.theme);
-    return `hsl(${
-      theme?.cssVars[isDark ? 'dark' : 'light'].primary
-    })`;
+    const theme = themes.find(currentTheme => currentTheme.name === config.value.theme);
+    const mode = isDark.value ? 'dark' : 'light';
+    return theme?.cssVars[mode].primary ?? '';
   });
 
   const setCodeConfig = (payload: CodeConfig) => {
