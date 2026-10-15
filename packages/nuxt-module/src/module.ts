@@ -1,6 +1,7 @@
+import { resolve } from 'node:path';
 import { addComponent, addComponentsDir, addTemplate, defineNuxtModule, findPath, resolvePath, useLogger } from '@nuxt/kit';
 import { UTILS_TEMPLATE } from '@sigma-ui/shared/templates/tailwind-config';
-import { scanComponentExports } from './components';
+import { isComponentIndexFile, scanComponentExports } from './components';
 
 export interface ModuleOptions {
   /**
@@ -60,6 +61,19 @@ export default defineNuxtModule<ModuleOptions>({
         export: exportName,
         filePath,
         priority: 1,
+      });
+    }
+
+    if (nuxt.options.dev) {
+      nuxt.hook('builder:watch', async (event, path) => {
+        if (event === 'addDir' || event === 'unlinkDir') {
+          return;
+        }
+
+        if (isComponentIndexFile(componentsPath, resolve(nuxt.options.srcDir, path))) {
+          logger.info('Component exports changed, restarting Nuxt to update auto-imports...');
+          await nuxt.callHook('restart');
+        }
       });
     }
   },
