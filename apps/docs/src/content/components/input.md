@@ -1,6 +1,7 @@
 ---
 title: Input
 description: Displays a form input field.
+source: input
 ---
 
 ## Preview
@@ -9,9 +10,25 @@ description: Displays a form input field.
 
 ## Installation
 
-```bash
-npx sigma-ui add input
+<ComponentInstall name="input" />
+
+## Usage
+
+```vue
+<script setup lang="ts">
+import { Input } from '@/components/ui/input';
+</script>
+
+<template>
+  <Input
+    v-model="email"
+    type="email"
+    placeholder="Email"
+  />
+</template>
 ```
+
+`v-model` binds a string or a number. Every native input attribute, such as `type`, `disabled`, and `placeholder`, is passed through to the `<input>`.
 
 ## Examples
 
@@ -42,3 +59,16 @@ npx sigma-ui add input
 ### Form
 
 <ComponentPreview name="InputForm" />
+
+## API Reference
+
+<!-- @include: @/content/meta/input.md -->
+
+## Accessibility
+
+Renders a native `<input>`. Pair it with a `<Label>` (or `aria-label`) so the field has an accessible name.
+
+| Key | Description |
+| --- | --- |
+| <kbd>Tab</kbd> | Moves focus to the input. |
+| <kbd>Shift</kbd> + <kbd>Tab</kbd> | Moves focus to the previous focusable element. |

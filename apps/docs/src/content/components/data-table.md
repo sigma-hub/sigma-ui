@@ -8,58 +8,21 @@ primitive: https://tanstack.com/table/v8/docs/guide/introduction
 
 <ComponentPreview name="DataTableExample" />
 
-This example uses other `sigma-ui components` and `TanStack Table`. Add them if needed:
-
-```bash
-npx sigma-ui add button checkbox dropdown-menu input
-```
-
-```bash
-npm install @tanstack/vue-table
-```
-
-## Introduction
-
-`Table` is not provided as a single component because every table / datagrid is unique and requires a custom implementation and customization.
-
-When you add `Table` component, you will get basic building blocks, from which you can build your own table / datagrid.
-
-Follow the guide below to learn how to build it
-
-<Callout class="mt-4">
-
-**Tip:** If you are using the same table in multiple places in your app, extract it into a reusable component.
-
-</Callout>
-
-## Table of Contents
-
-This guide will show you how to build your own custom data table with [TanStack Table](https://tanstack.com/table/v8) and the `Table` component.
-
-- [Basic Table](#basic-table)
-- [Row Actions](#row-actions)
-- [Pagination](#pagination)
-- [Sorting](#sorting)
-- [Filtering](#filtering)
-- [Visibility](#visibility)
-- [Row Selection](#row-selection)
-- [Reusable Components](#reusable-components)
-
 ## Installation
 
-1. Add the `<Table />` component to your project:
+<ComponentInstall name="table" />
 
-```bash
-npx sigma-ui add table
-```
+### TanStack Table
 
-2. Add `tanstack/vue-table` dependency:
+The table built in this guide also depends on TanStack Table. Install it in your project:
 
 ```bash
 npm install @tanstack/vue-table
 ```
 
-3. Create needed file structure for your `table` component, for example:
+### File structure
+
+Create a folder for the table, for example:
 
 ```txt
 components
@@ -75,26 +38,40 @@ components
 - `data-table-dropdown.vue` It will contain our `<DropdownAction />` component.
 - `app.vue` This is where we'll fetch data and render our table.
 
-## Examples
+## Usage
 
-### Table with pinned columns
-<ComponentPreview name="DataTableColumnPinning" />
+### Introduction
 
-This example uses other `sigma-ui components` and `TanStack Table`. Add them if needed:
+`Table` is not provided as a single component because every table / datagrid is unique and requires a custom implementation and customization.
 
-```bash
-npx sigma-ui add button checkbox dropdown-menu input
-```
+When you add `Table` component, you will get basic building blocks, from which you can build your own table / datagrid.
 
-```bash
-npm install @tanstack/vue-table
-```
+Follow the guide below to learn how to build it
 
-## Guide
+<Callout class="mt-4">
+
+**Tip:** If you are using the same table in multiple places in your app, extract it into a reusable component.
+
+</Callout>
+
+### Table of Contents
+
+This guide will show you how to build your own custom data table with [TanStack Table](https://tanstack.com/table/v8) and the `Table` component.
+
+- [Basic table](#basic-table)
+- [Row actions](#row-actions)
+- [Pagination](#pagination)
+- [Sorting](#sorting)
+- [Filtering](#filtering)
+- [Visibility](#visibility)
+- [Row Selection](#row-selection)
+- [Reusable Components](#reusable-components)
+
+### Basic table
 
 This guide will show you how to build a basic table showing some list of recent payments, in details.
 
-#### Data
+##### Data
 
 ```ts:line-numbers
 interface Payment {
@@ -123,7 +100,7 @@ export const payments: Payment[] = [
 
 <Steps>
 
-### Column Definitions
+#### Column Definitions
 
 First, we'll define our columns in the `columns.ts` file.
 
@@ -155,7 +132,7 @@ formatted, sorted and filtered.
 
 </Callout>
 
-### `<DataTable />` component
+#### `<DataTable />` component
 
 Next, we'll create a `<DataTable />` component to render our table.
 
@@ -251,7 +228,7 @@ const table = useVueTable({
 
 </Callout>
 
-### Render the table
+#### Render the table
 
 Finally, we'll render our table in our index component.
 
@@ -294,13 +271,13 @@ onMounted(async () => {
 
 </Steps>
 
-## Cell Formatting
+### Cell Formatting
 
 Let's format the amount cell to display the dollar amount. We'll also align the cell to the right.
 
 <Steps>
 
-### Update columns definition
+#### Update columns definition
 
 Update the `header` and `cell` definitions for amount as follows:
 
@@ -326,13 +303,13 @@ export const columns: ColumnDef<Payment>[] = [
 You can use the same approach to format other cells and headers.
 </Steps>
 
-## Row Actions
+### Row Actions
 
 Let's add row actions to our table. We'll use a `<Dropdown />` component for this.
 
 <Steps>
 
-### Add the following into your `DataTableDropDown.vue` component
+#### Add the following into your `DataTableDropDown.vue` component
 
 ```vue:line-numbers
 <script setup lang="ts">
@@ -375,7 +352,7 @@ function copy(id: string) {
 </template>
 ```
 
-### Update columns definition
+#### Update columns definition
 
 Update our columns definition to add a new `actions` column. The `actions` cell returns a `<Dropdown />` component.
 
@@ -403,13 +380,13 @@ You can access the row data using `row.original` in the `cell` function. Use thi
 
 </Steps>
 
-## Pagination
+### Pagination
 
 Next, we'll add pagination to our table.
 
 <Steps>
 
-### Update `<DataTable>`
+#### Update `<DataTable>`
 
 ```ts:line-numbers {4,12}
 import {
@@ -429,7 +406,7 @@ const table = useVueTable({
 
 This will automatically paginate your rows into pages of 10. See the [pagination docs](https://tanstack.com/table/v8/docs/api/features/pagination) for more information on customizing page size and implementing manual pagination.
 
-### Add pagination controls
+#### Add pagination controls
 
 We can add pagination controls to our table using the `<Button />` component and the `table.previousPage()`, `table.nextPage()` API methods.
 
@@ -478,13 +455,13 @@ See [Reusable Components](#reusable-components) section for a more advanced pagi
 
 </Steps>
 
-## Sorting
+### Sorting
 
 Let's make the email column sortable.
 
 <Steps>
 
-### Add the following into your `utils` file
+#### Add the following into your `utils` file
 
 ```ts
 import { type ClassValue, clsx } from 'clsx'
@@ -506,7 +483,7 @@ export function valueUpdater<T extends Updater<any>>(updaterOrValue: T, ref: Ref
 
 The `valueUpdater` function updates a Vue `ref` object's value. It handles both direct assignments and transformations using a function. If `updaterOrValue` is a function, it's called with the current `ref` value, and the result is assigned to `ref.value`. If it's not a function, it's directly assigned to `ref.value`. This utility enhances flexibility in updating `ref` values. While Vue `ref` can manage reactive state directly, `valueUpdater` simplifies value updates, improving code readability and maintainability when the new state can be a direct value or a function generating it based on the current one.
 
-### Update `<DataTable>`
+#### Update `<DataTable>`
 
 ```vue:line-numbers {4,14,17,33,40-44}
 <script setup lang="ts" generic="TData, TValue">
@@ -565,7 +542,7 @@ const table = useVueTable({
 </template>
 ```
 
-### Make header cell sortable
+#### Make header cell sortable
 
 We can now update the `email` header cell to add sorting controls.
 
@@ -595,13 +572,13 @@ This will automatically sort the table (asc and desc) when the user toggles on t
 
 </Steps>
 
-## Filtering
+### Filtering
 
 Let's add a search input to filter emails in our table.
 
 <Steps>
 
-### Update `<DataTable>`
+#### Update `<DataTable>`
 
 ```vue:line-numbers {4,11,19,39,48-49,52,60-64}
 <script setup lang="ts" generic="TData, TValue">
@@ -680,13 +657,13 @@ Filtering is now enabled for the `email` column. You can add filters to other co
 
 </Steps>
 
-## Visibility
+### Visibility
 
 Adding column visibility is fairly simple using `@tanstack/vue-table` visibility API.
 
 <Steps>
 
-### Update `<DataTable>`
+#### Update `<DataTable>`
 
 ```vue:line-numbers {6,9-14,48,59,63,75-91}
 <script setup lang="ts" generic="TData, TValue">
@@ -823,13 +800,13 @@ This adds a dropdown menu that you can use to toggle column visibility.
 
 </Steps>
 
-## Row Selection
+### Row Selection
 
 Next, we're going to add row selection to our table.
 
 <Steps>
 
-### Update column definitions
+#### Update column definitions
 
 ```ts:line-numbers {3,6-20}
 import type { ColumnDef } from '@tanstack/vue-table'
@@ -855,7 +832,7 @@ export const columns: ColumnDef<Payment>[] = [
 ]
 ```
 
-### Update `<DataTable>`
+#### Update `<DataTable>`
 
 ```vue:line-numbers {10,22,27}
 <script setup lang="ts" generic="TData, TValue">
@@ -902,7 +879,7 @@ const table = useVueTable({
 
 This adds a checkbox to each row and a checkbox in the header to select all rows.
 
-### Show selected rows
+#### Show selected rows
 
 You can show the number of selected rows using the `table.getFilteredSelectedRowModel()` API.
 
@@ -931,11 +908,11 @@ You can show the number of selected rows using the `table.getFilteredSelectedRow
 
 <Steps>
 
-## Expanding
+### Expanding
 
 Let's make rows expandable.
 
-### Update `<DataTable>`
+#### Update `<DataTable>`
 
 ```vue:line-numbers {7,30,43,52,57,63,103-116}
 <script setup lang="ts" generic="TData, TValue">
@@ -1072,7 +1049,7 @@ const table = useVueTable({
 </template>
 ```
 
-### Add the expand action to the `DataTableDropDown.vue` component
+#### Add the expand action to the `DataTableDropDown.vue` component
 
 ```vue:line-numbers {12-14,34-36}
 <script setup lang="ts">
@@ -1119,7 +1096,7 @@ function copy(id: string) {
 </template>
 ```
 
-### Make rows expandable
+#### Make rows expandable
 
 Now we can update the action cell to add the expand control.
 
@@ -1145,11 +1122,11 @@ export const columns: ColumnDef<Payment>[] = [
 
 </Steps>
 
-## Reusable Components
+### Reusable Components
 
 Here are some components you can use to build your data tables. This is from the [Table](/) demo.
 
-### Column header
+#### Column header
 
 Make any column header sortable and hideable.
 
@@ -1246,7 +1223,7 @@ export const columns = [
 ]
 ```
 
-### Pagination
+#### Pagination
 
 Add pagination controls to your table including page size and selection count.
 
@@ -1348,7 +1325,7 @@ defineProps<DataTablePaginationProps>()
 <DataTablePagination :table="table" />
 ```
 
-### Column toggle
+#### Column toggle
 
 A component to toggle column visibility.
 
@@ -1415,3 +1392,25 @@ const columns = computed(() => props.table.getAllColumns()
 ```vue
 <DataTableViewOptions :table="table" />
 ```
+
+## Examples
+
+### Table with pinned columns
+<ComponentPreview name="DataTableColumnPinning" />
+
+## API Reference
+
+This guide composes the [Table](/components/table) primitives. Their props are documented on that page.
+
+<!-- @include: @/content/meta/table.md -->
+
+## Accessibility
+
+The table uses native `<table>` semantics. Sort buttons, row selection checkboxes, pagination, and row actions are real buttons and inputs, so they are reachable with the keyboard. Give the table an accessible name with `<caption>` or `aria-label` when the heading nearby does not describe it.
+
+| Key | Description |
+| --- | --- |
+| <kbd>Tab</kbd> | Moves focus through the sort buttons, filter, pagination, and row actions. |
+| <kbd>Enter</kbd> or <kbd>Space</kbd> | Activates the focused button or toggles a selection checkbox. |
+| <kbd>ArrowUp</kbd> / <kbd>ArrowDown</kbd> | Moves between options in a row-action menu. |
+| <kbd>Escape</kbd> | Closes an open row-action menu. |

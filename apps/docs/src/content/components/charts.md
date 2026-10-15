@@ -96,11 +96,17 @@ The expected prop definition would be:
 
 ```ts
 defineProps<{
-  title?: string
+  title?: string;
   data: {
-    name: string
-    color: string
-    value: any
-  }[]
-}>()
+    name: string;
+    color: string;
+    value: unknown;
+  }[];
+}>();
 ```
+
+## API Reference
+
+Parts shared by every chart:
+
+<!-- @include: @/content/meta/chart.md -->

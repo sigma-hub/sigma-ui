@@ -1,74 +1,83 @@
 ---
 title: Infusion
-description: Displays a visual effect layer that changes appearance of all components
+description: Displays a visual effect layer that changes the appearance of the components behind it.
 source: infusion
 ---
 
 <script setup>
-import InfusionVideoPreview from '../ui/InfusionVideoPreview.vue'
-import InfusionInteractivePreview from '../ui/InfusionInteractivePreview.vue'
+import InfusionVideoPreview from '../ui/InfusionVideoPreview.vue';
+import InfusionInteractivePreview from '../ui/InfusionInteractivePreview.vue';
 </script>
 
 ## Preview
 
-
-Try adjusting parameters bellow to see how they affect the Infusion effect. Toggle the global Infusion switch to enable/disable the page-wide effect:
+Adjust the parameters to see how they change the effect. The global Infusion switch enables the page-wide effect.
 
 <InfusionInteractivePreview />
 
-
-## Video preview 
+### Video
 
 <InfusionVideoPreview />
 
-#### History
-
-This component was initially invented in [Sigma File Manager](https://github.com/aleksey-hoffman/sigma-file-manager) app
-
 ## Installation
 
-```bash
-npx sigma-ui add infusion
-```
+<ComponentInstall name="infusion" />
 
-## Examples
-### Full-page Effect
-
-By default, Infusion component affects the entire page:
+## Usage
 
 ```vue
 <script setup lang="ts">
-import { Infusion } from '@/components/ui/infusion'
+import { Infusion } from '@/components/ui/infusion';
 </script>
 
+<template>
+  <Infusion src="/background-image.png" />
+</template>
+```
+
+Infusion paints an image, blur, and noise layer. Without `relative`, the layer covers the page. With `relative`, it stays inside the nearest positioned parent.
+
+This effect was first built for [Sigma File Manager](https://github.com/aleksey-hoffman/sigma-file-manager).
+
+## Examples
+
+### Full-page effect
+
+```vue
 <template>
   <div>
     <Infusion src="/background-image.png" />
     <div>
-      <!-- Your page content -->
+      <!-- Page content -->
     </div>
   </div>
 </template>
 ```
 
-### Contained Effect
-
-Use `relative` prop to contain the effect within a specific container:
+### Contained effect
 
 ```vue
-<script setup lang="ts">
-import { Infusion } from '@/components/ui/infusion'
-</script>
-
 <template>
-  <div class="relative h-[400px] rounded-lg overflow-hidden">
+  <div class="relative h-[400px] overflow-hidden rounded-lg">
     <Infusion
       src="/background-image.png"
       relative
     />
     <div class="relative z-10">
-      <!-- Your content -->
+      <!-- Content above the effect -->
     </div>
   </div>
 </template>
 ```
+
+## API Reference
+
+<!-- @include: @/content/meta/infusion.md -->
+
+## Accessibility
+
+The layer is decorative and does not add controls. Keep text on top of it readable, and do not put information into the background image alone.
+
+| Key | Description |
+| --- | --- |
+| <kbd>Tab</kbd> | Moves focus past the effect. The layer is not interactive. |
