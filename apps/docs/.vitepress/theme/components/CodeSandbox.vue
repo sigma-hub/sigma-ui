@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref, toRefs, watch } from 'vue';
+import { ref, watch } from 'vue';
 import { Icon } from '@iconify/vue';
 import { Button } from '@ui/registry/tailwind/ui/button';
-import { makeCodeSandboxParams } from '../utils/codeeditor';
+import { createPlaygroundFiles, makeCodeSandboxParams } from '../utils/codeeditor';
 import Tooltip from './Tooltip.vue';
 import type { StyleSystem } from '@sigma-ui/shared/style-systems';
 
@@ -12,11 +12,16 @@ const props = defineProps<{
   styleSystem: StyleSystem;
 }>();
 
-const { code } = toRefs(props);
-const sources = ref<Record<string, string>>({});
+const parameters = ref('');
 
-watch(code, () => {
-  sources.value['App.vue'] = code.value;
+watch([() => props.code, () => props.styleSystem, () => props.name], async () => {
+  if (import.meta.env.SSR || !props.code) {
+    parameters.value = '';
+    return;
+  }
+
+  const files = await createPlaygroundFiles(props.name, props.styleSystem, props.code);
+  parameters.value = makeCodeSandboxParams(files);
 }, { immediate: true });
 </script>
 
@@ -44,7 +49,7 @@ watch(code, () => {
     <input
       type="hidden"
       name="parameters"
-      :value="makeCodeSandboxParams(name, styleSystem, sources)"
+      :value="parameters"
     >
 
     <Tooltip :content="`Open ${name} in CodeSandbox`">
@@ -52,6 +57,7 @@ watch(code, () => {
         :variant="'ghost'"
         :size="'icon'"
         type="submit"
+        :disabled="!parameters"
       >
         <Icon icon="ph-codesandbox-logo" />
       </Button>
