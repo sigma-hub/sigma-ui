@@ -2,6 +2,7 @@ import { resolve } from 'node:path';
 import { addComponent, addComponentsDir, addTemplate, defineNuxtModule, findPath, resolvePath, useLogger } from '@nuxt/kit';
 import { UTILS_TEMPLATE } from '@sigma-ui/shared/templates/tailwind-config';
 import { isComponentIndexFile, scanComponentExports } from './components';
+import { setupTailwind, type TailwindOption } from './tailwind';
 
 export interface ModuleOptions {
   /**
@@ -14,6 +15,12 @@ export interface ModuleOptions {
    * @default "@/components/ui"
    */
   componentDir?: string;
+  /**
+   * Registers the `@tailwindcss/vite` plugin for Tailwind v4 projects.
+   * `'auto'` registers it when `@tailwindcss/vite` is installed and not already in `vite.plugins`.
+   * @default "auto"
+   */
+  tailwind?: TailwindOption;
 }
 
 const UTILS_ALIAS = '@/lib/utils';
@@ -27,6 +34,7 @@ export default defineNuxtModule<ModuleOptions>({
   defaults: {
     prefix: '',
     componentDir: DEFAULT_COMPONENT_DIR,
+    tailwind: 'auto',
   },
   async setup(options, nuxt) {
     const logger = useLogger('sigma-ui-nuxt');
@@ -44,6 +52,8 @@ export default defineNuxtModule<ModuleOptions>({
 
       nuxt.options.alias = { [UTILS_ALIAS]: utilsTemplate.dst, ...nuxt.options.alias };
     }
+
+    await setupTailwind(options.tailwind ?? 'auto', nuxt, logger);
 
     addComponentsDir({
       path: componentsPath,
