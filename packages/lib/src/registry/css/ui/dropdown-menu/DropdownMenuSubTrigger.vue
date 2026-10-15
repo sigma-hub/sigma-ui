@@ -19,7 +19,7 @@ const forwardedProps = useForwardProps(props);
     v-bind="forwardedProps"
     class="sigma-ui-dropdown-menu-sub-trigger"
     :class="[{ 'sigma-ui-dropdown-menu-sub-trigger--inset': inset }]"
-  >
+   data-slot="dropdown-menu-sub-trigger">
     <slot />
     <ChevronRightIcon class="sigma-ui-dropdown-menu-sub-trigger__icon" />
   </DropdownMenuSubTrigger>

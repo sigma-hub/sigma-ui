@@ -29,7 +29,7 @@ const forwarded = useForwardPropsEmits(props, emits);
       v-bind="{ ...forwarded, ...$attrs }"
       class="sigma-ui-popover-content"
       :class="$attrs.class"
-    >
+     data-slot="popover-content">
       <slot />
     </PopoverContent>
   </PopoverPortal>

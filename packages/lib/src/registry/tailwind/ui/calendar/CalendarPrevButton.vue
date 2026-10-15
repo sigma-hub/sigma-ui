@@ -17,6 +17,7 @@ const forwardedProps = useForwardProps(props);
       $attrs.class ?? '',
     )"
     v-bind="forwardedProps"
+    data-slot="calendar-prev-button"
   >
     <slot>
       <ChevronLeftIcon class="h-4 w-4" />

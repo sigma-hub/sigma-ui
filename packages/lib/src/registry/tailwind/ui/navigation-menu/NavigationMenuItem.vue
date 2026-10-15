@@ -5,7 +5,8 @@ const props = defineProps<NavigationMenuItemProps>();
 </script>
 
 <template>
-  <NavigationMenuItem v-bind="props">
+  <NavigationMenuItem v-bind="props"
+  data-slot="navigation-menu-item">
     <slot />
   </NavigationMenuItem>
 </template>

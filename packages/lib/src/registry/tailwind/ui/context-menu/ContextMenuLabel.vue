@@ -15,7 +15,7 @@ const props = defineProps<ContextMenuLabelProps & {
       cn('px-2 py-1.5 text-sm font-semibold text-foreground',
          inset && 'pl-8', $attrs.class ?? '',
       )"
-  >
+   data-slot="context-menu-label">
     <slot />
   </ContextMenuLabel>
 </template>

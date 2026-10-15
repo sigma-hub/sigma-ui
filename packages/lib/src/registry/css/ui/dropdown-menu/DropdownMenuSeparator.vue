@@ -11,7 +11,7 @@ const props = defineProps<DropdownMenuSeparatorProps>();
   <DropdownMenuSeparator
     v-bind="props"
     class="sigma-ui-dropdown-menu-separator"
-  />
+   data-slot="dropdown-menu-separator"/>
 </template>
 
 <style>

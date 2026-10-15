@@ -12,5 +12,6 @@ const { name, formMessageId } = useFormField();
     as="p"
     :name="toValue(name)"
     class="text-sm font-medium text-destructive"
+    data-slot="form-message"
   />
 </template>

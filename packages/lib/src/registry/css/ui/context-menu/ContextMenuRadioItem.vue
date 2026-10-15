@@ -18,7 +18,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   <ContextMenuRadioItem
     v-bind="forwarded"
     class="sigma-ui-context-menu-radio-item"
-  >
+   data-slot="context-menu-radio-item">
     <span class="sigma-ui-context-menu-radio-item__indicator">
       <ContextMenuItemIndicator>
         <CircleIcon class="sigma-ui-context-menu-radio-item__icon" />

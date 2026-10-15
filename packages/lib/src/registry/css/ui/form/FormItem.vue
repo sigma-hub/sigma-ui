@@ -8,7 +8,8 @@ provide(FORM_ITEM_INJECTION_KEY, id);
 </script>
 
 <template>
-  <div :class="['form-item', $attrs.class]">
+  <div :class="['form-item', $attrs.class]"
+  data-slot="form-item">
     <slot />
   </div>
 </template>

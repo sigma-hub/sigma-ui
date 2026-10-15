@@ -27,7 +27,7 @@ const forwardedProps = useForwardProps(props);
           $attrs.class ?? '',
         )
       "
-    >
+     data-slot="hover-card-content">
       <slot />
     </HoverCardContent>
   </HoverCardPortal>

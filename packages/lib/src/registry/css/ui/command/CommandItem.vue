@@ -12,6 +12,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   <ComboboxItem
     v-bind="forwarded"
     class="sigma-ui-command-item"
+    data-slot="command-item"
   >
     <slot />
   </ComboboxItem>

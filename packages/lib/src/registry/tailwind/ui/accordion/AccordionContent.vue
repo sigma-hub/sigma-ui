@@ -10,7 +10,7 @@ const forwarded = useForwardProps(props);
   <AccordionContent
     v-bind="forwarded"
     class="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
-  >
+   data-slot="accordion-content">
     <div :class="cn('pb-4 pt-0', $attrs.class ?? '')">
       <slot />
     </div>

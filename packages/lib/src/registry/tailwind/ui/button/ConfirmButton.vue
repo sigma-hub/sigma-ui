@@ -57,6 +57,7 @@ async function handleClick(event: MouseEvent) {
       isConfirmed && 'border-green-500/50',
     )"
     @click="handleClick"
+    data-slot="confirm-button"
   >
     <span
       :class="cn(

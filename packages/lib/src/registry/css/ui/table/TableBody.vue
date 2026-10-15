@@ -6,6 +6,7 @@
   <tbody
     class="sigma-ui-table-body"
     :class="[$attrs.class]"
+    data-slot="table-body"
   >
     <slot />
   </tbody>

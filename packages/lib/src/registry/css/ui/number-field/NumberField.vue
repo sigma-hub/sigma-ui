@@ -12,6 +12,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   <NumberFieldRoot
     v-bind="forwarded"
     class="sigma-ui-number-field"
+    data-slot="number-field"
   >
     <slot />
   </NumberFieldRoot>

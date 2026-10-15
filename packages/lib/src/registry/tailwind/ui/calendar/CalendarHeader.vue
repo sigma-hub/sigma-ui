@@ -11,7 +11,7 @@ const forwardedProps = useForwardProps(props);
   <CalendarHeader
     :class="cn('relative flex w-full items-center justify-between pt-1', $attrs.class ?? '')"
     v-bind="forwardedProps"
-  >
+   data-slot="calendar-header">
     <slot />
   </CalendarHeader>
 </template>

@@ -20,7 +20,7 @@ const forwarded = useForwardPropsEmits(props, emits);
       v-bind="{ ...forwarded, ...$attrs }"
       class="sigma-ui-tooltip-content"
       :class="[$attrs.class]"
-    >
+     data-slot="tooltip-content">
       <slot />
     </TooltipContent>
   </TooltipPortal>

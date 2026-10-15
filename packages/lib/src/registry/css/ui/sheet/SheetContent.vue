@@ -29,7 +29,8 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 </script>
 
 <template>
-  <DialogPortal>
+  <DialogPortal
+    data-slot="sheet-content">
     <DialogOverlay class="sigma-ui-sheet-overlay" />
     <DialogContent
       :class="[sheetVariants({ side }), $attrs.class]"

@@ -6,6 +6,7 @@
   <div
     class="sigma-ui-number-field-content"
     :class="$attrs.class"
+    data-slot="number-field-content"
   >
     <slot />
   </div>

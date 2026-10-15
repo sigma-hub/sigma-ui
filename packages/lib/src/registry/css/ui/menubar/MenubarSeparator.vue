@@ -10,7 +10,7 @@ const forwardedProps = useForwardProps(props);
   <MenubarSeparator
     class="sigma-ui-menubar-separator"
     v-bind="forwardedProps"
-  />
+   data-slot="menubar-separator"/>
 </template>
 
 <style>

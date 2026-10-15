@@ -11,7 +11,7 @@ const props = defineProps<MenubarLabelProps & {
   <MenubarLabel
     class="sigma-ui-menubar-label"
     :class="[{ 'sigma-ui-menubar-label--inset': inset }, $attrs.class]"
-  >
+   data-slot="menubar-label">
     <slot />
   </MenubarLabel>
 </template>

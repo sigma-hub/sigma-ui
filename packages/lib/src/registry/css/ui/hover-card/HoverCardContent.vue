@@ -22,7 +22,7 @@ const forwardedProps = useForwardProps(props);
       v-bind="forwardedProps"
       class="sigma-ui-hover-card-content"
       :class="$attrs.class"
-    >
+     data-slot="hover-card-content">
       <slot />
     </HoverCardContent>
   </HoverCardPortal>

@@ -42,7 +42,7 @@ const forwarded = useForwardPropsEmits(props, emits);
           $attrs.class ?? '',
         )
       "
-    >
+     data-slot="popover-content">
       <slot />
     </PopoverContent>
   </PopoverPortal>

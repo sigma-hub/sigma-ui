@@ -6,6 +6,7 @@
   <tfoot
     class="sigma-ui-table-footer"
     :class="[$attrs.class]"
+    data-slot="table-footer"
   >
     <slot />
   </tfoot>

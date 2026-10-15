@@ -12,7 +12,8 @@ const props = withDefaults(defineProps<PaginationPrevProps>(), {
 </script>
 
 <template>
-  <PaginationPrev v-bind="props">
+  <PaginationPrev v-bind="props"
+  data-slot="pagination-prev">
     <Button
       :class="cn('w-10 h-10 p-0', $attrs.class ?? '')"
       variant="outline"

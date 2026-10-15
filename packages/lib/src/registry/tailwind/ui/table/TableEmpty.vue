@@ -12,7 +12,8 @@ const props = withDefaults(defineProps<{
 </script>
 
 <template>
-  <TableRow>
+  <TableRow
+    data-slot="table-empty">
     <TableCell
       v-bind="props"
       :class="

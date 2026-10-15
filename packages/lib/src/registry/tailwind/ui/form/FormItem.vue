@@ -9,7 +9,8 @@ provide(FORM_ITEM_INJECTION_KEY, id);
 </script>
 
 <template>
-  <div :class="cn('flex flex-col gap-2', $attrs.class ?? '')">
+  <div :class="cn('flex flex-col gap-2', $attrs.class ?? '')"
+  data-slot="form-item">
     <slot />
   </div>
 </template>

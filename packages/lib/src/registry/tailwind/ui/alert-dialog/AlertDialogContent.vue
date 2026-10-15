@@ -28,7 +28,7 @@ const forwarded = useForwardPropsEmits(props, emits);
           $attrs.class ?? '',
         )
       "
-    >
+     data-slot="alert-dialog-content">
       <slot />
     </AlertDialogContent>
   </AlertDialogPortal>

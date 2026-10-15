@@ -9,7 +9,8 @@ const props = withDefaults(defineProps<PaginationPrevProps>(), {
 </script>
 
 <template>
-  <PaginationPrev v-bind="props">
+  <PaginationPrev v-bind="props"
+  data-slot="pagination-prev">
     <Button
       class="sigma-ui-pagination-prev"
       :class="$attrs.class"

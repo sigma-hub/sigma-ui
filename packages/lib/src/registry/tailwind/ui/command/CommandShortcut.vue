@@ -4,7 +4,8 @@ import { cn } from '@ui/utils';
 </script>
 
 <template>
-  <span :class="cn('ml-auto text-xs tracking-widest text-muted-foreground', $attrs.class ?? '')">
+  <span :class="cn('ml-auto text-xs tracking-widest text-muted-foreground', $attrs.class ?? '')"
+  data-slot="command-shortcut">
     <slot />
   </span>
 </template>

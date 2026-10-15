@@ -12,6 +12,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   <SplitterGroup
     v-bind="forwarded"
     :class="cn('flex h-full w-full data-[panel-group-direction=vertical]:flex-col', $attrs.class ?? '')"
+    data-slot="resizable-panel-group"
   >
     <slot />
   </SplitterGroup>

@@ -8,6 +8,7 @@ const attrs = useAttrs();
   <div
     class="sigma-ui-alert-description"
     :class="attrs.class"
+    data-slot="alert-description"
   >
     <slot />
   </div>

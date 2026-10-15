@@ -10,6 +10,7 @@ const forwardedProps = useForwardProps(props);
   <Primitive
     v-bind="forwardedProps"
     class="sigma-ui-pin-input-separator"
+    data-slot="pin-input-separator"
   >
     <slot>
       <DotIcon class="sigma-ui-pin-input-separator__icon" />

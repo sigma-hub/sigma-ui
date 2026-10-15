@@ -21,7 +21,7 @@ const forwarded = useForwardPropsEmits(props, emits);
     v-bind="{ ...forwarded, ...$attrs }"
     class="sigma-ui-context-menu-sub-content"
     :class="$attrs.class"
-  >
+   data-slot="context-menu-sub-content">
     <slot />
   </ContextMenuSubContent>
 </template>

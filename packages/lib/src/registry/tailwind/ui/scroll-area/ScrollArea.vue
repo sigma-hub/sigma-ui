@@ -15,6 +15,7 @@ const props = defineProps<ScrollAreaRootProps>();
   <ScrollAreaRoot
     v-bind="props"
     :class="cn('relative overflow-hidden', $attrs.class ?? '')"
+    data-slot="scroll-area"
   >
     <ScrollAreaViewport class="h-full w-full rounded-[inherit]">
       <slot />

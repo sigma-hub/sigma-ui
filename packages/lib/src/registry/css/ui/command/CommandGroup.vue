@@ -12,6 +12,7 @@ const props = defineProps<ComboboxGroupProps & {
   <ComboboxGroup
     v-bind="props"
     class="sigma-ui-command-group text-xs"
+    data-slot="command-group"
   >
     <ComboboxLabel
       v-if="heading"

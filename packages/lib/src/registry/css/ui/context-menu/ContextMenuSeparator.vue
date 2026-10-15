@@ -11,7 +11,7 @@ const props = defineProps<ContextMenuSeparatorProps>();
   <ContextMenuSeparator
     v-bind="props"
     class="sigma-ui-context-menu-separator"
-  />
+   data-slot="context-menu-separator"/>
 </template>
 
 <style>

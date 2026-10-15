@@ -11,6 +11,7 @@ const forwarded = useForwardProps(props);
   <ListboxContent
     v-bind="forwarded"
     class="sigma-ui-command-list"
+    data-slot="command-list"
   >
     <div
       role="presentation"

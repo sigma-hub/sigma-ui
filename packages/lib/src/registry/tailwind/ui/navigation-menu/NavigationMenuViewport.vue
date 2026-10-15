@@ -21,6 +21,6 @@ const forwardedProps = useForwardProps(props);
           $attrs.class ?? '',
         )
       "
-    />
+     data-slot="navigation-menu-viewport"/>
   </div>
 </template>

@@ -8,7 +8,7 @@ const props = defineProps<SelectGroupProps>();
   <SelectGroup
     class="sigma-ui-select-group"
     v-bind="props"
-  >
+   data-slot="select-group">
     <slot />
   </SelectGroup>
 </template>

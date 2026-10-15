@@ -54,6 +54,7 @@ async function handleClick(event: MouseEvent) {
     class="sigma-ui-confirm-button"
     :class="{ 'sigma-ui-confirm-button--confirmed': isConfirmed }"
     @click="handleClick"
+    data-slot="confirm-button"
   >
     <span
       class="sigma-ui-confirm-button__content"

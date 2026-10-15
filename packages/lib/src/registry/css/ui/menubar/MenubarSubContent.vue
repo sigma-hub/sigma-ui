@@ -19,7 +19,7 @@ const forwarded = useForwardPropsEmits(props, emits);
       v-bind="forwarded"
       class="sigma-ui-menubar-subcontent"
       :class="[$attrs.class]"
-    >
+     data-slot="menubar-sub-content">
       <slot />
     </MenubarSubContent>
   </MenubarPortal>

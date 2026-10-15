@@ -12,5 +12,5 @@ const props = defineProps<ContextMenuSeparatorProps>();
   <ContextMenuSeparator
     v-bind="props"
     :class="cn('-mx-1 my-1 h-px bg-border', $attrs.class ?? '')"
-  />
+   data-slot="context-menu-separator"/>
 </template>

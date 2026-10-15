@@ -37,7 +37,7 @@ const forwarded = useForwardPropsEmits(props, emits);
         $attrs.class ?? '',
       )
       "
-    >
+     data-slot="select-content">
       <SelectScrollUpButton />
       <SelectViewport :class="cn('scroll-my-1 p-1', position === 'popper' && 'h-(--reka-select-trigger-height) w-full min-w-(--reka-select-trigger-width)')">
         <slot />

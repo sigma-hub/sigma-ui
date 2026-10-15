@@ -4,7 +4,8 @@ import { cn } from '@ui/utils';
 </script>
 
 <template>
-  <div class="relative w-full overflow-auto">
+  <div class="relative w-full overflow-auto"
+  data-slot="table">
     <table :class="cn('w-full caption-bottom text-sm', $attrs.class ?? '')">
       <slot />
     </table>

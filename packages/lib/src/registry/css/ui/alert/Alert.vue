@@ -14,6 +14,7 @@ const attrs = useAttrs();
     class="sigma-ui-alert"
     :class="[alertVariants({ variant }), attrs.class]"
     role="alert"
+    data-slot="alert"
   >
     <slot />
   </div>

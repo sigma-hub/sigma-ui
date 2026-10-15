@@ -11,7 +11,8 @@ const props = withDefaults(defineProps<{
 </script>
 
 <template>
-  <TableRow>
+  <TableRow
+    data-slot="table-empty">
     <TableCell
       class="sigma-ui-table-empty"
       :class="[$attrs.class]"

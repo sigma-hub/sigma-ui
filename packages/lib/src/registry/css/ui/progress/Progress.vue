@@ -17,6 +17,7 @@ const props = withDefaults(
   <ProgressRoot
     v-bind="props"
     class="sigma-ui-progress"
+    data-slot="progress"
   >
     <ProgressIndicator
 

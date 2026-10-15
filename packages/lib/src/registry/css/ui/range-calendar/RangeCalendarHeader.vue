@@ -10,7 +10,7 @@ const forwardedProps = useForwardProps(props);
   <RangeCalendarHeader
     class="sigma-ui-range-calendar-header"
     v-bind="forwardedProps"
-  >
+   data-slot="range-calendar-header">
     <slot />
   </RangeCalendarHeader>
 </template>

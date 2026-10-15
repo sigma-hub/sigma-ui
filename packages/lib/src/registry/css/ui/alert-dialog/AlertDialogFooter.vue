@@ -8,6 +8,7 @@ const attrs = useAttrs();
   <div
     class="sigma-ui-alert-dialog-footer"
     :class="attrs.class"
+    data-slot="alert-dialog-footer"
   >
     <slot />
   </div>

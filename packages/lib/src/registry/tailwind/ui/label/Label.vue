@@ -15,7 +15,7 @@ const props = defineProps<LabelProps>();
         $attrs.class ?? '',
       )
     "
-  >
+   data-slot="label">
     <slot />
   </Label>
 </template>

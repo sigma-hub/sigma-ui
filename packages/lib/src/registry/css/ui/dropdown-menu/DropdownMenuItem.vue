@@ -14,7 +14,7 @@ const forwardedProps = useForwardProps(props);
     v-bind="forwardedProps"
     class="sigma-ui-dropdown-menu-item"
     :class="[{ 'sigma-ui-dropdown-menu-item--inset': inset }]"
-  >
+   data-slot="dropdown-menu-item">
     <slot />
   </DropdownMenuItem>
 </template>

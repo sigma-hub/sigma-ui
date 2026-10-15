@@ -16,6 +16,7 @@ const forwardedProps = useForwardProps(props);
   <div
     class="flex items-center border-b px-3"
     cmdk-input-wrapper
+    data-slot="command-input"
   >
     <SearchIcon class="mr-2 h-4 w-4 shrink-0 opacity-50" />
     <ComboboxInput

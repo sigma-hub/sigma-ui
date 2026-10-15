@@ -9,7 +9,7 @@ const props = defineProps<ComboboxSeparatorProps>();
   <ComboboxSeparator
     v-bind="{ ...props, ...$attrs }"
     :class="['sigma-ui-combobox-separator', $attrs.class]"
-  >
+   data-slot="combobox-separator">
     <slot />
   </ComboboxSeparator>
 </template>

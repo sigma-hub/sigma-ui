@@ -9,7 +9,7 @@ const forwarded = useForwardProps(props);
   <AccordionContent
     v-bind="forwarded"
     class="sigma-ui-accordion-content"
-  >
+   data-slot="accordion-content">
     <div
       class="sigma-ui-accordion-content-inner"
       :class="[$attrs.class]"

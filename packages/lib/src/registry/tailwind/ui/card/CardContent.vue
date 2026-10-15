@@ -4,7 +4,8 @@ import { cn } from '@ui/utils';
 </script>
 
 <template>
-  <div :class="cn('p-6 pt-0', $attrs.class ?? '')">
+  <div :class="cn('p-6 pt-0', $attrs.class ?? '')"
+  data-slot="card-content">
     <slot />
   </div>
 </template>

@@ -6,6 +6,7 @@
   <span
     class="sigma-ui-context-menu-shortcut"
     :class="$attrs.class"
+    data-slot="context-menu-shortcut"
   >
     <slot />
   </span>

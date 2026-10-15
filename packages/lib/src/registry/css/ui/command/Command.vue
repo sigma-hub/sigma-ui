@@ -16,6 +16,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   <ComboboxRoot
     v-bind="forwarded"
     class="sigma-ui-command"
+    data-slot="command"
   >
     <slot />
   </ComboboxRoot>

@@ -6,6 +6,7 @@
   <caption
     class="sigma-ui-table-caption"
     :class="[$attrs.class]"
+    data-slot="table-caption"
   >
     <slot />
   </caption>

@@ -9,7 +9,8 @@ const props = withDefaults(defineProps<PaginationLastProps>(), {
 </script>
 
 <template>
-  <PaginationLast v-bind="props">
+  <PaginationLast v-bind="props"
+  data-slot="pagination-last">
     <Button
       class="sigma-ui-pagination-last"
       :class="$attrs.class"

@@ -19,7 +19,7 @@ const props = defineProps<ToasterProps>();
         cancelButton: 'sigma-ui-toast__cancel-button',
       },
     }"
-  />
+   data-slot="toaster"/>
 </template>
 
 <style>

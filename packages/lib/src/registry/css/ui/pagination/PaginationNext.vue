@@ -9,7 +9,8 @@ const props = withDefaults(defineProps<PaginationNextProps>(), {
 </script>
 
 <template>
-  <PaginationNext v-bind="props">
+  <PaginationNext v-bind="props"
+  data-slot="pagination-next">
     <Button
       class="sigma-ui-pagination-next"
       :class="$attrs.class"

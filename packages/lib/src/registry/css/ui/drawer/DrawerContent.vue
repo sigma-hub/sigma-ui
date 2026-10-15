@@ -17,7 +17,7 @@ const forwarded = useForwardPropsEmits(props, emits);
       v-bind="forwarded"
       class="sigma-ui-drawer-content"
       :class="[$attrs.class]"
-    >
+     data-slot="drawer-content">
       <div class="sigma-ui-drawer-content__handle" />
       <slot />
     </DrawerContent>

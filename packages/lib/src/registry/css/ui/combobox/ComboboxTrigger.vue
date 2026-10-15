@@ -12,7 +12,7 @@ const forwarded = useForwardProps(props);
     v-bind="{ ...forwarded, ...$attrs }"
     :class="[$attrs.class]"
     tabindex="0"
-  >
+   data-slot="combobox-trigger">
     <slot />
   </ComboboxTrigger>
 </template>

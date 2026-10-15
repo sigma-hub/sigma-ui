@@ -5,6 +5,7 @@
   <div
     class="sigma-ui-drawer-header"
     :class="[$attrs.class]"
+    data-slot="drawer-header"
   >
     <slot />
   </div>

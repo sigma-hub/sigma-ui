@@ -28,7 +28,7 @@ const forwardedProps = useForwardProps(delegatedProps);
       variant: context?.variant || variant,
       size: context?.size || size,
     }), $attrs.class ?? '')"
-  >
+   data-slot="toggle-group-item">
     <slot />
   </ToggleGroupItem>
 </template>

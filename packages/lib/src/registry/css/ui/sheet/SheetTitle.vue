@@ -8,6 +8,7 @@ const props = defineProps<DialogTitleProps>();
   <DialogTitle
     class="sigma-ui-sheet-title"
     v-bind="props"
+    data-slot="sheet-title"
   >
     <slot />
   </DialogTitle>

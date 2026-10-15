@@ -10,5 +10,5 @@ const props = defineProps<DialogOverlayProps>();
   <DrawerOverlay
     v-bind="props"
     :class="cn('fixed inset-0 z-50 bg-black/80', $attrs.class ?? '')"
-  />
+   data-slot="drawer-overlay"/>
 </template>

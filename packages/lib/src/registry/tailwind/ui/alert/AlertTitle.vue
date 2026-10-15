@@ -4,7 +4,8 @@ import { cn } from '@ui/utils';
 </script>
 
 <template>
-  <h5 :class="cn('mb-1 font-medium leading-none tracking-tight', $attrs.class ?? '')">
+  <h5 :class="cn('mb-1 font-medium leading-none tracking-tight', $attrs.class ?? '')"
+  data-slot="alert-title">
     <slot />
   </h5>
 </template>

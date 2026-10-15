@@ -13,6 +13,7 @@ const forwardedProps = useForwardProps(props);
     class="sigma-ui-calendar-prev"
     :class="[buttonVariants({ variant: 'outline' })]"
     v-bind="forwardedProps"
+    data-slot="calendar-prev-button"
   >
     <slot>
       <ChevronLeftIcon class="sigma-ui-calendar-prev__icon" />

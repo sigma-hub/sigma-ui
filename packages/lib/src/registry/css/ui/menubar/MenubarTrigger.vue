@@ -10,7 +10,7 @@ const forwardedProps = useForwardProps(props);
   <MenubarTrigger
     v-bind="forwardedProps"
     class="sigma-ui-menubar-trigger"
-  >
+   data-slot="menubar-trigger">
     <slot />
   </MenubarTrigger>
 </template>

@@ -13,7 +13,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 </script>
 
 <template>
-  <ComboboxPortal>
+  <ComboboxPortal
+    data-slot="combobox-list">
     <ComboboxContent
       v-bind="{ ...forwarded, ...$attrs }"
       :class="['sigma-ui-combobox-list', $attrs.class]"

@@ -11,6 +11,7 @@ const forwardedProps = useForwardProps(props);
   <Primitive
     v-bind="forwardedProps"
     :class="cn('flex items-center', $attrs.class ?? '')"
+    data-slot="pin-input-group"
   >
     <slot />
   </primitive>

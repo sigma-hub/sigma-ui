@@ -24,7 +24,7 @@ const forwarded = useForwardPropsEmits(props, emits);
       inset && 'pl-8',
       $attrs.class ?? '',
     )"
-  >
+   data-slot="context-menu-item">
     <slot />
   </ContextMenuItem>
 </template>

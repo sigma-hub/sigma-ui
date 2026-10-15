@@ -20,7 +20,8 @@ const emit = defineEmits<Emits>();
 </script>
 
 <template>
-  <div class="sigma-ui-toaster-default">
+  <div class="sigma-ui-toaster-default"
+  data-slot="custom-simple">
     <div class="sigma-ui-toaster-default__content">
       <div class="sigma-ui-toaster-default__title">
         {{ props.title }}

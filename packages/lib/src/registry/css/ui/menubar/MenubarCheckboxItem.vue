@@ -18,7 +18,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   <MenubarCheckboxItem
     v-bind="forwarded"
     class="sigma-ui-menubar-checkbox-item"
-  >
+   data-slot="menubar-checkbox-item">
     <span class="sigma-ui-menubar-checkbox-item__indicator">
       <MenubarItemIndicator>
         <CheckIcon class="sigma-ui-menubar-checkbox-item__icon" />

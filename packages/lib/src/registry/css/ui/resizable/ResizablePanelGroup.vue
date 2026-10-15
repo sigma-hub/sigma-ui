@@ -12,6 +12,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   <SplitterGroup
     v-bind="forwarded"
     class="sigma-ui-resizable-panel-group"
+    data-slot="resizable-panel-group"
   >
     <slot />
   </SplitterGroup>

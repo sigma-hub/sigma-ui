@@ -18,7 +18,7 @@ const forwardedProps = useForwardProps(props);
       inset && 'pl-8',
       $attrs.class ?? '',
     )"
-  >
+   data-slot="dropdown-menu-item">
     <slot />
   </DropdownMenuItem>
 </template>

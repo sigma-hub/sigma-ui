@@ -19,7 +19,7 @@ defineSlots<{
       v-bind="forwarded"
       class="sigma-ui-accordion-trigger"
       :class="[$attrs.class]"
-    >
+     data-slot="accordion-trigger">
       <slot />
       <slot name="icon">
         <ChevronDownIcon class="sigma-ui-accordion-trigger-icon" />

@@ -23,7 +23,7 @@ const forwardedProps = useForwardProps(props);
       inset && 'pl-8',
       $attrs.class ?? '',
     )"
-  >
+   data-slot="context-menu-sub-trigger">
     <slot />
     <ChevronRightIcon class="ml-auto h-4 w-4" />
   </ContextMenuSubTrigger>

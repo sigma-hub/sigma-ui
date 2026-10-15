@@ -9,7 +9,7 @@ const props = defineProps<AlertDialogTitleProps>();
   <AlertDialogTitle
     v-bind="props"
     :class="cn('text-lg font-semibold', $attrs.class ?? '')"
-  >
+   data-slot="alert-dialog-title">
     <slot />
   </AlertDialogTitle>
 </template>

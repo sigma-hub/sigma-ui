@@ -16,6 +16,7 @@ const { error, formItemId } = useFormField();
       $attrs.class ?? '',
     )"
     :for="formItemId"
+    data-slot="form-label"
   >
     <slot />
   </Label>

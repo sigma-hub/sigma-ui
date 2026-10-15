@@ -17,7 +17,7 @@ const forwardedProps = useForwardProps(props);
   <NavigationMenuTrigger
     v-bind="forwardedProps"
     :class="cn(navigationMenuTriggerStyle(), 'group', $attrs.class ?? '')"
-  >
+   data-slot="navigation-menu-trigger">
     <slot />
     <ChevronDownIcon
       class="relative top-px ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"

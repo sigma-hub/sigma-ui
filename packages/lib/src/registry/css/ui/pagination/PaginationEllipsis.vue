@@ -9,7 +9,7 @@ const props = defineProps<PaginationEllipsisProps>();
   <PaginationEllipsis
     v-bind="props"
     class="sigma-ui-pagination-ellipsis"
-  >
+   data-slot="pagination-ellipsis">
     <slot>
       <MoreHorizontalIcon class="sigma-ui-pagination-ellipsis__icon" />
     </slot>

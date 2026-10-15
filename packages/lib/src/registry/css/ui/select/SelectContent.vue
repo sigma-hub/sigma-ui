@@ -32,7 +32,7 @@ const forwarded = useForwardPropsEmits(props, emits);
       v-bind="{ ...forwarded, ...$attrs }"
       class="sigma-ui-select-content"
       :class="[$attrs.class]"
-    >
+     data-slot="select-content">
       <SelectScrollUpButton />
       <SelectViewport
         class="sigma-ui-select-content__viewport"

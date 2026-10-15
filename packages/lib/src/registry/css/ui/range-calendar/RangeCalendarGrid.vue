@@ -10,7 +10,7 @@ const forwardedProps = useForwardProps(props);
   <RangeCalendarGrid
     class="sigma-ui-range-calendar-grid"
     v-bind="forwardedProps"
-  >
+   data-slot="range-calendar-grid">
     <slot />
   </RangeCalendarGrid>
 </template>

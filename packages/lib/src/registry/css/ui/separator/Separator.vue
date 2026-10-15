@@ -13,7 +13,7 @@ const props = defineProps<
   <Separator
     v-bind="props"
     class="sigma-ui-separator"
-  >
+   data-slot="separator">
     <span
       v-if="props.label"
 

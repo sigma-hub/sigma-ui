@@ -10,6 +10,7 @@ const props = defineProps<ComboboxEmptyProps>();
   <ComboboxEmpty
     v-bind="props"
     :class="cn('py-6 text-center text-sm', $attrs.class ?? '')"
+    data-slot="command-empty"
   >
     <slot />
   </ComboboxEmpty>

@@ -96,6 +96,7 @@ const containerClass = computed(() => [
   <div
     :class="containerClass"
     :style="imageStyle"
+    data-slot="infusion"
   >
     <img
       v-if="props.type === 'image'"
