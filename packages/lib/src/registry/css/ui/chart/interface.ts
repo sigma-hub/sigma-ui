@@ -2,6 +2,17 @@ import type { Spacing } from '@unovis/ts';
 
 type KeyOf<T extends Record<string, any>> = Extract<keyof T, string>;
 
+export interface ChartSeriesConfig {
+  label?: string;
+  color?: string;
+  theme?: {
+    light?: string;
+    dark?: string;
+  };
+}
+
+export type ChartConfig = Record<string, ChartSeriesConfig>;
+
 export interface BaseChartProps<T extends Record<string, any>> {
   /**
    * The source data, in which each entry is a dictionary.
@@ -19,6 +30,10 @@ export interface BaseChartProps<T extends Record<string, any>> {
    * Change the default colors.
    */
   colors?: string[];
+  /**
+   * Config-driven series colors. Keys match category names and set --color-<key> and --chart-N.
+   */
+  config?: ChartConfig;
   /**
    * Margin of each the container
    */

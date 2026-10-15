@@ -5,7 +5,7 @@ import { Axis, Line } from '@unovis/ts';
 import { type Component, computed, ref } from 'vue';
 import { useMounted } from '@vueuse/core';
 import type { BaseChartProps } from '.';
-import { ChartCrosshair, ChartLegend, defaultColors } from '@ui/registry/css/ui/chart';
+import { ChartContainer, ChartCrosshair, ChartLegend, colorsFromConfig } from '@ui/registry/css/ui/chart';
 
 const props = withDefaults(defineProps<BaseChartProps<T> & {
   /**
@@ -36,7 +36,7 @@ type KeyOfT = Extract<keyof T, string>;
 type Data = typeof props.data[number];
 
 const index = computed(() => props.index as KeyOfT);
-const colors = computed(() => props.colors?.length ? props.colors : defaultColors(props.categories.length));
+const colors = computed(() => colorsFromConfig(props.categories, props.config, props.colors));
 
 const legendItems = ref<BulletLegendItemInterface[]>(props.categories.map((category, i) => ({
   name: category,
@@ -55,7 +55,12 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
   <div
     class="sigma-ui-line-chart"
     :class="$attrs.class"
+    data-slot="line-chart"
   >
+    <ChartContainer
+      :config="config"
+      passthrough
+    >
     <ChartLegend
       v-if="showLegend"
       v-model:items="legendItems"
@@ -117,6 +122,7 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
 
       <slot />
     </VisXYContainer>
+    </ChartContainer>
   </div>
 </template>
 
