@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useClipboard, useStorage } from '@vueuse/core';
+import { useClipboard } from '@vueuse/core';
 import { CheckIcon, CopyIcon } from 'lucide-vue-next';
+import { INSTALL_COMMANDS, PACKAGE_MANAGERS, RUN_COMMANDS, useSelectedPackageManager } from '../utils/package-manager';
 
 const props = defineProps<{
   run?: string;
@@ -9,24 +10,7 @@ const props = defineProps<{
   dev?: boolean;
 }>();
 
-const PACKAGE_MANAGERS = ['npm', 'pnpm', 'yarn', 'bun'] as const;
-type PackageManager = typeof PACKAGE_MANAGERS[number];
-
-const RUN_COMMANDS: Record<PackageManager, string> = {
-  npm: 'npx',
-  pnpm: 'pnpm dlx',
-  yarn: 'yarn dlx',
-  bun: 'bunx --bun',
-};
-
-const INSTALL_COMMANDS: Record<PackageManager, string> = {
-  npm: 'npm install',
-  pnpm: 'pnpm add',
-  yarn: 'yarn add',
-  bun: 'bun add',
-};
-
-const selectedPackageManager = useStorage<PackageManager>('package-manager', 'npm', undefined, { initOnMounted: true });
+const selectedPackageManager = useSelectedPackageManager();
 const { copy, copied } = useClipboard();
 
 const command = computed(() => {
