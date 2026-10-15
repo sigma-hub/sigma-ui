@@ -40,6 +40,8 @@ export const initOptionsSchema = z.object({
   defaults: z.boolean().default(false),
 });
 
+export type InitOptions = z.infer<typeof initOptionsSchema>;
+
 export const addOptionsSchema = z.object({
   components: z.array(z.string()).optional(),
   yes: z.boolean(),
