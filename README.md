@@ -118,4 +118,4 @@ Special thanks to all the open-source projects and developers who have inspired 
 
 ## License
 
-Licensed under the [MIT license](https://github.com/sigma-hub/sigma-ui/blob/main/LICENSE).
+Licensed under the [MIT license](https://github.com/sigma-hub/sigma-ui/blob/main/LICENSE). Notices for the MIT-licensed projects SIGMA-UI derives from are in [THIRD_PARTY_NOTICES.md](https://github.com/sigma-hub/sigma-ui/blob/main/THIRD_PARTY_NOTICES.md).
