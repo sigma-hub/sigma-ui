@@ -1,7 +1,7 @@
 export { default as CodeWrapper } from './CodeWrapper';
 export { default as ComponentPreview } from './ComponentPreview.vue';
 export { default as Faq } from './Faq.vue';
-export { default as APITable } from './APITable.vue';
+export { default as ApiTable } from './ApiTable.vue';
 export { default as KeybindingsTable } from './KeybindingsTable.vue';
 export { default as TabPreview } from './TabPreview.vue';
 export { default as TabMarkdown } from './TabMarkdown.vue';

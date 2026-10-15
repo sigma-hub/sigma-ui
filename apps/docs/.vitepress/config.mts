@@ -46,6 +46,7 @@ export default defineConfig({
     },
   },
   srcDir: path.resolve(__dirname, '../src'),
+  srcExclude: ['content/meta/**'],
   markdown: {
     theme: cssVariables,
     codeTransformers: [
