@@ -1,14 +1,16 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { rimraf } from 'rimraf';
+import { zodToJsonSchema } from 'zod-to-json-schema';
 import { styleSystems } from '@sigma-ui/shared/style-systems';
 import { crawlRegistry, toPublicImports, writeRegistry } from '@sigma-ui/shared/registry';
-import type { RegistryItem } from '@sigma-ui/shared/schemas';
+import { rawConfigSchema, type RegistryItem } from '@sigma-ui/shared/schemas';
 
 const DOCS_ROOT = process.cwd();
 const LIB_REGISTRY_PATH = path.join(DOCS_ROOT, '../../packages/lib/src/registry');
 const PUBLIC_REGISTRY_PATH = path.join(DOCS_ROOT, 'src/public/r');
 const GENERATED_INDEX_PATH = path.join(DOCS_ROOT, '__generated/index.ts');
+const CONFIG_SCHEMA_PATH = path.join(DOCS_ROOT, 'src/public/schema.json');
 const PUBLISHED_TYPES = new Set<RegistryItem['type']>(['registry:ui', 'registry:block']);
 
 function buildGeneratedIndex(registries: Record<string, RegistryItem[]>) {
@@ -69,6 +71,11 @@ async function buildPublicRegistry(registries: Record<string, RegistryItem[]>) {
   }
 }
 
+function buildConfigSchema() {
+  const schema = zodToJsonSchema(rawConfigSchema, { target: 'jsonSchema7', $refStrategy: 'none' });
+  fs.writeFileSync(CONFIG_SCHEMA_PATH, `${JSON.stringify({ $schema: 'http://json-schema.org/draft-07/schema#', title: 'sigma-ui.config.json', ...schema }, null, 2)}\n`, 'utf8');
+}
+
 async function main() {
   const registries = await crawlRegistry({
     registryRoot: LIB_REGISTRY_PATH,
@@ -77,6 +84,7 @@ async function main() {
 
   buildGeneratedIndex(registries);
   await buildPublicRegistry(registries);
+  buildConfigSchema();
   console.log('Registry built.');
 }
 
