@@ -14,7 +14,9 @@
     "build:registry": "tsx ./scripts/build-registry.ts",
     "build:registry-strict": "pnpm ts:registry && tsx ./scripts/build-registry.ts",
     "docs:gen": "tsx ./scripts/api-docs/gen-api.ts",
-    "docs:check": "tsx ./scripts/api-docs/gen-api.ts --check"
+    "docs:check": "tsx ./scripts/api-docs/gen-api.ts --check",
+    "docs:lint": "tsx ./scripts/lint-pages.ts",
+    "new:component": "tsx ./scripts/new-component.ts"
   },
   "dependencies": {
     "@internationalized/date": "^3.7.0",

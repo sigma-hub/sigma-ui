@@ -9,6 +9,7 @@ import ExamplesLayout from './layout/ExamplesLayout.vue';
 import * as components from './components';
 import './styles/main.css';
 import './styles/vp-doc.css';
+import './styles/content.css';
 import './styles/shiki.css';
 import { useThemeStyles } from './composables/useThemeStyles';
 

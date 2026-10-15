@@ -22,6 +22,8 @@
     "build:registry": "pnpm --filter=docs build:registry",
     "docs:gen": "pnpm --filter docs docs:gen",
     "docs:check": "pnpm --filter docs docs:check",
+    "docs:lint": "pnpm --filter docs docs:lint",
+    "new:component": "pnpm --filter docs new:component",
     "bumpp": "bumpp package.json packages/*/package.json apps/*/package.json",
     "prerelease": "pnpm ts:cli && pnpm build:registry && pnpm build:cli",
     "pub:beta": "pnpm --filter sigma-ui pub:beta",
