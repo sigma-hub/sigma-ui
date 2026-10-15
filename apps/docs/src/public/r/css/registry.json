@@ -1908,6 +1908,24 @@
       ]
     },
     {
+      "name": "spinner",
+      "type": "registry:ui",
+      "dependencies": [
+        "lucide-vue-next@^0.475.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ui/spinner/Spinner.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/spinner/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "switch",
       "type": "registry:ui",
       "dependencies": [

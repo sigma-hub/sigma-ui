@@ -1482,6 +1482,14 @@ export const Index = {
       component: () => import("../../../packages/lib/src/registry/tailwind/example/SliderForm.vue").then((m) => m.default),
       files: ["example/SliderForm.vue"],
     },
+    "Spinner": {
+      name: "Spinner",
+      type: "registry:example",
+      registryDependencies: ["spinner"],
+      dependencies: [],
+      component: () => import("../../../packages/lib/src/registry/tailwind/example/Spinner.vue").then((m) => m.default),
+      files: ["example/Spinner.vue"],
+    },
     "Switch": {
       name: "Switch",
       type: "registry:example",
@@ -3307,6 +3315,14 @@ export const Index = {
       dependencies: ["@vee-validate/zod@^4.15.0","vee-validate@4.15.0","zod@^3.24.1"],
       component: () => import("../../../packages/lib/src/registry/css/example/SliderForm.vue").then((m) => m.default),
       files: ["example/SliderForm.vue"],
+    },
+    "Spinner": {
+      name: "Spinner",
+      type: "registry:example",
+      registryDependencies: ["spinner"],
+      dependencies: [],
+      component: () => import("../../../packages/lib/src/registry/css/example/Spinner.vue").then((m) => m.default),
+      files: ["example/Spinner.vue"],
     },
     "Switch": {
       name: "Switch",
