@@ -1,2 +1,4 @@
 export * from './build';
-export * from './schema';
+export * from './dependencies';
+export * from './imports';
+export * from './package-versions';

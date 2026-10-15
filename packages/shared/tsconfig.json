@@ -4,6 +4,8 @@
   "compilerOptions": {
     "module": "esnext",
     "moduleResolution": "bundler",
+    "target": "ES2022",
+    "lib": ["ES2023"],
     "types": ["node"],
     "noEmit": true
   },

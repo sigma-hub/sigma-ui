@@ -5,10 +5,12 @@
   "private": true,
   "description": "Schemas, themes, templates, and the registry builder shared by the SIGMA-UI CLI, docs, and Nuxt module.",
   "license": "MIT",
+  "sideEffects": false,
   "exports": {
     "./consts": "./src/consts.ts",
     "./themes": "./src/themes.ts",
     "./style-systems": "./src/style-systems.ts",
+    "./schemas": "./src/schemas/index.ts",
     "./registry": "./src/registry/index.ts",
     "./templates/*": "./src/templates/*.ts"
   },

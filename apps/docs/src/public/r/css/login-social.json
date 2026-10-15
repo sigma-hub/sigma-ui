@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "login-social",
+  "type": "registry:block",
+  "title": "Login with social provider",
+  "description": "A login form with email and password. There's an option to login with Google and a link to sign up if you don't have an account.",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "card",
+    "input",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "blocks/login-social/LoginSocial.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/components/ui/button';\nimport { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';\nimport { Input } from '@/components/ui/input';\nimport { Label } from '@/components/ui/label';\n</script>\n\n<template>\n  <Card class=\"mx-auto max-w-sm\">\n    <CardHeader>\n      <CardTitle class=\"text-2xl\">\n        Login\n      </CardTitle>\n      <CardDescription>\n        Enter your email below to login to your account\n      </CardDescription>\n    </CardHeader>\n    <CardContent>\n      <div class=\"grid gap-4\">\n        <div class=\"grid gap-2\">\n          <Label for=\"email\">Email</Label>\n          <Input\n            id=\"email\"\n            type=\"email\"\n            placeholder=\"m@example.com\"\n            required\n          />\n        </div>\n        <div class=\"grid gap-2\">\n          <div class=\"flex items-center\">\n            <Label for=\"password\">Password</Label>\n            <a\n              href=\"#\"\n              class=\"ml-auto inline-block text-sm underline\"\n            >\n              Forgot your password?\n            </a>\n          </div>\n          <Input\n            id=\"password\"\n            type=\"password\"\n            required\n          />\n        </div>\n        <Button\n          type=\"submit\"\n          class=\"w-full\"\n        >\n          Login\n        </Button>\n        <Button\n          variant=\"outline\"\n          class=\"w-full\"\n        >\n          Login with Google\n        </Button>\n      </div>\n      <div class=\"mt-4 text-center text-sm\">\n        Don't have an account?\n        <a\n          href=\"#\"\n          class=\"underline\"\n        >\n          Sign up\n        </a>\n      </div>\n    </CardContent>\n  </Card>\n</template>\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "iframeHeight": "600px",
+    "containerClass": "w-full h-screen flex items-center justify-center px-4"
+  },
+  "categories": [
+    "authentication",
+    "login"
+  ]
+}
