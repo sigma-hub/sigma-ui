@@ -4,9 +4,8 @@ import { template } from 'lodash-es';
 import { rimraf } from 'rimraf';
 
 import { themes } from '@sigma-ui/shared/themes';
-import { registrySchema } from '../src/lib/registry/schema';
 import { styleSystems } from '@sigma-ui/shared/style-systems';
-import { buildRegistry } from '../src/lib/registry/registry';
+import { buildRegistry, registrySchema } from '@sigma-ui/shared/registry';
 import {
   TAILWIND_STYLES_WITH_VARS_TEMPLATE,
 } from '@sigma-ui/shared/templates/tailwind-styles';
@@ -15,11 +14,12 @@ import {
 } from '@sigma-ui/shared/templates/css-styles';
 
 const REGISTRY_PATH = path.join(process.cwd(), '../../packages/cli/__generated/registry-schemes');
+const LIB_REGISTRY_PATH = path.join(process.cwd(), '../../packages/lib/src/registry');
 const REGISTRY_IGNORE = ['super-form'];
 const newLine = '\n';
 
 async function validateRegistry() {
-  const registry = await buildRegistry();
+  const registry = await buildRegistry(LIB_REGISTRY_PATH);
   const result = registrySchema.safeParse(registry);
 
   if (!result.success) {
