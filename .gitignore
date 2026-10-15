@@ -15,6 +15,10 @@ node_modules
 .DS_Store
 dist
 dist-ssr
+packages/cli/LICENSE
+packages/cli/THIRD_PARTY_NOTICES.md
+packages/nuxt-module/LICENSE
+packages/nuxt-module/THIRD_PARTY_NOTICES.md
 coverage
 *.local
 

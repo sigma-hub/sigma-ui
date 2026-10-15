@@ -30,12 +30,14 @@
     "sigma-ui": "dist/index.js"
   },
   "files": [
-    "dist"
+    "dist",
+    "CHANGELOG.md",
+    "THIRD_PARTY_NOTICES.md"
   ],
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
-    "prepack": "pnpm build",
+    "prepack": "pnpm build && node ../../scripts/copy-publish-files.mjs",
     "ts": "tsc --noEmit",
     "clean": "node ./scripts/rimraf.js",
     "lint": "eslint .",

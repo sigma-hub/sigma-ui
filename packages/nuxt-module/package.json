@@ -39,11 +39,13 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "CHANGELOG.md",
+    "THIRD_PARTY_NOTICES.md"
   ],
   "scripts": {
     "build": "nuxt-module-build prepare && nuxt-module-build build",
-    "prepack": "pnpm build",
+    "prepack": "pnpm build && node ../../scripts/copy-publish-files.mjs",
     "dev": "nuxt dev playground",
     "dev:build": "nuxt build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxt prepare playground",
