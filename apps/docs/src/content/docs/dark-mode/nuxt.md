@@ -13,7 +13,7 @@ This example demonstrates how to add theme mode toggle using [`Nuxt Color Mode`]
 - Add .${color}-mode class to `<html>` for easy CSS theming;
 - Force a page to a specific color mode (perfect for incremental development);
 - Works with client-side and universal rendering;
-- Works out of the box with @nuxtjs/tailwindcss;
+- Adds a `dark` class to `<html>`, which is what Tailwind v4 and the sigma-ui themes use;
 - Auto detect system color-mode;
 - Supports IE9+;
 - No need for a custom implementation;
@@ -35,7 +35,7 @@ Add `@nuxtjs/color-mode` to the modules section of your `nuxt.config.ts`
 ```ts
 export default defineNuxtConfig({
   modules: [
-    '@nuxtjs/tailwindcss',
+    'sigma-ui-nuxt',
     '@nuxtjs/color-mode'
   ],
   colorMode: {
