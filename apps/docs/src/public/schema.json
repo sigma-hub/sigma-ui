@@ -1,4 +1,162 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "sigma-ui.config.json"
+  "title": "sigma-ui.config.json",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "styleSystem": {
+      "type": "string",
+      "enum": [
+        "tailwind",
+        "css"
+      ],
+      "description": "Install components styled with Tailwind utilities or with plain scoped CSS."
+    },
+    "framework": {
+      "default": "vite",
+      "type": "string",
+      "enum": [
+        "vite",
+        "nuxt",
+        "laravel",
+        "astro"
+      ]
+    },
+    "tsConfigPath": {
+      "default": "tsconfig.json",
+      "description": "tsconfig used to resolve path aliases.",
+      "type": "string"
+    },
+    "setupTailwind": {
+      "default": false,
+      "description": "Whether init set up Tailwind CSS for this project.",
+      "type": "boolean"
+    },
+    "cssPath": {
+      "type": "string",
+      "description": "Stylesheet that holds the theme variables, relative to the project root."
+    },
+    "baseColor": {
+      "default": "grayscale",
+      "description": "Theme base color.",
+      "type": "string"
+    },
+    "tailwind": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "config": {
+          "default": "",
+          "description": "Optional legacy tailwind.config.js referenced with @config. Leave empty for CSS-first Tailwind v4.",
+          "type": "string"
+        },
+        "prefix": {
+          "description": "Prefix added to Tailwind utility classes.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "aliases": {
+      "type": "object",
+      "properties": {
+        "components": {
+          "type": "string",
+          "description": "Import alias for UI components, e.g. @/components/ui."
+        },
+        "utils": {
+          "default": "",
+          "description": "Import alias for the cn() helper, e.g. @/lib/utils. Empty for the CSS style system.",
+          "type": "string"
+        },
+        "blocks": {
+          "description": "Import alias for blocks. Defaults to a blocks folder next to the components folder.",
+          "type": "string"
+        },
+        "lib": {
+          "description": "Import alias for registry:lib files. Defaults to the folder of utils.",
+          "type": "string"
+        },
+        "composables": {
+          "description": "Import alias for composables. Defaults to <source root>/composables.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "components"
+      ],
+      "additionalProperties": false
+    },
+    "generatePreflight": {
+      "default": true,
+      "description": "Write a preflight.css reset for the CSS style system.",
+      "type": "boolean"
+    },
+    "componentNaming": {
+      "default": "pascal-case",
+      "description": "File naming for installed components. Directories are always kebab-case.",
+      "type": "string",
+      "enum": [
+        "pascal-case",
+        "kebab-case"
+      ]
+    },
+    "registries": {
+      "description": "Third-party registries, installed with sigma-ui add @namespace/item.",
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^@[\\w-]+$"
+      },
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "string",
+            "description": "URL or path template for registry items. {name} is replaced with the item name and {style} with the style system. ${ENV_VAR} placeholders are expanded."
+          },
+          {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "description": "URL or path template for registry items. {name} is replaced with the item name and {style} with the style system. ${ENV_VAR} placeholders are expanded."
+              },
+              "params": {
+                "description": "Query parameters appended to the URL.",
+                "type": "object",
+                "propertyNames": {
+                  "type": "string"
+                },
+                "additionalProperties": {
+                  "type": "string"
+                }
+              },
+              "headers": {
+                "description": "Request headers, e.g. Authorization: Bearer ${TOKEN}.",
+                "type": "object",
+                "propertyNames": {
+                  "type": "string"
+                },
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "url"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "styleSystem",
+    "cssPath",
+    "aliases"
+  ],
+  "additionalProperties": false
 }
