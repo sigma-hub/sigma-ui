@@ -21,10 +21,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
       - uses: ./.github/actions/setup
         with:
           registry-url: https://registry.npmjs.org
-      - uses: changesets/action@v2
+      - uses: changesets/action@v2.1.2
         with:
           version-script: pnpm version-packages
           publish-script: pnpm release
