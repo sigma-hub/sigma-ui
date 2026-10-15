@@ -33,7 +33,6 @@
     "sigma-ui": "dist/index.js"
   },
   "files": [
-    "__generated/registry-schemes",
     "dist"
   ],
   "scripts": {
@@ -43,8 +42,8 @@
     "clean": "node ./scripts/rimraf.js",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "start:dev": "COMPONENTS_REGISTRY_URL=http://localhost:3001 node dist/index.js",
-    "preview:dev": "pnpm build && COMPONENTS_REGISTRY_URL=http://localhost:3001 node dist/index.js",
+    "start:dev": "SIGMA_UI_REGISTRY_URL=http://localhost:5173/r node dist/index.js",
+    "preview:dev": "pnpm build && SIGMA_UI_REGISTRY_URL=http://localhost:5173/r node dist/index.js",
     "start": "node dist/index.js",
     "release": "changeset version",
     "pub:beta": "pnpm build && pnpm publish --no-git-checks --access public --tag beta",

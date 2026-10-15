@@ -12,11 +12,7 @@ import { colors } from 'consola/utils';
 import prettier from 'prettier';
 import { Project, SyntaxKind } from 'ts-morph';
 import { getProjectInfo, type Framework, type TailwindConfigType } from '../utils/get-project-info';
-import {
-  getRegistryBaseColor,
-  getRegistryBaseColors,
-  getRegistryStyles,
-} from '../utils/registry';
+import { getBaseColors, getStyleSystems, getTheme } from '../utils/themes';
 import { handleError } from '../utils/handle-error';
 import {
   resolveConfigPaths,
@@ -27,6 +23,7 @@ import {
   initOptionsSchema,
   type Config,
   type ComponentNaming,
+  type RawConfig,
 } from '../schemas';
 import { transformCJSToESM } from '../utils/transformers/transform-cjs-to-esm';
 import { applyPrefixesCss } from '../utils/transformers/transform-tw-prefix';
@@ -135,8 +132,8 @@ export async function promptForConfig(
   const spinner = ora('Detecting project settings...').start();
   const projectInfo = await getProjectInfo(cwd);
   const detectedConfig = getDetectedConfig(projectInfo);
-  const styles = await getRegistryStyles();
-  const baseColors = await getRegistryBaseColors();
+  const styles = getStyleSystems();
+  const baseColors = getBaseColors();
   spinner.stop();
 
   consola.info(`Detected ${highlight(detectedConfig.framework)} project`);
@@ -234,7 +231,7 @@ export async function promptForConfig(
 
 interface ConfigOptions {
   framework: Framework;
-  styleSystem: string;
+  styleSystem: RawConfig['styleSystem'];
   tailwindBaseColor: string;
   componentNaming: ComponentNaming;
   tsConfigPath: string;
@@ -348,11 +345,7 @@ async function writeTailwindJsConfig(config: Config) {
 }
 
 async function writeCssFile(config: Config, hasJsConfig: boolean) {
-  const baseColorData = await getRegistryBaseColor(config.baseColor);
-
-  if (!baseColorData) {
-    return;
-  }
+  const baseColorData = getTheme(config.baseColor);
 
   const file = config.resolvedPaths.tailwindCss;
   let data = '';
@@ -378,7 +371,7 @@ async function writeCssFile(config: Config, hasJsConfig: boolean) {
       data = applyPrefixesCss(data, config.tailwind.prefix);
     }
   } else if (config.styleSystem === 'css') {
-    data = baseColorData.templates.css.withVariables;
+    data = baseColorData.cssStylesWithVariables;
 
     if (config.generatePreflight) {
       data = `@import "./preflight.css";\n\n${data}`;

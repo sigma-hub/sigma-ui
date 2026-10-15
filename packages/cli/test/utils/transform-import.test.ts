@@ -1,64 +1,48 @@
-import { expect, it } from 'vitest';
-import { transform } from '../../src/utils/transformers';
+import { describe, expect, it } from 'vitest';
+import { transformFileContent, transformImports } from '../../src/utils/transformers';
 
-it('transform import', async () => {
-  expect(
-    await transform({
-      filename: 'app.vue',
-      raw: `import { Foo } from "bar"
-    import { Button } from "@/lib/registry/tailwind/ui/button"
-    import { Label} from "ui/label"
-    import { Box } from "@/lib/registry/tailwind/box"
+const source = `<script setup lang="ts">
+import { Foo } from "bar"
+import { Button } from '@/components/ui/button'
+import { Card } from '@ui/registry/css/ui/card'
+import { Dialog } from '@/registry/new-york/ui/dialog'
+import { cn } from "@/lib/utils"
+import { formatDate } from '@/lib/format'
+import { useThing } from '@/composables/useThing'
+import AppSidebar from './components/AppSidebar.vue'
+export { default as Badge } from '@/components/ui/badge/Badge.vue'
+</script>`;
 
-    import { cn } from "@/lib/utils"
-    `,
-      config: {
-        baseColor: 'grayscale',
-        aliases: {
-          components: '@/components',
-          utils: '@/lib/utils',
-        },
-      },
-    }),
-  ).toMatchSnapshot();
+describe('transformImports', () => {
+  it('keeps default aliases unchanged', () => {
+    expect(transformImports(source, { aliases: { components: '@/components/ui', utils: '@/lib/utils' } })).toContain(`from '@/components/ui/button'`);
+  });
 
-  expect(
-    await transform({
-      filename: 'app.vue',
-      raw: `import { Foo } from "bar"
-      import { Button } from "@/lib/registry/tailwind/ui/button"
-      import { Label} from "ui/label"
-      import { Box } from "@/lib/registry/tailwind/box"
+  it('rewrites registry aliases to the configured aliases', () => {
+    const result = transformImports(source, {
+      aliases: { components: '~/ui', utils: '~/utils/cn', composables: '~/use' },
+    });
 
-      import { cn, foo, bar } from "@/lib/utils"
-      import { bar } from "@/lib/utils/bar"
-      `,
-      config: {
-        aliases: {
-          components: '~/src/components',
-          utils: '~/lib',
-        },
-      },
-    }),
-  ).toMatchSnapshot();
+    expect(result).toContain(`import { Foo } from "bar"`);
+    expect(result).toContain(`import { Button } from '~/ui/button'`);
+    expect(result).toContain(`import { Card } from '~/ui/card'`);
+    expect(result).toContain(`import { Dialog } from '~/ui/dialog'`);
+    expect(result).toContain(`import { cn } from "~/utils/cn"`);
+    expect(result).toContain(`import { formatDate } from '~/utils/format'`);
+    expect(result).toContain(`import { useThing } from '~/use/useThing'`);
+    expect(result).toContain(`export { default as Badge } from '~/ui/badge/Badge.vue'`);
+    expect(result).toContain(`import AppSidebar from './components/AppSidebar.vue'`);
+  });
 
-  expect(
-    await transform({
-      filename: 'app.vue',
-      raw: `import { Foo } from "bar"
-      import { Button } from "@/lib/registry/tailwind/ui/button"
-      import { Label} from "ui/label"
-      import { Box } from "@/lib/registry/tailwind/box"
+  it('leaves the utils import alone when no utils alias is configured', () => {
+    expect(transformImports(source, { aliases: { components: '@/components/ui', utils: '' } })).toContain(`from "@/lib/utils"`);
+  });
+});
 
-    import { cn } from "@/lib/utils"
-    import { bar } from "@/lib/utils/bar"
-    `,
-      config: {
-        aliases: {
-          components: '~/src/components',
-          utils: '~/src/utils',
-        },
-      },
-    }),
-  ).toMatchSnapshot();
+describe('transformFileContent', () => {
+  it('applies kebab-case file naming to relative imports', () => {
+    const result = transformFileContent(source, { aliases: { components: '@/components/ui', utils: '@/lib/utils' }, componentNaming: 'kebab-case' });
+
+    expect(result).toContain(`import AppSidebar from './components/app-sidebar.vue'`);
+  });
 });

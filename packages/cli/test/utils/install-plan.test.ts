@@ -1,0 +1,127 @@
+import { mkdirSync, mkdtempSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import path from 'pathe';
+import { beforeAll, describe, expect, it } from 'vitest';
+import type { Config, RegistryItem } from '../../src/schemas';
+import { createInstallPlan, excludeInstalledDependencies, getFileTargetPath } from '../../src/utils/install-plan';
+
+function createConfig(cwd: string, overrides: Partial<Config> = {}): Config {
+  return {
+    styleSystem: 'tailwind',
+    framework: 'vite',
+    tsConfigPath: 'tsconfig.json',
+    setupTailwind: false,
+    cssPath: 'src/assets/index.css',
+    baseColor: 'grayscale',
+    tailwind: { config: '' },
+    aliases: { components: '@/components/ui', utils: '@/lib/utils' },
+    generatePreflight: false,
+    componentNaming: 'pascal-case',
+    resolvedPaths: {
+      cwd,
+      tailwindConfig: '',
+      tailwindCss: path.join(cwd, 'src/assets/index.css'),
+      utils: path.join(cwd, 'src/lib/utils'),
+      components: path.join(cwd, 'src/components/ui'),
+      blocks: path.join(cwd, 'src/components/blocks'),
+      lib: path.join(cwd, 'src/lib'),
+      composables: path.join(cwd, 'src/composables'),
+    },
+    ...overrides,
+  };
+}
+
+const cwd = '/project';
+const config = createConfig(cwd);
+
+describe('getFileTargetPath', () => {
+  it('places ui files in a kebab-case directory named after the item', () => {
+    const item: RegistryItem = { name: 'button', type: 'registry:ui', files: [] };
+
+    expect(getFileTargetPath({ path: 'ui/button/Button.vue', type: 'registry:ui' }, item, config)).toBe('/project/src/components/ui/button/Button.vue');
+    expect(getFileTargetPath({ path: 'ui/button/Button.vue', type: 'registry:ui' }, item, createConfig(cwd, { componentNaming: 'kebab-case' }))).toBe('/project/src/components/ui/button/button.vue');
+  });
+
+  it('keeps nested block files under the blocks directory', () => {
+    const item: RegistryItem = { name: 'dashboard-orders', type: 'registry:block', files: [] };
+
+    expect(getFileTargetPath({ path: 'blocks/dashboard-orders/components/OrdersTable.vue', type: 'registry:component' }, item, config))
+      .toBe('/project/src/components/blocks/dashboard-orders/components/OrdersTable.vue');
+    expect(getFileTargetPath({ path: 'blocks/dashboard-orders/data.ts', type: 'registry:lib' }, item, config))
+      .toBe('/project/src/components/blocks/dashboard-orders/data.ts');
+  });
+
+  it('routes lib and composable files to their own directories', () => {
+    const lib: RegistryItem = { name: 'format', type: 'registry:lib', files: [] };
+    const composable: RegistryItem = { name: 'use-theme', type: 'registry:composable', files: [] };
+
+    expect(getFileTargetPath({ path: 'lib/format.ts', type: 'registry:lib' }, lib, config)).toBe('/project/src/lib/format.ts');
+    expect(getFileTargetPath({ path: 'composables/useTheme.ts', type: 'registry:composable' }, composable, config)).toBe('/project/src/composables/useTheme.ts');
+  });
+
+  it('prefers explicit targets and path overrides', () => {
+    const item: RegistryItem = { name: 'button', type: 'registry:ui', files: [] };
+
+    expect(getFileTargetPath({ path: 'ui/button/index.ts', type: 'registry:ui', target: '~/app/button.ts' }, item, config)).toBe('/project/app/button.ts');
+    expect(getFileTargetPath({ path: 'ui/button/index.ts', type: 'registry:ui' }, item, config, '/elsewhere')).toBe('/elsewhere/button/index.ts');
+  });
+});
+
+describe('createInstallPlan', () => {
+  let projectRoot: string;
+
+  beforeAll(() => {
+    projectRoot = mkdtempSync(path.join(tmpdir(), 'sigma-ui-plan-'));
+    mkdirSync(path.join(projectRoot, 'src/components/ui/button'), { recursive: true });
+    writeFileSync(path.join(projectRoot, 'src/components/ui/button/index.ts'), 'export { default as Button } from \'./Button.vue\';\n');
+    writeFileSync(path.join(projectRoot, 'src/components/ui/button/Button.vue'), '<template>old</template>\n');
+  });
+
+  it('transforms content and reports create, update, and unchanged files', async () => {
+    const button: RegistryItem = {
+      name: 'button',
+      type: 'registry:ui',
+      dependencies: ['reka-ui@^2.0.0'],
+      files: [
+        { path: 'ui/button/index.ts', type: 'registry:ui', content: 'export { default as Button } from \'./Button.vue\';\n' },
+        { path: 'ui/button/Button.vue', type: 'registry:ui', content: '<script setup lang="ts">\nimport { cn } from \'@/lib/utils\';\n</script>\n' },
+      ],
+    };
+    const card: RegistryItem = {
+      name: 'card',
+      type: 'registry:ui',
+      dependencies: ['reka-ui', 'lucide-vue-next@^0.400.0'],
+      files: [{ path: 'ui/card/Card.vue', type: 'registry:ui', content: '<template />\n' }],
+    };
+
+    const plan = await createInstallPlan(
+      [
+        { item: button, location: { specifier: 'button', source: 'button.json', headers: {}, namespace: null }, requested: false },
+        { item: card, location: { specifier: 'card', source: 'card.json', headers: {}, namespace: null }, requested: true },
+      ],
+      createConfig(projectRoot, { aliases: { components: '@/components/ui', utils: '@/utils/cn' } }),
+    );
+
+    expect(plan.files.map(file => [path.relative(projectRoot, file.targetPath), file.status])).toEqual([
+      ['src/components/ui/button/index.ts', 'unchanged'],
+      ['src/components/ui/button/Button.vue', 'update'],
+      ['src/components/ui/card/Card.vue', 'create'],
+    ]);
+    expect(plan.files[1].content).toContain('import { cn } from \'@/utils/cn\'');
+    expect(plan.dependencies).toEqual(['lucide-vue-next@^0.400.0', 'reka-ui@^2.0.0']);
+  });
+
+  it('fails when a registry file has no content', async () => {
+    const item: RegistryItem = { name: 'empty', type: 'registry:ui', files: [{ path: 'ui/empty/Empty.vue', type: 'registry:ui' }] };
+
+    await expect(createInstallPlan([{ item, location: { specifier: 'empty', source: 'empty.json', headers: {}, namespace: null }, requested: true }], config))
+      .rejects.toThrow(/has no content/);
+  });
+});
+
+describe('excludeInstalledDependencies', () => {
+  it('drops packages that are already installed regardless of version', () => {
+    expect(excludeInstalledDependencies(['reka-ui@^2.0.0', '@vueuse/core@^12.0.0', 'clsx'], new Set(['reka-ui', 'clsx'])))
+      .toEqual(['@vueuse/core@^12.0.0']);
+  });
+});
