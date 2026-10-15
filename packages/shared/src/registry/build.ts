@@ -1,9 +1,7 @@
 import { readFile, readdir } from 'node:fs/promises';
 import { join, normalize, resolve } from 'pathe';
-import { compileScript, parse } from 'vue/compiler-sfc';
-import { parseSync } from '@oxc-parser/wasm';
-
-import type { Registry } from '../../lib/registry';
+import { getImportSources } from './imports';
+import type { Registry } from './schema';
 
 const DEPENDENCIES = new Map<string, string[]>([
   ['@vueuse/core', []],
@@ -20,14 +18,14 @@ const REGISTRY_DEPENDENCY = '@/';
 type ArrayItem<T> = T extends Array<infer X> ? X : never;
 type RegistryItem = ArrayItem<Registry>;
 
-export async function buildRegistry() {
-  const uiPath = resolve('../../packages/lib/src/registry/tailwind/ui');
+export async function buildRegistry(registryRoot: string) {
+  const uiPath = resolve(registryRoot, 'tailwind/ui');
   const uiRegistry = await crawlUI(uiPath);
 
-  const examplePath = resolve('../../packages/lib/src/registry/tailwind/example');
+  const examplePath = resolve(registryRoot, 'tailwind/example');
   const exampleRegistry = await crawlDirectory(examplePath, 'example');
 
-  const blockPath = resolve('../../packages/lib/src/registry/tailwind/block');
+  const blockPath = resolve(registryRoot, 'tailwind/block');
   const blockRegistry = await crawlDirectory(blockPath, 'block');
 
   return uiRegistry.concat(exampleRegistry).concat(blockRegistry);
@@ -160,27 +158,7 @@ async function getDependencies(filename: string) {
     }
   };
 
-  if (filename.endsWith('.ts')) {
-    const ast = parseSync(code, {
-      sourceType: 'module',
-      sourceFilename: filename,
-    });
-
-    const sources = ast.program.body.filter((i: any) => i.type === 'ImportDeclaration').map((i: any) => i.source);
-    sources.forEach((source: any) => {
-      populateDeps(source.value);
-    });
-  } else {
-    const parsed = parse(code, { filename });
-
-    if (parsed.descriptor.script?.content || parsed.descriptor.scriptSetup?.content) {
-      const compiled = compileScript(parsed.descriptor, { id: '' });
-
-      Object.values(compiled.imports!).forEach((value) => {
-        populateDeps(value.source);
-      });
-    }
-  }
+  getImportSources(code, filename).forEach(populateDeps);
 
   return { registryDependencies, dependencies };
 }

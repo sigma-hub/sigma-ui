@@ -622,6 +622,19 @@ importers:
         version: 2.2.8(typescript@5.4.5)
 
   packages/shared:
+    dependencies:
+      '@oxc-parser/wasm':
+        specifier: ^0.49.0
+        version: 0.49.0
+      '@vue/compiler-sfc':
+        specifier: ^3.5.13
+        version: 3.5.13
+      pathe:
+        specifier: ^2.0.2
+        version: 2.0.2
+      zod:
+        specifier: ^3.24.1
+        version: 3.24.1
     devDependencies:
       '@types/node':
         specifier: ^22.13.1
