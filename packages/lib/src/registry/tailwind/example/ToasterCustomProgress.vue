@@ -27,18 +27,18 @@ const onClick = () => {
     duration: Infinity,
   });
 
-  toastData.value.timer = setInterval(() => {
+  toastData.value.timer = window.setInterval(() => {
     toastData.value.progress += 1;
 
     if (toastData.value.progress >= 100) {
-      clearInterval(toastData.value.timer);
+      window.clearInterval(toastData.value.timer);
       toastData.value.title = 'Download finished';
       toastData.value.actionText = 'Open file';
     }
   }, 50);
 
   toastData.value.cleanup = () => {
-    clearInterval(toastData.value.timer);
+    window.clearInterval(toastData.value.timer);
   };
 
   toasts.value.push(toastData);
