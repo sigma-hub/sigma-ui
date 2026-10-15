@@ -5,7 +5,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Addons and one <code>InputGroupInput</code> or <code>InputGroupTextarea</code>.</p>"
   }
 ]' />
@@ -25,7 +25,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Icon, text, <code>Kbd</code>, or <code>InputGroupButton</code>.</p>"
   }
 ]' />
@@ -52,7 +52,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Button label or icon.</p>"
   }
 ]' />
@@ -66,7 +66,7 @@ This component has no props, events, or slots.
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Text or an icon shown inside an addon.</p>"
   }
 ]' />

@@ -15,7 +15,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Buttons, inputs, <code>ButtonGroupText</code>, <code>ButtonGroupSeparator</code>, or nested <code>ButtonGroup</code> components.</p>"
   }
 ]' />
@@ -72,7 +72,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Static text or an icon, such as a URL prefix or a unit.</p>"
   }
 ]' />

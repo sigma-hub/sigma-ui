@@ -29,7 +29,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Field parts: <code>FieldLabel</code>, the control, <code>FieldDescription</code>, and <code>FieldError</code>.</p>"
   }
 ]' />
@@ -39,7 +39,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p><code>FieldLabel</code> or <code>FieldTitle</code> with a <code>FieldDescription</code>, placed next to a checkbox, radio, or switch.</p>"
   }
 ]' />
@@ -49,7 +49,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Helper text. Links inside it are underlined.</p>"
   }
 ]' />
@@ -68,7 +68,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Custom error content. Replaces the <code>errors</code> list.</p>"
   }
 ]' />
@@ -78,7 +78,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p><code>Field</code>, <code>FieldSet</code>, and <code>FieldSeparator</code> components.</p>"
   }
 ]' />
@@ -110,7 +110,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Label text. Wrap a whole <code>Field</code> to turn it into a selectable card.</p>"
   }
 ]' />
@@ -130,7 +130,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Legend text of the <code>FieldSet</code>.</p>"
   }
 ]' />
@@ -140,7 +140,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Optional text shown in the middle of the line, such as &amp;quot;Or continue with&amp;quot;.</p>"
   }
 ]' />
@@ -150,7 +150,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>A <code>FieldLegend</code>, an optional <code>FieldDescription</code>, and a <code>FieldGroup</code>.</p>"
   }
 ]' />
@@ -160,7 +160,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Title text. Use instead of <code>FieldLabel</code> when the title is not tied to a single control.</p>"
   }
 ]' />

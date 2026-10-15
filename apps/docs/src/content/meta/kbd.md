@@ -5,7 +5,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Key label, such as <code>Ctrl</code> or an icon.</p>"
   }
 ]' />
@@ -15,7 +15,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p><code>Kbd</code> elements that form one shortcut.</p>"
   }
 ]' />
