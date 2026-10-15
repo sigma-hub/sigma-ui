@@ -1,11 +1,11 @@
 import { existsSync } from 'node:fs';
 import process from 'node:process';
 import path from 'pathe';
+import { REGISTRY_INDEX_NAME } from '@sigma-ui/shared/registry';
 import type { RegistryConfigEntry } from '@/src/schemas';
 
 export const DEFAULT_REGISTRY_URL = 'https://sigma-ui.dev/r';
 export const REGISTRY_URL_ENV = 'SIGMA_UI_REGISTRY_URL';
-export const REGISTRY_INDEX_NAME = 'registry';
 
 export interface RegistryLocation {
   specifier: string;

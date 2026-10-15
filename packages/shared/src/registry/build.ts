@@ -203,12 +203,3 @@ export function toPublicImports(content: string) {
     .replace(/(['"])@ui\/registry\/[^/'"]+\/ui\//g, '$1@/components/ui/')
     .replace(/(['"])@ui\/utils(['"])/g, '$1@/lib/utils$2');
 }
-
-export async function withFileContents(styleRoot: string, item: RegistryItem): Promise<RegistryItem> {
-  const files = await Promise.all((item.files ?? []).map(async (file) => {
-    const content = await readFile(join(styleRoot, file.path), 'utf8');
-    return { ...file, content: toPublicImports(content.replace(/\r\n/g, '\n')) };
-  }));
-
-  return { ...item, files };
-}
