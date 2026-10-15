@@ -13,6 +13,7 @@ const { orientation } = useCarousel();
     ]"
     role="group"
     aria-roledescription="slide"
+    data-slot="carousel-item"
   >
     <slot />
   </div>

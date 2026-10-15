@@ -6,6 +6,7 @@
   <li
     class="sigma-ui-breadcrumb__item"
     :class="$attrs.class"
+    data-slot="breadcrumb-item"
   >
     <slot />
   </li>

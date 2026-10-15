@@ -4,6 +4,12 @@ import { useCarousel } from './useCarousel';
 import { cn } from '@ui/utils';
 import { Button } from '@ui/registry/tailwind/ui/button';
 
+const props = withDefaults(defineProps<{
+  label?: string;
+}>(), {
+  label: 'Previous Slide',
+});
+
 const { orientation, canScrollPrev, scrollPrev } = useCarousel();
 </script>
 
@@ -19,10 +25,11 @@ const { orientation, canScrollPrev, scrollPrev } = useCarousel();
     )"
     variant="outline"
     @click="scrollPrev"
+    data-slot="carousel-previous"
   >
     <slot>
       <ArrowLeftIcon class="h-4 w-4 text-current" />
-      <span class="sr-only">Previous Slide</span>
+      <span class="sr-only">{{ props.label }}</span>
     </slot>
   </Button>
 </template>

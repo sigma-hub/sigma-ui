@@ -10,7 +10,7 @@ const forwardedProps = useForwardProps(props);
   <DialogTitle
     v-bind="forwardedProps"
     class="sigma-ui-dialog-title"
-  >
+   data-slot="dialog-title">
     <slot />
   </DialogTitle>
 </template>

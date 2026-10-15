@@ -3,6 +3,12 @@ import { ArrowLeftIcon } from 'lucide-vue-next';
 import { useCarousel } from './useCarousel';
 import { Button } from '@ui/registry/css/ui/button';
 
+const props = withDefaults(defineProps<{
+  label?: string;
+}>(), {
+  label: 'Previous Slide',
+});
+
 const { orientation, canScrollPrev, scrollPrev } = useCarousel();
 </script>
 
@@ -16,10 +22,11 @@ const { orientation, canScrollPrev, scrollPrev } = useCarousel();
     ]"
     variant="outline"
     @click="scrollPrev"
+    data-slot="carousel-previous"
   >
     <slot>
       <ArrowLeftIcon class="sigma-ui-carousel-previous__icon" />
-      <span class="sr-only">Previous Slide</span>
+      <span class="sr-only">{{ props.label }}</span>
     </slot>
   </Button>
 </template>

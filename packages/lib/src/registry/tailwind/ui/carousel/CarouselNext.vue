@@ -4,6 +4,12 @@ import { useCarousel } from './useCarousel';
 import { cn } from '@ui/utils';
 import { Button } from '@ui/registry/tailwind/ui/button';
 
+const props = withDefaults(defineProps<{
+  label?: string;
+}>(), {
+  label: 'Next Slide',
+});
+
 const { orientation, canScrollNext, scrollNext } = useCarousel();
 </script>
 
@@ -19,10 +25,11 @@ const { orientation, canScrollNext, scrollNext } = useCarousel();
     )"
     variant="outline"
     @click="scrollNext"
+    data-slot="carousel-next"
   >
     <slot>
       <ArrowRightIcon class="h-4 w-4 text-current" />
-      <span class="sr-only">Next Slide</span>
+      <span class="sr-only">{{ props.label }}</span>
     </slot>
   </Button>
 </template>

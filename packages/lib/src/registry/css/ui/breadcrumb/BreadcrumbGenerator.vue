@@ -51,7 +51,8 @@ function getActionProps(item: BreadcrumbItem, isLast: boolean): ActionProps {
 </script>
 
 <template>
-  <Breadcrumb :class="$attrs.class">
+  <Breadcrumb :class="$attrs.class"
+  data-slot="breadcrumb-generator">
     <BreadcrumbList>
       <BreadcrumbItemComponent v-if="home">
         <slot

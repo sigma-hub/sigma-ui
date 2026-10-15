@@ -9,6 +9,7 @@ import { ChevronRightIcon } from 'lucide-vue-next';
     aria-hidden="true"
     class="sigma-ui-breadcrumb__separator"
     :class="$attrs.class"
+    data-slot="breadcrumb-separator"
   >
     <slot>
       <ChevronRightIcon />

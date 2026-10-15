@@ -38,6 +38,7 @@ function onKeyDown(event: KeyboardEvent) {
     aria-roledescription="carousel"
     tabindex="0"
     @keydown="onKeyDown"
+    data-slot="carousel"
   >
     <slot v-bind="carouselArgs" />
   </div>

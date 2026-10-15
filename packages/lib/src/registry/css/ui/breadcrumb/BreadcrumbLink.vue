@@ -12,6 +12,7 @@ const props = withDefaults(defineProps<PrimitiveProps>(), {
     :as-child="asChild"
     class="sigma-ui-breadcrumb__link"
     :class="$attrs.class"
+    data-slot="breadcrumb-link"
   >
     <slot />
   </Primitive>

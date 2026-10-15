@@ -1,6 +1,11 @@
 <script lang="ts" setup>
 import { MoreHorizontalIcon } from 'lucide-vue-next';
 
+const props = withDefaults(defineProps<{
+  label?: string;
+}>(), {
+  label: 'More',
+});
 </script>
 
 <template>
@@ -9,10 +14,12 @@ import { MoreHorizontalIcon } from 'lucide-vue-next';
     aria-hidden="true"
     class="sigma-ui-breadcrumb__ellipsis"
     :class="$attrs.class"
+    data-slot="breadcrumb-ellipsis"
   >
     <slot>
       <MoreHorizontalIcon class="sigma-ui-breadcrumb__ellipsis-icon" />
     </slot>
+    <span class="sr-only">{{ props.label }}</span>
   </span>
 </template>
 

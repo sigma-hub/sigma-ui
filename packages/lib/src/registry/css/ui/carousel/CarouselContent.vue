@@ -12,6 +12,7 @@ const { carouselRef, orientation } = useCarousel();
   <div
     ref="carouselRef"
     class="sigma-ui-carousel-content"
+    data-slot="carousel-content"
   >
     <div
       class="sigma-ui-carousel-content__wrapper"

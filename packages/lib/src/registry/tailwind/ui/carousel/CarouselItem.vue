@@ -14,6 +14,7 @@ const { orientation } = useCarousel();
       orientation === 'horizontal' ? 'pl-4' : 'pt-4',
       $attrs.class ?? '',
     )"
+    data-slot="carousel-item"
   >
     <slot />
   </div>

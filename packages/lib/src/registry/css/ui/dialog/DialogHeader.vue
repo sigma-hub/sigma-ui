@@ -7,6 +7,7 @@
   <div
     class="sigma-ui-dialog-header"
     :class="[$attrs.class]"
+    data-slot="dialog-header"
   >
     <slot />
   </div>

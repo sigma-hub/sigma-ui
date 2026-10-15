@@ -9,11 +9,16 @@ import {
   useForwardPropsEmits,
 } from 'reka-ui';
 import { XIcon } from 'lucide-vue-next';
+import { reactiveOmit } from '@vueuse/core';
 
-const props = defineProps<DialogContentProps>();
+const props = withDefaults(defineProps<DialogContentProps & {
+  closeLabel?: string;
+}>(), {
+  closeLabel: 'Close',
+});
 const emits = defineEmits<DialogContentEmits>();
 
-const forwarded = useForwardPropsEmits(props, emits);
+const forwarded = useForwardPropsEmits(reactiveOmit(props, 'closeLabel'), emits);
 </script>
 
 <template>
@@ -23,12 +28,12 @@ const forwarded = useForwardPropsEmits(props, emits);
       v-bind="forwarded"
       class="sigma-ui-dialog-content"
       :class="[$attrs.class]"
-    >
+     data-slot="dialog-content">
       <slot />
 
       <DialogClose class="sigma-ui-dialog-close">
         <XIcon class="sigma-ui-dialog-close__icon" />
-        <span class="sigma-ui-dialog-close__label">Close</span>
+        <span class="sigma-ui-dialog-close__label">{{ closeLabel }}</span>
       </DialogClose>
     </DialogContent>
   </DialogPortal>

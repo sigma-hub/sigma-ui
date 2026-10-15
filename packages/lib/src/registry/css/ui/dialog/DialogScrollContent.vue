@@ -9,15 +9,21 @@ import {
   useForwardPropsEmits,
 } from 'reka-ui';
 import { XIcon } from 'lucide-vue-next';
+import { reactiveOmit } from '@vueuse/core';
 
-const props = defineProps<DialogContentProps>();
+const props = withDefaults(defineProps<DialogContentProps & {
+  closeLabel?: string;
+}>(), {
+  closeLabel: 'Close',
+});
 const emits = defineEmits<DialogContentEmits>();
 
-const forwarded = useForwardPropsEmits(props, emits);
+const forwarded = useForwardPropsEmits(reactiveOmit(props, 'closeLabel'), emits);
 </script>
 
 <template>
-  <DialogPortal>
+  <DialogPortal
+    data-slot="dialog-scroll-content">
     <DialogOverlay
       class="sigma-ui-dialog-scroll-overlay"
     >
@@ -37,7 +43,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 
         <DialogClose class="sigma-ui-dialog-scroll-close">
           <XIcon class="sigma-ui-dialog-scroll-close__icon" />
-          <span class="sigma-ui-dialog-scroll-close__label">Close</span>
+          <span class="sigma-ui-dialog-scroll-close__label">{{ closeLabel }}</span>
         </DialogClose>
       </DialogContent>
     </DialogOverlay>
