@@ -9,7 +9,7 @@ import prompts from 'prompts';
 import { z } from 'zod';
 import { addDependency, addDevDependency } from '../utils/package-manager';
 import { transform } from '@/src/utils/transformers';
-import { transformFileName, transformDirectoryName, transformLocalVueImports } from '@/src/utils/transformers/transform-component-naming';
+import { transformFileName, transformLocalVueImports } from '@/src/utils/transformers/transform-component-naming';
 import { getConfig, handleConfigIsMissing } from '@/src/utils/get-config';
 import { handleError } from '@/src/utils/handle-error';
 import {
@@ -223,10 +223,9 @@ async function processItem(
     }
 
     const componentNaming = config.componentNaming ?? 'pascal-case';
-    const transformedDirName = transformDirectoryName(item.name, componentNaming);
-    const componentPath = path.resolve(targetDir, transformedDirName);
+    const componentPath = path.resolve(targetDir, item.name);
     const existingComponent = item.files.filter(file =>
-      existsSync(path.resolve(componentPath, file.name)),
+      existsSync(path.resolve(componentPath, transformFileName(file.name, componentNaming))),
     );
 
     if (existingComponent.length && !options.overwrite) {
