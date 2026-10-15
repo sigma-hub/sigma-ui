@@ -10,37 +10,37 @@
   "files": [
     {
       "path": "ui/drawer/Drawer.vue",
-      "content": "<script lang=\"ts\" setup>\nimport type { DrawerRootEmits, DrawerRootProps } from 'vaul-vue';\nimport { DrawerRoot } from 'vaul-vue';\nimport { useForwardPropsEmits } from 'reka-ui';\n\nconst props = withDefaults(defineProps<DrawerRootProps>(), {\n  shouldScaleBackground: true,\n});\n\nconst emits = defineEmits<DrawerRootEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <DrawerRoot v-bind=\"forwarded\">\n    <slot />\n  </DrawerRoot>\n</template>\n",
+      "content": "<script lang=\"ts\" setup>\nimport type { DrawerRootEmits, DrawerRootProps } from 'vaul-vue';\nimport { DrawerRoot } from 'vaul-vue';\nimport { useForwardPropsEmits } from 'reka-ui';\n\nconst props = withDefaults(defineProps<DrawerRootProps>(), {\n  shouldScaleBackground: true,\n});\n\nconst emits = defineEmits<DrawerRootEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <DrawerRoot v-bind=\"forwarded\"\n  data-slot=\"drawer\">\n    <slot />\n  </DrawerRoot>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/drawer/DrawerContent.vue",
-      "content": "<script lang=\"ts\" setup>\nimport { DrawerContent, DrawerPortal } from 'vaul-vue';\nimport type { DialogContentEmits, DialogContentProps } from 'reka-ui';\nimport { useForwardPropsEmits } from 'reka-ui';\nimport DrawerOverlay from './DrawerOverlay.vue';\n\nconst props = defineProps<DialogContentProps>();\nconst emits = defineEmits<DialogContentEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <DrawerPortal>\n    <DrawerOverlay />\n    <DrawerContent\n      v-bind=\"forwarded\"\n      class=\"sigma-ui-drawer-content\"\n      :class=\"[$attrs.class]\"\n    >\n      <div class=\"sigma-ui-drawer-content__handle\" />\n      <slot />\n    </DrawerContent>\n  </DrawerPortal>\n</template>\n\n<style>\n.sigma-ui-drawer-content {\n  position: fixed;\n  z-index: 50;\n  bottom: 0;\n  display: flex;\n  height: auto;\n  flex-direction: column;\n  border: 1px solid hsl(var(--border));\n  margin-top: 6rem;\n  background-color: hsl(var(--background));\n  border-top-left-radius: 10px;\n  border-top-right-radius: 10px;\n  inset-inline: 0;\n}\n\n.sigma-ui-drawer-content__handle {\n  width: 100px;\n  height: 0.5rem;\n  border-radius: var(--radius-full);\n  margin-top: 1rem;\n  background-color: hsl(var(--muted));\n  margin-inline: auto;\n}\n</style>\n",
+      "content": "<script lang=\"ts\" setup>\nimport { DrawerContent, DrawerPortal } from 'vaul-vue';\nimport type { DialogContentEmits, DialogContentProps } from 'reka-ui';\nimport { useForwardPropsEmits } from 'reka-ui';\nimport DrawerOverlay from './DrawerOverlay.vue';\n\nconst props = defineProps<DialogContentProps>();\nconst emits = defineEmits<DialogContentEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <DrawerPortal>\n    <DrawerOverlay />\n    <DrawerContent\n      v-bind=\"forwarded\"\n      class=\"sigma-ui-drawer-content\"\n      :class=\"[$attrs.class]\"\n     data-slot=\"drawer-content\">\n      <div class=\"sigma-ui-drawer-content__handle\" />\n      <slot />\n    </DrawerContent>\n  </DrawerPortal>\n</template>\n\n<style>\n.sigma-ui-drawer-content {\n  position: fixed;\n  z-index: 50;\n  bottom: 0;\n  display: flex;\n  height: auto;\n  flex-direction: column;\n  border: 1px solid var(--border);\n  margin-top: 6rem;\n  background-color: var(--background);\n  border-top-left-radius: 10px;\n  border-top-right-radius: 10px;\n  inset-inline: 0;\n}\n\n.sigma-ui-drawer-content__handle {\n  width: 100px;\n  height: 0.5rem;\n  border-radius: var(--radius-full);\n  margin-top: 1rem;\n  background-color: var(--muted);\n  margin-inline: auto;\n}\n</style>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/drawer/DrawerDescription.vue",
-      "content": "<script lang=\"ts\" setup>\nimport type { DrawerDescriptionProps } from 'vaul-vue';\nimport { DrawerDescription } from 'vaul-vue';\n\nconst props = defineProps<DrawerDescriptionProps>();\n</script>\n\n<template>\n  <DrawerDescription\n    v-bind=\"props\"\n    class=\"sigma-ui-drawer-description\"\n  >\n    <slot />\n  </DrawerDescription>\n</template>\n\n<style>\n.sigma-ui-drawer-description {\n  color: hsl(var(--muted-foreground));\n  font-size: 0.875rem;\n}\n</style>\n",
+      "content": "<script lang=\"ts\" setup>\nimport type { DrawerDescriptionProps } from 'vaul-vue';\nimport { DrawerDescription } from 'vaul-vue';\n\nconst props = defineProps<DrawerDescriptionProps>();\n</script>\n\n<template>\n  <DrawerDescription\n    v-bind=\"props\"\n    class=\"sigma-ui-drawer-description\"\n   data-slot=\"drawer-description\">\n    <slot />\n  </DrawerDescription>\n</template>\n\n<style>\n.sigma-ui-drawer-description {\n  color: var(--muted-foreground);\n  font-size: 0.875rem;\n}\n</style>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/drawer/DrawerFooter.vue",
-      "content": "<script lang=\"ts\" setup>\n</script>\n\n<template>\n  <div\n    class=\"sigma-ui-drawer-footer\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n.sigma-ui-drawer-footer {\n  display: flex;\n  flex-direction: column;\n  padding: 1rem;\n  margin-top: auto;\n  gap: 0.5rem;\n}\n</style>\n",
+      "content": "<script lang=\"ts\" setup>\n</script>\n\n<template>\n  <div\n    class=\"sigma-ui-drawer-footer\"\n    :class=\"[$attrs.class]\"\n    data-slot=\"drawer-footer\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n.sigma-ui-drawer-footer {\n  display: flex;\n  flex-direction: column;\n  padding: 1rem;\n  margin-top: auto;\n  gap: 0.5rem;\n}\n</style>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/drawer/DrawerHeader.vue",
-      "content": "<script lang=\"ts\" setup>\n</script>\n\n<template>\n  <div\n    class=\"sigma-ui-drawer-header\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n.sigma-ui-drawer-header {\n  display: grid;\n  padding: 1rem;\n  gap: 0.375rem;\n  text-align: center;\n}\n\n@media (width >= 640px) {\n  .sigma-ui-drawer-header {\n    text-align: left;\n  }\n}\n</style>\n",
+      "content": "<script lang=\"ts\" setup>\n</script>\n\n<template>\n  <div\n    class=\"sigma-ui-drawer-header\"\n    :class=\"[$attrs.class]\"\n    data-slot=\"drawer-header\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n.sigma-ui-drawer-header {\n  display: grid;\n  padding: 1rem;\n  gap: 0.375rem;\n  text-align: center;\n}\n\n@media (width >= 640px) {\n  .sigma-ui-drawer-header {\n    text-align: left;\n  }\n}\n</style>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/drawer/DrawerOverlay.vue",
-      "content": "<script lang=\"ts\" setup>\nimport { DrawerOverlay } from 'vaul-vue';\nimport type { DialogOverlayProps } from 'reka-ui';\n\nconst props = defineProps<DialogOverlayProps>();\n</script>\n\n<template>\n  <DrawerOverlay\n    v-bind=\"props\"\n    class=\"sigma-ui-drawer-overlay\"\n  />\n</template>\n\n<style>\n.sigma-ui-drawer-overlay {\n  position: fixed;\n  z-index: 50;\n  background-color: rgb(0 0 0 / 80%);\n  inset: 0;\n}\n</style>\n",
+      "content": "<script lang=\"ts\" setup>\nimport { DrawerOverlay } from 'vaul-vue';\nimport type { DialogOverlayProps } from 'reka-ui';\n\nconst props = defineProps<DialogOverlayProps>();\n</script>\n\n<template>\n  <DrawerOverlay\n    v-bind=\"props\"\n    class=\"sigma-ui-drawer-overlay\"\n   data-slot=\"drawer-overlay\"/>\n</template>\n\n<style>\n.sigma-ui-drawer-overlay {\n  position: fixed;\n  z-index: 50;\n  background-color: rgb(0 0 0 / 80%);\n  inset: 0;\n}\n</style>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/drawer/DrawerTitle.vue",
-      "content": "<script lang=\"ts\" setup>\nimport type { DrawerTitleProps } from 'vaul-vue';\nimport { DrawerTitle } from 'vaul-vue';\n\nconst props = defineProps<DrawerTitleProps>();\n</script>\n\n<template>\n  <DrawerTitle\n    v-bind=\"props\"\n    class=\"sigma-ui-drawer-title\"\n  >\n    <slot />\n  </DrawerTitle>\n</template>\n\n<style>\n.sigma-ui-drawer-title {\n  font-size: 1.125rem;\n  font-weight: 600;\n  letter-spacing: -0.025em;\n  line-height: 1;\n}\n</style>\n",
+      "content": "<script lang=\"ts\" setup>\nimport type { DrawerTitleProps } from 'vaul-vue';\nimport { DrawerTitle } from 'vaul-vue';\n\nconst props = defineProps<DrawerTitleProps>();\n</script>\n\n<template>\n  <DrawerTitle\n    v-bind=\"props\"\n    class=\"sigma-ui-drawer-title\"\n   data-slot=\"drawer-title\">\n    <slot />\n  </DrawerTitle>\n</template>\n\n<style>\n.sigma-ui-drawer-title {\n  font-size: 1.125rem;\n  font-weight: 600;\n  letter-spacing: -0.025em;\n  line-height: 1;\n}\n</style>\n",
       "type": "registry:ui"
     },
     {

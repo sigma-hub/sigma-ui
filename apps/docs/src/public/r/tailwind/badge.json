@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "ui/badge/Badge.vue",
-      "content": "<script setup lang=\"ts\">\nimport { type BadgeVariants, badgeVariants } from '.';\nimport { cn } from '@/lib/utils';\n\nconst props = defineProps<{\n  /** Visual style of the badge. */\n  variant?: BadgeVariants['variant'];\n\n}>();\n</script>\n\n<template>\n  <div :class=\"cn(badgeVariants({ variant }), $attrs.class ?? '')\">\n    <slot />\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { type BadgeVariants, badgeVariants } from '.';\nimport { cn } from '@/lib/utils';\n\nconst props = defineProps<{\n  /** Visual style of the badge. */\n  variant?: BadgeVariants['variant'];\n\n}>();\n</script>\n\n<template>\n  <div :class=\"cn(badgeVariants({ variant }), $attrs.class ?? '')\"\n  data-slot=\"badge\">\n    <slot />\n  </div>\n</template>\n",
       "type": "registry:ui"
     },
     {

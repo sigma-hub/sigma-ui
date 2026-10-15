@@ -12,27 +12,27 @@
   "files": [
     {
       "path": "ui/form/FormControl.vue",
-      "content": "<script lang=\"ts\" setup>\nimport { Slot } from 'reka-ui';\nimport { useFormField } from './useFormField';\n\nconst { error, formItemId, formDescriptionId, formMessageId } = useFormField();\n</script>\n\n<template>\n  <Slot\n    :id=\"formItemId\"\n    :aria-describedby=\"!error ? `${formDescriptionId}` : `${formDescriptionId} ${formMessageId}`\"\n    :aria-invalid=\"!!error\"\n  >\n    <slot />\n  </Slot>\n</template>\n",
+      "content": "<script lang=\"ts\" setup>\nimport { Slot } from 'reka-ui';\nimport { useFormField } from './useFormField';\n\nconst { error, formItemId, formDescriptionId, formMessageId } = useFormField();\n</script>\n\n<template>\n  <Slot\n    :id=\"formItemId\"\n    :aria-describedby=\"!error ? `${formDescriptionId}` : `${formDescriptionId} ${formMessageId}`\"\n    :aria-invalid=\"!!error\"\n    data-slot=\"form-control\"\n  >\n    <slot />\n  </Slot>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/form/FormDescription.vue",
-      "content": "<script lang=\"ts\" setup>\nimport { useFormField } from './useFormField';\nimport { cn } from '@/lib/utils';\n\nconst { formDescriptionId } = useFormField();\n</script>\n\n<template>\n  <p\n    :id=\"formDescriptionId\"\n    :class=\"cn('text-sm text-muted-foreground', $attrs.class ?? '')\"\n  >\n    <slot />\n  </p>\n</template>\n",
+      "content": "<script lang=\"ts\" setup>\nimport { useFormField } from './useFormField';\nimport { cn } from '@/lib/utils';\n\nconst { formDescriptionId } = useFormField();\n</script>\n\n<template>\n  <p\n    :id=\"formDescriptionId\"\n    :class=\"cn('text-sm text-muted-foreground', $attrs.class ?? '')\"\n    data-slot=\"form-description\"\n  >\n    <slot />\n  </p>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/form/FormItem.vue",
-      "content": "<script lang=\"ts\" setup>\nimport { provide } from 'vue';\nimport { useId } from 'reka-ui';\nimport { FORM_ITEM_INJECTION_KEY } from './injectionKeys';\nimport { cn } from '@/lib/utils';\n\nconst id = useId();\nprovide(FORM_ITEM_INJECTION_KEY, id);\n</script>\n\n<template>\n  <div :class=\"cn('flex flex-col gap-2', $attrs.class ?? '')\">\n    <slot />\n  </div>\n</template>\n",
+      "content": "<script lang=\"ts\" setup>\nimport { provide } from 'vue';\nimport { useId } from 'reka-ui';\nimport { FORM_ITEM_INJECTION_KEY } from './injectionKeys';\nimport { cn } from '@/lib/utils';\n\nconst id = useId();\nprovide(FORM_ITEM_INJECTION_KEY, id);\n</script>\n\n<template>\n  <div :class=\"cn('flex flex-col gap-2', $attrs.class ?? '')\"\n  data-slot=\"form-item\">\n    <slot />\n  </div>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/form/FormLabel.vue",
-      "content": "<script lang=\"ts\" setup>\nimport type { LabelProps } from 'reka-ui';\nimport { useFormField } from './useFormField';\nimport { cn } from '@/lib/utils';\nimport { Label } from '@/components/ui/label';\n\nconst props = defineProps<LabelProps>();\n\nconst { error, formItemId } = useFormField();\n</script>\n\n<template>\n  <Label\n    :class=\"cn(\n      error && 'text-destructive',\n      $attrs.class ?? '',\n    )\"\n    :for=\"formItemId\"\n  >\n    <slot />\n  </Label>\n</template>\n",
+      "content": "<script lang=\"ts\" setup>\nimport type { LabelProps } from 'reka-ui';\nimport { useFormField } from './useFormField';\nimport { cn } from '@/lib/utils';\nimport { Label } from '@/components/ui/label';\n\nconst props = defineProps<LabelProps>();\n\nconst { error, formItemId } = useFormField();\n</script>\n\n<template>\n  <Label\n    :class=\"cn(\n      error && 'text-destructive',\n      $attrs.class ?? '',\n    )\"\n    :for=\"formItemId\"\n    data-slot=\"form-label\"\n  >\n    <slot />\n  </Label>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/form/FormMessage.vue",
-      "content": "<script lang=\"ts\" setup>\nimport { ErrorMessage } from 'vee-validate';\nimport { toValue } from 'vue';\nimport { useFormField } from './useFormField';\n\nconst { name, formMessageId } = useFormField();\n</script>\n\n<template>\n  <ErrorMessage\n    :id=\"formMessageId\"\n    as=\"p\"\n    :name=\"toValue(name)\"\n    class=\"text-sm font-medium text-destructive\"\n  />\n</template>\n",
+      "content": "<script lang=\"ts\" setup>\nimport { ErrorMessage } from 'vee-validate';\nimport { toValue } from 'vue';\nimport { useFormField } from './useFormField';\n\nconst { name, formMessageId } = useFormField();\n</script>\n\n<template>\n  <ErrorMessage\n    :id=\"formMessageId\"\n    as=\"p\"\n    :name=\"toValue(name)\"\n    class=\"text-sm font-medium text-destructive\"\n    data-slot=\"form-message\"\n  />\n</template>\n",
       "type": "registry:ui"
     },
     {
