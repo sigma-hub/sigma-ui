@@ -1,0 +1,49 @@
+<script setup lang="ts">
+defineSlots<{
+  /**
+   * Key label, such as `Ctrl` or an icon.
+   */
+  default?: () => unknown;
+}>();
+</script>
+
+<template>
+  <kbd
+    data-slot="kbd"
+    class="sigma-ui-kbd"
+    :class="[$attrs.class]"
+  >
+    <slot />
+  </kbd>
+</template>
+
+<style>
+.sigma-ui-kbd {
+  display: inline-flex;
+  width: fit-content;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.25rem;
+  border-radius: calc(var(--radius) - 4px);
+  background-color: hsl(var(--muted));
+  color: hsl(var(--muted-foreground));
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 500;
+  gap: 0.25rem;
+  pointer-events: none;
+  user-select: none;
+}
+
+.sigma-ui-kbd svg {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+[data-slot='tooltip-content'] .sigma-ui-kbd {
+  background-color: hsl(var(--background) / 20%);
+  color: hsl(var(--background));
+}
+</style>

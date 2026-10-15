@@ -1130,6 +1130,14 @@ export const Index = {
       component: () => import("../../../packages/lib/src/registry/tailwind/example/InputWithLabel.vue").then((m) => m.default),
       files: ["example/InputWithLabel.vue"],
     },
+    "Kbd": {
+      name: "Kbd",
+      type: "registry:example",
+      registryDependencies: ["kbd"],
+      dependencies: [],
+      component: () => import("../../../packages/lib/src/registry/tailwind/example/Kbd.vue").then((m) => m.default),
+      files: ["example/Kbd.vue"],
+    },
     "Label": {
       name: "Label",
       type: "registry:example",
@@ -2947,6 +2955,14 @@ export const Index = {
       dependencies: [],
       component: () => import("../../../packages/lib/src/registry/css/example/InputWithLabel.vue").then((m) => m.default),
       files: ["example/InputWithLabel.vue"],
+    },
+    "Kbd": {
+      name: "Kbd",
+      type: "registry:example",
+      registryDependencies: ["kbd"],
+      dependencies: [],
+      component: () => import("../../../packages/lib/src/registry/css/example/Kbd.vue").then((m) => m.default),
+      files: ["example/Kbd.vue"],
     },
     "Label": {
       name: "Label",
