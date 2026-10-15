@@ -4,318 +4,292 @@ import path from 'pathe';
 import { consola } from 'consola';
 import { colors } from 'consola/utils';
 import { Command } from 'commander';
+import { diffLines } from 'diff';
 import ora from 'ora';
 import prompts from 'prompts';
-import { z } from 'zod';
-import { addDependency, addDevDependency } from '../utils/package-manager';
-import { transform } from '@/src/utils/transformers';
-import { transformFileName, transformLocalVueImports } from '@/src/utils/transformers/transform-component-naming';
-import { getConfig, handleConfigIsMissing } from '@/src/utils/get-config';
+import { addOptionsSchema, type AddOptions, type Config } from '@/src/schemas';
+import { getConfigOrExit, getDerivedAliases } from '@/src/utils/get-config';
 import { handleError } from '@/src/utils/handle-error';
-import {
-  fetchTree,
-  getItemTargetPath,
-  getRegistryBaseColor,
-  getRegistryIndex,
-  resolveTree,
-} from '@/src/utils/registry';
-import {
-  type registryBaseColorSchema,
-  type Config,
-  addOptionsSchema,
-  configValidationSchema,
-} from '@/src/schemas';
-
-type AddOptions = z.infer<typeof addOptionsSchema>;
-
-class ComponentInstallError extends Error {
-  constructor(message: string, public component?: string) {
-    super(message);
-    this.name = 'ComponentInstallError';
-  }
-}
+import { createInstallPlan, excludeInstalledDependencies, type InstallPlan, type PlannedFile } from '@/src/utils/install-plan';
+import { getInstalledPackages, installPackages } from '@/src/utils/package-manager';
+import { fetchRegistryIndex, resolveRegistryTree, type RegistryContext } from '@/src/utils/registry';
+import { kebabToPascal } from '@/src/utils/transformers/transform-component-naming';
 
 export const add = new Command()
   .name('add')
-  .description('add a component to your project')
-  .argument('[components...]', 'the components to add')
-  .option('-y, --yes', 'skip confirmation prompt.', true)
-  .option('-o, --overwrite', 'overwrite existing files.', false)
-  .option(
-    '-c, --cwd <cwd>',
-    'the working directory. defaults to the current directory.',
-    process.cwd(),
-  )
+  .description('add components and blocks to your project')
+  .argument('[components...]', 'names, @namespace/names, URLs, or paths to registry item JSON files')
+  .option('-y, --yes', 'skip confirmation prompts', false)
+  .option('-o, --overwrite', 'overwrite existing files', false)
+  .option('-c, --cwd <cwd>', 'the working directory. defaults to the current directory.', process.cwd())
   .option('-a, --all', 'add all available components', false)
-  .option('-p, --path <path>', 'the path to add the component to.')
-  .action(async (components, opts) => {
+  .option('-p, --path <path>', 'the directory to add the files to')
+  .option('--dry-run', 'show what would be written and installed without changing anything', false)
+  .option('--diff', 'show the differences between local files and the registry without changing anything', false)
+  .action(async (components: string[], opts: Record<string, unknown>) => {
     try {
-      const spinner = ora('Fetching components...').start();
-      const options = parseOptions(components, opts);
-      const cwd = validateAndResolveCwd(options.cwd);
-      const config = await getConfigOrExit(cwd);
-
-      try {
-        configValidationSchema.parse(config);
-      } catch (error) {
-        if (error instanceof z.ZodError) {
-          consola.error('Invalid configuration:', error.errors);
-          process.exit(1);
-        }
-
-        throw error;
-      }
-
-      const registryIndex = await getRegistryIndex();
-      spinner.stop();
-
-      const selectedComponents = await getSelectedComponents(options, registryIndex);
-
-      if (!selectedComponents?.length) {
-        consola.warn('No components selected. Exiting.');
-        process.exit(0);
-      }
-
-      const { payload, baseColor } = await getRegistryPayload(config, selectedComponents, registryIndex);
-
-      if (!payload.length) {
-        consola.warn('Selected components not found. Exiting.');
-        process.exit(0);
-      }
-
-      await confirmProceed(options);
-      await processPayload(payload, options, config, baseColor, cwd, selectedComponents);
-
-      consola.success('Done.');
+      await runAdd(addOptionsSchema.parse({ components, ...opts }));
     } catch (error) {
-      if (error instanceof ComponentInstallError) {
-        consola.error(`Failed to install component ${error.component}: ${error.message}`);
-      }
-
       handleError(error);
     }
   });
 
-function parseOptions(components: string[], opts: Record<string, unknown>): AddOptions {
-  return addOptionsSchema.parse({
-    components,
-    ...opts,
+export async function runAdd(options: AddOptions) {
+  const cwd = path.resolve(options.cwd);
+
+  if (!existsSync(cwd)) {
+    throw new Error(`The path ${cwd} does not exist.`);
+  }
+
+  const config = await getConfigOrExit(cwd);
+  const context: RegistryContext = { cwd, styleSystem: config.styleSystem, registries: config.registries };
+
+  if (options.diff && !options.components?.length && !options.all) {
+    await showInstalledComponentsDiff(config, context);
+    return;
+  }
+
+  const selectedItems = await getSelectedItems(options, context);
+
+  if (!selectedItems.length) {
+    consola.warn('No components selected.');
+    return;
+  }
+
+  const spinner = ora('Resolving components...').start();
+  const tree = await resolveRegistryTree(selectedItems, context).finally(() => spinner.stop());
+  const plan = await createInstallPlan(tree, config, {
+    pathOverride: options.path ? path.resolve(cwd, options.path) : undefined,
   });
-}
 
-function validateAndResolveCwd(cwd: string): string {
-  const resolvedCwd = path.resolve(cwd);
-
-  if (!existsSync(resolvedCwd)) {
-    consola.error(`The path ${resolvedCwd} does not exist. Try again.`);
-    process.exit(1);
+  if (options.diff) {
+    printPlanDiff(plan, cwd);
+    return;
   }
 
-  return resolvedCwd;
-}
+  const installedPackages = getInstalledPackages(cwd);
+  plan.dependencies = excludeInstalledDependencies(plan.dependencies, installedPackages);
+  plan.devDependencies = excludeInstalledDependencies(plan.devDependencies, installedPackages);
 
-async function getConfigOrExit(cwd: string): Promise<Config> {
-  const config = await getConfig(cwd);
-
-  if (!config) {
-    handleConfigIsMissing();
-    process.exit(1);
+  if (options.dryRun) {
+    printDryRun(plan, cwd);
+    return;
   }
 
-  return config;
+  const skippedItems = await getItemsToSkip(plan, options);
+  const filesToWrite = plan.files.filter(file => file.status !== 'unchanged' && !skippedItems.has(file.itemName));
+
+  await writePlannedFiles(filesToWrite);
+  await installPlanDependencies(plan, cwd);
+  printSummary(plan, filesToWrite, skippedItems, config, cwd);
 }
 
-async function getSelectedComponents(
-  options: AddOptions,
-  registryIndex: Awaited<ReturnType<typeof getRegistryIndex>>,
-) {
-  if (options.all) {
-    return registryIndex.map(entry => entry.name);
-  }
-
-  if (options.components && options.components.length > 0) {
+async function getSelectedItems(options: AddOptions, context: RegistryContext) {
+  if (options.components?.length) {
     return options.components;
   }
 
-  const { components } = await prompts({
-    type: 'multiselect',
-    name: 'components',
-    message: 'Which components would you like to add?',
-    hint: '[Space] - select | [A] - toggle all | [Enter] - submit.',
-    instructions: false,
-    choices: registryIndex.map(entry => ({
-      title: entry.name,
-      value: entry.name,
-      selected: options.all ? true : options.components?.includes(entry.name),
-    })),
-  });
+  const index = await fetchRegistryIndex(null, context);
 
-  return components;
-}
+  if (options.all) {
+    const uiItems = index.items.filter(item => item.type === 'registry:ui').map(item => item.name);
 
-async function getRegistryPayload(
-  config: Config,
-  selectedComponents: string[],
-  registryIndex: Awaited<ReturnType<typeof getRegistryIndex>>,
-) {
-  const tree = await resolveTree(registryIndex, selectedComponents);
-  const payload = await fetchTree(config.styleSystem, tree);
-  const baseColor = await getRegistryBaseColor(config.baseColor);
-  return { payload, baseColor };
-}
+    if (!options.yes && process.stdout.isTTY) {
+      const { proceed } = await prompts({
+        type: 'confirm',
+        name: 'proceed',
+        message: `Add all ${uiItems.length} components?`,
+        initial: true,
+      });
 
-async function confirmProceed(options: AddOptions) {
-  if (!options.yes) {
-    const { proceed } = await prompts({
-      type: 'confirm',
-      name: 'proceed',
-      message: 'Ready to install components and dependencies. Proceed?',
-      initial: true,
-    });
-
-    if (!proceed) {
-      process.exit(0);
-    }
-  }
-}
-
-async function processPayload(
-  payload: Awaited<ReturnType<typeof fetchTree>>,
-  options: AddOptions,
-  config: Config,
-  baseColor: z.infer<typeof registryBaseColorSchema>,
-  cwd: string,
-  selectedComponents: string[],
-) {
-  const spinner = ora('Installing components...').start();
-
-  for (const item of payload) {
-    spinner.text = `Installing ${item.name}...`;
-    const targetDir = getItemTargetPath(
-      config,
-      item,
-      options.path ? path.resolve(cwd, options.path) : undefined,
-    );
-
-    if (!targetDir) {
-      continue;
-    }
-
-    await processItem(item, targetDir, options, config, baseColor, cwd, selectedComponents, spinner);
-  }
-
-  spinner.succeed();
-}
-
-async function processItem(
-  item: Awaited<ReturnType<typeof fetchTree>>[number],
-  targetDir: string,
-  options: AddOptions,
-  config: Config,
-  baseColor: z.infer<typeof registryBaseColorSchema>,
-  cwd: string,
-  selectedComponents: string[],
-  spinner: ReturnType<typeof ora>,
-) {
-  try {
-    if (!existsSync(targetDir)) {
-      await fs.mkdir(targetDir, { recursive: true });
-    }
-
-    const componentNaming = config.componentNaming ?? 'pascal-case';
-    const componentPath = path.resolve(targetDir, item.name);
-    const existingComponent = item.files.filter(file =>
-      existsSync(path.resolve(componentPath, transformFileName(file.name, componentNaming))),
-    );
-
-    if (existingComponent.length && !options.overwrite) {
-      if (selectedComponents.includes(item.name)) {
-        spinner.stop();
-        const { overwrite } = await prompts({
-          type: 'confirm',
-          name: 'overwrite',
-          message: `Component ${item.name} already exists. Would you like to overwrite?`,
-          initial: false,
-        });
-
-        if (!overwrite) {
-          consola.info(
-            `Skipped ${item.name}. To overwrite, run with the ${colors.green(
-              '--overwrite',
-            )} flag.`,
-          );
-          return;
-        }
-
-        spinner.start(`Installing ${item.name}...`);
-      } else {
-        return;
+      if (!proceed) {
+        return [];
       }
     }
 
-    await installDependencies(item, cwd);
-    await writeComponentFiles(item, componentPath, config, baseColor);
-  } catch (error) {
-    throw new ComponentInstallError(
-      error instanceof Error ? error.message : 'Unknown error',
-      item.name,
-    );
+    return uiItems;
   }
+
+  const { components } = await prompts({
+    type: 'autocompleteMultiselect',
+    name: 'components',
+    message: 'Which components would you like to add?',
+    hint: 'Type to filter, [Space] to select, [Enter] to submit.',
+    instructions: false,
+    choices: index.items.map(item => ({
+      title: item.type === 'registry:block' ? `${item.name} ${colors.dim('(block)')}` : item.name,
+      description: item.description,
+      value: item.name,
+    })),
+  });
+
+  return (components as string[] | undefined) ?? [];
 }
 
-async function installDependencies(
-  item: Awaited<ReturnType<typeof fetchTree>>[number],
-  cwd: string,
-) {
-  const installTasks = [
-    item.dependencies?.length && { type: 'dependencies', deps: item.dependencies, installer: addDependency },
-    item.devDependencies?.length && { type: 'devDependencies', deps: item.devDependencies, installer: addDevDependency },
-  ].filter(Boolean) as { type: 'dependencies' | 'devDependencies'; deps: string[]; installer: typeof addDependency | typeof addDevDependency }[];
+async function getItemsToSkip(plan: InstallPlan, options: AddOptions) {
+  const skippedItems = new Set<string>();
 
-  for (const task of installTasks) {
-    try {
-      consola.info(`Installing ${task.type}: ${task.deps.join(', ')}`);
-      await task.installer(task.deps, { cwd });
-      consola.success(`Successfully installed ${task.type}.`);
-    } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-      throw new ComponentInstallError(
-        `Failed to install ${task.type}: ${errorMessage}`,
-        item.name,
-      );
+  if (options.overwrite) {
+    return skippedItems;
+  }
+
+  const changedItems = [...new Set(plan.files.filter(file => file.status === 'update').map(file => file.itemName))];
+
+  for (const itemName of changedItems) {
+    const isRequested = plan.items.some(({ item, requested }) => requested && item.name === itemName);
+
+    if (!isRequested || options.yes || !process.stdout.isTTY) {
+      skippedItems.add(itemName);
+      continue;
     }
-  }
-}
 
-async function writeComponentFiles(
-  item: Awaited<ReturnType<typeof fetchTree>>[number],
-  componentDir: string,
-  config: Config,
-  baseColor: z.infer<typeof registryBaseColorSchema>,
-) {
-  if (!existsSync(componentDir)) {
-    await fs.mkdir(componentDir, { recursive: true });
-  }
-
-  const componentNaming = config.componentNaming ?? 'pascal-case';
-
-  const files = item.files.map(file => ({
-    ...file,
-    originalName: file.name,
-    name: transformFileName(file.name, componentNaming),
-    path: path.resolve(componentDir, transformFileName(file.name, componentNaming)),
-  }));
-
-  for (const file of files) {
-    const fileContent = transformLocalVueImports(file.content, componentNaming);
-
-    const content = await transform({
-      filename: file.path,
-      raw: fileContent,
-      config,
-      baseColor,
+    const { overwrite } = await prompts({
+      type: 'confirm',
+      name: 'overwrite',
+      message: `${itemName} already exists and differs from the registry. Overwrite it?`,
+      initial: false,
     });
 
-    await fs.writeFile(file.path, content);
+    if (!overwrite) {
+      skippedItems.add(itemName);
+    }
   }
+
+  return skippedItems;
+}
+
+async function writePlannedFiles(files: PlannedFile[]) {
+  for (const file of files) {
+    await fs.mkdir(path.dirname(file.targetPath), { recursive: true });
+    await fs.writeFile(file.targetPath, file.content, 'utf8');
+  }
+}
+
+async function installPlanDependencies(plan: InstallPlan, cwd: string) {
+  if (!plan.dependencies.length && !plan.devDependencies.length) {
+    return;
+  }
+
+  const spinner = ora('Installing dependencies...').start();
+
+  try {
+    await installPackages(plan.dependencies, { cwd, silent: true });
+    await installPackages(plan.devDependencies, { cwd, dev: true, silent: true });
+    spinner.succeed(`Installed ${[...plan.dependencies, ...plan.devDependencies].join(', ')}`);
+  } catch (error) {
+    spinner.fail('Failed to install dependencies.');
+    const command = [...plan.dependencies, ...plan.devDependencies].join(' ');
+    throw new Error(`Install them manually: ${command}\n${error instanceof Error ? error.message : ''}`);
+  }
+}
+
+function relativePath(filePath: string, cwd: string) {
+  return path.relative(cwd, filePath);
+}
+
+function printSummary(plan: InstallPlan, writtenFiles: PlannedFile[], skippedItems: Set<string>, config: Config, cwd: string) {
+  const created = writtenFiles.filter(file => file.status === 'create');
+  const updated = writtenFiles.filter(file => file.status === 'update');
+
+  for (const file of created) {
+    consola.log(`  ${colors.green('+')} ${relativePath(file.targetPath, cwd)}`);
+  }
+
+  for (const file of updated) {
+    consola.log(`  ${colors.yellow('~')} ${relativePath(file.targetPath, cwd)}`);
+  }
+
+  for (const itemName of skippedItems) {
+    consola.info(`Skipped ${itemName}: local files differ. Use ${colors.green('--overwrite')} to replace them or ${colors.green(`--diff ${itemName}`)} to compare.`);
+  }
+
+  if (!writtenFiles.length && !skippedItems.size) {
+    consola.info('Everything is already up to date.');
+  }
+
+  for (const { item, requested } of plan.items) {
+    if (requested && item.type === 'registry:block') {
+      const componentName = kebabToPascal(item.name);
+      const fileName = config.componentNaming === 'kebab-case' ? `${item.name}.vue` : `${componentName}.vue`;
+      consola.info(`Use the block: ${colors.cyan(`import ${componentName} from '${getDerivedAliases(config).blocks}/${item.name}/${fileName}'`)}`);
+    }
+
+    if (requested && item.docs) {
+      consola.info(item.docs);
+    }
+  }
+
+  consola.success('Done.');
+}
+
+function printDryRun(plan: InstallPlan, cwd: string) {
+  consola.info(`Items: ${plan.items.map(({ item, requested }) => (requested ? item.name : colors.dim(item.name))).join(', ')}`);
+
+  for (const file of plan.files) {
+    const marker = { create: colors.green('create'), update: colors.yellow('update'), unchanged: colors.dim('unchanged') }[file.status];
+    consola.log(`  ${marker} ${relativePath(file.targetPath, cwd)}`);
+  }
+
+  if (plan.dependencies.length) {
+    consola.info(`Would install: ${plan.dependencies.join(' ')}`);
+  }
+
+  if (plan.devDependencies.length) {
+    consola.info(`Would install as devDependencies: ${plan.devDependencies.join(' ')}`);
+  }
+
+  consola.info('Dry run: no files were written and nothing was installed.');
+}
+
+function printFileDiff(file: PlannedFile, cwd: string) {
+  consola.log(colors.bold(`--- ${relativePath(file.targetPath, cwd)}`));
+
+  for (const part of diffLines(file.currentContent ?? '', file.content)) {
+    const text = part.value.replace(/\n$/, '').split('\n');
+
+    if (part.added) {
+      text.forEach(line => consola.log(colors.green(`+ ${line}`)));
+    } else if (part.removed) {
+      text.forEach(line => consola.log(colors.red(`- ${line}`)));
+    }
+  }
+
+  consola.log('');
+}
+
+function printPlanDiff(plan: InstallPlan, cwd: string) {
+  const changedFiles = plan.files.filter(file => file.status === 'update');
+  const missingFiles = plan.files.filter(file => file.status === 'create');
+
+  changedFiles.forEach(file => printFileDiff(file, cwd));
+  missingFiles.forEach(file => consola.log(`${colors.green('new file')} ${relativePath(file.targetPath, cwd)}`));
+
+  if (!changedFiles.length && !missingFiles.length) {
+    consola.info('No differences found.');
+  }
+}
+
+async function showInstalledComponentsDiff(config: Config, context: RegistryContext) {
+  const index = await fetchRegistryIndex(null, context);
+  const installed = index.items
+    .filter(item => item.type === 'registry:ui' && existsSync(path.join(config.resolvedPaths.components, item.name)))
+    .map(item => item.name);
+
+  if (!installed.length) {
+    consola.info('No installed components found.');
+    return;
+  }
+
+  const tree = await resolveRegistryTree(installed, context);
+  const plan = await createInstallPlan(tree.filter(entry => entry.requested), config);
+  const changedItems = [...new Set(plan.files.filter(file => file.status === 'update').map(file => file.itemName))];
+
+  if (!changedItems.length) {
+    consola.info('All installed components match the registry.');
+    return;
+  }
+
+  consola.info('These components differ from the registry:');
+  changedItems.forEach(itemName => consola.log(`  - ${itemName}`));
+  consola.info(`Run ${colors.green('sigma-ui add <component> --diff')} to see the changes.`);
 }

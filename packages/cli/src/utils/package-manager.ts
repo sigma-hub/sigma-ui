@@ -1,88 +1,121 @@
-import { execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
+import process from 'node:process';
 import path from 'pathe';
 
+export type PackageManagerName = 'npm' | 'pnpm' | 'yarn' | 'bun';
+
 export interface PackageManager {
-  name: string;
+  name: PackageManagerName;
   version?: string;
 }
 
-export async function detectPackageManager(cwd: string): Promise<PackageManager | null> {
-  const lockFiles = [
-    { name: 'pnpm', files: ['pnpm-lock.yaml', 'pnpm-workspace.yaml'] },
-    { name: 'yarn', files: ['yarn.lock'] },
-    { name: 'bun', files: ['bun.lockb'] },
-    { name: 'npm', files: ['package-lock.json'] },
-  ];
+const LOCK_FILES: { name: PackageManagerName; files: string[] }[] = [
+  { name: 'pnpm', files: ['pnpm-lock.yaml', 'pnpm-workspace.yaml'] },
+  { name: 'yarn', files: ['yarn.lock'] },
+  { name: 'bun', files: ['bun.lockb', 'bun.lock'] },
+  { name: 'npm', files: ['package-lock.json'] },
+];
 
-  for (const pm of lockFiles) {
-    for (const file of pm.files) {
-      if (existsSync(path.join(cwd, file))) {
-        return { name: pm.name };
-      }
-    }
+interface PackageJson {
+  packageManager?: unknown;
+  dependencies?: Record<string, string>;
+  devDependencies?: Record<string, string>;
+  peerDependencies?: Record<string, string>;
+}
+
+function readPackageJson(directory: string): PackageJson | null {
+  const packageJsonPath = path.join(directory, 'package.json');
+
+  if (!existsSync(packageJsonPath)) {
+    return null;
   }
 
-  // Check for packageManager field in package.json
   try {
-    const packageJsonPath = path.join(cwd, 'package.json');
+    return JSON.parse(readFileSync(packageJsonPath, 'utf8'));
+  } catch {
+    return null;
+  }
+}
 
-    if (existsSync(packageJsonPath)) {
-      const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8'));
+function isPackageManagerName(value: string): value is PackageManagerName {
+  return LOCK_FILES.some(lockFile => lockFile.name === value);
+}
 
-      if (packageJson.packageManager) {
-        const [name, version] = packageJson.packageManager.split('@');
+export async function detectPackageManager(cwd: string): Promise<PackageManager> {
+  let directory = path.resolve(cwd);
+
+  while (true) {
+    const packageManagerField = readPackageJson(directory)?.packageManager;
+
+    if (typeof packageManagerField === 'string') {
+      const [name, version] = packageManagerField.split('@');
+
+      if (isPackageManagerName(name)) {
         return { name, version };
       }
     }
-  } catch {
-    // Ignore errors
+
+    for (const lockFile of LOCK_FILES) {
+      if (lockFile.files.some(file => existsSync(path.join(directory, file)))) {
+        return { name: lockFile.name };
+      }
+    }
+
+    const parent = path.dirname(directory);
+
+    if (parent === directory) {
+      break;
+    }
+
+    directory = parent;
   }
 
-  // Default to pnpm if no lock file is found
-  return { name: 'pnpm' };
+  const userAgent = process.env.npm_config_user_agent ?? '';
+  const fromUserAgent = LOCK_FILES.find(lockFile => userAgent.startsWith(lockFile.name));
+
+  return { name: fromUserAgent?.name ?? 'npm' };
 }
 
-export async function addDependency(
-  dependencies: string[],
-  options: { cwd: string; silent?: boolean } = { cwd: process.cwd() },
-): Promise<void> {
-  await installPackages(dependencies, 'dependencies', options);
+export function getInstalledPackages(cwd: string) {
+  const packageJson = readPackageJson(cwd) ?? {};
+
+  return new Set<string>([
+    ...Object.keys(packageJson.dependencies ?? {}),
+    ...Object.keys(packageJson.devDependencies ?? {}),
+    ...Object.keys(packageJson.peerDependencies ?? {}),
+  ]);
 }
 
-export async function addDevDependency(
-  dependencies: string[],
-  options: { cwd: string; silent?: boolean } = { cwd: process.cwd() },
-): Promise<void> {
-  await installPackages(dependencies, 'devDependencies', options);
+export function getInstallCommand(packageManager: PackageManagerName, dependencies: string[], dev: boolean) {
+  const command = packageManager === 'npm' ? 'install' : 'add';
+  const args = [command, ...(dev ? ['-D'] : []), ...dependencies];
+
+  return { command: packageManager, args };
 }
 
-async function installPackages(
+export async function installPackages(
   dependencies: string[],
-  type: 'dependencies' | 'devDependencies',
-  options: { cwd: string; silent?: boolean } = { cwd: process.cwd() },
+  options: { cwd: string; dev?: boolean; silent?: boolean },
 ): Promise<void> {
-  const pm = await detectPackageManager(options.cwd);
-  const devFlag = type === 'devDependencies' ? '-D ' : '';
-
-  let command = '';
-
-  switch (pm?.name) {
-    case 'npm':
-      command = `npm install ${devFlag}${dependencies.join(' ')}`;
-      break;
-    case 'yarn':
-      command = `yarn add ${devFlag}${dependencies.join(' ')}`;
-      break;
-    case 'bun':
-      command = `bun add ${devFlag}${dependencies.join(' ')}`;
-      break;
-    case 'pnpm':
-    default:
-      command = `pnpm add ${devFlag}${dependencies.join(' ')}`;
-      break;
+  if (!dependencies.length) {
+    return;
   }
 
-  const stdio = options.silent ? 'pipe' : 'inherit';
-  execSync(command, { cwd: options.cwd, stdio });
+  const packageManager = await detectPackageManager(options.cwd);
+  const { command, args } = getInstallCommand(packageManager.name, dependencies, Boolean(options.dev));
+
+  execFileSync(command, args, {
+    cwd: options.cwd,
+    stdio: options.silent ? 'pipe' : 'inherit',
+    shell: process.platform === 'win32',
+  });
+}
+
+export async function addDependency(dependencies: string[], options: { cwd: string; silent?: boolean }) {
+  await installPackages(dependencies, { ...options, dev: false });
+}
+
+export async function addDevDependency(dependencies: string[], options: { cwd: string; silent?: boolean }) {
+  await installPackages(dependencies, { ...options, dev: true });
 }
