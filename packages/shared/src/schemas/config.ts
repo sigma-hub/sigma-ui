@@ -39,7 +39,7 @@ export const rawConfigSchema = z.object({
   tailwind: z.object({
     config: z.string().default('').describe('Optional legacy tailwind.config.js referenced with @config. Leave empty for CSS-first Tailwind v4.'),
     prefix: z.string().optional().describe('Prefix added to Tailwind utility classes.'),
-  }).default({}),
+  }).prefault({}),
   aliases: z.object({
     components: z.string().describe('Import alias for UI components, e.g. @/components/ui.'),
     utils: z.string().default('').describe('Import alias for the cn() helper, e.g. @/lib/utils. Empty for the CSS style system.'),
