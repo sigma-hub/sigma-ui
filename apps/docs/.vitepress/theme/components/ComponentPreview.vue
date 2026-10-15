@@ -1,15 +1,12 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue';
-import { codeToHtml } from 'shiki';
-import MagicString from 'magic-string';
-import { useClipboard } from '@vueuse/core';
+import { ref, watch } from 'vue';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@ui/registry/tailwind/ui/tabs';
 import { cn } from '@ui/utils';
-import { cssVariables } from '../config/shiki';
+import { useActiveStyleSystem } from '../composables/useActiveStyleSystem';
+import { useCodePathRewrite } from '../composables/useCodePathRewrite';
 import ComponentLoader from './ComponentLoader.vue';
 import Stackblitz from './Stackblitz.vue';
 import CodeSandbox from './CodeSandbox.vue';
-import { useConfigStore } from '@/stores/config';
 
 defineOptions({
   inheritAttrs: false,
@@ -21,32 +18,19 @@ const props = withDefaults(defineProps<{
   size?: 'unset' | 'md' | 'lg';
 }>(), { align: 'center', size: 'md' });
 
-const { config, codeConfig } = useConfigStore();
-
+const styleSystem = useActiveStyleSystem();
 const rawString = ref('');
-const codeHtml = ref('');
-const transformedRawString = computed(() => transformImportPath(rawString.value));
+const codeContainer = ref<HTMLElement>();
 
-function transformImportPath(code: string) {
-  const s = new MagicString(code);
-  s.replaceAll(`@ui/registry/${config.value.styleSystem}/ui`, codeConfig.value.componentsPath);
-  s.replaceAll(`@ui/utils`, codeConfig.value.utilsPath);
-  return s.toString();
-}
+useCodePathRewrite(codeContainer);
 
-watch([() => config.value.styleSystem, codeConfig], async () => {
+watch(styleSystem, async () => {
   try {
-    rawString.value = await import(`@ui/registry/${config.value.styleSystem}/example/${props.name}.vue?raw`).then(res => res.default.trim());
-    codeHtml.value = await codeToHtml(transformedRawString.value, {
-      lang: 'vue',
-      theme: cssVariables,
-    });
-  } catch (err) {
-    console.error(err);
+    rawString.value = await import(`@ui/registry/${styleSystem.value}/example/${props.name}.vue?raw`).then(res => res.default.trim());
+  } catch (error) {
+    console.error(error);
   }
-}, { immediate: true, deep: true });
-
-const { copy, copied } = useClipboard();
+}, { immediate: true });
 </script>
 
 <template>
@@ -75,14 +59,14 @@ const { copy, copied } = useClipboard();
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-x-1">
             <Stackblitz
-              :key="config.styleSystem"
-              :style-system="config.styleSystem"
+              :key="styleSystem"
+              :style-system="styleSystem"
               :name="name"
               :code="rawString"
             />
             <CodeSandbox
-              :key="config.styleSystem"
-              :style-system="config.styleSystem"
+              :key="styleSystem"
+              :style-system="styleSystem"
               :name="name"
               :code="rawString"
             />
@@ -105,7 +89,7 @@ const { copy, copied } = useClipboard();
         >
           <ComponentLoader
             v-bind="$attrs"
-            :key="config.styleSystem"
+            :key="styleSystem"
             :name="name"
             :type-name="'example'"
           />
@@ -116,20 +100,18 @@ const { copy, copied } = useClipboard();
         class="vp-doc m-0 p-2"
       >
         <div
-          v-if="codeHtml"
-          class="language-vue flex-1 !m-0"
+          ref="codeContainer"
+          class="component-preview-code"
         >
-          <button
-            title="Copy Code"
-            class="copy"
-            :class="{ copied }"
-            @click="copy(transformedRawString)"
-          />
-
-          <div v-html="codeHtml" />
+          <slot :name="`code-${styleSystem}`" />
         </div>
-        <slot v-else />
       </TabsContent>
     </Tabs>
   </div>
 </template>
+
+<style scoped>
+.component-preview-code :deep(div[class*='language-']) {
+  margin: 0;
+}
+</style>
