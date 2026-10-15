@@ -6,7 +6,7 @@ import { Index as demoIndex } from '../../../../docs/__generated';
 import tailwindConfigRaw from '../../../tailwind.config?raw';
 // @ts-expect-error ?raw
 import cssRaw from '../../../../../packages/cli/test/fixtures/nuxt/assets/css/tailwind.css?raw';
-import type { StyleSystem } from '@/lib/registry/style-system';
+import type { StyleSystem } from '@sigma-ui/shared/style-systems';
 
 export function makeCodeSandboxParams(componentName: string, style: StyleSystem, sources: Record<string, string>) {
   let files: Record<string, any> = {};

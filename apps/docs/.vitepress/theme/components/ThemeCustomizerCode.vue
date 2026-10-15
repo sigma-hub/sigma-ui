@@ -5,10 +5,10 @@ import { template } from 'lodash-es';
 import { codeToHtml } from 'shiki';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import { CheckIcon, CopyIcon } from 'lucide-vue-next';
-import { TAILWIND_STYLES_WITH_VARS_TEMPLATE } from '~/packages/shared/templates/tailwind-styles';
-import { CSS_STYLES_WITH_VARS_TEMPLATE } from '~/packages/shared/templates/css-styles';
+import { TAILWIND_STYLES_WITH_VARS_TEMPLATE } from '@sigma-ui/shared/templates/tailwind-styles';
+import { CSS_STYLES_WITH_VARS_TEMPLATE } from '@sigma-ui/shared/templates/css-styles';
 import { useConfigStore } from '@/stores/config';
-import { themes } from '@/lib/registry';
+import { themes } from '@sigma-ui/shared/themes';
 
 const { config } = useConfigStore();
 

@@ -2,7 +2,7 @@ import { readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { parseSync } from '@oxc-parser/wasm'
 import { addComponent, addTemplate, createResolver, defineNuxtModule, useLogger } from '@nuxt/kit'
-import { UTILS_TEMPLATE } from '../../shared/templates/tailwind-config.ts'
+import { UTILS_TEMPLATE } from '@sigma-ui/shared/templates/tailwind-config'
 
 export interface ModuleOptions {
   /**

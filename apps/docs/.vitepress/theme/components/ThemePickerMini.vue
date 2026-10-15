@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@ui/registry/tailwind/ui/tooltip';
 import { CheckIcon } from 'lucide-vue-next';
-import { baseColors, themes } from '@/lib/registry/themes';
+import { baseColors, themes } from '@sigma-ui/shared/themes';
 import { useConfigStore } from '@/stores/config';
 
 const { config, setTheme } = useConfigStore();

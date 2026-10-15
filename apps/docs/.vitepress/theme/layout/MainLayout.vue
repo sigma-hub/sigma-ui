@@ -16,7 +16,7 @@ import MobileNav from '../components/MobileNav.vue';
 import Logo from '../components/Logo.vue';
 import { type NavItem, docsConfig } from '../config/docs';
 import { useConfigStore } from '@/stores/config';
-import { baseColors } from '../../../src/lib/registry/themes';
+import { baseColors } from '@sigma-ui/shared/themes';
 import {
   Tooltip,
   TooltipContent,

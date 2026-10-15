@@ -1,4 +1,4 @@
-import { themes } from '@/lib/registry/themes';
+import { themes } from '@sigma-ui/shared/themes';
 
 export function useThemeStyles() {
   if (typeof document === 'undefined') {

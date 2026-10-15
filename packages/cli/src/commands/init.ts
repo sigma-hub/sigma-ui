@@ -21,7 +21,7 @@ import { handleError } from '../utils/handle-error';
 import {
   resolveConfigPaths,
 } from '../utils/get-config';
-import { DEFAULT_COMPONENTS, DEFAULT_UTILS, CONFIG_FILE_PATH, DEFAULT_TAILWIND_CONFIG, TAILWIND_CSS_PATH } from '~/packages/shared/consts';
+import { DEFAULT_COMPONENTS, DEFAULT_UTILS, CONFIG_FILE_PATH, DEFAULT_TAILWIND_CONFIG, TAILWIND_CSS_PATH } from '@sigma-ui/shared/consts';
 import {
   rawConfigSchema,
   initOptionsSchema,
@@ -35,8 +35,8 @@ import {
   TAILWIND_V4_CSS_TEMPLATE,
   TAILWIND_CSS_WITH_JS_CONFIG_TEMPLATE,
   UTILS_TEMPLATE,
-} from '~/packages/shared/templates/tailwind-config';
-import { PREFLIGHT_CSS_TEMPLATE } from '~/packages/shared/templates/preflight';
+} from '@sigma-ui/shared/templates/tailwind-config';
+import { PREFLIGHT_CSS_TEMPLATE } from '@sigma-ui/shared/templates/preflight';
 
 const PROJECT_DEPENDENCIES = {
   sharedBase: [

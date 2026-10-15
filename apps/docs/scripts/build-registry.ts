@@ -3,16 +3,16 @@ import path, { basename } from 'node:path';
 import { template } from 'lodash-es';
 import { rimraf } from 'rimraf';
 
-import { themes } from '../src/lib/registry/themes';
+import { themes } from '@sigma-ui/shared/themes';
 import { registrySchema } from '../src/lib/registry/schema';
-import { styleSystems } from '../src/lib/registry/style-system';
+import { styleSystems } from '@sigma-ui/shared/style-systems';
 import { buildRegistry } from '../src/lib/registry/registry';
 import {
   TAILWIND_STYLES_WITH_VARS_TEMPLATE,
-} from '~/packages/shared/templates/tailwind-styles';
+} from '@sigma-ui/shared/templates/tailwind-styles';
 import {
   CSS_STYLES_WITH_VARS_TEMPLATE,
-} from '~/packages/shared/templates/css-styles';
+} from '@sigma-ui/shared/templates/css-styles';
 
 const REGISTRY_PATH = path.join(process.cwd(), '../../packages/cli/__generated/registry-schemes');
 const REGISTRY_IGNORE = ['super-form'];
