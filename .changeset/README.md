@@ -22,5 +22,5 @@ Pick the affected packages and the bump type, then write a short user-facing sum
 ## Repository setup
 
 - Add an `NPM_TOKEN` repository secret: a granular npm access token with read and write permission for the `sigma-ui` and `sigma-ui-nuxt` packages. It is the only secret the workflow needs, `GITHUB_TOKEN` is provided by GitHub Actions.
-- Enable "Allow GitHub Actions to create and approve pull requests" in Settings > Actions > General, so the workflow can open the version pull request.
+- Enable "Allow GitHub Actions to create and approve pull requests" in Settings > Actions > General, so the workflow can open the version pull request. Pull requests opened with `GITHUB_TOKEN` don't trigger the CI workflow, which is fine for the version pull request because it only touches versions and changelogs.
 - `sigma-ui-nuxt` has to be published once before it can be switched to [npm trusted publishing](https://docs.npmjs.com/trusted-publishers). After both packages trust `.github/workflows/release.yml`, the `NPM_TOKEN` secret can be removed.
