@@ -7,7 +7,7 @@ import {
 import { ChevronRightIcon } from 'lucide-vue-next';
 import { cn } from '@ui/utils';
 
-const props = defineProps<DropdownMenuSubTriggerProps>();
+const props = defineProps<DropdownMenuSubTriggerProps & { inset?: boolean }>();
 
 const forwardedProps = useForwardProps(props);
 </script>
@@ -17,6 +17,7 @@ const forwardedProps = useForwardProps(props);
     v-bind="forwardedProps"
     :class="cn(
       'flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-hidden focus:bg-secondary data-[state=open]:bg-secondary',
+      inset && 'pl-8',
       $attrs.class ?? '',
     )"
   >
