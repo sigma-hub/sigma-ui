@@ -52,14 +52,14 @@
     "type": "\"default\" | \"outline\" | null",
     "default": "\"default\"",
     "required": false,
-    "description": ""
+    "description": "<p>Visual style of the toggle.</p>"
   },
   {
     "name": "size",
     "type": "\"default\" | \"sm\" | \"lg\" | null",
     "default": "\"default\"",
     "required": false,
-    "description": ""
+    "description": "<p>Height and horizontal padding of the toggle.</p>"
   }
 ]' />
 
@@ -75,6 +75,6 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />

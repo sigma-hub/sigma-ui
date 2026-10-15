@@ -7,6 +7,6 @@
     "name": "items",
     "type": "Item[]",
     "required": true,
-    "description": ""
+    "description": "<p>Cards to show in the grid; clicking one expands it into a lightbox.</p>"
   }
 ]' />

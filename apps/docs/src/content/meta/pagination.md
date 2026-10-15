@@ -22,7 +22,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -49,7 +49,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -76,7 +76,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -103,7 +103,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -130,6 +130,6 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />

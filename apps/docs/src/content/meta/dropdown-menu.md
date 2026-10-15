@@ -41,7 +41,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -73,7 +73,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -243,7 +243,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -269,7 +269,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -309,7 +309,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -345,7 +345,7 @@
     "name": "inset",
     "type": "boolean",
     "required": false,
-    "description": ""
+    "description": "<p>Adds left padding to align with items that have an icon or indicator.</p>"
   }
 ]' />
 
@@ -353,7 +353,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -410,7 +410,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -462,7 +462,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -472,7 +472,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -514,7 +514,7 @@
     "name": "inset",
     "type": "boolean",
     "required": false,
-    "description": ""
+    "description": "<p>Adds left padding to align with items that have an icon or indicator.</p>"
   }
 ]' />
 
@@ -522,7 +522,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -555,7 +555,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -591,7 +591,7 @@
     "name": "inset",
     "type": "boolean",
     "required": false,
-    "description": ""
+    "description": "<p>Adds left padding to align with items that have an icon or indicator.</p>"
   }
 ]' />
 
@@ -599,7 +599,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -765,6 +765,6 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />

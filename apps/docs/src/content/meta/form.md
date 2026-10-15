@@ -6,7 +6,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -38,7 +38,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -48,7 +48,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -62,6 +62,6 @@ This component has no props, events, or slots.
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />

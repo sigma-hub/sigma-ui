@@ -7,14 +7,14 @@
     "name": "modelValue",
     "type": "string | number",
     "required": false,
-    "description": ""
+    "description": "<p>Current value of the input; use with <code>v-model</code>.</p>"
   }
 ]' />
 
 <ApiTable kind="events" :items='[
   {
     "name": "update:modelValue",
-    "payload": "[value: string | number]",
-    "description": ""
+    "payload": "unknown[]",
+    "description": "<p>Emitted when the user changes the value.</p>"
   }
 ]' />

@@ -114,7 +114,7 @@
   {
     "name": "legendItemClick",
     "payload": "[d: BulletLegendItemInterface, i: number]",
-    "description": ""
+    "description": "<p>Emitted when a legend item is clicked, with the item and its index.</p>"
   }
 ]' />
 
@@ -122,6 +122,6 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />

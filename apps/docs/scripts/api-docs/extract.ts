@@ -98,11 +98,14 @@ function toEvents(meta: ComponentMeta, emitDocumentation: Map<string, string>): 
   }));
 }
 
+const EMPTY_SLOT_SCOPES = ['{}', 'any'];
+const DEFAULT_SLOT_DESCRIPTION = 'The content of the component.';
+
 function toSlots(meta: ComponentMeta): ApiSlot[] {
   return meta.slots.map(slot => ({
     name: slot.name,
-    scope: slot.type === '{}' ? '' : cleanType(slot.type),
-    description: slot.description,
+    scope: EMPTY_SLOT_SCOPES.includes(slot.type) ? '' : cleanType(slot.type),
+    description: slot.description || (slot.name === 'default' ? DEFAULT_SLOT_DESCRIPTION : ''),
   }));
 }
 

@@ -41,7 +41,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -77,7 +77,7 @@
     "name": "inset",
     "type": "boolean",
     "required": false,
-    "description": ""
+    "description": "<p>Adds left padding so the text lines up with items that have an icon or indicator.</p>"
   }
 ]' />
 
@@ -93,7 +93,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -235,7 +235,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -261,7 +261,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -280,7 +280,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -320,7 +320,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -372,7 +372,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -429,7 +429,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -458,13 +458,13 @@
     "name": "defaultOpen",
     "type": "boolean",
     "required": false,
-    "description": ""
+    "description": "<p>Whether the submenu is open on first render; use when you do not control the open state.</p>"
   },
   {
     "name": "open",
     "type": "boolean",
     "required": false,
-    "description": ""
+    "description": "<p>Controlled open state of the submenu; use with <code>v-model:open</code>.</p>"
   }
 ]' />
 
@@ -480,7 +480,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -646,7 +646,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -682,7 +682,7 @@
     "name": "inset",
     "type": "boolean",
     "required": false,
-    "description": ""
+    "description": "<p>Adds left padding so the text lines up with items that have an icon or indicator.</p>"
   }
 ]' />
 
@@ -690,7 +690,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -722,7 +722,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -732,7 +732,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -756,7 +756,7 @@
     "name": "inset",
     "type": "boolean",
     "required": false,
-    "description": ""
+    "description": "<p>Adds left padding so the text lines up with items that have an icon or indicator.</p>"
   }
 ]' />
 
@@ -764,6 +764,6 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />

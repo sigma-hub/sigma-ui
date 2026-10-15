@@ -6,7 +6,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -16,7 +16,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -26,7 +26,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -52,7 +52,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -62,7 +62,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -72,7 +72,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -82,7 +82,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -93,13 +93,13 @@
     "name": "home",
     "type": "BreadcrumbItem",
     "required": false,
-    "description": ""
+    "description": "<p>Item rendered first, before the model items.</p>"
   },
   {
     "name": "model",
     "type": "BreadcrumbItem[]",
     "required": false,
-    "description": ""
+    "description": "<p>Items to render in order; the last one is marked as the current page.</p>"
   }
 ]' />
 
@@ -107,16 +107,16 @@
   {
     "name": "home",
     "scope": "{ item: BreadcrumbItem; props: { action: ActionProps; }; }",
-    "description": ""
+    "description": "<p>Replaces the rendering of the home item.</p>"
   },
   {
     "name": "separator",
     "scope": "",
-    "description": ""
+    "description": "<p>Replaces the chevron icon between items.</p>"
   },
   {
     "name": "item",
     "scope": "{ item: BreadcrumbItem; props: { action: ActionProps; }; }",
-    "description": ""
+    "description": "<p>Replaces the rendering of each model item.</p>"
   }
 ]' />

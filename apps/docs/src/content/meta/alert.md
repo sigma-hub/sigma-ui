@@ -7,7 +7,7 @@
     "name": "variant",
     "type": "\"default\" | \"destructive\" | null",
     "required": false,
-    "description": ""
+    "description": "<p>Visual style of the alert, such as destructive for errors.</p>"
   }
 ]' />
 
@@ -15,7 +15,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -25,7 +25,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -35,6 +35,6 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />

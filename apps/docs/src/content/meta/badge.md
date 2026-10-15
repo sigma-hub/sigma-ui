@@ -7,7 +7,7 @@
     "name": "variant",
     "type": "\"default\" | \"destructive\" | \"secondary\" | \"outline\" | null",
     "required": false,
-    "description": ""
+    "description": "<p>Visual style of the badge.</p>"
   }
 ]' />
 
@@ -15,6 +15,6 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />

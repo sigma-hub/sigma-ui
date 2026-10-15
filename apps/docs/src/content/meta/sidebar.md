@@ -29,7 +29,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Sidebar sections such as <code>SidebarHeader</code>, <code>SidebarContent</code>, <code>SidebarFooter</code>, and <code>SidebarRail</code>.</p>"
   }
 ]' />
@@ -39,7 +39,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Scrollable sidebar body, usually one or more <code>SidebarGroup</code> components.</p>"
   }
 ]' />
@@ -49,7 +49,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Footer content, such as a user menu.</p>"
   }
 ]' />
@@ -59,7 +59,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Group parts: <code>SidebarGroupLabel</code>, <code>SidebarGroupAction</code>, and <code>SidebarGroupContent</code>.</p>"
   }
 ]' />
@@ -85,7 +85,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Action icon. Add a visually hidden label for screen readers.</p>"
   }
 ]' />
@@ -95,7 +95,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Group body, usually a <code>SidebarMenu</code>.</p>"
   }
 ]' />
@@ -121,7 +121,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Label text, optionally with an icon.</p>"
   }
 ]' />
@@ -131,7 +131,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Header content, such as a team switcher or a search input.</p>"
   }
 ]' />
@@ -143,15 +143,15 @@
     "name": "modelValue",
     "type": "string | number",
     "required": false,
-    "description": ""
+    "description": "<p>Current value of the input; use with <code>v-model</code>.</p>"
   }
 ]' />
 
 <ApiTable kind="events" :items='[
   {
     "name": "update:modelValue",
-    "payload": "[value: string | number]",
-    "description": ""
+    "payload": "unknown[]",
+    "description": "<p>Emitted when the user changes the value.</p>"
   }
 ]' />
 
@@ -160,7 +160,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Main page content rendered next to the sidebar.</p>"
   }
 ]' />
@@ -170,7 +170,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>List of <code>SidebarMenuItem</code> components.</p>"
   }
 ]' />
@@ -203,7 +203,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Action icon. Add a visually hidden label for screen readers.</p>"
   }
 ]' />
@@ -213,7 +213,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Badge content, such as a counter.</p>"
   }
 ]' />
@@ -266,7 +266,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Button content, usually an icon followed by a <code>&amp;lt;span&amp;gt;</code> label.</p>"
   }
 ]' />
@@ -276,7 +276,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>A <code>SidebarMenuButton</code>, plus an optional <code>SidebarMenuAction</code>, <code>SidebarMenuBadge</code>, or <code>SidebarMenuSub</code>.</p>"
   }
 ]' />
@@ -298,7 +298,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>List of <code>SidebarMenuSubItem</code> components.</p>"
   }
 ]' />
@@ -338,7 +338,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Button content, usually a <code>&amp;lt;span&amp;gt;</code> label.</p>"
   }
 ]' />
@@ -348,7 +348,7 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>A <code>SidebarMenuSubButton</code>.</p>"
   }
 ]' />
@@ -407,7 +407,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -420,7 +420,7 @@ This component has no props, events, or slots.
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "any",
+    "scope": "",
     "description": "<p>Custom trigger icon. Defaults to a panel icon.</p>"
   }
 ]' />

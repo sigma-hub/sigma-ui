@@ -7,13 +7,13 @@
     "name": "label",
     "type": "string",
     "required": false,
-    "description": ""
+    "description": "<p>Text label rendered next to the checkbox.</p>"
   },
   {
     "name": "description",
     "type": "string",
     "required": false,
-    "description": ""
+    "description": "<p>Secondary text rendered below the label.</p>"
   },
   {
     "name": "id",
@@ -85,6 +85,6 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />

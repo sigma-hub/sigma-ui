@@ -8,28 +8,28 @@
     "type": "\"default\" | \"destructive\" | \"secondary\" | \"outline\" | \"ghost\" | \"link\" | null",
     "default": "\"default\"",
     "required": false,
-    "description": ""
+    "description": "<p>Visual style of the button.</p>"
   },
   {
     "name": "size",
     "type": "\"default\" | \"xs\" | \"sm\" | \"lg\" | \"icon\" | null",
     "default": "\"default\"",
     "required": false,
-    "description": ""
+    "description": "<p>Height and padding preset; icon makes a square button.</p>"
   },
   {
     "name": "isLoading",
     "type": "boolean",
     "default": "false",
     "required": false,
-    "description": ""
+    "description": "<p>Shows a spinner and disables the button.</p>"
   },
   {
     "name": "loadingText",
     "type": "string",
     "default": "\"\"",
     "required": false,
-    "description": ""
+    "description": "<p>Text that replaces the button content while loading; the content stays visible when empty.</p>"
   },
   {
     "name": "asChild",
@@ -50,7 +50,7 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
 
@@ -62,21 +62,21 @@
     "type": "\"default\" | \"destructive\" | \"secondary\" | \"outline\" | \"ghost\" | \"link\" | null",
     "default": "\"outline\"",
     "required": false,
-    "description": ""
+    "description": "<p>Visual style of the button.</p>"
   },
   {
     "name": "size",
     "type": "\"default\" | \"xs\" | \"sm\" | \"lg\" | \"icon\" | null",
     "default": "\"default\"",
     "required": false,
-    "description": ""
+    "description": "<p>Height and padding preset; icon makes a square button.</p>"
   },
   {
     "name": "confirmDuration",
     "type": "number",
     "default": "1000",
     "required": false,
-    "description": ""
+    "description": "<p>Milliseconds the checkmark stays visible after a click.</p>"
   }
 ]' />
 
@@ -84,7 +84,7 @@
   {
     "name": "click",
     "payload": "[event: MouseEvent]",
-    "description": ""
+    "description": "<p>Emitted on click; clicks while the checkmark is showing are ignored.</p>"
   }
 ]' />
 
@@ -92,6 +92,6 @@
   {
     "name": "default",
     "scope": "",
-    "description": ""
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
