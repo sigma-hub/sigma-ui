@@ -1,10 +1,17 @@
 <script setup lang="ts">
+import { computed } from 'vue';
 import { useData } from 'vitepress';
 import { CodeXmlIcon, ExternalLinkIcon, FolderGit2Icon } from 'lucide-vue-next';
 import DocsBreadcrumb from '../components/DocsBreadcrumb.vue';
+import { useActiveStyleSystem } from '../composables/useActiveStyleSystem';
 import { SOURCE_CODE_PAGE_LINK } from '@/consts/app';
 
 const { frontmatter } = useData();
+const styleSystem = useActiveStyleSystem();
+
+const sourceLink = computed(() => frontmatter.value.source
+  ? `${SOURCE_CODE_PAGE_LINK}packages/lib/src/registry/${styleSystem.value}/ui/${frontmatter.value.source}`
+  : undefined);
 </script>
 
 <template>
@@ -26,7 +33,7 @@ const { frontmatter } = useData();
       </p>
     </div>
 
-    <div class="flex items-center space-x-2 pt-4">
+    <div class="flex flex-wrap items-center gap-2 pt-4">
       <a
         v-if="frontmatter.docs"
         :href="frontmatter.docs"
@@ -37,8 +44,8 @@ const { frontmatter } = useData();
         Docs
       </a>
       <a
-        v-if="frontmatter.source"
-        :href="SOURCE_CODE_PAGE_LINK + frontmatter.source"
+        v-if="sourceLink"
+        :href="sourceLink"
         target="_blank"
         class="inline-flex items-center rounded-md border px-3 py-1 text-xs font-semibold transition-colors focus:outline-hidden focus:ring-2 focus:ring-ring focus:ring-offset-2 select-none border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80"
       >
