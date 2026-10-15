@@ -1,9 +1,28 @@
 {
   "name": "sigma-ui-nuxt",
   "version": "1.0.0",
-  "description": "Nuxt module for SIGMA-UI components.",
-  "repository": "sigma-hub/sigma-ui-nuxt",
+  "description": "Nuxt module that auto-imports SIGMA-UI components.",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sigma-hub/sigma-ui.git",
+    "directory": "packages/nuxt-module"
+  },
+  "homepage": "https://sigma-ui.dev/docs/installation/nuxt",
+  "bugs": "https://github.com/sigma-hub/sigma-ui/issues",
   "license": "MIT",
+  "keywords": [
+    "nuxt",
+    "nuxt-module",
+    "vue",
+    "ui",
+    "components",
+    "reka-ui",
+    "tailwind",
+    "sigma-ui"
+  ],
   "type": "module",
   "exports": {
     ".": {
