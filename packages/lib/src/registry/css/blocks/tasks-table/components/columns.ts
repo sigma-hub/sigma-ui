@@ -37,7 +37,7 @@ export const columns: ColumnDef<Task>[] = [
   {
     accessorKey: 'id',
     header: ({ column }) => h(TasksColumnHeader, { column, title: taskColumnLabel }),
-    cell: ({ row }) => h(TaskIdCell, { value: row.getValue('id') }),
+    cell: ({ row }) => h(TaskIdCell, { value: row.original.id }),
     enableSorting: false,
     enableHiding: false,
   },
@@ -49,7 +49,7 @@ export const columns: ColumnDef<Task>[] = [
 
       return h(TaskTitleCell, {
         label: label?.label,
-        title: row.getValue('title'),
+        title: row.original.title,
       });
     },
   },
