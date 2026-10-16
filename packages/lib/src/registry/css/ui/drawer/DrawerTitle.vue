@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import type { DrawerTitleProps } from 'vaul-vue';
-import { DrawerTitle } from 'vaul-vue';
+import type { DrawerTitleProps } from 'reka-ui';
+import { DrawerTitle } from 'reka-ui';
 
 const props = defineProps<DrawerTitleProps>();
 </script>
@@ -9,7 +9,9 @@ const props = defineProps<DrawerTitleProps>();
   <DrawerTitle
     v-bind="props"
     class="sigma-ui-drawer-title"
-   data-slot="drawer-title">
+    :class="[$attrs.class]"
+    data-slot="drawer-title"
+  >
     <slot />
   </DrawerTitle>
 </template>

@@ -1,15 +1,17 @@
 <script lang="ts" setup>
-import { DrawerOverlay } from 'vaul-vue';
-import type { DialogOverlayProps } from 'reka-ui';
+import type { DrawerOverlayProps } from 'reka-ui';
+import { DrawerOverlay } from 'reka-ui';
 
-const props = defineProps<DialogOverlayProps>();
+const props = defineProps<DrawerOverlayProps>();
 </script>
 
 <template>
   <DrawerOverlay
     v-bind="props"
     class="sigma-ui-drawer-overlay"
-   data-slot="drawer-overlay"/>
+    :class="[$attrs.class]"
+    data-slot="drawer-overlay"
+  />
 </template>
 
 <style>
@@ -18,5 +20,25 @@ const props = defineProps<DialogOverlayProps>();
   z-index: 50;
   background-color: rgb(0 0 0 / 80%);
   inset: 0;
+}
+
+.sigma-ui-drawer-overlay[data-state="open"] {
+  animation: sigma-ui-drawer-fade-in 500ms ease;
+}
+
+.sigma-ui-drawer-overlay[data-state="closed"] {
+  animation: sigma-ui-drawer-fade-out 500ms ease;
+}
+
+@keyframes sigma-ui-drawer-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes sigma-ui-drawer-fade-out {
+  to {
+    opacity: 0;
+  }
 }
 </style>
