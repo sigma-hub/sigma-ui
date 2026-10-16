@@ -70,9 +70,9 @@ import { chatActions } from '../data';
   height: 100%;
   min-height: 50vh;
   flex-direction: column;
+  padding: 1rem;
   border-radius: var(--radius-xl);
   background-color: color-mix(in oklch, var(--muted) 50%, transparent);
-  padding: 1rem;
 }
 
 @media (width >= 1024px) {
@@ -105,10 +105,10 @@ import { chatActions } from '../data';
 
 textarea.dashboard-ai-playground__message-input {
   min-height: 3rem;
-  resize: none;
-  border-width: 0;
   padding: 0.75rem;
+  border-width: 0;
   box-shadow: none;
+  resize: none;
 }
 
 textarea.dashboard-ai-playground__message-input:focus-visible {
@@ -138,13 +138,13 @@ button.dashboard-ai-playground__send-button svg {
 
 .dashboard-ai-playground__visually-hidden {
   position: absolute;
+  overflow: hidden;
   width: 1px;
   height: 1px;
   padding: 0;
+  border-width: 0;
   margin: -1px;
-  overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  border-width: 0;
 }
 </style>
