@@ -1,0 +1,65 @@
+<script setup lang="ts">
+import type { AutocompleteContentEmits, AutocompleteContentProps } from 'reka-ui';
+import { AutocompleteContent, AutocompletePortal, AutocompleteViewport, useForwardPropsEmits } from 'reka-ui';
+
+defineOptions({
+  inheritAttrs: false,
+});
+
+const props = withDefaults(defineProps<AutocompleteContentProps>(), {
+  position: 'popper',
+  align: 'center',
+  sideOffset: 4,
+});
+const emits = defineEmits<AutocompleteContentEmits>();
+const forwarded = useForwardPropsEmits(props, emits);
+</script>
+
+<template>
+  <AutocompletePortal>
+    <AutocompleteContent
+      data-slot="autocomplete-list"
+      class="sigma-ui-autocomplete-list"
+      v-bind="{ ...forwarded, ...$attrs }"
+      :class="[$attrs.class]"
+    >
+      <AutocompleteViewport>
+        <slot />
+      </AutocompleteViewport>
+    </AutocompleteContent>
+  </AutocompletePortal>
+</template>
+
+<style>
+.sigma-ui-autocomplete-list {
+  z-index: 50;
+  width: 16rem;
+  padding: 0.25rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background-color: var(--popover);
+  box-shadow: var(--shadow-md);
+  color: var(--popover-foreground);
+  outline: none;
+}
+
+.sigma-ui-autocomplete-list[data-state="open"] {
+  animation: sigma-ui-autocomplete-in 150ms ease-out;
+}
+
+.sigma-ui-autocomplete-list[data-state="closed"] {
+  animation: sigma-ui-autocomplete-out 150ms ease-in;
+}
+
+@keyframes sigma-ui-autocomplete-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes sigma-ui-autocomplete-out {
+  to {
+    opacity: 0;
+  }
+}
+</style>
