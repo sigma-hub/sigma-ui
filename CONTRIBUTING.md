@@ -21,7 +21,7 @@ pnpm dev
 
 | Path | What lives there |
 | --- | --- |
-| `packages/lib/src/registry/tailwind` | Tailwind components (`ui/`), docs examples (`example/`), and blocks (`block/`). |
+| `packages/lib/src/registry/tailwind` | Tailwind components (`ui/`), docs examples (`example/`), and blocks (`blocks/`). |
 | `packages/lib/src/registry/css` | The same components, examples, and blocks written with plain CSS. |
 | `packages/cli` | The `sigma-ui` CLI. |
 | `packages/nuxt-module` | The Nuxt module. |
