@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "dev": "vitepress dev",
-    "build": "vitepress build",
+    "build": "vitepress build && node ./scripts/build-preview.mjs",
     "preview": "vitepress preview",
     "test": "vitest run",
     "ts": "vue-tsc --noEmit --skipLibCheck",

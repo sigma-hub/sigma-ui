@@ -26,17 +26,12 @@ export const Index = {
         continue;
       }
 
-      const resolveFiles = (item.files ?? []).map(
-        file => `../../../packages/lib/src/registry/${style.name}/${file.path}`,
-      );
-
       index += `
     "${item.name}": {
       name: "${item.name}",
       type: "${item.type}",
       registryDependencies: ${JSON.stringify(item.registryDependencies ?? [])},
       dependencies: ${JSON.stringify(item.dependencies ?? [])},
-      component: () => import("${resolveFiles[0]}").then((m) => m.default),
       files: ${JSON.stringify((item.files ?? []).map(file => file.path))},
     },`;
     }

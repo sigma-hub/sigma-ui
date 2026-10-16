@@ -1,5 +1,3 @@
-import type { Component } from 'vue';
-
 export type Example = {
   name: 'mix'
     | 'mail'
@@ -9,6 +7,5 @@ export type Example = {
     | 'forms'
     | 'music'
     | 'authentication';
-  component: Component;
   code: string;
 };

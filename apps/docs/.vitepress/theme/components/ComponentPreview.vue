@@ -76,7 +76,7 @@ const rawString = computed(() => props.code?.[styleSystem.value] ?? '');
         class="relative"
       >
         <div
-          :class="cn('preview flex w-full justify-center p-10 items-center', {
+          :class="cn('preview relative flex w-full justify-center p-10 items-center', {
             'items-center': align === 'center',
             'items-start': align === 'start',
             'items-end': align === 'end',
@@ -89,7 +89,9 @@ const rawString = computed(() => props.code?.[styleSystem.value] ?? '');
             v-bind="$attrs"
             :key="styleSystem"
             :name="name"
-            :type-name="'example'"
+            :align="align"
+            :height="size === 'lg' ? '650px' : size === 'unset' ? '240px' : '350px'"
+            type-name="example"
           />
         </div>
       </TabsContent>

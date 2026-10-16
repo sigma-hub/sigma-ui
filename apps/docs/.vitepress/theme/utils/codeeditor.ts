@@ -1,17 +1,11 @@
 import { getParameters } from 'codesandbox/lib/api/define';
 import sdk from '@stackblitz/sdk';
 import { PREFLIGHT_CSS_TEMPLATE } from '@sigma-ui/shared/templates/preflight';
-import { Index } from '../../../__generated';
 import { assemblePlaygroundFiles, createPlaygroundStylesheet, type PlaygroundItem, type PlaygroundProjectFile } from './playground';
 import type { StyleSystem } from '@sigma-ui/shared/style-systems';
 
 interface RegistryItemResponse extends PlaygroundItem {
   registryDependencies?: string[];
-}
-
-function registryDependencies(componentName: string, styleSystem: StyleSystem) {
-  const styleIndex = Index[styleSystem] as Record<string, { registryDependencies?: string[] }>;
-  return (styleIndex[componentName]?.registryDependencies ?? []).filter(name => name !== 'utils');
 }
 
 async function fetchRegistryItem(styleSystem: StyleSystem, name: string): Promise<RegistryItemResponse | null> {
@@ -46,7 +40,9 @@ async function loadRegistryItems(styleSystem: StyleSystem, names: string[], seen
 }
 
 export async function createPlaygroundFiles(componentName: string, styleSystem: StyleSystem, demoCode: string) {
-  const items = await loadRegistryItems(styleSystem, registryDependencies(componentName, styleSystem));
+  const root = await fetchRegistryItem(styleSystem, componentName);
+  const dependencyNames = (root?.registryDependencies ?? []).filter(name => name !== 'utils');
+  const items = await loadRegistryItems(styleSystem, dependencyNames);
 
   return assemblePlaygroundFiles({
     styleSystem,
