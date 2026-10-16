@@ -128,6 +128,13 @@
 
 <ApiTable kind="props" :items='[
   {
+    "name": "size",
+    "type": "\"default\" | \"sm\"",
+    "default": "\"default\"",
+    "required": false,
+    "description": "<p>Height of the trigger. <code>sm</code> matches the small button.</p>"
+  },
+  {
     "name": "disabled",
     "type": "boolean",
     "required": false,

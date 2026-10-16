@@ -7,6 +7,7 @@ const props = defineProps<SelectSeparatorProps>();
 <template>
   <SelectSeparator
     v-bind="props"
+    data-slot="select-separator"
     class="sigma-ui-select-separator"
   />
 </template>
@@ -15,6 +16,7 @@ const props = defineProps<SelectSeparatorProps>();
 .sigma-ui-select-separator {
   height: 1px;
   margin: 0.25rem -0.25rem;
-  background-color: hsl(var(--muted));
+  background-color: hsl(var(--border));
+  pointer-events: none;
 }
 </style>

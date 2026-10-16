@@ -6,6 +6,7 @@ const props = defineProps<SelectLabelProps>();
 
 <template>
   <SelectLabel
+    data-slot="select-label"
     class="sigma-ui-select-label"
     :class="[$attrs.class]"
   >
@@ -15,8 +16,8 @@ const props = defineProps<SelectLabelProps>();
 
 <style>
 .sigma-ui-select-label {
-  padding: 0.375rem 0.5rem 0.375rem 2rem;
-  font-size: 0.875rem;
-  font-weight: 600;
+  padding: 0.375rem 0.5rem;
+  color: hsl(var(--muted-foreground));
+  font-size: 0.75rem;
 }
 </style>

@@ -60,7 +60,7 @@ defineSlots<{
   display: flex;
   width: 100%;
   min-width: 0;
-  height: 2.5rem;
+  height: 2.25rem;
   padding: 0.5rem 2.25rem 0.5rem 0.75rem;
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius-md);

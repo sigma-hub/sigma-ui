@@ -28,6 +28,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 <template>
   <SelectPortal>
     <SelectContent
+      data-slot="select-content"
       v-bind="{ ...forwarded, ...$attrs }"
       class="sigma-ui-select-content"
       :class="[$attrs.class]"
@@ -48,15 +49,15 @@ const forwarded = useForwardPropsEmits(props, emits);
 .sigma-ui-select-content {
   position: relative;
   z-index: 50;
-  overflow: hidden;
   min-width: 8rem;
-  max-height: 24rem;
+  max-height: var(--reka-select-content-available-height, 24rem);
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius-md);
   backdrop-filter: blur(var(--backdrop-filter-blur));
   background-color: hsl(var(--popover));
   box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
   color: hsl(var(--popover-foreground));
+  overflow: hidden auto;
   transform-origin: var(--reka-popover-content-transform-origin);
 }
 
@@ -126,6 +127,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 .sigma-ui-select-content__viewport {
   padding: 0.25rem;
+  scroll-margin-block: 0.25rem;
 }
 
 .sigma-ui-select-content__viewport--popper {

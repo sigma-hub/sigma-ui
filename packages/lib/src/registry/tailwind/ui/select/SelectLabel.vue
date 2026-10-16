@@ -6,7 +6,10 @@ const props = defineProps<SelectLabelProps>();
 </script>
 
 <template>
-  <SelectLabel :class="cn('py-1.5 pl-8 pr-2 text-sm font-semibold', $attrs.class ?? '')">
+  <SelectLabel
+    data-slot="select-label"
+    :class="cn('px-2 py-1.5 text-xs text-muted-foreground', $attrs.class ?? '')"
+  >
     <slot />
   </SelectLabel>
 </template>

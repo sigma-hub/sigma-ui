@@ -8,6 +8,7 @@ const props = defineProps<SelectSeparatorProps>();
 <template>
   <SelectSeparator
     v-bind="props"
-    :class="cn('-mx-1 my-1 h-px bg-muted', $attrs.class ?? '')"
+    data-slot="select-separator"
+    :class="cn('-mx-1 my-1 h-px bg-border pointer-events-none', $attrs.class ?? '')"
   />
 </template>
