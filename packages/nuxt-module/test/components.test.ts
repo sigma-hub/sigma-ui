@@ -1,7 +1,7 @@
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
-import { getComponentExportNames, isComponentIndexFile, scanComponentExports } from '../src/components';
+import { getComponentExportNames, ignorePatternsForComponentDir, isComponentIndexFile, scanComponentExports } from '../src/components';
 
 const fixtureComponentsPath = fileURLToPath(new URL('./fixtures/basic/components/ui', import.meta.url));
 
@@ -24,6 +24,24 @@ describe('getComponentExportNames', () => {
 
   it('throws on syntax errors', () => {
     expect(() => getComponentExportNames('index.ts', 'export { Button from')).toThrow();
+  });
+});
+
+describe('ignorePatternsForComponentDir', () => {
+  const componentsPath = join('/project', 'app', 'components', 'ui');
+
+  it('ignores the component directory inside a parent scan', () => {
+    expect(ignorePatternsForComponentDir(componentsPath, join('/project', 'app', 'components'))).toEqual(['ui/**']);
+  });
+
+  it('ignores a scan of the component directory itself and directories inside it', () => {
+    expect(ignorePatternsForComponentDir(componentsPath, componentsPath)).toEqual(['**/*']);
+    expect(ignorePatternsForComponentDir(componentsPath, join(componentsPath, 'button'))).toEqual(['**/*']);
+  });
+
+  it('leaves unrelated directories alone', () => {
+    expect(ignorePatternsForComponentDir(componentsPath, join('/project', 'app', 'components', 'ui-extra'))).toEqual([]);
+    expect(ignorePatternsForComponentDir(componentsPath, join('/project', 'other'))).toEqual([]);
   });
 });
 
