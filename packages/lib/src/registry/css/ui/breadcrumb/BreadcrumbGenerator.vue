@@ -20,7 +20,8 @@ export interface BreadcrumbItem {
 }
 
 interface ActionProps {
-
+  /** Classes for the active or inactive item. */
+  'class'?: string;
   'aria-current'?: 'page' | 'step' | 'location' | 'date' | 'time' | boolean;
 }
 
