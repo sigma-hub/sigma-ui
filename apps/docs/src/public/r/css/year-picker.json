@@ -1,0 +1,69 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "year-picker",
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-vue-next@^1.0.0",
+    "reka-ui@^2.11.0"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "ui/year-picker/YearPicker.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { YearPickerRoot, type YearPickerRootEmits, type YearPickerRootProps, useForwardPropsEmits } from 'reka-ui';\nimport { YearPickerCell, YearPickerCellTrigger, YearPickerGrid, YearPickerGridBody, YearPickerGridRow, YearPickerHeader, YearPickerHeading, YearPickerNextButton, YearPickerPrevButton } from '.';\n\nconst props = defineProps<YearPickerRootProps>();\nconst emits = defineEmits<YearPickerRootEmits>();\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <YearPickerRoot\n    v-slot=\"{ grid }\"\n    data-slot=\"year-picker\"\n    class=\"sigma-ui-year-picker\"\n    v-bind=\"forwarded\"\n    :class=\"[$attrs.class]\"\n  >\n    <YearPickerHeader>\n      <YearPickerPrevButton />\n      <YearPickerHeading />\n      <YearPickerNextButton />\n    </YearPickerHeader>\n    <YearPickerGrid>\n      <YearPickerGridBody>\n        <YearPickerGridRow\n          v-for=\"(row, index) in grid.rows\"\n          :key=\"index\"\n          class=\"sigma-ui-year-picker__row\"\n        >\n          <YearPickerCell\n            v-for=\"date in row\"\n            :key=\"date.toString()\"\n            :date=\"date\"\n          >\n            <YearPickerCellTrigger :year=\"date\" />\n          </YearPickerCell>\n        </YearPickerGridRow>\n      </YearPickerGridBody>\n    </YearPickerGrid>\n  </YearPickerRoot>\n</template>\n\n<style>\n.sigma-ui-year-picker {\n  width: fit-content;\n  padding: 0.75rem;\n  border: 1px solid var(--border);\n  border-radius: var(--radius-md);\n}\n\n.sigma-ui-year-picker__row {\n  width: 100%;\n  margin-top: 0.5rem;\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/year-picker/YearPickerCell.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { YearPickerCell, type YearPickerCellProps, useForwardProps } from 'reka-ui';\n\nconst props = defineProps<YearPickerCellProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <YearPickerCell\n    data-slot=\"year-picker-cell\"\n    class=\"sigma-ui-year-picker-cell\"\n    v-bind=\"forwarded\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </YearPickerCell>\n</template>\n\n<style>\n.sigma-ui-year-picker-cell {\n  position: relative;\n  padding: 0;\n  font-size: 0.875rem;\n  text-align: center;\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/year-picker/YearPickerCellTrigger.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { YearPickerCellTrigger, type YearPickerCellTriggerProps, useForwardProps } from 'reka-ui';\n\nconst props = defineProps<YearPickerCellTriggerProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <YearPickerCellTrigger\n    data-slot=\"year-picker-cell-trigger\"\n    class=\"sigma-ui-year-picker-cell-trigger\"\n    v-bind=\"forwarded\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </YearPickerCellTrigger>\n</template>\n\n<style>\n.sigma-ui-year-picker-cell-trigger {\n  display: inline-flex;\n  min-width: 4.5rem;\n  height: 2rem;\n  align-items: center;\n  justify-content: center;\n  border-radius: var(--radius-md);\n  font-size: 0.875rem;\n  padding-inline: 0.5rem;\n}\n\n.sigma-ui-year-picker-cell-trigger:hover {\n  background-color: var(--accent);\n  color: var(--accent-foreground);\n}\n\n.sigma-ui-year-picker-cell-trigger:focus-visible {\n  outline: 2px solid var(--ring);\n}\n\n.sigma-ui-year-picker-cell-trigger[data-selected] {\n  background-color: var(--primary);\n  color: var(--primary-foreground);\n}\n\n.sigma-ui-year-picker-cell-trigger[data-today]:not([data-selected]) {\n  background-color: var(--accent);\n  color: var(--accent-foreground);\n}\n\n.sigma-ui-year-picker-cell-trigger[data-disabled] {\n  opacity: 0.5;\n  pointer-events: none;\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/year-picker/YearPickerGrid.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { YearPickerGrid, type YearPickerGridProps, useForwardProps } from 'reka-ui';\n\nconst props = defineProps<YearPickerGridProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <YearPickerGrid\n\n    data-slot=\"year-picker-grid\"\n    class=\"sigma-ui-year-picker-grid\"\n    v-bind=\"forwarded\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </YearPickerGrid>\n</template>\n\n<style>\n\n.sigma-ui-year-picker-grid {\n  display: flex;\n  width: 100%;\n  flex-direction: column;\n  border-collapse: collapse;\n}\n\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/year-picker/YearPickerGridBody.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { YearPickerGridBody, type YearPickerGridBodyProps } from 'reka-ui';\n\nconst props = defineProps<YearPickerGridBodyProps>();\n</script>\n\n<template>\n  <YearPickerGridBody\n    data-slot=\"year-picker-grid-body\"\n    v-bind=\"props\"\n  >\n    <slot />\n  </YearPickerGridBody>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/year-picker/YearPickerGridRow.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { YearPickerGridRow, type YearPickerGridRowProps, useForwardProps } from 'reka-ui';\n\nconst props = defineProps<YearPickerGridRowProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <YearPickerGridRow\n\n    data-slot=\"year-picker-gridrow\"\n    class=\"sigma-ui-year-picker-gridrow\"\n    v-bind=\"forwarded\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </YearPickerGridRow>\n</template>\n\n<style>\n\n.sigma-ui-year-picker-grid-row {\n  display: flex;\n}\n\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/year-picker/YearPickerHeader.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { YearPickerHeader, type YearPickerHeaderProps, useForwardProps } from 'reka-ui';\n\nconst props = defineProps<YearPickerHeaderProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <YearPickerHeader\n\n    data-slot=\"year-picker-header\"\n    class=\"sigma-ui-year-picker-header\"\n    v-bind=\"forwarded\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </YearPickerHeader>\n</template>\n\n<style>\n\n.sigma-ui-year-picker-header {\n  position: relative;\n  display: flex;\n  width: 100%;\n  align-items: center;\n  justify-content: space-between;\n}\n\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/year-picker/YearPickerHeading.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { YearPickerHeading, type YearPickerHeadingProps, useForwardProps } from 'reka-ui';\n\nconst props = defineProps<YearPickerHeadingProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <YearPickerHeading\n    v-slot=\"{ headingValue }\"\n    data-slot=\"year-picker-heading\"\n    class=\"sigma-ui-year-picker-heading\"\n    v-bind=\"forwarded\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot :heading-value=\"headingValue\">\n      {{ headingValue }}\n    </slot>\n  </YearPickerHeading>\n</template>\n\n<style>\n\n.sigma-ui-year-picker-heading {\n  font-size: 0.875rem;\n  font-weight: 500;\n}\n\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/year-picker/YearPickerNextButton.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { YearPickerNext, type YearPickerNextProps, useForwardProps } from 'reka-ui';\nimport { ChevronRightIcon } from 'lucide-vue-next';\nimport { buttonVariants } from '@/components/ui/button';\n\nconst props = defineProps<YearPickerNextProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <YearPickerNext\n    data-slot=\"year-picker-next-button\"\n    class=\"sigma-ui-year-picker-next\"\n    :class=\"[buttonVariants({ variant: 'outline' }), $attrs.class]\"\n    v-bind=\"forwarded\"\n  >\n    <slot>\n      <ChevronRightIcon class=\"sigma-ui-year-picker-next__icon\" />\n    </slot>\n  </YearPickerNext>\n</template>\n\n<style>\n.sigma-ui-year-picker-next {\n  width: 1.75rem;\n  height: 1.75rem;\n  padding: 0;\n  border: 1px solid var(--border);\n  border-radius: var(--radius-sm);\n  background-color: transparent;\n  opacity: 0.5;\n}\n\n.sigma-ui-year-picker-next:hover {\n  background-color: var(--accent);\n  color: var(--accent-foreground);\n  opacity: 1;\n}\n\n.sigma-ui-year-picker-next__icon {\n  width: 1rem;\n  height: 1rem;\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/year-picker/YearPickerPrevButton.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { YearPickerPrev, type YearPickerPrevProps, useForwardProps } from 'reka-ui';\nimport { ChevronLeftIcon } from 'lucide-vue-next';\nimport { buttonVariants } from '@/components/ui/button';\n\nconst props = defineProps<YearPickerPrevProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <YearPickerPrev\n    data-slot=\"year-picker-prev-button\"\n    class=\"sigma-ui-year-picker-prev\"\n    :class=\"[buttonVariants({ variant: 'outline' }), $attrs.class]\"\n    v-bind=\"forwarded\"\n  >\n    <slot>\n      <ChevronLeftIcon class=\"sigma-ui-year-picker-prev__icon\" />\n    </slot>\n  </YearPickerPrev>\n</template>\n\n<style>\n.sigma-ui-year-picker-prev {\n  width: 1.75rem;\n  height: 1.75rem;\n  padding: 0;\n  border: 1px solid var(--border);\n  border-radius: var(--radius-sm);\n  background-color: transparent;\n  opacity: 0.5;\n}\n\n.sigma-ui-year-picker-prev:hover {\n  background-color: var(--accent);\n  color: var(--accent-foreground);\n  opacity: 1;\n}\n\n.sigma-ui-year-picker-prev__icon {\n  width: 1rem;\n  height: 1rem;\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/year-picker/index.ts",
+      "content": "export { default as YearPicker } from './YearPicker.vue';\nexport { default as YearPickerCell } from './YearPickerCell.vue';\nexport { default as YearPickerCellTrigger } from './YearPickerCellTrigger.vue';\nexport { default as YearPickerGrid } from './YearPickerGrid.vue';\nexport { default as YearPickerGridBody } from './YearPickerGridBody.vue';\nexport { default as YearPickerGridRow } from './YearPickerGridRow.vue';\nexport { default as YearPickerHeader } from './YearPickerHeader.vue';\nexport { default as YearPickerHeading } from './YearPickerHeading.vue';\nexport { default as YearPickerNextButton } from './YearPickerNextButton.vue';\nexport { default as YearPickerPrevButton } from './YearPickerPrevButton.vue';\n",
+      "type": "registry:ui"
+    }
+  ]
+}

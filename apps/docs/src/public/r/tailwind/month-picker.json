@@ -1,0 +1,69 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "month-picker",
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-vue-next@^1.0.0",
+    "reka-ui@^2.11.0"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "ui/month-picker/MonthPicker.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { MonthPickerRoot, type MonthPickerRootEmits, type MonthPickerRootProps, useForwardPropsEmits } from 'reka-ui';\nimport { cn } from '@/lib/utils';\nimport { MonthPickerCell, MonthPickerCellTrigger, MonthPickerGrid, MonthPickerGridBody, MonthPickerGridRow, MonthPickerHeader, MonthPickerHeading, MonthPickerNextButton, MonthPickerPrevButton } from '.';\n\nconst props = defineProps<MonthPickerRootProps>();\nconst emits = defineEmits<MonthPickerRootEmits>();\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <MonthPickerRoot\n    v-slot=\"{ grid }\"\n    data-slot=\"month-picker\"\n    v-bind=\"forwarded\"\n    :class=\"cn('w-fit rounded-md border p-3', $attrs.class ?? '')\"\n  >\n    <MonthPickerHeader>\n      <MonthPickerPrevButton />\n      <MonthPickerHeading />\n      <MonthPickerNextButton />\n    </MonthPickerHeader>\n    <MonthPickerGrid>\n      <MonthPickerGridBody>\n        <MonthPickerGridRow\n          v-for=\"(row, index) in grid.rows\"\n          :key=\"index\"\n          class=\"mt-2 w-full\"\n        >\n          <MonthPickerCell\n            v-for=\"date in row\"\n            :key=\"date.toString()\"\n            :date=\"date\"\n          >\n            <MonthPickerCellTrigger :month=\"date\" />\n          </MonthPickerCell>\n        </MonthPickerGridRow>\n      </MonthPickerGridBody>\n    </MonthPickerGrid>\n  </MonthPickerRoot>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/month-picker/MonthPickerCell.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { MonthPickerCell, type MonthPickerCellProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\nconst props = defineProps<MonthPickerCellProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <MonthPickerCell\n    data-slot=\"month-picker-cell\"\n    v-bind=\"forwarded\"\n    :class=\"cn('relative p-0 text-center text-sm', $attrs.class ?? '')\"\n  >\n    <slot />\n  </MonthPickerCell>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/month-picker/MonthPickerCellTrigger.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { MonthPickerCellTrigger, type MonthPickerCellTriggerProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\nconst props = defineProps<MonthPickerCellTriggerProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <MonthPickerCellTrigger\n    data-slot=\"month-picker-cell-trigger\"\n    v-bind=\"forwarded\"\n    :class=\"cn('inline-flex h-8 min-w-16 items-center justify-center rounded-md px-2 text-sm hover:bg-accent hover:text-accent-foreground focus-visible:outline-2 focus-visible:outline-ring data-[selected]:bg-primary data-[selected]:text-primary-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&[data-today]:not([data-selected])]:bg-accent', $attrs.class ?? '')\"\n  >\n    <slot />\n  </MonthPickerCellTrigger>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/month-picker/MonthPickerGrid.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { MonthPickerGrid, type MonthPickerGridProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\nconst props = defineProps<MonthPickerGridProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <MonthPickerGrid\n\n    data-slot=\"month-picker-grid\"\n    v-bind=\"forwarded\"\n    :class=\"cn('w-full border-collapse', $attrs.class ?? '')\"\n  >\n    <slot />\n  </MonthPickerGrid>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/month-picker/MonthPickerGridBody.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { MonthPickerGridBody, type MonthPickerGridBodyProps } from 'reka-ui';\n\nconst props = defineProps<MonthPickerGridBodyProps>();\n</script>\n\n<template>\n  <MonthPickerGridBody\n    data-slot=\"month-picker-grid-body\"\n    v-bind=\"props\"\n  >\n    <slot />\n  </MonthPickerGridBody>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/month-picker/MonthPickerGridRow.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { MonthPickerGridRow, type MonthPickerGridRowProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\nconst props = defineProps<MonthPickerGridRowProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <MonthPickerGridRow\n\n    data-slot=\"month-picker-gridrow\"\n    v-bind=\"forwarded\"\n    :class=\"cn('flex', $attrs.class ?? '')\"\n  >\n    <slot />\n  </MonthPickerGridRow>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/month-picker/MonthPickerHeader.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { MonthPickerHeader, type MonthPickerHeaderProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\nconst props = defineProps<MonthPickerHeaderProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <MonthPickerHeader\n\n    data-slot=\"month-picker-header\"\n    v-bind=\"forwarded\"\n    :class=\"cn('relative flex w-full items-center justify-between', $attrs.class ?? '')\"\n  >\n    <slot />\n  </MonthPickerHeader>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/month-picker/MonthPickerHeading.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { MonthPickerHeading, type MonthPickerHeadingProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\nconst props = defineProps<MonthPickerHeadingProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <MonthPickerHeading\n    v-slot=\"{ headingValue }\"\n    data-slot=\"month-picker-heading\"\n    v-bind=\"forwarded\"\n    :class=\"cn('text-sm font-medium', $attrs.class ?? '')\"\n  >\n    <slot :heading-value=\"headingValue\">\n      {{ headingValue }}\n    </slot>\n  </MonthPickerHeading>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/month-picker/MonthPickerNextButton.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { MonthPickerNext, type MonthPickerNextProps, useForwardProps } from 'reka-ui';\nimport { ChevronRightIcon } from 'lucide-vue-next';\nimport { cn } from '@/lib/utils';\nimport { buttonVariants } from '@/components/ui/button';\n\nconst props = defineProps<MonthPickerNextProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <MonthPickerNext\n    data-slot=\"month-picker-next-button\"\n    v-bind=\"forwarded\"\n    :class=\"cn(buttonVariants({ variant: 'outline' }), 'size-7 bg-transparent p-0 opacity-50 hover:bg-accent hover:text-accent-foreground hover:opacity-100', $attrs.class ?? '')\"\n  >\n    <slot>\n      <ChevronRightIcon class=\"size-4\" />\n    </slot>\n  </MonthPickerNext>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/month-picker/MonthPickerPrevButton.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { MonthPickerPrev, type MonthPickerPrevProps, useForwardProps } from 'reka-ui';\nimport { ChevronLeftIcon } from 'lucide-vue-next';\nimport { cn } from '@/lib/utils';\nimport { buttonVariants } from '@/components/ui/button';\n\nconst props = defineProps<MonthPickerPrevProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <MonthPickerPrev\n    data-slot=\"month-picker-prev-button\"\n    v-bind=\"forwarded\"\n    :class=\"cn(buttonVariants({ variant: 'outline' }), 'size-7 bg-transparent p-0 opacity-50 hover:bg-accent hover:text-accent-foreground hover:opacity-100', $attrs.class ?? '')\"\n  >\n    <slot>\n      <ChevronLeftIcon class=\"size-4\" />\n    </slot>\n  </MonthPickerPrev>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/month-picker/index.ts",
+      "content": "export { default as MonthPicker } from './MonthPicker.vue';\nexport { default as MonthPickerCell } from './MonthPickerCell.vue';\nexport { default as MonthPickerCellTrigger } from './MonthPickerCellTrigger.vue';\nexport { default as MonthPickerGrid } from './MonthPickerGrid.vue';\nexport { default as MonthPickerGridBody } from './MonthPickerGridBody.vue';\nexport { default as MonthPickerGridRow } from './MonthPickerGridRow.vue';\nexport { default as MonthPickerHeader } from './MonthPickerHeader.vue';\nexport { default as MonthPickerHeading } from './MonthPickerHeading.vue';\nexport { default as MonthPickerNextButton } from './MonthPickerNextButton.vue';\nexport { default as MonthPickerPrevButton } from './MonthPickerPrevButton.vue';\n",
+      "type": "registry:ui"
+    }
+  ]
+}

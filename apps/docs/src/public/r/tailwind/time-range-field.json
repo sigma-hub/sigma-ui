@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "time-range-field",
+  "type": "registry:ui",
+  "dependencies": [
+    "reka-ui@^2.11.0"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/time-range-field/TimeRangeField.vue",
+      "content": "<script setup lang=\"ts\">\nimport { TimeRangeFieldRoot, type TimeRangeFieldRootEmits, type TimeRangeFieldRootProps, useForwardPropsEmits } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst props = defineProps<TimeRangeFieldRootProps>();\nconst emits = defineEmits<TimeRangeFieldRootEmits>();\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <TimeRangeFieldRoot\n    data-slot=\"time-range-field\"\n    v-bind=\"{ ...forwarded, ...$attrs }\"\n    :class=\"cn('inline-flex h-9 items-center gap-1 rounded-md border border-input bg-transparent px-3 text-sm', $attrs.class ?? '')\"\n  >\n    <slot />\n  </TimeRangeFieldRoot>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/time-range-field/TimeRangeFieldInput.vue",
+      "content": "<script setup lang=\"ts\">\nimport { TimeRangeFieldInput, type TimeRangeFieldInputProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst props = defineProps<TimeRangeFieldInputProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <TimeRangeFieldInput\n    data-slot=\"time-range-field-input\"\n    v-bind=\"{ ...forwarded, ...$attrs }\"\n    :class=\"cn('rounded-sm px-0.5 tabular-nums outline-none focus:bg-accent focus:text-accent-foreground', $attrs.class ?? '')\"\n  />\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/time-range-field/index.ts",
+      "content": "export { default as TimeRangeField } from './TimeRangeField.vue';\nexport { default as TimeRangeFieldInput } from './TimeRangeFieldInput.vue';\n",
+      "type": "registry:ui"
+    }
+  ]
+}

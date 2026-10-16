@@ -1,0 +1,46 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "autocomplete",
+  "type": "registry:ui",
+  "dependencies": [
+    "reka-ui@^2.11.0"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/autocomplete/Autocomplete.vue",
+      "content": "<script setup lang=\"ts\">\nimport { AutocompleteRoot, type AutocompleteRootEmits, type AutocompleteRootProps, useForwardPropsEmits } from 'reka-ui';\n\nconst props = defineProps<AutocompleteRootProps>();\nconst emits = defineEmits<AutocompleteRootEmits>();\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <AutocompleteRoot\n    data-slot=\"autocomplete\"\n    v-bind=\"forwarded\"\n  >\n    <slot />\n  </AutocompleteRoot>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/autocomplete/AutocompleteAnchor.vue",
+      "content": "<script setup lang=\"ts\">\nimport { AutocompleteAnchor, type AutocompleteAnchorProps, useForwardProps } from 'reka-ui';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst props = defineProps<AutocompleteAnchorProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <AutocompleteAnchor\n    data-slot=\"autocomplete-anchor\"\n    class=\"sigma-ui-autocomplete-anchor\"\n    v-bind=\"{ ...forwarded, ...$attrs }\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </AutocompleteAnchor>\n</template>\n\n<style>\n.sigma-ui-autocomplete-anchor {\n  width: 16rem;\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/autocomplete/AutocompleteEmpty.vue",
+      "content": "<script setup lang=\"ts\">\nimport { AutocompleteEmpty, type AutocompleteEmptyProps } from 'reka-ui';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst props = defineProps<AutocompleteEmptyProps>();\n</script>\n\n<template>\n  <AutocompleteEmpty\n    data-slot=\"autocomplete-empty\"\n    class=\"sigma-ui-autocomplete-empty\"\n    v-bind=\"{ ...props, ...$attrs }\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </AutocompleteEmpty>\n</template>\n\n<style>\n.sigma-ui-autocomplete-empty {\n  font-size: 0.875rem;\n  padding-block: 1.5rem;\n  text-align: center;\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/autocomplete/AutocompleteInput.vue",
+      "content": "<script setup lang=\"ts\">\nimport { AutocompleteInput, type AutocompleteInputEmits, type AutocompleteInputProps, useForwardPropsEmits } from 'reka-ui';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst props = defineProps<AutocompleteInputProps>();\nconst emits = defineEmits<AutocompleteInputEmits>();\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <AutocompleteInput\n    data-slot=\"autocomplete-input\"\n    class=\"sigma-ui-autocomplete-input\"\n    v-bind=\"{ ...forwarded, ...$attrs }\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </AutocompleteInput>\n</template>\n\n<style>\n.sigma-ui-autocomplete-input {\n  display: flex;\n  width: 100%;\n  height: 2.25rem;\n  border: 1px solid var(--input);\n  border-radius: var(--radius-md);\n  background-color: transparent;\n  font-size: 0.875rem;\n  padding-block: 0.25rem;\n  padding-inline: 0.75rem;\n}\n\n.sigma-ui-autocomplete-input::placeholder {\n  color: var(--muted-foreground);\n}\n\n.sigma-ui-autocomplete-input:focus-visible {\n  outline: 2px solid var(--ring);\n  outline-offset: 2px;\n}\n\n.sigma-ui-autocomplete-input:disabled {\n  opacity: 0.5;\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/autocomplete/AutocompleteItem.vue",
+      "content": "<script setup lang=\"ts\">\nimport { AutocompleteItem, type AutocompleteItemEmits, type AutocompleteItemProps, useForwardPropsEmits } from 'reka-ui';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst props = defineProps<AutocompleteItemProps>();\nconst emits = defineEmits<AutocompleteItemEmits>();\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <AutocompleteItem\n    data-slot=\"autocomplete-item\"\n    class=\"sigma-ui-autocomplete-item\"\n    v-bind=\"{ ...forwarded, ...$attrs }\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </AutocompleteItem>\n</template>\n\n<style>\n.sigma-ui-autocomplete-item {\n  position: relative;\n  display: flex;\n  align-items: center;\n  padding: 0.375rem 0.5rem;\n  border-radius: var(--radius-sm);\n  font-size: 0.875rem;\n  outline: none;\n  user-select: none;\n}\n\n.sigma-ui-autocomplete-item[data-highlighted] {\n  background-color: var(--accent);\n  color: var(--accent-foreground);\n}\n\n.sigma-ui-autocomplete-item[data-disabled] {\n  opacity: 0.5;\n  pointer-events: none;\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/autocomplete/AutocompleteList.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { AutocompleteContentEmits, AutocompleteContentProps } from 'reka-ui';\nimport { AutocompleteContent, AutocompletePortal, AutocompleteViewport, useForwardPropsEmits } from 'reka-ui';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst props = withDefaults(defineProps<AutocompleteContentProps>(), {\n  position: 'popper',\n  align: 'center',\n  sideOffset: 4,\n});\nconst emits = defineEmits<AutocompleteContentEmits>();\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <AutocompletePortal>\n    <AutocompleteContent\n      data-slot=\"autocomplete-list\"\n      class=\"sigma-ui-autocomplete-list\"\n      v-bind=\"{ ...forwarded, ...$attrs }\"\n      :class=\"[$attrs.class]\"\n    >\n      <AutocompleteViewport>\n        <slot />\n      </AutocompleteViewport>\n    </AutocompleteContent>\n  </AutocompletePortal>\n</template>\n\n<style>\n.sigma-ui-autocomplete-list {\n  z-index: 50;\n  width: 16rem;\n  padding: 0.25rem;\n  border: 1px solid var(--border);\n  border-radius: var(--radius-md);\n  background-color: var(--popover);\n  box-shadow: var(--shadow-md);\n  color: var(--popover-foreground);\n  outline: none;\n}\n\n.sigma-ui-autocomplete-list[data-state=\"open\"] {\n  animation: sigma-ui-autocomplete-in 150ms ease-out;\n}\n\n.sigma-ui-autocomplete-list[data-state=\"closed\"] {\n  animation: sigma-ui-autocomplete-out 150ms ease-in;\n}\n\n@keyframes sigma-ui-autocomplete-in {\n  from {\n    opacity: 0;\n  }\n}\n\n@keyframes sigma-ui-autocomplete-out {\n  to {\n    opacity: 0;\n  }\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/autocomplete/index.ts",
+      "content": "export { default as Autocomplete } from './Autocomplete.vue';\nexport { default as AutocompleteAnchor } from './AutocompleteAnchor.vue';\nexport { default as AutocompleteEmpty } from './AutocompleteEmpty.vue';\nexport { default as AutocompleteInput } from './AutocompleteInput.vue';\nexport { default as AutocompleteItem } from './AutocompleteItem.vue';\nexport { default as AutocompleteList } from './AutocompleteList.vue';\nexport { AutocompleteCancel, AutocompleteItemIndicator, AutocompleteTrigger } from 'reka-ui';\n",
+      "type": "registry:ui"
+    }
+  ]
+}

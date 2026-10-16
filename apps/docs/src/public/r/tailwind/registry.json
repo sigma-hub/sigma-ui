@@ -131,6 +131,44 @@
       ]
     },
     {
+      "name": "autocomplete",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui@^2.11.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ui/autocomplete/Autocomplete.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/autocomplete/AutocompleteAnchor.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/autocomplete/AutocompleteEmpty.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/autocomplete/AutocompleteInput.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/autocomplete/AutocompleteItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/autocomplete/AutocompleteList.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/autocomplete/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "avatar",
       "type": "registry:ui",
       "dependencies": [
@@ -616,6 +654,68 @@
       ]
     },
     {
+      "name": "color",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui@^2.11.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ui/color/ColorArea.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/color/ColorAreaArea.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/color/ColorAreaThumb.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/color/ColorField.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/color/ColorFieldInput.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/color/ColorSlider.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/color/ColorSliderThumb.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/color/ColorSliderTrack.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/color/ColorSwatch.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/color/ColorSwatchPicker.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/color/ColorSwatchPickerItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/color/ColorSwatchPickerItemSwatch.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/color/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "combobox",
       "type": "registry:ui",
       "dependencies": [
@@ -850,8 +950,7 @@
       "name": "drawer",
       "type": "registry:ui",
       "dependencies": [
-        "reka-ui@^2.11.0",
-        "vaul-vue@^0.4.1"
+        "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -1415,6 +1514,63 @@
       ]
     },
     {
+      "name": "month-picker",
+      "type": "registry:ui",
+      "dependencies": [
+        "lucide-vue-next@^1.0.0",
+        "reka-ui@^2.11.0"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "ui/month-picker/MonthPicker.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/month-picker/MonthPickerCell.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/month-picker/MonthPickerCellTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/month-picker/MonthPickerGrid.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/month-picker/MonthPickerGridBody.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/month-picker/MonthPickerGridRow.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/month-picker/MonthPickerHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/month-picker/MonthPickerHeading.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/month-picker/MonthPickerNextButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/month-picker/MonthPickerPrevButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/month-picker/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "native-select",
       "type": "registry:ui",
       "dependencies": [
@@ -1720,6 +1876,32 @@
         },
         {
           "path": "ui/range-calendar/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "rating",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui@^2.11.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ui/rating/Rating.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/rating/RatingItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/rating/RatingItemIndicator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/rating/index.ts",
           "type": "registry:ui"
         }
       ]
@@ -2262,6 +2444,28 @@
       ]
     },
     {
+      "name": "time-range-field",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui@^2.11.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ui/time-range-field/TimeRangeField.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/time-range-field/TimeRangeFieldInput.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/time-range-field/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "toaster",
       "type": "registry:ui",
       "dependencies": [
@@ -2359,6 +2563,63 @@
         },
         {
           "path": "ui/tooltip/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "year-picker",
+      "type": "registry:ui",
+      "dependencies": [
+        "lucide-vue-next@^1.0.0",
+        "reka-ui@^2.11.0"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "ui/year-picker/YearPicker.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/year-picker/YearPickerCell.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/year-picker/YearPickerCellTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/year-picker/YearPickerGrid.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/year-picker/YearPickerGridBody.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/year-picker/YearPickerGridRow.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/year-picker/YearPickerHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/year-picker/YearPickerHeading.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/year-picker/YearPickerNextButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/year-picker/YearPickerPrevButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/year-picker/index.ts",
           "type": "registry:ui"
         }
       ]
