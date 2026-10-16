@@ -38,9 +38,9 @@ defineSlots<{
   padding: 1.5rem;
   border: 1px dashed var(--border);
   border-radius: var(--radius-lg);
+  gap: 1.5rem;
   text-align: center;
   text-wrap: balance;
-  gap: 1.5rem;
 }
 
 @media (width >= 48rem) {
