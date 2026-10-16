@@ -5,10 +5,12 @@ declare global {
 
   interface ImportMetaEnv {
     readonly VITE_APP_VERSION: string;
+    readonly SSR: boolean;
   }
 
   interface ImportMeta {
     readonly env: ImportMetaEnv;
+    glob<Module = unknown>(pattern: string): Record<string, () => Promise<Module>>;
   }
 }
 
