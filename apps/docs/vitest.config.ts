@@ -9,6 +9,9 @@ export default defineConfig({
     },
   },
   test: {
-    include: ['.vitepress/theme/utils/**/*.test.ts'],
+    include: [
+      '.vitepress/theme/utils/**/*.test.ts',
+      '.vitepress/block-renderer/**/*.test.ts',
+    ],
   },
 });

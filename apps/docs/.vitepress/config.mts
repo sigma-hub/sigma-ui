@@ -9,6 +9,7 @@ import { siteConfig } from './theme/config/site';
 import ComponentPreviewPlugin from './theme/plugins/previewer';
 import CodeWrapperPlugin from './theme/plugins/codewrapper';
 import ComponentInstallPlugin from './theme/plugins/component-install';
+import { blockRendererPlugin } from './block-renderer/plugin';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -71,6 +72,7 @@ export default defineConfig({
   vite: {
     plugins: [
       tailwindcss(),
+      blockRendererPlugin(path.resolve(__dirname, '../src/block-renderer/index.html')),
     ],
     define: {
       'import.meta.env.VITE_APP_VERSION': JSON.stringify(
