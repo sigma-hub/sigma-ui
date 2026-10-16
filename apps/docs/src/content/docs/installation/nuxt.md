@@ -15,16 +15,16 @@ Nuxt 4 keeps the application source in `app/`. `@/` and `~/` both point at that 
 
 ## Install Tailwind CSS
 
-Install Tailwind v4 and the Vite plugin when you want the Tailwind components:
+Install Tailwind v4 and its Vite plugin when you want the Tailwind components:
 
 ```bash
 npm install -D tailwindcss @tailwindcss/vite
 npm install tw-animate-css
 ```
 
-Do not install `@nuxtjs/tailwindcss`. That module targets Tailwind v3. While it is installed, `sigma-ui-nuxt` skips `@tailwindcss/vite` and logs a warning.
+`sigma-ui-nuxt` registers `@tailwindcss/vite` for you. It does not use `@nuxtjs/tailwindcss`, which targets Tailwind v3. If that module is installed, `sigma-ui-nuxt` skips the Vite plugin and logs a warning.
 
-Skip this step if you choose the CSS style system during initialization. That path does not use Tailwind.
+Skip this step for the CSS style system. That path does not use Tailwind.
 
 ## Add the module
 
@@ -32,7 +32,7 @@ Skip this step if you choose the CSS style system during initialization. That pa
 npx nuxi module add sigma-ui-nuxt
 ```
 
-The module auto-imports every component exported from `app/components/ui/<name>/index.ts`. When `@tailwindcss/vite` is installed and not already listed in `vite.plugins`, the module registers it. You do not copy a module into the project.
+The module auto-imports every component exported from `app/components/ui/<name>/index.ts`. You do not paste a module into the project. When the project has no `@/lib/utils`, the module provides `cn()` itself.
 
 ## Initialize sigma-ui
 
@@ -40,9 +40,9 @@ The module auto-imports every component exported from `app/components/ui/<name>/
 npx sigma-ui init
 ```
 
-On a Nuxt 4 project, init writes `app/assets/css/tailwind.css` and adds `~/assets/css/tailwind.css` to the `css` array in `nuxt.config.ts`. With the Tailwind style system it also installs `clsx`, `tailwind-merge`, and `tw-animate-css`, and adds `tailwindcss()` from `@tailwindcss/vite` to `vite.plugins`.
+On a Nuxt 4 project, init writes `app/assets/css/tailwind.css` and adds `~/assets/css/tailwind.css` to the `css` array in `nuxt.config.ts`.
 
-The stylesheet is CSS-first. Init does not create a `tailwind.config.js`.
+With the Tailwind style system, that file starts with the Tailwind v4 imports and then defines the theme. Init does not create a `tailwind.config.js`. It installs `clsx`, `tailwind-merge`, and `tw-animate-css`, writes `@/lib/utils`, and adds `tailwindcss()` from `@tailwindcss/vite` to `vite.plugins` when Tailwind is not already set up:
 
 ```css
 @import "tailwindcss";
@@ -67,21 +67,30 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  sigmaUi: {
-    /**
-     * Prefix for every auto-imported component. 'Ui' turns Button into UiButton.
-     */
-    prefix: '',
-    /**
-     * Directory the CLI copies components into. In Nuxt 4 this is app/components/ui.
-     * Keep it in sync with aliases.components in sigma-ui.config.json.
-     */
-    componentDir: '@/components/ui',
-  },
 })
 ```
 
-`sigmaUi.tailwind` controls the Vite plugin. `'auto'` (the default) registers `@tailwindcss/vite` when it is installed and not already configured. `true` also warns when the package is missing. `false` never registers it.
+The module leaves an existing `tailwindcss()` plugin in place. `sigmaUi.tailwind` controls what it does when the plugin is missing:
+
+| Value | Behavior |
+| --- | --- |
+| `'auto'` (default) | Registers `@tailwindcss/vite` when it is installed. |
+| `true` | Same as `'auto'`, and warns when the package is missing. |
+| `false` | Never registers the plugin. |
+
+```ts
+export default defineNuxtConfig({
+  modules: ['sigma-ui-nuxt'],
+  sigmaUi: {
+    // 'Ui' turns <Button> into <UiButton>.
+    prefix: '',
+    // Directory the CLI copies components into. Keep it in sync with
+    // aliases.components in sigma-ui.config.json.
+    componentDir: '@/components/ui',
+    tailwind: 'auto',
+  },
+})
+```
 
 ## Add components
 
