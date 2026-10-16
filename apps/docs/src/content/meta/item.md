@@ -6,12 +6,14 @@
   {
     "name": "variant",
     "type": "\"default\" | \"outline\" | \"muted\" | null",
+    "default": "\"default\"",
     "required": false,
     "description": "<p>Surface of the row.</p>"
   },
   {
     "name": "size",
     "type": "\"default\" | \"sm\" | null",
+    "default": "\"default\"",
     "required": false,
     "description": "<p>Padding and gap of the row.</p>"
   },
