@@ -2,7 +2,7 @@
 import type { DateRange } from 'reka-ui';
 import { CalendarDate, DateFormatter, getLocalTimeZone } from '@internationalized/date';
 import { CalendarIcon } from 'lucide-vue-next';
-import { ref } from 'vue';
+import { type Ref, ref } from 'vue';
 import { Button } from '@ui/registry/css/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@ui/registry/css/ui/popover';
 import { RangeCalendar } from '@ui/registry/css/ui/range-calendar';
@@ -17,10 +17,10 @@ const formatter = new DateFormatter('en-US', {
 
 const start = new CalendarDate(2023, 1, 20);
 
-const value = ref<DateRange>({
+const value = ref({
   start,
   end: start.add({ days: 20 }),
-});
+}) as Ref<DateRange>;
 
 function formatDate(date: DateRange['start']) {
   if (!date) {
