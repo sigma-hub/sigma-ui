@@ -42,10 +42,10 @@ defineProps<{
   display: flex;
   height: 3.5rem;
   align-items: center;
-  gap: 1rem;
+  padding: 0 1rem;
   border-bottom: 1px solid var(--border);
   background-color: color-mix(in oklch, var(--muted) 40%, transparent);
-  padding: 0 1rem;
+  gap: 1rem;
 }
 
 @media (width >= 1024px) {
