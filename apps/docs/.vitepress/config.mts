@@ -1,6 +1,6 @@
 import path from 'node:path';
 import fs from 'node:fs';
-import { defineConfig, type MarkdownOptions } from 'vitepress';
+import { defineConfig, type MarkdownOptions, type UserConfig } from 'vitepress';
 import tailwindcss from '@tailwindcss/vite';
 import { transformerMetaWordHighlight } from '@shikijs/transformers';
 import { cssVariables } from './theme/config/shiki';
@@ -10,6 +10,12 @@ import ComponentPreviewPlugin from './theme/plugins/previewer';
 import CodeWrapperPlugin from './theme/plugins/codewrapper';
 import ComponentInstallPlugin from './theme/plugins/component-install';
 import { blockRendererPlugin } from './block-renderer/plugin';
+
+type VitePressPlugins = NonNullable<UserConfig['vite']>['plugins'];
+
+function vitePressPlugins(plugins: unknown[]): VitePressPlugins {
+  return plugins as VitePressPlugins;
+}
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -70,10 +76,10 @@ export default defineConfig({
     'content/(.*)': '(.*)',
   },
   vite: {
-    plugins: [
+    plugins: vitePressPlugins([
       tailwindcss(),
       blockRendererPlugin(path.resolve(__dirname, '../src/block-renderer/index.html')),
-    ],
+    ]),
     define: {
       'import.meta.env.VITE_APP_VERSION': JSON.stringify(
         JSON.parse(
