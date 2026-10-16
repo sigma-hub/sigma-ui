@@ -84,14 +84,14 @@ import { mainProductImage, productThumbnails } from '../data';
   aspect-ratio: 1 / 1;
   align-items: center;
   justify-content: center;
-  border: 1px dashed hsl(var(--border));
+  border: 1px dashed var(--border);
   border-radius: var(--radius-md);
 }
 
 .dashboard-product-edit__upload svg {
   width: 1rem;
   height: 1rem;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 .dashboard-product-edit__visually-hidden {

@@ -116,7 +116,7 @@ import { sizeOptions, stockVariants } from '../data';
 
 .sigma-ui-card__footer.dashboard-product-edit__stock-footer {
   justify-content: center;
-  border-top: 1px solid hsl(var(--border));
+  border-top: 1px solid var(--border);
   padding: 1rem;
 }
 

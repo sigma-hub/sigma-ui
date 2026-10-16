@@ -29,7 +29,7 @@ defineSlots<{
 
 <style>
 .sigma-ui-stepper-description {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.75rem;
 }
 </style>

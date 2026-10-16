@@ -71,7 +71,7 @@ import { chatActions } from '../data';
   min-height: 50vh;
   flex-direction: column;
   border-radius: var(--radius-xl);
-  background-color: hsl(var(--muted) / 50%);
+  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
   padding: 1rem;
 }
 
@@ -94,13 +94,13 @@ import { chatActions } from '../data';
 .dashboard-ai-playground__composer {
   position: relative;
   overflow: hidden;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  background-color: hsl(var(--background));
+  background-color: var(--background);
 }
 
 .dashboard-ai-playground__composer:focus-within {
-  box-shadow: 0 0 0 1px hsl(var(--ring));
+  box-shadow: 0 0 0 1px var(--ring);
 }
 
 textarea.dashboard-ai-playground__message-input {

@@ -115,7 +115,7 @@ import { Label } from '@ui/registry/css/ui/label';
 
 .login-split-image__description {
   margin: 0 0 2rem;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   text-wrap: pretty;
 }
 
@@ -161,7 +161,7 @@ import { Label } from '@ui/registry/css/ui/label';
 
 .login-split-image__image-side {
   display: none;
-  background-color: hsl(var(--muted));
+  background-color: var(--muted);
 }
 
 .login-split-image__image {

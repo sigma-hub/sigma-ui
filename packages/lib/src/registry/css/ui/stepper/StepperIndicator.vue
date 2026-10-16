@@ -36,7 +36,7 @@ defineSlots<{
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  color: hsl(var(--muted-foreground) / 50%);
+  color: color-mix(in oklch, var(--muted-foreground) 50%, transparent);
 }
 
 .sigma-ui-stepper-item[data-disabled] .sigma-ui-stepper-indicator {
@@ -44,12 +44,12 @@ defineSlots<{
 }
 
 .sigma-ui-stepper-item[data-state="active"] .sigma-ui-stepper-indicator {
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  background-color: var(--primary);
+  color: var(--primary-foreground);
 }
 
 .sigma-ui-stepper-item[data-state="completed"] .sigma-ui-stepper-indicator {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
 }
 </style>

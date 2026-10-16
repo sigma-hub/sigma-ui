@@ -22,7 +22,7 @@ defineSlots<{
   display: -webkit-box;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.875rem;
   font-weight: 400;
   -webkit-line-clamp: 2;
@@ -36,6 +36,6 @@ defineSlots<{
 }
 
 .sigma-ui-item-description a:hover {
-  color: hsl(var(--primary));
+  color: var(--primary);
 }
 </style>

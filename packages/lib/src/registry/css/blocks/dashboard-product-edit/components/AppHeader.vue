@@ -116,8 +116,8 @@ import { breadcrumbLinks, breadcrumbPage, mobileNavItems } from '../data';
   height: 3.5rem;
   align-items: center;
   gap: 1rem;
-  border-bottom: 1px solid hsl(var(--border));
-  background-color: hsl(var(--background));
+  border-bottom: 1px solid var(--border);
+  background-color: var(--background);
   padding-right: 1rem;
   padding-left: 1rem;
 }
@@ -168,8 +168,8 @@ button.dashboard-product-edit__account-button {
   justify-content: center;
   gap: 0.5rem;
   border-radius: var(--radius-full);
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  background-color: var(--primary);
+  color: var(--primary-foreground);
   font-size: 1.125rem;
   font-weight: 600;
   line-height: 1.75rem;
@@ -199,13 +199,13 @@ button.dashboard-product-edit__account-button {
   gap: 1rem;
   padding-right: 0.625rem;
   padding-left: 0.625rem;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   text-decoration: none;
 }
 
 .dashboard-product-edit__sheet-link:hover,
 .dashboard-product-edit__sheet-link--active {
-  color: hsl(var(--foreground));
+  color: var(--foreground);
 }
 
 .dashboard-product-edit__sheet-link svg {
@@ -242,13 +242,13 @@ button.dashboard-product-edit__account-button {
   left: 0.625rem;
   width: 1rem;
   height: 1rem;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 input.dashboard-product-edit__search-input {
   width: 100%;
   border-radius: var(--radius-lg);
-  background-color: hsl(var(--background));
+  background-color: var(--background);
   padding-left: 2rem;
 }
 

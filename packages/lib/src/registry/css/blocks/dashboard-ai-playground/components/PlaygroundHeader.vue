@@ -30,8 +30,8 @@ import ConfigurationDrawer from './ConfigurationDrawer.vue';
   height: 57px;
   align-items: center;
   gap: 0.25rem;
-  border-bottom: 1px solid hsl(var(--border));
-  background-color: hsl(var(--background));
+  border-bottom: 1px solid var(--border);
+  background-color: var(--background);
   padding-right: 1rem;
   padding-left: 1rem;
 }
