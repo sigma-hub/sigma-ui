@@ -126,6 +126,19 @@
     }
   },
   {
+    "name": "app-shell",
+    "title": "Application shell",
+    "description": "An application shell built with the Sidebar component. The sidebar collapses to icons and contains a workspace switcher, grouped navigation, and a user footer. The main area has a header with a sidebar trigger and an overview of stats and recent activity.",
+    "categories": [
+      "dashboard",
+      "sidebar"
+    ],
+    "meta": {
+      "iframeHeight": "800px",
+      "containerClass": "w-full h-full"
+    }
+  },
+  {
     "name": "dashboard-product-edit",
     "title": "Product edit page",
     "description": "A product edit page. The product edit page has a form to edit the product details, stock, product category, product status, and product images. The product edit page has a sidebar navigation and a main content area. The main content area has a form to edit the product details, stock, product category, product status, and product images. The sidebar navigation has links to product details, stock, product category, product status, and product images.",
