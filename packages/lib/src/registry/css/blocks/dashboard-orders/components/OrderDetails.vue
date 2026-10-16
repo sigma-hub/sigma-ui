@@ -224,8 +224,8 @@ defineProps<{
 .dashboard-orders .dashboard-orders__detail-title {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
   font-size: 1.125rem;
+  gap: 0.5rem;
   line-height: 1.75rem;
 }
 
@@ -248,8 +248,8 @@ defineProps<{
 .dashboard-orders__detail-actions {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
   margin-left: auto;
+  gap: 0.25rem;
 }
 
 .dashboard-orders .dashboard-orders__track-button {
@@ -271,25 +271,25 @@ defineProps<{
 @media (width >= 1024px) {
   .dashboard-orders__track-label {
     position: absolute;
+    overflow: hidden;
     width: 1px;
     height: 1px;
     padding: 0;
+    border-width: 0;
     margin: -1px;
-    overflow: hidden;
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
-    border-width: 0;
   }
 }
 
 @media (width >= 1280px) {
   .dashboard-orders__track-label {
     position: static;
+    overflow: visible;
     width: auto;
     height: auto;
     padding: 0;
     margin: 0;
-    overflow: visible;
     clip: auto;
     white-space: nowrap;
   }
@@ -336,20 +336,20 @@ defineProps<{
 
 .dashboard-orders__split {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .dashboard-orders__address {
   display: grid;
-  gap: 0.125rem;
   font-style: normal;
+  gap: 0.125rem;
 }
 
 .dashboard-orders__billing {
   display: grid;
-  grid-auto-rows: max-content;
   gap: 0.75rem;
+  grid-auto-rows: max-content;
 }
 
 .dashboard-orders__payment-brand {
@@ -366,9 +366,9 @@ defineProps<{
 .dashboard-orders .dashboard-orders__detail-footer {
   flex-direction: row;
   align-items: center;
+  padding: 0.75rem 1.5rem;
   border-top: 1px solid var(--border);
   background-color: color-mix(in oklch, var(--muted) 50%, transparent);
-  padding: 0.75rem 1.5rem;
 }
 
 .dashboard-orders__updated {
@@ -394,13 +394,13 @@ defineProps<{
 
 .dashboard-orders__sr-only {
   position: absolute;
+  overflow: hidden;
   width: 1px;
   height: 1px;
   padding: 0;
+  border-width: 0;
   margin: -1px;
-  overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  border-width: 0;
 }
 </style>
