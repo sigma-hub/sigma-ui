@@ -24,7 +24,7 @@ defineSlots<{
   display: flex;
   width: 100%;
   min-width: 0;
-  height: 2.5rem;
+  height: 2.25rem;
   align-items: center;
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius-md);

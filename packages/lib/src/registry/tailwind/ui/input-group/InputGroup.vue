@@ -14,7 +14,7 @@ defineSlots<{
     data-slot="input-group"
     role="group"
     :class="cn(
-      'group/input-group relative flex h-10 w-full min-w-0 items-center rounded-md border border-border bg-input outline-none transition-[color,box-shadow] has-[>textarea]:h-auto',
+      'group/input-group relative flex h-9 w-full min-w-0 items-center rounded-md border border-border bg-input outline-none transition-[color,box-shadow] has-[>textarea]:h-auto',
       'has-[>[data-align=inline-start]]:[&>input]:pl-2 has-[>[data-align=inline-end]]:[&>input]:pr-2',
       'has-[>[data-align=block-start]]:h-auto has-[>[data-align=block-start]]:flex-col has-[>[data-align=block-start]]:[&>input]:pb-3',
       'has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-end]]:flex-col has-[>[data-align=block-end]]:[&>input]:pt-3',

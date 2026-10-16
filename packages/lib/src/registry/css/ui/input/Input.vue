@@ -12,6 +12,7 @@ defineEmits<{
 <template>
   <input
     v-model="model"
+    data-slot="input"
     class="sigma-ui-input"
     :class="[$attrs.class]"
     autocomplete="off"
@@ -22,20 +23,39 @@ defineEmits<{
 .sigma-ui-input {
   display: flex;
   width: 100%;
-  height: 2.5rem;
+  min-width: 0;
+  height: 2.25rem;
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius-md);
   background-color: hsl(var(--input));
-  font-size: 0.875rem;
-  padding-block: 0.5rem;
+  font-size: 1rem;
+  padding-block: 0.25rem;
   padding-inline: 0.75rem;
 }
 
+@media (width >= 48rem) {
+  .sigma-ui-input {
+    font-size: 0.875rem;
+  }
+}
+
 .sigma-ui-input::file-selector-button {
+  display: inline-flex;
+  height: 1.75rem;
   border: 0;
   background-color: transparent;
+  color: hsl(var(--foreground));
   font-size: 0.875rem;
   font-weight: 500;
+}
+
+.sigma-ui-input::selection {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.sigma-ui-input[aria-invalid="true"] {
+  border-color: hsl(var(--destructive));
 }
 
 .sigma-ui-input::placeholder {
@@ -50,5 +70,6 @@ defineEmits<{
 .sigma-ui-input:disabled {
   cursor: not-allowed;
   opacity: 0.5;
+  pointer-events: none;
 }
 </style>
