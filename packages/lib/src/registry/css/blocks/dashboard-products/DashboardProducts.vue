@@ -57,8 +57,8 @@ import {
 <style>
 .dashboard-products {
   display: flex;
-  min-height: 100vh;
   width: 100%;
+  min-height: 100vh;
   flex-direction: column;
   background-color: color-mix(in oklch, var(--muted) 40%, transparent);
 }
@@ -70,10 +70,10 @@ import {
 
 @media (width >= 640px) {
   .dashboard-products__shell {
-    gap: 1rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
     padding-left: 3.5rem;
+    gap: 1rem;
   }
 }
 
@@ -81,16 +81,13 @@ import {
   display: grid;
   flex: 1 1 0%;
   align-items: flex-start;
-  gap: 1rem;
   padding: 1rem;
+  gap: 1rem;
 }
 
 @media (width >= 640px) {
   .dashboard-products__main {
-    padding-top: 0;
-    padding-right: 1.5rem;
-    padding-bottom: 0;
-    padding-left: 1.5rem;
+    padding: 0 1.5rem;
   }
 }
 
