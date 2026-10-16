@@ -202,6 +202,14 @@ export const Index = {
       component: () => import("../../../packages/lib/src/registry/tailwind/example/AspectRatio.vue").then((m) => m.default),
       files: ["example/AspectRatio.vue"],
     },
+    "Autocomplete": {
+      name: "Autocomplete",
+      type: "registry:example",
+      registryDependencies: ["autocomplete"],
+      dependencies: [],
+      component: () => import("../../../packages/lib/src/registry/tailwind/example/Autocomplete.vue").then((m) => m.default),
+      files: ["example/Autocomplete.vue"],
+    },
     "Avatar": {
       name: "Avatar",
       type: "registry:example",
@@ -722,6 +730,14 @@ export const Index = {
       component: () => import("../../../packages/lib/src/registry/tailwind/example/Collapsible.vue").then((m) => m.default),
       files: ["example/Collapsible.vue"],
     },
+    "Color": {
+      name: "Color",
+      type: "registry:example",
+      registryDependencies: ["color"],
+      dependencies: [],
+      component: () => import("../../../packages/lib/src/registry/tailwind/example/Color.vue").then((m) => m.default),
+      files: ["example/Color.vue"],
+    },
     "Combobox": {
       name: "Combobox",
       type: "registry:example",
@@ -1234,6 +1250,14 @@ export const Index = {
       component: () => import("../../../packages/lib/src/registry/tailwind/example/Menubar.vue").then((m) => m.default),
       files: ["example/Menubar.vue"],
     },
+    "MonthPicker": {
+      name: "MonthPicker",
+      type: "registry:example",
+      registryDependencies: ["month-picker"],
+      dependencies: ["@internationalized/date@^3.12.4"],
+      component: () => import("../../../packages/lib/src/registry/tailwind/example/MonthPicker.vue").then((m) => m.default),
+      files: ["example/MonthPicker.vue"],
+    },
     "NativeSelect": {
       name: "NativeSelect",
       type: "registry:example",
@@ -1393,6 +1417,14 @@ export const Index = {
       dependencies: ["@internationalized/date@^3.12.4","reka-ui@^2.11.0"],
       component: () => import("../../../packages/lib/src/registry/tailwind/example/RangeCalendar.vue").then((m) => m.default),
       files: ["example/RangeCalendar.vue"],
+    },
+    "Rating": {
+      name: "Rating",
+      type: "registry:example",
+      registryDependencies: ["rating"],
+      dependencies: ["lucide-vue-next@^1.0.0"],
+      component: () => import("../../../packages/lib/src/registry/tailwind/example/Rating.vue").then((m) => m.default),
+      files: ["example/Rating.vue"],
     },
     "Resizable": {
       name: "Resizable",
@@ -1666,6 +1698,14 @@ export const Index = {
       component: () => import("../../../packages/lib/src/registry/tailwind/example/TextareaWithText.vue").then((m) => m.default),
       files: ["example/TextareaWithText.vue"],
     },
+    "TimeRangeField": {
+      name: "TimeRangeField",
+      type: "registry:example",
+      registryDependencies: ["time-range-field"],
+      dependencies: ["@internationalized/date@^3.12.4"],
+      component: () => import("../../../packages/lib/src/registry/tailwind/example/TimeRangeField.vue").then((m) => m.default),
+      files: ["example/TimeRangeField.vue"],
+    },
     "Toaster": {
       name: "Toaster",
       type: "registry:example",
@@ -1914,6 +1954,14 @@ export const Index = {
       component: () => import("../../../packages/lib/src/registry/tailwind/example/TypographyTable.vue").then((m) => m.default),
       files: ["example/TypographyTable.vue"],
     },
+    "YearPicker": {
+      name: "YearPicker",
+      type: "registry:example",
+      registryDependencies: ["year-picker"],
+      dependencies: ["@internationalized/date@^3.12.4"],
+      component: () => import("../../../packages/lib/src/registry/tailwind/example/YearPicker.vue").then((m) => m.default),
+      files: ["example/YearPicker.vue"],
+    },
   },
   "css": {
     "app-shell": {
@@ -2115,6 +2163,14 @@ export const Index = {
       dependencies: [],
       component: () => import("../../../packages/lib/src/registry/css/example/AspectRatio.vue").then((m) => m.default),
       files: ["example/AspectRatio.vue"],
+    },
+    "Autocomplete": {
+      name: "Autocomplete",
+      type: "registry:example",
+      registryDependencies: ["autocomplete"],
+      dependencies: [],
+      component: () => import("../../../packages/lib/src/registry/css/example/Autocomplete.vue").then((m) => m.default),
+      files: ["example/Autocomplete.vue"],
     },
     "Avatar": {
       name: "Avatar",
@@ -2636,6 +2692,14 @@ export const Index = {
       component: () => import("../../../packages/lib/src/registry/css/example/Collapsible.vue").then((m) => m.default),
       files: ["example/Collapsible.vue"],
     },
+    "Color": {
+      name: "Color",
+      type: "registry:example",
+      registryDependencies: ["color"],
+      dependencies: [],
+      component: () => import("../../../packages/lib/src/registry/css/example/Color.vue").then((m) => m.default),
+      files: ["example/Color.vue"],
+    },
     "Combobox": {
       name: "Combobox",
       type: "registry:example",
@@ -3148,6 +3212,14 @@ export const Index = {
       component: () => import("../../../packages/lib/src/registry/css/example/Menubar.vue").then((m) => m.default),
       files: ["example/Menubar.vue"],
     },
+    "MonthPicker": {
+      name: "MonthPicker",
+      type: "registry:example",
+      registryDependencies: ["month-picker"],
+      dependencies: ["@internationalized/date@^3.12.4"],
+      component: () => import("../../../packages/lib/src/registry/css/example/MonthPicker.vue").then((m) => m.default),
+      files: ["example/MonthPicker.vue"],
+    },
     "NativeSelect": {
       name: "NativeSelect",
       type: "registry:example",
@@ -3307,6 +3379,14 @@ export const Index = {
       dependencies: ["@internationalized/date@^3.12.4","reka-ui@^2.11.0"],
       component: () => import("../../../packages/lib/src/registry/css/example/RangeCalendar.vue").then((m) => m.default),
       files: ["example/RangeCalendar.vue"],
+    },
+    "Rating": {
+      name: "Rating",
+      type: "registry:example",
+      registryDependencies: ["rating"],
+      dependencies: ["lucide-vue-next@^1.0.0"],
+      component: () => import("../../../packages/lib/src/registry/css/example/Rating.vue").then((m) => m.default),
+      files: ["example/Rating.vue"],
     },
     "Resizable": {
       name: "Resizable",
@@ -3580,6 +3660,14 @@ export const Index = {
       component: () => import("../../../packages/lib/src/registry/css/example/TextareaWithText.vue").then((m) => m.default),
       files: ["example/TextareaWithText.vue"],
     },
+    "TimeRangeField": {
+      name: "TimeRangeField",
+      type: "registry:example",
+      registryDependencies: ["time-range-field"],
+      dependencies: ["@internationalized/date@^3.12.4"],
+      component: () => import("../../../packages/lib/src/registry/css/example/TimeRangeField.vue").then((m) => m.default),
+      files: ["example/TimeRangeField.vue"],
+    },
     "Toaster": {
       name: "Toaster",
       type: "registry:example",
@@ -3827,6 +3915,14 @@ export const Index = {
       dependencies: [],
       component: () => import("../../../packages/lib/src/registry/css/example/TypographyTable.vue").then((m) => m.default),
       files: ["example/TypographyTable.vue"],
+    },
+    "YearPicker": {
+      name: "YearPicker",
+      type: "registry:example",
+      registryDependencies: ["year-picker"],
+      dependencies: ["@internationalized/date@^3.12.4"],
+      component: () => import("../../../packages/lib/src/registry/css/example/YearPicker.vue").then((m) => m.default),
+      files: ["example/YearPicker.vue"],
     },
   },
 };
