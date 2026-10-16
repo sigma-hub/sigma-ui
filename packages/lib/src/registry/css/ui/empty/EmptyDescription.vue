@@ -35,8 +35,8 @@ defineSlots<{
 }
 
 .sigma-ui-empty-description a {
-  text-underline-offset: 4px;
   text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .sigma-ui-empty-description a:hover {
