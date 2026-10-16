@@ -2379,6 +2379,38 @@
         {
           "path": "blocks/dashboard-ai-playground/DashboardAiPlayground.vue",
           "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-ai-playground/components/AppSidebar.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-ai-playground/components/ChatPanel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-ai-playground/components/ConfigurationDrawer.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-ai-playground/components/ConfigurationForm.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-ai-playground/components/ModelSelect.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-ai-playground/components/PlaygroundHeader.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-ai-playground/components/RoleSelect.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-ai-playground/data.ts",
+          "type": "registry:lib"
         }
       ],
       "meta": {
@@ -2486,6 +2518,46 @@
         {
           "path": "blocks/dashboard-product-edit/DashboardProductEdit.vue",
           "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-product-edit/components/AppHeader.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-product-edit/components/AppSidebar.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-product-edit/components/ArchiveProductCard.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-product-edit/components/ProductCategoryCard.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-product-edit/components/ProductDetailsCard.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-product-edit/components/ProductImagesCard.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-product-edit/components/ProductStatusCard.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-product-edit/components/ProductStockCard.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-product-edit/components/ProductToolbar.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-product-edit/data.ts",
+          "type": "registry:lib"
         }
       ],
       "meta": {
