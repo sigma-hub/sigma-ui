@@ -9,6 +9,7 @@ defineSlots<{
 
 <template>
   <span
+    data-slot="input-group-text"
     class="sigma-ui-input-group-text"
     :class="[$attrs.class]"
   >

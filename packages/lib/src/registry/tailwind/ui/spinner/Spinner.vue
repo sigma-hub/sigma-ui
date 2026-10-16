@@ -17,6 +17,7 @@ const props = withDefaults(defineProps<SpinnerProps>(), {
 <template>
   <Loader2Icon
     role="status"
+    data-slot="spinner"
     :aria-label="props.label"
     :class="cn('size-4 animate-spin', $attrs.class ?? '')"
   />
