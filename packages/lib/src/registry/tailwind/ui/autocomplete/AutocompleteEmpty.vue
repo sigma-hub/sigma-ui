@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { AutocompleteEmpty, type AutocompleteEmptyProps } from 'reka-ui';
+import { AutocompleteEmpty, type ComboboxEmptyProps } from 'reka-ui';
 import { cn } from '@ui/utils';
 
 defineOptions({
   inheritAttrs: false,
 });
 
-const props = defineProps<AutocompleteEmptyProps>();
+const props = defineProps<ComboboxEmptyProps>();
 </script>
 
 <template>

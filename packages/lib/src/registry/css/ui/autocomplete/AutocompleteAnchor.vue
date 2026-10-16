@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { AutocompleteAnchor, type AutocompleteAnchorProps, useForwardProps } from 'reka-ui';
+import { AutocompleteAnchor, type ComboboxAnchorProps, useForwardProps } from 'reka-ui';
 
 defineOptions({
   inheritAttrs: false,
 });
 
-const props = defineProps<AutocompleteAnchorProps>();
+const props = defineProps<ComboboxAnchorProps>();
 const forwarded = useForwardProps(props);
 </script>
 
