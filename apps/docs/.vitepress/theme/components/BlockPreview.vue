@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { InfoIcon, MonitorIcon, SmartphoneIcon, TabletIcon } from 'lucide-vue-next';
-import { computed, onMounted, ref, watch } from 'vue';
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
 import { DEFAULT_COMPONENTS, DEFAULT_UTILS } from '@sigma-ui/shared/consts';
 import { Badge } from '@ui/registry/tailwind/ui/badge';
 import { Popover, PopoverContent, PopoverTrigger } from '@ui/registry/tailwind/ui/popover';
@@ -67,25 +67,52 @@ const selectedFile = computed(() => registryFiles.value.find((file) => {
   return relativePath === selectedPath.value;
 }));
 
+let activeRegistryRequest = 0;
+let registryAbortController: AbortController | undefined;
+
 async function loadRegistryItem() {
   if (typeof window === 'undefined') {
     return;
   }
 
-  const response = await fetch(`/r/${config.value.styleSystem}/${props.name}.json`);
-  registryItem.value = response.ok ? await response.json() as RegistryBlockItem : undefined;
+  const requestId = ++activeRegistryRequest;
+  registryAbortController?.abort();
+
+  const abortController = new AbortController();
+  registryAbortController = abortController;
+  const styleSystem = config.value.styleSystem;
+  const blockName = props.name;
+  registryItem.value = undefined;
+
+  try {
+    const response = await fetch(`/r/${styleSystem}/${blockName}.json`, { signal: abortController.signal });
+    const item = response.ok ? await response.json() as RegistryBlockItem : undefined;
+
+    if (requestId !== activeRegistryRequest || abortController.signal.aborted) {
+      return;
+    }
+
+    registryItem.value = item;
+  } catch {
+    if (requestId !== activeRegistryRequest || abortController.signal.aborted) {
+      return;
+    }
+
+    registryItem.value = undefined;
+  }
 }
 
 onMounted(() => {
-  loadRegistryItem().catch(() => {
-    registryItem.value = undefined;
-  });
+  loadRegistryItem();
+});
+
+onUnmounted(() => {
+  activeRegistryRequest += 1;
+  registryAbortController?.abort();
 });
 
 watch(() => [config.value.styleSystem, props.name], () => {
-  loadRegistryItem().catch(() => {
-    registryItem.value = undefined;
-  });
+  loadRegistryItem();
 });
 const requirements = computed(() => ({
   components: (blockEntry.value?.registryDependencies ?? []).filter(dependency => dependency !== 'utils'),
