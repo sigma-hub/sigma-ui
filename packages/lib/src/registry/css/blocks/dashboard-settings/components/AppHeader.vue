@@ -86,10 +86,10 @@ defineProps<{
   display: flex;
   height: 4rem;
   align-items: center;
-  gap: 1rem;
+  padding: 0 1rem;
   border-bottom: 1px solid var(--border);
   background-color: var(--background);
-  padding: 0 1rem;
+  gap: 1rem;
 }
 
 .dashboard-settings__desktop-nav {
@@ -100,10 +100,10 @@ defineProps<{
 .dashboard-settings__brand {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
   color: inherit;
   font-size: 1.125rem;
   font-weight: 600;
+  gap: 0.5rem;
   line-height: 1.75rem;
   text-decoration: none;
 }
@@ -122,9 +122,9 @@ defineProps<{
 
 .dashboard-settings__mobile-nav {
   display: grid;
-  gap: 1.5rem;
   font-size: 1.125rem;
   font-weight: 500;
+  gap: 1.5rem;
   line-height: 1.75rem;
 }
 
@@ -165,14 +165,14 @@ defineProps<{
 
 .dashboard-settings__sr-only {
   position: absolute;
+  overflow: hidden;
   width: 1px;
   height: 1px;
   padding: 0;
+  border-width: 0;
   margin: -1px;
-  overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  border-width: 0;
 }
 
 @media (width >= 768px) {
@@ -184,8 +184,8 @@ defineProps<{
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 1.25rem;
     font-size: 0.875rem;
+    gap: 1.25rem;
     line-height: 1.25rem;
   }
 
