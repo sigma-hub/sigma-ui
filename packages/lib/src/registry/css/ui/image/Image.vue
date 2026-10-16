@@ -174,6 +174,16 @@ function onLoad() {
   animation: sigma-ui-spin 1s linear infinite;
 }
 
+@keyframes sigma-ui-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .sigma-ui-image__img-glow {
   position: absolute;
   z-index: 1;
