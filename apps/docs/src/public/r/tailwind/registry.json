@@ -3263,6 +3263,63 @@
       ]
     },
     {
+      "name": "music-library",
+      "type": "registry:block",
+      "title": "Music library",
+      "description": "A music library with a menu bar, a sidebar of discover links and playlists, and album rows for Listen Now and Made for You. A podcasts tab shows an empty state with a dialog to import a feed.",
+      "dependencies": [
+        "lucide-vue-next@^1.0.0"
+      ],
+      "registryDependencies": [
+        "button",
+        "context-menu",
+        "dialog",
+        "input",
+        "label",
+        "menubar",
+        "scroll-area",
+        "separator",
+        "tabs"
+      ],
+      "files": [
+        {
+          "path": "blocks/music-library/MusicLibrary.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/music-library/components/AlbumArtwork.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/music-library/components/LibraryMenu.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/music-library/components/LibrarySidebar.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/music-library/components/MenuEntries.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/music-library/components/PodcastEmpty.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/music-library/data.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "800px",
+        "containerClass": "w-full h-full"
+      },
+      "categories": [
+        "music"
+      ]
+    },
+    {
       "name": "signup-card",
       "type": "registry:block",
       "title": "Sign up card",

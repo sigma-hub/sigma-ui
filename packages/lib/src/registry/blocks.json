@@ -161,5 +161,17 @@
       "iframeHeight": "1200px",
       "containerClass": "w-full h-full"
     }
+  },
+  {
+    "name": "music-library",
+    "title": "Music library",
+    "description": "A music library with a menu bar, a sidebar of discover links and playlists, and album rows for Listen Now and Made for You. A podcasts tab shows an empty state with a dialog to import a feed.",
+    "categories": [
+      "music"
+    ],
+    "meta": {
+      "iframeHeight": "800px",
+      "containerClass": "w-full h-full"
+    }
   }
 ]

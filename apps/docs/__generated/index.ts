@@ -98,6 +98,14 @@ export const Index = {
       component: () => import("../../../packages/lib/src/registry/tailwind/blocks/mail-inbox/MailInbox.vue").then((m) => m.default),
       files: ["blocks/mail-inbox/MailInbox.vue","blocks/mail-inbox/components/AccountSwitcher.vue","blocks/mail-inbox/components/FolderNav.vue","blocks/mail-inbox/components/MailDisplay.vue","blocks/mail-inbox/components/MailList.vue","blocks/mail-inbox/data.ts"],
     },
+    "music-library": {
+      name: "music-library",
+      type: "registry:block",
+      registryDependencies: ["button","context-menu","dialog","input","label","menubar","scroll-area","separator","tabs"],
+      dependencies: ["lucide-vue-next@^1.0.0"],
+      component: () => import("../../../packages/lib/src/registry/tailwind/blocks/music-library/MusicLibrary.vue").then((m) => m.default),
+      files: ["blocks/music-library/MusicLibrary.vue","blocks/music-library/components/AlbumArtwork.vue","blocks/music-library/components/LibraryMenu.vue","blocks/music-library/components/LibrarySidebar.vue","blocks/music-library/components/MenuEntries.vue","blocks/music-library/components/PodcastEmpty.vue","blocks/music-library/data.ts"],
+    },
     "signup-card": {
       name: "signup-card",
       type: "registry:block",
@@ -2067,6 +2075,14 @@ export const Index = {
       dependencies: ["@vueuse/core@^14.4.0","date-fns@^4.4.0","lucide-vue-next@^1.0.0"],
       component: () => import("../../../packages/lib/src/registry/css/blocks/mail-inbox/MailInbox.vue").then((m) => m.default),
       files: ["blocks/mail-inbox/MailInbox.vue","blocks/mail-inbox/components/AccountSwitcher.vue","blocks/mail-inbox/components/FolderNav.vue","blocks/mail-inbox/components/MailDisplay.vue","blocks/mail-inbox/components/MailList.vue","blocks/mail-inbox/data.ts"],
+    },
+    "music-library": {
+      name: "music-library",
+      type: "registry:block",
+      registryDependencies: ["button","context-menu","dialog","input","label","menubar","scroll-area","separator","tabs"],
+      dependencies: ["lucide-vue-next@^1.0.0"],
+      component: () => import("../../../packages/lib/src/registry/css/blocks/music-library/MusicLibrary.vue").then((m) => m.default),
+      files: ["blocks/music-library/MusicLibrary.vue","blocks/music-library/components/AlbumArtwork.vue","blocks/music-library/components/LibraryMenu.vue","blocks/music-library/components/LibrarySidebar.vue","blocks/music-library/components/MenuEntries.vue","blocks/music-library/components/PodcastEmpty.vue","blocks/music-library/data.ts"],
     },
     "signup-card": {
       name: "signup-card",
