@@ -59,7 +59,7 @@
     },
     {
       "path": "ui/sidebar/SidebarInput.vue",
-      "content": "<script setup lang=\"ts\">\nimport { Input } from '@/components/ui/input';\nimport { cn } from '@/lib/utils';\n\nconst model = defineModel<string | number>();\n</script>\n\n<template>\n  <Input\n    v-model=\"model\"\n    data-slot=\"sidebar-input\"\n    data-sidebar=\"input\"\n    :class=\"cn('h-8 w-full bg-background shadow-none', $attrs.class ?? '')\"\n  />\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { Input } from '@/components/ui/input';\nimport { cn } from '@/lib/utils';\n\n/** Current value of the input; use with `v-model`. */\nconst model = defineModel<string | number>();\n\ndefineEmits<{\n  /** Emitted when the user changes the value. */\n  'update:modelValue': [value: string | number];\n}>();\n</script>\n\n<template>\n  <Input\n    v-model=\"model\"\n    data-slot=\"sidebar-input\"\n    data-sidebar=\"input\"\n    :class=\"cn('h-8 w-full bg-background shadow-none', $attrs.class ?? '')\"\n  />\n</template>\n",
       "type": "registry:ui"
     },
     {

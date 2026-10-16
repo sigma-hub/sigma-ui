@@ -27,7 +27,7 @@
     },
     {
       "path": "ui/table/TableEmpty.vue",
-      "content": "<script setup lang=\"ts\">\nimport TableRow from './TableRow.vue';\nimport TableCell from './TableCell.vue';\nimport { cn } from '@/lib/utils';\n\nconst props = withDefaults(defineProps<{\n  colspan?: number;\n}>(), {\n  colspan: 1,\n});\n</script>\n\n<template>\n  <TableRow>\n    <TableCell\n      v-bind=\"props\"\n      :class=\"\n\n        cn(\n          'p-4 whitespace-nowrap align-middle text-sm text-foreground',\n          $attrs.class ?? '',\n        )\n      \"\n    >\n      <div class=\"flex items-center justify-center py-10\">\n        <slot />\n      </div>\n    </TableCell>\n  </TableRow>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport TableRow from './TableRow.vue';\nimport TableCell from './TableCell.vue';\nimport { cn } from '@/lib/utils';\n\nconst props = withDefaults(defineProps<{\n  /** Number of columns the empty-state cell spans; usually the column count of the table. */\n  colspan?: number;\n}>(), {\n  colspan: 1,\n});\n</script>\n\n<template>\n  <TableRow>\n    <TableCell\n      v-bind=\"props\"\n      :class=\"\n\n        cn(\n          'p-4 whitespace-nowrap align-middle text-sm text-foreground',\n          $attrs.class ?? '',\n        )\n      \"\n    >\n      <div class=\"flex items-center justify-center py-10\">\n        <slot />\n      </div>\n    </TableCell>\n  </TableRow>\n</template>\n",
       "type": "registry:ui"
     },
     {

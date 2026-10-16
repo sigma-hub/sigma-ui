@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "ui/alert/Alert.vue",
-      "content": "<script setup lang=\"ts\">\nimport { type AlertVariants, alertVariants } from '.';\nimport { cn } from '@/lib/utils';\n\nconst props = defineProps<{\n  variant?: AlertVariants['variant'];\n}>();\n</script>\n\n<template>\n  <div\n    :class=\"cn(alertVariants({ variant }), $attrs.class ?? '')\"\n    role=\"alert\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { type AlertVariants, alertVariants } from '.';\nimport { cn } from '@/lib/utils';\n\nconst props = defineProps<{\n  /** Visual style of the alert, such as destructive for errors. */\n  variant?: AlertVariants['variant'];\n}>();\n</script>\n\n<template>\n  <div\n    :class=\"cn(alertVariants({ variant }), $attrs.class ?? '')\"\n    role=\"alert\"\n  >\n    <slot />\n  </div>\n</template>\n",
       "type": "registry:ui"
     },
     {

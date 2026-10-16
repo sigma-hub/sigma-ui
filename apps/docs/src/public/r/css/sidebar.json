@@ -59,7 +59,7 @@
     },
     {
       "path": "ui/sidebar/SidebarInput.vue",
-      "content": "<script setup lang=\"ts\">\nimport { Input } from '@/components/ui/input';\n\nconst model = defineModel<string | number>();\n</script>\n\n<template>\n  <Input\n    v-model=\"model\"\n    data-slot=\"sidebar-input\"\n    data-sidebar=\"input\"\n    class=\"sigma-ui-sidebar-input\"\n  />\n</template>\n\n<style>\n.sigma-ui-input.sigma-ui-sidebar-input {\n  width: 100%;\n  height: 2rem;\n  background-color: hsl(var(--background));\n  box-shadow: none;\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\nimport { Input } from '@/components/ui/input';\n\n/** Current value of the input; use with `v-model`. */\nconst model = defineModel<string | number>();\n\ndefineEmits<{\n  /** Emitted when the user changes the value. */\n  'update:modelValue': [value: string | number];\n}>();\n</script>\n\n<template>\n  <Input\n    v-model=\"model\"\n    data-slot=\"sidebar-input\"\n    data-sidebar=\"input\"\n    class=\"sigma-ui-sidebar-input\"\n  />\n</template>\n\n<style>\n.sigma-ui-input.sigma-ui-sidebar-input {\n  width: 100%;\n  height: 2rem;\n  background-color: hsl(var(--background));\n  box-shadow: none;\n}\n</style>\n",
       "type": "registry:ui"
     },
     {

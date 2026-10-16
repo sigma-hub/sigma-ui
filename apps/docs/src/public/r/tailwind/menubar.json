@@ -30,12 +30,12 @@
     },
     {
       "path": "ui/menubar/MenubarItem.vue",
-      "content": "<script setup lang=\"ts\">\nimport {\n  MenubarItem,\n  type MenubarItemEmits,\n  type MenubarItemProps,\n  useForwardPropsEmits,\n} from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\nconst props = defineProps<MenubarItemProps & { inset?: boolean }>();\nconst emits = defineEmits<MenubarItemEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <MenubarItem\n    v-bind=\"forwarded\"\n    :class=\"cn(\n      'relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-hidden focus:bg-secondary focus:text-secondary-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',\n      inset && 'pl-8',\n      $attrs.class ?? '',\n    )\"\n  >\n    <slot />\n  </MenubarItem>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport {\n  MenubarItem,\n  type MenubarItemEmits,\n  type MenubarItemProps,\n  useForwardPropsEmits,\n} from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\nconst props = defineProps<MenubarItemProps & {\n  /** Adds left padding so the text lines up with items that have an icon or indicator. */\n  inset?: boolean;\n}>();\nconst emits = defineEmits<MenubarItemEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <MenubarItem\n    v-bind=\"forwarded\"\n    :class=\"cn(\n      'relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-hidden focus:bg-secondary focus:text-secondary-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',\n      inset && 'pl-8',\n      $attrs.class ?? '',\n    )\"\n  >\n    <slot />\n  </MenubarItem>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/menubar/MenubarLabel.vue",
-      "content": "<script setup lang=\"ts\">\nimport { MenubarLabel, type MenubarLabelProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\nconst props = defineProps<MenubarLabelProps & { inset?: boolean }>();\n</script>\n\n<template>\n  <MenubarLabel :class=\"cn('px-2 py-1.5 text-sm font-semibold', inset && 'pl-8', $attrs.class ?? '')\">\n    <slot />\n  </MenubarLabel>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { MenubarLabel, type MenubarLabelProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\nconst props = defineProps<MenubarLabelProps & {\n  /** Adds left padding so the text lines up with items that have an icon or indicator. */\n  inset?: boolean;\n}>();\n</script>\n\n<template>\n  <MenubarLabel :class=\"cn('px-2 py-1.5 text-sm font-semibold', inset && 'pl-8', $attrs.class ?? '')\">\n    <slot />\n  </MenubarLabel>\n</template>\n",
       "type": "registry:ui"
     },
     {
@@ -65,7 +65,7 @@
     },
     {
       "path": "ui/menubar/MenubarSub.vue",
-      "content": "<script setup lang=\"ts\">\nimport { MenubarSub, type MenubarSubEmits, useForwardPropsEmits } from 'reka-ui';\n\ninterface MenubarSubRootProps {\n  defaultOpen?: boolean;\n  open?: boolean;\n}\n\nconst props = defineProps<MenubarSubRootProps>();\nconst emits = defineEmits<MenubarSubEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <MenubarSub v-bind=\"forwarded\">\n    <slot />\n  </MenubarSub>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { MenubarSub, type MenubarSubEmits, useForwardPropsEmits } from 'reka-ui';\n\ninterface MenubarSubRootProps {\n  /** Whether the submenu is open on first render; use when you do not control the open state. */\n  defaultOpen?: boolean;\n  /** Controlled open state of the submenu; use with `v-model:open`. */\n  open?: boolean;\n}\n\nconst props = defineProps<MenubarSubRootProps>();\nconst emits = defineEmits<MenubarSubEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <MenubarSub v-bind=\"forwarded\">\n    <slot />\n  </MenubarSub>\n</template>\n",
       "type": "registry:ui"
     },
     {
@@ -75,7 +75,7 @@
     },
     {
       "path": "ui/menubar/MenubarSubTrigger.vue",
-      "content": "<script setup lang=\"ts\">\nimport { MenubarSubTrigger, type MenubarSubTriggerProps, useForwardProps } from 'reka-ui';\nimport { ChevronRightIcon } from 'lucide-vue-next';\nimport { cn } from '@/lib/utils';\n\nconst props = defineProps<MenubarSubTriggerProps & { inset?: boolean }>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <MenubarSubTrigger\n    v-bind=\"forwardedProps\"\n    :class=\"cn(\n      'flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-hidden focus:bg-secondary focus:text-secondary-foreground data-[state=open]:bg-secondary data-[state=open]:text-secondary-foreground',\n      inset && 'pl-8',\n      $attrs.class ?? '',\n    )\"\n  >\n    <slot />\n    <ChevronRightIcon class=\"ml-auto h-4 w-4\" />\n  </MenubarSubTrigger>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { MenubarSubTrigger, type MenubarSubTriggerProps, useForwardProps } from 'reka-ui';\nimport { ChevronRightIcon } from 'lucide-vue-next';\nimport { cn } from '@/lib/utils';\n\nconst props = defineProps<MenubarSubTriggerProps & {\n  /** Adds left padding so the text lines up with items that have an icon or indicator. */\n  inset?: boolean;\n}>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <MenubarSubTrigger\n    v-bind=\"forwardedProps\"\n    :class=\"cn(\n      'flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-hidden focus:bg-secondary focus:text-secondary-foreground data-[state=open]:bg-secondary data-[state=open]:text-secondary-foreground',\n      inset && 'pl-8',\n      $attrs.class ?? '',\n    )\"\n  >\n    <slot />\n    <ChevronRightIcon class=\"ml-auto h-4 w-4\" />\n  </MenubarSubTrigger>\n</template>\n",
       "type": "registry:ui"
     },
     {
