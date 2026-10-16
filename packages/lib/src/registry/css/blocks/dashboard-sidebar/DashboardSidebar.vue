@@ -74,8 +74,8 @@ import {
   display: flex;
   flex: 1 1 0%;
   flex-direction: column;
-  gap: 1rem;
   padding: 1rem;
+  gap: 1rem;
 }
 
 .dashboard-sidebar__heading-row {
@@ -107,8 +107,8 @@ import {
   }
 
   .dashboard-sidebar__main {
-    gap: 1.5rem;
     padding: 1.5rem;
+    gap: 1.5rem;
   }
 }
 </style>
