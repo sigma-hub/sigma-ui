@@ -200,7 +200,6 @@ watch(isConfigReady, (ready) => {
         />
       </ClientOnly>
       <div
-        vaul-drawer-wrapper
         class="animate-fade-in flex min-h-screen flex-col bg-background"
       >
         <header class="animate-fade-in z-50 sticky top-0 bg-muted/50 border-b dark:border-none dark:bg-muted/20 backdrop-blur-lg">
