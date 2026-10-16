@@ -33,7 +33,7 @@ import { Label } from '@ui/registry/css/ui/label';
         <div class="example-sigma-ui-dialog__share-input">
           <Label
             for="link"
-            class="sr-only"
+            class="sigma-ui-sr-only"
           >
             Link
           </Label>
@@ -48,7 +48,7 @@ import { Label } from '@ui/registry/css/ui/label';
           size="sm"
           class="example-sigma-ui-dialog__share-button"
         >
-          <span class="sr-only">Copy</span>
+          <span class="sigma-ui-sr-only">Copy</span>
           <CopyIcon class="example-sigma-ui-dialog__share-icon" />
         </Button>
       </div>
@@ -107,5 +107,17 @@ import { Label } from '@ui/registry/css/ui/label';
   .example-sigma-ui-dialog__footer.sigma-ui-dialog-footer {
     justify-content: flex-start;
   }
+}
+
+.sigma-ui-sr-only {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border-width: 0;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
 }
 </style>

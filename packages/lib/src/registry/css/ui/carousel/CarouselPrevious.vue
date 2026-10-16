@@ -21,12 +21,12 @@ const { orientation, canScrollPrev, scrollPrev } = useCarousel();
       $attrs.class ?? '',
     ]"
     variant="outline"
-    @click="scrollPrev"
     data-slot="carousel-previous"
+    @click="scrollPrev"
   >
     <slot>
       <ArrowLeftIcon class="sigma-ui-carousel-previous__icon" />
-      <span class="sr-only">{{ props.label }}</span>
+      <span class="sigma-ui-sr-only">{{ props.label }}</span>
     </slot>
   </Button>
 </template>
@@ -56,5 +56,17 @@ const { orientation, canScrollPrev, scrollPrev } = useCarousel();
 .sigma-ui-carousel-previous__icon {
   width: 1rem;
   height: 1rem;
+}
+
+.sigma-ui-sr-only {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border-width: 0;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
 }
 </style>
