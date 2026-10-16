@@ -15,7 +15,9 @@ const forwarded = useForwardProps(props);
     class="sigma-ui-time-range-field-input"
     v-bind="{ ...forwarded, ...$attrs }"
     :class="[$attrs.class]"
-  />
+  >
+    <slot />
+  </TimeRangeFieldInput>
 </template>
 
 <style>
