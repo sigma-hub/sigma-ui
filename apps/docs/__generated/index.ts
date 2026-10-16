@@ -1546,7 +1546,7 @@ export const Index = {
       name: "TimeRangeField",
       type: "registry:example",
       registryDependencies: ["time-range-field"],
-      dependencies: ["@internationalized/date@^3.12.4"],
+      dependencies: ["@internationalized/date@^3.12.4","reka-ui@^2.11.0"],
       files: ["example/TimeRangeField.vue"],
     },
     "Toaster": {
@@ -3326,7 +3326,7 @@ export const Index = {
       name: "TimeRangeField",
       type: "registry:example",
       registryDependencies: ["time-range-field"],
-      dependencies: ["@internationalized/date@^3.12.4"],
+      dependencies: ["@internationalized/date@^3.12.4","reka-ui@^2.11.0"],
       files: ["example/TimeRangeField.vue"],
     },
     "Toaster": {
