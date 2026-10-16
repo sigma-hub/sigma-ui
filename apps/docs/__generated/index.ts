@@ -10,6 +10,14 @@ export const Index = {
       component: () => import("../../../packages/lib/src/registry/tailwind/blocks/app-shell/AppShell.vue").then((m) => m.default),
       files: ["blocks/app-shell/AppShell.vue","blocks/app-shell/components/OverviewPanel.vue","blocks/app-shell/components/ShellHeader.vue","blocks/app-shell/components/ShellSidebar.vue","blocks/app-shell/data.ts"],
     },
+    "cards-mix": {
+      name: "cards-mix",
+      type: "registry:block",
+      registryDependencies: ["avatar","button","card","checkbox","command","dialog","dropdown-menu","input","label","popover","radio-group","range-calendar","select","separator","switch","table","textarea","tooltip"],
+      dependencies: ["@internationalized/date@^3.12.4","@tanstack/vue-table@^8.21.3","@unovis/ts@^1.7.1","@unovis/vue@^1.7.1","lucide-vue-next@^1.0.0","reka-ui@^2.11.0"],
+      component: () => import("../../../packages/lib/src/registry/tailwind/blocks/cards-mix/CardsMix.vue").then((m) => m.default),
+      files: ["blocks/cards-mix/CardsMix.vue","blocks/cards-mix/components/ActivityGoal.vue","blocks/cards-mix/components/CardChat.vue","blocks/cards-mix/components/CardStats.vue","blocks/cards-mix/components/CookieSettings.vue","blocks/cards-mix/components/CreateAccount.vue","blocks/cards-mix/components/DataTable.vue","blocks/cards-mix/components/DataTableMenu.vue","blocks/cards-mix/components/DatePicker.vue","blocks/cards-mix/components/DatePickerWithRange.vue","blocks/cards-mix/components/GitHubCard.vue","blocks/cards-mix/components/Metric.vue","blocks/cards-mix/components/Notifications.vue","blocks/cards-mix/components/PaymentMethod.vue","blocks/cards-mix/components/ReportAnIssue.vue","blocks/cards-mix/components/ShareDocument.vue","blocks/cards-mix/components/TeamMembers.vue"],
+    },
     "dashboard-ai-playground": {
       name: "dashboard-ai-playground",
       type: "registry:block",
@@ -2035,6 +2043,14 @@ export const Index = {
       dependencies: ["lucide-vue-next@^1.0.0"],
       component: () => import("../../../packages/lib/src/registry/css/blocks/app-shell/AppShell.vue").then((m) => m.default),
       files: ["blocks/app-shell/AppShell.vue","blocks/app-shell/components/OverviewPanel.vue","blocks/app-shell/components/ShellHeader.vue","blocks/app-shell/components/ShellSidebar.vue","blocks/app-shell/data.ts"],
+    },
+    "cards-mix": {
+      name: "cards-mix",
+      type: "registry:block",
+      registryDependencies: ["avatar","button","card","checkbox","command","dialog","dropdown-menu","input","label","popover","radio-group","range-calendar","select","separator","switch","table","textarea","tooltip"],
+      dependencies: ["@internationalized/date@^3.12.4","@tanstack/vue-table@^8.21.3","@unovis/ts@^1.7.1","@unovis/vue@^1.7.1","lucide-vue-next@^1.0.0","reka-ui@^2.11.0"],
+      component: () => import("../../../packages/lib/src/registry/css/blocks/cards-mix/CardsMix.vue").then((m) => m.default),
+      files: ["blocks/cards-mix/CardsMix.vue","blocks/cards-mix/components/ActivityGoal.vue","blocks/cards-mix/components/CardChat.vue","blocks/cards-mix/components/CardStats.vue","blocks/cards-mix/components/CookieSettings.vue","blocks/cards-mix/components/CreateAccount.vue","blocks/cards-mix/components/DataTable.vue","blocks/cards-mix/components/DataTableMenu.vue","blocks/cards-mix/components/DatePicker.vue","blocks/cards-mix/components/DatePickerWithRange.vue","blocks/cards-mix/components/GitHubCard.vue","blocks/cards-mix/components/Metric.vue","blocks/cards-mix/components/Notifications.vue","blocks/cards-mix/components/PaymentMethod.vue","blocks/cards-mix/components/ReportAnIssue.vue","blocks/cards-mix/components/ShareDocument.vue","blocks/cards-mix/components/TeamMembers.vue"],
     },
     "dashboard-ai-playground": {
       name: "dashboard-ai-playground",

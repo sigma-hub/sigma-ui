@@ -1,0 +1,395 @@
+<script setup lang="ts">
+import { CheckIcon, PlusIcon, SendIcon } from 'lucide-vue-next';
+import { computed, ref } from 'vue';
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from '@ui/registry/css/ui/card';
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@ui/registry/css/ui/dialog';
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@ui/registry/css/ui/command';
+import { Avatar } from '@ui/registry/css/ui/avatar';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@ui/registry/css/ui/tooltip';
+import { Button } from '@ui/registry/css/ui/button';
+import { Input } from '@ui/registry/css/ui/input';
+
+const input = ref('');
+const inputLength = computed(() => input.value.trim().length);
+const users = ref([
+  {
+    name: 'Olivia Martin',
+    email: 'm@example.com',
+  },
+  {
+    name: 'Isabella Nguyen',
+    email: 'isabella.nguyen@email.com',
+  },
+  {
+    name: 'Emma Wilson',
+    email: 'emma@example.com',
+  },
+  {
+    name: 'Jackson Lee',
+    email: 'lee@example.com',
+  },
+  {
+    name: 'William Kim',
+    email: 'will@email.com',
+  },
+]);
+
+type User = (typeof users.value)[number];
+
+const messages = ref([
+  { role: 'agent', content: 'Hi, how can I help you today?' },
+  { role: 'user', content: 'Hey, I\'m having trouble with my account.' },
+  { role: 'agent', content: 'What seems to be the problem?' },
+  { role: 'user', content: 'I can\'t log in.' },
+]);
+
+const open = ref(false);
+const selectedUsers = ref<User[]>([]);
+const search = ref('');
+
+const filteredUsers = computed(() => users.value.filter(user => user.name.toLowerCase().includes(search.value.toLowerCase())));
+
+function isUserMessage(role: string) {
+  return role === 'user';
+}
+</script>
+
+<template>
+  <Card>
+    <CardHeader class="cards-mix__card-chat__header">
+      <div class="cards-mix__card-chat__user">
+        <Avatar size="sm" />
+        <div class="cards-mix__card-chat__user-info">
+          <p class="cards-mix__card-chat__user-name">
+            Sofia Davis
+          </p>
+          <p class="cards-mix__card-chat__user-email">
+            m@example.com
+          </p>
+        </div>
+      </div>
+      <TooltipProvider>
+        <Tooltip :delay-duration="200">
+          <TooltipTrigger as-child>
+            <Button
+              variant="outline"
+              class="cards-mix__card-chat__new-message"
+              @click="open = true"
+            >
+              <PlusIcon class="cards-mix__card-chat__new-message-icon" />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent :side-offset="10">
+            New message
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+    </CardHeader>
+    <CardContent>
+      <div class="cards-mix__card-chat__messages">
+        <div
+          v-for="(message, index) in messages"
+          :key="index"
+          class="cards-mix__card-chat__message"
+          :class="[
+            isUserMessage(message.role) ? 'cards-mix__card-chat__message--user' : 'cards-mix__card-chat__message--agent',
+          ]"
+        >
+          {{ message.content }}
+        </div>
+      </div>
+    </CardContent>
+    <CardFooter>
+      <form
+        class="cards-mix__card-chat__form"
+        @submit.prevent="() => {
+          if (inputLength === 0) {
+            return
+          }
+          messages.push({
+            role: 'user',
+            content: input,
+          })
+          input = ''
+        }"
+      >
+        <Input
+          v-model="input"
+          placeholder="Type a message..."
+          class="cards-mix__card-chat__input"
+        />
+        <Button
+          class="cards-mix__card-chat__send"
+          :disabled="inputLength === 0"
+        >
+          <SendIcon class="cards-mix__card-chat__send-icon" />
+          <span class="cards-mix__sr-only">Send</span>
+        </Button>
+      </form>
+    </CardFooter>
+  </Card>
+
+  <Dialog v-model:open="open">
+    <DialogContent class="cards-mix__card-chat__dialog">
+      <DialogHeader class="cards-mix__card-chat__dialog-header">
+        <DialogTitle>New message</DialogTitle>
+        <DialogDescription>
+          Invite a user to this thread. This will create a new group message.
+        </DialogDescription>
+      </DialogHeader>
+      <Command class="cards-mix__card-chat__command">
+        <CommandInput
+          v-model="search"
+          placeholder="Search user..."
+        />
+        <CommandList>
+          <CommandEmpty>No users found.</CommandEmpty>
+          <CommandGroup class="cards-mix__card-chat__command-group">
+            <CommandItem
+              v-for="user in filteredUsers"
+              :key="user.email"
+              :value="user"
+              class="cards-mix__card-chat__command-item"
+              @select="() => {
+                const index = selectedUsers.findIndex(u => u === user)
+                if (index !== -1) {
+                  selectedUsers.splice(index, 1)
+                }
+                else {
+                  selectedUsers.push(user)
+                }
+              }"
+            >
+              <Avatar size="sm" />
+              <div class="cards-mix__card-chat__command-user">
+                <p class="cards-mix__card-chat__command-user-name">
+                  {{ user.name }}
+                </p>
+                <p class="cards-mix__card-chat__command-user-email">
+                  {{ user.email }}
+                </p>
+              </div>
+              <CheckIcon
+                v-if="selectedUsers.includes(user)"
+                class="cards-mix__card-chat__command-check"
+              />
+            </CommandItem>
+          </CommandGroup>
+        </CommandList>
+      </Command>
+      <DialogFooter class="cards-mix__card-chat__dialog-footer">
+        <div
+          v-if="selectedUsers.length > 0"
+          class="cards-mix__card-chat__selected-users"
+        >
+          <Avatar
+            v-for="user in selectedUsers"
+            :key="user.email"
+            class="cards-mix__card-chat__selected-avatar"
+          />
+        </div>
+        <p
+          v-else
+          class="cards-mix__card-chat__empty-selection"
+        >
+          Select users to add to this thread.
+        </p>
+        <Button
+          :disabled="selectedUsers.length < 2"
+          @click="open = false"
+        >
+          Continue
+        </Button>
+      </DialogFooter>
+    </DialogContent>
+  </Dialog>
+</template>
+
+<style>
+.cards-mix__card-chat__header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cards-mix__card-chat__user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cards-mix__card-chat__user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cards-mix__card-chat__user-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.cards-mix__card-chat__user-email {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+}
+
+.cards-mix__card-chat__new-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem;
+  border-radius: var(--radius-full);
+}
+
+.cards-mix__card-chat__new-message-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.cards-mix__card-chat__messages {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cards-mix__card-chat__message {
+  display: flex;
+  max-width: 75%;
+  flex-direction: column;
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  gap: 0.5rem;
+}
+
+.cards-mix__card-chat__message--agent {
+  background-color: var(--muted);
+}
+
+.cards-mix__card-chat__message--user {
+  margin-left: auto;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.cards-mix__card-chat__form {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cards-mix__card-chat__input {
+  flex: 1;
+}
+
+.cards-mix__card-chat__send {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem;
+}
+
+.cards-mix__card-chat__send-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.cards-mix__card-chat__dialog {
+  padding: 0;
+  gap: 0;
+  outline: none;
+}
+
+.cards-mix__card-chat__dialog-header {
+  padding: 1.25rem 1rem 1rem;
+}
+
+.cards-mix__card-chat__command {
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.cards-mix__card-chat__command-group {
+  padding: 0.5rem;
+}
+
+.cards-mix__card-chat__command-item {
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+}
+
+.cards-mix__card-chat__command-user {
+  margin-left: 0.5rem;
+}
+
+.cards-mix__card-chat__command-user-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.cards-mix__card-chat__command-user-email {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+}
+
+.cards-mix__card-chat__command-check {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-left: auto;
+  color: var(--primary);
+}
+
+.cards-mix__card-chat__dialog-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.cards-mix__card-chat__selected-users {
+  display: flex;
+  overflow: hidden;
+  margin-left: -0.5rem;
+}
+
+.cards-mix__card-chat__selected-avatar {
+  display: inline-block;
+  border: 2px solid var(--background);
+}
+
+.cards-mix__card-chat__empty-selection {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+}
+
+.cards-mix__sr-only {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border-width: 0;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+</style>
