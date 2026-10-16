@@ -44,20 +44,20 @@ defineProps<{
 .dashboard-sidebar__search-input.dashboard-sidebar__search-input {
   width: 100%;
   padding-left: 2rem;
+  appearance: none;
   background-color: var(--background);
   box-shadow: none;
-  appearance: none;
 }
 
 @media (width >= 768px) {
   .dashboard-sidebar__search-input.dashboard-sidebar__search-input {
-    width: 66.666667%;
+    width: 66.6667%;
   }
 }
 
 @media (width >= 1024px) {
   .dashboard-sidebar__search-input.dashboard-sidebar__search-input {
-    width: 33.333333%;
+    width: 33.3333%;
   }
 }
 </style>
