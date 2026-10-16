@@ -142,8 +142,8 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "",
-    "description": "<p>The content of the component.</p>"
+    "scope": "{ modelValue: { start?: unknown; end?: unknown; }; segments: { start: { part: string; value: string; }[]; end: { part: string; value: string; }[]; }; isInvalid: boolean; }",
+    "description": "<p>Start and end segments. Render each segment value inside an input.</p>"
   }
 ]' />
 
@@ -174,5 +174,13 @@
     "default": "\"div\"",
     "required": false,
     "description": "<p>The element or component this component should render as. Can be overwritten by <code>asChild</code>.</p>"
+  }
+]' />
+
+<ApiTable kind="slots" :items='[
+  {
+    "name": "default",
+    "scope": "",
+    "description": "<p>The content of the component.</p>"
   }
 ]' />
