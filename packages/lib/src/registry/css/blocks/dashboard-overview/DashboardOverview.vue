@@ -188,10 +188,10 @@ import {
   border: 0;
   background: transparent;
   color: var(--muted-foreground);
+  cursor: pointer;
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.25rem;
-  cursor: pointer;
 }
 
 .dashboard-overview__nav-link:hover,
