@@ -51,7 +51,8 @@
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxt prepare playground",
     "dev:components": "pnpm --dir playground components",
     "ts": "nuxt-module-build prepare && vue-tsc --noEmit",
-    "test": "vitest run",
+    "test": "vitest run --exclude test/playground-ssr.test.ts",
+    "test:playground": "vitest run test/playground-ssr.test.ts",
     "test:watch": "vitest watch"
   },
   "dependencies": {
