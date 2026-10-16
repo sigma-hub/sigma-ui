@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
+import { useData } from 'vitepress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@ui/registry/tailwind/ui/tabs';
 import { cn } from '@ui/utils';
 import { useActiveStyleSystem } from '../composables/useActiveStyleSystem';
@@ -27,8 +28,10 @@ const props = withDefaults(defineProps<{
 });
 
 const styleSystem = useActiveStyleSystem();
+const { frontmatter } = useData();
 const rewriteCodePaths = useCodePathRewrite();
 const rawString = computed(() => props.code?.[styleSystem.value] ?? '');
+const registryName = computed(() => typeof frontmatter.value.source === 'string' ? frontmatter.value.source : '');
 </script>
 
 <template>
@@ -61,12 +64,14 @@ const rawString = computed(() => props.code?.[styleSystem.value] ?? '');
               :style-system="styleSystem"
               :name="name"
               :code="rawString"
+              :registry-name="registryName"
             />
             <CodeSandbox
               :key="styleSystem"
               :style-system="styleSystem"
               :name="name"
               :code="rawString"
+              :registry-name="registryName"
             />
           </div>
         </div>

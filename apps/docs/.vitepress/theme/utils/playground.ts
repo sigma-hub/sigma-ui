@@ -70,6 +70,53 @@ export function packageName(dependency: string) {
   return versionAt === -1 ? dependency : dependency.slice(0, versionAt);
 }
 
+export function toRegistrySlug(name: string) {
+  return name
+    .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+    .replace(/([A-Z])([A-Z][a-z])/g, '$1-$2')
+    .toLowerCase();
+}
+
+function registrySlugsFromDemo(demoCode: string) {
+  const slugs: string[] = [];
+
+  for (const match of demoCode.matchAll(/@ui\/registry\/[^/'"]+\/ui\/([^/'"]+)/g)) {
+    const slug = toRegistrySlug(match[1] ?? '');
+
+    if (slug && slug !== 'utils') {
+      slugs.push(slug);
+    }
+  }
+
+  return slugs;
+}
+
+export function playgroundRegistryNames(componentName: string, demoCode: string, registryNames: readonly string[] = []) {
+  const names = new Set<string>();
+
+  for (const name of registryNames) {
+    const slug = toRegistrySlug(name);
+
+    if (slug && slug !== 'utils') {
+      names.add(slug);
+    }
+  }
+
+  for (const slug of registrySlugsFromDemo(demoCode)) {
+    names.add(slug);
+  }
+
+  if (names.size === 0) {
+    const slug = toRegistrySlug(componentName);
+
+    if (slug && slug !== 'utils') {
+      names.add(slug);
+    }
+  }
+
+  return [...names];
+}
+
 function dependencyRange(dependency: string) {
   const name = packageName(dependency);
   const range = dependency.slice(name.length);

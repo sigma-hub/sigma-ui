@@ -9,11 +9,21 @@ const props = defineProps<{
   name: string;
   code: string;
   styleSystem: StyleSystem;
+  registryName?: string;
 }>();
 
+let openRequestId = 0;
+
 async function handleClick() {
-  const files = await createPlaygroundFiles(props.name, props.styleSystem, props.code);
-  openInStackblitz(props.name, files);
+  const requestId = ++openRequestId;
+  const { name, styleSystem, code, registryName } = props;
+  const files = await createPlaygroundFiles(name, styleSystem, code, registryName ? [registryName] : []);
+
+  if (requestId !== openRequestId) {
+    return;
+  }
+
+  openInStackblitz(name, files);
 }
 </script>
 

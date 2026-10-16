@@ -10,17 +10,30 @@ const props = defineProps<{
   name: string;
   code: string;
   styleSystem: StyleSystem;
+  registryName?: string;
 }>();
 
 const parameters = ref('');
+let parametersRequestId = 0;
 
-watch([() => props.code, () => props.styleSystem, () => props.name], async () => {
-  if (import.meta.env.SSR || !props.code) {
-    parameters.value = '';
+watch([() => props.code, () => props.styleSystem, () => props.name, () => props.registryName], async () => {
+  const requestId = ++parametersRequestId;
+  const { code, styleSystem, name, registryName } = props;
+
+  if (import.meta.env.SSR || !code) {
+    if (requestId === parametersRequestId) {
+      parameters.value = '';
+    }
+
     return;
   }
 
-  const files = await createPlaygroundFiles(props.name, props.styleSystem, props.code);
+  const files = await createPlaygroundFiles(name, styleSystem, code, registryName ? [registryName] : []);
+
+  if (requestId !== parametersRequestId) {
+    return;
+  }
+
   parameters.value = makeCodeSandboxParams(files);
 }, { immediate: true });
 </script>

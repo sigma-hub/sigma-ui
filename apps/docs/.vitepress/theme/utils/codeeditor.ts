@@ -1,15 +1,15 @@
 import { getParameters } from 'codesandbox/lib/api/define';
 import sdk from '@stackblitz/sdk';
 import { PREFLIGHT_CSS_TEMPLATE } from '@sigma-ui/shared/templates/preflight';
-import { assemblePlaygroundFiles, createPlaygroundStylesheet, type PlaygroundItem, type PlaygroundProjectFile } from './playground';
+import { assemblePlaygroundFiles, createPlaygroundStylesheet, playgroundRegistryNames, toRegistrySlug, type PlaygroundItem, type PlaygroundProjectFile } from './playground';
 import type { StyleSystem } from '@sigma-ui/shared/style-systems';
 
 interface RegistryItemResponse extends PlaygroundItem {
   registryDependencies?: string[];
 }
 
-async function fetchRegistryItem(styleSystem: StyleSystem, name: string): Promise<RegistryItemResponse | null> {
-  const response = await fetch(`/r/${styleSystem}/${name}.json`);
+async function fetchRegistryItem(styleSystem: StyleSystem, slug: string): Promise<RegistryItemResponse | null> {
+  const response = await fetch(`/r/${styleSystem}/${slug}.json`);
 
   if (!response.ok) {
     return null;
@@ -22,12 +22,14 @@ async function loadRegistryItems(styleSystem: StyleSystem, names: string[], seen
   const items: RegistryItemResponse[] = [];
 
   for (const name of names) {
-    if (seen.has(name)) {
+    const slug = toRegistrySlug(name);
+
+    if (!slug || slug === 'utils' || seen.has(slug)) {
       continue;
     }
 
-    seen.add(name);
-    const item = await fetchRegistryItem(styleSystem, name);
+    seen.add(slug);
+    const item = await fetchRegistryItem(styleSystem, slug);
 
     if (!item) {
       continue;
@@ -39,10 +41,8 @@ async function loadRegistryItems(styleSystem: StyleSystem, names: string[], seen
   return items;
 }
 
-export async function createPlaygroundFiles(componentName: string, styleSystem: StyleSystem, demoCode: string) {
-  const root = await fetchRegistryItem(styleSystem, componentName);
-  const dependencyNames = (root?.registryDependencies ?? []).filter(name => name !== 'utils');
-  const items = await loadRegistryItems(styleSystem, dependencyNames);
+export async function createPlaygroundFiles(componentName: string, styleSystem: StyleSystem, demoCode: string, registryNames: readonly string[] = []) {
+  const items = await loadRegistryItems(styleSystem, playgroundRegistryNames(componentName, demoCode, registryNames));
 
   return assemblePlaygroundFiles({
     styleSystem,
