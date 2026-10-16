@@ -15,12 +15,12 @@
     },
     {
       "path": "ui/native-select/NativeSelectOptGroup.vue",
-      "content": "<script setup lang=\"ts\">\ndefineSlots<{\n  /**\n   * `NativeSelectOption` children of this group.\n   */\n  default?: () => unknown;\n}>();\n</script>\n\n<template>\n  <optgroup\n    data-slot=\"native-select-optgroup\"\n    class=\"sigma-ui-native-select-optgroup\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </optgroup>\n</template>\n\n<style>\n.sigma-ui-native-select-optgroup {\n  background-color: var(--popover);\n  color: var(--popover-foreground);\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\nimport { computed, useAttrs } from 'vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst delegatedAttrs = computed(() => {\n  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));\n});\n\ndefineSlots<{\n  /**\n   * `NativeSelectOption` children of this group.\n   */\n  default?: () => unknown;\n}>();\n</script>\n\n<template>\n  <optgroup\n    v-bind=\"delegatedAttrs\"\n    data-slot=\"native-select-optgroup\"\n    class=\"sigma-ui-native-select-optgroup\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </optgroup>\n</template>\n\n<style>\n.sigma-ui-native-select-optgroup {\n  background-color: var(--popover);\n  color: var(--popover-foreground);\n}\n</style>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/native-select/NativeSelectOption.vue",
-      "content": "<script setup lang=\"ts\">\ndefineSlots<{\n  /**\n   * Label of the option.\n   */\n  default?: () => unknown;\n}>();\n</script>\n\n<template>\n  <option\n    data-slot=\"native-select-option\"\n    class=\"sigma-ui-native-select-option\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </option>\n</template>\n\n<style>\n.sigma-ui-native-select-option {\n  background-color: var(--popover);\n  color: var(--popover-foreground);\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\nimport { computed, useAttrs } from 'vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst delegatedAttrs = computed(() => {\n  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));\n});\n\ndefineSlots<{\n  /**\n   * Label of the option.\n   */\n  default?: () => unknown;\n}>();\n</script>\n\n<template>\n  <option\n    v-bind=\"delegatedAttrs\"\n    data-slot=\"native-select-option\"\n    class=\"sigma-ui-native-select-option\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </option>\n</template>\n\n<style>\n.sigma-ui-native-select-option {\n  background-color: var(--popover);\n  color: var(--popover-foreground);\n}\n</style>\n",
       "type": "registry:ui"
     },
     {

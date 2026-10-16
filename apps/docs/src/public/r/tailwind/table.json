@@ -7,47 +7,47 @@
   "files": [
     {
       "path": "ui/table/Table.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils';\n\n</script>\n\n<template>\n  <div class=\"relative w-full overflow-auto\"\n  data-slot=\"table\">\n    <table :class=\"cn('w-full caption-bottom text-sm', $attrs.class ?? '')\">\n      <slot />\n    </table>\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { computed, useAttrs } from 'vue';\n\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst delegatedAttrs = computed(() => {\n  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));\n});\n\n</script>\n\n<template>\n  <div\n    class=\"relative w-full overflow-auto\"\n    data-slot=\"table\"\n  >\n    <table\n      v-bind=\"delegatedAttrs\"\n      :class=\"cn('w-full caption-bottom text-sm', $attrs.class ?? '')\"\n    >\n      <slot />\n    </table>\n  </div>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/table/TableBody.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils';\n\n</script>\n\n<template>\n  <tbody :class=\"cn('[&_tr:last-child]:border-0', $attrs.class ?? '')\"\n  data-slot=\"table-body\">\n    <slot />\n  </tbody>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { computed, useAttrs } from 'vue';\n\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst delegatedAttrs = computed(() => {\n  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));\n});\n\n</script>\n\n<template>\n  <tbody\n    v-bind=\"delegatedAttrs\"\n    :class=\"cn('[&_tr:last-child]:border-0', $attrs.class ?? '')\"\n    data-slot=\"table-body\"\n  >\n    <slot />\n  </tbody>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/table/TableCaption.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils';\n\n</script>\n\n<template>\n  <caption :class=\"cn('mt-4 text-sm text-muted-foreground', $attrs.class ?? '')\"\n  data-slot=\"table-caption\">\n    <slot />\n  </caption>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { computed, useAttrs } from 'vue';\n\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst delegatedAttrs = computed(() => {\n  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));\n});\n\n</script>\n\n<template>\n  <caption\n    v-bind=\"delegatedAttrs\"\n    :class=\"cn('mt-4 text-sm text-muted-foreground', $attrs.class ?? '')\"\n    data-slot=\"table-caption\"\n  >\n    <slot />\n  </caption>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/table/TableCell.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils';\n\n</script>\n\n<template>\n  <td\n    :class=\"\n      cn(\n        'p-4 align-middle [&:has([role=checkbox])]:pr-0',\n        $attrs.class ?? '',\n      )\n    \"\n    data-slot=\"table-cell\"\n  >\n    <slot />\n  </td>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { computed, useAttrs } from 'vue';\n\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst delegatedAttrs = computed(() => {\n  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));\n});\n\n</script>\n\n<template>\n  <td\n    v-bind=\"delegatedAttrs\"\n    :class=\"\n      cn(\n        'p-4 align-middle [&:has([role=checkbox])]:pr-0',\n        $attrs.class ?? '',\n      )\n    \"\n    data-slot=\"table-cell\"\n  >\n    <slot />\n  </td>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/table/TableEmpty.vue",
-      "content": "<script setup lang=\"ts\">\nimport TableRow from './TableRow.vue';\nimport TableCell from './TableCell.vue';\nimport { cn } from '@/lib/utils';\n\nconst props = withDefaults(defineProps<{\n  /** Number of columns the empty-state cell spans; usually the column count of the table. */\n  colspan?: number;\n}>(), {\n  colspan: 1,\n});\n</script>\n\n<template>\n  <TableRow\n    data-slot=\"table-empty\">\n    <TableCell\n      v-bind=\"props\"\n      :class=\"\n\n        cn(\n          'p-4 whitespace-nowrap align-middle text-sm text-foreground',\n          $attrs.class ?? '',\n        )\n      \"\n    >\n      <div class=\"flex items-center justify-center py-10\">\n        <slot />\n      </div>\n    </TableCell>\n  </TableRow>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { computed, useAttrs } from 'vue';\n\nimport TableRow from './TableRow.vue';\nimport TableCell from './TableCell.vue';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst delegatedAttrs = computed(() => {\n  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));\n});\n\nconst props = withDefaults(defineProps<{\n  /** Number of columns the empty-state cell spans; usually the column count of the table. */\n  colspan?: number;\n}>(), {\n  colspan: 1,\n});\n</script>\n\n<template>\n  <TableRow\n    data-slot=\"table-empty\"\n  >\n    <TableCell\n      v-bind=\"{ ...props, ...delegatedAttrs }\"\n      :class=\"\n\n        cn(\n          'p-4 whitespace-nowrap align-middle text-sm text-foreground',\n          $attrs.class ?? '',\n        )\n      \"\n    >\n      <div class=\"flex items-center justify-center py-10\">\n        <slot />\n      </div>\n    </TableCell>\n  </TableRow>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/table/TableFooter.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils';\n\n</script>\n\n<template>\n  <tfoot :class=\"cn('border-t bg-muted/50 font-medium [&>tr]:last:border-b-0', $attrs.class ?? '')\"\n  data-slot=\"table-footer\">\n    <slot />\n  </tfoot>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { computed, useAttrs } from 'vue';\n\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst delegatedAttrs = computed(() => {\n  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));\n});\n\n</script>\n\n<template>\n  <tfoot\n    v-bind=\"delegatedAttrs\"\n    :class=\"cn('border-t bg-muted/50 font-medium [&>tr]:last:border-b-0', $attrs.class ?? '')\"\n    data-slot=\"table-footer\"\n  >\n    <slot />\n  </tfoot>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/table/TableHead.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils';\n\n</script>\n\n<template>\n  <th :class=\"cn('h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0', $attrs.class ?? '')\"\n  data-slot=\"table-head\">\n    <slot />\n  </th>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { computed, useAttrs } from 'vue';\n\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst delegatedAttrs = computed(() => {\n  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));\n});\n\n</script>\n\n<template>\n  <th\n    v-bind=\"delegatedAttrs\"\n    :class=\"cn('h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0', $attrs.class ?? '')\"\n    data-slot=\"table-head\"\n  >\n    <slot />\n  </th>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/table/TableHeader.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils';\n\n</script>\n\n<template>\n  <thead :class=\"cn('[&_tr]:border-b', $attrs.class ?? '')\"\n  data-slot=\"table-header\">\n    <slot />\n  </thead>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { computed, useAttrs } from 'vue';\n\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst delegatedAttrs = computed(() => {\n  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));\n});\n\n</script>\n\n<template>\n  <thead\n    v-bind=\"delegatedAttrs\"\n    :class=\"cn('[&_tr]:border-b', $attrs.class ?? '')\"\n    data-slot=\"table-header\"\n  >\n    <slot />\n  </thead>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/table/TableRow.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils';\n\n</script>\n\n<template>\n  <tr :class=\"cn('border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted', $attrs.class ?? '')\"\n  data-slot=\"table-row\">\n    <slot />\n  </tr>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { computed, useAttrs } from 'vue';\n\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst delegatedAttrs = computed(() => {\n  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));\n});\n\n</script>\n\n<template>\n  <tr\n    v-bind=\"delegatedAttrs\"\n    :class=\"cn('border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted', $attrs.class ?? '')\"\n    data-slot=\"table-row\"\n  >\n    <slot />\n  </tr>\n</template>\n",
       "type": "registry:ui"
     },
     {
