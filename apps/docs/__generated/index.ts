@@ -16,7 +16,7 @@ export const Index = {
       registryDependencies: ["avatar","badge","button","card","dropdown-menu","input","sheet","table"],
       dependencies: ["lucide-vue-next@^0.475.0"],
       component: () => import("../../../packages/lib/src/registry/tailwind/blocks/dashboard-analytics/DashboardAnalytics.vue").then((m) => m.default),
-      files: ["blocks/dashboard-analytics/DashboardAnalytics.vue"],
+      files: ["blocks/dashboard-analytics/DashboardAnalytics.vue","blocks/dashboard-analytics/components/AppHeader.vue","blocks/dashboard-analytics/components/RecentSalesCard.vue","blocks/dashboard-analytics/components/SearchForm.vue","blocks/dashboard-analytics/components/StatCard.vue","blocks/dashboard-analytics/components/TransactionsCard.vue","blocks/dashboard-analytics/components/UserMenu.vue","blocks/dashboard-analytics/data.ts"],
     },
     "dashboard-orders": {
       name: "dashboard-orders",
@@ -24,7 +24,7 @@ export const Index = {
       registryDependencies: ["badge","breadcrumb","button","card","checkbox","dropdown-menu","input","pagination","progress","separator","sheet","table","tabs","tooltip"],
       dependencies: ["lucide-vue-next@^0.475.0"],
       component: () => import("../../../packages/lib/src/registry/tailwind/blocks/dashboard-orders/DashboardOrders.vue").then((m) => m.default),
-      files: ["blocks/dashboard-orders/DashboardOrders.vue"],
+      files: ["blocks/dashboard-orders/DashboardOrders.vue","blocks/dashboard-orders/components/AppHeader.vue","blocks/dashboard-orders/components/AppSidebar.vue","blocks/dashboard-orders/components/OrderDetails.vue","blocks/dashboard-orders/components/OrdersSummary.vue","blocks/dashboard-orders/components/OrdersTable.vue","blocks/dashboard-orders/data.ts"],
     },
     "dashboard-product-edit": {
       name: "dashboard-product-edit",
@@ -40,7 +40,7 @@ export const Index = {
       registryDependencies: ["badge","breadcrumb","button","card","dropdown-menu","input","sheet","table","tabs","tooltip"],
       dependencies: ["lucide-vue-next@^0.475.0"],
       component: () => import("../../../packages/lib/src/registry/tailwind/blocks/dashboard-products/DashboardProducts.vue").then((m) => m.default),
-      files: ["blocks/dashboard-products/DashboardProducts.vue"],
+      files: ["blocks/dashboard-products/DashboardProducts.vue","blocks/dashboard-products/components/AppHeader.vue","blocks/dashboard-products/components/AppSidebar.vue","blocks/dashboard-products/components/ProductsPanel.vue","blocks/dashboard-products/data.ts"],
     },
     "dashboard-settings": {
       name: "dashboard-settings",
@@ -48,7 +48,7 @@ export const Index = {
       registryDependencies: ["button","card","checkbox","dropdown-menu","input","sheet"],
       dependencies: ["lucide-vue-next@^0.475.0"],
       component: () => import("../../../packages/lib/src/registry/tailwind/blocks/dashboard-settings/DashboardSettings.vue").then((m) => m.default),
-      files: ["blocks/dashboard-settings/DashboardSettings.vue"],
+      files: ["blocks/dashboard-settings/DashboardSettings.vue","blocks/dashboard-settings/components/AppHeader.vue","blocks/dashboard-settings/components/PluginsDirectoryCard.vue","blocks/dashboard-settings/components/SearchForm.vue","blocks/dashboard-settings/components/SettingsNav.vue","blocks/dashboard-settings/components/StoreNameCard.vue","blocks/dashboard-settings/components/UserMenu.vue","blocks/dashboard-settings/data.ts"],
     },
     "dashboard-sidebar": {
       name: "dashboard-sidebar",
@@ -56,7 +56,7 @@ export const Index = {
       registryDependencies: ["badge","button","card","dropdown-menu","input","sheet"],
       dependencies: ["lucide-vue-next@^0.475.0"],
       component: () => import("../../../packages/lib/src/registry/tailwind/blocks/dashboard-sidebar/DashboardSidebar.vue").then((m) => m.default),
-      files: ["blocks/dashboard-sidebar/DashboardSidebar.vue"],
+      files: ["blocks/dashboard-sidebar/DashboardSidebar.vue","blocks/dashboard-sidebar/components/AppHeader.vue","blocks/dashboard-sidebar/components/DesktopSidebar.vue","blocks/dashboard-sidebar/components/EmptyState.vue","blocks/dashboard-sidebar/components/MobileNav.vue","blocks/dashboard-sidebar/components/SearchForm.vue","blocks/dashboard-sidebar/components/UpgradeCard.vue","blocks/dashboard-sidebar/components/UserMenu.vue","blocks/dashboard-sidebar/data.ts"],
     },
     "login-simple": {
       name: "login-simple",
@@ -1914,7 +1914,7 @@ export const Index = {
       registryDependencies: ["avatar","badge","button","card","dropdown-menu","input","sheet","table"],
       dependencies: ["lucide-vue-next@^0.475.0"],
       component: () => import("../../../packages/lib/src/registry/css/blocks/dashboard-analytics/DashboardAnalytics.vue").then((m) => m.default),
-      files: ["blocks/dashboard-analytics/DashboardAnalytics.vue"],
+      files: ["blocks/dashboard-analytics/DashboardAnalytics.vue","blocks/dashboard-analytics/components/AppHeader.vue","blocks/dashboard-analytics/components/RecentSalesCard.vue","blocks/dashboard-analytics/components/SearchForm.vue","blocks/dashboard-analytics/components/StatCard.vue","blocks/dashboard-analytics/components/TransactionsCard.vue","blocks/dashboard-analytics/components/UserMenu.vue","blocks/dashboard-analytics/data.ts"],
     },
     "dashboard-orders": {
       name: "dashboard-orders",
@@ -1922,7 +1922,7 @@ export const Index = {
       registryDependencies: ["badge","breadcrumb","button","card","checkbox","dropdown-menu","input","pagination","progress","separator","sheet","table","tabs","tooltip"],
       dependencies: ["lucide-vue-next@^0.475.0"],
       component: () => import("../../../packages/lib/src/registry/css/blocks/dashboard-orders/DashboardOrders.vue").then((m) => m.default),
-      files: ["blocks/dashboard-orders/DashboardOrders.vue"],
+      files: ["blocks/dashboard-orders/DashboardOrders.vue","blocks/dashboard-orders/components/AppHeader.vue","blocks/dashboard-orders/components/AppSidebar.vue","blocks/dashboard-orders/components/OrderDetails.vue","blocks/dashboard-orders/components/OrdersSummary.vue","blocks/dashboard-orders/components/OrdersTable.vue","blocks/dashboard-orders/data.ts"],
     },
     "dashboard-product-edit": {
       name: "dashboard-product-edit",
@@ -1938,7 +1938,7 @@ export const Index = {
       registryDependencies: ["badge","breadcrumb","button","card","dropdown-menu","input","sheet","table","tabs","tooltip"],
       dependencies: ["lucide-vue-next@^0.475.0"],
       component: () => import("../../../packages/lib/src/registry/css/blocks/dashboard-products/DashboardProducts.vue").then((m) => m.default),
-      files: ["blocks/dashboard-products/DashboardProducts.vue"],
+      files: ["blocks/dashboard-products/DashboardProducts.vue","blocks/dashboard-products/components/AppHeader.vue","blocks/dashboard-products/components/AppSidebar.vue","blocks/dashboard-products/components/ProductsPanel.vue","blocks/dashboard-products/data.ts"],
     },
     "dashboard-settings": {
       name: "dashboard-settings",
@@ -1946,7 +1946,7 @@ export const Index = {
       registryDependencies: ["button","card","checkbox","dropdown-menu","input","sheet"],
       dependencies: ["lucide-vue-next@^0.475.0"],
       component: () => import("../../../packages/lib/src/registry/css/blocks/dashboard-settings/DashboardSettings.vue").then((m) => m.default),
-      files: ["blocks/dashboard-settings/DashboardSettings.vue"],
+      files: ["blocks/dashboard-settings/DashboardSettings.vue","blocks/dashboard-settings/components/AppHeader.vue","blocks/dashboard-settings/components/PluginsDirectoryCard.vue","blocks/dashboard-settings/components/SearchForm.vue","blocks/dashboard-settings/components/SettingsNav.vue","blocks/dashboard-settings/components/StoreNameCard.vue","blocks/dashboard-settings/components/UserMenu.vue","blocks/dashboard-settings/data.ts"],
     },
     "dashboard-sidebar": {
       name: "dashboard-sidebar",
@@ -1954,7 +1954,7 @@ export const Index = {
       registryDependencies: ["badge","button","card","dropdown-menu","input","sheet"],
       dependencies: ["lucide-vue-next@^0.475.0"],
       component: () => import("../../../packages/lib/src/registry/css/blocks/dashboard-sidebar/DashboardSidebar.vue").then((m) => m.default),
-      files: ["blocks/dashboard-sidebar/DashboardSidebar.vue"],
+      files: ["blocks/dashboard-sidebar/DashboardSidebar.vue","blocks/dashboard-sidebar/components/AppHeader.vue","blocks/dashboard-sidebar/components/DesktopSidebar.vue","blocks/dashboard-sidebar/components/EmptyState.vue","blocks/dashboard-sidebar/components/MobileNav.vue","blocks/dashboard-sidebar/components/SearchForm.vue","blocks/dashboard-sidebar/components/UpgradeCard.vue","blocks/dashboard-sidebar/components/UserMenu.vue","blocks/dashboard-sidebar/data.ts"],
     },
     "login-simple": {
       name: "login-simple",
