@@ -15,6 +15,8 @@ interface ItemProps extends PrimitiveProps {
 
 const props = withDefaults(defineProps<ItemProps>(), {
   as: 'div',
+  variant: 'default',
+  size: 'default',
 });
 
 defineSlots<{
