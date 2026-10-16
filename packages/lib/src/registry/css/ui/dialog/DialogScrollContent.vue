@@ -19,15 +19,19 @@ const props = withDefaults(defineProps<DialogContentProps & {
 const emits = defineEmits<DialogContentEmits>();
 
 const forwarded = useForwardPropsEmits(reactiveOmit(props, 'closeLabel'), emits);
+
+defineOptions({
+  inheritAttrs: false,
+});
 </script>
 
 <template>
-  <DialogPortal
-    data-slot="dialog-scroll-content">
+  <DialogPortal>
     <DialogOverlay
       class="sigma-ui-dialog-scroll-overlay"
     >
       <DialogContent
+        data-slot="dialog-scroll-content"
         class="sigma-ui-dialog-scroll-content"
         :class="[$attrs.class]"
         v-bind="forwarded"

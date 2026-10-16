@@ -10,12 +10,16 @@ const props = withDefaults(defineProps<ComboboxContentProps>(), {
 const emits = defineEmits<ComboboxContentEmits>();
 
 const forwarded = useForwardPropsEmits(props, emits);
+
+defineOptions({
+  inheritAttrs: false,
+});
 </script>
 
 <template>
-  <ComboboxPortal
-    data-slot="combobox-list">
+  <ComboboxPortal>
     <ComboboxContent
+      data-slot="combobox-list"
       v-bind="{ ...forwarded, ...$attrs }"
       :class="['sigma-ui-combobox-list', $attrs.class]"
     >

@@ -29,10 +29,10 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 </script>
 
 <template>
-  <DialogPortal
-    data-slot="sheet-content">
+  <DialogPortal>
     <DialogOverlay class="sigma-ui-sheet-overlay" />
     <DialogContent
+      data-slot="sheet-content"
       :class="[sheetVariants({ side }), $attrs.class]"
       v-bind="{ ...forwarded, ...$attrs }"
     >
