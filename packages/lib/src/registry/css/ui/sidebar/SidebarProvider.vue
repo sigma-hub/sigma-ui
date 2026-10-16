@@ -91,15 +91,28 @@ function toggleSidebar() {
   }
 }
 
+const wrapper = ref<HTMLElement>();
+
 useEventListener('keydown', (event: KeyboardEvent) => {
   if (!props.keyboardShortcut) {
     return;
   }
 
-  if (event.key.toLowerCase() === props.keyboardShortcut.toLowerCase() && (event.metaKey || event.ctrlKey)) {
-    event.preventDefault();
-    toggleSidebar();
+  const matchesShortcut = event.key.toLowerCase() === props.keyboardShortcut.toLowerCase() && (event.metaKey || event.ctrlKey);
+
+  if (!matchesShortcut || !(event.target instanceof Node)) {
+    return;
   }
+
+  const providers = [...document.querySelectorAll('[data-slot="sidebar-wrapper"]')];
+  const owner = providers.find(provider => provider.contains(event.target as Node)) ?? providers[0];
+
+  if (owner !== wrapper.value) {
+    return;
+  }
+
+  event.preventDefault();
+  toggleSidebar();
 });
 
 provideSidebarContext({
@@ -116,6 +129,7 @@ provideSidebarContext({
 <template>
   <TooltipProvider :delay-duration="0">
     <div
+      ref="wrapper"
       v-bind="$attrs"
       data-slot="sidebar-wrapper"
       class="sigma-ui-sidebar-wrapper"
