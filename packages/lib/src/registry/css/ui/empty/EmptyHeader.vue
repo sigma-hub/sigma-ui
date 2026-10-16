@@ -33,7 +33,7 @@ defineSlots<{
   max-width: 24rem;
   flex-direction: column;
   align-items: center;
-  text-align: center;
   gap: 0.5rem;
+  text-align: center;
 }
 </style>
