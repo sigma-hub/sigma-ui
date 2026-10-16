@@ -92,26 +92,26 @@ button.dashboard-ai-playground__settings-button svg {
 
 .dashboard-ai-playground__drawer-form {
   display: grid;
+  overflow: auto;
   width: 100%;
   align-items: start;
-  gap: 1.5rem;
-  overflow: auto;
   padding: 0 1rem 1rem;
+  gap: 1.5rem;
 }
 
 .dashboard-ai-playground__fieldset {
   display: grid;
   min-width: 0;
-  gap: 1.5rem;
+  padding: 1rem;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 1rem;
+  gap: 1.5rem;
 }
 
 .dashboard-ai-playground__legend {
-  margin-left: -0.25rem;
   padding-right: 0.25rem;
   padding-left: 0.25rem;
+  margin-left: -0.25rem;
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.25rem;
@@ -124,13 +124,13 @@ button.dashboard-ai-playground__settings-button svg {
 
 .dashboard-ai-playground__visually-hidden {
   position: absolute;
+  overflow: hidden;
   width: 1px;
   height: 1px;
   padding: 0;
+  border-width: 0;
   margin: -1px;
-  overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  border-width: 0;
 }
 </style>
