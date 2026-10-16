@@ -55,9 +55,7 @@ button.dashboard-product-edit__back-button svg {
 }
 
 .dashboard-product-edit__product-title {
-  flex-grow: 1;
-  flex-shrink: 0;
-  flex-basis: 0%;
+  flex: 1 0 0%;
   margin: 0;
   font-size: 1.25rem;
   font-weight: 600;
@@ -95,13 +93,13 @@ button.dashboard-product-edit__back-button svg {
 
 .dashboard-product-edit__visually-hidden {
   position: absolute;
+  overflow: hidden;
   width: 1px;
   height: 1px;
   padding: 0;
+  border-width: 0;
   margin: -1px;
-  overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  border-width: 0;
 }
 </style>
