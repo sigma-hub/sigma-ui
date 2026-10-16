@@ -23,7 +23,7 @@
     },
     {
       "path": "ui/input-group/InputGroupButton.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { ButtonVariants } from '@/components/ui/button';\nimport { Button } from '@/components/ui/button';\nimport { cn } from '@/lib/utils';\nimport { type InputGroupButtonVariants, inputGroupButtonVariants } from '.';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\ninterface InputGroupButtonProps {\n  /**\n   * Visual style of the button. Defaults to `ghost` so the button sits inside the field.\n   */\n  variant?: ButtonVariants['variant'];\n  /**\n   * Size of the button inside the field.\n   */\n  size?: InputGroupButtonVariants['size'];\n}\n\nconst props = withDefaults(defineProps<InputGroupButtonProps>(), {\n  variant: 'ghost',\n  size: 'xs',\n});\n\ndefineSlots<{\n  /**\n   * Button label or icon.\n   */\n  default?: () => unknown;\n}>();\n</script>\n\n<template>\n  <Button\n    type=\"button\"\n    :variant=\"props.variant\"\n    :data-size=\"props.size\"\n    v-bind=\"$attrs\"\n    :class=\"cn(inputGroupButtonVariants({ size: props.size }), $attrs.class ?? '')\"\n  >\n    <slot />\n  </Button>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { ButtonVariants } from '@/components/ui/button';\nimport { Button } from '@/components/ui/button';\nimport { cn } from '@/lib/utils';\nimport { type InputGroupButtonVariants, inputGroupButtonVariants } from '.';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\ninterface InputGroupButtonProps {\n  /**\n   * Visual style of the button. Defaults to `ghost` so the button sits inside the field.\n   */\n  variant?: ButtonVariants['variant'];\n  /**\n   * Size of the button inside the field.\n   */\n  size?: InputGroupButtonVariants['size'];\n}\n\nconst props = withDefaults(defineProps<InputGroupButtonProps>(), {\n  variant: 'ghost',\n  size: 'xs',\n});\n\ndefineSlots<{\n  /**\n   * Button label or icon.\n   */\n  default?: () => unknown;\n}>();\n</script>\n\n<template>\n  <Button\n    type=\"button\"\n    data-slot=\"input-group-button\"\n    :variant=\"props.variant\"\n    :data-size=\"props.size\"\n    v-bind=\"$attrs\"\n    :class=\"cn(inputGroupButtonVariants({ size: props.size }), $attrs.class ?? '')\"\n  >\n    <slot />\n  </Button>\n</template>\n",
       "type": "registry:ui"
     },
     {
@@ -33,7 +33,7 @@
     },
     {
       "path": "ui/input-group/InputGroupText.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils';\n\ndefineSlots<{\n  /**\n   * Text or an icon shown inside an addon.\n   */\n  default?: () => unknown;\n}>();\n</script>\n\n<template>\n  <span :class=\"cn('flex items-center gap-2 text-sm text-muted-foreground [&_svg]:pointer-events-none [&_svg:not([class*=size-])]:size-4', $attrs.class ?? '')\">\n    <slot />\n  </span>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils';\n\ndefineSlots<{\n  /**\n   * Text or an icon shown inside an addon.\n   */\n  default?: () => unknown;\n}>();\n</script>\n\n<template>\n  <span\n    data-slot=\"input-group-text\"\n    :class=\"cn('flex items-center gap-2 text-sm text-muted-foreground [&_svg]:pointer-events-none [&_svg:not([class*=size-])]:size-4', $attrs.class ?? '')\"\n  >\n    <slot />\n  </span>\n</template>\n",
       "type": "registry:ui"
     },
     {

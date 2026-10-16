@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "ui/spinner/Spinner.vue",
-      "content": "<script setup lang=\"ts\">\nimport { Loader2Icon } from 'lucide-vue-next';\nimport { cn } from '@/lib/utils';\n\ninterface SpinnerProps {\n  /**\n   * Accessible name announced while the spinner is visible.\n   */\n  label?: string;\n}\n\nconst props = withDefaults(defineProps<SpinnerProps>(), {\n  label: 'Loading',\n});\n</script>\n\n<template>\n  <Loader2Icon\n    role=\"status\"\n    :aria-label=\"props.label\"\n    :class=\"cn('size-4 animate-spin', $attrs.class ?? '')\"\n  />\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { Loader2Icon } from 'lucide-vue-next';\nimport { cn } from '@/lib/utils';\n\ninterface SpinnerProps {\n  /**\n   * Accessible name announced while the spinner is visible.\n   */\n  label?: string;\n}\n\nconst props = withDefaults(defineProps<SpinnerProps>(), {\n  label: 'Loading',\n});\n</script>\n\n<template>\n  <Loader2Icon\n    role=\"status\"\n    data-slot=\"spinner\"\n    :aria-label=\"props.label\"\n    :class=\"cn('size-4 animate-spin', $attrs.class ?? '')\"\n  />\n</template>\n",
       "type": "registry:ui"
     },
     {
