@@ -63,6 +63,12 @@ Render a link or any other element with the button styles through `as` or `asChi
 
 <ComponentPreview name="ButtonIcon" size="unset" />
 
+### Sizes
+
+`xs`, `sm`, `default`, and `lg` set the height. `icon-xs`, `icon-sm`, `icon`, and `icon-lg` make a square button.
+
+<ComponentPreview name="ButtonSizes" size="unset" />
+
 ### With Icon
 
 <ComponentPreview name="ButtonWithIcon" size="unset" />

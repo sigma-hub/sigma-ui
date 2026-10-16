@@ -466,6 +466,14 @@ export const Index = {
       component: () => import("../../../packages/lib/src/registry/tailwind/example/ButtonSecondary.vue").then((m) => m.default),
       files: ["example/ButtonSecondary.vue"],
     },
+    "ButtonSizes": {
+      name: "ButtonSizes",
+      type: "registry:example",
+      registryDependencies: ["button"],
+      dependencies: ["lucide-vue-next@^0.475.0"],
+      component: () => import("../../../packages/lib/src/registry/tailwind/example/ButtonSizes.vue").then((m) => m.default),
+      files: ["example/ButtonSizes.vue"],
+    },
     "ButtonWithIcon": {
       name: "ButtonWithIcon",
       type: "registry:example",
@@ -2355,6 +2363,14 @@ export const Index = {
       dependencies: [],
       component: () => import("../../../packages/lib/src/registry/css/example/ButtonSecondary.vue").then((m) => m.default),
       files: ["example/ButtonSecondary.vue"],
+    },
+    "ButtonSizes": {
+      name: "ButtonSizes",
+      type: "registry:example",
+      registryDependencies: ["button"],
+      dependencies: ["lucide-vue-next@^0.475.0"],
+      component: () => import("../../../packages/lib/src/registry/css/example/ButtonSizes.vue").then((m) => m.default),
+      files: ["example/ButtonSizes.vue"],
     },
     "ButtonWithIcon": {
       name: "ButtonWithIcon",

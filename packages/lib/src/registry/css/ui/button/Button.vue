@@ -6,7 +6,7 @@ import { type ButtonVariants, buttonVariants } from '.';
 interface Props extends PrimitiveProps {
   /** Visual style of the button. */
   variant?: ButtonVariants['variant'];
-  /** Height and padding preset; icon makes a square button. */
+  /** Height and padding preset. `icon`, `icon-xs`, `icon-sm`, and `icon-lg` make a square button. */
   size?: ButtonVariants['size'];
   /** Shows a spinner and disables the button. */
   isLoading?: boolean;
@@ -25,6 +25,9 @@ const props = withDefaults(defineProps<Props>(), {
 
 <template>
   <Primitive
+    data-slot="button"
+    :data-variant="variant"
+    :data-size="size"
     :as="as"
     :as-child="asChild"
     :class="[buttonVariants({ variant, size }), $attrs.class]"
@@ -47,14 +50,27 @@ const props = withDefaults(defineProps<Props>(), {
 .sigma-ui-button {
   display: inline-flex;
   width: fit-content;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
   border-radius: var(--radius);
   font-size: 0.875rem;
   font-weight: 500;
+  gap: 0.5rem;
   transition: background-color 0.1s ease, colors 0.2s;
   user-select: none;
   white-space: nowrap;
+}
+
+.sigma-ui-button svg {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.sigma-ui-button[aria-invalid="true"] {
+  border-color: hsl(var(--destructive));
 }
 
 .sigma-ui-button:focus-visible {
@@ -119,29 +135,67 @@ const props = withDefaults(defineProps<Props>(), {
 }
 
 .sigma-ui-button--size-default {
-  height: 2.5rem;
-  padding: 0.5rem 1rem;
+  height: 2.25rem;
+  padding-inline: 1rem;
+}
+
+.sigma-ui-button--size-default:has(> svg) {
+  padding-inline: 0.75rem;
 }
 
 .sigma-ui-button--size-xs {
-  height: 1.75rem;
-  padding: 0 0.5rem;
-  border-radius: 0.25rem;
+  height: 1.5rem;
+  border-radius: var(--radius-md);
+  font-size: 0.75rem;
+  gap: 0.25rem;
+  padding-inline: 0.5rem;
+}
+
+.sigma-ui-button--size-xs:has(> svg) {
+  padding-inline: 0.375rem;
+}
+
+.sigma-ui-button--size-xs svg,
+.sigma-ui-button--size-icon-xs svg {
+  width: 0.75rem;
+  height: 0.75rem;
 }
 
 .sigma-ui-button--size-sm {
-  height: 2.25rem;
-  padding: 0 0.75rem;
-  border-radius: var(--radius);
+  height: 2rem;
+  gap: 0.375rem;
+  padding-inline: 0.75rem;
+}
+
+.sigma-ui-button--size-sm:has(> svg) {
+  padding-inline: 0.625rem;
 }
 
 .sigma-ui-button--size-lg {
-  height: 2.75rem;
-  padding: 0 2rem;
-  border-radius: var(--radius);
+  height: 2.5rem;
+  padding-inline: 1.5rem;
+}
+
+.sigma-ui-button--size-lg:has(> svg) {
+  padding-inline: 1rem;
 }
 
 .sigma-ui-button--size-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.sigma-ui-button--size-icon-xs {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.sigma-ui-button--size-icon-sm {
+  width: 2rem;
+  height: 2rem;
+}
+
+.sigma-ui-button--size-icon-lg {
   width: 2.5rem;
   height: 2.5rem;
 }
@@ -149,7 +203,6 @@ const props = withDefaults(defineProps<Props>(), {
 .sigma-ui-button__loader {
   width: 1rem;
   height: 1rem;
-  margin-right: 0.5rem;
   animation: sigma-ui-spin 1s linear infinite;
 }
 </style>
