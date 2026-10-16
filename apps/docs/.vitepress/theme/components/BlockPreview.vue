@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { InfoIcon, MonitorIcon, SmartphoneIcon, TabletIcon } from 'lucide-vue-next';
-import { computed, ref, watch } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 import { DEFAULT_COMPONENTS, DEFAULT_UTILS } from '@sigma-ui/shared/consts';
 import { Badge } from '@ui/registry/tailwind/ui/badge';
 import { Popover, PopoverContent, PopoverTrigger } from '@ui/registry/tailwind/ui/popover';
@@ -8,10 +8,7 @@ import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@ui/regist
 import { Separator } from '@ui/registry/tailwind/ui/separator';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@ui/registry/tailwind/ui/tabs';
 import { ToggleGroup, ToggleGroupItem } from '@ui/registry/tailwind/ui/toggle-group';
-import blockSources from 'virtual:block-sources';
-import { Index } from '../../../__generated';
 import { buildBlockFrameSrc } from '../../block-renderer/frame';
-import { useCodePathRewrite } from '../composables/useCodePathRewrite';
 import { getBlockFileTree, getBlockMainFile, getBlockMeta, type BlockFileNode } from '../utils/blocks';
 import BlockCopyButton from './BlockCopyButton.vue';
 import PackageManagerCommand from './PackageManagerCommand.vue';
@@ -22,31 +19,74 @@ const props = defineProps<{
   name: string;
 }>();
 
-interface BlockIndexEntry {
+interface RegistrySourceFile {
+  path: string;
+  content?: string;
+}
+
+interface RegistryBlockItem {
   registryDependencies?: string[];
   dependencies?: string[];
-  files?: string[];
+  files?: Array<RegistrySourceFile | string>;
 }
 
 const { config, codeConfig } = useConfigStore();
-const rewriteCodePaths = useCodePathRewrite();
 
 const isLoading = ref(true);
 const tabValue = ref('preview');
 const resizableRef = ref<InstanceType<typeof ResizablePanel>>();
 const selectedPath = ref('');
-const selectedSource = computed(() => blockSources[config.value.styleSystem]?.[props.name]?.[selectedPath.value]);
+const registryItem = ref<RegistryBlockItem>();
 const blockMeta = computed(() => getBlockMeta(props.name));
 const frameSrc = computed(() => buildBlockFrameSrc({
   name: props.name,
   styleSystem: config.value.styleSystem,
   containerClass: blockMeta.value?.meta.containerClass ?? '',
 }));
-const blockEntry = computed(() => {
-  const styleIndex = Index[config.value.styleSystem] as Record<string, BlockIndexEntry>;
-  return styleIndex[props.name];
+
+function sourcePath(file: RegistrySourceFile | string) {
+  return typeof file === 'string' ? file : file.path;
+}
+
+function sourceContent(file: RegistrySourceFile | string) {
+  return typeof file === 'string' ? '' : (file.content ?? '');
+}
+
+const registryFiles = computed(() => registryItem.value?.files ?? []);
+const blockEntry = computed(() => ({
+  registryDependencies: registryItem.value?.registryDependencies ?? [],
+  dependencies: registryItem.value?.dependencies ?? [],
+  files: registryFiles.value.map(sourcePath),
+}));
+const fileTree = computed(() => getBlockFileTree(props.name, blockEntry.value.files));
+const selectedFile = computed(() => registryFiles.value.find((file) => {
+  const blockPrefix = `blocks/${props.name}/`;
+  const path = sourcePath(file);
+  const relativePath = path.startsWith(blockPrefix) ? path.slice(blockPrefix.length) : path;
+
+  return relativePath === selectedPath.value;
+}));
+
+async function loadRegistryItem() {
+  if (typeof window === 'undefined') {
+    return;
+  }
+
+  const response = await fetch(`/r/${config.value.styleSystem}/${props.name}.json`);
+  registryItem.value = response.ok ? await response.json() as RegistryBlockItem : undefined;
+}
+
+onMounted(() => {
+  loadRegistryItem().catch(() => {
+    registryItem.value = undefined;
+  });
 });
-const fileTree = computed(() => getBlockFileTree(props.name, blockEntry.value?.files ?? []));
+
+watch(() => [config.value.styleSystem, props.name], () => {
+  loadRegistryItem().catch(() => {
+    registryItem.value = undefined;
+  });
+});
 const requirements = computed(() => ({
   components: (blockEntry.value?.registryDependencies ?? []).filter(dependency => dependency !== 'utils'),
   packages: (blockEntry.value?.dependencies ?? []).map(stripVersion),
@@ -69,8 +109,7 @@ function rewriteSourcePaths(source: string) {
     .replaceAll(DEFAULT_UTILS, codeConfig.value.utilsPath);
 }
 
-const rawString = computed(() => rewriteSourcePaths(selectedSource.value?.raw ?? ''));
-const codeHtml = computed(() => rewriteCodePaths(selectedSource.value?.html ?? ''));
+const rawString = computed(() => rewriteSourcePaths(selectedFile.value ? sourceContent(selectedFile.value) : ''));
 
 watch(frameSrc, () => {
   isLoading.value = true;
@@ -256,10 +295,7 @@ watch(fileTree, (nodes) => {
             {{ node.name }}
           </button>
         </div>
-        <div
-          class="language-vue min-w-0 flex-1 overflow-auto !mt-0"
-          v-html="codeHtml"
-        />
+        <pre class="language-vue min-w-0 flex-1 overflow-auto !mt-0 p-4 text-xs"><code>{{ rawString }}</code></pre>
       </div>
     </TabsContent>
   </Tabs>

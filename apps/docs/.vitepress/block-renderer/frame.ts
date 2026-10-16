@@ -10,6 +10,16 @@ export interface BlockFrameParams {
   name: string;
   styleSystem: string;
   containerClass: string;
+  kind: 'block' | 'example' | 'demo';
+  className: string;
+  align: 'center' | 'start' | 'end';
+}
+
+export interface ExampleFrameParams {
+  name: string;
+  styleSystem: string;
+  className?: string;
+  align?: BlockFrameParams['align'];
 }
 
 export interface PreviewConfig {
@@ -36,14 +46,43 @@ export function buildBlockFrameSrc(params: BlockFrameParams) {
   return `${BLOCK_RENDERER_PATH}#${hash.toString()}`;
 }
 
+export function buildDemoFrameSrc(name: string) {
+  const hash = new URLSearchParams({
+    name,
+    kind: 'demo',
+  });
+
+  return `${BLOCK_RENDERER_PATH}#${hash.toString()}`;
+}
+
+export function buildExampleFrameSrc(params: ExampleFrameParams) {
+  const hash = new URLSearchParams({
+    name: params.name,
+    styleSystem: params.styleSystem,
+    kind: 'example',
+    align: params.align ?? 'center',
+  });
+
+  if (params.className) {
+    hash.set('className', params.className);
+  }
+
+  return `${BLOCK_RENDERER_PATH}#${hash.toString()}`;
+}
+
 export function parseBlockFrameHash(hash: string): BlockFrameParams {
   const query = hash.startsWith('#') ? hash.slice(1) : hash;
   const params = new URLSearchParams(query);
+  const align = params.get('align');
+  const kind = params.get('kind');
 
   return {
     name: params.get('name') ?? '',
     styleSystem: params.get('styleSystem') ?? '',
     containerClass: params.get('containerClass') ?? '',
+    kind: kind === 'example' || kind === 'demo' ? kind : 'block',
+    className: params.get('className') ?? '',
+    align: align === 'start' || align === 'end' ? align : 'center',
   };
 }
 

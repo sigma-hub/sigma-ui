@@ -1,28 +1,22 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+import { buildDemoFrameSrc } from '../../block-renderer/frame';
 import { useExamplesStore } from '@/stores/examples';
 
 const examplesStore = useExamplesStore();
+const frameSrc = computed(() => (
+  examplesStore.currentExample
+    ? buildDemoFrameSrc(examplesStore.currentExample.name)
+    : undefined
+));
 </script>
 
 <template>
-  <transition name="fade-in">
-    <div :key="examplesStore.currentExample?.name">
-      <Component
-        :is="examplesStore.currentExample?.component"
-        v-if="examplesStore.currentExample?.component"
-      />
-    </div>
-  </transition>
+  <iframe
+    v-if="frameSrc"
+    :key="examplesStore.currentExample?.name"
+    :src="frameSrc"
+    :title="examplesStore.currentExample?.name"
+    class="h-[900px] w-full border-0 bg-background"
+  />
 </template>
-
-<style>
-.fade-in-enter-active,
-.fade-in-leave-active {
-  transition: opacity 0.2s ease;
-}
-
-.fade-in-enter-from,
-.fade-in-leave-to {
-  opacity: 0;
-}
-</style>

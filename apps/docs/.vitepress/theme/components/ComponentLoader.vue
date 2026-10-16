@@ -1,24 +1,46 @@
 <script setup lang="ts">
-import { defineAsyncComponent } from 'vue';
-import { getBlockComponentName } from '../utils/blocks';
-import Spinner from './Spinner.vue';
+import { computed, useAttrs } from 'vue';
+import { buildBlockFrameSrc, buildExampleFrameSrc } from '../../block-renderer/frame';
+import { getBlockMeta } from '../utils/blocks';
 import { useConfigStore } from '@/stores/config';
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   name: string;
   typeName?: 'example' | 'block';
-}>();
+  align?: 'center' | 'start' | 'end';
+  height?: string;
+}>(), {
+  typeName: 'block',
+  align: 'center',
+  height: '350px',
+});
+
+const attrs = useAttrs();
 const { config } = useConfigStore();
 
-const Component = defineAsyncComponent({
-  loadingComponent: Spinner,
-  loader: () => props.typeName === 'example'
-    ? import(`@ui/registry/${config.value.styleSystem}/${props.typeName}/${props.name}.vue`)
-    : import(`@ui/registry/${config.value.styleSystem}/blocks/${props.name}/${getBlockComponentName(props.name)}.vue`),
-  timeout: 5000,
+const frameSrc = computed(() => {
+  if (props.typeName === 'example') {
+    return buildExampleFrameSrc({
+      name: props.name,
+      styleSystem: config.value.styleSystem,
+      className: typeof attrs.class === 'string' ? attrs.class : undefined,
+      align: props.align,
+    });
+  }
+
+  return buildBlockFrameSrc({
+    name: props.name,
+    styleSystem: config.value.styleSystem,
+    containerClass: getBlockMeta(props.name)?.meta.containerClass ?? '',
+  });
 });
 </script>
 
 <template>
-  <Component :is="Component" />
+  <iframe
+    :src="frameSrc"
+    :title="name"
+    class="w-full border-0 bg-background"
+    :style="{ height: typeName === 'example' ? height : '600px' }"
+  />
 </template>

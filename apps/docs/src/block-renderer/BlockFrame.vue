@@ -25,14 +25,84 @@ function blockComponentName(blockName: string) {
     .join('');
 }
 
+const exampleLoaders = import.meta.glob('../../../../packages/lib/src/registry/*/example/**/*.vue');
+const demoLoaders = import.meta.glob('../examples/*/Example.vue');
+
 const blockName = computed(() => (/^[a-z0-9-]+$/.test(params.value.name) ? params.value.name : ''));
+const exampleName = computed(() => (/^[A-Za-z0-9/_-]+$/.test(params.value.name) ? params.value.name : ''));
 const styleSystem = computed(() => (isStyleSystem(params.value.styleSystem) ? params.value.styleSystem : undefined));
+const previewAlignClass = computed(() => {
+  if (params.value.align === 'start') {
+    return 'items-start justify-start';
+  }
+
+  if (params.value.align === 'end') {
+    return 'items-end justify-end';
+  }
+
+  return 'items-center justify-center';
+});
+
+function loadDemo(name: string) {
+  const suffix = `/examples/${name}/Example.vue`;
+  const modulePath = Object.keys(demoLoaders).find(candidate => candidate.endsWith(suffix));
+
+  if (!modulePath) {
+    return Promise.reject(new Error(`Missing demo ${name}`));
+  }
+
+  return demoLoaders[modulePath]().then(module => (module as { default: object }).default);
+}
+
+function loadExample(style: string, name: string) {
+  const suffix = `/registry/${style}/example/${name}.vue`;
+  const modulePath = Object.keys(exampleLoaders).find(candidate => candidate.endsWith(suffix));
+
+  if (!modulePath) {
+    return Promise.reject(new Error(`Missing example ${style}/${name}`));
+  }
+
+  return exampleLoaders[modulePath]().then(module => (module as { default: object }).default);
+}
 
 const Block = computed(() => {
-  const name = blockName.value;
+  if (params.value.kind === 'demo') {
+    const name = blockName.value;
+
+    if (!name) {
+      return undefined;
+    }
+
+    return defineAsyncComponent({
+      loader: () => loadDemo(name),
+      loadingComponent: LoadingBlock,
+      timeout: 5000,
+    });
+  }
+
   const style = styleSystem.value;
 
-  if (!name || !style) {
+  if (!style) {
+    return undefined;
+  }
+
+  if (params.value.kind === 'example') {
+    const name = exampleName.value;
+
+    if (!name) {
+      return undefined;
+    }
+
+    return defineAsyncComponent({
+      loader: () => loadExample(style, name),
+      loadingComponent: LoadingBlock,
+      timeout: 5000,
+    });
+  }
+
+  const name = blockName.value;
+
+  if (!name) {
     return undefined;
   }
 
@@ -68,9 +138,12 @@ onUnmounted(() => {
 <template>
   <div
     v-if="Block"
-    :class="params.containerClass"
+    :class="params.kind === 'example' ? ['flex h-full min-h-full w-full p-6', previewAlignClass] : params.kind === 'demo' ? 'min-h-full w-full' : params.containerClass"
   >
-    <component :is="Block" />
+    <component
+      :is="Block"
+      :class="params.kind === 'example' ? params.className : undefined"
+    />
   </div>
 </template>
 

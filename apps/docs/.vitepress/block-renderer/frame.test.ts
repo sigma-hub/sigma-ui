@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   BLOCK_RENDERER_PATH,
   buildBlockFrameSrc,
+  buildExampleFrameSrc,
   canExtendRollupInput,
   isBlockRendererRequest,
   parseBlockFrameHash,
@@ -21,8 +22,32 @@ describe('block frame hash', () => {
       containerClass: 'w-full h-full p-4 lg:p-0',
     };
 
-    expect(parseBlockFrameHash(buildBlockFrameSrc(params).split('#')[1] ?? '')).toEqual(params);
+    expect(parseBlockFrameHash(buildBlockFrameSrc(params).split('#')[1] ?? '')).toEqual({
+      ...params,
+      kind: 'block',
+      className: '',
+      align: 'center',
+    });
     expect(buildBlockFrameSrc(params).startsWith(`${BLOCK_RENDERER_PATH}#`)).toBe(true);
+  });
+
+  it('points component previews at the block renderer entry', () => {
+    const src = buildExampleFrameSrc({
+      name: 'Button',
+      styleSystem: 'css',
+      className: 'max-w-xs',
+      align: 'start',
+    });
+
+    expect(src.startsWith(`${BLOCK_RENDERER_PATH}#`)).toBe(true);
+    expect(parseBlockFrameHash(src.split('#')[1] ?? '')).toEqual({
+      name: 'Button',
+      styleSystem: 'css',
+      containerClass: '',
+      kind: 'example',
+      className: 'max-w-xs',
+      align: 'start',
+    });
   });
 
   it('treats a missing hash as an empty preview', () => {
@@ -30,6 +55,9 @@ describe('block frame hash', () => {
       name: '',
       styleSystem: '',
       containerClass: '',
+      kind: 'block',
+      className: '',
+      align: 'center',
     });
   });
 });

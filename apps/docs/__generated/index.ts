@@ -7,7 +7,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["collapsible","separator","sidebar"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/blocks/app-shell/AppShell.vue").then((m) => m.default),
       files: ["blocks/app-shell/AppShell.vue","blocks/app-shell/components/OverviewPanel.vue","blocks/app-shell/components/ShellHeader.vue","blocks/app-shell/components/ShellSidebar.vue","blocks/app-shell/data.ts"],
     },
     "cards-mix": {
@@ -15,7 +14,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["avatar","button","card","checkbox","command","dialog","dropdown-menu","input","label","popover","radio-group","range-calendar","select","separator","switch","table","textarea","tooltip"],
       dependencies: ["@internationalized/date@^3.12.4","@tanstack/vue-table@^8.21.3","@unovis/ts@^1.7.1","@unovis/vue@^1.7.1","lucide-vue-next@^1.0.0","reka-ui@^2.11.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/blocks/cards-mix/CardsMix.vue").then((m) => m.default),
       files: ["blocks/cards-mix/CardsMix.vue","blocks/cards-mix/components/ActivityGoal.vue","blocks/cards-mix/components/CardChat.vue","blocks/cards-mix/components/CardStats.vue","blocks/cards-mix/components/CookieSettings.vue","blocks/cards-mix/components/CreateAccount.vue","blocks/cards-mix/components/DataTable.vue","blocks/cards-mix/components/DataTableMenu.vue","blocks/cards-mix/components/DatePicker.vue","blocks/cards-mix/components/DatePickerWithRange.vue","blocks/cards-mix/components/GitHubCard.vue","blocks/cards-mix/components/Metric.vue","blocks/cards-mix/components/Notifications.vue","blocks/cards-mix/components/PaymentMethod.vue","blocks/cards-mix/components/ReportAnIssue.vue","blocks/cards-mix/components/ShareDocument.vue","blocks/cards-mix/components/TeamMembers.vue"],
     },
     "dashboard-ai-playground": {
@@ -23,7 +21,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["badge","button","drawer","input","label","select","textarea","tooltip"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/blocks/dashboard-ai-playground/DashboardAiPlayground.vue").then((m) => m.default),
       files: ["blocks/dashboard-ai-playground/DashboardAiPlayground.vue","blocks/dashboard-ai-playground/components/AppSidebar.vue","blocks/dashboard-ai-playground/components/ChatPanel.vue","blocks/dashboard-ai-playground/components/ConfigurationDrawer.vue","blocks/dashboard-ai-playground/components/ConfigurationForm.vue","blocks/dashboard-ai-playground/components/ModelSelect.vue","blocks/dashboard-ai-playground/components/PlaygroundHeader.vue","blocks/dashboard-ai-playground/components/RoleSelect.vue","blocks/dashboard-ai-playground/data.ts"],
     },
     "dashboard-analytics": {
@@ -31,7 +28,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["avatar","badge","button","card","dropdown-menu","input","sheet","table"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/blocks/dashboard-analytics/DashboardAnalytics.vue").then((m) => m.default),
       files: ["blocks/dashboard-analytics/DashboardAnalytics.vue","blocks/dashboard-analytics/components/AppHeader.vue","blocks/dashboard-analytics/components/RecentSalesCard.vue","blocks/dashboard-analytics/components/SearchForm.vue","blocks/dashboard-analytics/components/StatCard.vue","blocks/dashboard-analytics/components/TransactionsCard.vue","blocks/dashboard-analytics/components/UserMenu.vue","blocks/dashboard-analytics/data.ts"],
     },
     "dashboard-orders": {
@@ -39,7 +35,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["badge","breadcrumb","button","card","checkbox","dropdown-menu","input","pagination","progress","separator","sheet","table","tabs","tooltip"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/blocks/dashboard-orders/DashboardOrders.vue").then((m) => m.default),
       files: ["blocks/dashboard-orders/DashboardOrders.vue","blocks/dashboard-orders/components/AppHeader.vue","blocks/dashboard-orders/components/AppSidebar.vue","blocks/dashboard-orders/components/OrderDetails.vue","blocks/dashboard-orders/components/OrdersSummary.vue","blocks/dashboard-orders/components/OrdersTable.vue","blocks/dashboard-orders/data.ts"],
     },
     "dashboard-overview": {
@@ -47,7 +42,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["avatar","button","card","chart-bar","command","dialog","dropdown-menu","input","label","popover","range-calendar","select","tabs"],
       dependencies: ["@internationalized/date@^3.12.4","lucide-vue-next@^1.0.0","reka-ui@^2.11.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/blocks/dashboard-overview/DashboardOverview.vue").then((m) => m.default),
       files: ["blocks/dashboard-overview/DashboardOverview.vue","blocks/dashboard-overview/components/DateRangeField.vue","blocks/dashboard-overview/components/OverviewChart.vue","blocks/dashboard-overview/components/RecentSalesCard.vue","blocks/dashboard-overview/components/StatCard.vue","blocks/dashboard-overview/components/TeamSwitcher.vue","blocks/dashboard-overview/components/UserMenu.vue","blocks/dashboard-overview/data.ts"],
     },
     "dashboard-product-edit": {
@@ -55,7 +49,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["badge","breadcrumb","button","card","dropdown-menu","input","label","select","sheet","table","textarea","toggle-group","tooltip"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/blocks/dashboard-product-edit/DashboardProductEdit.vue").then((m) => m.default),
       files: ["blocks/dashboard-product-edit/DashboardProductEdit.vue","blocks/dashboard-product-edit/components/AppHeader.vue","blocks/dashboard-product-edit/components/AppSidebar.vue","blocks/dashboard-product-edit/components/ArchiveProductCard.vue","blocks/dashboard-product-edit/components/ProductCategoryCard.vue","blocks/dashboard-product-edit/components/ProductDetailsCard.vue","blocks/dashboard-product-edit/components/ProductImagesCard.vue","blocks/dashboard-product-edit/components/ProductStatusCard.vue","blocks/dashboard-product-edit/components/ProductStockCard.vue","blocks/dashboard-product-edit/components/ProductToolbar.vue","blocks/dashboard-product-edit/data.ts"],
     },
     "dashboard-products": {
@@ -63,7 +56,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["badge","breadcrumb","button","card","dropdown-menu","input","sheet","table","tabs","tooltip"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/blocks/dashboard-products/DashboardProducts.vue").then((m) => m.default),
       files: ["blocks/dashboard-products/DashboardProducts.vue","blocks/dashboard-products/components/AppHeader.vue","blocks/dashboard-products/components/AppSidebar.vue","blocks/dashboard-products/components/ProductsPanel.vue","blocks/dashboard-products/data.ts"],
     },
     "dashboard-settings": {
@@ -71,7 +63,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["button","card","checkbox","dropdown-menu","input","sheet"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/blocks/dashboard-settings/DashboardSettings.vue").then((m) => m.default),
       files: ["blocks/dashboard-settings/DashboardSettings.vue","blocks/dashboard-settings/components/AppHeader.vue","blocks/dashboard-settings/components/PluginsDirectoryCard.vue","blocks/dashboard-settings/components/SearchForm.vue","blocks/dashboard-settings/components/SettingsNav.vue","blocks/dashboard-settings/components/StoreNameCard.vue","blocks/dashboard-settings/components/UserMenu.vue","blocks/dashboard-settings/data.ts"],
     },
     "dashboard-sidebar": {
@@ -79,7 +70,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["badge","button","card","dropdown-menu","input","sheet"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/blocks/dashboard-sidebar/DashboardSidebar.vue").then((m) => m.default),
       files: ["blocks/dashboard-sidebar/DashboardSidebar.vue","blocks/dashboard-sidebar/components/AppHeader.vue","blocks/dashboard-sidebar/components/DesktopSidebar.vue","blocks/dashboard-sidebar/components/EmptyState.vue","blocks/dashboard-sidebar/components/MobileNav.vue","blocks/dashboard-sidebar/components/SearchForm.vue","blocks/dashboard-sidebar/components/UpgradeCard.vue","blocks/dashboard-sidebar/components/UserMenu.vue","blocks/dashboard-sidebar/data.ts"],
     },
     "login-simple": {
@@ -87,7 +77,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["button","card","input","label"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/blocks/login-simple/LoginSimple.vue").then((m) => m.default),
       files: ["blocks/login-simple/LoginSimple.vue"],
     },
     "login-social": {
@@ -95,7 +84,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["button","card","input","label"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/blocks/login-social/LoginSocial.vue").then((m) => m.default),
       files: ["blocks/login-social/LoginSocial.vue"],
     },
     "login-split-image": {
@@ -103,7 +91,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["button","input","label"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/blocks/login-split-image/LoginSplitImage.vue").then((m) => m.default),
       files: ["blocks/login-split-image/LoginSplitImage.vue"],
     },
     "mail-inbox": {
@@ -111,7 +98,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["avatar","badge","button","calendar","dropdown-menu","input","label","popover","resizable","scroll-area","select","separator","switch","tabs","textarea","tooltip"],
       dependencies: ["@vueuse/core@^14.4.0","date-fns@^4.4.0","lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/blocks/mail-inbox/MailInbox.vue").then((m) => m.default),
       files: ["blocks/mail-inbox/MailInbox.vue","blocks/mail-inbox/components/AccountSwitcher.vue","blocks/mail-inbox/components/FolderNav.vue","blocks/mail-inbox/components/MailDisplay.vue","blocks/mail-inbox/components/MailList.vue","blocks/mail-inbox/data.ts"],
     },
     "music-library": {
@@ -119,7 +105,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["button","context-menu","dialog","input","label","menubar","scroll-area","separator","tabs"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/blocks/music-library/MusicLibrary.vue").then((m) => m.default),
       files: ["blocks/music-library/MusicLibrary.vue","blocks/music-library/components/AlbumArtwork.vue","blocks/music-library/components/LibraryMenu.vue","blocks/music-library/components/LibrarySidebar.vue","blocks/music-library/components/MenuEntries.vue","blocks/music-library/components/PodcastEmpty.vue","blocks/music-library/data.ts"],
     },
     "settings-forms": {
@@ -127,7 +112,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["button","calendar","card","checkbox","command","form","input","popover","radio-group","select","separator","switch","textarea","toaster"],
       dependencies: ["@internationalized/date@^3.12.4","@vee-validate/zod@^4.15.1","lucide-vue-next@^1.0.0","reka-ui@^2.11.0","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/blocks/settings-forms/SettingsForms.vue").then((m) => m.default),
       files: ["blocks/settings-forms/SettingsForms.vue","blocks/settings-forms/components/AccountForm.vue","blocks/settings-forms/components/AppearanceForm.vue","blocks/settings-forms/components/DisplayForm.vue","blocks/settings-forms/components/NotificationsForm.vue","blocks/settings-forms/components/ProfileForm.vue","blocks/settings-forms/components/SettingsNav.vue"],
     },
     "signup-card": {
@@ -135,7 +119,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["button","card","input","label"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/blocks/signup-card/SignupCard.vue").then((m) => m.default),
       files: ["blocks/signup-card/SignupCard.vue"],
     },
     "signup-quote": {
@@ -143,7 +126,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["button","input","label"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/blocks/signup-quote/SignupQuote.vue").then((m) => m.default),
       files: ["blocks/signup-quote/SignupQuote.vue","blocks/signup-quote/components/SignupForm.vue","blocks/signup-quote/data.ts"],
     },
     "tasks-table": {
@@ -151,7 +133,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["avatar","badge","button","checkbox","command","dropdown-menu","input","popover","select","separator","table"],
       dependencies: ["@tanstack/vue-table@^8.21.3","lucide-vue-next@^1.0.0","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/blocks/tasks-table/TasksTable.vue").then((m) => m.default),
       files: ["blocks/tasks-table/TasksTable.vue","blocks/tasks-table/components/SelectCell.vue","blocks/tasks-table/components/TaskIdCell.vue","blocks/tasks-table/components/TaskPriorityCell.vue","blocks/tasks-table/components/TaskStatusCell.vue","blocks/tasks-table/components/TaskTitleCell.vue","blocks/tasks-table/components/TasksColumnHeader.vue","blocks/tasks-table/components/TasksDataTable.vue","blocks/tasks-table/components/TasksFacetedFilter.vue","blocks/tasks-table/components/TasksPagination.vue","blocks/tasks-table/components/TasksRowActions.vue","blocks/tasks-table/components/TasksToolbar.vue","blocks/tasks-table/components/TasksViewOptions.vue","blocks/tasks-table/components/UserMenu.vue","blocks/tasks-table/components/columns.ts","blocks/tasks-table/data.ts"],
     },
     "Accordion": {
@@ -159,7 +140,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["accordion"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Accordion.vue").then((m) => m.default),
       files: ["example/Accordion.vue"],
     },
     "AccordionBasic": {
@@ -167,7 +147,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["accordion"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/AccordionBasic.vue").then((m) => m.default),
       files: ["example/AccordionBasic.vue"],
     },
     "AccordionMultiple": {
@@ -175,7 +154,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["accordion"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/AccordionMultiple.vue").then((m) => m.default),
       files: ["example/AccordionMultiple.vue"],
     },
     "Alert": {
@@ -183,7 +161,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["alert"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Alert.vue").then((m) => m.default),
       files: ["example/Alert.vue"],
     },
     "AlertBasic": {
@@ -191,7 +168,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["alert"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/AlertBasic.vue").then((m) => m.default),
       files: ["example/AlertBasic.vue"],
     },
     "AlertDestructive": {
@@ -199,7 +175,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["alert"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/AlertDestructive.vue").then((m) => m.default),
       files: ["example/AlertDestructive.vue"],
     },
     "AlertDialog": {
@@ -207,7 +182,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["alert-dialog","button"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/AlertDialog.vue").then((m) => m.default),
       files: ["example/AlertDialog.vue"],
     },
     "AlertDialogBasic": {
@@ -215,7 +189,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["alert-dialog"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/AlertDialogBasic.vue").then((m) => m.default),
       files: ["example/AlertDialogBasic.vue"],
     },
     "AreaChart": {
@@ -223,7 +196,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["chart-area"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/AreaChart.vue").then((m) => m.default),
       files: ["example/AreaChart.vue"],
     },
     "AreaChartCustomTooltip": {
@@ -231,7 +203,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["chart-area"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/AreaChartCustomTooltip.vue").then((m) => m.default),
       files: ["example/AreaChartCustomTooltip.vue"],
     },
     "AreaChartSparkline": {
@@ -239,7 +210,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["chart-area"],
       dependencies: ["@unovis/ts@^1.7.1"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/AreaChartSparkline.vue").then((m) => m.default),
       files: ["example/AreaChartSparkline.vue"],
     },
     "AspectRatio": {
@@ -247,7 +217,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["aspect-ratio"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/AspectRatio.vue").then((m) => m.default),
       files: ["example/AspectRatio.vue"],
     },
     "Autocomplete": {
@@ -255,7 +224,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["autocomplete"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Autocomplete.vue").then((m) => m.default),
       files: ["example/Autocomplete.vue"],
     },
     "Avatar": {
@@ -263,7 +231,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["avatar"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Avatar.vue").then((m) => m.default),
       files: ["example/Avatar.vue"],
     },
     "AvatarBasic": {
@@ -271,7 +238,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["avatar"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/AvatarBasic.vue").then((m) => m.default),
       files: ["example/AvatarBasic.vue"],
     },
     "AvatarCustomFallback": {
@@ -279,7 +245,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["avatar"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/AvatarCustomFallback.vue").then((m) => m.default),
       files: ["example/AvatarCustomFallback.vue"],
     },
     "AvatarGlow": {
@@ -287,7 +252,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["avatar"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/AvatarGlow.vue").then((m) => m.default),
       files: ["example/AvatarGlow.vue"],
     },
     "Badge": {
@@ -295,7 +259,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["badge"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Badge.vue").then((m) => m.default),
       files: ["example/Badge.vue"],
     },
     "BadgeDestructive": {
@@ -303,7 +266,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["badge"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/BadgeDestructive.vue").then((m) => m.default),
       files: ["example/BadgeDestructive.vue"],
     },
     "BadgeOutline": {
@@ -311,7 +273,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["badge"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/BadgeOutline.vue").then((m) => m.default),
       files: ["example/BadgeOutline.vue"],
     },
     "BadgeSecondary": {
@@ -319,7 +280,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["badge"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/BadgeSecondary.vue").then((m) => m.default),
       files: ["example/BadgeSecondary.vue"],
     },
     "BarChart": {
@@ -327,7 +287,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["chart-bar"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/BarChart.vue").then((m) => m.default),
       files: ["example/BarChart.vue"],
     },
     "BarChartCustomTooltip": {
@@ -335,7 +294,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["chart-bar"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/BarChartCustomTooltip.vue").then((m) => m.default),
       files: ["example/BarChartCustomTooltip.vue"],
     },
     "BarChartRounded": {
@@ -343,7 +301,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["chart-bar"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/BarChartRounded.vue").then((m) => m.default),
       files: ["example/BarChartRounded.vue"],
     },
     "BarChartStacked": {
@@ -351,7 +308,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["chart-bar"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/BarChartStacked.vue").then((m) => m.default),
       files: ["example/BarChartStacked.vue"],
     },
     "Breadcrumb": {
@@ -359,7 +315,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["breadcrumb","dropdown-menu"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Breadcrumb.vue").then((m) => m.default),
       files: ["example/Breadcrumb.vue"],
     },
     "BreadcrumbDropdown": {
@@ -367,7 +322,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["breadcrumb","dropdown-menu"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/BreadcrumbDropdown.vue").then((m) => m.default),
       files: ["example/BreadcrumbDropdown.vue"],
     },
     "BreadcrumbDynamic": {
@@ -375,7 +329,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["breadcrumb"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/BreadcrumbDynamic.vue").then((m) => m.default),
       files: ["example/BreadcrumbDynamic.vue"],
     },
     "BreadcrumbDynamicWithEllipsis": {
@@ -383,7 +336,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["breadcrumb","dropdown-menu"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/BreadcrumbDynamicWithEllipsis.vue").then((m) => m.default),
       files: ["example/BreadcrumbDynamicWithEllipsis.vue"],
     },
     "BreadcrumbEllipsis": {
@@ -391,7 +343,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["breadcrumb"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/BreadcrumbEllipsis.vue").then((m) => m.default),
       files: ["example/BreadcrumbEllipsis.vue"],
     },
     "BreadcrumbGenerator": {
@@ -399,7 +350,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["breadcrumb"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/BreadcrumbGenerator.vue").then((m) => m.default),
       files: ["example/BreadcrumbGenerator.vue"],
     },
     "BreadcrumbLink": {
@@ -407,7 +357,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["breadcrumb"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/BreadcrumbLink.vue").then((m) => m.default),
       files: ["example/BreadcrumbLink.vue"],
     },
     "BreadcrumbResponsive": {
@@ -415,7 +364,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["breadcrumb","button","drawer","dropdown-menu"],
       dependencies: ["@vueuse/core@^14.4.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/BreadcrumbResponsive.vue").then((m) => m.default),
       files: ["example/BreadcrumbResponsive.vue"],
     },
     "BreadcrumbSeparator": {
@@ -423,7 +371,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["breadcrumb"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/BreadcrumbSeparator.vue").then((m) => m.default),
       files: ["example/BreadcrumbSeparator.vue"],
     },
     "Button": {
@@ -431,7 +378,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Button.vue").then((m) => m.default),
       files: ["example/Button.vue"],
     },
     "ButtonAsChild": {
@@ -439,7 +385,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ButtonAsChild.vue").then((m) => m.default),
       files: ["example/ButtonAsChild.vue"],
     },
     "ButtonConfirm": {
@@ -447,7 +392,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ButtonConfirm.vue").then((m) => m.default),
       files: ["example/ButtonConfirm.vue"],
     },
     "ButtonDestructive": {
@@ -455,7 +399,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ButtonDestructive.vue").then((m) => m.default),
       files: ["example/ButtonDestructive.vue"],
     },
     "ButtonGhost": {
@@ -463,7 +406,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ButtonGhost.vue").then((m) => m.default),
       files: ["example/ButtonGhost.vue"],
     },
     "ButtonGroup": {
@@ -471,7 +413,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","button-group","dropdown-menu"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ButtonGroup.vue").then((m) => m.default),
       files: ["example/ButtonGroup.vue"],
     },
     "ButtonGroupInput": {
@@ -479,7 +420,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","button-group","input","label"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ButtonGroupInput.vue").then((m) => m.default),
       files: ["example/ButtonGroupInput.vue"],
     },
     "ButtonGroupOrientation": {
@@ -487,7 +427,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","button-group"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ButtonGroupOrientation.vue").then((m) => m.default),
       files: ["example/ButtonGroupOrientation.vue"],
     },
     "ButtonGroupSeparator": {
@@ -495,7 +434,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","button-group"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ButtonGroupSeparator.vue").then((m) => m.default),
       files: ["example/ButtonGroupSeparator.vue"],
     },
     "ButtonIcon": {
@@ -503,7 +441,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ButtonIcon.vue").then((m) => m.default),
       files: ["example/ButtonIcon.vue"],
     },
     "ButtonLink": {
@@ -511,7 +448,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ButtonLink.vue").then((m) => m.default),
       files: ["example/ButtonLink.vue"],
     },
     "ButtonLoading": {
@@ -519,7 +455,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ButtonLoading.vue").then((m) => m.default),
       files: ["example/ButtonLoading.vue"],
     },
     "ButtonOutline": {
@@ -527,7 +462,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ButtonOutline.vue").then((m) => m.default),
       files: ["example/ButtonOutline.vue"],
     },
     "ButtonSecondary": {
@@ -535,7 +469,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ButtonSecondary.vue").then((m) => m.default),
       files: ["example/ButtonSecondary.vue"],
     },
     "ButtonSizes": {
@@ -543,7 +476,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ButtonSizes.vue").then((m) => m.default),
       files: ["example/ButtonSizes.vue"],
     },
     "ButtonWithIcon": {
@@ -551,7 +483,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ButtonWithIcon.vue").then((m) => m.default),
       files: ["example/ButtonWithIcon.vue"],
     },
     "Calendar": {
@@ -559,7 +490,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["calendar"],
       dependencies: ["@internationalized/date@^3.12.4"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Calendar.vue").then((m) => m.default),
       files: ["example/Calendar.vue"],
     },
     "CalendarForm": {
@@ -567,7 +497,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","calendar","form","popover","toaster"],
       dependencies: ["@internationalized/date@^3.12.4","@vee-validate/zod@^4.15.1","lucide-vue-next@^1.0.0","reka-ui@^2.11.0","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/CalendarForm.vue").then((m) => m.default),
       files: ["example/CalendarForm.vue"],
     },
     "CalendarLocalization": {
@@ -575,7 +504,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["calendar","select"],
       dependencies: ["@internationalized/date@^3.12.4","@vueuse/core@^14.4.0","reka-ui@^2.11.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/CalendarLocalization.vue").then((m) => m.default),
       files: ["example/CalendarLocalization.vue"],
     },
     "CalendarWithSelect": {
@@ -583,7 +511,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["calendar","select"],
       dependencies: ["@internationalized/date@^3.12.4","@vueuse/core@^14.4.0","reka-ui@^2.11.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/CalendarWithSelect.vue").then((m) => m.default),
       files: ["example/CalendarWithSelect.vue"],
     },
     "CardBasic": {
@@ -591,7 +518,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["card"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/CardBasic.vue").then((m) => m.default),
       files: ["example/CardBasic.vue"],
     },
     "CardChat": {
@@ -599,7 +525,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["avatar","button","card","command","dialog","input","tooltip"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/CardChat.vue").then((m) => m.default),
       files: ["example/CardChat.vue"],
     },
     "CardForm": {
@@ -607,7 +532,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","card","input","label","select"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/CardForm.vue").then((m) => m.default),
       files: ["example/CardForm.vue"],
     },
     "CardLightbox": {
@@ -615,7 +539,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["card-lightbox"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/CardLightbox.vue").then((m) => m.default),
       files: ["example/CardLightbox.vue"],
     },
     "CardNotifications": {
@@ -623,7 +546,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","card","switch"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/CardNotifications.vue").then((m) => m.default),
       files: ["example/CardNotifications.vue"],
     },
     "CardStats": {
@@ -631,7 +553,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["card"],
       dependencies: ["@unovis/ts@^1.7.1","@unovis/vue@^1.7.1"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/CardStats.vue").then((m) => m.default),
       files: ["example/CardStats.vue"],
     },
     "CardWithForm": {
@@ -639,7 +560,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","card","input","label","select"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/CardWithForm.vue").then((m) => m.default),
       files: ["example/CardWithForm.vue"],
     },
     "ActivityGoal": {
@@ -647,7 +567,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","card"],
       dependencies: ["@unovis/ts@^1.7.1","@unovis/vue@^1.7.1","lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Cards/ActivityGoal.vue").then((m) => m.default),
       files: ["example/Cards/ActivityGoal.vue"],
     },
     "DataTable": {
@@ -655,7 +574,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","card","checkbox","dropdown-menu","input","table"],
       dependencies: ["@tanstack/vue-table@^8.21.3","lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Cards/DataTable.vue").then((m) => m.default),
       files: ["example/Cards/DataTable.vue"],
     },
     "Metric": {
@@ -663,7 +581,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["card"],
       dependencies: ["@unovis/ts@^1.7.1","@unovis/vue@^1.7.1"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Cards/Metric.vue").then((m) => m.default),
       files: ["example/Cards/Metric.vue"],
     },
     "CarouselApi": {
@@ -671,7 +588,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["carousel"],
       dependencies: ["@vueuse/core@^14.4.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/CarouselApi.vue").then((m) => m.default),
       files: ["example/CarouselApi.vue"],
     },
     "CarouselBasic": {
@@ -679,7 +595,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["carousel"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/CarouselBasic.vue").then((m) => m.default),
       files: ["example/CarouselBasic.vue"],
     },
     "CarouselOrientation": {
@@ -687,7 +602,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["carousel"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/CarouselOrientation.vue").then((m) => m.default),
       files: ["example/CarouselOrientation.vue"],
     },
     "CarouselPlugin": {
@@ -695,7 +609,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["carousel"],
       dependencies: ["embla-carousel-autoplay@^8.6.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/CarouselPlugin.vue").then((m) => m.default),
       files: ["example/CarouselPlugin.vue"],
     },
     "CarouselSize": {
@@ -703,7 +616,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["carousel"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/CarouselSize.vue").then((m) => m.default),
       files: ["example/CarouselSize.vue"],
     },
     "CarouselSpacing": {
@@ -711,7 +623,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["carousel"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/CarouselSpacing.vue").then((m) => m.default),
       files: ["example/CarouselSpacing.vue"],
     },
     "CarouselThumbnails": {
@@ -719,7 +630,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["carousel"],
       dependencies: ["@vueuse/core@^14.4.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/CarouselThumbnails.vue").then((m) => m.default),
       files: ["example/CarouselThumbnails.vue"],
     },
     "Checkbox": {
@@ -727,7 +637,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["checkbox"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Checkbox.vue").then((m) => m.default),
       files: ["example/Checkbox.vue"],
     },
     "CheckboxBasic": {
@@ -735,7 +644,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["checkbox"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/CheckboxBasic.vue").then((m) => m.default),
       files: ["example/CheckboxBasic.vue"],
     },
     "CheckboxDisabled": {
@@ -743,7 +651,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["checkbox"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/CheckboxDisabled.vue").then((m) => m.default),
       files: ["example/CheckboxDisabled.vue"],
     },
     "CheckboxFormMultiple": {
@@ -751,7 +658,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","checkbox","form","toaster"],
       dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/CheckboxFormMultiple.vue").then((m) => m.default),
       files: ["example/CheckboxFormMultiple.vue"],
     },
     "CheckboxFormSingle": {
@@ -759,7 +665,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","checkbox","form","toaster"],
       dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/CheckboxFormSingle.vue").then((m) => m.default),
       files: ["example/CheckboxFormSingle.vue"],
     },
     "CheckboxWithDescription": {
@@ -767,7 +672,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["checkbox"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/CheckboxWithDescription.vue").then((m) => m.default),
       files: ["example/CheckboxWithDescription.vue"],
     },
     "Collapsible": {
@@ -775,7 +679,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","collapsible"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Collapsible.vue").then((m) => m.default),
       files: ["example/Collapsible.vue"],
     },
     "Color": {
@@ -783,7 +686,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["color"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Color.vue").then((m) => m.default),
       files: ["example/Color.vue"],
     },
     "Combobox": {
@@ -791,7 +693,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["combobox"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Combobox.vue").then((m) => m.default),
       files: ["example/Combobox.vue"],
     },
     "ComboboxTrigger": {
@@ -799,7 +700,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","combobox"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ComboboxTrigger.vue").then((m) => m.default),
       files: ["example/ComboboxTrigger.vue"],
     },
     "Command": {
@@ -807,7 +707,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["command","toaster"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Command.vue").then((m) => m.default),
       files: ["example/Command.vue"],
     },
     "CommandDialog": {
@@ -815,7 +714,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["command","toaster"],
       dependencies: ["@vueuse/core@^14.4.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/CommandDialog.vue").then((m) => m.default),
       files: ["example/CommandDialog.vue"],
     },
     "CommandDropdownMenu": {
@@ -823,7 +721,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","command","dropdown-menu"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/CommandDropdownMenu.vue").then((m) => m.default),
       files: ["example/CommandDropdownMenu.vue"],
     },
     "CommandForm": {
@@ -831,7 +728,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","command","form","popover","toaster"],
       dependencies: ["@vee-validate/zod@^4.15.1","lucide-vue-next@^1.0.0","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/CommandForm.vue").then((m) => m.default),
       files: ["example/CommandForm.vue"],
     },
     "CommandPopover": {
@@ -839,7 +735,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","command","popover"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/CommandPopover.vue").then((m) => m.default),
       files: ["example/CommandPopover.vue"],
     },
     "CommandResponsive": {
@@ -847,7 +742,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","command","drawer","popover"],
       dependencies: ["@vueuse/core@^14.4.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/CommandResponsive.vue").then((m) => m.default),
       files: ["example/CommandResponsive.vue"],
     },
     "ContextMenu": {
@@ -855,7 +749,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["context-menu"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ContextMenu.vue").then((m) => m.default),
       files: ["example/ContextMenu.vue"],
     },
     "CustomChartTooltip": {
@@ -863,7 +756,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["card"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/CustomChartTooltip.vue").then((m) => m.default),
       files: ["example/CustomChartTooltip.vue"],
     },
     "DataTableColumnPinning": {
@@ -871,7 +763,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","checkbox","dropdown-menu","input","table"],
       dependencies: ["@tanstack/vue-table@^8.21.3","lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/DataTableColumnPinning.vue").then((m) => m.default),
       files: ["example/DataTableColumnPinning.vue"],
     },
     "DataTableExample": {
@@ -879,7 +770,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","checkbox","dropdown-menu","input","table"],
       dependencies: ["@tanstack/vue-table@^8.21.3","lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/DataTableExample.vue").then((m) => m.default),
       files: ["example/DataTableExample.vue"],
     },
     "DataTableMenu": {
@@ -887,7 +777,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","dropdown-menu"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/DataTableMenu.vue").then((m) => m.default),
       files: ["example/DataTableMenu.vue"],
     },
     "DatePicker": {
@@ -895,7 +784,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","calendar","popover"],
       dependencies: ["@internationalized/date@^3.12.4","lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/DatePicker.vue").then((m) => m.default),
       files: ["example/DatePicker.vue"],
     },
     "DatePickerForm": {
@@ -903,7 +791,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","calendar","form","popover","toaster"],
       dependencies: ["@internationalized/date@^3.12.4","@vee-validate/zod@^4.15.1","lucide-vue-next@^1.0.0","reka-ui@^2.11.0","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/DatePickerForm.vue").then((m) => m.default),
       files: ["example/DatePickerForm.vue"],
     },
     "DatePickerWithIndependentMonths": {
@@ -911,7 +798,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","popover","range-calendar"],
       dependencies: ["@internationalized/date@^3.12.4","lucide-vue-next@^1.0.0","reka-ui@^2.11.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/DatePickerWithIndependentMonths.vue").then((m) => m.default),
       files: ["example/DatePickerWithIndependentMonths.vue"],
     },
     "DatePickerWithPresets": {
@@ -919,7 +805,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","calendar","popover","select"],
       dependencies: ["@internationalized/date@^3.12.4","lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/DatePickerWithPresets.vue").then((m) => m.default),
       files: ["example/DatePickerWithPresets.vue"],
     },
     "DatePickerWithRange": {
@@ -927,7 +812,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","popover","range-calendar"],
       dependencies: ["@internationalized/date@^3.12.4","lucide-vue-next@^1.0.0","reka-ui@^2.11.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/DatePickerWithRange.vue").then((m) => m.default),
       files: ["example/DatePickerWithRange.vue"],
     },
     "Dialog": {
@@ -935,7 +819,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","dialog","input","label"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Dialog.vue").then((m) => m.default),
       files: ["example/Dialog.vue"],
     },
     "DialogCustomCloseButton": {
@@ -943,7 +826,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","dialog","input","label"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/DialogCustomCloseButton.vue").then((m) => m.default),
       files: ["example/DialogCustomCloseButton.vue"],
     },
     "DialogScrollBody": {
@@ -951,7 +833,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","dialog"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/DialogScrollBody.vue").then((m) => m.default),
       files: ["example/DialogScrollBody.vue"],
     },
     "DialogScrollOverlay": {
@@ -959,7 +840,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","dialog"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/DialogScrollOverlay.vue").then((m) => m.default),
       files: ["example/DialogScrollOverlay.vue"],
     },
     "Direction": {
@@ -967,7 +847,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","direction"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Direction.vue").then((m) => m.default),
       files: ["example/Direction.vue"],
     },
     "DonutChart": {
@@ -975,7 +854,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["chart-donut"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/DonutChart.vue").then((m) => m.default),
       files: ["example/DonutChart.vue"],
     },
     "DonutChartColor": {
@@ -983,7 +861,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["chart-donut"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/DonutChartColor.vue").then((m) => m.default),
       files: ["example/DonutChartColor.vue"],
     },
     "DonutChartCustomTooltip": {
@@ -991,7 +868,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["chart-donut"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/DonutChartCustomTooltip.vue").then((m) => m.default),
       files: ["example/DonutChartCustomTooltip.vue"],
     },
     "DonutChartPie": {
@@ -999,7 +875,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["chart-donut"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/DonutChartPie.vue").then((m) => m.default),
       files: ["example/DonutChartPie.vue"],
     },
     "Drawer": {
@@ -1007,7 +882,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","drawer"],
       dependencies: ["@unovis/ts@^1.7.1","@unovis/vue@^1.7.1","lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Drawer.vue").then((m) => m.default),
       files: ["example/Drawer.vue"],
     },
     "DrawerDialog": {
@@ -1015,7 +889,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","dialog","drawer","input","label"],
       dependencies: ["@vueuse/core@^14.4.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/DrawerDialog.vue").then((m) => m.default),
       files: ["example/DrawerDialog.vue"],
     },
     "DropdownMenu": {
@@ -1023,7 +896,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","dropdown-menu"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/DropdownMenu.vue").then((m) => m.default),
       files: ["example/DropdownMenu.vue"],
     },
     "DropdownMenuBasic": {
@@ -1031,7 +903,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["dropdown-menu"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/DropdownMenuBasic.vue").then((m) => m.default),
       files: ["example/DropdownMenuBasic.vue"],
     },
     "DropdownMenuCheckboxes": {
@@ -1039,7 +910,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","dropdown-menu"],
       dependencies: ["reka-ui@^2.11.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/DropdownMenuCheckboxes.vue").then((m) => m.default),
       files: ["example/DropdownMenuCheckboxes.vue"],
     },
     "DropdownMenuRadioGroup": {
@@ -1047,7 +917,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","dropdown-menu"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/DropdownMenuRadioGroup.vue").then((m) => m.default),
       files: ["example/DropdownMenuRadioGroup.vue"],
     },
     "Empty": {
@@ -1055,7 +924,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","empty"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Empty.vue").then((m) => m.default),
       files: ["example/Empty.vue"],
     },
     "FacetedFilter": {
@@ -1063,7 +931,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["faceted-filter"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/FacetedFilter.vue").then((m) => m.default),
       files: ["example/FacetedFilter.vue"],
     },
     "FacetedFilterWithCreate": {
@@ -1071,7 +938,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["faceted-filter"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/FacetedFilterWithCreate.vue").then((m) => m.default),
       files: ["example/FacetedFilterWithCreate.vue"],
     },
     "FacetedFilterWithFooter": {
@@ -1079,7 +945,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","faceted-filter"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/FacetedFilterWithFooter.vue").then((m) => m.default),
       files: ["example/FacetedFilterWithFooter.vue"],
     },
     "Field": {
@@ -1087,7 +952,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","checkbox","field","input","textarea"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Field.vue").then((m) => m.default),
       files: ["example/Field.vue"],
     },
     "FieldChoiceCard": {
@@ -1095,7 +959,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["field","radio-group"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/FieldChoiceCard.vue").then((m) => m.default),
       files: ["example/FieldChoiceCard.vue"],
     },
     "FieldInvalid": {
@@ -1103,7 +966,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["field","input"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/FieldInvalid.vue").then((m) => m.default),
       files: ["example/FieldInvalid.vue"],
     },
     "FieldResponsive": {
@@ -1111,7 +973,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["field","input"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/FieldResponsive.vue").then((m) => m.default),
       files: ["example/FieldResponsive.vue"],
     },
     "HoverCard": {
@@ -1119,7 +980,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["avatar","button","hover-card"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/HoverCard.vue").then((m) => m.default),
       files: ["example/HoverCard.vue"],
     },
     "Image": {
@@ -1127,7 +987,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["image"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Image.vue").then((m) => m.default),
       files: ["example/Image.vue"],
     },
     "ImageBasic": {
@@ -1135,7 +994,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["image"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ImageBasic.vue").then((m) => m.default),
       files: ["example/ImageBasic.vue"],
     },
     "ImageCustomFallback": {
@@ -1143,7 +1001,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["image"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ImageCustomFallback.vue").then((m) => m.default),
       files: ["example/ImageCustomFallback.vue"],
     },
     "ImageGlow": {
@@ -1151,7 +1008,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["image"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ImageGlow.vue").then((m) => m.default),
       files: ["example/ImageGlow.vue"],
     },
     "Input": {
@@ -1159,7 +1015,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["input"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Input.vue").then((m) => m.default),
       files: ["example/Input.vue"],
     },
     "InputDisabled": {
@@ -1167,7 +1022,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["input"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/InputDisabled.vue").then((m) => m.default),
       files: ["example/InputDisabled.vue"],
     },
     "InputFile": {
@@ -1175,7 +1029,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["input","label"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/InputFile.vue").then((m) => m.default),
       files: ["example/InputFile.vue"],
     },
     "InputForm": {
@@ -1183,7 +1036,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","form","input","toaster"],
       dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/InputForm.vue").then((m) => m.default),
       files: ["example/InputForm.vue"],
     },
     "InputFormAutoAnimate": {
@@ -1191,7 +1043,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","form","input","toaster"],
       dependencies: ["@formkit/auto-animate@^0.8.4","@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/InputFormAutoAnimate.vue").then((m) => m.default),
       files: ["example/InputFormAutoAnimate.vue"],
     },
     "InputGroup": {
@@ -1199,7 +1050,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["input-group"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/InputGroup.vue").then((m) => m.default),
       files: ["example/InputGroup.vue"],
     },
     "InputGroupAddon": {
@@ -1207,7 +1057,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["input-group"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/InputGroupAddon.vue").then((m) => m.default),
       files: ["example/InputGroupAddon.vue"],
     },
     "InputGroupTextarea": {
@@ -1215,7 +1064,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["input-group"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/InputGroupTextarea.vue").then((m) => m.default),
       files: ["example/InputGroupTextarea.vue"],
     },
     "InputWithButton": {
@@ -1223,7 +1071,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","input"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/InputWithButton.vue").then((m) => m.default),
       files: ["example/InputWithButton.vue"],
     },
     "InputWithIcon": {
@@ -1231,7 +1078,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["input"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/InputWithIcon.vue").then((m) => m.default),
       files: ["example/InputWithIcon.vue"],
     },
     "InputWithLabel": {
@@ -1239,7 +1085,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["input","label"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/InputWithLabel.vue").then((m) => m.default),
       files: ["example/InputWithLabel.vue"],
     },
     "Item": {
@@ -1247,7 +1092,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","item"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Item.vue").then((m) => m.default),
       files: ["example/Item.vue"],
     },
     "ItemGroup": {
@@ -1255,7 +1099,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["item"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ItemGroup.vue").then((m) => m.default),
       files: ["example/ItemGroup.vue"],
     },
     "Kbd": {
@@ -1263,7 +1106,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["kbd"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Kbd.vue").then((m) => m.default),
       files: ["example/Kbd.vue"],
     },
     "Label": {
@@ -1271,7 +1113,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["checkbox","label"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Label.vue").then((m) => m.default),
       files: ["example/Label.vue"],
     },
     "LineChart": {
@@ -1279,7 +1120,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["chart-line"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/LineChart.vue").then((m) => m.default),
       files: ["example/LineChart.vue"],
     },
     "LineChartCustomTooltip": {
@@ -1287,7 +1127,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["chart-line"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/LineChartCustomTooltip.vue").then((m) => m.default),
       files: ["example/LineChartCustomTooltip.vue"],
     },
     "LineChartSparkline": {
@@ -1295,7 +1134,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["chart-line"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/LineChartSparkline.vue").then((m) => m.default),
       files: ["example/LineChartSparkline.vue"],
     },
     "Menubar": {
@@ -1303,7 +1141,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["menubar"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Menubar.vue").then((m) => m.default),
       files: ["example/Menubar.vue"],
     },
     "MonthPicker": {
@@ -1311,7 +1148,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["month-picker"],
       dependencies: ["@internationalized/date@^3.12.4"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/MonthPicker.vue").then((m) => m.default),
       files: ["example/MonthPicker.vue"],
     },
     "NativeSelect": {
@@ -1319,7 +1155,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["native-select"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/NativeSelect.vue").then((m) => m.default),
       files: ["example/NativeSelect.vue"],
     },
     "NativeSelectGroup": {
@@ -1327,7 +1162,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["native-select"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/NativeSelectGroup.vue").then((m) => m.default),
       files: ["example/NativeSelectGroup.vue"],
     },
     "NavigationMenu": {
@@ -1335,7 +1169,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["navigation-menu"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/NavigationMenu.vue").then((m) => m.default),
       files: ["example/NavigationMenu.vue"],
     },
     "NumberField": {
@@ -1343,7 +1176,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["label","number-field"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/NumberField.vue").then((m) => m.default),
       files: ["example/NumberField.vue"],
     },
     "NumberFieldCurrency": {
@@ -1351,7 +1183,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["label","number-field"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/NumberFieldCurrency.vue").then((m) => m.default),
       files: ["example/NumberFieldCurrency.vue"],
     },
     "NumberFieldDecimal": {
@@ -1359,7 +1190,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["label","number-field"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/NumberFieldDecimal.vue").then((m) => m.default),
       files: ["example/NumberFieldDecimal.vue"],
     },
     "NumberFieldDisabled": {
@@ -1367,7 +1197,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["label","number-field"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/NumberFieldDisabled.vue").then((m) => m.default),
       files: ["example/NumberFieldDisabled.vue"],
     },
     "NumberFieldForm": {
@@ -1375,7 +1204,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","form","number-field","toaster"],
       dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/NumberFieldForm.vue").then((m) => m.default),
       files: ["example/NumberFieldForm.vue"],
     },
     "NumberFieldPercentage": {
@@ -1383,7 +1211,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["label","number-field"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/NumberFieldPercentage.vue").then((m) => m.default),
       files: ["example/NumberFieldPercentage.vue"],
     },
     "Pagination": {
@@ -1391,7 +1218,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","pagination"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Pagination.vue").then((m) => m.default),
       files: ["example/Pagination.vue"],
     },
     "PinInput": {
@@ -1399,7 +1225,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["pin-input"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/PinInput.vue").then((m) => m.default),
       files: ["example/PinInput.vue"],
     },
     "PinInputControlled": {
@@ -1407,7 +1232,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["pin-input"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/PinInputControlled.vue").then((m) => m.default),
       files: ["example/PinInputControlled.vue"],
     },
     "PinInputDisabled": {
@@ -1415,7 +1239,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["pin-input"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/PinInputDisabled.vue").then((m) => m.default),
       files: ["example/PinInputDisabled.vue"],
     },
     "PinInputForm": {
@@ -1423,7 +1246,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","form","pin-input","toaster"],
       dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/PinInputForm.vue").then((m) => m.default),
       files: ["example/PinInputForm.vue"],
     },
     "PinInputSeparator": {
@@ -1431,7 +1253,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["pin-input"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/PinInputSeparator.vue").then((m) => m.default),
       files: ["example/PinInputSeparator.vue"],
     },
     "Popover": {
@@ -1439,7 +1260,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","input","label","popover"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Popover.vue").then((m) => m.default),
       files: ["example/Popover.vue"],
     },
     "Progress": {
@@ -1447,7 +1267,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["progress"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Progress.vue").then((m) => m.default),
       files: ["example/Progress.vue"],
     },
     "RadioGroup": {
@@ -1455,7 +1274,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["label","radio-group"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/RadioGroup.vue").then((m) => m.default),
       files: ["example/RadioGroup.vue"],
     },
     "RadioGroupForm": {
@@ -1463,7 +1281,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","form","radio-group","toaster"],
       dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/RadioGroupForm.vue").then((m) => m.default),
       files: ["example/RadioGroupForm.vue"],
     },
     "RangeCalendar": {
@@ -1471,7 +1288,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["range-calendar"],
       dependencies: ["@internationalized/date@^3.12.4","reka-ui@^2.11.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/RangeCalendar.vue").then((m) => m.default),
       files: ["example/RangeCalendar.vue"],
     },
     "Rating": {
@@ -1479,7 +1295,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["rating"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Rating.vue").then((m) => m.default),
       files: ["example/Rating.vue"],
     },
     "Resizable": {
@@ -1487,7 +1302,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["resizable"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Resizable.vue").then((m) => m.default),
       files: ["example/Resizable.vue"],
     },
     "ResizableHandle": {
@@ -1495,7 +1309,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["resizable"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ResizableHandle.vue").then((m) => m.default),
       files: ["example/ResizableHandle.vue"],
     },
     "ResizableVertical": {
@@ -1503,7 +1316,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["resizable"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ResizableVertical.vue").then((m) => m.default),
       files: ["example/ResizableVertical.vue"],
     },
     "ScrollArea": {
@@ -1511,7 +1323,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["scroll-area","separator"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ScrollArea.vue").then((m) => m.default),
       files: ["example/ScrollArea.vue"],
     },
     "ScrollAreaHorizontal": {
@@ -1519,7 +1330,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["scroll-area"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ScrollAreaHorizontal.vue").then((m) => m.default),
       files: ["example/ScrollAreaHorizontal.vue"],
     },
     "Select": {
@@ -1527,7 +1337,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["select"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Select.vue").then((m) => m.default),
       files: ["example/Select.vue"],
     },
     "SelectForm": {
@@ -1535,7 +1344,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","form","select","toaster"],
       dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/SelectForm.vue").then((m) => m.default),
       files: ["example/SelectForm.vue"],
     },
     "SelectScrollable": {
@@ -1543,7 +1351,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["select"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/SelectScrollable.vue").then((m) => m.default),
       files: ["example/SelectScrollable.vue"],
     },
     "Separator": {
@@ -1551,7 +1358,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["separator"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Separator.vue").then((m) => m.default),
       files: ["example/Separator.vue"],
     },
     "Sheet": {
@@ -1559,7 +1365,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","input","label","sheet"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Sheet.vue").then((m) => m.default),
       files: ["example/Sheet.vue"],
     },
     "SheetSide": {
@@ -1567,7 +1372,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","input","label","sheet"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/SheetSide.vue").then((m) => m.default),
       files: ["example/SheetSide.vue"],
     },
     "Sidebar": {
@@ -1575,7 +1379,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["collapsible","separator","sidebar"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Sidebar.vue").then((m) => m.default),
       files: ["example/Sidebar.vue"],
     },
     "SidebarControlled": {
@@ -1583,7 +1386,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","sidebar"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/SidebarControlled.vue").then((m) => m.default),
       files: ["example/SidebarControlled.vue"],
     },
     "SidebarFloating": {
@@ -1591,7 +1393,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["sidebar"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/SidebarFloating.vue").then((m) => m.default),
       files: ["example/SidebarFloating.vue"],
     },
     "SidebarInsetVariant": {
@@ -1599,7 +1400,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["separator","sidebar"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/SidebarInsetVariant.vue").then((m) => m.default),
       files: ["example/SidebarInsetVariant.vue"],
     },
     "SidebarMenuExtras": {
@@ -1607,7 +1407,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["dropdown-menu","sidebar"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/SidebarMenuExtras.vue").then((m) => m.default),
       files: ["example/SidebarMenuExtras.vue"],
     },
     "Skeleton": {
@@ -1615,7 +1414,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["skeleton"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Skeleton.vue").then((m) => m.default),
       files: ["example/Skeleton.vue"],
     },
     "SkeletonCard": {
@@ -1623,7 +1421,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["skeleton"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/SkeletonCard.vue").then((m) => m.default),
       files: ["example/SkeletonCard.vue"],
     },
     "Slider": {
@@ -1631,7 +1428,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["slider"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Slider.vue").then((m) => m.default),
       files: ["example/Slider.vue"],
     },
     "SliderForm": {
@@ -1639,7 +1435,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","form","slider","toaster"],
       dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/SliderForm.vue").then((m) => m.default),
       files: ["example/SliderForm.vue"],
     },
     "Spinner": {
@@ -1647,7 +1442,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["spinner"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Spinner.vue").then((m) => m.default),
       files: ["example/Spinner.vue"],
     },
     "Stepper": {
@@ -1655,7 +1449,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["stepper"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Stepper.vue").then((m) => m.default),
       files: ["example/Stepper.vue"],
     },
     "Switch": {
@@ -1663,7 +1456,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["label","switch"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Switch.vue").then((m) => m.default),
       files: ["example/Switch.vue"],
     },
     "SwitchForm": {
@@ -1671,7 +1463,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","form","switch","toaster"],
       dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/SwitchForm.vue").then((m) => m.default),
       files: ["example/SwitchForm.vue"],
     },
     "Table": {
@@ -1679,7 +1470,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["table"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Table.vue").then((m) => m.default),
       files: ["example/Table.vue"],
     },
     "Tabs": {
@@ -1687,7 +1477,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","card","input","label","tabs"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Tabs.vue").then((m) => m.default),
       files: ["example/Tabs.vue"],
     },
     "TagGroup": {
@@ -1695,7 +1484,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["tag-group"],
       dependencies: ["reka-ui@^2.11.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/TagGroup.vue").then((m) => m.default),
       files: ["example/TagGroup.vue"],
     },
     "TagsInput": {
@@ -1703,7 +1491,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["tags-input"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/TagsInput.vue").then((m) => m.default),
       files: ["example/TagsInput.vue"],
     },
     "TagsInputCombobox": {
@@ -1711,7 +1498,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["combobox","tags-input"],
       dependencies: ["reka-ui@^2.11.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/TagsInputCombobox.vue").then((m) => m.default),
       files: ["example/TagsInputCombobox.vue"],
     },
     "Textarea": {
@@ -1719,7 +1505,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["textarea"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Textarea.vue").then((m) => m.default),
       files: ["example/Textarea.vue"],
     },
     "TextareaDisabled": {
@@ -1727,7 +1512,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["textarea"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/TextareaDisabled.vue").then((m) => m.default),
       files: ["example/TextareaDisabled.vue"],
     },
     "TextareaForm": {
@@ -1735,7 +1519,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","form","textarea","toaster"],
       dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/TextareaForm.vue").then((m) => m.default),
       files: ["example/TextareaForm.vue"],
     },
     "TextareaWithButton": {
@@ -1743,7 +1526,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","textarea"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/TextareaWithButton.vue").then((m) => m.default),
       files: ["example/TextareaWithButton.vue"],
     },
     "TextareaWithLabel": {
@@ -1751,7 +1533,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["label","textarea"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/TextareaWithLabel.vue").then((m) => m.default),
       files: ["example/TextareaWithLabel.vue"],
     },
     "TextareaWithText": {
@@ -1759,7 +1540,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["label","textarea"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/TextareaWithText.vue").then((m) => m.default),
       files: ["example/TextareaWithText.vue"],
     },
     "TimeRangeField": {
@@ -1767,7 +1547,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["time-range-field"],
       dependencies: ["@internationalized/date@^3.12.4"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/TimeRangeField.vue").then((m) => m.default),
       files: ["example/TimeRangeField.vue"],
     },
     "Toaster": {
@@ -1775,7 +1554,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","toaster"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Toaster.vue").then((m) => m.default),
       files: ["example/Toaster.vue"],
     },
     "ToasterCustomProgress": {
@@ -1783,7 +1561,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","toaster"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ToasterCustomProgress.vue").then((m) => m.default),
       files: ["example/ToasterCustomProgress.vue"],
     },
     "ToasterCustomSimple": {
@@ -1791,7 +1568,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","toaster"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ToasterCustomSimple.vue").then((m) => m.default),
       files: ["example/ToasterCustomSimple.vue"],
     },
     "ToasterWithDialog": {
@@ -1799,7 +1575,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","dialog","toaster"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ToasterWithDialog.vue").then((m) => m.default),
       files: ["example/ToasterWithDialog.vue"],
     },
     "Toggle": {
@@ -1807,7 +1582,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["toggle"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Toggle.vue").then((m) => m.default),
       files: ["example/Toggle.vue"],
     },
     "ToggleDisabled": {
@@ -1815,7 +1589,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["toggle"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ToggleDisabled.vue").then((m) => m.default),
       files: ["example/ToggleDisabled.vue"],
     },
     "ToggleGroup": {
@@ -1823,7 +1596,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["toggle-group"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ToggleGroup.vue").then((m) => m.default),
       files: ["example/ToggleGroup.vue"],
     },
     "ToggleGroupDisabled": {
@@ -1831,7 +1603,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["toggle-group"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ToggleGroupDisabled.vue").then((m) => m.default),
       files: ["example/ToggleGroupDisabled.vue"],
     },
     "ToggleGroupLarge": {
@@ -1839,7 +1610,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["toggle-group"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ToggleGroupLarge.vue").then((m) => m.default),
       files: ["example/ToggleGroupLarge.vue"],
     },
     "ToggleGroupOutline": {
@@ -1847,7 +1617,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["toggle-group"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ToggleGroupOutline.vue").then((m) => m.default),
       files: ["example/ToggleGroupOutline.vue"],
     },
     "ToggleGroupSingle": {
@@ -1855,7 +1624,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["toggle-group"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ToggleGroupSingle.vue").then((m) => m.default),
       files: ["example/ToggleGroupSingle.vue"],
     },
     "ToggleGroupSmall": {
@@ -1863,7 +1631,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["toggle-group"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ToggleGroupSmall.vue").then((m) => m.default),
       files: ["example/ToggleGroupSmall.vue"],
     },
     "ToggleItalic": {
@@ -1871,7 +1638,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["toggle"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ToggleItalic.vue").then((m) => m.default),
       files: ["example/ToggleItalic.vue"],
     },
     "ToggleItalicWithText": {
@@ -1879,7 +1645,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["toggle"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ToggleItalicWithText.vue").then((m) => m.default),
       files: ["example/ToggleItalicWithText.vue"],
     },
     "ToggleLarge": {
@@ -1887,7 +1652,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["toggle"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ToggleLarge.vue").then((m) => m.default),
       files: ["example/ToggleLarge.vue"],
     },
     "ToggleSmall": {
@@ -1895,7 +1659,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["toggle"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/ToggleSmall.vue").then((m) => m.default),
       files: ["example/ToggleSmall.vue"],
     },
     "Tooltip": {
@@ -1903,7 +1666,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","tooltip"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Tooltip.vue").then((m) => m.default),
       files: ["example/Tooltip.vue"],
     },
     "Typography": {
@@ -1911,7 +1673,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: [],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/Typography.vue").then((m) => m.default),
       files: ["example/Typography.vue"],
     },
     "TypographyBlockquote": {
@@ -1919,7 +1680,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: [],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/TypographyBlockquote.vue").then((m) => m.default),
       files: ["example/TypographyBlockquote.vue"],
     },
     "TypographyDemo": {
@@ -1927,7 +1687,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["typography"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/TypographyDemo.vue").then((m) => m.default),
       files: ["example/TypographyDemo.vue"],
     },
     "TypographyH1": {
@@ -1935,7 +1694,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: [],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/TypographyH1.vue").then((m) => m.default),
       files: ["example/TypographyH1.vue"],
     },
     "TypographyH2": {
@@ -1943,7 +1701,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: [],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/TypographyH2.vue").then((m) => m.default),
       files: ["example/TypographyH2.vue"],
     },
     "TypographyH3": {
@@ -1951,7 +1708,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: [],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/TypographyH3.vue").then((m) => m.default),
       files: ["example/TypographyH3.vue"],
     },
     "TypographyH4": {
@@ -1959,7 +1715,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: [],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/TypographyH4.vue").then((m) => m.default),
       files: ["example/TypographyH4.vue"],
     },
     "TypographyInlineCode": {
@@ -1967,7 +1722,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: [],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/TypographyInlineCode.vue").then((m) => m.default),
       files: ["example/TypographyInlineCode.vue"],
     },
     "TypographyLarge": {
@@ -1975,7 +1729,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: [],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/TypographyLarge.vue").then((m) => m.default),
       files: ["example/TypographyLarge.vue"],
     },
     "TypographyLead": {
@@ -1983,7 +1736,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: [],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/TypographyLead.vue").then((m) => m.default),
       files: ["example/TypographyLead.vue"],
     },
     "TypographyList": {
@@ -1991,7 +1743,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: [],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/TypographyList.vue").then((m) => m.default),
       files: ["example/TypographyList.vue"],
     },
     "TypographyMuted": {
@@ -1999,7 +1750,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: [],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/TypographyMuted.vue").then((m) => m.default),
       files: ["example/TypographyMuted.vue"],
     },
     "TypographyP": {
@@ -2007,7 +1757,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: [],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/TypographyP.vue").then((m) => m.default),
       files: ["example/TypographyP.vue"],
     },
     "TypographySmall": {
@@ -2015,7 +1764,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: [],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/TypographySmall.vue").then((m) => m.default),
       files: ["example/TypographySmall.vue"],
     },
     "TypographyTable": {
@@ -2023,7 +1771,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: [],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/TypographyTable.vue").then((m) => m.default),
       files: ["example/TypographyTable.vue"],
     },
     "YearPicker": {
@@ -2031,7 +1778,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["year-picker"],
       dependencies: ["@internationalized/date@^3.12.4"],
-      component: () => import("../../../packages/lib/src/registry/tailwind/example/YearPicker.vue").then((m) => m.default),
       files: ["example/YearPicker.vue"],
     },
   },
@@ -2041,7 +1787,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["collapsible","separator","sidebar"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/blocks/app-shell/AppShell.vue").then((m) => m.default),
       files: ["blocks/app-shell/AppShell.vue","blocks/app-shell/components/OverviewPanel.vue","blocks/app-shell/components/ShellHeader.vue","blocks/app-shell/components/ShellSidebar.vue","blocks/app-shell/data.ts"],
     },
     "cards-mix": {
@@ -2049,7 +1794,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["avatar","button","card","checkbox","command","dialog","dropdown-menu","input","label","popover","radio-group","range-calendar","select","separator","switch","table","textarea","tooltip"],
       dependencies: ["@internationalized/date@^3.12.4","@tanstack/vue-table@^8.21.3","@unovis/ts@^1.7.1","@unovis/vue@^1.7.1","lucide-vue-next@^1.0.0","reka-ui@^2.11.0"],
-      component: () => import("../../../packages/lib/src/registry/css/blocks/cards-mix/CardsMix.vue").then((m) => m.default),
       files: ["blocks/cards-mix/CardsMix.vue","blocks/cards-mix/components/ActivityGoal.vue","blocks/cards-mix/components/CardChat.vue","blocks/cards-mix/components/CardStats.vue","blocks/cards-mix/components/CookieSettings.vue","blocks/cards-mix/components/CreateAccount.vue","blocks/cards-mix/components/DataTable.vue","blocks/cards-mix/components/DataTableMenu.vue","blocks/cards-mix/components/DatePicker.vue","blocks/cards-mix/components/DatePickerWithRange.vue","blocks/cards-mix/components/GitHubCard.vue","blocks/cards-mix/components/Metric.vue","blocks/cards-mix/components/Notifications.vue","blocks/cards-mix/components/PaymentMethod.vue","blocks/cards-mix/components/ReportAnIssue.vue","blocks/cards-mix/components/ShareDocument.vue","blocks/cards-mix/components/TeamMembers.vue"],
     },
     "dashboard-ai-playground": {
@@ -2057,7 +1801,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["badge","button","drawer","input","label","select","textarea","tooltip"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/blocks/dashboard-ai-playground/DashboardAiPlayground.vue").then((m) => m.default),
       files: ["blocks/dashboard-ai-playground/DashboardAiPlayground.vue","blocks/dashboard-ai-playground/components/AppSidebar.vue","blocks/dashboard-ai-playground/components/ChatPanel.vue","blocks/dashboard-ai-playground/components/ConfigurationDrawer.vue","blocks/dashboard-ai-playground/components/ConfigurationForm.vue","blocks/dashboard-ai-playground/components/ModelSelect.vue","blocks/dashboard-ai-playground/components/PlaygroundHeader.vue","blocks/dashboard-ai-playground/components/RoleSelect.vue","blocks/dashboard-ai-playground/data.ts"],
     },
     "dashboard-analytics": {
@@ -2065,7 +1808,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["avatar","badge","button","card","dropdown-menu","input","sheet","table"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/blocks/dashboard-analytics/DashboardAnalytics.vue").then((m) => m.default),
       files: ["blocks/dashboard-analytics/DashboardAnalytics.vue","blocks/dashboard-analytics/components/AppHeader.vue","blocks/dashboard-analytics/components/RecentSalesCard.vue","blocks/dashboard-analytics/components/SearchForm.vue","blocks/dashboard-analytics/components/StatCard.vue","blocks/dashboard-analytics/components/TransactionsCard.vue","blocks/dashboard-analytics/components/UserMenu.vue","blocks/dashboard-analytics/data.ts"],
     },
     "dashboard-orders": {
@@ -2073,7 +1815,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["badge","breadcrumb","button","card","checkbox","dropdown-menu","input","pagination","progress","separator","sheet","table","tabs","tooltip"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/blocks/dashboard-orders/DashboardOrders.vue").then((m) => m.default),
       files: ["blocks/dashboard-orders/DashboardOrders.vue","blocks/dashboard-orders/components/AppHeader.vue","blocks/dashboard-orders/components/AppSidebar.vue","blocks/dashboard-orders/components/OrderDetails.vue","blocks/dashboard-orders/components/OrdersSummary.vue","blocks/dashboard-orders/components/OrdersTable.vue","blocks/dashboard-orders/data.ts"],
     },
     "dashboard-overview": {
@@ -2081,7 +1822,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["avatar","button","card","chart-bar","command","dialog","dropdown-menu","input","label","popover","range-calendar","select","tabs"],
       dependencies: ["@internationalized/date@^3.12.4","lucide-vue-next@^1.0.0","reka-ui@^2.11.0"],
-      component: () => import("../../../packages/lib/src/registry/css/blocks/dashboard-overview/DashboardOverview.vue").then((m) => m.default),
       files: ["blocks/dashboard-overview/DashboardOverview.vue","blocks/dashboard-overview/components/DateRangeField.vue","blocks/dashboard-overview/components/OverviewChart.vue","blocks/dashboard-overview/components/RecentSalesCard.vue","blocks/dashboard-overview/components/StatCard.vue","blocks/dashboard-overview/components/TeamSwitcher.vue","blocks/dashboard-overview/components/UserMenu.vue","blocks/dashboard-overview/data.ts"],
     },
     "dashboard-product-edit": {
@@ -2089,7 +1829,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["badge","breadcrumb","button","card","dropdown-menu","input","label","select","sheet","table","textarea","toggle-group","tooltip"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/blocks/dashboard-product-edit/DashboardProductEdit.vue").then((m) => m.default),
       files: ["blocks/dashboard-product-edit/DashboardProductEdit.vue","blocks/dashboard-product-edit/components/AppHeader.vue","blocks/dashboard-product-edit/components/AppSidebar.vue","blocks/dashboard-product-edit/components/ArchiveProductCard.vue","blocks/dashboard-product-edit/components/ProductCategoryCard.vue","blocks/dashboard-product-edit/components/ProductDetailsCard.vue","blocks/dashboard-product-edit/components/ProductImagesCard.vue","blocks/dashboard-product-edit/components/ProductStatusCard.vue","blocks/dashboard-product-edit/components/ProductStockCard.vue","blocks/dashboard-product-edit/components/ProductToolbar.vue","blocks/dashboard-product-edit/data.ts"],
     },
     "dashboard-products": {
@@ -2097,7 +1836,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["badge","breadcrumb","button","card","dropdown-menu","input","sheet","table","tabs","tooltip"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/blocks/dashboard-products/DashboardProducts.vue").then((m) => m.default),
       files: ["blocks/dashboard-products/DashboardProducts.vue","blocks/dashboard-products/components/AppHeader.vue","blocks/dashboard-products/components/AppSidebar.vue","blocks/dashboard-products/components/ProductsPanel.vue","blocks/dashboard-products/data.ts"],
     },
     "dashboard-settings": {
@@ -2105,7 +1843,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["button","card","checkbox","dropdown-menu","input","sheet"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/blocks/dashboard-settings/DashboardSettings.vue").then((m) => m.default),
       files: ["blocks/dashboard-settings/DashboardSettings.vue","blocks/dashboard-settings/components/AppHeader.vue","blocks/dashboard-settings/components/PluginsDirectoryCard.vue","blocks/dashboard-settings/components/SearchForm.vue","blocks/dashboard-settings/components/SettingsNav.vue","blocks/dashboard-settings/components/StoreNameCard.vue","blocks/dashboard-settings/components/UserMenu.vue","blocks/dashboard-settings/data.ts"],
     },
     "dashboard-sidebar": {
@@ -2113,7 +1850,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["badge","button","card","dropdown-menu","input","sheet"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/blocks/dashboard-sidebar/DashboardSidebar.vue").then((m) => m.default),
       files: ["blocks/dashboard-sidebar/DashboardSidebar.vue","blocks/dashboard-sidebar/components/AppHeader.vue","blocks/dashboard-sidebar/components/DesktopSidebar.vue","blocks/dashboard-sidebar/components/EmptyState.vue","blocks/dashboard-sidebar/components/MobileNav.vue","blocks/dashboard-sidebar/components/SearchForm.vue","blocks/dashboard-sidebar/components/UpgradeCard.vue","blocks/dashboard-sidebar/components/UserMenu.vue","blocks/dashboard-sidebar/data.ts"],
     },
     "login-simple": {
@@ -2121,7 +1857,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["button","card","input","label"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/blocks/login-simple/LoginSimple.vue").then((m) => m.default),
       files: ["blocks/login-simple/LoginSimple.vue"],
     },
     "login-social": {
@@ -2129,7 +1864,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["button","card","input","label"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/blocks/login-social/LoginSocial.vue").then((m) => m.default),
       files: ["blocks/login-social/LoginSocial.vue"],
     },
     "login-split-image": {
@@ -2137,7 +1871,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["button","input","label"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/blocks/login-split-image/LoginSplitImage.vue").then((m) => m.default),
       files: ["blocks/login-split-image/LoginSplitImage.vue"],
     },
     "mail-inbox": {
@@ -2145,7 +1878,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["avatar","badge","button","calendar","dropdown-menu","input","label","popover","resizable","scroll-area","select","separator","switch","tabs","textarea","tooltip"],
       dependencies: ["@vueuse/core@^14.4.0","date-fns@^4.4.0","lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/blocks/mail-inbox/MailInbox.vue").then((m) => m.default),
       files: ["blocks/mail-inbox/MailInbox.vue","blocks/mail-inbox/components/AccountSwitcher.vue","blocks/mail-inbox/components/FolderNav.vue","blocks/mail-inbox/components/MailDisplay.vue","blocks/mail-inbox/components/MailList.vue","blocks/mail-inbox/data.ts"],
     },
     "music-library": {
@@ -2153,7 +1885,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["button","context-menu","dialog","input","label","menubar","scroll-area","separator","tabs"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/blocks/music-library/MusicLibrary.vue").then((m) => m.default),
       files: ["blocks/music-library/MusicLibrary.vue","blocks/music-library/components/AlbumArtwork.vue","blocks/music-library/components/LibraryMenu.vue","blocks/music-library/components/LibrarySidebar.vue","blocks/music-library/components/MenuEntries.vue","blocks/music-library/components/PodcastEmpty.vue","blocks/music-library/data.ts"],
     },
     "settings-forms": {
@@ -2161,7 +1892,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["button","calendar","card","checkbox","command","form","input","popover","radio-group","select","separator","switch","textarea","toaster"],
       dependencies: ["@internationalized/date@^3.12.4","@vee-validate/zod@^4.15.1","lucide-vue-next@^1.0.0","reka-ui@^2.11.0","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/css/blocks/settings-forms/SettingsForms.vue").then((m) => m.default),
       files: ["blocks/settings-forms/SettingsForms.vue","blocks/settings-forms/components/AccountForm.vue","blocks/settings-forms/components/AppearanceForm.vue","blocks/settings-forms/components/DisplayForm.vue","blocks/settings-forms/components/NotificationsForm.vue","blocks/settings-forms/components/ProfileForm.vue","blocks/settings-forms/components/SettingsNav.vue"],
     },
     "signup-card": {
@@ -2169,7 +1899,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["button","card","input","label"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/blocks/signup-card/SignupCard.vue").then((m) => m.default),
       files: ["blocks/signup-card/SignupCard.vue"],
     },
     "signup-quote": {
@@ -2177,7 +1906,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["button","input","label"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/blocks/signup-quote/SignupQuote.vue").then((m) => m.default),
       files: ["blocks/signup-quote/SignupQuote.vue","blocks/signup-quote/components/SignupForm.vue","blocks/signup-quote/data.ts"],
     },
     "tasks-table": {
@@ -2185,7 +1913,6 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["avatar","badge","button","checkbox","command","dropdown-menu","input","popover","select","separator","table"],
       dependencies: ["@tanstack/vue-table@^8.21.3","lucide-vue-next@^1.0.0","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/css/blocks/tasks-table/TasksTable.vue").then((m) => m.default),
       files: ["blocks/tasks-table/TasksTable.vue","blocks/tasks-table/components/SelectCell.vue","blocks/tasks-table/components/TaskIdCell.vue","blocks/tasks-table/components/TaskPriorityCell.vue","blocks/tasks-table/components/TaskStatusCell.vue","blocks/tasks-table/components/TaskTitleCell.vue","blocks/tasks-table/components/TasksColumnHeader.vue","blocks/tasks-table/components/TasksDataTable.vue","blocks/tasks-table/components/TasksFacetedFilter.vue","blocks/tasks-table/components/TasksPagination.vue","blocks/tasks-table/components/TasksRowActions.vue","blocks/tasks-table/components/TasksToolbar.vue","blocks/tasks-table/components/TasksViewOptions.vue","blocks/tasks-table/components/UserMenu.vue","blocks/tasks-table/components/columns.ts","blocks/tasks-table/data.ts"],
     },
     "Accordion": {
@@ -2193,7 +1920,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["accordion"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Accordion.vue").then((m) => m.default),
       files: ["example/Accordion.vue"],
     },
     "AccordionBasic": {
@@ -2201,7 +1927,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["accordion"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/AccordionBasic.vue").then((m) => m.default),
       files: ["example/AccordionBasic.vue"],
     },
     "AccordionMultiple": {
@@ -2209,7 +1934,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["accordion"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/AccordionMultiple.vue").then((m) => m.default),
       files: ["example/AccordionMultiple.vue"],
     },
     "Alert": {
@@ -2217,7 +1941,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["alert"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/Alert.vue").then((m) => m.default),
       files: ["example/Alert.vue"],
     },
     "AlertBasic": {
@@ -2225,7 +1948,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["alert"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/AlertBasic.vue").then((m) => m.default),
       files: ["example/AlertBasic.vue"],
     },
     "AlertDestructive": {
@@ -2233,7 +1955,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["alert"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/AlertDestructive.vue").then((m) => m.default),
       files: ["example/AlertDestructive.vue"],
     },
     "AlertDialog": {
@@ -2241,7 +1962,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["alert-dialog","button"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/AlertDialog.vue").then((m) => m.default),
       files: ["example/AlertDialog.vue"],
     },
     "AlertDialogBasic": {
@@ -2249,7 +1969,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["alert-dialog"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/AlertDialogBasic.vue").then((m) => m.default),
       files: ["example/AlertDialogBasic.vue"],
     },
     "AreaChart": {
@@ -2257,7 +1976,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["chart-area"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/AreaChart.vue").then((m) => m.default),
       files: ["example/AreaChart.vue"],
     },
     "AreaChartCustomTooltip": {
@@ -2265,7 +1983,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["chart-area"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/AreaChartCustomTooltip.vue").then((m) => m.default),
       files: ["example/AreaChartCustomTooltip.vue"],
     },
     "AreaChartSparkline": {
@@ -2273,7 +1990,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["chart-area"],
       dependencies: ["@unovis/ts@^1.7.1"],
-      component: () => import("../../../packages/lib/src/registry/css/example/AreaChartSparkline.vue").then((m) => m.default),
       files: ["example/AreaChartSparkline.vue"],
     },
     "AspectRatio": {
@@ -2281,7 +1997,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["aspect-ratio"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/AspectRatio.vue").then((m) => m.default),
       files: ["example/AspectRatio.vue"],
     },
     "Autocomplete": {
@@ -2289,7 +2004,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["autocomplete"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Autocomplete.vue").then((m) => m.default),
       files: ["example/Autocomplete.vue"],
     },
     "Avatar": {
@@ -2297,7 +2011,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["avatar"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Avatar.vue").then((m) => m.default),
       files: ["example/Avatar.vue"],
     },
     "AvatarBasic": {
@@ -2305,7 +2018,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["avatar"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/AvatarBasic.vue").then((m) => m.default),
       files: ["example/AvatarBasic.vue"],
     },
     "AvatarCustomFallback": {
@@ -2313,7 +2025,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["avatar"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/AvatarCustomFallback.vue").then((m) => m.default),
       files: ["example/AvatarCustomFallback.vue"],
     },
     "AvatarGlow": {
@@ -2321,7 +2032,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["avatar"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/AvatarGlow.vue").then((m) => m.default),
       files: ["example/AvatarGlow.vue"],
     },
     "Badge": {
@@ -2329,7 +2039,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["badge"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Badge.vue").then((m) => m.default),
       files: ["example/Badge.vue"],
     },
     "BadgeDestructive": {
@@ -2337,7 +2046,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["badge"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/BadgeDestructive.vue").then((m) => m.default),
       files: ["example/BadgeDestructive.vue"],
     },
     "BadgeOutline": {
@@ -2345,7 +2053,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["badge"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/BadgeOutline.vue").then((m) => m.default),
       files: ["example/BadgeOutline.vue"],
     },
     "BadgeSecondary": {
@@ -2353,7 +2060,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["badge"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/BadgeSecondary.vue").then((m) => m.default),
       files: ["example/BadgeSecondary.vue"],
     },
     "BarChart": {
@@ -2361,7 +2067,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["chart-bar"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/BarChart.vue").then((m) => m.default),
       files: ["example/BarChart.vue"],
     },
     "BarChartCustomTooltip": {
@@ -2369,7 +2074,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["chart-bar"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/BarChartCustomTooltip.vue").then((m) => m.default),
       files: ["example/BarChartCustomTooltip.vue"],
     },
     "BarChartRounded": {
@@ -2377,7 +2081,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["chart-bar"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/BarChartRounded.vue").then((m) => m.default),
       files: ["example/BarChartRounded.vue"],
     },
     "BarChartStacked": {
@@ -2385,7 +2088,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["chart-bar"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/BarChartStacked.vue").then((m) => m.default),
       files: ["example/BarChartStacked.vue"],
     },
     "Breadcrumb": {
@@ -2393,7 +2095,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["breadcrumb","dropdown-menu"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Breadcrumb.vue").then((m) => m.default),
       files: ["example/Breadcrumb.vue"],
     },
     "BreadcrumbDropdown": {
@@ -2401,7 +2102,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["breadcrumb","dropdown-menu"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/BreadcrumbDropdown.vue").then((m) => m.default),
       files: ["example/BreadcrumbDropdown.vue"],
     },
     "BreadcrumbDynamic": {
@@ -2409,7 +2109,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["breadcrumb"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/BreadcrumbDynamic.vue").then((m) => m.default),
       files: ["example/BreadcrumbDynamic.vue"],
     },
     "BreadcrumbDynamicWithEllipsis": {
@@ -2417,7 +2116,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["breadcrumb","dropdown-menu"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/BreadcrumbDynamicWithEllipsis.vue").then((m) => m.default),
       files: ["example/BreadcrumbDynamicWithEllipsis.vue"],
     },
     "BreadcrumbEllipsis": {
@@ -2425,7 +2123,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["breadcrumb"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/BreadcrumbEllipsis.vue").then((m) => m.default),
       files: ["example/BreadcrumbEllipsis.vue"],
     },
     "BreadcrumbGenerator": {
@@ -2433,7 +2130,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["breadcrumb"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/BreadcrumbGenerator.vue").then((m) => m.default),
       files: ["example/BreadcrumbGenerator.vue"],
     },
     "BreadcrumbLink": {
@@ -2441,7 +2137,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["breadcrumb"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/BreadcrumbLink.vue").then((m) => m.default),
       files: ["example/BreadcrumbLink.vue"],
     },
     "BreadcrumbResponsive": {
@@ -2449,7 +2144,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["breadcrumb","button","drawer","dropdown-menu"],
       dependencies: ["@vueuse/core@^14.4.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/BreadcrumbResponsive.vue").then((m) => m.default),
       files: ["example/BreadcrumbResponsive.vue"],
     },
     "BreadcrumbSeparator": {
@@ -2457,7 +2151,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["breadcrumb"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/BreadcrumbSeparator.vue").then((m) => m.default),
       files: ["example/BreadcrumbSeparator.vue"],
     },
     "Button": {
@@ -2465,7 +2158,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Button.vue").then((m) => m.default),
       files: ["example/Button.vue"],
     },
     "ButtonAsChild": {
@@ -2473,7 +2165,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/ButtonAsChild.vue").then((m) => m.default),
       files: ["example/ButtonAsChild.vue"],
     },
     "ButtonConfirm": {
@@ -2481,7 +2172,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/ButtonConfirm.vue").then((m) => m.default),
       files: ["example/ButtonConfirm.vue"],
     },
     "ButtonDestructive": {
@@ -2489,7 +2179,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/ButtonDestructive.vue").then((m) => m.default),
       files: ["example/ButtonDestructive.vue"],
     },
     "ButtonGhost": {
@@ -2497,7 +2186,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/ButtonGhost.vue").then((m) => m.default),
       files: ["example/ButtonGhost.vue"],
     },
     "ButtonGroup": {
@@ -2505,7 +2193,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","button-group","dropdown-menu"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/ButtonGroup.vue").then((m) => m.default),
       files: ["example/ButtonGroup.vue"],
     },
     "ButtonGroupInput": {
@@ -2513,7 +2200,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","button-group","input","label"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/ButtonGroupInput.vue").then((m) => m.default),
       files: ["example/ButtonGroupInput.vue"],
     },
     "ButtonGroupOrientation": {
@@ -2521,7 +2207,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","button-group"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/ButtonGroupOrientation.vue").then((m) => m.default),
       files: ["example/ButtonGroupOrientation.vue"],
     },
     "ButtonGroupSeparator": {
@@ -2529,7 +2214,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","button-group"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/ButtonGroupSeparator.vue").then((m) => m.default),
       files: ["example/ButtonGroupSeparator.vue"],
     },
     "ButtonIcon": {
@@ -2537,7 +2221,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/ButtonIcon.vue").then((m) => m.default),
       files: ["example/ButtonIcon.vue"],
     },
     "ButtonLink": {
@@ -2545,7 +2228,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/ButtonLink.vue").then((m) => m.default),
       files: ["example/ButtonLink.vue"],
     },
     "ButtonLoading": {
@@ -2553,7 +2235,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/ButtonLoading.vue").then((m) => m.default),
       files: ["example/ButtonLoading.vue"],
     },
     "ButtonOutline": {
@@ -2561,7 +2242,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/ButtonOutline.vue").then((m) => m.default),
       files: ["example/ButtonOutline.vue"],
     },
     "ButtonSecondary": {
@@ -2569,7 +2249,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/ButtonSecondary.vue").then((m) => m.default),
       files: ["example/ButtonSecondary.vue"],
     },
     "ButtonSizes": {
@@ -2577,7 +2256,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/ButtonSizes.vue").then((m) => m.default),
       files: ["example/ButtonSizes.vue"],
     },
     "ButtonWithIcon": {
@@ -2585,7 +2263,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/ButtonWithIcon.vue").then((m) => m.default),
       files: ["example/ButtonWithIcon.vue"],
     },
     "Calendar": {
@@ -2593,7 +2270,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["calendar"],
       dependencies: ["@internationalized/date@^3.12.4"],
-      component: () => import("../../../packages/lib/src/registry/css/example/Calendar.vue").then((m) => m.default),
       files: ["example/Calendar.vue"],
     },
     "CalendarForm": {
@@ -2601,7 +2277,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","calendar","form","popover","toaster"],
       dependencies: ["@internationalized/date@^3.12.4","@vee-validate/zod@^4.15.1","lucide-vue-next@^1.0.0","reka-ui@^2.11.0","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/css/example/CalendarForm.vue").then((m) => m.default),
       files: ["example/CalendarForm.vue"],
     },
     "CalendarLocalization": {
@@ -2609,7 +2284,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["calendar","select"],
       dependencies: ["@internationalized/date@^3.12.4","@vueuse/core@^14.4.0","reka-ui@^2.11.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/CalendarLocalization.vue").then((m) => m.default),
       files: ["example/CalendarLocalization.vue"],
     },
     "CalendarWithSelect": {
@@ -2617,7 +2291,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["calendar","select"],
       dependencies: ["@internationalized/date@^3.12.4","@vueuse/core@^14.4.0","reka-ui@^2.11.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/CalendarWithSelect.vue").then((m) => m.default),
       files: ["example/CalendarWithSelect.vue"],
     },
     "CardBasic": {
@@ -2625,7 +2298,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["card"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/CardBasic.vue").then((m) => m.default),
       files: ["example/CardBasic.vue"],
     },
     "CardChat": {
@@ -2633,7 +2305,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["avatar","button","card","command","dialog","input","tooltip"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/CardChat.vue").then((m) => m.default),
       files: ["example/CardChat.vue"],
     },
     "CardForm": {
@@ -2641,7 +2312,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","card","input","label","select"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/CardForm.vue").then((m) => m.default),
       files: ["example/CardForm.vue"],
     },
     "CardLightbox": {
@@ -2649,7 +2319,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["card-lightbox"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/CardLightbox.vue").then((m) => m.default),
       files: ["example/CardLightbox.vue"],
     },
     "CardNotifications": {
@@ -2657,7 +2326,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","card","switch"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/CardNotifications.vue").then((m) => m.default),
       files: ["example/CardNotifications.vue"],
     },
     "CardStats": {
@@ -2665,7 +2333,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["card"],
       dependencies: ["@unovis/ts@^1.7.1","@unovis/vue@^1.7.1"],
-      component: () => import("../../../packages/lib/src/registry/css/example/CardStats.vue").then((m) => m.default),
       files: ["example/CardStats.vue"],
     },
     "CardWithForm": {
@@ -2673,7 +2340,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","card","input","label","select"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/CardWithForm.vue").then((m) => m.default),
       files: ["example/CardWithForm.vue"],
     },
     "ActivityGoal": {
@@ -2681,7 +2347,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","card"],
       dependencies: ["@unovis/ts@^1.7.1","@unovis/vue@^1.7.1","lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/Cards/ActivityGoal.vue").then((m) => m.default),
       files: ["example/Cards/ActivityGoal.vue"],
     },
     "DataTable": {
@@ -2689,7 +2354,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","card","checkbox","dropdown-menu","input","table"],
       dependencies: ["@tanstack/vue-table@^8.21.3","lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/Cards/DataTable.vue").then((m) => m.default),
       files: ["example/Cards/DataTable.vue"],
     },
     "Metric": {
@@ -2697,7 +2361,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["card"],
       dependencies: ["@unovis/ts@^1.7.1","@unovis/vue@^1.7.1"],
-      component: () => import("../../../packages/lib/src/registry/css/example/Cards/Metric.vue").then((m) => m.default),
       files: ["example/Cards/Metric.vue"],
     },
     "CarouselApi": {
@@ -2705,7 +2368,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["carousel"],
       dependencies: ["@vueuse/core@^14.4.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/CarouselApi.vue").then((m) => m.default),
       files: ["example/CarouselApi.vue"],
     },
     "CarouselBasic": {
@@ -2713,7 +2375,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["carousel"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/CarouselBasic.vue").then((m) => m.default),
       files: ["example/CarouselBasic.vue"],
     },
     "CarouselOrientation": {
@@ -2721,7 +2382,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["carousel"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/CarouselOrientation.vue").then((m) => m.default),
       files: ["example/CarouselOrientation.vue"],
     },
     "CarouselPlugin": {
@@ -2729,7 +2389,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["carousel"],
       dependencies: ["embla-carousel-autoplay@^8.6.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/CarouselPlugin.vue").then((m) => m.default),
       files: ["example/CarouselPlugin.vue"],
     },
     "CarouselSize": {
@@ -2737,7 +2396,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["carousel"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/CarouselSize.vue").then((m) => m.default),
       files: ["example/CarouselSize.vue"],
     },
     "CarouselSpacing": {
@@ -2745,7 +2403,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["carousel"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/CarouselSpacing.vue").then((m) => m.default),
       files: ["example/CarouselSpacing.vue"],
     },
     "CarouselThumbnails": {
@@ -2753,7 +2410,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["carousel"],
       dependencies: ["@vueuse/core@^14.4.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/CarouselThumbnails.vue").then((m) => m.default),
       files: ["example/CarouselThumbnails.vue"],
     },
     "Checkbox": {
@@ -2761,7 +2417,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["checkbox"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Checkbox.vue").then((m) => m.default),
       files: ["example/Checkbox.vue"],
     },
     "CheckboxBasic": {
@@ -2769,7 +2424,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["checkbox"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/CheckboxBasic.vue").then((m) => m.default),
       files: ["example/CheckboxBasic.vue"],
     },
     "CheckboxDisabled": {
@@ -2777,7 +2431,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["checkbox"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/CheckboxDisabled.vue").then((m) => m.default),
       files: ["example/CheckboxDisabled.vue"],
     },
     "CheckboxFormMultiple": {
@@ -2785,7 +2438,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","checkbox","form","toaster"],
       dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/css/example/CheckboxFormMultiple.vue").then((m) => m.default),
       files: ["example/CheckboxFormMultiple.vue"],
     },
     "CheckboxFormSingle": {
@@ -2793,7 +2445,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","checkbox","form","toaster"],
       dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/css/example/CheckboxFormSingle.vue").then((m) => m.default),
       files: ["example/CheckboxFormSingle.vue"],
     },
     "CheckboxWithDescription": {
@@ -2801,7 +2452,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["checkbox"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/CheckboxWithDescription.vue").then((m) => m.default),
       files: ["example/CheckboxWithDescription.vue"],
     },
     "Collapsible": {
@@ -2809,7 +2459,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","collapsible"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/Collapsible.vue").then((m) => m.default),
       files: ["example/Collapsible.vue"],
     },
     "Color": {
@@ -2817,7 +2466,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["color"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Color.vue").then((m) => m.default),
       files: ["example/Color.vue"],
     },
     "Combobox": {
@@ -2825,7 +2473,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["combobox"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/Combobox.vue").then((m) => m.default),
       files: ["example/Combobox.vue"],
     },
     "ComboboxTrigger": {
@@ -2833,7 +2480,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","combobox"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/ComboboxTrigger.vue").then((m) => m.default),
       files: ["example/ComboboxTrigger.vue"],
     },
     "Command": {
@@ -2841,7 +2487,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["command","toaster"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/Command.vue").then((m) => m.default),
       files: ["example/Command.vue"],
     },
     "CommandDialog": {
@@ -2849,7 +2494,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["command","toaster"],
       dependencies: ["@vueuse/core@^14.4.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/CommandDialog.vue").then((m) => m.default),
       files: ["example/CommandDialog.vue"],
     },
     "CommandDropdownMenu": {
@@ -2857,7 +2501,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","command","dropdown-menu"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/CommandDropdownMenu.vue").then((m) => m.default),
       files: ["example/CommandDropdownMenu.vue"],
     },
     "CommandForm": {
@@ -2865,7 +2508,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","command","form","popover","toaster"],
       dependencies: ["@vee-validate/zod@^4.15.1","lucide-vue-next@^1.0.0","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/css/example/CommandForm.vue").then((m) => m.default),
       files: ["example/CommandForm.vue"],
     },
     "CommandPopover": {
@@ -2873,7 +2515,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","command","popover"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/CommandPopover.vue").then((m) => m.default),
       files: ["example/CommandPopover.vue"],
     },
     "CommandResponsive": {
@@ -2881,7 +2522,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","command","drawer","popover"],
       dependencies: ["@vueuse/core@^14.4.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/CommandResponsive.vue").then((m) => m.default),
       files: ["example/CommandResponsive.vue"],
     },
     "ContextMenu": {
@@ -2889,7 +2529,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["context-menu"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/ContextMenu.vue").then((m) => m.default),
       files: ["example/ContextMenu.vue"],
     },
     "CustomChartTooltip": {
@@ -2897,7 +2536,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["card"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/CustomChartTooltip.vue").then((m) => m.default),
       files: ["example/CustomChartTooltip.vue"],
     },
     "DataTableColumnPinning": {
@@ -2905,7 +2543,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","checkbox","dropdown-menu","input","table"],
       dependencies: ["@tanstack/vue-table@^8.21.3","lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/DataTableColumnPinning.vue").then((m) => m.default),
       files: ["example/DataTableColumnPinning.vue"],
     },
     "DataTableExample": {
@@ -2913,7 +2550,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","checkbox","dropdown-menu","input","table"],
       dependencies: ["@tanstack/vue-table@^8.21.3","lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/DataTableExample.vue").then((m) => m.default),
       files: ["example/DataTableExample.vue"],
     },
     "DataTableMenu": {
@@ -2921,7 +2557,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","dropdown-menu"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/DataTableMenu.vue").then((m) => m.default),
       files: ["example/DataTableMenu.vue"],
     },
     "DatePicker": {
@@ -2929,7 +2564,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","calendar","popover"],
       dependencies: ["@internationalized/date@^3.12.4","lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/DatePicker.vue").then((m) => m.default),
       files: ["example/DatePicker.vue"],
     },
     "DatePickerForm": {
@@ -2937,7 +2571,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","calendar","form","popover","toaster"],
       dependencies: ["@internationalized/date@^3.12.4","@vee-validate/zod@^4.15.1","lucide-vue-next@^1.0.0","reka-ui@^2.11.0","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/css/example/DatePickerForm.vue").then((m) => m.default),
       files: ["example/DatePickerForm.vue"],
     },
     "DatePickerWithIndependentMonths": {
@@ -2945,7 +2578,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","popover","range-calendar"],
       dependencies: ["@internationalized/date@^3.12.4","lucide-vue-next@^1.0.0","reka-ui@^2.11.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/DatePickerWithIndependentMonths.vue").then((m) => m.default),
       files: ["example/DatePickerWithIndependentMonths.vue"],
     },
     "DatePickerWithPresets": {
@@ -2953,7 +2585,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","calendar","popover","select"],
       dependencies: ["@internationalized/date@^3.12.4","lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/DatePickerWithPresets.vue").then((m) => m.default),
       files: ["example/DatePickerWithPresets.vue"],
     },
     "DatePickerWithRange": {
@@ -2961,7 +2592,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","popover","range-calendar"],
       dependencies: ["@internationalized/date@^3.12.4","lucide-vue-next@^1.0.0","reka-ui@^2.11.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/DatePickerWithRange.vue").then((m) => m.default),
       files: ["example/DatePickerWithRange.vue"],
     },
     "Dialog": {
@@ -2969,7 +2599,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","dialog","input","label"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Dialog.vue").then((m) => m.default),
       files: ["example/Dialog.vue"],
     },
     "DialogCustomCloseButton": {
@@ -2977,7 +2606,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","dialog","input","label"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/DialogCustomCloseButton.vue").then((m) => m.default),
       files: ["example/DialogCustomCloseButton.vue"],
     },
     "DialogScrollBody": {
@@ -2985,7 +2613,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","dialog"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/DialogScrollBody.vue").then((m) => m.default),
       files: ["example/DialogScrollBody.vue"],
     },
     "DialogScrollOverlay": {
@@ -2993,7 +2620,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","dialog"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/DialogScrollOverlay.vue").then((m) => m.default),
       files: ["example/DialogScrollOverlay.vue"],
     },
     "Direction": {
@@ -3001,7 +2627,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","direction"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Direction.vue").then((m) => m.default),
       files: ["example/Direction.vue"],
     },
     "DonutChart": {
@@ -3009,7 +2634,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["chart-donut"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/DonutChart.vue").then((m) => m.default),
       files: ["example/DonutChart.vue"],
     },
     "DonutChartColor": {
@@ -3017,7 +2641,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["chart-donut"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/DonutChartColor.vue").then((m) => m.default),
       files: ["example/DonutChartColor.vue"],
     },
     "DonutChartCustomTooltip": {
@@ -3025,7 +2648,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["chart-donut"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/DonutChartCustomTooltip.vue").then((m) => m.default),
       files: ["example/DonutChartCustomTooltip.vue"],
     },
     "DonutChartPie": {
@@ -3033,7 +2655,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["chart-donut"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/DonutChartPie.vue").then((m) => m.default),
       files: ["example/DonutChartPie.vue"],
     },
     "Drawer": {
@@ -3041,7 +2662,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","drawer"],
       dependencies: ["@unovis/ts@^1.7.1","@unovis/vue@^1.7.1","lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/Drawer.vue").then((m) => m.default),
       files: ["example/Drawer.vue"],
     },
     "DrawerDialog": {
@@ -3049,7 +2669,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","dialog","drawer","input","label"],
       dependencies: ["@vueuse/core@^14.4.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/DrawerDialog.vue").then((m) => m.default),
       files: ["example/DrawerDialog.vue"],
     },
     "DropdownMenu": {
@@ -3057,7 +2676,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","dropdown-menu"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/DropdownMenu.vue").then((m) => m.default),
       files: ["example/DropdownMenu.vue"],
     },
     "DropdownMenuBasic": {
@@ -3065,7 +2683,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["dropdown-menu"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/DropdownMenuBasic.vue").then((m) => m.default),
       files: ["example/DropdownMenuBasic.vue"],
     },
     "DropdownMenuCheckboxes": {
@@ -3073,7 +2690,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","dropdown-menu"],
       dependencies: ["reka-ui@^2.11.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/DropdownMenuCheckboxes.vue").then((m) => m.default),
       files: ["example/DropdownMenuCheckboxes.vue"],
     },
     "DropdownMenuRadioGroup": {
@@ -3081,7 +2697,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","dropdown-menu"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/DropdownMenuRadioGroup.vue").then((m) => m.default),
       files: ["example/DropdownMenuRadioGroup.vue"],
     },
     "Empty": {
@@ -3089,7 +2704,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","empty"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/Empty.vue").then((m) => m.default),
       files: ["example/Empty.vue"],
     },
     "FacetedFilter": {
@@ -3097,7 +2711,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["faceted-filter"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/FacetedFilter.vue").then((m) => m.default),
       files: ["example/FacetedFilter.vue"],
     },
     "FacetedFilterWithCreate": {
@@ -3105,7 +2718,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["faceted-filter"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/FacetedFilterWithCreate.vue").then((m) => m.default),
       files: ["example/FacetedFilterWithCreate.vue"],
     },
     "FacetedFilterWithFooter": {
@@ -3113,7 +2725,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","faceted-filter"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/FacetedFilterWithFooter.vue").then((m) => m.default),
       files: ["example/FacetedFilterWithFooter.vue"],
     },
     "Field": {
@@ -3121,7 +2732,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","checkbox","field","input","textarea"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Field.vue").then((m) => m.default),
       files: ["example/Field.vue"],
     },
     "FieldChoiceCard": {
@@ -3129,7 +2739,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["field","radio-group"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/FieldChoiceCard.vue").then((m) => m.default),
       files: ["example/FieldChoiceCard.vue"],
     },
     "FieldInvalid": {
@@ -3137,7 +2746,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["field","input"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/FieldInvalid.vue").then((m) => m.default),
       files: ["example/FieldInvalid.vue"],
     },
     "FieldResponsive": {
@@ -3145,7 +2753,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["field","input"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/FieldResponsive.vue").then((m) => m.default),
       files: ["example/FieldResponsive.vue"],
     },
     "HoverCard": {
@@ -3153,7 +2760,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["avatar","button","hover-card"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/HoverCard.vue").then((m) => m.default),
       files: ["example/HoverCard.vue"],
     },
     "Image": {
@@ -3161,7 +2767,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["image"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/Image.vue").then((m) => m.default),
       files: ["example/Image.vue"],
     },
     "ImageBasic": {
@@ -3169,7 +2774,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["image"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/ImageBasic.vue").then((m) => m.default),
       files: ["example/ImageBasic.vue"],
     },
     "ImageCustomFallback": {
@@ -3177,7 +2781,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["image"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/ImageCustomFallback.vue").then((m) => m.default),
       files: ["example/ImageCustomFallback.vue"],
     },
     "ImageGlow": {
@@ -3185,7 +2788,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["image"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/ImageGlow.vue").then((m) => m.default),
       files: ["example/ImageGlow.vue"],
     },
     "Input": {
@@ -3193,7 +2795,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["input"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Input.vue").then((m) => m.default),
       files: ["example/Input.vue"],
     },
     "InputDisabled": {
@@ -3201,7 +2802,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["input"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/InputDisabled.vue").then((m) => m.default),
       files: ["example/InputDisabled.vue"],
     },
     "InputFile": {
@@ -3209,7 +2809,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["input","label"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/InputFile.vue").then((m) => m.default),
       files: ["example/InputFile.vue"],
     },
     "InputForm": {
@@ -3217,7 +2816,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","form","input","toaster"],
       dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/css/example/InputForm.vue").then((m) => m.default),
       files: ["example/InputForm.vue"],
     },
     "InputFormAutoAnimate": {
@@ -3225,7 +2823,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","form","input","toaster"],
       dependencies: ["@formkit/auto-animate@^0.8.4","@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/css/example/InputFormAutoAnimate.vue").then((m) => m.default),
       files: ["example/InputFormAutoAnimate.vue"],
     },
     "InputGroup": {
@@ -3233,7 +2830,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["input-group"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/InputGroup.vue").then((m) => m.default),
       files: ["example/InputGroup.vue"],
     },
     "InputGroupAddon": {
@@ -3241,7 +2837,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["input-group"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/InputGroupAddon.vue").then((m) => m.default),
       files: ["example/InputGroupAddon.vue"],
     },
     "InputGroupTextarea": {
@@ -3249,7 +2844,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["input-group"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/InputGroupTextarea.vue").then((m) => m.default),
       files: ["example/InputGroupTextarea.vue"],
     },
     "InputWithButton": {
@@ -3257,7 +2851,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","input"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/InputWithButton.vue").then((m) => m.default),
       files: ["example/InputWithButton.vue"],
     },
     "InputWithIcon": {
@@ -3265,7 +2858,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["input"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/InputWithIcon.vue").then((m) => m.default),
       files: ["example/InputWithIcon.vue"],
     },
     "InputWithLabel": {
@@ -3273,7 +2865,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["input","label"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/InputWithLabel.vue").then((m) => m.default),
       files: ["example/InputWithLabel.vue"],
     },
     "Item": {
@@ -3281,7 +2872,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","item"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/Item.vue").then((m) => m.default),
       files: ["example/Item.vue"],
     },
     "ItemGroup": {
@@ -3289,7 +2879,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["item"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/ItemGroup.vue").then((m) => m.default),
       files: ["example/ItemGroup.vue"],
     },
     "Kbd": {
@@ -3297,7 +2886,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["kbd"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Kbd.vue").then((m) => m.default),
       files: ["example/Kbd.vue"],
     },
     "Label": {
@@ -3305,7 +2893,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["checkbox","label"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Label.vue").then((m) => m.default),
       files: ["example/Label.vue"],
     },
     "LineChart": {
@@ -3313,7 +2900,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["chart-line"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/LineChart.vue").then((m) => m.default),
       files: ["example/LineChart.vue"],
     },
     "LineChartCustomTooltip": {
@@ -3321,7 +2907,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["chart-line"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/LineChartCustomTooltip.vue").then((m) => m.default),
       files: ["example/LineChartCustomTooltip.vue"],
     },
     "LineChartSparkline": {
@@ -3329,7 +2914,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["chart-line"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/LineChartSparkline.vue").then((m) => m.default),
       files: ["example/LineChartSparkline.vue"],
     },
     "Menubar": {
@@ -3337,7 +2921,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["menubar"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Menubar.vue").then((m) => m.default),
       files: ["example/Menubar.vue"],
     },
     "MonthPicker": {
@@ -3345,7 +2928,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["month-picker"],
       dependencies: ["@internationalized/date@^3.12.4"],
-      component: () => import("../../../packages/lib/src/registry/css/example/MonthPicker.vue").then((m) => m.default),
       files: ["example/MonthPicker.vue"],
     },
     "NativeSelect": {
@@ -3353,7 +2935,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["native-select"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/NativeSelect.vue").then((m) => m.default),
       files: ["example/NativeSelect.vue"],
     },
     "NativeSelectGroup": {
@@ -3361,7 +2942,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["native-select"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/NativeSelectGroup.vue").then((m) => m.default),
       files: ["example/NativeSelectGroup.vue"],
     },
     "NavigationMenu": {
@@ -3369,7 +2949,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["navigation-menu"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/NavigationMenu.vue").then((m) => m.default),
       files: ["example/NavigationMenu.vue"],
     },
     "NumberField": {
@@ -3377,7 +2956,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["label","number-field"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/NumberField.vue").then((m) => m.default),
       files: ["example/NumberField.vue"],
     },
     "NumberFieldCurrency": {
@@ -3385,7 +2963,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["label","number-field"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/NumberFieldCurrency.vue").then((m) => m.default),
       files: ["example/NumberFieldCurrency.vue"],
     },
     "NumberFieldDecimal": {
@@ -3393,7 +2970,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["label","number-field"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/NumberFieldDecimal.vue").then((m) => m.default),
       files: ["example/NumberFieldDecimal.vue"],
     },
     "NumberFieldDisabled": {
@@ -3401,7 +2977,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["label","number-field"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/NumberFieldDisabled.vue").then((m) => m.default),
       files: ["example/NumberFieldDisabled.vue"],
     },
     "NumberFieldForm": {
@@ -3409,7 +2984,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","form","number-field","toaster"],
       dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/css/example/NumberFieldForm.vue").then((m) => m.default),
       files: ["example/NumberFieldForm.vue"],
     },
     "NumberFieldPercentage": {
@@ -3417,7 +2991,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["label","number-field"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/NumberFieldPercentage.vue").then((m) => m.default),
       files: ["example/NumberFieldPercentage.vue"],
     },
     "Pagination": {
@@ -3425,7 +2998,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","pagination"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Pagination.vue").then((m) => m.default),
       files: ["example/Pagination.vue"],
     },
     "PinInput": {
@@ -3433,7 +3005,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["pin-input"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/PinInput.vue").then((m) => m.default),
       files: ["example/PinInput.vue"],
     },
     "PinInputControlled": {
@@ -3441,7 +3012,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["pin-input"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/PinInputControlled.vue").then((m) => m.default),
       files: ["example/PinInputControlled.vue"],
     },
     "PinInputDisabled": {
@@ -3449,7 +3019,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["pin-input"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/PinInputDisabled.vue").then((m) => m.default),
       files: ["example/PinInputDisabled.vue"],
     },
     "PinInputForm": {
@@ -3457,7 +3026,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","form","pin-input","toaster"],
       dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/css/example/PinInputForm.vue").then((m) => m.default),
       files: ["example/PinInputForm.vue"],
     },
     "PinInputSeparator": {
@@ -3465,7 +3033,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["pin-input"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/PinInputSeparator.vue").then((m) => m.default),
       files: ["example/PinInputSeparator.vue"],
     },
     "Popover": {
@@ -3473,7 +3040,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","input","label","popover"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Popover.vue").then((m) => m.default),
       files: ["example/Popover.vue"],
     },
     "Progress": {
@@ -3481,7 +3047,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["progress"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Progress.vue").then((m) => m.default),
       files: ["example/Progress.vue"],
     },
     "RadioGroup": {
@@ -3489,7 +3054,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["label","radio-group"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/RadioGroup.vue").then((m) => m.default),
       files: ["example/RadioGroup.vue"],
     },
     "RadioGroupForm": {
@@ -3497,7 +3061,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","form","radio-group","toaster"],
       dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/css/example/RadioGroupForm.vue").then((m) => m.default),
       files: ["example/RadioGroupForm.vue"],
     },
     "RangeCalendar": {
@@ -3505,7 +3068,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["range-calendar"],
       dependencies: ["@internationalized/date@^3.12.4","reka-ui@^2.11.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/RangeCalendar.vue").then((m) => m.default),
       files: ["example/RangeCalendar.vue"],
     },
     "Rating": {
@@ -3513,7 +3075,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["rating"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/Rating.vue").then((m) => m.default),
       files: ["example/Rating.vue"],
     },
     "Resizable": {
@@ -3521,7 +3082,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["resizable"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Resizable.vue").then((m) => m.default),
       files: ["example/Resizable.vue"],
     },
     "ResizableHandle": {
@@ -3529,7 +3089,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["resizable"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/ResizableHandle.vue").then((m) => m.default),
       files: ["example/ResizableHandle.vue"],
     },
     "ResizableVertical": {
@@ -3537,7 +3096,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["resizable"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/ResizableVertical.vue").then((m) => m.default),
       files: ["example/ResizableVertical.vue"],
     },
     "ScrollArea": {
@@ -3545,7 +3103,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["scroll-area","separator"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/ScrollArea.vue").then((m) => m.default),
       files: ["example/ScrollArea.vue"],
     },
     "ScrollAreaHorizontal": {
@@ -3553,7 +3110,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["scroll-area"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/ScrollAreaHorizontal.vue").then((m) => m.default),
       files: ["example/ScrollAreaHorizontal.vue"],
     },
     "Select": {
@@ -3561,7 +3117,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["select"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Select.vue").then((m) => m.default),
       files: ["example/Select.vue"],
     },
     "SelectForm": {
@@ -3569,7 +3124,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","form","select","toaster"],
       dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/css/example/SelectForm.vue").then((m) => m.default),
       files: ["example/SelectForm.vue"],
     },
     "SelectScrollable": {
@@ -3577,7 +3131,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["select"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/SelectScrollable.vue").then((m) => m.default),
       files: ["example/SelectScrollable.vue"],
     },
     "Separator": {
@@ -3585,7 +3138,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["separator"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Separator.vue").then((m) => m.default),
       files: ["example/Separator.vue"],
     },
     "Sheet": {
@@ -3593,7 +3145,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","input","label","sheet"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Sheet.vue").then((m) => m.default),
       files: ["example/Sheet.vue"],
     },
     "SheetSide": {
@@ -3601,7 +3152,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","input","label","sheet"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/SheetSide.vue").then((m) => m.default),
       files: ["example/SheetSide.vue"],
     },
     "Sidebar": {
@@ -3609,7 +3159,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["collapsible","separator","sidebar"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/Sidebar.vue").then((m) => m.default),
       files: ["example/Sidebar.vue"],
     },
     "SidebarControlled": {
@@ -3617,7 +3166,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","sidebar"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/SidebarControlled.vue").then((m) => m.default),
       files: ["example/SidebarControlled.vue"],
     },
     "SidebarFloating": {
@@ -3625,7 +3173,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["sidebar"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/SidebarFloating.vue").then((m) => m.default),
       files: ["example/SidebarFloating.vue"],
     },
     "SidebarInsetVariant": {
@@ -3633,7 +3180,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["separator","sidebar"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/SidebarInsetVariant.vue").then((m) => m.default),
       files: ["example/SidebarInsetVariant.vue"],
     },
     "SidebarMenuExtras": {
@@ -3641,7 +3187,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["dropdown-menu","sidebar"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/SidebarMenuExtras.vue").then((m) => m.default),
       files: ["example/SidebarMenuExtras.vue"],
     },
     "Skeleton": {
@@ -3649,7 +3194,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["skeleton"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Skeleton.vue").then((m) => m.default),
       files: ["example/Skeleton.vue"],
     },
     "SkeletonCard": {
@@ -3657,7 +3201,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["skeleton"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/SkeletonCard.vue").then((m) => m.default),
       files: ["example/SkeletonCard.vue"],
     },
     "Slider": {
@@ -3665,7 +3208,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["slider"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Slider.vue").then((m) => m.default),
       files: ["example/Slider.vue"],
     },
     "SliderForm": {
@@ -3673,7 +3215,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","form","slider","toaster"],
       dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/css/example/SliderForm.vue").then((m) => m.default),
       files: ["example/SliderForm.vue"],
     },
     "Spinner": {
@@ -3681,7 +3222,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["spinner"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Spinner.vue").then((m) => m.default),
       files: ["example/Spinner.vue"],
     },
     "Stepper": {
@@ -3689,7 +3229,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["stepper"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Stepper.vue").then((m) => m.default),
       files: ["example/Stepper.vue"],
     },
     "Switch": {
@@ -3697,7 +3236,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["label","switch"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Switch.vue").then((m) => m.default),
       files: ["example/Switch.vue"],
     },
     "SwitchForm": {
@@ -3705,7 +3243,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","form","switch","toaster"],
       dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/css/example/SwitchForm.vue").then((m) => m.default),
       files: ["example/SwitchForm.vue"],
     },
     "Table": {
@@ -3713,7 +3250,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["table"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Table.vue").then((m) => m.default),
       files: ["example/Table.vue"],
     },
     "Tabs": {
@@ -3721,7 +3257,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","card","input","label","tabs"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Tabs.vue").then((m) => m.default),
       files: ["example/Tabs.vue"],
     },
     "TagGroup": {
@@ -3729,7 +3264,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["tag-group"],
       dependencies: ["reka-ui@^2.11.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/TagGroup.vue").then((m) => m.default),
       files: ["example/TagGroup.vue"],
     },
     "TagsInput": {
@@ -3737,7 +3271,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["tags-input"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/TagsInput.vue").then((m) => m.default),
       files: ["example/TagsInput.vue"],
     },
     "TagsInputCombobox": {
@@ -3745,7 +3278,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["combobox","tags-input"],
       dependencies: ["reka-ui@^2.11.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/TagsInputCombobox.vue").then((m) => m.default),
       files: ["example/TagsInputCombobox.vue"],
     },
     "Textarea": {
@@ -3753,7 +3285,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["textarea"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Textarea.vue").then((m) => m.default),
       files: ["example/Textarea.vue"],
     },
     "TextareaDisabled": {
@@ -3761,7 +3292,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["textarea"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/TextareaDisabled.vue").then((m) => m.default),
       files: ["example/TextareaDisabled.vue"],
     },
     "TextareaForm": {
@@ -3769,7 +3299,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","form","textarea","toaster"],
       dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
-      component: () => import("../../../packages/lib/src/registry/css/example/TextareaForm.vue").then((m) => m.default),
       files: ["example/TextareaForm.vue"],
     },
     "TextareaWithButton": {
@@ -3777,7 +3306,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","textarea"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/TextareaWithButton.vue").then((m) => m.default),
       files: ["example/TextareaWithButton.vue"],
     },
     "TextareaWithLabel": {
@@ -3785,7 +3313,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["label","textarea"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/TextareaWithLabel.vue").then((m) => m.default),
       files: ["example/TextareaWithLabel.vue"],
     },
     "TextareaWithText": {
@@ -3793,7 +3320,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["label","textarea"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/TextareaWithText.vue").then((m) => m.default),
       files: ["example/TextareaWithText.vue"],
     },
     "TimeRangeField": {
@@ -3801,7 +3327,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["time-range-field"],
       dependencies: ["@internationalized/date@^3.12.4"],
-      component: () => import("../../../packages/lib/src/registry/css/example/TimeRangeField.vue").then((m) => m.default),
       files: ["example/TimeRangeField.vue"],
     },
     "Toaster": {
@@ -3809,7 +3334,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","toaster"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Toaster.vue").then((m) => m.default),
       files: ["example/Toaster.vue"],
     },
     "ToasterCustomProgress": {
@@ -3817,7 +3341,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","toaster"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/ToasterCustomProgress.vue").then((m) => m.default),
       files: ["example/ToasterCustomProgress.vue"],
     },
     "ToasterCustomSimple": {
@@ -3825,7 +3348,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","toaster"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/ToasterCustomSimple.vue").then((m) => m.default),
       files: ["example/ToasterCustomSimple.vue"],
     },
     "ToasterWithDialog": {
@@ -3833,7 +3355,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","dialog","toaster"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/ToasterWithDialog.vue").then((m) => m.default),
       files: ["example/ToasterWithDialog.vue"],
     },
     "Toggle": {
@@ -3841,7 +3362,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["toggle"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/Toggle.vue").then((m) => m.default),
       files: ["example/Toggle.vue"],
     },
     "ToggleDisabled": {
@@ -3849,7 +3369,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["toggle"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/ToggleDisabled.vue").then((m) => m.default),
       files: ["example/ToggleDisabled.vue"],
     },
     "ToggleGroup": {
@@ -3857,7 +3376,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["toggle-group"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/ToggleGroup.vue").then((m) => m.default),
       files: ["example/ToggleGroup.vue"],
     },
     "ToggleGroupDisabled": {
@@ -3865,7 +3383,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["toggle-group"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/ToggleGroupDisabled.vue").then((m) => m.default),
       files: ["example/ToggleGroupDisabled.vue"],
     },
     "ToggleGroupLarge": {
@@ -3873,7 +3390,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["toggle-group"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/ToggleGroupLarge.vue").then((m) => m.default),
       files: ["example/ToggleGroupLarge.vue"],
     },
     "ToggleGroupOutline": {
@@ -3881,7 +3397,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["toggle-group"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/ToggleGroupOutline.vue").then((m) => m.default),
       files: ["example/ToggleGroupOutline.vue"],
     },
     "ToggleGroupSingle": {
@@ -3889,7 +3404,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["toggle-group"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/ToggleGroupSingle.vue").then((m) => m.default),
       files: ["example/ToggleGroupSingle.vue"],
     },
     "ToggleGroupSmall": {
@@ -3897,7 +3411,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["toggle-group"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/ToggleGroupSmall.vue").then((m) => m.default),
       files: ["example/ToggleGroupSmall.vue"],
     },
     "ToggleItalic": {
@@ -3905,7 +3418,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["toggle"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/ToggleItalic.vue").then((m) => m.default),
       files: ["example/ToggleItalic.vue"],
     },
     "ToggleItalicWithText": {
@@ -3913,7 +3425,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["toggle"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/ToggleItalicWithText.vue").then((m) => m.default),
       files: ["example/ToggleItalicWithText.vue"],
     },
     "ToggleLarge": {
@@ -3921,7 +3432,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["toggle"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/ToggleLarge.vue").then((m) => m.default),
       files: ["example/ToggleLarge.vue"],
     },
     "ToggleSmall": {
@@ -3929,7 +3439,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["toggle"],
       dependencies: ["lucide-vue-next@^1.0.0"],
-      component: () => import("../../../packages/lib/src/registry/css/example/ToggleSmall.vue").then((m) => m.default),
       files: ["example/ToggleSmall.vue"],
     },
     "Tooltip": {
@@ -3937,7 +3446,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["button","tooltip"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Tooltip.vue").then((m) => m.default),
       files: ["example/Tooltip.vue"],
     },
     "Typography": {
@@ -3945,7 +3453,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: [],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/Typography.vue").then((m) => m.default),
       files: ["example/Typography.vue"],
     },
     "TypographyBlockquote": {
@@ -3953,7 +3460,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: [],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/TypographyBlockquote.vue").then((m) => m.default),
       files: ["example/TypographyBlockquote.vue"],
     },
     "TypographyDemo": {
@@ -3961,7 +3467,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["typography"],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/TypographyDemo.vue").then((m) => m.default),
       files: ["example/TypographyDemo.vue"],
     },
     "TypographyH1": {
@@ -3969,7 +3474,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: [],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/TypographyH1.vue").then((m) => m.default),
       files: ["example/TypographyH1.vue"],
     },
     "TypographyH2": {
@@ -3977,7 +3481,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: [],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/TypographyH2.vue").then((m) => m.default),
       files: ["example/TypographyH2.vue"],
     },
     "TypographyH3": {
@@ -3985,7 +3488,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: [],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/TypographyH3.vue").then((m) => m.default),
       files: ["example/TypographyH3.vue"],
     },
     "TypographyH4": {
@@ -3993,7 +3495,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: [],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/TypographyH4.vue").then((m) => m.default),
       files: ["example/TypographyH4.vue"],
     },
     "TypographyInlineCode": {
@@ -4001,7 +3502,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: [],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/TypographyInlineCode.vue").then((m) => m.default),
       files: ["example/TypographyInlineCode.vue"],
     },
     "TypographyLarge": {
@@ -4009,7 +3509,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: [],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/TypographyLarge.vue").then((m) => m.default),
       files: ["example/TypographyLarge.vue"],
     },
     "TypographyLead": {
@@ -4017,7 +3516,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: [],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/TypographyLead.vue").then((m) => m.default),
       files: ["example/TypographyLead.vue"],
     },
     "TypographyList": {
@@ -4025,7 +3523,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: [],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/TypographyList.vue").then((m) => m.default),
       files: ["example/TypographyList.vue"],
     },
     "TypographyMuted": {
@@ -4033,7 +3530,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: [],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/TypographyMuted.vue").then((m) => m.default),
       files: ["example/TypographyMuted.vue"],
     },
     "TypographyP": {
@@ -4041,7 +3537,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: [],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/TypographyP.vue").then((m) => m.default),
       files: ["example/TypographyP.vue"],
     },
     "TypographySmall": {
@@ -4049,7 +3544,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: [],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/TypographySmall.vue").then((m) => m.default),
       files: ["example/TypographySmall.vue"],
     },
     "TypographyTable": {
@@ -4057,7 +3551,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: [],
       dependencies: [],
-      component: () => import("../../../packages/lib/src/registry/css/example/TypographyTable.vue").then((m) => m.default),
       files: ["example/TypographyTable.vue"],
     },
     "YearPicker": {
@@ -4065,7 +3558,6 @@ export const Index = {
       type: "registry:example",
       registryDependencies: ["year-picker"],
       dependencies: ["@internationalized/date@^3.12.4"],
-      component: () => import("../../../packages/lib/src/registry/css/example/YearPicker.vue").then((m) => m.default),
       files: ["example/YearPicker.vue"],
     },
   },

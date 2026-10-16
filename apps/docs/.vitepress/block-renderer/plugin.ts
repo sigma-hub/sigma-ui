@@ -3,7 +3,6 @@ import type { IncomingMessage, ServerResponse } from 'node:http';
 import type { Plugin } from 'vitepress';
 import {
   BLOCK_RENDERER_PATH,
-  canExtendRollupInput,
   isBlockRendererRequest,
   stripThemeChunkPreload,
   stripThemeChunkSideEffect,
@@ -13,36 +12,6 @@ export function blockRendererPlugin(htmlPath: string): Plugin {
   return {
     name: 'sigma-block-renderer',
     enforce: 'post',
-    config(userConfig, { isSsrBuild }) {
-      if (isSsrBuild) {
-        return;
-      }
-
-      const rollupOptions = userConfig.build?.rollupOptions;
-      const output = Array.isArray(rollupOptions?.output) ? rollupOptions.output[0] : rollupOptions?.output;
-      const previousManualChunks = output?.manualChunks;
-
-      return {
-        build: {
-          rollupOptions: {
-            input: canExtendRollupInput(rollupOptions?.input)
-              ? { 'block-renderer': htmlPath }
-              : undefined,
-            output: {
-              manualChunks(id, meta) {
-                if (id.includes('/packages/shared/src/themes') || id.includes('/packages/shared/src/style-systems')) {
-                  return 'docs-shared';
-                }
-
-                if (typeof previousManualChunks === 'function') {
-                  return previousManualChunks(id, meta);
-                }
-              },
-            },
-          },
-        },
-      };
-    },
     generateBundle(_options, bundle) {
       for (const output of Object.values(bundle)) {
         if (output.type === 'chunk' && output.name === 'block-renderer') {
