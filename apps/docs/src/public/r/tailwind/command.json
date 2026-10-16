@@ -27,7 +27,7 @@
     },
     {
       "path": "ui/command/CommandGroup.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { ComboboxGroupProps } from 'reka-ui';\nimport { ComboboxGroup, ComboboxLabel } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\nconst props = defineProps<ComboboxGroupProps & {\n  heading?: string;\n}>();\n</script>\n\n<template>\n  <ComboboxGroup\n    v-bind=\"props\"\n    :class=\"cn('overflow-hidden p-1 text-foreground [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground', $attrs.class ?? '')\"\n  >\n    <ComboboxLabel\n      v-if=\"heading\"\n      class=\"px-2 py-1.5 text-xs font-medium text-muted-foreground\"\n    >\n      {{ heading }}\n    </ComboboxLabel>\n    <slot />\n  </ComboboxGroup>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { ComboboxGroupProps } from 'reka-ui';\nimport { ComboboxGroup, ComboboxLabel } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\nconst props = defineProps<ComboboxGroupProps & {\n  /** Label shown above the group items. */\n  heading?: string;\n}>();\n</script>\n\n<template>\n  <ComboboxGroup\n    v-bind=\"props\"\n    :class=\"cn('overflow-hidden p-1 text-foreground [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground', $attrs.class ?? '')\"\n  >\n    <ComboboxLabel\n      v-if=\"heading\"\n      class=\"px-2 py-1.5 text-xs font-medium text-muted-foreground\"\n    >\n      {{ heading }}\n    </ComboboxLabel>\n    <slot />\n  </ComboboxGroup>\n</template>\n",
       "type": "registry:ui"
     },
     {
