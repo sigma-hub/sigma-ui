@@ -205,4 +205,14 @@ const props = withDefaults(defineProps<Props>(), {
   height: 1rem;
   animation: sigma-ui-spin 1s linear infinite;
 }
+
+@keyframes sigma-ui-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
 </style>
