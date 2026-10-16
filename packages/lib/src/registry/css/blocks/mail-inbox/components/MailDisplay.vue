@@ -298,14 +298,14 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
 
 .mail-inbox__sr-only {
   position: absolute;
+  overflow: hidden;
   width: 1px;
   height: 1px;
   padding: 0;
+  border-width: 0;
   margin: -1px;
-  overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  border-width: 0;
 }
 
 .mail-inbox__snooze.mail-inbox__snooze {
@@ -317,9 +317,9 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
   display: flex;
   min-width: 15rem;
   flex-direction: column;
-  gap: 0.25rem;
-  border-right: 1px solid var(--border);
   padding: 1rem 0.5rem;
+  border-right: 1px solid var(--border);
+  gap: 0.25rem;
 }
 
 .mail-inbox__snooze-title {
@@ -344,9 +344,9 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
 
 .mail-inbox__thread-header {
   align-items: flex-start;
-  gap: 1rem;
   padding: 1rem;
   font-size: 0.875rem;
+  gap: 1rem;
 }
 
 .mail-inbox__thread-meta {
@@ -390,8 +390,8 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
 
 .mail-inbox__reply {
   display: grid;
-  gap: 1rem;
   padding: 1rem;
+  gap: 1rem;
 }
 
 .mail-inbox__reply-input {
@@ -401,9 +401,9 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
 .mail-inbox__mute {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
   font-size: 0.75rem;
   font-weight: 400;
+  gap: 0.5rem;
 }
 
 .mail-inbox__send {
