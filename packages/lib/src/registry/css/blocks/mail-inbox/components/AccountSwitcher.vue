@@ -61,9 +61,9 @@ const selectedAccount = computed(() => props.accounts.find(account => account.em
 
 .mail-inbox__account-value {
   display: flex;
+  min-width: 0;
   align-items: center;
   gap: 0.5rem;
-  min-width: 0;
 }
 
 .mail-inbox__mark {
