@@ -178,6 +178,10 @@ export const docsConfig: DocsConfig = {
           title: 'Music',
           href: '/blocks/music',
         },
+        {
+          title: 'Tasks',
+          href: '/blocks/tasks',
+        },
       ],
     },
   ],
