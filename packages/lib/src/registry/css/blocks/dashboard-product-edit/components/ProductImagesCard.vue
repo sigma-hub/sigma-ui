@@ -58,15 +58,15 @@ import { mainProductImage, productThumbnails } from '../data';
 .dashboard-product-edit__image {
   display: block;
   width: 100%;
-  aspect-ratio: 1 / 1;
   border-radius: var(--radius-md);
+  aspect-ratio: 1 / 1;
   object-fit: cover;
 }
 
 .dashboard-product-edit__thumbnails {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .dashboard-product-edit__thumbnail,
@@ -81,11 +81,11 @@ import { mainProductImage, productThumbnails } from '../data';
 
 .dashboard-product-edit__upload {
   display: flex;
-  aspect-ratio: 1 / 1;
   align-items: center;
   justify-content: center;
   border: 1px dashed var(--border);
   border-radius: var(--radius-md);
+  aspect-ratio: 1 / 1;
 }
 
 .dashboard-product-edit__upload svg {
@@ -96,13 +96,13 @@ import { mainProductImage, productThumbnails } from '../data';
 
 .dashboard-product-edit__visually-hidden {
   position: absolute;
+  overflow: hidden;
   width: 1px;
   height: 1px;
   padding: 0;
+  border-width: 0;
   margin: -1px;
-  overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  border-width: 0;
 }
 </style>
