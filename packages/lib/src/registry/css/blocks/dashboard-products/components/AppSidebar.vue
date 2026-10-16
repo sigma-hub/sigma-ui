@@ -86,10 +86,10 @@ function navLinkClass(tone: SidebarLinkTone) {
 <style>
 .dashboard-products__sidebar {
   position: fixed;
+  z-index: 10;
   top: 0;
   bottom: 0;
   left: 0;
-  z-index: 10;
   display: none;
   width: 3.5rem;
   flex-direction: column;
@@ -108,8 +108,8 @@ function navLinkClass(tone: SidebarLinkTone) {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
   padding: 1rem 0.5rem;
+  gap: 1rem;
 }
 
 .dashboard-products__sidebar-footer {
@@ -123,12 +123,12 @@ function navLinkClass(tone: SidebarLinkTone) {
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
   border-radius: 9999px;
   background-color: var(--primary);
   color: var(--primary-foreground);
   font-size: 1.125rem;
   font-weight: 600;
+  gap: 0.5rem;
   line-height: 1.75rem;
 }
 
@@ -190,13 +190,13 @@ function navLinkClass(tone: SidebarLinkTone) {
 
 .dashboard-products__sr-only {
   position: absolute;
+  overflow: hidden;
   width: 1px;
   height: 1px;
   padding: 0;
+  border-width: 0;
   margin: -1px;
-  overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  border-width: 0;
 }
 </style>
