@@ -2735,6 +2735,118 @@
       ]
     },
     {
+      "name": "cards-mix",
+      "type": "registry:block",
+      "title": "Cards mix",
+      "description": "A grid of cards for stats, team members, cookies, payments, chat, account creation, a calendar, and recent payments.",
+      "dependencies": [
+        "@internationalized/date@^3.12.4",
+        "@tanstack/vue-table@^8.21.3",
+        "@unovis/ts@^1.7.1",
+        "@unovis/vue@^1.7.1",
+        "lucide-vue-next@^1.0.0",
+        "reka-ui@^2.11.0"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "card",
+        "checkbox",
+        "command",
+        "dialog",
+        "dropdown-menu",
+        "input",
+        "label",
+        "popover",
+        "radio-group",
+        "range-calendar",
+        "select",
+        "separator",
+        "switch",
+        "table",
+        "textarea",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "blocks/cards-mix/CardsMix.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/cards-mix/components/ActivityGoal.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/cards-mix/components/CardChat.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/cards-mix/components/CardStats.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/cards-mix/components/CookieSettings.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/cards-mix/components/CreateAccount.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/cards-mix/components/DataTable.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/cards-mix/components/DataTableMenu.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/cards-mix/components/DatePicker.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/cards-mix/components/DatePickerWithRange.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/cards-mix/components/GitHubCard.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/cards-mix/components/Metric.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/cards-mix/components/Notifications.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/cards-mix/components/PaymentMethod.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/cards-mix/components/ReportAnIssue.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/cards-mix/components/ShareDocument.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/cards-mix/components/TeamMembers.vue",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "1400px",
+        "containerClass": "w-full h-full"
+      },
+      "categories": [
+        "cards",
+        "mix"
+      ]
+    },
+    {
       "name": "dashboard-ai-playground",
       "type": "registry:block",
       "title": "AI playground",
