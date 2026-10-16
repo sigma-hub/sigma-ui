@@ -64,10 +64,10 @@ import ProductToolbar from './components/ProductToolbar.vue';
 
 @media (width >= 640px) {
   .dashboard-product-edit__content {
-    gap: 1rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
     padding-left: 3.5rem;
+    gap: 1rem;
   }
 }
 
@@ -75,8 +75,8 @@ import ProductToolbar from './components/ProductToolbar.vue';
   display: grid;
   flex: 1 1 0%;
   align-items: start;
-  gap: 1rem;
   padding: 1rem;
+  gap: 1rem;
 }
 
 @media (width >= 640px) {
@@ -96,10 +96,10 @@ import ProductToolbar from './components/ProductToolbar.vue';
   width: 100%;
   max-width: 59rem;
   flex: 1 1 0%;
-  grid-auto-rows: max-content;
-  gap: 1rem;
   margin-right: auto;
   margin-left: auto;
+  gap: 1rem;
+  grid-auto-rows: max-content;
 }
 
 .dashboard-product-edit__columns {
@@ -115,23 +115,23 @@ import ProductToolbar from './components/ProductToolbar.vue';
 
 @media (width >= 1024px) {
   .dashboard-product-edit__columns {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 2rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 .dashboard-product-edit__primary,
 .dashboard-product-edit__secondary {
   display: grid;
-  grid-auto-rows: max-content;
   align-items: start;
   gap: 1rem;
+  grid-auto-rows: max-content;
 }
 
 @media (width >= 1024px) {
   .dashboard-product-edit__primary {
-    grid-column: span 2 / span 2;
     gap: 2rem;
+    grid-column: span 2 / span 2;
   }
 
   .dashboard-product-edit__secondary {
