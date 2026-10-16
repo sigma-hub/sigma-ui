@@ -54,5 +54,10 @@
   },
   "lint-staged": {
     "*.{js,mjs,cjs,ts,vue}": "eslint --fix --no-warn-ignored"
+  },
+  "pnpm": {
+    "overrides": {
+      "stylelint>css-tree": "3.2.1"
+    }
   }
 }
