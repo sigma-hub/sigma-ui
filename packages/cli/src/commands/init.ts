@@ -43,6 +43,7 @@ import { applyPrefixesCss } from '@/src/utils/transformers/transform-tw-prefix';
 const UTILS_DEPENDENCIES = ['clsx', 'tailwind-merge'];
 const TAILWIND_DEPENDENCIES = ['tw-animate-css'];
 const TAILWIND_DEV_DEPENDENCIES = ['tailwindcss', '@tailwindcss/vite'];
+const NUXT_DEV_DEPENDENCIES = ['typescript@~5.9.3'];
 
 interface ConfigAnswers {
   styleSystem: RawConfig['styleSystem'];
@@ -338,10 +339,10 @@ async function installDependencies(config: Config) {
     ...(config.resolvedPaths.utils ? UTILS_DEPENDENCIES : []),
     ...(usesTailwind ? TAILWIND_DEPENDENCIES : []),
   ], installedPackages);
-  const devDependencies = excludeInstalledDependencies(
-    usesTailwind && config.setupTailwind ? TAILWIND_DEV_DEPENDENCIES : [],
-    installedPackages,
-  );
+  const devDependencies = excludeInstalledDependencies([
+    ...(config.framework === 'nuxt' ? NUXT_DEV_DEPENDENCIES : []),
+    ...(usesTailwind && config.setupTailwind ? TAILWIND_DEV_DEPENDENCIES : []),
+  ], installedPackages);
 
   if (!dependencies.length && !devDependencies.length) {
     return;

@@ -126,6 +126,17 @@ describe('init', () => {
     expect(existsSync(path.join(cwd, 'app/assets/css/preflight.css'))).toBe(true);
     expect(read(cwd, 'nuxt.config.ts')).toMatch(/css: \[['"]~\/assets\/css\/tailwind\.css['"]\]/);
     expect(read(cwd, 'nuxt.config.ts')).not.toContain('@tailwindcss/vite');
+    expect(installPackages).toHaveBeenCalledWith(['typescript@~5.9.3'], { cwd, dev: true, silent: true });
+  });
+
+  it('skips TypeScript when a Nuxt project already depends on it', async () => {
+    const cwd = createProject({
+      ...NUXT_PROJECT,
+      'package.json': JSON.stringify({ devDependencies: { nuxt: '^4.0.0', typescript: '^5.9.3' } }),
+    });
+
+    await initProject(cwd, 'css');
+
     expect(installPackages).not.toHaveBeenCalled();
   });
 
@@ -136,7 +147,7 @@ describe('init', () => {
 
     expect(nuxtConfig).toMatch(/import tailwindcss from ['"]@tailwindcss\/vite['"]/);
     expect(nuxtConfig).toMatch(/vite: \{\s*plugins: \[tailwindcss\(\)\]/);
-    expect(installPackages).toHaveBeenCalledWith(['tailwindcss', '@tailwindcss/vite'], { cwd, dev: true, silent: true });
+    expect(installPackages).toHaveBeenCalledWith(['typescript@~5.9.3', 'tailwindcss', '@tailwindcss/vite'], { cwd, dev: true, silent: true });
     expect(vi.mocked(installPackages).mock.calls.flat(2)).not.toContain('@nuxtjs/tailwindcss');
   });
 
