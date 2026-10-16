@@ -4,7 +4,7 @@ import path from 'pathe';
 import { describe, expect, it, vi } from 'vitest';
 import { runMigrate } from '../../src/commands/migrate';
 import { migrateConfig } from '../../src/utils/migrate/config';
-import { rewriteComponentImports } from '../../src/utils/migrate/components';
+import { rewriteComponentImports, rewriteRelativeImports } from '../../src/utils/migrate/components';
 
 vi.mock('consola');
 
@@ -81,6 +81,43 @@ describe('rewriteComponentImports', () => {
   });
 });
 
+describe('rewriteRelativeImports', () => {
+  const componentsDirectory = '/app/src/components/ui';
+  const renames = [{ from: 'Button', to: 'button' }, { from: 'AlertDialog', to: 'alert-dialog' }];
+
+  it('rewrites relative imports of renamed directories and keeps same-folder files', () => {
+    const alertDialog = [
+      'import { Button } from \'../Button\';',
+      'import ButtonFile from "../Button/Button.vue";',
+      'const loader = () => import(\'../Button?raw\');',
+      'export { Button } from \'../card\';',
+    ].join('\n');
+    const buttonIndex = 'export { default as Button } from \'./Button.vue\';\n';
+    const nested = [
+      'import { Dialog } from \'../../AlertDialog\';',
+      'import Local from \'../Button.vue\';',
+    ].join('\n');
+
+    expect(rewriteRelativeImports(alertDialog, '/app/src/components/ui/AlertDialog/AlertDialog.vue', componentsDirectory, renames)).toBe([
+      'import { Button } from \'../button\';',
+      'import ButtonFile from "../button/Button.vue";',
+      'const loader = () => import(\'../button?raw\');',
+      'export { Button } from \'../card\';',
+    ].join('\n'));
+    expect(rewriteRelativeImports(buttonIndex, '/app/src/components/ui/Button/index.ts', componentsDirectory, renames)).toBe(buttonIndex);
+    expect(rewriteRelativeImports(nested, '/app/src/components/ui/Button/nested/Icon.vue', componentsDirectory, renames)).toBe([
+      'import { Dialog } from \'../../alert-dialog\';',
+      'import Local from \'../Button.vue\';',
+    ].join('\n'));
+    expect(rewriteRelativeImports(
+      'import { Button } from \'../components/ui/Button\';\n',
+      '/app/src/pages/index.vue',
+      componentsDirectory,
+      renames,
+    )).toBe('import { Button } from \'../components/ui/button\';\n');
+  });
+});
+
 describe('runMigrate', () => {
   it('migrates the config, renames PascalCase directories, and rewrites imports', async () => {
     const cwd = createProject({
@@ -96,8 +133,10 @@ describe('runMigrate', () => {
       }),
       'src/components/ui/Button/Button.vue': '<template><button /></template>\n',
       'src/components/ui/Button/index.ts': 'export { default as Button } from \'./Button.vue\';\n',
-      'src/components/ui/AlertDialog/AlertDialog.vue': '<script setup lang="ts">\nimport { Button } from \'@/components/ui/Button\';\n</script>\n',
+      'src/components/ui/Button/nested/Icon.vue': 'import { Dialog } from \'../../AlertDialog\';\nimport Local from \'../Button.vue\';\n',
+      'src/components/ui/AlertDialog/AlertDialog.vue': '<script setup lang="ts">\nimport { Button } from \'@/components/ui/Button\';\nimport { Button as RelativeButton } from \'../Button\';\nimport ButtonFile from \'../Button/Button.vue\';\n</script>\n',
       'src/App.vue': '<script setup lang="ts">\nimport { Button } from \'@/components/ui/Button\';\n</script>\n',
+      'src/pages/index.vue': '<script setup lang="ts">\nimport { Button } from \'../components/ui/Button\';\n</script>\n',
     });
 
     const dryRun = await runMigrate(cwd, { yes: true, dryRun: true });
@@ -109,6 +148,12 @@ describe('runMigrate', () => {
     expect(readdirSync(path.join(cwd, 'src/components/ui')).sort()).toEqual(['alert-dialog', 'button']);
     expect(readFileSync(path.join(cwd, 'src/App.vue'), 'utf8')).toContain('from \'@/components/ui/button\'');
     expect(readFileSync(path.join(cwd, 'src/components/ui/alert-dialog/AlertDialog.vue'), 'utf8')).toContain('from \'@/components/ui/button\'');
+    expect(readFileSync(path.join(cwd, 'src/components/ui/alert-dialog/AlertDialog.vue'), 'utf8')).toContain('from \'../button\'');
+    expect(readFileSync(path.join(cwd, 'src/components/ui/alert-dialog/AlertDialog.vue'), 'utf8')).toContain('from \'../button/Button.vue\'');
+    expect(readFileSync(path.join(cwd, 'src/components/ui/button/index.ts'), 'utf8')).toContain('from \'./Button.vue\'');
+    expect(readFileSync(path.join(cwd, 'src/components/ui/button/nested/Icon.vue'), 'utf8')).toContain('from \'../../alert-dialog\'');
+    expect(readFileSync(path.join(cwd, 'src/components/ui/button/nested/Icon.vue'), 'utf8')).toContain('from \'../Button.vue\'');
+    expect(readFileSync(path.join(cwd, 'src/pages/index.vue'), 'utf8')).toContain('from \'../components/ui/button\'');
     expect(JSON.parse(readFileSync(path.join(cwd, 'sigma-ui.config.json'), 'utf8')).$schema).toBe('https://sigma-ui.dev/schema.json');
 
     const secondRun = await runMigrate(cwd, { yes: true, dryRun: false });

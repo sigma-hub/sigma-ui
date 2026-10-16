@@ -66,6 +66,72 @@ export function rewriteComponentImports(content: string, componentsAlias: string
   });
 }
 
+const RELATIVE_IMPORT_PATTERN = /(from\s+|import\s*\(\s*|require\s*\(\s*|import\s+)(['"])(\.\.?\/[^'"]+)\2/g;
+
+export function rewriteRelativeImports(content: string, filePath: string, componentsDirectory: string, renames: DirectoryRename[]) {
+  if (!renames.length) {
+    return content;
+  }
+
+  const renameMap = new Map(renames.map(({ from, to }) => [from, to]));
+
+  return content.replace(RELATIVE_IMPORT_PATTERN, (match, prefix: string, quote: string, specifier: string) => {
+    const rewritten = rewriteRelativeSpecifier(filePath, componentsDirectory, specifier, renameMap);
+
+    if (rewritten === specifier) {
+      return match;
+    }
+
+    return `${prefix}${quote}${rewritten}${quote}`;
+  });
+}
+
+function splitSpecifierSuffix(specifier: string) {
+  const suffixIndex = specifier.search(/[?#]/);
+
+  if (suffixIndex === -1) {
+    return { pathname: specifier, suffix: '' };
+  }
+
+  return { pathname: specifier.slice(0, suffixIndex), suffix: specifier.slice(suffixIndex) };
+}
+
+function relocateRenamedDirectory(absolutePath: string, componentsDirectory: string, renameMap: Map<string, string>) {
+  const relativePath = path.relative(componentsDirectory, absolutePath);
+
+  if (!relativePath || relativePath.startsWith('..') || path.isAbsolute(relativePath)) {
+    return absolutePath;
+  }
+
+  const [directoryName, ...remainder] = relativePath.split('/');
+  const renamed = directoryName ? renameMap.get(directoryName) : undefined;
+
+  if (!renamed) {
+    return absolutePath;
+  }
+
+  return path.join(componentsDirectory, renamed, ...remainder);
+}
+
+function rewriteRelativeSpecifier(filePath: string, componentsDirectory: string, specifier: string, renameMap: Map<string, string>) {
+  const { pathname, suffix } = splitSpecifierSuffix(specifier);
+  const resolved = path.resolve(path.dirname(filePath), pathname);
+  const relocatedTarget = relocateRenamedDirectory(resolved, componentsDirectory, renameMap);
+
+  if (relocatedTarget === resolved) {
+    return specifier;
+  }
+
+  const relocatedFileDirectory = relocateRenamedDirectory(path.dirname(filePath), componentsDirectory, renameMap);
+  let rewritten = path.relative(relocatedFileDirectory, relocatedTarget);
+
+  if (!rewritten.startsWith('.')) {
+    rewritten = `./${rewritten}`;
+  }
+
+  return `${rewritten}${suffix}`;
+}
+
 export async function findSourceFiles(directory: string): Promise<string[]> {
   const entries = await readdir(directory, { withFileTypes: true });
   const files: string[] = [];
@@ -89,12 +155,21 @@ export async function findSourceFiles(directory: string): Promise<string[]> {
   return files;
 }
 
-export async function planImportRewrites(cwd: string, componentsAlias: string, renames: DirectoryRename[]) {
+export async function planImportRewrites(cwd: string, componentsDirectory: string, componentsAlias: string, renames: DirectoryRename[]) {
+  if (!renames.length) {
+    return [];
+  }
+
   const rewrites: { file: string; content: string }[] = [];
 
   for (const file of await findSourceFiles(cwd)) {
     const content = await readFile(file, 'utf8');
-    const rewritten = rewriteComponentImports(content, componentsAlias, renames);
+    const rewritten = rewriteRelativeImports(
+      rewriteComponentImports(content, componentsAlias, renames),
+      file,
+      componentsDirectory,
+      renames,
+    );
 
     if (rewritten !== content) {
       rewrites.push({ file, content: rewritten });
