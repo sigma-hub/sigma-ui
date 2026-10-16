@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import AnalyticsHeader from './components/AnalyticsHeader.vue';
-import MetricCards from './components/MetricCards.vue';
-import RecentSales from './components/RecentSales.vue';
-import TransactionsTable from './components/TransactionsTable.vue';
+import AppHeader from './components/AppHeader.vue';
+import RecentSalesCard from './components/RecentSalesCard.vue';
+import StatCard from './components/StatCard.vue';
+import TransactionsCard from './components/TransactionsCard.vue';
 import {
   accountMenu,
   brandHref,
@@ -25,27 +25,37 @@ import {
 
 <template>
   <div class="dashboard-analytics">
-    <AnalyticsHeader
+    <AppHeader
       :brand-name="brandName"
       :brand-href="brandHref"
       :links="headerLinks"
       :search-placeholder="searchPlaceholder"
-      :navigation-label="navigationLabel"
+      :menu-entries="accountMenu"
       :user-menu-label="userMenuLabel"
-      :account-menu="accountMenu"
+      :navigation-label="navigationLabel"
     />
     <main class="dashboard-analytics__main">
-      <MetricCards :cards="statCards" />
+      <div class="dashboard-analytics__stats">
+        <StatCard
+          v-for="stat in statCards"
+          :key="stat.title"
+          :title="stat.title"
+          :value="stat.value"
+          :change="stat.change"
+          :icon="stat.icon"
+        />
+      </div>
       <div class="dashboard-analytics__panels">
-        <TransactionsTable
+        <TransactionsCard
+          class="dashboard-analytics__transactions"
           :title="transactionsTitle"
           :description="transactionsDescription"
           :action-label="transactionsActionLabel"
           :action-href="transactionsActionHref"
-          :columns="transactionColumnLabels"
+          :column-labels="transactionColumnLabels"
           :rows="transactions"
         />
-        <RecentSales
+        <RecentSalesCard
           :title="recentSalesTitle"
           :sales="recentSales"
         />
@@ -70,25 +80,33 @@ import {
   padding: 1rem;
 }
 
-@media (width >= 768px) {
-  .dashboard-analytics__main {
-    gap: 2rem;
-    padding: 2rem;
-  }
-}
-
+.dashboard-analytics__stats,
 .dashboard-analytics__panels {
   display: grid;
   gap: 1rem;
 }
 
 @media (width >= 768px) {
+  .dashboard-analytics__main {
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .dashboard-analytics__stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+  }
+
   .dashboard-analytics__panels {
     gap: 2rem;
   }
 }
 
 @media (width >= 1024px) {
+  .dashboard-analytics__stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
   .dashboard-analytics__panels {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -99,7 +117,7 @@ import {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .dashboard-analytics__panels .dashboard-analytics__transactions {
+  .dashboard-analytics__transactions {
     grid-column: span 2 / span 2;
   }
 }
