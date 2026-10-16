@@ -10,25 +10,32 @@ const value = ref({
 </script>
 
 <template>
-  <TimeRangeField v-model="value">
-    <TimeRangeFieldInput
-      part="hour"
-      type="start"
-    />
-    <span>:</span>
-    <TimeRangeFieldInput
-      part="minute"
-      type="start"
-    />
+  <TimeRangeField
+    v-slot="{ segments }"
+    v-model="value"
+  >
+    <template
+      v-for="(item, index) in segments.start"
+      :key="`start-${item.part}-${index}`"
+    >
+      <TimeRangeFieldInput
+        :part="item.part"
+        type="start"
+      >
+        {{ item.value }}
+      </TimeRangeFieldInput>
+    </template>
     <span class="text-muted-foreground">to</span>
-    <TimeRangeFieldInput
-      part="hour"
-      type="end"
-    />
-    <span>:</span>
-    <TimeRangeFieldInput
-      part="minute"
-      type="end"
-    />
+    <template
+      v-for="(item, index) in segments.end"
+      :key="`end-${item.part}-${index}`"
+    >
+      <TimeRangeFieldInput
+        :part="item.part"
+        type="end"
+      >
+        {{ item.value }}
+      </TimeRangeFieldInput>
+    </template>
   </TimeRangeField>
 </template>
