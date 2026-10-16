@@ -55,6 +55,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 .sigma-ui-select-content {
   position: relative;
   z-index: 50;
+  overflow: hidden auto;
   min-width: 8rem;
   max-height: var(--reka-select-content-available-height, 24rem);
   border: 1px solid var(--border);
@@ -63,7 +64,6 @@ const forwarded = useForwardPropsEmits(props, emits);
   background-color: var(--popover);
   box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
   color: var(--popover-foreground);
-  overflow: hidden auto;
   transform-origin: var(--reka-popover-content-transform-origin);
 }
 
