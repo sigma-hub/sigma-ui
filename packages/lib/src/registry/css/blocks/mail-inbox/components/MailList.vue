@@ -81,23 +81,23 @@ function badgeVariant(label: string) {
 .mail-inbox__messages {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
   padding: 0 1rem 1rem;
+  gap: 0.5rem;
 }
 
 .mail-inbox__message {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.5rem;
+  padding: 0.75rem;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background-color: transparent;
-  padding: 0.75rem;
   color: inherit;
-  font-size: 0.875rem;
-  text-align: left;
   cursor: pointer;
+  font-size: 0.875rem;
+  gap: 0.5rem;
+  text-align: left;
 }
 
 .mail-inbox__message:hover,
@@ -150,8 +150,8 @@ function badgeVariant(label: string) {
   display: -webkit-box;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
   color: var(--muted-foreground);
+  -webkit-line-clamp: 2;
 }
 
 .mail-inbox__labels {
