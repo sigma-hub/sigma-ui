@@ -32,9 +32,9 @@ const forwarded = useForwardProps(props);
 <style>
 .sigma-ui-tag-group-item-delete {
   display: inline-flex;
-  margin-inline-end: 0.25rem;
   border-radius: var(--radius-md);
   cursor: pointer;
+  margin-inline-end: 0.25rem;
 }
 
 .sigma-ui-tag-group-item-delete:hover {
