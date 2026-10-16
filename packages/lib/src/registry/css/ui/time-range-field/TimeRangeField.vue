@@ -8,16 +8,31 @@ defineOptions({
 const props = defineProps<TimeRangeFieldRootProps>();
 const emits = defineEmits<TimeRangeFieldRootEmits>();
 const forwarded = useForwardPropsEmits(props, emits);
+
+defineSlots<{
+  /**
+   * Start and end segments. Render each segment value inside an input.
+   */
+  default?: (props: {
+    modelValue: { start?: unknown; end?: unknown } | undefined;
+    segments: {
+      start: { part: string; value: string }[];
+      end: { part: string; value: string }[];
+    };
+    isInvalid: boolean;
+  }) => unknown;
+}>();
 </script>
 
 <template>
   <TimeRangeFieldRoot
+    v-slot="slotProps"
     data-slot="time-range-field"
     class="sigma-ui-time-range-field"
     v-bind="{ ...forwarded, ...$attrs }"
     :class="[$attrs.class]"
   >
-    <slot />
+    <slot v-bind="slotProps" />
   </TimeRangeFieldRoot>
 </template>
 
