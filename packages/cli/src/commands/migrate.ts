@@ -21,7 +21,7 @@ import {
 
 export const migrate = new Command()
   .name('migrate')
-  .description('upgrade a sigma-ui 1.x project to 2.0: config shape and kebab-case component directories')
+  .description('upgrade a sigma-ui 1.x project to 2.0: config shape, kebab-case component directories, and imports')
   .option('-y, --yes', 'skip the confirmation prompt', false)
   .option('-c, --cwd <cwd>', 'the working directory. defaults to the current directory.', process.cwd())
   .option('--dry-run', 'show the planned changes without writing anything', false)
@@ -44,7 +44,7 @@ export async function runMigrate(cwd: string, options: { yes: boolean; dryRun: b
   const { config, changes } = migrateConfig(rawConfig ?? {}, projectInfo.framework);
   const { resolvedPaths } = await resolveConfigPaths(cwd, config);
   const { renames, conflicts } = await planComponentDirectoryRenames(resolvedPaths.components);
-  const rewrites = await planImportRewrites(cwd, config.aliases.components, renames);
+  const rewrites = await planImportRewrites(cwd, resolvedPaths.components, config.aliases.components, renames);
 
   for (const conflict of conflicts) {
     consola.warn(`Skipping a component directory: ${conflict}. Merge them by hand.`);
