@@ -6,6 +6,7 @@ import { Command } from 'commander';
 import { add } from '@/src/commands/add';
 import { build } from '@/src/commands/build';
 import { diff } from '@/src/commands/diff';
+import { info } from '@/src/commands/info';
 import { init } from '@/src/commands/init';
 import { migrate } from '@/src/commands/migrate';
 import { search } from '@/src/commands/search';
@@ -39,6 +40,7 @@ async function main() {
     .addCommand(add)
     .addCommand(view)
     .addCommand(search)
+    .addCommand(info)
     .addCommand(build)
     .addCommand(migrate)
     .addCommand(diff);
