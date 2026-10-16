@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { DateRange } from 'reka-ui';
-import { ref } from 'vue';
+import { type Ref, ref } from 'vue';
 import { getLocalTimeZone, today } from '@internationalized/date';
 import { Card } from '@ui/registry/css/ui/card';
 import { RangeCalendar } from '@ui/registry/css/ui/range-calendar';
@@ -21,10 +21,10 @@ import TeamMembers from './components/TeamMembers.vue';
 
 const now = today(getLocalTimeZone());
 
-const range = ref<DateRange>({
+const range = ref({
   start: now,
   end: now.add({ days: 8 }),
-});
+}) as Ref<DateRange>;
 </script>
 
 <template>
