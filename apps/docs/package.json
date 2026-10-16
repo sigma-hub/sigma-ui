@@ -10,6 +10,7 @@
     "dev": "vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview",
+    "test": "vitest run",
     "ts": "vue-tsc --noEmit --skipLibCheck",
     "ts:registry": "vue-tsc --noEmit --skipLibCheck -p tsconfig.registry.json",
     "build:registry": "tsx ./scripts/build-registry.ts",
@@ -70,6 +71,7 @@
     "tsx": "catalog:",
     "typescript": "catalog:",
     "vitepress": "^1.6.4",
+    "vitest": "catalog:",
     "vue-component-meta": "catalog:",
     "vue-tsc": "catalog:"
   }
