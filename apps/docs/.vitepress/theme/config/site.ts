@@ -7,7 +7,7 @@ export const siteConfig = {
     twitter: 'https://twitter.com/sigma__dev',
     github: 'https://github.com/sigma-hub/sigma-ui',
   },
-  keywords: 'Sigma UI,Vue,Nuxt,Vue Components,TailwindCSS,Radix Vue,Reka,Shadcn',
+  keywords: 'Sigma UI,Vue,Nuxt,Vue Components,TailwindCSS,Reka,Shadcn',
 };
 
 export const announcementConfig = {
