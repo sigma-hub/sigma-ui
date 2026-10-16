@@ -2066,6 +2066,48 @@
       ]
     },
     {
+      "name": "stepper",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui@^2.2.1"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ui/stepper/Stepper.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/stepper/StepperDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/stepper/StepperIndicator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/stepper/StepperItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/stepper/StepperSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/stepper/StepperTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/stepper/StepperTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/stepper/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "switch",
       "type": "registry:ui",
       "dependencies": [

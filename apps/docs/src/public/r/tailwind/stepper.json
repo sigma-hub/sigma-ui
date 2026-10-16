@@ -1,0 +1,51 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stepper",
+  "type": "registry:ui",
+  "dependencies": [
+    "reka-ui@^2.2.1"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/stepper/Stepper.vue",
+      "content": "<script setup lang=\"ts\">\nimport { StepperRoot, type StepperRootEmits, type StepperRootProps, useForwardPropsEmits } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst props = defineProps<StepperRootProps>();\nconst emits = defineEmits<StepperRootEmits>();\nconst forwarded = useForwardPropsEmits(props, emits);\n\ndefineSlots<{\n  /**\n   * `StepperItem` elements. Receives the active step.\n   */\n  default?: (props: { modelValue?: number }) => unknown;\n}>();\n</script>\n\n<template>\n  <StepperRoot\n    v-slot=\"slotProps\"\n    data-slot=\"stepper\"\n    v-bind=\"{ ...forwarded, ...$attrs }\"\n    :class=\"cn('flex gap-2', $attrs.class ?? '')\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </StepperRoot>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/stepper/StepperDescription.vue",
+      "content": "<script setup lang=\"ts\">\nimport { StepperDescription, type StepperDescriptionProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst props = defineProps<StepperDescriptionProps>();\nconst forwarded = useForwardProps(props);\n\ndefineSlots<{\n  /**\n   * Short explanation of the step.\n   */\n  default?: () => unknown;\n}>();\n</script>\n\n<template>\n  <StepperDescription\n    data-slot=\"stepper-description\"\n    v-bind=\"{ ...forwarded, ...$attrs }\"\n    :class=\"cn('text-xs text-muted-foreground', $attrs.class ?? '')\"\n  >\n    <slot />\n  </StepperDescription>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/stepper/StepperIndicator.vue",
+      "content": "<script setup lang=\"ts\">\nimport { StepperIndicator, type StepperIndicatorProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst props = defineProps<StepperIndicatorProps>();\nconst forwarded = useForwardProps(props);\n\ndefineSlots<{\n  /**\n   * Step number or icon. Receives the current step index.\n   */\n  default?: (props: { step: number }) => unknown;\n}>();\n</script>\n\n<template>\n  <StepperIndicator\n    v-slot=\"slotProps\"\n    data-slot=\"stepper-indicator\"\n    v-bind=\"{ ...forwarded, ...$attrs }\"\n    :class=\"cn(\n      'inline-flex size-8 items-center justify-center rounded-full text-muted-foreground/50',\n      'group-data-[disabled]:opacity-50',\n      'group-data-[state=active]:bg-primary group-data-[state=active]:text-primary-foreground',\n      'group-data-[state=completed]:bg-secondary group-data-[state=completed]:text-secondary-foreground',\n      $attrs.class ?? '',\n    )\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </StepperIndicator>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/stepper/StepperItem.vue",
+      "content": "<script setup lang=\"ts\">\nimport { StepperItem, type StepperItemProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst props = defineProps<StepperItemProps>();\nconst forwarded = useForwardProps(props);\n\ndefineSlots<{\n  /**\n   * Trigger, indicator, title, and separator. Receives the step state.\n   */\n  default?: (props: { state: 'completed' | 'active' | 'inactive' }) => unknown;\n}>();\n</script>\n\n<template>\n  <StepperItem\n    v-slot=\"slotProps\"\n    data-slot=\"stepper-item\"\n    v-bind=\"{ ...forwarded, ...$attrs }\"\n    :class=\"cn('group flex items-center gap-2 data-[disabled]:pointer-events-none', $attrs.class ?? '')\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </StepperItem>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/stepper/StepperSeparator.vue",
+      "content": "<script setup lang=\"ts\">\nimport { StepperSeparator, type StepperSeparatorProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst props = defineProps<StepperSeparatorProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <StepperSeparator\n    data-slot=\"stepper-separator\"\n    v-bind=\"{ ...forwarded, ...$attrs }\"\n    :class=\"cn(\n      'bg-muted group-data-[disabled]:opacity-50 data-[state=completed]:bg-secondary',\n      'data-[orientation=horizontal]:h-px data-[orientation=horizontal]:flex-1',\n      'data-[orientation=vertical]:w-px data-[orientation=vertical]:flex-1',\n      $attrs.class ?? '',\n    )\"\n  />\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/stepper/StepperTitle.vue",
+      "content": "<script setup lang=\"ts\">\nimport { StepperTitle, type StepperTitleProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst props = defineProps<StepperTitleProps>();\nconst forwarded = useForwardProps(props);\n\ndefineSlots<{\n  /**\n   * Name of the step.\n   */\n  default?: () => unknown;\n}>();\n</script>\n\n<template>\n  <StepperTitle\n    data-slot=\"stepper-title\"\n    v-bind=\"{ ...forwarded, ...$attrs }\"\n    :class=\"cn('text-sm font-semibold whitespace-nowrap', $attrs.class ?? '')\"\n  >\n    <slot />\n  </StepperTitle>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/stepper/StepperTrigger.vue",
+      "content": "<script setup lang=\"ts\">\nimport { StepperTrigger, type StepperTriggerProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst props = defineProps<StepperTriggerProps>();\nconst forwarded = useForwardProps(props);\n\ndefineSlots<{\n  /**\n   * Indicator and labels for one step.\n   */\n  default?: () => unknown;\n}>();\n</script>\n\n<template>\n  <StepperTrigger\n    data-slot=\"stepper-trigger\"\n    v-bind=\"{ ...forwarded, ...$attrs }\"\n    :class=\"cn('flex flex-col items-center gap-1 rounded-md p-1 text-center', $attrs.class ?? '')\"\n  >\n    <slot />\n  </StepperTrigger>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/stepper/index.ts",
+      "content": "export { default as Stepper } from './Stepper.vue';\nexport { default as StepperDescription } from './StepperDescription.vue';\nexport { default as StepperIndicator } from './StepperIndicator.vue';\nexport { default as StepperItem } from './StepperItem.vue';\nexport { default as StepperSeparator } from './StepperSeparator.vue';\nexport { default as StepperTitle } from './StepperTitle.vue';\nexport { default as StepperTrigger } from './StepperTrigger.vue';\n",
+      "type": "registry:ui"
+    }
+  ]
+}
