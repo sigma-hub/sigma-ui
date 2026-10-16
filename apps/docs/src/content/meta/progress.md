@@ -18,9 +18,15 @@
   },
   {
     "name": "getValueLabel",
-    "type": "((value: number, max: number) => string)",
+    "type": "((value: number | null, max: number) => string)",
     "required": false,
-    "description": "<p>A function to get the accessible label text representing the current value in a human-readable format.</p>\n<p>If not provided, the value label will be read as the numeric value as a percentage of the max value.</p>"
+    "description": "<p>A function to get the accessible label text in a human-readable format.</p>\n<p>If not provided, the value label will be read as the numeric value as a percentage of the max value.</p>"
+  },
+  {
+    "name": "getValueText",
+    "type": "((value: number | null, max: number) => string)",
+    "required": false,
+    "description": "<p>A function to get the accessible value text representing the current value in a human-readable format.</p>"
   },
   {
     "name": "asChild",

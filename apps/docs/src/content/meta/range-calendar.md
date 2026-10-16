@@ -19,7 +19,7 @@
     "name": "modelValue",
     "type": "DateRange | null",
     "required": false,
-    "description": "<p>The controlled checked state of the calendar. Can be bound as <code>v-model</code>.</p>"
+    "description": "<p>The controlled selected date range of the calendar. Can be bound as <code>v-model</code>.</p>"
   },
   {
     "name": "placeholder",
@@ -46,8 +46,14 @@
     "description": "<p>Whether or not to prevent the user from deselecting a date without selecting another date first</p>"
   },
   {
+    "name": "maximumDays",
+    "type": "number",
+    "required": false,
+    "description": "<p>The maximum number of days that can be selected in a range</p>"
+  },
+  {
     "name": "weekStartsOn",
-    "type": "0 | 1 | 2 | 3 | 4 | 5 | 6",
+    "type": "WeekStartsOn",
     "required": false,
     "description": "<p>The day of the week to start the calendar on</p>"
   },
@@ -148,6 +154,18 @@
     "description": "<p>A function that returns the previous page of the calendar. It receives the current placeholder as an argument inside the component.</p>"
   },
   {
+    "name": "disableDaysOutsideCurrentView",
+    "type": "boolean",
+    "required": false,
+    "description": "<p>Whether or not to disable days outside the current view.</p>"
+  },
+  {
+    "name": "fixedDate",
+    "type": "\"start\" | \"end\"",
+    "required": false,
+    "description": "<p>Which part of the range should be fixed</p>"
+  },
+  {
     "name": "asChild",
     "type": "boolean",
     "required": false,
@@ -172,6 +190,11 @@
     "name": "update:placeholder",
     "payload": "[date: DateValue]",
     "description": "<p>Event handler called whenever the placeholder value changes</p>"
+  },
+  {
+    "name": "update:validModelValue",
+    "payload": "[date: DateRange]",
+    "description": "<p>Event handler called whenever there is a new validModel</p>"
   },
   {
     "name": "update:startValue",

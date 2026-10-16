@@ -8,7 +8,7 @@
     "type": "boolean",
     "default": "true",
     "required": false,
-    "description": "<p>The controlled open state of the Combobox. Can be binded with with <code>v-model:open</code>.</p>"
+    "description": "<p>The controlled open state of the Combobox. Can be binded with <code>v-model:open</code>.</p>"
   },
   {
     "name": "defaultOpen",
@@ -31,10 +31,37 @@
     "description": "<p>Whether to reset the searchTerm when the Combobox value is selected</p>"
   },
   {
+    "name": "openOnFocus",
+    "type": "boolean",
+    "default": "`false`",
+    "required": false,
+    "description": "<p>Whether to open the combobox when the input is focused</p>"
+  },
+  {
+    "name": "openOnClick",
+    "type": "boolean",
+    "default": "`false`",
+    "required": false,
+    "description": "<p>Whether to open the combobox when the input is clicked</p>"
+  },
+  {
     "name": "ignoreFilter",
     "type": "boolean",
     "required": false,
     "description": "<p>When <code>true</code>, disable the default filters</p>"
+  },
+  {
+    "name": "resetModelValueOnClear",
+    "type": "boolean",
+    "required": false,
+    "description": "<p>When <code>true</code> the <code>modelValue</code> will be reset to <code>null</code> (or <code>[]</code> if <code>multiple</code>)</p>"
+  },
+  {
+    "name": "unmountOnHide",
+    "type": "boolean",
+    "default": "true",
+    "required": false,
+    "description": "<p>When set to <code>false</code>, the Combobox content will not be unmounted when closed, but instead hidden with CSS. &amp;lt;br&amp;gt;\nUseful when you want to improve performance by not remounting the content on every open.</p>"
   },
   {
     "name": "multiple",
@@ -72,7 +99,7 @@
     "type": "AcceptableValue | AcceptableValue[]",
     "default": "\"\"",
     "required": false,
-    "description": "<p>The controlled value of the listbox. Can be binded with with <code>v-model</code>.</p>"
+    "description": "<p>The controlled value of the listbox. Can be binded with <code>v-model</code>.</p>"
   },
   {
     "name": "defaultValue",
@@ -81,22 +108,28 @@
     "description": "<p>The value of the listbox when initially rendered. Use when you do not need to control the state of the Listbox</p>"
   },
   {
-    "name": "required",
-    "type": "boolean",
-    "required": false,
-    "description": "<p>When <code>true</code>, indicates that the user must set the value before the owning form can be submitted.</p>"
-  },
-  {
     "name": "name",
     "type": "string",
     "required": false,
     "description": "<p>The name of the field. Submitted with its owning form as part of a name/value pair.</p>"
   },
   {
+    "name": "required",
+    "type": "boolean",
+    "required": false,
+    "description": "<p>When <code>true</code>, indicates that the user must set the value before the owning form can be submitted.</p>"
+  },
+  {
     "name": "highlightOnHover",
     "type": "boolean",
     "required": false,
     "description": "<p>When <code>true</code>, hover over item will trigger highlight</p>"
+  },
+  {
+    "name": "loop",
+    "type": "boolean",
+    "required": false,
+    "description": "<p>When <code>true</code>, keyboard navigation will loop from last item to first, and vice versa.</p>"
   },
   {
     "name": "by",
@@ -152,6 +185,13 @@
     "type": "boolean",
     "required": false,
     "description": "<p>The modality of the dialog When set to <code>true</code>, &amp;lt;br&amp;gt;\ninteraction with outside elements will be disabled and only dialog content will be visible to screen readers.</p>"
+  },
+  {
+    "name": "unmountOnHide",
+    "type": "boolean",
+    "default": "true",
+    "required": false,
+    "description": "<p>When set to <code>false</code>, the dialog content will not be unmounted when closed, but instead hidden with CSS. &amp;lt;br&amp;gt;\nUseful for SEO or when you want to improve performance by not remounting the component on every open.</p>"
   }
 ]' />
 
@@ -242,7 +282,7 @@
     "name": "modelValue",
     "type": "string",
     "required": false,
-    "description": "<p>The controlled value of the filter. Can be binded with with v-model.</p>"
+    "description": "<p>The controlled value of the filter. Can be binded with v-model.</p>"
   },
   {
     "name": "autoFocus",
@@ -310,7 +350,7 @@
 <ApiTable kind="events" :items='[
   {
     "name": "select",
-    "payload": "[event: ListboxItemSelectEvent<AcceptableValue>]",
+    "payload": "[event: SelectEvent$3<AcceptableValue>]",
     "description": "<p>Event handler called when the selecting item. &amp;lt;br&amp;gt; It can be prevented by calling <code>event.preventDefault</code>.</p>"
   }
 ]' />

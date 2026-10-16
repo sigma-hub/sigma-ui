@@ -4,53 +4,10 @@
 
 <ApiTable kind="props" :items='[
   {
-    "name": "activeSnapPoint",
-    "type": "string | number | null",
-    "required": false,
-    "description": ""
-  },
-  {
-    "name": "closeThreshold",
-    "type": "number",
-    "required": false,
-    "description": ""
-  },
-  {
-    "name": "shouldScaleBackground",
-    "type": "boolean",
-    "default": "true",
-    "required": false,
-    "description": ""
-  },
-  {
-    "name": "scrollLockTimeout",
-    "type": "number",
-    "required": false,
-    "description": ""
-  },
-  {
-    "name": "fixed",
-    "type": "boolean",
-    "required": false,
-    "description": ""
-  },
-  {
-    "name": "dismissible",
-    "type": "boolean",
-    "required": false,
-    "description": ""
-  },
-  {
-    "name": "modal",
-    "type": "boolean",
-    "required": false,
-    "description": ""
-  },
-  {
     "name": "open",
     "type": "boolean",
     "required": false,
-    "description": ""
+    "description": "<p>v-model:open</p>"
   },
   {
     "name": "defaultOpen",
@@ -59,60 +16,59 @@
     "description": ""
   },
   {
-    "name": "nested",
-    "type": "boolean",
+    "name": "modal",
+    "type": "DrawerModal",
     "required": false,
-    "description": ""
+    "description": "<p>Modality of the drawer.</p>\n<ul>\n<li><code>true</code> (default): modal with focus trap, scroll lock, and outside-press dismiss</li>\n<li><code>&#39;trap-focus&#39;</code>: traps focus but allows outside pointer events (non-modal side panels)</li>\n<li><code>false</code>: non-modal</li>\n</ul>"
   },
   {
-    "name": "direction",
-    "type": "DrawerDirection",
+    "name": "swipeDirection",
+    "type": "SwipeDirection$1",
+    "default": "&#39;down&#39;",
     "required": false,
-    "description": ""
+    "description": "<p>Direction to swipe to dismiss.</p>"
   },
   {
     "name": "snapPoints",
-    "type": "(string | number)[]",
+    "type": "DrawerSnapPoint[]",
+    "required": false,
+    "description": "<p>Preset snap positions (fractions 0-1, pixels &amp;gt;1, or &#39;148px&#39;/&#39;30rem&#39; strings)</p>"
+  },
+  {
+    "name": "snapPoint",
+    "type": "DrawerSnapPoint | null",
+    "required": false,
+    "description": "<p>v-model:snapPoint</p>"
+  },
+  {
+    "name": "defaultSnapPoint",
+    "type": "DrawerSnapPoint | null",
     "required": false,
     "description": ""
   },
   {
-    "name": "fadeFromIndex",
-    "type": "number",
+    "name": "snapToSequentialPoints",
+    "type": "boolean",
+    "default": "false",
     "required": false,
-    "description": ""
+    "description": "<p>When true, snaps to the next sequential snap point (one step at a time).\nWhen false, snaps to the nearest snap point by distance.</p>"
   }
 ]' />
 
 <ApiTable kind="events" :items='[
   {
     "name": "update:open",
-    "payload": "[open: boolean]",
+    "payload": "[value: boolean, details: DrawerOpenChangeDetails]",
     "description": ""
   },
   {
-    "name": "drag",
-    "payload": "[percentageDragged: number]",
+    "name": "update:openComplete",
+    "payload": "[value: boolean]",
     "description": ""
   },
   {
-    "name": "release",
-    "payload": "[open: boolean]",
-    "description": ""
-  },
-  {
-    "name": "close",
-    "payload": "[]",
-    "description": ""
-  },
-  {
-    "name": "update:activeSnapPoint",
-    "payload": "[val: string | number]",
-    "description": ""
-  },
-  {
-    "name": "animationEnd",
-    "payload": "[open: boolean]",
+    "name": "update:snapPoint",
+    "payload": "[value: DrawerSnapPoint | null]",
     "description": ""
   }
 ]' />
@@ -120,32 +76,8 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "",
-    "description": "<p>The content of the component.</p>"
-  }
-]' />
-
-### DrawerOverlay
-
-<ApiTable kind="props" :items='[
-  {
-    "name": "forceMount",
-    "type": "boolean",
-    "required": false,
-    "description": "<p>Used to force mounting when more control is needed. Useful when\ncontrolling animation with Vue animation libraries.</p>"
-  },
-  {
-    "name": "asChild",
-    "type": "boolean",
-    "required": false,
-    "description": "<p>Change the default rendered element for the one passed as a child, merging their props and behavior.</p>\n<p>Read our <a href=\"https://www.reka-ui.com/docs/guides/composition\">Composition</a> guide for more details.</p>"
-  },
-  {
-    "name": "as",
-    "type": "AsTag | Component",
-    "default": "\"div\"",
-    "required": false,
-    "description": "<p>The element or component this component should render as. Can be overwritten by <code>asChild</code>.</p>"
+    "scope": "{ open: boolean; close: () => void; }",
+    "description": "<p>Trigger and content. Receives the open state and a close function.</p>"
   }
 ]' />
 
@@ -156,20 +88,7 @@
     "name": "forceMount",
     "type": "boolean",
     "required": false,
-    "description": "<p>Used to force mounting when more control is needed. Useful when\ncontrolling animation with Vue animation libraries.</p>"
-  },
-  {
-    "name": "trapFocus",
-    "type": "boolean",
-    "default": "false",
-    "required": false,
-    "description": "<p>When <code>true</code>, focus cannot escape the <code>Content</code> via keyboard,\npointer, or a programmatic focus.</p>"
-  },
-  {
-    "name": "disableOutsidePointerEvents",
-    "type": "boolean",
-    "required": false,
-    "description": "<p>When <code>true</code>, hover/focus/click interactions will be disabled on elements outside\nthe <code>DismissableLayer</code>. Users will need to click twice on outside elements to\ninteract with them: once to close the <code>DismissableLayer</code>, and again to trigger the element.</p>"
+    "description": ""
   },
   {
     "name": "asChild",
@@ -183,6 +102,24 @@
     "default": "\"div\"",
     "required": false,
     "description": "<p>The element or component this component should render as. Can be overwritten by <code>asChild</code>.</p>"
+  },
+  {
+    "name": "disableOutsidePointerEvents",
+    "type": "boolean",
+    "required": false,
+    "description": "<p>When <code>true</code>, hover/focus/click interactions will be disabled on elements outside\nthe <code>DismissableLayer</code>. Users will need to click twice on outside elements to\ninteract with them: once to close the <code>DismissableLayer</code>, and again to trigger the element.</p>"
+  },
+  {
+    "name": "initialFocus",
+    "type": "boolean | HTMLElement | null",
+    "required": false,
+    "description": "<p>Initial focus target when the drawer opens.</p>\n<ul>\n<li><code>true</code> / default: focus the first focusable element inside</li>\n<li><code>false</code>: do not focus anything</li>\n<li>element ref: focus that specific element</li>\n</ul>"
+  },
+  {
+    "name": "finalFocus",
+    "type": "boolean | HTMLElement | null",
+    "required": false,
+    "description": "<p>Final focus target when the drawer closes.</p>\n<ul>\n<li><code>true</code> / default: focus the trigger</li>\n<li><code>false</code>: do not restore focus</li>\n<li>element ref: focus that specific element</li>\n</ul>"
   }
 ]' />
 
@@ -210,12 +147,12 @@
   {
     "name": "openAutoFocus",
     "payload": "[event: Event]",
-    "description": "<p>Event handler called when auto-focusing on open.\nCan be prevented.</p>"
+    "description": ""
   },
   {
     "name": "closeAutoFocus",
     "payload": "[event: Event]",
-    "description": "<p>Event handler called when auto-focusing on close.\nCan be prevented.</p>"
+    "description": ""
   }
 ]' />
 
@@ -227,7 +164,23 @@
   }
 ]' />
 
-### DrawerHeader
+### DrawerDescription
+
+<ApiTable kind="props" :items='[
+  {
+    "name": "asChild",
+    "type": "boolean",
+    "required": false,
+    "description": "<p>Change the default rendered element for the one passed as a child, merging their props and behavior.</p>\n<p>Read our <a href=\"https://www.reka-ui.com/docs/guides/composition\">Composition</a> guide for more details.</p>"
+  },
+  {
+    "name": "as",
+    "type": "AsTag | Component",
+    "default": "\"div\"",
+    "required": false,
+    "description": "<p>The element or component this component should render as. Can be overwritten by <code>asChild</code>.</p>"
+  }
+]' />
 
 <ApiTable kind="slots" :items='[
   {
@@ -247,23 +200,7 @@
   }
 ]' />
 
-### DrawerTitle
-
-<ApiTable kind="props" :items='[
-  {
-    "name": "asChild",
-    "type": "boolean",
-    "required": false,
-    "description": "<p>Change the default rendered element for the one passed as a child, merging their props and behavior.</p>\n<p>Read our <a href=\"https://www.radix-vue.com/guides/composition.html\">Composition</a> guide for more details.</p>"
-  },
-  {
-    "name": "as",
-    "type": "Component | AsTag",
-    "default": "\"div\"",
-    "required": false,
-    "description": "<p>The element or component this component should render as. Can be overwritten by <code>asChild</code>.</p>"
-  }
-]' />
+### DrawerHeader
 
 <ApiTable kind="slots" :items='[
   {
@@ -273,18 +210,49 @@
   }
 ]' />
 
-### DrawerDescription
+### DrawerOverlay
+
+<ApiTable kind="props" :items='[
+  {
+    "name": "forceMount",
+    "type": "boolean",
+    "required": false,
+    "description": "<p>Keep mounted for animation control.</p>"
+  },
+  {
+    "name": "forceRender",
+    "type": "boolean",
+    "default": "false",
+    "required": false,
+    "description": "<p>Render even when inside a nested drawer.</p>"
+  },
+  {
+    "name": "asChild",
+    "type": "boolean",
+    "required": false,
+    "description": "<p>Change the default rendered element for the one passed as a child, merging their props and behavior.</p>\n<p>Read our <a href=\"https://www.reka-ui.com/docs/guides/composition\">Composition</a> guide for more details.</p>"
+  },
+  {
+    "name": "as",
+    "type": "AsTag | Component",
+    "default": "\"div\"",
+    "required": false,
+    "description": "<p>The element or component this component should render as. Can be overwritten by <code>asChild</code>.</p>"
+  }
+]' />
+
+### DrawerTitle
 
 <ApiTable kind="props" :items='[
   {
     "name": "asChild",
     "type": "boolean",
     "required": false,
-    "description": "<p>Change the default rendered element for the one passed as a child, merging their props and behavior.</p>\n<p>Read our <a href=\"https://www.radix-vue.com/guides/composition.html\">Composition</a> guide for more details.</p>"
+    "description": "<p>Change the default rendered element for the one passed as a child, merging their props and behavior.</p>\n<p>Read our <a href=\"https://www.reka-ui.com/docs/guides/composition\">Composition</a> guide for more details.</p>"
   },
   {
     "name": "as",
-    "type": "Component | AsTag",
+    "type": "AsTag | Component",
     "default": "\"div\"",
     "required": false,
     "description": "<p>The element or component this component should render as. Can be overwritten by <code>asChild</code>.</p>"

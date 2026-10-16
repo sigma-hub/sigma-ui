@@ -2,6 +2,16 @@
 
 ### Breadcrumb
 
+<ApiTable kind="props" :items='[
+  {
+    "name": "ariaLabel",
+    "type": "string",
+    "default": "\"breadcrumb\"",
+    "required": false,
+    "description": ""
+  }
+]' />
+
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
@@ -11,6 +21,16 @@
 ]' />
 
 ### BreadcrumbEllipsis
+
+<ApiTable kind="props" :items='[
+  {
+    "name": "label",
+    "type": "string",
+    "default": "\"More\"",
+    "required": false,
+    "description": ""
+  }
+]' />
 
 <ApiTable kind="slots" :items='[
   {

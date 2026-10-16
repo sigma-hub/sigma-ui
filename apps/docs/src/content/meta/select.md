@@ -28,6 +28,12 @@
     "description": "<p>The controlled value of the Select. Can be bind as <code>v-model</code>.</p>"
   },
   {
+    "name": "nullableValue",
+    "type": "string",
+    "required": false,
+    "description": "<p>The value of the hidden native select option when the model value is nullish.</p>"
+  },
+  {
     "name": "by",
     "type": "string | ((a: AcceptableValue, b: AcceptableValue) => boolean)",
     "required": false,
@@ -193,9 +199,22 @@
     "description": "<p>The document.body will be lock, and scrolling will be disabled.</p>"
   },
   {
+    "name": "loop",
+    "type": "boolean",
+    "default": "false",
+    "required": false,
+    "description": "<p>When <code>true</code>, keyboard navigation will loop from last item to first, and vice versa.</p>"
+  },
+  {
+    "name": "memoDependencies",
+    "type": "unknown[]",
+    "required": false,
+    "description": "<p>Reactive dependencies that should invalidate the memoized content subtree.</p>"
+  },
+  {
     "name": "side",
     "type": "\"top\" | \"right\" | \"bottom\" | \"left\"",
-    "default": "\"top\"",
+    "default": "\"bottom\"",
     "required": false,
     "description": "<p>The preferred side of the trigger to render against when open.\nWill be reversed when collisions occur and avoidCollisions\nis enabled.</p>"
   },
@@ -207,8 +226,15 @@
     "description": "<p>The distance in pixels from the trigger.</p>"
   },
   {
+    "name": "sideFlip",
+    "type": "boolean",
+    "default": "true",
+    "required": false,
+    "description": "<p>Flip to the opposite side when colliding with boundary.</p>"
+  },
+  {
     "name": "align",
-    "type": "\"start\" | \"center\" | \"end\"",
+    "type": "\"center\" | \"start\" | \"end\"",
     "default": "\"center\"",
     "required": false,
     "description": "<p>The preferred alignment against the trigger.\nMay change when collisions occur.</p>"
@@ -219,6 +245,13 @@
     "default": "0",
     "required": false,
     "description": "<p>An offset in pixels from the <code>start</code> or <code>end</code> alignment options.</p>"
+  },
+  {
+    "name": "alignFlip",
+    "type": "boolean",
+    "default": "true",
+    "required": false,
+    "description": "<p>Flip alignment when colliding with boundary.\nMay only occur when <code>prioritizePosition</code> is true.</p>"
   },
   {
     "name": "avoidCollisions",
@@ -249,6 +282,13 @@
     "description": "<p>The padding between the arrow and the edges of the content.\nIf your content has border-radius, this will prevent it from\noverflowing the corners.</p>"
   },
   {
+    "name": "hideShiftedArrow",
+    "type": "boolean",
+    "default": "true",
+    "required": false,
+    "description": "<p>When <code>true</code>, hides the arrow when it cannot be centered\nto the reference element.</p>"
+  },
+  {
     "name": "sticky",
     "type": "\"partial\" | \"always\"",
     "default": "\"partial\"",
@@ -264,7 +304,7 @@
   },
   {
     "name": "positionStrategy",
-    "type": "\"fixed\" | \"absolute\"",
+    "type": "\"absolute\" | \"fixed\"",
     "required": false,
     "description": "<p>The type of CSS position property to use.</p>"
   },
@@ -296,6 +336,12 @@
     "description": "<p>The custom element or virtual element that will be set as the reference\nto position the floating element.</p>\n<p>If provided, it will replace the default anchor element.</p>"
   },
   {
+    "name": "dir",
+    "type": "Direction",
+    "required": false,
+    "description": "<p>The reading direction of the popper content when applicable. &amp;lt;br&amp;gt; If omitted, inherits globally from <code>ConfigProvider</code> or assumes LTR (left-to-right) reading mode.</p>"
+  },
+  {
     "name": "asChild",
     "type": "boolean",
     "required": false,
@@ -307,6 +353,12 @@
     "default": "\"div\"",
     "required": false,
     "description": "<p>The element or component this component should render as. Can be overwritten by <code>asChild</code>.</p>"
+  },
+  {
+    "name": "disableOutsidePointerEvents",
+    "type": "boolean",
+    "required": false,
+    "description": "<p>When <code>true</code>, hover/focus/click interactions will be disabled on elements outside\nthe <code>DismissableLayer</code>. Users will need to click twice on outside elements to\ninteract with them: once to close the <code>DismissableLayer</code>, and again to trigger the element.</p>"
   }
 ]' />
 

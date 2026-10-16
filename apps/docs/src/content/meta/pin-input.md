@@ -5,14 +5,14 @@
 <ApiTable kind="props" :items='[
   {
     "name": "modelValue",
-    "type": "string[] | null",
+    "type": "PinInputValue<Type> | null",
     "default": "[]",
     "required": false,
     "description": "<p>The controlled checked state of the pin input. Can be binded as <code>v-model</code>.</p>"
   },
   {
     "name": "defaultValue",
-    "type": "string[]",
+    "type": "PinInputValue<Type>",
     "required": false,
     "description": "<p>The default value of the pin inputs when it is initially rendered. Use when you do not need to control its checked state.</p>"
   },
@@ -36,7 +36,7 @@
   },
   {
     "name": "type",
-    "type": "\"number\" | \"text\"",
+    "type": "Type",
     "required": false,
     "description": "<p>Input type for the inputs.</p>"
   },
@@ -88,12 +88,12 @@
 <ApiTable kind="events" :items='[
   {
     "name": "update:modelValue",
-    "payload": "[value: string[]]",
+    "payload": "[value: PinInputValue<Type>]",
     "description": ""
   },
   {
     "name": "complete",
-    "payload": "[value: string[]]",
+    "payload": "[value: PinInputValue<Type>]",
     "description": ""
   }
 ]' />

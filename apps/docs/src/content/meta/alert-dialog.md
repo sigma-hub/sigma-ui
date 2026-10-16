@@ -4,6 +4,13 @@
 
 <ApiTable kind="props" :items='[
   {
+    "name": "unmountOnHide",
+    "type": "boolean",
+    "default": "true",
+    "required": false,
+    "description": "<p>When set to <code>false</code>, the dialog content will not be unmounted when closed, but instead hidden with CSS. &amp;lt;br&amp;gt;\nUseful for SEO or when you want to improve performance by not remounting the component on every open.</p>"
+  },
+  {
     "name": "open",
     "type": "boolean",
     "required": false,
@@ -69,19 +76,6 @@
     "description": "<p>Used to force mounting when more control is needed. Useful when\ncontrolling animation with Vue animation libraries.</p>"
   },
   {
-    "name": "trapFocus",
-    "type": "boolean",
-    "default": "false",
-    "required": false,
-    "description": "<p>When <code>true</code>, focus cannot escape the <code>Content</code> via keyboard,\npointer, or a programmatic focus.</p>"
-  },
-  {
-    "name": "disableOutsidePointerEvents",
-    "type": "boolean",
-    "required": false,
-    "description": "<p>When <code>true</code>, hover/focus/click interactions will be disabled on elements outside\nthe <code>DismissableLayer</code>. Users will need to click twice on outside elements to\ninteract with them: once to close the <code>DismissableLayer</code>, and again to trigger the element.</p>"
-  },
-  {
     "name": "asChild",
     "type": "boolean",
     "required": false,
@@ -93,6 +87,12 @@
     "default": "\"div\"",
     "required": false,
     "description": "<p>The element or component this component should render as. Can be overwritten by <code>asChild</code>.</p>"
+  },
+  {
+    "name": "disableOutsidePointerEvents",
+    "type": "boolean",
+    "required": false,
+    "description": "<p>When <code>true</code>, hover/focus/click interactions will be disabled on elements outside\nthe <code>DismissableLayer</code>. Users will need to click twice on outside elements to\ninteract with them: once to close the <code>DismissableLayer</code>, and again to trigger the element.</p>"
   }
 ]' />
 

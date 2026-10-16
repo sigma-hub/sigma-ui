@@ -17,13 +17,13 @@
   },
   {
     "name": "dir",
-    "type": "Direction_4",
+    "type": "Direction$3",
     "required": false,
     "description": "<p>The reading direction of the combobox when applicable.</p>\n<p>If omitted, inherits globally from <code>ConfigProvider</code> or assumes LTR (left-to-right) reading mode.</p>"
   },
   {
     "name": "orientation",
-    "type": "Orientation_2",
+    "type": "Orientation",
     "required": false,
     "description": "<p>The orientation of the menu.</p>"
   },

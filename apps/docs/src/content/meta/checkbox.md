@@ -47,6 +47,18 @@
     "description": "<p>The value given as data when submitted with a <code>name</code>.</p>"
   },
   {
+    "name": "trueValue",
+    "type": "boolean",
+    "required": false,
+    "description": "<p>The value used when the checkbox is checked. Defaults to <code>true</code>.</p>"
+  },
+  {
+    "name": "falseValue",
+    "type": "boolean",
+    "required": false,
+    "description": "<p>The value used when the checkbox is unchecked. Defaults to <code>false</code>.</p>"
+  },
+  {
     "name": "asChild",
     "type": "boolean",
     "required": false,
