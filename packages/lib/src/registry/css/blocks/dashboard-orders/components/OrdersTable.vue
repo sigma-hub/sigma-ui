@@ -164,16 +164,16 @@ defineProps<{
 .dashboard-orders__toolbar-actions {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
   margin-left: auto;
+  gap: 0.5rem;
 }
 
 .dashboard-orders .dashboard-orders__toolbar-button {
   height: 1.75rem;
-  gap: 0.25rem;
-  border-radius: calc(var(--radius) - 2px);
   padding-right: 0.75rem;
   padding-left: 0.75rem;
+  border-radius: calc(var(--radius) - 2px);
+  gap: 0.25rem;
 }
 
 .dashboard-orders .dashboard-orders__toolbar-button svg {
@@ -183,23 +183,23 @@ defineProps<{
 
 .dashboard-orders__action-label {
   position: absolute;
+  overflow: hidden;
   width: 1px;
   height: 1px;
   padding: 0;
+  border-width: 0;
   margin: -1px;
-  overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  border-width: 0;
 }
 
 @media (width >= 640px) {
   .dashboard-orders__action-label {
     position: static;
+    overflow: visible;
     width: auto;
     height: auto;
     margin: 0;
-    overflow: visible;
     clip: auto;
     white-space: normal;
   }
