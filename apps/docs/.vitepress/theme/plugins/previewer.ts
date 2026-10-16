@@ -15,12 +15,16 @@ export default function componentPreviewPlugin(md: MarkdownRenderer) {
       throw new Error(`<ComponentPreview name="${exampleName}" /> does not match an example in every style system`);
     }
 
+    const code = Object.fromEntries(STYLE_SYSTEMS.map(style => [
+      style,
+      readExample(style, exampleName).trim(),
+    ]));
     const codeHtml = Object.fromEntries(STYLE_SYSTEMS.map(style => [
       style,
-      renderFence(md, state, toPublicImports(readExample(style, exampleName)), 'vue'),
+      renderFence(md, state, toPublicImports(code[style]), 'vue'),
     ]));
 
-    return [createHtmlBlock(state, `<ComponentPreview v-bind='${toAttributeJson({ ...props, codeHtml })}' />`, sourceToken)];
+    return [createHtmlBlock(state, `<ComponentPreview v-bind='${toAttributeJson({ ...props, code, codeHtml })}' />`, sourceToken)];
   }
 
   replaceHtmlBlocks(md, 'component_preview', COMPONENT_PREVIEW_PATTERN, createPreviewTokens);

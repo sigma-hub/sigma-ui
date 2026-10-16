@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import { InfoIcon, MonitorIcon, SmartphoneIcon, TabletIcon } from 'lucide-vue-next';
 import { computed, ref, watch } from 'vue';
-import { codeToHtml } from 'shiki';
-import MagicString from 'magic-string';
+import { DEFAULT_COMPONENTS, DEFAULT_UTILS } from '@sigma-ui/shared/consts';
 import { Badge } from '@ui/registry/tailwind/ui/badge';
 import { Popover, PopoverContent, PopoverTrigger } from '@ui/registry/tailwind/ui/popover';
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@ui/registry/tailwind/ui/resizable';
 import { Separator } from '@ui/registry/tailwind/ui/separator';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@ui/registry/tailwind/ui/tabs';
 import { ToggleGroup, ToggleGroupItem } from '@ui/registry/tailwind/ui/toggle-group';
+import blockSources from 'virtual:block-sources';
 import { Index } from '../../../__generated';
-import { cssVariables } from '../config/shiki';
 import { buildBlockFrameSrc } from '../../block-renderer/frame';
+import { useCodePathRewrite } from '../composables/useCodePathRewrite';
 import { getBlockFileTree, getBlockMainFile, getBlockMeta, type BlockFileNode } from '../utils/blocks';
 import BlockCopyButton from './BlockCopyButton.vue';
 import PackageManagerCommand from './PackageManagerCommand.vue';
@@ -28,19 +28,14 @@ interface BlockIndexEntry {
   files?: string[];
 }
 
-const blockSources = import.meta.glob<string>(
-  '../../../../../packages/lib/src/registry/*/blocks/**/*.{vue,ts}',
-  { query: '?raw', import: 'default' },
-);
-
 const { config, codeConfig } = useConfigStore();
+const rewriteCodePaths = useCodePathRewrite();
 
 const isLoading = ref(true);
 const tabValue = ref('preview');
 const resizableRef = ref<InstanceType<typeof ResizablePanel>>();
-const rawString = ref('');
-const codeHtml = ref('');
 const selectedPath = ref('');
+const selectedSource = computed(() => blockSources[config.value.styleSystem]?.[props.name]?.[selectedPath.value]);
 const blockMeta = computed(() => getBlockMeta(props.name));
 const frameSrc = computed(() => buildBlockFrameSrc({
   name: props.name,
@@ -62,34 +57,20 @@ function stripVersion(dependency: string) {
   return versionAt === -1 ? dependency : dependency.slice(0, versionAt);
 }
 
-function languageFor(filePath: string) {
-  if (filePath.endsWith('.vue')) {
-    return 'vue';
-  }
-
-  if (filePath.endsWith('.ts')) {
-    return 'typescript';
-  }
-
-  if (filePath.endsWith('.css')) {
-    return 'css';
-  }
-
-  return 'plaintext';
-}
-
 function selectFile(node: BlockFileNode) {
   if (node.path) {
     selectedPath.value = node.path;
   }
 }
 
-function transformImportPath(code: string) {
-  const source = new MagicString(code);
-  source.replaceAll(`@ui/registry/${config.value.styleSystem}/ui`, codeConfig.value.componentsPath);
-  source.replaceAll(`@ui/utils`, codeConfig.value.utilsPath);
-  return source.toString();
+function rewriteSourcePaths(source: string) {
+  return source
+    .replaceAll(DEFAULT_COMPONENTS, codeConfig.value.componentsPath)
+    .replaceAll(DEFAULT_UTILS, codeConfig.value.utilsPath);
 }
+
+const rawString = computed(() => rewriteSourcePaths(selectedSource.value?.raw ?? ''));
+const codeHtml = computed(() => rewriteCodePaths(selectedSource.value?.html ?? ''));
 
 watch(frameSrc, () => {
   isLoading.value = true;
@@ -104,26 +85,6 @@ watch(fileTree, (nodes) => {
   }
 }, { immediate: true });
 
-watch([() => config.value.styleSystem, () => selectedPath.value, codeConfig], async () => {
-  const filePath = selectedPath.value;
-  const loader = blockSources[`../../../../../packages/lib/src/registry/${config.value.styleSystem}/blocks/${props.name}/${filePath}`];
-
-  if (!loader) {
-    rawString.value = '';
-    codeHtml.value = '';
-    return;
-  }
-
-  try {
-    rawString.value = transformImportPath((await loader()).trim());
-    codeHtml.value = await codeToHtml(rawString.value, {
-      lang: languageFor(filePath),
-      theme: cssVariables,
-    });
-  } catch (error) {
-    console.error(error);
-  }
-}, { immediate: true, deep: true });
 </script>
 
 <template>
