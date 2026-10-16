@@ -39,7 +39,7 @@ defineSlots<{
 
 .sigma-ui-sidebar-menu-button:hover ~ .sigma-ui-sidebar-menu-badge,
 .sigma-ui-sidebar-menu-button[data-active="true"] ~ .sigma-ui-sidebar-menu-badge {
-  color: var(--secondary-foreground);
+  color: var(--sidebar-accent-foreground);
 }
 
 .sigma-ui-sidebar-menu-button[data-size="sm"] ~ .sigma-ui-sidebar-menu-badge {

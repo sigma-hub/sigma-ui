@@ -35,7 +35,7 @@ import { Stepper, StepperIndicator, StepperItem, StepperTitle, StepperTrigger } 
 
 Bind the active step with `v-model`. Set `linear` so a step can be opened only after the previous one is complete. `orientation` is `horizontal` or `vertical`.
 
-`StepperSeparator` draws the line between steps. It turns into the secondary color once the step is completed.
+`StepperSeparator` draws the line between steps. It turns into the accent color once the step is completed.
 
 ## Examples
 
