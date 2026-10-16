@@ -10,21 +10,6 @@ function colorDeclarations(mode: 'light' | 'dark') {
 <% }) %>`;
 }
 
-export const TAILWIND_STYLES_TEMPLATE = `@import "tailwindcss";
-@import "tw-animate-css";
-
-@custom-variant dark (&:is(.dark *));
-
-@theme inline {
-${themeColorLines}
-
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-lg: var(--radius);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-xs: min(calc(var(--radius) / 2.5), 6px);
-}`;
-
 export const TAILWIND_STYLES_WITH_VARS_TEMPLATE = `@import "tailwindcss";
 @import "tw-animate-css";
 
