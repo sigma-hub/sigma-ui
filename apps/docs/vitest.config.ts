@@ -12,6 +12,7 @@ export default defineConfig({
     include: [
       '.vitepress/theme/utils/**/*.test.ts',
       '.vitepress/block-renderer/**/*.test.ts',
+      '.vitepress/theme/plugins/**/*.test.ts',
     ],
   },
 });

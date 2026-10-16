@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { computed } from 'vue';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@ui/registry/tailwind/ui/tabs';
 import { cn } from '@ui/utils';
 import { useActiveStyleSystem } from '../composables/useActiveStyleSystem';
@@ -17,20 +17,18 @@ const props = withDefaults(defineProps<{
   name: string;
   align?: 'center' | 'start' | 'end';
   size?: 'unset' | 'md' | 'lg';
-  codeHtml?: Record<StyleSystem, string>;
-}>(), { align: 'center', size: 'md' });
+  code?: Partial<Record<StyleSystem, string>>;
+  codeHtml?: Partial<Record<StyleSystem, string>>;
+}>(), {
+  align: 'center',
+  size: 'md',
+  code: () => ({}),
+  codeHtml: () => ({}),
+});
 
 const styleSystem = useActiveStyleSystem();
-const rawString = ref('');
 const rewriteCodePaths = useCodePathRewrite();
-
-watch(styleSystem, async () => {
-  try {
-    rawString.value = await import(`@ui/registry/${styleSystem.value}/example/${props.name}.vue?raw`).then(res => res.default.trim());
-  } catch (error) {
-    console.error(error);
-  }
-}, { immediate: true });
+const rawString = computed(() => props.code?.[styleSystem.value] ?? '');
 </script>
 
 <template>
@@ -100,9 +98,9 @@ watch(styleSystem, async () => {
         class="vp-doc m-0 p-2"
       >
         <div
-          v-if="codeHtml"
+          v-if="codeHtml[styleSystem]"
           class="component-preview-code"
-          v-html="rewriteCodePaths(codeHtml[styleSystem])"
+          v-html="rewriteCodePaths(codeHtml[styleSystem] ?? '')"
         />
       </TabsContent>
     </Tabs>
