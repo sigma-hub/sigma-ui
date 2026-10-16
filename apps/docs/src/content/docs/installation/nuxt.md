@@ -19,6 +19,7 @@ Install Tailwind v4 and the Vite plugin when you want the Tailwind components:
 
 ```bash
 npm install -D tailwindcss @tailwindcss/vite
+npm install tw-animate-css
 ```
 
 Do not install `@nuxtjs/tailwindcss`. That module targets Tailwind v3. While it is installed, `sigma-ui-nuxt` skips `@tailwindcss/vite` and logs a warning.
@@ -39,7 +40,23 @@ The module auto-imports every component exported from `app/components/ui/<name>/
 npx sigma-ui init
 ```
 
-On a Nuxt 4 project, init writes `app/assets/css/tailwind.css` and adds `~/assets/css/tailwind.css` to the `css` array in `nuxt.config.ts`. With the Tailwind style system it also installs `clsx`, `tailwind-merge`, and `tailwindcss-animate`, and adds `tailwindcss()` from `@tailwindcss/vite` to `vite.plugins`.
+On a Nuxt 4 project, init writes `app/assets/css/tailwind.css` and adds `~/assets/css/tailwind.css` to the `css` array in `nuxt.config.ts`. With the Tailwind style system it also installs `clsx`, `tailwind-merge`, and `tw-animate-css`, and adds `tailwindcss()` from `@tailwindcss/vite` to `vite.plugins`.
+
+The stylesheet is CSS-first. Init does not create a `tailwind.config.js`.
+
+```css
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --radius-lg: var(--radius);
+}
+```
 
 ```ts
 import tailwindcss from '@tailwindcss/vite'

@@ -20,7 +20,7 @@ or specify the version you want to use (it uses the latest version by default):
 npx sigma-ui@latest init
 ```
 
-When you run this command, you will be asked a few questions to configure `sigma-ui.config.json`. After that, it will install dependencies, create css, utils and config files (like `sigma-ui.config.json` and `tailwind.config.js` if needed), write CSS variables, and prepare your project for adding sigma-ui components.
+When you run this command, you will be asked a few questions to configure `sigma-ui.config.json`. After that, it installs dependencies (including `tw-animate-css` for the Tailwind style system), writes `sigma-ui.config.json`, a CSS-first stylesheet, and the `cn` helper, and prepares the project for adding components. New Tailwind projects do not get a `tailwind.config.js`.
 
 ### Options
 

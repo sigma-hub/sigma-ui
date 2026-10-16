@@ -76,42 +76,32 @@ Border radius for card, input and buttons
 
 ### Color format
 
-The variable values are written in [HSL format](https://www.smashingmagazine.com/2021/07/hsl-colors-css/) (without color space function and commas between values). I recommend using this HSL color format for theming since it allows for easy alpha channel customization, like:
+Theme colors are OKLCH values in the stylesheet. Tailwind utilities read them through `@theme inline`, so `bg-foreground/50` still sets the alpha:
 
 ```html
-<div class="bg-foreground/50" >
+<div class="bg-foreground/50">
   Text with 50% opacity
 </div>
 ```
 
-See the [Tailwind CSS documentation](https://tailwindcss.com/docs/customizing-colors#using-css-variables) for more information on using `rgb`, `rgba` or `hsl` colors.
-
 ### Adding new variables
 
-To add new variables, you need to add them to your CSS file and to your `tailwind.config.js` file (if you use Tailwind).
+Add the color to the stylesheet and expose it in `@theme inline`. A new project has no `tailwind.config.js`.
 
-```css title="app/globals.css"
+```css
 :root {
-  --warning: 38 92% 50%;
-  --warning-foreground: 48 96% 89%;
+  --warning: oklch(0.75 0.15 75);
+  --warning-foreground: oklch(0.98 0.02 95);
 }
 
 .dark {
-  --warning: 48 96% 89%;
-  --warning-foreground: 38 92% 50%;
+  --warning: oklch(0.98 0.02 95);
+  --warning-foreground: oklch(0.45 0.12 55);
 }
-```
 
-```js {5-6} title="tailwind.config.js"
-module.exports = {
-  theme: {
-    extend: {
-      colors: {
-        'warning': 'hsl(var(--warning))',
-        'warning-foreground': 'hsl(var(--warning-foreground))',
-      },
-    },
-  },
+@theme inline {
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
 }
 ```
 

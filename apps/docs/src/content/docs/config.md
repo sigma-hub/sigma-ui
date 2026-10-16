@@ -55,46 +55,41 @@ Preview:
 
 <ComponentPreview name="CardWithForm" />
 
+## `cssPath`
+
+Stylesheet that holds the theme variables. For Tailwind this file imports `tailwindcss` and `tw-animate-css`.
+
+```json title="sigma-ui.config.json"
+{
+  "cssPath": "src/assets/index.css"
+}
+```
+
+## `baseColor`
+
+Theme base color used to generate the palette.
+
+<!-- eslint-skip -->
+```json title="sigma-ui.config.json"
+{
+  "baseColor": "grayscale"
+}
+```
+
+Changing `baseColor` after initialization does not rewrite components that are already in the project. Run init again and re-add the components to pick up a new palette.
+
 ## `tailwind`
 
-Skip this section if you're not using Tailwind style system.
-
-This field helps CLI understand how Tailwind CSS is set up in your project. See [installation page](/docs/installation) to learn how to set up Tailwind CSS.
+Skip this section if you are not using the Tailwind style system.
 
 ### tailwind.config
 
-Path to your `tailwind.config.js` file.
-
-<!-- eslint-skip -->
-```json title="sigma-ui.config.json"
-{
-  "tailwind": {
-    "config": "tailwind.config.js" | "tailwind.config.ts"
-  }
-}
-```
-
-### tailwind.css
-
-Path to the CSS file that imports Tailwind CSS into your project.
+Optional path to a legacy `tailwind.config.js`. Leave it empty for CSS-first Tailwind v4. When it is set, the stylesheet references that file with `@config`.
 
 ```json title="sigma-ui.config.json"
 {
   "tailwind": {
-    "css": "src/assets/index.css"
-  }
-}
-```
-
-### `tailwind.baseColor`
-
-This is used to generate the default color palette for your components.
-
-<!-- eslint-skip -->
-```json title="sigma-ui.config.json"
-{
-  "tailwind": {
-    "baseColor": "grayscale" | "blue" | "red" | ...
+    "config": ""
   }
 }
 ```
