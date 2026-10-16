@@ -1,5 +1,6 @@
 import { readFile } from 'node:fs/promises';
 import { isUrl, REGISTRY_URL_ENV, type RegistryLocation } from './location';
+import { fetchThroughProxy, getProxyUrl, redactProxyUrl, shouldBypassProxy } from './proxy';
 
 const REQUEST_TIMEOUT_MS = 20_000;
 const responseCache = new Map<string, Promise<unknown>>();
@@ -12,17 +13,23 @@ export class RegistryFetchError extends Error {
 }
 
 async function fetchRemoteJson(location: RegistryLocation) {
+  const proxyUrl = getProxyUrl();
+  const throughProxy = Boolean(proxyUrl) && !shouldBypassProxy(location.source);
   let response: Response;
 
   try {
-    response = await fetch(location.source, {
+    const init = {
       headers: { Accept: 'application/json', ...location.headers },
       signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
-    });
+    };
+    response = throughProxy && proxyUrl
+      ? await fetchThroughProxy(location.source, proxyUrl, init)
+      : await fetch(location.source, init);
   } catch (error) {
     const reason = error instanceof Error ? error.message : String(error);
+    const via = throughProxy && proxyUrl ? ` through ${redactProxyUrl(proxyUrl)}` : '';
     throw new RegistryFetchError(
-      `Could not reach the registry at ${location.source} (${reason}). Check your connection or set ${REGISTRY_URL_ENV} to another registry.`,
+      `Could not reach the registry at ${location.source}${via} (${reason}). Check your connection, HTTP(S)_PROXY, or set ${REGISTRY_URL_ENV} to another registry.`,
       location,
     );
   }
