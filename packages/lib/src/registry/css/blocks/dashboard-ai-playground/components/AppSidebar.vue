@@ -73,10 +73,10 @@ import { primaryNavItems, secondaryNavItems } from '../data';
 <style>
 .dashboard-ai-playground__sidebar {
   position: fixed;
+  z-index: 20;
   top: 0;
   bottom: 0;
   left: 0;
-  z-index: 20;
   display: flex;
   height: 100%;
   flex-direction: column;
@@ -84,8 +84,8 @@ import { primaryNavItems, secondaryNavItems } from '../data';
 }
 
 .dashboard-ai-playground__brand {
-  border-bottom: 1px solid var(--border);
   padding: 0.5rem;
+  border-bottom: 1px solid var(--border);
 }
 
 .dashboard-ai-playground__brand svg {
@@ -96,8 +96,8 @@ import { primaryNavItems, secondaryNavItems } from '../data';
 
 .dashboard-ai-playground__nav {
   display: grid;
-  gap: 0.25rem;
   padding: 0.5rem;
+  gap: 0.25rem;
 }
 
 .dashboard-ai-playground__nav--end {
