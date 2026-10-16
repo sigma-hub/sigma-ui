@@ -34,6 +34,7 @@ defineSlots<{
 <template>
   <Button
     type="button"
+    data-slot="input-group-button"
     :variant="props.variant"
     :data-size="props.size"
     v-bind="$attrs"
