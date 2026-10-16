@@ -16,7 +16,7 @@ export default {
     tailwindcss(),
     {
       name: 'sigma-public-urls',
-      resolveId(id) {
+      resolveId(id: string) {
         if (!id.startsWith('/') || id.startsWith('/@')) {
           return;
         }
