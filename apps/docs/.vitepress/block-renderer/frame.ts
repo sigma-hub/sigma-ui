@@ -15,6 +15,8 @@ export interface BlockFrameParams {
   align: 'center' | 'start' | 'end';
 }
 
+export type BlockFrameSrcParams = Pick<BlockFrameParams, 'name' | 'styleSystem' | 'containerClass'>;
+
 export interface ExampleFrameParams {
   name: string;
   styleSystem: string;
@@ -36,7 +38,7 @@ export function isBlockRendererRequest(pathname: string) {
     || pathname === BLOCK_RENDERER_PATH;
 }
 
-export function buildBlockFrameSrc(params: BlockFrameParams) {
+export function buildBlockFrameSrc(params: BlockFrameSrcParams) {
   const hash = new URLSearchParams({
     name: params.name,
     styleSystem: params.styleSystem,
