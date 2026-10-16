@@ -173,5 +173,17 @@
       "iframeHeight": "800px",
       "containerClass": "w-full h-full"
     }
+  },
+  {
+    "name": "tasks-table",
+    "title": "Tasks table",
+    "description": "A tasks page with a user menu and a filterable data table. Tasks can be searched, filtered by status and priority, sorted, and shown or hidden by column.",
+    "categories": [
+      "tasks"
+    ],
+    "meta": {
+      "iframeHeight": "800px",
+      "containerClass": "w-full h-full"
+    }
   }
 ]

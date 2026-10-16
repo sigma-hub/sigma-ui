@@ -3375,6 +3375,103 @@
         "authentication",
         "signup"
       ]
+    },
+    {
+      "name": "tasks-table",
+      "type": "registry:block",
+      "title": "Tasks table",
+      "description": "A tasks page with a user menu and a filterable data table. Tasks can be searched, filtered by status and priority, sorted, and shown or hidden by column.",
+      "dependencies": [
+        "@tanstack/vue-table@^8.21.3",
+        "lucide-vue-next@^1.0.0",
+        "zod@^3.25.76"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "badge",
+        "button",
+        "checkbox",
+        "command",
+        "dropdown-menu",
+        "input",
+        "popover",
+        "select",
+        "separator",
+        "table"
+      ],
+      "files": [
+        {
+          "path": "blocks/tasks-table/TasksTable.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/tasks-table/components/SelectCell.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/tasks-table/components/TaskIdCell.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/tasks-table/components/TaskPriorityCell.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/tasks-table/components/TaskStatusCell.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/tasks-table/components/TaskTitleCell.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/tasks-table/components/TasksColumnHeader.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/tasks-table/components/TasksDataTable.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/tasks-table/components/TasksFacetedFilter.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/tasks-table/components/TasksPagination.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/tasks-table/components/TasksRowActions.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/tasks-table/components/TasksToolbar.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/tasks-table/components/TasksViewOptions.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/tasks-table/components/UserMenu.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/tasks-table/components/columns.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "blocks/tasks-table/data.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "800px",
+        "containerClass": "w-full h-full"
+      },
+      "categories": [
+        "tasks"
+      ]
     }
   ]
 }
