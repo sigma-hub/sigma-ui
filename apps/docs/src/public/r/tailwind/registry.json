@@ -2444,6 +2444,34 @@
         {
           "path": "blocks/dashboard-analytics/DashboardAnalytics.vue",
           "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-analytics/components/AppHeader.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-analytics/components/RecentSalesCard.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-analytics/components/SearchForm.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-analytics/components/StatCard.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-analytics/components/TransactionsCard.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-analytics/components/UserMenu.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-analytics/data.ts",
+          "type": "registry:lib"
         }
       ],
       "meta": {
@@ -2482,6 +2510,30 @@
         {
           "path": "blocks/dashboard-orders/DashboardOrders.vue",
           "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-orders/components/AppHeader.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-orders/components/AppSidebar.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-orders/components/OrderDetails.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-orders/components/OrdersSummary.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-orders/components/OrdersTable.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-orders/data.ts",
+          "type": "registry:lib"
         }
       ],
       "meta": {
@@ -2593,6 +2645,22 @@
         {
           "path": "blocks/dashboard-products/DashboardProducts.vue",
           "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-products/components/AppHeader.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-products/components/AppSidebar.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-products/components/ProductsPanel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-products/data.ts",
+          "type": "registry:lib"
         }
       ],
       "meta": {
@@ -2623,6 +2691,34 @@
         {
           "path": "blocks/dashboard-settings/DashboardSettings.vue",
           "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-settings/components/AppHeader.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-settings/components/PluginsDirectoryCard.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-settings/components/SearchForm.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-settings/components/SettingsNav.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-settings/components/StoreNameCard.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-settings/components/UserMenu.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-settings/data.ts",
+          "type": "registry:lib"
         }
       ],
       "meta": {
@@ -2654,6 +2750,38 @@
         {
           "path": "blocks/dashboard-sidebar/DashboardSidebar.vue",
           "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-sidebar/components/AppHeader.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-sidebar/components/DesktopSidebar.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-sidebar/components/EmptyState.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-sidebar/components/MobileNav.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-sidebar/components/SearchForm.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-sidebar/components/UpgradeCard.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-sidebar/components/UserMenu.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-sidebar/data.ts",
+          "type": "registry:lib"
         }
       ],
       "meta": {
