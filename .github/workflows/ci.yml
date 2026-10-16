@@ -17,8 +17,6 @@ jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
-    # Known to fail until the phase 3 lint cleanup. Remove continue-on-error then.
-    continue-on-error: true
     steps:
       - uses: actions/checkout@v7
       - uses: ./.github/actions/setup
@@ -27,23 +25,15 @@ jobs:
   typecheck:
     name: Typecheck (${{ matrix.package }})
     runs-on: ubuntu-latest
-    # lib (component and example type errors) and docs (code fences in form.md) are known to fail
-    # until phase 3. Remove the known-failing flag from their matrix entries then.
-    continue-on-error: ${{ matrix.known-failing }}
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - package: cli
-            known-failing: false
-          - package: shared
-            known-failing: false
-          - package: nuxt
-            known-failing: false
-          - package: lib
-            known-failing: true
-          - package: docs
-            known-failing: true
+        package:
+          - cli
+          - shared
+          - nuxt
+          - lib
+          - docs
     steps:
       - uses: actions/checkout@v7
       - uses: ./.github/actions/setup
@@ -107,8 +97,6 @@ jobs:
   test:
     name: Tests
     runs-on: ubuntu-latest
-    # Known to fail until the phase 3 test fixes. Remove continue-on-error then.
-    continue-on-error: true
     steps:
       - uses: actions/checkout@v7
       - uses: ./.github/actions/setup
