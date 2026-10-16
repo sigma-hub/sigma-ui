@@ -37,6 +37,6 @@ const forwarded = useForwardProps(props);
 }
 
 .sigma-ui-stepper-separator[data-state="completed"] {
-  background-color: var(--secondary);
+  background-color: var(--accent);
 }
 </style>

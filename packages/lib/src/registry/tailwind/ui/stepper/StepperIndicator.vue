@@ -26,7 +26,7 @@ defineSlots<{
       'inline-flex size-8 items-center justify-center rounded-full text-muted-foreground/50',
       'group-data-[disabled]:opacity-50',
       'group-data-[state=active]:bg-primary group-data-[state=active]:text-primary-foreground',
-      'group-data-[state=completed]:bg-secondary group-data-[state=completed]:text-secondary-foreground',
+      'group-data-[state=completed]:bg-accent group-data-[state=completed]:text-accent-foreground',
       $attrs.class ?? '',
     )"
   >

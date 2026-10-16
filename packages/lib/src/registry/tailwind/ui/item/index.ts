@@ -12,7 +12,7 @@ export { default as ItemSeparator } from './ItemSeparator.vue';
 export { default as ItemTitle } from './ItemTitle.vue';
 
 export const itemVariants = cva(
-  'group/item flex flex-wrap items-center rounded-md border border-transparent text-sm outline-none transition-colors duration-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring [a]:transition-colors [a]:hover:bg-secondary/50',
+  'group/item flex flex-wrap items-center rounded-md border border-transparent text-sm outline-none transition-colors duration-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring [a]:transition-colors [a]:hover:bg-accent/50',
   {
     variants: {
       variant: {

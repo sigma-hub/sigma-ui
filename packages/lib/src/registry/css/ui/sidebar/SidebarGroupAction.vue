@@ -45,12 +45,12 @@ defineSlots<{
 }
 
 .sigma-ui-sidebar-group-action:hover {
-  background-color: var(--secondary);
-  color: var(--secondary-foreground);
+  background-color: var(--sidebar-accent);
+  color: var(--sidebar-accent-foreground);
 }
 
 .sigma-ui-sidebar-group-action:focus-visible {
-  box-shadow: 0 0 0 2px var(--ring);
+  box-shadow: 0 0 0 2px var(--sidebar-ring);
 }
 
 .sigma-ui-sidebar-group-action > svg {

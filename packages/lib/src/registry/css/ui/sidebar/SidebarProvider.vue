@@ -155,6 +155,6 @@ provideSidebarContext({
 }
 
 .sigma-ui-sidebar-wrapper:has(.sigma-ui-sidebar[data-variant="inset"]) {
-  background-color: color-mix(in oklch, var(--secondary) 50%, transparent);
+  background-color: var(--sidebar);
 }
 </style>

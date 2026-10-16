@@ -58,7 +58,7 @@ defineSlots<{
 }
 
 .sigma-ui-item a:hover {
-  background-color: color-mix(in oklch, var(--secondary) 50%, transparent);
+  background-color: color-mix(in oklch, var(--accent) 50%, transparent);
 }
 
 .sigma-ui-item--outline {

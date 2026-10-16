@@ -49,7 +49,7 @@ defineSlots<{
 }
 
 .sigma-ui-stepper-item[data-state="completed"] .sigma-ui-stepper-indicator {
-  background-color: var(--secondary);
-  color: var(--secondary-foreground);
+  background-color: var(--accent);
+  color: var(--accent-foreground);
 }
 </style>

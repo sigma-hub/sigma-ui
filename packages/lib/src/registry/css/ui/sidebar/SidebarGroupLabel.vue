@@ -41,7 +41,7 @@ defineSlots<{
 }
 
 .sigma-ui-sidebar-group-label:focus-visible {
-  box-shadow: 0 0 0 2px var(--ring);
+  box-shadow: 0 0 0 2px var(--sidebar-ring);
 }
 
 .sigma-ui-sidebar-group-label > svg {
