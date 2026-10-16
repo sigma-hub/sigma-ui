@@ -1650,6 +1650,14 @@ export const Index = {
       component: () => import("../../../packages/lib/src/registry/tailwind/example/Tabs.vue").then((m) => m.default),
       files: ["example/Tabs.vue"],
     },
+    "TagGroup": {
+      name: "TagGroup",
+      type: "registry:example",
+      registryDependencies: ["tag-group"],
+      dependencies: ["reka-ui@^2.11.0"],
+      component: () => import("../../../packages/lib/src/registry/tailwind/example/TagGroup.vue").then((m) => m.default),
+      files: ["example/TagGroup.vue"],
+    },
     "TagsInput": {
       name: "TagsInput",
       type: "registry:example",
@@ -3627,6 +3635,14 @@ export const Index = {
       dependencies: [],
       component: () => import("../../../packages/lib/src/registry/css/example/Tabs.vue").then((m) => m.default),
       files: ["example/Tabs.vue"],
+    },
+    "TagGroup": {
+      name: "TagGroup",
+      type: "registry:example",
+      registryDependencies: ["tag-group"],
+      dependencies: ["reka-ui@^2.11.0"],
+      component: () => import("../../../packages/lib/src/registry/css/example/TagGroup.vue").then((m) => m.default),
+      files: ["example/TagGroup.vue"],
     },
     "TagsInput": {
       name: "TagsInput",
