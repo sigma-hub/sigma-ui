@@ -19,11 +19,20 @@ const delegatedAttrs = computed(() => {
   return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
 });
 
+export interface BreadcrumbRouteLocation {
+  name?: string | symbol;
+  path?: string;
+  params?: Record<string, unknown>;
+  query?: Record<string, unknown>;
+  hash?: string;
+  replace?: boolean;
+}
+
 export interface BreadcrumbItem {
   label?: string;
   icon?: string | Component;
   url?: string;
-  route?: any;
+  route?: string | BreadcrumbRouteLocation;
   target?: string;
   active?: boolean;
 }
