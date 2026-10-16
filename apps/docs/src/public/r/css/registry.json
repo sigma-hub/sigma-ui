@@ -2921,6 +2921,74 @@
       ]
     },
     {
+      "name": "dashboard-overview",
+      "type": "registry:block",
+      "title": "Dashboard overview",
+      "description": "A dashboard with a team switcher, date range, stat cards, a monthly bar chart, and a list of recent sales.",
+      "dependencies": [
+        "@internationalized/date@^3.12.4",
+        "lucide-vue-next@^1.0.0",
+        "reka-ui@^2.11.0"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "card",
+        "chart-bar",
+        "command",
+        "dialog",
+        "dropdown-menu",
+        "input",
+        "label",
+        "popover",
+        "range-calendar",
+        "select",
+        "tabs"
+      ],
+      "files": [
+        {
+          "path": "blocks/dashboard-overview/DashboardOverview.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-overview/components/DateRangeField.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-overview/components/OverviewChart.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-overview/components/RecentSalesCard.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-overview/components/StatCard.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-overview/components/TeamSwitcher.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-overview/components/UserMenu.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-overview/data.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "900px",
+        "containerClass": "w-full h-full"
+      },
+      "categories": [
+        "dashboard",
+        "dashboard-overview"
+      ]
+    },
+    {
       "name": "dashboard-product-edit",
       "type": "registry:block",
       "title": "Product edit page",

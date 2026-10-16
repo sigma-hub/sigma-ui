@@ -185,5 +185,18 @@
       "iframeHeight": "800px",
       "containerClass": "w-full h-full"
     }
+  },
+  {
+    "name": "dashboard-overview",
+    "title": "Dashboard overview",
+    "description": "A dashboard with a team switcher, date range, stat cards, a monthly bar chart, and a list of recent sales.",
+    "categories": [
+      "dashboard",
+      "dashboard-overview"
+    ],
+    "meta": {
+      "iframeHeight": "900px",
+      "containerClass": "w-full h-full"
+    }
   }
 ]
