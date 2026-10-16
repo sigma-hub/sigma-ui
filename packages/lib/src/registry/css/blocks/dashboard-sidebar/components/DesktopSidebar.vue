@@ -90,16 +90,16 @@ defineProps<{
   display: flex;
   height: 3.5rem;
   align-items: center;
-  border-bottom: 1px solid var(--border);
   padding: 0 1rem;
+  border-bottom: 1px solid var(--border);
 }
 
 .dashboard-sidebar__brand {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
   color: inherit;
   font-weight: 600;
+  gap: 0.5rem;
   text-decoration: none;
 }
 
@@ -125,10 +125,10 @@ defineProps<{
 .dashboard-sidebar__link {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  border-radius: var(--radius);
   padding: 0.5rem 0.75rem;
+  border-radius: var(--radius);
   color: var(--muted-foreground);
+  gap: 0.75rem;
   text-decoration: none;
   transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -150,14 +150,14 @@ defineProps<{
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  margin-left: auto;
   padding: 0;
   border-radius: 9999px;
+  margin-left: auto;
 }
 
 .dashboard-sidebar__upgrade {
-  margin-top: auto;
   padding: 1rem;
+  margin-top: auto;
 }
 
 .dashboard-sidebar__icon-lg {
@@ -172,14 +172,14 @@ defineProps<{
 
 .dashboard-sidebar__sr-only {
   position: absolute;
+  overflow: hidden;
   width: 1px;
   height: 1px;
   padding: 0;
+  border-width: 0;
   margin: -1px;
-  overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  border-width: 0;
 }
 
 @media (width >= 768px) {
