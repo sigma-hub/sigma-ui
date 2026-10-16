@@ -203,8 +203,8 @@ function clearSearch() {
 
 <style>
 .sigma-ui-faceted-filter__trigger {
-  gap: 0.5rem;
   border-style: dashed;
+  gap: 0.5rem;
 }
 
 .sigma-ui-faceted-filter__trigger-icon {
@@ -257,8 +257,8 @@ function clearSearch() {
 
 .sigma-ui-faceted-filter__empty-create-button {
   width: 100%;
-  gap: 0.5rem;
   justify-content: flex-start;
+  gap: 0.5rem;
 }
 
 .sigma-ui-faceted-filter__empty-create-icon {
