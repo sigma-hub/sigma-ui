@@ -77,7 +77,7 @@ defineSlots<{
   align-items: flex-start;
 }
 
-.sigma-ui-field--horizontal:has(> [data-slot="field-content"]) > :is([role="checkbox"], [role="radio"]) {
+.sigma-ui-field--horizontal:has(> [data-slot="field-content"]) > :is([role="checkbox"], [role="radio"], .sigma-ui-checkbox-wrapper) {
   margin-top: 1px;
 }
 
@@ -99,7 +99,7 @@ defineSlots<{
     align-items: flex-start;
   }
 
-  .sigma-ui-field.sigma-ui-field--responsive:has(> [data-slot="field-content"]) > :is([role="checkbox"], [role="radio"]) {
+  .sigma-ui-field.sigma-ui-field--responsive:has(> [data-slot="field-content"]) > :is([role="checkbox"], [role="radio"], .sigma-ui-checkbox-wrapper) {
     margin-top: 1px;
   }
 }
