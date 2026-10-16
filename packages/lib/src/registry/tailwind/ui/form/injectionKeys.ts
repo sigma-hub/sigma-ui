@@ -1,4 +1,1 @@
-import type { InjectionKey } from 'vue';
-
-export const FORM_ITEM_INJECTION_KEY
-  = Symbol() as InjectionKey<string>;
+export { FORM_ITEM_INJECTION_KEY } from '@ui/registry/shared/ui/form/form-field';
