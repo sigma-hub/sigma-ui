@@ -34,6 +34,14 @@ export const Index = {
       component: () => import("../../../packages/lib/src/registry/tailwind/blocks/dashboard-orders/DashboardOrders.vue").then((m) => m.default),
       files: ["blocks/dashboard-orders/DashboardOrders.vue","blocks/dashboard-orders/components/AppHeader.vue","blocks/dashboard-orders/components/AppSidebar.vue","blocks/dashboard-orders/components/OrderDetails.vue","blocks/dashboard-orders/components/OrdersSummary.vue","blocks/dashboard-orders/components/OrdersTable.vue","blocks/dashboard-orders/data.ts"],
     },
+    "dashboard-overview": {
+      name: "dashboard-overview",
+      type: "registry:block",
+      registryDependencies: ["avatar","button","card","chart-bar","command","dialog","dropdown-menu","input","label","popover","range-calendar","select","tabs"],
+      dependencies: ["@internationalized/date@^3.12.4","lucide-vue-next@^1.0.0","reka-ui@^2.11.0"],
+      component: () => import("../../../packages/lib/src/registry/tailwind/blocks/dashboard-overview/DashboardOverview.vue").then((m) => m.default),
+      files: ["blocks/dashboard-overview/DashboardOverview.vue","blocks/dashboard-overview/components/DateRangeField.vue","blocks/dashboard-overview/components/OverviewChart.vue","blocks/dashboard-overview/components/RecentSalesCard.vue","blocks/dashboard-overview/components/StatCard.vue","blocks/dashboard-overview/components/TeamSwitcher.vue","blocks/dashboard-overview/components/UserMenu.vue","blocks/dashboard-overview/data.ts"],
+    },
     "dashboard-product-edit": {
       name: "dashboard-product-edit",
       type: "registry:block",
@@ -2035,6 +2043,14 @@ export const Index = {
       dependencies: ["lucide-vue-next@^1.0.0"],
       component: () => import("../../../packages/lib/src/registry/css/blocks/dashboard-orders/DashboardOrders.vue").then((m) => m.default),
       files: ["blocks/dashboard-orders/DashboardOrders.vue","blocks/dashboard-orders/components/AppHeader.vue","blocks/dashboard-orders/components/AppSidebar.vue","blocks/dashboard-orders/components/OrderDetails.vue","blocks/dashboard-orders/components/OrdersSummary.vue","blocks/dashboard-orders/components/OrdersTable.vue","blocks/dashboard-orders/data.ts"],
+    },
+    "dashboard-overview": {
+      name: "dashboard-overview",
+      type: "registry:block",
+      registryDependencies: ["avatar","button","card","chart-bar","command","dialog","dropdown-menu","input","label","popover","range-calendar","select","tabs"],
+      dependencies: ["@internationalized/date@^3.12.4","lucide-vue-next@^1.0.0","reka-ui@^2.11.0"],
+      component: () => import("../../../packages/lib/src/registry/css/blocks/dashboard-overview/DashboardOverview.vue").then((m) => m.default),
+      files: ["blocks/dashboard-overview/DashboardOverview.vue","blocks/dashboard-overview/components/DateRangeField.vue","blocks/dashboard-overview/components/OverviewChart.vue","blocks/dashboard-overview/components/RecentSalesCard.vue","blocks/dashboard-overview/components/StatCard.vue","blocks/dashboard-overview/components/TeamSwitcher.vue","blocks/dashboard-overview/components/UserMenu.vue","blocks/dashboard-overview/data.ts"],
     },
     "dashboard-product-edit": {
       name: "dashboard-product-edit",
