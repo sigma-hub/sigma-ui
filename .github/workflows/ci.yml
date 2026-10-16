@@ -96,11 +96,12 @@ jobs:
       - uses: ./.github/actions/setup
       - run: pnpm build:nuxt
       - run: pnpm --filter sigma-ui-nuxt test
-      - name: Add playground components with the CLI and build the playground
+      - name: Add playground components, server-render them, and build the playground
         run: |
           pnpm build:cli
           pnpm --filter sigma-ui-nuxt dev:prepare
           pnpm --filter sigma-ui-nuxt dev:components
+          pnpm --filter sigma-ui-nuxt test:playground
           pnpm --filter sigma-ui-nuxt dev:build
 
   test:
