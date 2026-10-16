@@ -69,7 +69,7 @@
 <ApiTable kind="events" :items='[
   {
     "name": "update:modelValue",
-    "payload": "[payload: string]",
+    "payload": "[payload: AcceptableValue]",
     "description": "<p>Event handler called when the radio group value changes</p>"
   }
 ]' />
@@ -111,16 +111,16 @@
     "description": "<p>The value given as data when submitted with a <code>name</code>.</p>"
   },
   {
-    "name": "required",
-    "type": "boolean",
-    "required": false,
-    "description": "<p>When <code>true</code>, indicates that the user must set the value before the owning form can be submitted.</p>"
-  },
-  {
     "name": "name",
     "type": "string",
     "required": false,
     "description": "<p>The name of the field. Submitted with its owning form as part of a name/value pair.</p>"
+  },
+  {
+    "name": "required",
+    "type": "boolean",
+    "required": false,
+    "description": "<p>When <code>true</code>, indicates that the user must set the value before the owning form can be submitted.</p>"
   },
   {
     "name": "id",

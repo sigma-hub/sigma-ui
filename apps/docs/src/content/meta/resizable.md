@@ -17,7 +17,7 @@
   },
   {
     "name": "direction",
-    "type": "Direction_6",
+    "type": "Direction$1",
     "required": true,
     "description": "<p>The group orientation of splitter.</p>"
   },
@@ -90,6 +90,12 @@
     "type": "boolean",
     "required": false,
     "description": "<p>Disable drag handle</p>"
+  },
+  {
+    "name": "nonce",
+    "type": "string",
+    "required": false,
+    "description": "<p>Will add <code>nonce</code> attribute to the style tag which can be used by Content Security Policy. &amp;lt;br&amp;gt; If omitted, inherits globally from <code>ConfigProvider</code>.</p>"
   },
   {
     "name": "asChild",

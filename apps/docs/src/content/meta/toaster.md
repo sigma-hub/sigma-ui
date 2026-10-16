@@ -4,6 +4,12 @@
 
 <ApiTable kind="props" :items='[
   {
+    "name": "id",
+    "type": "string",
+    "required": false,
+    "description": ""
+  },
+  {
     "name": "invert",
     "type": "boolean",
     "required": false,
@@ -18,6 +24,12 @@
   {
     "name": "position",
     "type": "Position",
+    "required": false,
+    "description": ""
+  },
+  {
+    "name": "closeButtonPosition",
+    "type": "CloseButtonPosition",
     "required": false,
     "description": ""
   },
@@ -71,13 +83,25 @@
   },
   {
     "name": "offset",
-    "type": "string | number",
+    "type": "Offset",
+    "required": false,
+    "description": ""
+  },
+  {
+    "name": "mobileOffset",
+    "type": "Offset",
     "required": false,
     "description": ""
   },
   {
     "name": "dir",
     "type": "\"ltr\" | \"rtl\" | \"auto\"",
+    "required": false,
+    "description": ""
+  },
+  {
+    "name": "swipeDirections",
+    "type": "SwipeDirection[]",
     "required": false,
     "description": ""
   },
@@ -90,18 +114,6 @@
   {
     "name": "containerAriaLabel",
     "type": "string",
-    "required": false,
-    "description": ""
-  },
-  {
-    "name": "pauseWhenPageIsHidden",
-    "type": "boolean",
-    "required": false,
-    "description": ""
-  },
-  {
-    "name": "cn",
-    "type": "CnFunction",
     "required": false,
     "description": ""
   }

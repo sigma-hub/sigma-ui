@@ -28,6 +28,12 @@
     "description": "<p>Change the default colors.</p>"
   },
   {
+    "name": "config",
+    "type": "Record<string, { label?: string; color?: string; theme?: { light?: string; dark?: string; }; }>",
+    "required": false,
+    "description": ""
+  },
+  {
     "name": "margin",
     "type": "Spacing",
     "default": "{ top: 0, bottom: 0, left: 0, right: 0 }",

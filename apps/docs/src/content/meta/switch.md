@@ -34,6 +34,18 @@
     "description": "<p>The value given as data when submitted with a <code>name</code>.</p>"
   },
   {
+    "name": "trueValue",
+    "type": "boolean",
+    "required": false,
+    "description": "<p>The value used when the switch is on. Defaults to <code>true</code>.</p>"
+  },
+  {
+    "name": "falseValue",
+    "type": "boolean",
+    "required": false,
+    "description": "<p>The value used when the switch is off. Defaults to <code>false</code>.</p>"
+  },
+  {
     "name": "asChild",
     "type": "boolean",
     "required": false,

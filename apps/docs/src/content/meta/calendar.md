@@ -4,18 +4,6 @@
 
 <ApiTable kind="props" :items='[
   {
-    "name": "modelValue",
-    "type": "DateValue | DateValue[]",
-    "required": false,
-    "description": "<p>The controlled checked state of the calendar. Can be bound as <code>v-model</code>.</p>"
-  },
-  {
-    "name": "multiple",
-    "type": "boolean",
-    "required": false,
-    "description": "<p>Whether or not multiple dates can be selected</p>"
-  },
-  {
     "name": "defaultValue",
     "type": "DateValue",
     "required": false,
@@ -31,7 +19,7 @@
     "name": "placeholder",
     "type": "DateValue",
     "required": false,
-    "description": "<p>The placeholder date, which is used to determine what month to display when no date is selected. This updates as the user navigates the calendar and can be used to programmatically control the calendar view</p>"
+    "description": "<p>The placeholder date, which is used to determine what month to display when no date is selected</p>"
   },
   {
     "name": "pagedNavigation",
@@ -47,7 +35,7 @@
   },
   {
     "name": "weekStartsOn",
-    "type": "0 | 1 | 2 | 3 | 4 | 5 | 6",
+    "type": "WeekStartsOn",
     "required": false,
     "description": "<p>The day of the week to start the calendar on</p>"
   },
@@ -97,13 +85,13 @@
     "name": "disabled",
     "type": "boolean",
     "required": false,
-    "description": "<p>Whether or not the calendar is disabled</p>"
+    "description": "<p>Whether the calendar is disabled</p>"
   },
   {
     "name": "readonly",
     "type": "boolean",
     "required": false,
-    "description": "<p>Whether or not the calendar is readonly</p>"
+    "description": "<p>Whether the calendar is readonly</p>"
   },
   {
     "name": "initialFocus",
@@ -140,6 +128,24 @@
     "type": "((placeholder: DateValue) => DateValue)",
     "required": false,
     "description": "<p>A function that returns the previous page of the calendar. It receives the current placeholder as an argument inside the component.</p>"
+  },
+  {
+    "name": "modelValue",
+    "type": "DateValue | DateValue[] | null",
+    "required": false,
+    "description": "<p>The controlled selected date value of the calendar. Can be bound as <code>v-model</code>.</p>"
+  },
+  {
+    "name": "multiple",
+    "type": "boolean",
+    "required": false,
+    "description": "<p>Whether multiple dates can be selected</p>"
+  },
+  {
+    "name": "disableDaysOutsideCurrentView",
+    "type": "boolean",
+    "required": false,
+    "description": "<p>Whether or not to disable days outside the current view.</p>"
   },
   {
     "name": "asChild",

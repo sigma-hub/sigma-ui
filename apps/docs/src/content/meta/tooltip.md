@@ -97,16 +97,9 @@
     "description": "<p>The element or component this component should render as. Can be overwritten by <code>asChild</code>.</p>"
   },
   {
-    "name": "align",
-    "type": "\"start\" | \"center\" | \"end\"",
-    "default": "\"center\"",
-    "required": false,
-    "description": "<p>The preferred alignment against the trigger.\nMay change when collisions occur.</p>"
-  },
-  {
     "name": "side",
     "type": "\"top\" | \"right\" | \"bottom\" | \"left\"",
-    "default": "\"top\"",
+    "default": "\"bottom\"",
     "required": false,
     "description": "<p>The preferred side of the trigger to render against when open.\nWill be reversed when collisions occur and avoidCollisions\nis enabled.</p>"
   },
@@ -116,6 +109,13 @@
     "default": "4",
     "required": false,
     "description": "<p>The distance in pixels from the trigger.</p>"
+  },
+  {
+    "name": "align",
+    "type": "\"center\" | \"start\" | \"end\"",
+    "default": "\"center\"",
+    "required": false,
+    "description": "<p>The preferred alignment against the trigger.\nMay change when collisions occur.</p>"
   },
   {
     "name": "alignOffset",
@@ -168,7 +168,7 @@
   },
   {
     "name": "positionStrategy",
-    "type": "\"fixed\" | \"absolute\"",
+    "type": "\"absolute\" | \"fixed\"",
     "required": false,
     "description": "<p>The type of CSS position property to use.</p>"
   },
@@ -278,6 +278,12 @@
     "default": "false",
     "required": false,
     "description": "<p>Prevent the tooltip from opening if the focus did not come from\nthe keyboard by matching against the <code>:focus-visible</code> selector.\nThis is useful if you want to avoid opening it when switching\nbrowser tabs or closing a dialog.</p>"
+  },
+  {
+    "name": "content",
+    "type": "TooltipContentProps",
+    "required": false,
+    "description": "<p>Default settings that will be used by all tooltip components.</p>"
   }
 ]' />
 

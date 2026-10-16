@@ -107,3 +107,30 @@
     "description": "<p>Component rendered instead of ChartTooltip; receives title and data props.</p>"
   }
 ]' />
+
+### ChartContainer
+
+<ApiTable kind="props" :items='[
+  {
+    "name": "config",
+    "type": "ChartConfig",
+    "default": "{}",
+    "required": false,
+    "description": ""
+  },
+  {
+    "name": "passthrough",
+    "type": "boolean",
+    "default": "false",
+    "required": false,
+    "description": ""
+  }
+]' />
+
+<ApiTable kind="slots" :items='[
+  {
+    "name": "default",
+    "scope": "",
+    "description": "<p>The content of the component.</p>"
+  }
+]' />

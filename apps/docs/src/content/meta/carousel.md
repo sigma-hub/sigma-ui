@@ -95,6 +95,16 @@
 
 ### CarouselPrevious
 
+<ApiTable kind="props" :items='[
+  {
+    "name": "label",
+    "type": "string",
+    "default": "\"Previous Slide\"",
+    "required": false,
+    "description": ""
+  }
+]' />
+
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
@@ -104,6 +114,16 @@
 ]' />
 
 ### CarouselNext
+
+<ApiTable kind="props" :items='[
+  {
+    "name": "label",
+    "type": "string",
+    "default": "\"Next Slide\"",
+    "required": false,
+    "description": ""
+  }
+]' />
 
 <ApiTable kind="slots" :items='[
   {

@@ -40,6 +40,18 @@
     "description": "<p>When <code>false</code>, prevents the value from snapping to the nearest increment of the step value</p>"
   },
   {
+    "name": "allowInvalid",
+    "type": "boolean",
+    "required": false,
+    "description": "<p>When <code>true</code>, a typed value is kept as-is even if invalid (out of <code>min</code>/<code>max</code> range or off the step grid); step interactions still clamp and snap. The field does not flag the value as invalid (no <code>aria-invalid</code>/<code>data-invalid</code>), so validating and surfacing the error is up to the consumer.</p>"
+  },
+  {
+    "name": "focusOnChange",
+    "type": "boolean",
+    "required": false,
+    "description": "<p>When <code>true</code>, the input will be focused when the value changes.</p>"
+  },
+  {
     "name": "formatOptions",
     "type": "Intl.NumberFormatOptions",
     "required": false,
@@ -49,7 +61,7 @@
     "name": "locale",
     "type": "string",
     "required": false,
-    "description": "<p>The locale to use for formatting dates</p>"
+    "description": "<p>The locale to use for formatting and currencies</p>"
   },
   {
     "name": "disabled",
@@ -58,16 +70,34 @@
     "description": "<p>When <code>true</code>, prevents the user from interacting with the Number Field.</p>"
   },
   {
+    "name": "readonly",
+    "type": "boolean",
+    "required": false,
+    "description": "<p>When <code>true</code>, the Number Field is read-only.</p>"
+  },
+  {
     "name": "disableWheelChange",
     "type": "boolean",
     "required": false,
     "description": "<p>When <code>true</code>, prevents the value from changing on wheel scroll.</p>"
   },
   {
+    "name": "invertWheelChange",
+    "type": "boolean",
+    "required": false,
+    "description": "<p>When <code>true</code>, inverts the direction of the wheel change.</p>"
+  },
+  {
     "name": "id",
     "type": "string",
     "required": false,
     "description": "<p>Id of the element</p>"
+  },
+  {
+    "name": "startingValue",
+    "type": "number",
+    "required": false,
+    "description": "<p>The value the first increment or decrement sets when the field is empty. It is clamped to <code>min</code>/<code>max</code> but not snapped to <code>step</code>. Defaults to <code>min</code>, or <code>0</code> when <code>min</code> is not set.</p>"
   },
   {
     "name": "asChild",

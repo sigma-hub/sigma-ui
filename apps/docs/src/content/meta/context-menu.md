@@ -4,8 +4,21 @@
 
 <ApiTable kind="props" :items='[
   {
+    "name": "pressOpenDelay",
+    "type": "number",
+    "default": "700",
+    "required": false,
+    "description": "<p>The duration from when the trigger is pressed until the menu opens.</p>"
+  },
+  {
+    "name": "open",
+    "type": "boolean",
+    "required": false,
+    "description": "<p>The controlled open state of the menu. Can be used as <code>v-model:open</code>.</p>"
+  },
+  {
     "name": "dir",
-    "type": "Direction_3",
+    "type": "Direction$4",
     "required": false,
     "description": "<p>The reading direction of the combobox when applicable.</p>\n<p>If omitted, inherits globally from <code>ConfigProvider</code> or assumes LTR (left-to-right) reading mode.</p>"
   },
@@ -101,11 +114,31 @@
     "description": "<p>The custom element or virtual element that will be set as the reference\nto position the floating element.</p>\n<p>If provided, it will replace the default anchor element.</p>"
   },
   {
+    "name": "memoDependencies",
+    "type": "unknown[]",
+    "required": false,
+    "description": "<p>Reactive dependencies that should invalidate the memoized content subtree.</p>"
+  },
+  {
+    "name": "sideFlip",
+    "type": "boolean",
+    "default": "true",
+    "required": false,
+    "description": "<p>Flip to the opposite side when colliding with boundary.</p>"
+  },
+  {
     "name": "alignOffset",
     "type": "number",
     "default": "0",
     "required": false,
     "description": "<p>An offset in pixels from the <code>start</code> or <code>end</code> alignment options.</p>"
+  },
+  {
+    "name": "alignFlip",
+    "type": "boolean",
+    "default": "true",
+    "required": false,
+    "description": "<p>Flip alignment when colliding with boundary.\nMay only occur when <code>prioritizePosition</code> is true.</p>"
   },
   {
     "name": "avoidCollisions",
@@ -129,6 +162,13 @@
     "description": "<p>The distance in pixels from the boundary edges where collision\ndetection should occur. Accepts a number (same for all sides),\nor a partial padding object, for example: { top: 20, left: 20 }.</p>"
   },
   {
+    "name": "hideShiftedArrow",
+    "type": "boolean",
+    "default": "true",
+    "required": false,
+    "description": "<p>When <code>true</code>, hides the arrow when it cannot be centered\nto the reference element.</p>"
+  },
+  {
     "name": "sticky",
     "type": "\"partial\" | \"always\"",
     "default": "\"partial\"",
@@ -144,7 +184,7 @@
   },
   {
     "name": "positionStrategy",
-    "type": "\"fixed\" | \"absolute\"",
+    "type": "\"absolute\" | \"fixed\"",
     "required": false,
     "description": "<p>The type of CSS position property to use.</p>"
   },
@@ -184,6 +224,11 @@
     "name": "interactOutside",
     "payload": "[event: PointerDownOutsideEvent | FocusOutsideEvent]",
     "description": "<p>Event handler called when an interaction happens outside the <code>DismissableLayer</code>.\nSpecifically, when a <code>pointerdown</code> event happens outside or focus moves outside of it.\nCan be prevented.</p>"
+  },
+  {
+    "name": "openAutoFocus",
+    "payload": "[event: Event]",
+    "description": ""
   },
   {
     "name": "closeAutoFocus",
@@ -231,7 +276,7 @@
 <ApiTable kind="props" :items='[
   {
     "name": "modelValue",
-    "type": "string",
+    "type": "AcceptableValue",
     "required": false,
     "description": "<p>The value of the selected item in the group.</p>"
   },
@@ -253,7 +298,7 @@
 <ApiTable kind="events" :items='[
   {
     "name": "update:modelValue",
-    "payload": "[payload: string]",
+    "payload": "[payload: AcceptableValue]",
     "description": "<p>Event handler called when the value changes.</p>"
   }
 ]' />
@@ -380,7 +425,7 @@
 <ApiTable kind="props" :items='[
   {
     "name": "value",
-    "type": "string",
+    "type": "AcceptableValue",
     "required": true,
     "description": "<p>The unique value of the item.</p>"
   },
@@ -524,6 +569,13 @@
 
 <ApiTable kind="props" :items='[
   {
+    "name": "graceDuration",
+    "type": "number",
+    "default": "300",
+    "required": false,
+    "description": "<p>How long (in milliseconds) the pointer is given to reach the submenu after leaving the trigger.\nWhile it moves towards the submenu within this time, hovering other items won&#39;t close the submenu.\nIncrease it for users who move the pointer slowly or on devices under heavy load.</p>"
+  },
+  {
     "name": "disabled",
     "type": "boolean",
     "required": false,
@@ -600,6 +652,12 @@
     "description": "<p>The custom element or virtual element that will be set as the reference\nto position the floating element.</p>\n<p>If provided, it will replace the default anchor element.</p>"
   },
   {
+    "name": "memoDependencies",
+    "type": "unknown[]",
+    "required": false,
+    "description": "<p>Reactive dependencies that should invalidate the memoized content subtree.</p>"
+  },
+  {
     "name": "sideOffset",
     "type": "number",
     "default": "0",
@@ -607,11 +665,25 @@
     "description": "<p>The distance in pixels from the trigger.</p>"
   },
   {
+    "name": "sideFlip",
+    "type": "boolean",
+    "default": "true",
+    "required": false,
+    "description": "<p>Flip to the opposite side when colliding with boundary.</p>"
+  },
+  {
     "name": "alignOffset",
     "type": "number",
     "default": "0",
     "required": false,
     "description": "<p>An offset in pixels from the <code>start</code> or <code>end</code> alignment options.</p>"
+  },
+  {
+    "name": "alignFlip",
+    "type": "boolean",
+    "default": "true",
+    "required": false,
+    "description": "<p>Flip alignment when colliding with boundary.\nMay only occur when <code>prioritizePosition</code> is true.</p>"
   },
   {
     "name": "avoidCollisions",
@@ -642,6 +714,13 @@
     "description": "<p>The padding between the arrow and the edges of the content.\nIf your content has border-radius, this will prevent it from\noverflowing the corners.</p>"
   },
   {
+    "name": "hideShiftedArrow",
+    "type": "boolean",
+    "default": "true",
+    "required": false,
+    "description": "<p>When <code>true</code>, hides the arrow when it cannot be centered\nto the reference element.</p>"
+  },
+  {
     "name": "sticky",
     "type": "\"partial\" | \"always\"",
     "default": "\"partial\"",
@@ -657,7 +736,7 @@
   },
   {
     "name": "positionStrategy",
-    "type": "\"fixed\" | \"absolute\"",
+    "type": "\"absolute\" | \"fixed\"",
     "required": false,
     "description": "<p>The type of CSS position property to use.</p>"
   },
