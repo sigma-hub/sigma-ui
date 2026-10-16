@@ -2363,6 +2363,50 @@
       ]
     },
     {
+      "name": "app-shell",
+      "type": "registry:block",
+      "title": "Application shell",
+      "description": "An application shell built with the Sidebar component. The sidebar collapses to icons and contains a workspace switcher, grouped navigation, and a user footer. The main area has a header with a sidebar trigger and an overview of stats and recent activity.",
+      "dependencies": [
+        "lucide-vue-next@^1.0.0"
+      ],
+      "registryDependencies": [
+        "collapsible",
+        "separator",
+        "sidebar"
+      ],
+      "files": [
+        {
+          "path": "blocks/app-shell/AppShell.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/app-shell/components/OverviewPanel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/app-shell/components/ShellHeader.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/app-shell/components/ShellSidebar.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/app-shell/data.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "800px",
+        "containerClass": "w-full h-full"
+      },
+      "categories": [
+        "dashboard",
+        "sidebar"
+      ]
+    },
+    {
       "name": "dashboard-ai-playground",
       "type": "registry:block",
       "title": "AI playground",
@@ -2875,6 +2919,68 @@
       "categories": [
         "authentication",
         "login"
+      ]
+    },
+    {
+      "name": "mail-inbox",
+      "type": "registry:block",
+      "title": "Mail inbox",
+      "description": "A three-pane mail client. The first pane switches accounts and lists folders. The second pane searches and lists messages, with tabs for all mail and unread mail. The third pane shows the selected message, snooze and reply actions, and a reply form.",
+      "dependencies": [
+        "@vueuse/core@^14.4.0",
+        "date-fns@^4.4.0",
+        "lucide-vue-next@^1.0.0"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "badge",
+        "button",
+        "calendar",
+        "dropdown-menu",
+        "input",
+        "label",
+        "popover",
+        "resizable",
+        "scroll-area",
+        "select",
+        "separator",
+        "switch",
+        "tabs",
+        "textarea",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "blocks/mail-inbox/MailInbox.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/mail-inbox/components/AccountSwitcher.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/mail-inbox/components/FolderNav.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/mail-inbox/components/MailDisplay.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/mail-inbox/components/MailList.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/mail-inbox/data.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "800px",
+        "containerClass": "w-full h-full"
+      },
+      "categories": [
+        "mail"
       ]
     },
     {
