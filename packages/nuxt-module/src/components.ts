@@ -1,6 +1,6 @@
 import { existsSync } from 'node:fs';
 import { readdir, readFile } from 'node:fs/promises';
-import { join, relative, sep } from 'node:path';
+import { isAbsolute, join, relative, resolve, sep } from 'node:path';
 import { findPath } from '@nuxt/kit';
 import { parseSync } from 'oxc-parser';
 
@@ -11,6 +11,29 @@ export interface ComponentExport {
 
 const INDEX_EXTENSIONS = ['.ts', '.js'];
 const COMPONENT_EXPORT_PATTERN = /^[A-Z]/;
+
+function isPathInside(child: string, parent: string): boolean {
+  const relativePath = relative(parent, child);
+
+  return relativePath !== '' && !relativePath.startsWith('..') && !isAbsolute(relativePath);
+}
+
+export function ignorePatternsForComponentDir(componentsPath: string, scannedDirPath: string): string[] {
+  const componentsRoot = resolve(componentsPath);
+  const scannedRoot = resolve(scannedDirPath);
+
+  if (componentsRoot === scannedRoot || isPathInside(scannedRoot, componentsRoot)) {
+    return ['**/*'];
+  }
+
+  if (!isPathInside(componentsRoot, scannedRoot)) {
+    return [];
+  }
+
+  const relativePath = relative(scannedRoot, componentsRoot).split(sep).join('/');
+
+  return [`${relativePath}/**`];
+}
 
 export function isComponentIndexFile(componentsPath: string, filePath: string): boolean {
   const segments = relative(componentsPath, filePath).split(sep);
