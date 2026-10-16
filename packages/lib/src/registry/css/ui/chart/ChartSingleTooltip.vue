@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { VisTooltip } from '@unovis/vue';
 import type { BulletLegendItemInterface } from '@unovis/ts';
-import { omit } from '@unovis/ts';
-import { type Component, createApp } from 'vue';
+import type { Component } from 'vue';
 import { ChartTooltip } from '.';
+import { createChartSingleTooltipTemplate } from '@ui/registry/shared/ui/chart/tooltip-template';
 
 const props = withDefaults(defineProps<{
   /** CSS selector of the chart elements that show the tooltip on hover. */
@@ -20,43 +20,7 @@ const props = withDefaults(defineProps<{
   valueFormatter: (tick: number) => `${tick}`,
 });
 
-const wm = new WeakMap();
-
-function template(d: any, i: number, elements: (HTMLElement | SVGElement)[]) {
-  if (typeof document === 'undefined') {
-    return '';
-  }
-
-  if (props.index in d) {
-    if (wm.has(d)) {
-      return wm.get(d);
-    } else {
-      const componentDiv = document.createElement('div');
-      const omittedData = Object.entries(omit(d, [props.index])).map(([key, value]) => {
-        const legendReference = props.items?.find(i => i.name === key);
-        return { ...legendReference, value: props.valueFormatter(value) };
-      });
-      const TooltipComponent = props.customTooltip ?? ChartTooltip;
-      createApp(TooltipComponent, { title: d[props.index], data: omittedData }).mount(componentDiv);
-      wm.set(d, componentDiv.innerHTML);
-      return componentDiv.innerHTML;
-    }
-  } else {
-    const data = d.data;
-
-    if (wm.has(data)) {
-      return wm.get(data);
-    } else {
-      const style = getComputedStyle(elements[i]);
-      const omittedData = [{ name: data.name, value: props.valueFormatter(data[props.index]), color: style.fill }];
-      const componentDiv = document.createElement('div');
-      const TooltipComponent = props.customTooltip ?? ChartTooltip;
-      createApp(TooltipComponent, { title: d[props.index], data: omittedData }).mount(componentDiv);
-      wm.set(d, componentDiv.innerHTML);
-      return componentDiv.innerHTML;
-    }
-  }
-}
+const template = createChartSingleTooltipTemplate(props, ChartTooltip);
 </script>
 
 <template>
