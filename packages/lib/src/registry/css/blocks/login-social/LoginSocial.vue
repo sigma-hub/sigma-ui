@@ -6,9 +6,9 @@ import { Label } from '@ui/registry/css/ui/label';
 </script>
 
 <template>
-  <Card class="mx-auto max-w-sm">
+  <Card class="login-social__card">
     <CardHeader>
-      <CardTitle class="text-2xl">
+      <CardTitle class="login-social__title">
         Login
       </CardTitle>
       <CardDescription>
@@ -16,8 +16,8 @@ import { Label } from '@ui/registry/css/ui/label';
       </CardDescription>
     </CardHeader>
     <CardContent>
-      <div class="grid gap-4">
-        <div class="grid gap-2">
+      <div class="login-social__form">
+        <div class="login-social__field">
           <Label for="email">Email</Label>
           <Input
             id="email"
@@ -26,12 +26,12 @@ import { Label } from '@ui/registry/css/ui/label';
             required
           />
         </div>
-        <div class="grid gap-2">
-          <div class="flex items-center">
+        <div class="login-social__field">
+          <div class="login-social__label-row">
             <Label for="password">Password</Label>
             <a
               href="#"
-              class="ml-auto inline-block text-sm underline"
+              class="login-social__forgot-link"
             >
               Forgot your password?
             </a>
@@ -44,22 +44,22 @@ import { Label } from '@ui/registry/css/ui/label';
         </div>
         <Button
           type="submit"
-          class="w-full"
+          class="login-social__button"
         >
           Login
         </Button>
         <Button
           variant="outline"
-          class="w-full"
+          class="login-social__button"
         >
           Login with Google
         </Button>
       </div>
-      <div class="mt-4 text-center text-sm">
+      <div class="login-social__footer">
         Don't have an account?
         <a
           href="#"
-          class="underline"
+          class="login-social__link"
         >
           Sign up
         </a>
@@ -67,3 +67,56 @@ import { Label } from '@ui/registry/css/ui/label';
     </CardContent>
   </Card>
 </template>
+
+<style>
+.login-social__card {
+  max-width: 24rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.login-social__title {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.login-social__form {
+  display: grid;
+  gap: 1rem;
+}
+
+.login-social__field {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.login-social__label-row {
+  display: flex;
+  align-items: center;
+}
+
+.login-social__forgot-link {
+  display: inline-block;
+  margin-left: auto;
+  color: inherit;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-decoration: underline;
+}
+
+.login-social__button {
+  width: 100%;
+}
+
+.login-social__footer {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-align: center;
+}
+
+.login-social__link {
+  color: inherit;
+  text-decoration: underline;
+}
+</style>
