@@ -49,9 +49,9 @@ defineSlots<{
 .sigma-ui-item-media--icon {
   width: 2rem;
   height: 2rem;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: calc(var(--radius) - 4px);
-  background-color: hsl(var(--muted));
+  background-color: var(--muted);
 }
 
 .sigma-ui-item-media--icon svg {

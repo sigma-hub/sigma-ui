@@ -80,18 +80,18 @@ import { primaryNavItems, secondaryNavItems } from '../data';
   display: flex;
   height: 100%;
   flex-direction: column;
-  border-right: 1px solid hsl(var(--border));
+  border-right: 1px solid var(--border);
 }
 
 .dashboard-ai-playground__brand {
-  border-bottom: 1px solid hsl(var(--border));
+  border-bottom: 1px solid var(--border);
   padding: 0.5rem;
 }
 
 .dashboard-ai-playground__brand svg {
   width: 1.25rem;
   height: 1.25rem;
-  fill: hsl(var(--foreground));
+  fill: var(--foreground);
 }
 
 .dashboard-ai-playground__nav {
@@ -114,6 +114,6 @@ button.dashboard-ai-playground__nav-button svg {
 }
 
 button.dashboard-ai-playground__nav-button--active {
-  background-color: hsl(var(--muted));
+  background-color: var(--muted);
 }
 </style>

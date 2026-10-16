@@ -52,7 +52,7 @@ import { modelOptions } from '../data';
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 .dashboard-ai-playground__model-option svg {
@@ -72,7 +72,7 @@ import { modelOptions } from '../data';
 
 .dashboard-ai-playground__model-name {
   font-weight: 500;
-  color: hsl(var(--foreground));
+  color: var(--foreground);
 }
 
 .dashboard-ai-playground__model-description {

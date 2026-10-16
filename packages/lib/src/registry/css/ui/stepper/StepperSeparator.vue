@@ -21,7 +21,7 @@ const forwarded = useForwardProps(props);
 <style>
 .sigma-ui-stepper-separator {
   flex: 1;
-  background-color: hsl(var(--muted));
+  background-color: var(--muted);
 }
 
 .sigma-ui-stepper-separator[data-orientation="horizontal"] {
@@ -37,6 +37,6 @@ const forwarded = useForwardProps(props);
 }
 
 .sigma-ui-stepper-separator[data-state="completed"] {
-  background-color: hsl(var(--secondary));
+  background-color: var(--secondary);
 }
 </style>

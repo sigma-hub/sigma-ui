@@ -54,7 +54,7 @@ import ProductToolbar from './components/ProductToolbar.vue';
   width: 100%;
   min-height: 100vh;
   flex-direction: column;
-  background-color: hsl(var(--muted) / 40%);
+  background-color: color-mix(in oklch, var(--muted) 40%, transparent);
 }
 
 .dashboard-product-edit__content {

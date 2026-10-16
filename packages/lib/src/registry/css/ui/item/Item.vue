@@ -53,20 +53,20 @@ defineSlots<{
 }
 
 .sigma-ui-item:focus-visible {
-  outline: 2px solid hsl(var(--ring));
+  outline: 2px solid var(--ring);
   outline-offset: 2px;
 }
 
 .sigma-ui-item a:hover {
-  background-color: hsl(var(--secondary) / 50%);
+  background-color: color-mix(in oklch, var(--secondary) 50%, transparent);
 }
 
 .sigma-ui-item--outline {
-  border-color: hsl(var(--border));
+  border-color: var(--border);
 }
 
 .sigma-ui-item--muted {
-  background-color: hsl(var(--muted) / 50%);
+  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
 }
 
 .sigma-ui-item--size-default {

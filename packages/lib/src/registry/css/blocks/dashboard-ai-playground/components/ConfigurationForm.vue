@@ -88,7 +88,7 @@ import RoleSelect from './RoleSelect.vue';
   display: grid;
   min-width: 0;
   gap: 1.5rem;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 1rem;
 }

@@ -74,8 +74,8 @@ import { sidebarFooterNavItems, sidebarNavItems } from '../data';
   display: none;
   width: 3.5rem;
   flex-direction: column;
-  border-right: 1px solid hsl(var(--border));
-  background-color: hsl(var(--background));
+  border-right: 1px solid var(--border);
+  background-color: var(--background);
 }
 
 @media (width >= 640px) {
@@ -113,8 +113,8 @@ import { sidebarFooterNavItems, sidebarNavItems } from '../data';
   justify-content: center;
   gap: 0.5rem;
   border-radius: var(--radius-full);
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  background-color: var(--primary);
+  color: var(--primary-foreground);
   font-size: 1.125rem;
   font-weight: 600;
   line-height: 1.75rem;
@@ -147,13 +147,13 @@ import { sidebarFooterNavItems, sidebarNavItems } from '../data';
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-lg);
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   text-decoration: none;
   transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .dashboard-product-edit__nav-link:hover {
-  color: hsl(var(--foreground));
+  color: var(--foreground);
 }
 
 @media (width >= 768px) {
@@ -164,8 +164,8 @@ import { sidebarFooterNavItems, sidebarNavItems } from '../data';
 }
 
 .dashboard-product-edit__nav-link--active {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
 }
 
 .dashboard-product-edit__nav-link svg {
