@@ -22,8 +22,8 @@ defineProps<{
 
 <style>
 .dashboard-settings__search {
-  margin-left: auto;
   flex: 1 1 0%;
+  margin-left: auto;
 }
 
 .dashboard-settings__search-field {
