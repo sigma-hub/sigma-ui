@@ -1,0 +1,108 @@
+<script setup lang="ts">
+import { UploadIcon } from 'lucide-vue-next';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@ui/registry/css/ui/card';
+import { mainProductImage, productThumbnails } from '../data';
+</script>
+
+<template>
+  <Card class="dashboard-product-edit__images-card">
+    <CardHeader>
+      <CardTitle>Product imgs</CardTitle>
+      <CardDescription>
+        Lipsum dolor sit amet, consectetur adipiscing elit
+      </CardDescription>
+    </CardHeader>
+    <CardContent>
+      <div class="dashboard-product-edit__image-grid">
+        <img
+          :alt="mainProductImage.alt"
+          class="dashboard-product-edit__image"
+          :height="mainProductImage.size"
+          :src="mainProductImage.src"
+          :width="mainProductImage.size"
+        >
+        <div class="dashboard-product-edit__thumbnails">
+          <button
+            v-for="(thumbnail, thumbnailIndex) in productThumbnails"
+            :key="thumbnailIndex"
+            class="dashboard-product-edit__thumbnail"
+          >
+            <img
+              :alt="thumbnail.alt"
+              class="dashboard-product-edit__image"
+              :height="thumbnail.size"
+              :src="thumbnail.src"
+              :width="thumbnail.size"
+            >
+          </button>
+          <button class="dashboard-product-edit__upload">
+            <UploadIcon />
+            <span class="dashboard-product-edit__visually-hidden">Upload</span>
+          </button>
+        </div>
+      </div>
+    </CardContent>
+  </Card>
+</template>
+
+<style>
+.dashboard-product-edit__images-card {
+  overflow: hidden;
+}
+
+.dashboard-product-edit__image-grid {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.dashboard-product-edit__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+}
+
+.dashboard-product-edit__thumbnails {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.dashboard-product-edit__thumbnail,
+.dashboard-product-edit__upload {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.dashboard-product-edit__upload {
+  display: flex;
+  aspect-ratio: 1 / 1;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed hsl(var(--border));
+  border-radius: var(--radius-md);
+}
+
+.dashboard-product-edit__upload svg {
+  width: 1rem;
+  height: 1rem;
+  color: hsl(var(--muted-foreground));
+}
+
+.dashboard-product-edit__visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+</style>
