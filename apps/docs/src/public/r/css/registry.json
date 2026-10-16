@@ -473,6 +473,14 @@
         {
           "path": "ui/carousel/useCarousel.ts",
           "type": "registry:ui"
+        },
+        {
+          "path": "ui/carousel/carousel-props.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/carousel/carousel-state.ts",
+          "type": "registry:ui"
         }
       ]
     },
@@ -514,6 +522,18 @@
         },
         {
           "path": "ui/chart/interface.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/chart/tooltip-template.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/chart/chart-colors.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/chart/chart-types.ts",
           "type": "registry:ui"
         }
       ]
@@ -581,6 +601,10 @@
         },
         {
           "path": "ui/chart-donut/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/chart-donut/donut-props.ts",
           "type": "registry:ui"
         }
       ]
@@ -1236,6 +1260,10 @@
         },
         {
           "path": "ui/form/useFormField.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/form/form-field.ts",
           "type": "registry:ui"
         }
       ]
@@ -2214,6 +2242,10 @@
         },
         {
           "path": "ui/sidebar/utils.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/sidebar/sidebar-state.ts",
           "type": "registry:ui"
         }
       ]
