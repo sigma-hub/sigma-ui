@@ -2616,6 +2616,25 @@
       ]
     },
     {
+      "name": "typography",
+      "type": "registry:ui",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "reka-ui@^2.11.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ui/typography/Typography.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/typography/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "year-picker",
       "type": "registry:ui",
       "dependencies": [
