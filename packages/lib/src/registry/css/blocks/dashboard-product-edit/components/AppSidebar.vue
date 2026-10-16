@@ -67,10 +67,10 @@ import { sidebarFooterNavItems, sidebarNavItems } from '../data';
 <style>
 .dashboard-product-edit__sidebar {
   position: fixed;
+  z-index: 10;
   top: 0;
   bottom: 0;
   left: 0;
-  z-index: 10;
   display: none;
   width: 3.5rem;
   flex-direction: column;
@@ -88,9 +88,9 @@ import { sidebarFooterNavItems, sidebarNavItems } from '../data';
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
   padding-right: 0.5rem;
   padding-left: 0.5rem;
+  gap: 1rem;
 }
 
 @media (width >= 640px) {
@@ -111,12 +111,12 @@ import { sidebarFooterNavItems, sidebarNavItems } from '../data';
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
   border-radius: var(--radius-full);
   background-color: var(--primary);
   color: var(--primary-foreground);
   font-size: 1.125rem;
   font-weight: 600;
+  gap: 0.5rem;
   line-height: 1.75rem;
   text-decoration: none;
 }
@@ -175,13 +175,13 @@ import { sidebarFooterNavItems, sidebarNavItems } from '../data';
 
 .dashboard-product-edit__visually-hidden {
   position: absolute;
+  overflow: hidden;
   width: 1px;
   height: 1px;
   padding: 0;
+  border-width: 0;
   margin: -1px;
-  overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  border-width: 0;
 }
 </style>
