@@ -7,32 +7,32 @@
   "files": [
     {
       "path": "ui/card/Card.vue",
-      "content": "<script setup lang=\"ts\">\n\n</script>\n\n<template>\n  <div\n    class=\"sigma-ui-card\"\n    :class=\"[$attrs.class]\"\n    data-slot=\"card\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n.sigma-ui-card {\n  border: 1px solid var(--border);\n  border-radius: var(--radius);\n  background-color: var(--card);\n  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);\n  color: var(--card-foreground);\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\nimport { computed, useAttrs } from 'vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst delegatedAttrs = computed(() => {\n  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));\n});\n\n</script>\n\n<template>\n  <div\n    v-bind=\"delegatedAttrs\"\n    class=\"sigma-ui-card\"\n    :class=\"[$attrs.class]\"\n    data-slot=\"card\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n.sigma-ui-card {\n  border: 1px solid var(--border);\n  border-radius: var(--radius);\n  background-color: var(--card);\n  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);\n  color: var(--card-foreground);\n}\n</style>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/card/CardContent.vue",
-      "content": "<script setup lang=\"ts\">\n\n</script>\n\n<template>\n  <div\n    class=\"sigma-ui-card__content\"\n    :class=\"[$attrs.class]\"\n    data-slot=\"card-content\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n.sigma-ui-card__content {\n  padding: 0 1.5rem 1.5rem;\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\nimport { computed, useAttrs } from 'vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst delegatedAttrs = computed(() => {\n  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));\n});\n\n</script>\n\n<template>\n  <div\n    v-bind=\"delegatedAttrs\"\n    class=\"sigma-ui-card__content\"\n    :class=\"[$attrs.class]\"\n    data-slot=\"card-content\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n.sigma-ui-card__content {\n  padding: 0 1.5rem 1.5rem;\n}\n</style>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/card/CardDescription.vue",
-      "content": "<script setup lang=\"ts\">\n\n</script>\n\n<template>\n  <p\n    class=\"sigma-ui-card__description\"\n    :class=\"[$attrs.class]\"\n    data-slot=\"card-description\"\n  >\n    <slot />\n  </p>\n</template>\n\n<style>\n.sigma-ui-card__description {\n  color: var(--muted-foreground);\n  font-size: 0.875rem;\n  line-height: 1.25rem;\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\nimport { computed, useAttrs } from 'vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst delegatedAttrs = computed(() => {\n  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));\n});\n\n</script>\n\n<template>\n  <p\n    v-bind=\"delegatedAttrs\"\n    class=\"sigma-ui-card__description\"\n    :class=\"[$attrs.class]\"\n    data-slot=\"card-description\"\n  >\n    <slot />\n  </p>\n</template>\n\n<style>\n.sigma-ui-card__description {\n  color: var(--muted-foreground);\n  font-size: 0.875rem;\n  line-height: 1.25rem;\n}\n</style>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/card/CardFooter.vue",
-      "content": "<script setup lang=\"ts\">\n\n</script>\n\n<template>\n  <div\n    class=\"sigma-ui-card__footer\"\n    :class=\"[$attrs.class]\"\n    data-slot=\"card-footer\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n.sigma-ui-card__footer {\n  display: flex;\n  padding: 0 1.5rem 1.5rem;\n  gap: 0.5rem;\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\nimport { computed, useAttrs } from 'vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst delegatedAttrs = computed(() => {\n  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));\n});\n\n</script>\n\n<template>\n  <div\n    v-bind=\"delegatedAttrs\"\n    class=\"sigma-ui-card__footer\"\n    :class=\"[$attrs.class]\"\n    data-slot=\"card-footer\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n.sigma-ui-card__footer {\n  display: flex;\n  padding: 0 1.5rem 1.5rem;\n  gap: 0.5rem;\n}\n</style>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/card/CardHeader.vue",
-      "content": "<script setup lang=\"ts\">\n\n</script>\n\n<template>\n  <div\n    class=\"sigma-ui-card__header\"\n    :class=\"[$attrs.class]\"\n    data-slot=\"card-header\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n.sigma-ui-card__header {\n  display: flex;\n  flex-direction: column;\n  padding: 1.5rem;\n  gap: 0.375rem;\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\nimport { computed, useAttrs } from 'vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst delegatedAttrs = computed(() => {\n  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));\n});\n\n</script>\n\n<template>\n  <div\n    v-bind=\"delegatedAttrs\"\n    class=\"sigma-ui-card__header\"\n    :class=\"[$attrs.class]\"\n    data-slot=\"card-header\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n.sigma-ui-card__header {\n  display: flex;\n  flex-direction: column;\n  padding: 1.5rem;\n  gap: 0.375rem;\n}\n</style>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/card/CardTitle.vue",
-      "content": "<script setup lang=\"ts\">\n\n</script>\n\n<template>\n  <h3\n    class=\"sigma-ui-card__title\"\n    :class=\"[$attrs.class]\"\n    data-slot=\"card-title\"\n  >\n    <slot />\n  </h3>\n</template>\n\n<style>\n.sigma-ui-card__title {\n  font-size: 1.5rem;\n  font-weight: 600;\n  letter-spacing: -0.025em;\n  line-height: 1;\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\nimport { computed, useAttrs } from 'vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst delegatedAttrs = computed(() => {\n  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));\n});\n\n</script>\n\n<template>\n  <h3\n    v-bind=\"delegatedAttrs\"\n    class=\"sigma-ui-card__title\"\n    :class=\"[$attrs.class]\"\n    data-slot=\"card-title\"\n  >\n    <slot />\n  </h3>\n</template>\n\n<style>\n.sigma-ui-card__title {\n  font-size: 1.5rem;\n  font-weight: 600;\n  letter-spacing: -0.025em;\n  line-height: 1;\n}\n</style>\n",
       "type": "registry:ui"
     },
     {
