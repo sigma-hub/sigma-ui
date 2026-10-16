@@ -8,7 +8,7 @@ export const Index = {
       registryDependencies: ["badge","button","drawer","input","label","select","textarea","tooltip"],
       dependencies: ["lucide-vue-next@^0.475.0"],
       component: () => import("../../../packages/lib/src/registry/tailwind/blocks/dashboard-ai-playground/DashboardAiPlayground.vue").then((m) => m.default),
-      files: ["blocks/dashboard-ai-playground/DashboardAiPlayground.vue"],
+      files: ["blocks/dashboard-ai-playground/DashboardAiPlayground.vue","blocks/dashboard-ai-playground/components/AppSidebar.vue","blocks/dashboard-ai-playground/components/ChatPanel.vue","blocks/dashboard-ai-playground/components/ConfigurationDrawer.vue","blocks/dashboard-ai-playground/components/ConfigurationForm.vue","blocks/dashboard-ai-playground/components/ModelSelect.vue","blocks/dashboard-ai-playground/components/PlaygroundHeader.vue","blocks/dashboard-ai-playground/components/RoleSelect.vue","blocks/dashboard-ai-playground/data.ts"],
     },
     "dashboard-analytics": {
       name: "dashboard-analytics",
@@ -32,7 +32,7 @@ export const Index = {
       registryDependencies: ["badge","breadcrumb","button","card","dropdown-menu","input","label","select","sheet","table","textarea","toggle-group","tooltip"],
       dependencies: ["lucide-vue-next@^0.475.0"],
       component: () => import("../../../packages/lib/src/registry/tailwind/blocks/dashboard-product-edit/DashboardProductEdit.vue").then((m) => m.default),
-      files: ["blocks/dashboard-product-edit/DashboardProductEdit.vue"],
+      files: ["blocks/dashboard-product-edit/DashboardProductEdit.vue","blocks/dashboard-product-edit/components/AppHeader.vue","blocks/dashboard-product-edit/components/AppSidebar.vue","blocks/dashboard-product-edit/components/ArchiveProductCard.vue","blocks/dashboard-product-edit/components/ProductCategoryCard.vue","blocks/dashboard-product-edit/components/ProductDetailsCard.vue","blocks/dashboard-product-edit/components/ProductImagesCard.vue","blocks/dashboard-product-edit/components/ProductStatusCard.vue","blocks/dashboard-product-edit/components/ProductStockCard.vue","blocks/dashboard-product-edit/components/ProductToolbar.vue","blocks/dashboard-product-edit/data.ts"],
     },
     "dashboard-products": {
       name: "dashboard-products",
@@ -1906,7 +1906,7 @@ export const Index = {
       registryDependencies: ["badge","button","drawer","input","label","select","textarea","tooltip"],
       dependencies: ["lucide-vue-next@^0.475.0"],
       component: () => import("../../../packages/lib/src/registry/css/blocks/dashboard-ai-playground/DashboardAiPlayground.vue").then((m) => m.default),
-      files: ["blocks/dashboard-ai-playground/DashboardAiPlayground.vue"],
+      files: ["blocks/dashboard-ai-playground/DashboardAiPlayground.vue","blocks/dashboard-ai-playground/components/AppSidebar.vue","blocks/dashboard-ai-playground/components/ChatPanel.vue","blocks/dashboard-ai-playground/components/ConfigurationDrawer.vue","blocks/dashboard-ai-playground/components/ConfigurationForm.vue","blocks/dashboard-ai-playground/components/ModelSelect.vue","blocks/dashboard-ai-playground/components/PlaygroundHeader.vue","blocks/dashboard-ai-playground/components/RoleSelect.vue","blocks/dashboard-ai-playground/data.ts"],
     },
     "dashboard-analytics": {
       name: "dashboard-analytics",
@@ -1930,7 +1930,7 @@ export const Index = {
       registryDependencies: ["badge","breadcrumb","button","card","dropdown-menu","input","label","select","sheet","table","textarea","toggle-group","tooltip"],
       dependencies: ["lucide-vue-next@^0.475.0"],
       component: () => import("../../../packages/lib/src/registry/css/blocks/dashboard-product-edit/DashboardProductEdit.vue").then((m) => m.default),
-      files: ["blocks/dashboard-product-edit/DashboardProductEdit.vue"],
+      files: ["blocks/dashboard-product-edit/DashboardProductEdit.vue","blocks/dashboard-product-edit/components/AppHeader.vue","blocks/dashboard-product-edit/components/AppSidebar.vue","blocks/dashboard-product-edit/components/ArchiveProductCard.vue","blocks/dashboard-product-edit/components/ProductCategoryCard.vue","blocks/dashboard-product-edit/components/ProductDetailsCard.vue","blocks/dashboard-product-edit/components/ProductImagesCard.vue","blocks/dashboard-product-edit/components/ProductStatusCard.vue","blocks/dashboard-product-edit/components/ProductStockCard.vue","blocks/dashboard-product-edit/components/ProductToolbar.vue","blocks/dashboard-product-edit/data.ts"],
     },
     "dashboard-products": {
       name: "dashboard-products",
