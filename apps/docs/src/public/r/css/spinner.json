@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "ui/spinner/Spinner.vue",
-      "content": "<script setup lang=\"ts\">\nimport { Loader2Icon } from 'lucide-vue-next';\n\ninterface SpinnerProps {\n  /**\n   * Accessible name announced while the spinner is visible.\n   */\n  label?: string;\n}\n\nconst props = withDefaults(defineProps<SpinnerProps>(), {\n  label: 'Loading',\n});\n</script>\n\n<template>\n  <Loader2Icon\n    role=\"status\"\n    :aria-label=\"props.label\"\n    class=\"sigma-ui-spinner\"\n    :class=\"[$attrs.class]\"\n  />\n</template>\n\n<style>\n.sigma-ui-spinner {\n  width: 1rem;\n  height: 1rem;\n  animation: sigma-ui-spin 1s linear infinite;\n}\n\n@keyframes sigma-ui-spin {\n  from {\n    transform: rotate(0deg);\n  }\n\n  to {\n    transform: rotate(360deg);\n  }\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\nimport { Loader2Icon } from 'lucide-vue-next';\n\ninterface SpinnerProps {\n  /**\n   * Accessible name announced while the spinner is visible.\n   */\n  label?: string;\n}\n\nconst props = withDefaults(defineProps<SpinnerProps>(), {\n  label: 'Loading',\n});\n</script>\n\n<template>\n  <Loader2Icon\n    role=\"status\"\n    data-slot=\"spinner\"\n    :aria-label=\"props.label\"\n    class=\"sigma-ui-spinner\"\n    :class=\"[$attrs.class]\"\n  />\n</template>\n\n<style>\n.sigma-ui-spinner {\n  width: 1rem;\n  height: 1rem;\n  animation: sigma-ui-spin 1s linear infinite;\n}\n\n@keyframes sigma-ui-spin {\n  from {\n    transform: rotate(0deg);\n  }\n\n  to {\n    transform: rotate(360deg);\n  }\n}\n</style>\n",
       "type": "registry:ui"
     },
     {
