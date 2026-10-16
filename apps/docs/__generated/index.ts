@@ -914,6 +914,14 @@ export const Index = {
       component: () => import("../../../packages/lib/src/registry/tailwind/example/DialogScrollOverlay.vue").then((m) => m.default),
       files: ["example/DialogScrollOverlay.vue"],
     },
+    "Direction": {
+      name: "Direction",
+      type: "registry:example",
+      registryDependencies: ["button","direction"],
+      dependencies: [],
+      component: () => import("../../../packages/lib/src/registry/tailwind/example/Direction.vue").then((m) => m.default),
+      files: ["example/Direction.vue"],
+    },
     "DonutChart": {
       name: "DonutChart",
       type: "registry:example",
@@ -2875,6 +2883,14 @@ export const Index = {
       dependencies: [],
       component: () => import("../../../packages/lib/src/registry/css/example/DialogScrollOverlay.vue").then((m) => m.default),
       files: ["example/DialogScrollOverlay.vue"],
+    },
+    "Direction": {
+      name: "Direction",
+      type: "registry:example",
+      registryDependencies: ["button","direction"],
+      dependencies: [],
+      component: () => import("../../../packages/lib/src/registry/css/example/Direction.vue").then((m) => m.default),
+      files: ["example/Direction.vue"],
     },
     "DonutChart": {
       name: "DonutChart",

@@ -946,6 +946,24 @@
       ]
     },
     {
+      "name": "direction",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui@^2.11.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ui/direction/Direction.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/direction/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "drawer",
       "type": "registry:ui",
       "dependencies": [
