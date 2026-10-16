@@ -1538,6 +1538,14 @@ export const Index = {
       component: () => import("../../../packages/lib/src/registry/tailwind/example/Spinner.vue").then((m) => m.default),
       files: ["example/Spinner.vue"],
     },
+    "Stepper": {
+      name: "Stepper",
+      type: "registry:example",
+      registryDependencies: ["stepper"],
+      dependencies: [],
+      component: () => import("../../../packages/lib/src/registry/tailwind/example/Stepper.vue").then((m) => m.default),
+      files: ["example/Stepper.vue"],
+    },
     "Switch": {
       name: "Switch",
       type: "registry:example",
@@ -3419,6 +3427,14 @@ export const Index = {
       dependencies: [],
       component: () => import("../../../packages/lib/src/registry/css/example/Spinner.vue").then((m) => m.default),
       files: ["example/Spinner.vue"],
+    },
+    "Stepper": {
+      name: "Stepper",
+      type: "registry:example",
+      registryDependencies: ["stepper"],
+      dependencies: [],
+      component: () => import("../../../packages/lib/src/registry/css/example/Stepper.vue").then((m) => m.default),
+      files: ["example/Stepper.vue"],
     },
     "Switch": {
       name: "Switch",

@@ -1,0 +1,35 @@
+<script setup lang="ts">
+import { StepperIndicator, type StepperIndicatorProps, useForwardProps } from 'reka-ui';
+import { cn } from '@ui/utils';
+
+defineOptions({
+  inheritAttrs: false,
+});
+
+const props = defineProps<StepperIndicatorProps>();
+const forwarded = useForwardProps(props);
+
+defineSlots<{
+  /**
+   * Step number or icon. Receives the current step index.
+   */
+  default?: (props: { step: number }) => unknown;
+}>();
+</script>
+
+<template>
+  <StepperIndicator
+    v-slot="slotProps"
+    data-slot="stepper-indicator"
+    v-bind="{ ...forwarded, ...$attrs }"
+    :class="cn(
+      'inline-flex size-8 items-center justify-center rounded-full text-muted-foreground/50',
+      'group-data-[disabled]:opacity-50',
+      'group-data-[state=active]:bg-primary group-data-[state=active]:text-primary-foreground',
+      'group-data-[state=completed]:bg-secondary group-data-[state=completed]:text-secondary-foreground',
+      $attrs.class ?? '',
+    )"
+  >
+    <slot v-bind="slotProps" />
+  </StepperIndicator>
+</template>

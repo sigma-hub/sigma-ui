@@ -1,0 +1,28 @@
+<script setup lang="ts">
+import { StepperDescription, type StepperDescriptionProps, useForwardProps } from 'reka-ui';
+import { cn } from '@ui/utils';
+
+defineOptions({
+  inheritAttrs: false,
+});
+
+const props = defineProps<StepperDescriptionProps>();
+const forwarded = useForwardProps(props);
+
+defineSlots<{
+  /**
+   * Short explanation of the step.
+   */
+  default?: () => unknown;
+}>();
+</script>
+
+<template>
+  <StepperDescription
+    data-slot="stepper-description"
+    v-bind="{ ...forwarded, ...$attrs }"
+    :class="cn('text-xs text-muted-foreground', $attrs.class ?? '')"
+  >
+    <slot />
+  </StepperDescription>
+</template>
