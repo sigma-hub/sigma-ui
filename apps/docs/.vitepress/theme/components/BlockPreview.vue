@@ -11,6 +11,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@ui/registry/tailwind/
 import { ToggleGroup, ToggleGroupItem } from '@ui/registry/tailwind/ui/toggle-group';
 import { Index } from '../../../__generated';
 import { cssVariables } from '../config/shiki';
+import { buildBlockFrameSrc } from '../../block-renderer/frame';
 import { getBlockFileTree, getBlockMainFile, getBlockMeta, type BlockFileNode } from '../utils/blocks';
 import BlockCopyButton from './BlockCopyButton.vue';
 import PackageManagerCommand from './PackageManagerCommand.vue';
@@ -41,6 +42,11 @@ const rawString = ref('');
 const codeHtml = ref('');
 const selectedPath = ref('');
 const blockMeta = computed(() => getBlockMeta(props.name));
+const frameSrc = computed(() => buildBlockFrameSrc({
+  name: props.name,
+  styleSystem: config.value.styleSystem,
+  containerClass: blockMeta.value?.meta.containerClass ?? '',
+}));
 const blockEntry = computed(() => {
   const styleIndex = Index[config.value.styleSystem] as Record<string, BlockIndexEntry>;
   return styleIndex[props.name];
@@ -84,6 +90,10 @@ function transformImportPath(code: string) {
   source.replaceAll(`@ui/utils`, codeConfig.value.utilsPath);
   return source.toString();
 }
+
+watch(frameSrc, () => {
+  isLoading.value = true;
+});
 
 watch(fileTree, (nodes) => {
   const selectablePaths = nodes.flatMap(node => node.path ? [node.path] : []);
@@ -250,7 +260,7 @@ watch([() => config.value.styleSystem, () => selectedPath.value, codeConfig], as
           </div>
           <iframe
             v-show="!isLoading"
-            :src="`/blocks/renderer#name=${name}&styleSystem=${config.styleSystem}&containerClass=${encodeURIComponent(blockMeta?.meta.containerClass ?? '')}`"
+            :src="frameSrc"
             class="relative z-20 w-full bg-background h-(--container-height)"
             @load="isLoading = false"
           />
