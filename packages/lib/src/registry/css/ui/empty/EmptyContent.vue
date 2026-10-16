@@ -31,12 +31,12 @@ defineSlots<{
 .sigma-ui-empty-content {
   display: flex;
   width: 100%;
-  max-width: 24rem;
   min-width: 0;
+  max-width: 24rem;
   flex-direction: column;
   align-items: center;
   font-size: 0.875rem;
-  text-wrap: balance;
   gap: 1rem;
+  text-wrap: balance;
 }
 </style>
