@@ -23,19 +23,23 @@ import { TimeRangeField, TimeRangeFieldInput } from '@/components/ui/time-range-
 </script>
 
 <template>
-  <TimeRangeField v-model="value">
-    <TimeRangeFieldInput part="hour" type="start" />
-    <span>:</span>
-    <TimeRangeFieldInput part="minute" type="start" />
+  <TimeRangeField v-slot="{ segments }" v-model="value">
+    <template v-for="(item, index) in segments.start" :key="`start-${item.part}-${index}`">
+      <TimeRangeFieldInput :part="item.part" type="start">
+        {{ item.value }}
+      </TimeRangeFieldInput>
+    </template>
     <span>to</span>
-    <TimeRangeFieldInput part="hour" type="end" />
-    <span>:</span>
-    <TimeRangeFieldInput part="minute" type="end" />
+    <template v-for="(item, index) in segments.end" :key="`end-${item.part}-${index}`">
+      <TimeRangeFieldInput :part="item.part" type="end">
+        {{ item.value }}
+      </TimeRangeFieldInput>
+    </template>
   </TimeRangeField>
 </template>
 ```
 
-`v-model` is a `{ start, end }` pair of [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/index.html) `Time` values. Each `TimeRangeFieldInput` names a `part` (`hour`, `minute`, `second`, or `dayPeriod`) and a `type` (`start` or `end`). `granularity` is `minute` by default.
+`v-model` is a `{ start, end }` pair of [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/index.html) `Time` values. The field slot gives `segments.start` and `segments.end`, and each segment's `value` is the text rendered inside `TimeRangeFieldInput`. `part` is `hour`, `minute`, `second`, `dayPeriod`, or `literal`, and `type` is `start` or `end`. `granularity` is `minute` by default.
 
 ## Examples
 
