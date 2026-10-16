@@ -1,14 +1,25 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { TabsContent, type TabsContentProps } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<TabsContentProps>();
 </script>
 
 <template>
   <TabsContent
-    v-bind="props"
+    v-bind="{ ...props, ...delegatedAttrs }"
     class="sigma-ui-tabs-content"
-   data-slot="tabs-content">
+    data-slot="tabs-content"
+    :class="[$attrs.class]"
+  >
     <slot />
   </TabsContent>
 </template>

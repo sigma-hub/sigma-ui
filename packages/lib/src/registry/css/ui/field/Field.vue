@@ -1,5 +1,14 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { type FieldVariants, fieldVariants } from '.';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 interface FieldProps {
   /**
@@ -32,6 +41,7 @@ defineSlots<{
 
 <template>
   <div
+    v-bind="delegatedAttrs"
     role="group"
     data-slot="field"
     :data-orientation="props.orientation"

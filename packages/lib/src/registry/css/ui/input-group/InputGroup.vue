@@ -1,4 +1,13 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
+
 defineSlots<{
   /**
    * Addons and one `InputGroupInput` or `InputGroupTextarea`.
@@ -9,6 +18,7 @@ defineSlots<{
 
 <template>
   <div
+    v-bind="delegatedAttrs"
     data-slot="input-group"
     role="group"
     class="sigma-ui-input-group"

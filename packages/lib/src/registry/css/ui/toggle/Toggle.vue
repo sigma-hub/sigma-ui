@@ -1,7 +1,14 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, useAttrs } from 'vue';
 import { Toggle, type ToggleEmits, type ToggleProps, useForwardPropsEmits } from 'reka-ui';
 import { type ToggleVariants, toggleVariants } from '.';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = withDefaults(defineProps<ToggleProps & {
   /** Visual style of the toggle. */
@@ -23,9 +30,10 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 
 <template>
   <Toggle
-    v-bind="forwarded"
-    :class="[toggleVariants({ variant, size })]"
-   data-slot="toggle">
+    v-bind="{ ...forwarded, ...delegatedAttrs }"
+    :class="[toggleVariants({ variant, size }), $attrs.class]"
+    data-slot="toggle"
+  >
     <slot />
   </Toggle>
 </template>

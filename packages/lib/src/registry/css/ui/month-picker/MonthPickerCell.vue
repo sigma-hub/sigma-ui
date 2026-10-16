@@ -1,5 +1,14 @@
 <script lang="ts" setup>
+import { computed, useAttrs } from 'vue';
+
 import { MonthPickerCell, type MonthPickerCellProps, useForwardProps } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<MonthPickerCellProps>();
 const forwarded = useForwardProps(props);
@@ -7,9 +16,9 @@ const forwarded = useForwardProps(props);
 
 <template>
   <MonthPickerCell
+    v-bind="{ ...forwarded, ...delegatedAttrs }"
     data-slot="month-picker-cell"
     class="sigma-ui-month-picker-cell"
-    v-bind="forwarded"
     :class="[$attrs.class]"
   >
     <slot />

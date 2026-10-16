@@ -1,7 +1,16 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { PaginationNext, type PaginationNextProps } from 'reka-ui';
 import { ChevronRightIcon } from 'lucide-vue-next';
 import { Button } from '@ui/registry/css/ui/button';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = withDefaults(defineProps<PaginationNextProps>(), {
   asChild: true,
@@ -9,9 +18,12 @@ const props = withDefaults(defineProps<PaginationNextProps>(), {
 </script>
 
 <template>
-  <PaginationNext v-bind="props"
-  data-slot="pagination-next">
+  <PaginationNext
+    v-bind="props"
+    data-slot="pagination-next"
+  >
     <Button
+      v-bind="delegatedAttrs"
       class="sigma-ui-pagination-next"
       :class="$attrs.class"
       variant="outline"

@@ -1,9 +1,15 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import type { ComboboxContentEmits, ComboboxContentProps } from 'reka-ui';
 import { AutocompleteContent, AutocompletePortal, AutocompleteViewport, useForwardPropsEmits } from 'reka-ui';
 
 defineOptions({
   inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
 });
 
 const props = withDefaults(defineProps<ComboboxContentProps>(), {
@@ -20,7 +26,7 @@ const forwarded = useForwardPropsEmits(props, emits);
     <AutocompleteContent
       data-slot="autocomplete-list"
       class="sigma-ui-autocomplete-list"
-      v-bind="{ ...forwarded, ...$attrs }"
+      v-bind="{ ...forwarded, ...delegatedAttrs }"
       :class="[$attrs.class]"
     >
       <AutocompleteViewport>

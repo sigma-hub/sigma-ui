@@ -1,9 +1,15 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { ColorSwatch, type ColorSwatchProps, useForwardProps } from 'reka-ui';
 import { cn } from '@ui/utils';
 
 defineOptions({
   inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
 });
 
 const props = defineProps<ColorSwatchProps>();
@@ -21,7 +27,7 @@ defineSlots<{
   <ColorSwatch
     v-slot="slotProps"
     data-slot="color-swatch"
-    v-bind="{ ...forwarded, ...$attrs }"
+    v-bind="{ ...forwarded, ...delegatedAttrs }"
     :class="cn('size-9 rounded-md border border-border bg-(--reka-color-swatch-color) bg-[image:linear-gradient(var(--reka-color-swatch-color),var(--reka-color-swatch-color)),repeating-conic-gradient(var(--muted)_0%_25%,var(--background)_0%_50%)] bg-[size:auto,0.5rem_0.5rem]', $attrs.class ?? '')"
   >
     <slot v-bind="slotProps" />

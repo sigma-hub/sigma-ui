@@ -1,12 +1,22 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { cn } from '@ui/utils';
 import { useSidebar } from './utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const { toggleSidebar } = useSidebar();
 </script>
 
 <template>
   <button
+    v-bind="delegatedAttrs"
     type="button"
     data-sidebar="rail"
     data-slot="sidebar-rail"

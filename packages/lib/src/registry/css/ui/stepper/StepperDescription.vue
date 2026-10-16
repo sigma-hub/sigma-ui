@@ -1,8 +1,14 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { StepperDescription, type StepperDescriptionProps, useForwardProps } from 'reka-ui';
 
 defineOptions({
   inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
 });
 
 const props = defineProps<StepperDescriptionProps>();
@@ -19,7 +25,7 @@ defineSlots<{
 <template>
   <StepperDescription
     data-slot="stepper-description"
-    v-bind="{ ...forwarded, ...$attrs }"
+    v-bind="{ ...forwarded, ...delegatedAttrs }"
     class="sigma-ui-stepper-description"
     :class="[$attrs.class]"
   >

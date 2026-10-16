@@ -1,6 +1,15 @@
 <script lang="ts" setup>
+import { computed, useAttrs } from 'vue';
+
 import { CalendarRoot, type CalendarRootEmits, type CalendarRootProps, useForwardPropsEmits } from 'reka-ui';
 import { CalendarCell, CalendarCellTrigger, CalendarGrid, CalendarGridBody, CalendarGridHead, CalendarGridRow, CalendarHeadCell, CalendarHeader, CalendarHeading, CalendarNextButton, CalendarPrevButton } from '.';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<CalendarRootProps>();
 const emits = defineEmits<CalendarRootEmits>();
@@ -12,8 +21,9 @@ const forwarded = useForwardPropsEmits(props, emits);
   <CalendarRoot
     v-slot="{ grid, weekDays }"
     class="sigma-ui-calendar"
-    v-bind="forwarded"
+    v-bind="{ ...forwarded, ...delegatedAttrs }"
     data-slot="calendar"
+    :class="[$attrs.class]"
   >
     <CalendarHeader>
       <CalendarPrevButton />

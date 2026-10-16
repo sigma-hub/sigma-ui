@@ -1,4 +1,13 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
+
 interface FieldLegendProps {
   /**
    * `legend` renders a section heading, `label` matches the size of a field label.
@@ -23,6 +32,8 @@ defineSlots<{
     data-slot="field-legend"
     :data-variant="props.variant"
     class="sigma-ui-field-legend"
+    v-bind="delegatedAttrs"
+    :class="[$attrs.class]"
   >
     <slot />
   </legend>

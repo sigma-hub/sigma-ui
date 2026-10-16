@@ -1,7 +1,16 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import type { NumberFieldDecrementProps } from 'reka-ui';
 import { NumberFieldDecrement, useForwardProps } from 'reka-ui';
 import { MinusIcon } from 'lucide-vue-next';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<NumberFieldDecrementProps>();
 
@@ -11,8 +20,9 @@ const forwarded = useForwardProps(props);
 <template>
   <NumberFieldDecrement
     data-slot="decrement"
-    v-bind="forwarded"
+    v-bind="{ ...forwarded, ...delegatedAttrs }"
     class="sigma-ui-number-field-decrement"
+    :class="[$attrs.class]"
   >
     <slot>
       <MinusIcon class="sigma-ui-number-field-decrement__icon" />

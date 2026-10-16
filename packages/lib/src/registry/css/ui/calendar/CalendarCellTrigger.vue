@@ -1,6 +1,15 @@
 <script lang="ts" setup>
+import { computed, useAttrs } from 'vue';
+
 import { CalendarCellTrigger, type CalendarCellTriggerProps, useForwardProps } from 'reka-ui';
 import { buttonVariants } from '@ui/registry/css/ui/button';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<CalendarCellTriggerProps>();
 
@@ -10,9 +19,10 @@ const forwardedProps = useForwardProps(props);
 <template>
   <CalendarCellTrigger
     class="sigma-ui-calendar-cell-trigger"
-    :class="[buttonVariants({ variant: 'ghost' })]"
-    v-bind="forwardedProps"
-   data-slot="calendar-cell-trigger">
+    :class="[buttonVariants({ variant: 'ghost' }), $attrs.class]"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs }"
+    data-slot="calendar-cell-trigger"
+  >
     <slot />
   </CalendarCellTrigger>
 </template>

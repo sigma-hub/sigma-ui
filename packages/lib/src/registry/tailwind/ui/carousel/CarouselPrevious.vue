@@ -1,8 +1,17 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { ArrowLeftIcon } from 'lucide-vue-next';
 import { useCarousel } from './useCarousel';
 import { cn } from '@ui/utils';
 import { Button } from '@ui/registry/tailwind/ui/button';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = withDefaults(defineProps<{
   label?: string;
@@ -15,6 +24,7 @@ const { orientation, canScrollPrev, scrollPrev } = useCarousel();
 
 <template>
   <Button
+    v-bind="delegatedAttrs"
     :disabled="!canScrollPrev"
     :class="cn(
       'touch-manipulation absolute h-8 w-8 rounded p-0',
@@ -24,8 +34,8 @@ const { orientation, canScrollPrev, scrollPrev } = useCarousel();
       $attrs.class ?? '',
     )"
     variant="outline"
-    @click="scrollPrev"
     data-slot="carousel-previous"
+    @click="scrollPrev"
   >
     <slot>
       <ArrowLeftIcon class="h-4 w-4 text-current" />

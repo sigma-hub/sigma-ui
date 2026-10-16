@@ -37,8 +37,10 @@ function handleEscKeydown(event: KeyboardEvent) {
 </script>
 
 <template>
-  <div class="mx-auto w-full max-w-[990px] flex flex-col @container/card-lightbox"
-  data-slot="card-lightbox">
+  <div
+    class="mx-auto w-full max-w-[990px] flex flex-col @container/card-lightbox"
+    data-slot="card-lightbox"
+  >
     <ul class="grid grid-cols-1 gap-2.5 p-0 m-0 list-none @lg/card-lightbox:grid-cols-10 @lg/card-lightbox:gap-5">
       <motion.button
         v-for="card in props.items"

@@ -1,9 +1,15 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { useCarousel } from './useCarousel';
 import { cn } from '@ui/utils';
 
 defineOptions({
   inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
 });
 
 const { carouselRef, orientation } = useCarousel();
@@ -22,7 +28,7 @@ const { carouselRef, orientation } = useCarousel();
           orientation === 'horizontal' ? '-ml-4' : '-mt-4 flex-col',
           $attrs.class ?? '',
         )"
-      v-bind="$attrs"
+      v-bind="delegatedAttrs"
     >
       <slot />
     </div>

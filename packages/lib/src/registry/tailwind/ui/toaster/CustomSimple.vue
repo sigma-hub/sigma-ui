@@ -20,8 +20,10 @@ const emit = defineEmits<Emits>();
 </script>
 
 <template>
-  <div class="flex w-full items-end justify-between bg-background rounded border border-border p-4 shadow-lg"
-  data-slot="custom-simple">
+  <div
+    class="flex w-full items-end justify-between bg-background rounded border border-border p-4 shadow-lg"
+    data-slot="custom-simple"
+  >
     <div>
       <div class="text-sm font-semibold">
         {{ props.title }}

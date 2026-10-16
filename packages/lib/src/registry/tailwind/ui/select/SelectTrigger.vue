@@ -1,8 +1,17 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { SelectIcon, SelectTrigger, type SelectTriggerProps, useForwardProps } from 'reka-ui';
 import { reactiveOmit } from '@vueuse/core';
 import { ChevronDownIcon } from 'lucide-vue-next';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 interface SelectTriggerExtraProps extends SelectTriggerProps {
   /**
@@ -20,7 +29,7 @@ const forwardedProps = useForwardProps(reactiveOmit(props, 'size'));
 
 <template>
   <SelectTrigger
-    v-bind="forwardedProps"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs }"
     data-slot="select-trigger"
     :data-size="props.size"
     :class="cn(

@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { computed, useAttrs } from 'vue';
+
 import type { Component } from 'vue';
 import { ChevronRightIcon } from 'lucide-vue-next';
 import {
@@ -9,6 +11,13 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '.';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 export interface BreadcrumbItem {
   label?: string;
@@ -51,8 +60,11 @@ function getActionProps(item: BreadcrumbItem, isLast: boolean): ActionProps {
 </script>
 
 <template>
-  <Breadcrumb :class="$attrs.class"
-  data-slot="breadcrumb-generator">
+  <Breadcrumb
+    v-bind="delegatedAttrs"
+    :class="$attrs.class"
+    data-slot="breadcrumb-generator"
+  >
     <BreadcrumbList>
       <BreadcrumbItemComponent v-if="home">
         <slot

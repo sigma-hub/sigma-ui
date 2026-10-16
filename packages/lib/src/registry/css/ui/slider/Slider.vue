@@ -1,6 +1,15 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import type { SliderRootEmits, SliderRootProps } from 'reka-ui';
 import { SliderRange, SliderRoot, SliderThumb, SliderTrack, useForwardPropsEmits } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<SliderRootProps>();
 const emits = defineEmits<SliderRootEmits>();
@@ -11,8 +20,9 @@ const forwarded = useForwardPropsEmits(props, emits);
 <template>
   <SliderRoot
     class="sigma-ui-slider"
-    v-bind="forwarded"
+    v-bind="{ ...forwarded, ...delegatedAttrs }"
     data-slot="slider"
+    :class="[$attrs.class]"
   >
     <SliderTrack class="sigma-ui-slider__track">
       <SliderRange class="sigma-ui-slider__range" />

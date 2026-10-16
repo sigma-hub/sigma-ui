@@ -1,5 +1,14 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { Primitive, type PrimitiveProps } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 withDefaults(defineProps<PrimitiveProps>(), {
   as: 'div',
@@ -19,6 +28,8 @@ defineSlots<{
     :as="as"
     :as-child="asChild"
     class="sigma-ui-button-group-text"
+    v-bind="delegatedAttrs"
+    :class="[$attrs.class]"
   >
     <slot />
   </Primitive>

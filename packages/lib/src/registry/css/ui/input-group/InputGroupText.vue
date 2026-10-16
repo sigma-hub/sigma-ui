@@ -1,4 +1,13 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
+
 defineSlots<{
   /**
    * Text or an icon shown inside an addon.
@@ -9,6 +18,7 @@ defineSlots<{
 
 <template>
   <span
+    v-bind="delegatedAttrs"
     data-slot="input-group-text"
     class="sigma-ui-input-group-text"
     :class="[$attrs.class]"

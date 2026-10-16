@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import {
   MenubarItemIndicator,
   MenubarRadioItem,
@@ -8,6 +10,13 @@ import {
 } from 'reka-ui';
 import { CircleIcon } from 'lucide-vue-next';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<MenubarRadioItemProps>();
 const emits = defineEmits<MenubarRadioItemEmits>();
@@ -17,12 +26,13 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <MenubarRadioItem
-    v-bind="forwarded"
+    v-bind="{ ...forwarded, ...delegatedAttrs }"
     :class="cn(
       'relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-hidden focus:bg-secondary focus:text-secondary-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
       $attrs.class ?? '',
     )"
-   data-slot="menubar-radio-item">
+    data-slot="menubar-radio-item"
+  >
     <span class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
       <MenubarItemIndicator>
         <CircleIcon class="h-2 w-2 fill-current" />

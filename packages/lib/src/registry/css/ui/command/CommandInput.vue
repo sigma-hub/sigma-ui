@@ -1,9 +1,14 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { SearchIcon } from 'lucide-vue-next';
 import { ComboboxInput, type ComboboxInputProps, useForwardProps } from 'reka-ui';
-
 defineOptions({
   inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
 });
 
 const props = defineProps<ComboboxInputProps>();
@@ -19,9 +24,10 @@ const forwardedProps = useForwardProps(props);
   >
     <SearchIcon class="sigma-ui-command-input__icon" />
     <ComboboxInput
-      v-bind="{ ...forwardedProps, ...$attrs }"
+      v-bind="{ ...forwardedProps, ...delegatedAttrs }"
       auto-focus
       class="sigma-ui-command-input__field"
+      :class="[$attrs.class]"
     />
   </div>
 </template>

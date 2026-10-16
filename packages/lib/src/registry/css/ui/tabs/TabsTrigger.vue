@@ -1,5 +1,14 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { TabsTrigger, type TabsTriggerProps, useForwardProps } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<TabsTriggerProps>();
 
@@ -8,9 +17,11 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <TabsTrigger
-    v-bind="forwardedProps"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs }"
     class="sigma-ui-tabs-trigger"
-   data-slot="tabs-trigger">
+    data-slot="tabs-trigger"
+    :class="[$attrs.class]"
+  >
     <slot />
   </TabsTrigger>
 </template>

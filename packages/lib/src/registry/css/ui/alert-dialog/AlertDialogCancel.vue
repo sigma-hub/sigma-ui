@@ -12,7 +12,8 @@ const attrs = useAttrs();
     v-bind="props"
     class="sigma-ui-button sigma-ui-alert-dialog-cancel"
     :class="[buttonVariants({ variant: 'outline' }), attrs.class]"
-   data-slot="alert-dialog-cancel">
+    data-slot="alert-dialog-cancel"
+  >
     <slot />
   </AlertDialogCancel>
 </template>

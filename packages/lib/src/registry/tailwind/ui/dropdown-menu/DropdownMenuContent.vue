@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import {
   DropdownMenuContent,
   type DropdownMenuContentEmits,
@@ -7,6 +9,13 @@ import {
   useForwardPropsEmits,
 } from 'reka-ui';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = withDefaults(
   defineProps<DropdownMenuContentProps>(),
@@ -22,9 +31,10 @@ const forwarded = useForwardPropsEmits(props, emits);
 <template>
   <DropdownMenuPortal>
     <DropdownMenuContent
-      v-bind="forwarded"
+      v-bind="{ ...forwarded, ...delegatedAttrs }"
       :class="cn('z-50 min-w-32 rounded-md border bg-popover backdrop-blur-(--backdrop-filter-blur) p-1 text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2', $attrs.class ?? '')"
-     data-slot="dropdown-menu-content">
+      data-slot="dropdown-menu-content"
+    >
       <slot />
     </DropdownMenuContent>
   </DropdownMenuPortal>

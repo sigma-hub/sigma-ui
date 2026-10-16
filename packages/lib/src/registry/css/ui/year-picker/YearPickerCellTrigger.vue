@@ -1,5 +1,14 @@
 <script lang="ts" setup>
+import { computed, useAttrs } from 'vue';
+
 import { YearPickerCellTrigger, type YearPickerCellTriggerProps, useForwardProps } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<YearPickerCellTriggerProps>();
 const forwarded = useForwardProps(props);
@@ -7,9 +16,9 @@ const forwarded = useForwardProps(props);
 
 <template>
   <YearPickerCellTrigger
+    v-bind="{ ...forwarded, ...delegatedAttrs }"
     data-slot="year-picker-cell-trigger"
     class="sigma-ui-year-picker-cell-trigger"
-    v-bind="forwarded"
     :class="[$attrs.class]"
   >
     <slot />

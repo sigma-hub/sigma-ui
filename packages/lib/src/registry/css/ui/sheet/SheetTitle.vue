@@ -1,5 +1,14 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { DialogTitle, type DialogTitleProps } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<DialogTitleProps>();
 </script>
@@ -7,8 +16,9 @@ const props = defineProps<DialogTitleProps>();
 <template>
   <DialogTitle
     class="sigma-ui-sheet-title"
-    v-bind="props"
+    v-bind="{ ...props, ...delegatedAttrs }"
     data-slot="sheet-title"
+    :class="[$attrs.class]"
   >
     <slot />
   </DialogTitle>

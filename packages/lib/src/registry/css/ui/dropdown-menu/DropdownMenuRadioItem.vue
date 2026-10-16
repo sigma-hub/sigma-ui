@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import {
   DropdownMenuItemIndicator,
   DropdownMenuRadioItem,
@@ -7,6 +9,13 @@ import {
   useForwardPropsEmits,
 } from 'reka-ui';
 import { CircleIcon } from 'lucide-vue-next';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<DropdownMenuRadioItemProps>();
 const emits = defineEmits<DropdownMenuRadioItemEmits>();
@@ -16,9 +25,11 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <DropdownMenuRadioItem
-    v-bind="forwarded"
+    v-bind="{ ...forwarded, ...delegatedAttrs }"
     class="sigma-ui-dropdown-menu-radio-item"
-   data-slot="dropdown-menu-radio-item">
+    data-slot="dropdown-menu-radio-item"
+    :class="[$attrs.class]"
+  >
     <span class="sigma-ui-dropdown-menu-radio-item__indicator">
       <DropdownMenuItemIndicator>
 

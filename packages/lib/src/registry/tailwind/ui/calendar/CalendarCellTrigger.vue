@@ -1,7 +1,16 @@
 <script lang="ts" setup>
+import { computed, useAttrs } from 'vue';
+
 import { CalendarCellTrigger, type CalendarCellTriggerProps, useForwardProps } from 'reka-ui';
 import { buttonVariants } from '@ui/registry/tailwind/ui/button';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<CalendarCellTriggerProps>();
 
@@ -10,6 +19,7 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <CalendarCellTrigger
+    v-bind="{ ...forwardedProps, ...delegatedAttrs }"
     :class="cn(
       buttonVariants({ variant: 'ghost' }),
       'h-9 w-9 p-0 font-normal',
@@ -24,8 +34,8 @@ const forwardedProps = useForwardProps(props);
       'data-[outside-month]:pointer-events-none data-[outside-month]:text-muted-foreground data-[outside-month]:opacity-50 [&[data-outside-month][data-selected]]:bg-secondary/50 [&[data-outside-month][data-selected]]:text-muted-foreground [&[data-outside-month][data-selected]]:opacity-30',
       $attrs.class ?? '',
     )"
-    v-bind="forwardedProps"
-   data-slot="calendar-cell-trigger">
+    data-slot="calendar-cell-trigger"
+  >
     <slot />
   </CalendarCellTrigger>
 </template>

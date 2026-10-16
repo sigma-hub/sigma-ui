@@ -1,5 +1,14 @@
 <script lang="ts" setup>
+import { computed, useAttrs } from 'vue';
+
 import { RangeCalendarCell, type RangeCalendarCellProps, useForwardProps } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<RangeCalendarCellProps>();
 
@@ -9,8 +18,10 @@ const forwardedProps = useForwardProps(props);
 <template>
   <RangeCalendarCell
     class="sigma-ui-range-calendar-cell"
-    v-bind="forwardedProps"
-   data-slot="range-calendar-cell">
+    v-bind="{ ...forwardedProps, ...delegatedAttrs }"
+    data-slot="range-calendar-cell"
+    :class="[$attrs.class]"
+  >
     <slot />
   </RangeCalendarCell>
 </template>

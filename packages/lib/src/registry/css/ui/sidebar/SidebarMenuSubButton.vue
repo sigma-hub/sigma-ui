@@ -1,5 +1,14 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { Primitive, type PrimitiveProps } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 interface SidebarMenuSubButtonProps extends PrimitiveProps {
   /**
@@ -35,6 +44,8 @@ defineSlots<{
     :data-size="size"
     :data-active="props.isActive"
     class="sigma-ui-sidebar-menu-sub-button"
+    v-bind="delegatedAttrs"
+    :class="[$attrs.class]"
   >
     <slot />
   </Primitive>

@@ -1,15 +1,22 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import {
   SwitchRoot,
   type SwitchRootEmits,
   type SwitchRootProps,
   SwitchThumb,
   useForwardPropsEmits,
-
 } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<SwitchRootProps>();
-
 const emits = defineEmits<SwitchRootEmits>();
 
 const forwarded = useForwardPropsEmits(props, emits);
@@ -17,9 +24,10 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <SwitchRoot
-    v-bind="forwarded"
+    v-bind="{ ...forwarded, ...delegatedAttrs }"
     class="sigma-ui-switch"
     data-slot="switch"
+    :class="[$attrs.class]"
   >
     <SwitchThumb class="sigma-ui-switch__thumb" />
   </SwitchRoot>

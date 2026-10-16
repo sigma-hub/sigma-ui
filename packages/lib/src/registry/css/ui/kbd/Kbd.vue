@@ -1,4 +1,13 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
+
 defineSlots<{
   /**
    * Key label, such as `Ctrl` or an icon.
@@ -9,6 +18,7 @@ defineSlots<{
 
 <template>
   <kbd
+    v-bind="delegatedAttrs"
     data-slot="kbd"
     class="sigma-ui-kbd"
     :class="[$attrs.class]"

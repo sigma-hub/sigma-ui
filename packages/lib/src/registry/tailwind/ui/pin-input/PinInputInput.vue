@@ -1,6 +1,15 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { PinInputInput, type PinInputInputProps, useForwardProps } from 'reka-ui';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<PinInputInputProps>();
 
@@ -9,7 +18,8 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <PinInputInput
-    v-bind="forwardedProps"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs }"
     :class="cn('relative text-center focus:outline-2 focus:outline-ring focus:-outline-offset-1 focus:relative focus:z-10 flex h-10 w-10 items-center justify-center border-y border-r border-input text-sm transition-all first:rounded-l-md first:border-l last:rounded-r-md', $attrs.class ?? '')"
-   data-slot="pin-input-input"/>
+    data-slot="pin-input-input"
+  />
 </template>

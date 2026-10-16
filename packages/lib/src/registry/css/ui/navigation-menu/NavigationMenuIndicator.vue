@@ -1,5 +1,14 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { NavigationMenuIndicator, type NavigationMenuIndicatorProps, useForwardProps } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<NavigationMenuIndicatorProps>();
 
@@ -8,9 +17,11 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <NavigationMenuIndicator
-    v-bind="forwardedProps"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs }"
     class="sigma-ui-navigation-menu-indicator"
-   data-slot="navigation-menu-indicator">
+    data-slot="navigation-menu-indicator"
+    :class="[$attrs.class]"
+  >
     <div class="sigma-ui-navigation-menu-indicator__pointer" />
   </NavigationMenuIndicator>
 </template>

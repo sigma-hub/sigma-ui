@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import {
   ContextMenuCheckboxItem,
   type ContextMenuCheckboxItemEmits,
@@ -7,6 +9,13 @@ import {
   useForwardPropsEmits,
 } from 'reka-ui';
 import { CheckIcon } from 'lucide-vue-next';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<ContextMenuCheckboxItemProps>();
 const emits = defineEmits<ContextMenuCheckboxItemEmits>();
@@ -16,9 +25,11 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <ContextMenuCheckboxItem
-    v-bind="forwarded"
+    v-bind="{ ...forwarded, ...delegatedAttrs }"
     class="sigma-ui-context-menu-checkbox-item"
-   data-slot="context-menu-checkbox-item">
+    data-slot="context-menu-checkbox-item"
+    :class="[$attrs.class]"
+  >
     <span class="sigma-ui-context-menu-checkbox-item__indicator">
       <ContextMenuItemIndicator>
         <CheckIcon class="sigma-ui-context-menu-checkbox-item__icon" />

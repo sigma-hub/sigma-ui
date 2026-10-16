@@ -1,6 +1,15 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { SelectScrollUpButton, type SelectScrollUpButtonProps, useForwardProps } from 'reka-ui';
 import { ChevronUpIcon } from 'lucide-vue-next';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<SelectScrollUpButtonProps>();
 
@@ -9,9 +18,11 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <SelectScrollUpButton
-    v-bind="forwardedProps"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs }"
     class="sigma-ui-select-scroll-up"
-   data-slot="select-scroll-up-button">
+    data-slot="select-scroll-up-button"
+    :class="[$attrs.class]"
+  >
     <slot>
       <ChevronUpIcon class="sigma-ui-select-scroll-up__icon" />
     </slot>

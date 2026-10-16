@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import type { Ref } from 'vue';
 import { CalendarRoot, type CalendarRootEmits, type CalendarRootProps, useDateFormatter, useForwardPropsEmits } from 'reka-ui';
 import { createDecade, createYear, toDate } from 'reka-ui/date';
@@ -13,6 +15,13 @@ import {
   SelectValue,
 } from '@ui/registry/tailwind/ui/select';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = withDefaults(defineProps<CalendarRootProps>(), {
   modelValue: undefined,
@@ -37,8 +46,8 @@ const formatter = useDateFormatter('en');
 <template>
   <CalendarRoot
     v-slot="{ date, grid, weekDays }"
+    v-bind="{ ...forwarded, ...delegatedAttrs }"
     v-model:placeholder="placeholder"
-    v-bind="forwarded"
     :class="cn('rounded-md border p-3', $attrs.class ?? '')"
   >
     <CalendarHeader>

@@ -1,6 +1,15 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { SplitterResizeHandle, type SplitterResizeHandleEmits, type SplitterResizeHandleProps, useForwardPropsEmits } from 'reka-ui';
 import { GripVerticalIcon } from 'lucide-vue-next';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<SplitterResizeHandleProps & {
   /** Shows a visible grip icon on the handle. */
@@ -13,9 +22,10 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <SplitterResizeHandle
-    v-bind="forwarded"
+    v-bind="{ ...forwarded, ...delegatedAttrs }"
     class="sigma-ui-resizable-handle"
     data-slot="resizable-handle"
+    :class="[$attrs.class]"
   >
     <template v-if="props.withHandle">
       <div class="sigma-ui-resizable-handle__grip">

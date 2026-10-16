@@ -1,5 +1,14 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { MenubarLabel, type MenubarLabelProps } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<MenubarLabelProps & {
   /** Adds left padding so the text lines up with items that have an icon or indicator. */
@@ -9,9 +18,11 @@ const props = defineProps<MenubarLabelProps & {
 
 <template>
   <MenubarLabel
+    v-bind="delegatedAttrs"
     class="sigma-ui-menubar-label"
     :class="[{ 'sigma-ui-menubar-label--inset': inset }, $attrs.class]"
-   data-slot="menubar-label">
+    data-slot="menubar-label"
+  >
     <slot />
   </MenubarLabel>
 </template>

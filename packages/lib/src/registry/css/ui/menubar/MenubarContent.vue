@@ -1,10 +1,19 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import {
   MenubarContent,
   type MenubarContentProps,
   MenubarPortal,
   useForwardProps,
 } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = withDefaults(
   defineProps<MenubarContentProps>(),
@@ -21,10 +30,11 @@ const forwardedProps = useForwardProps(props);
 <template>
   <MenubarPortal>
     <MenubarContent
-      v-bind="forwardedProps"
+      v-bind="{ ...forwardedProps, ...delegatedAttrs }"
       class="sigma-ui-menubar-content"
       :class="[$attrs.class]"
-     data-slot="menubar-content">
+      data-slot="menubar-content"
+    >
       <slot />
     </MenubarContent>
   </MenubarPortal>

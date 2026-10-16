@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import {
   DialogClose,
   DialogContent,
@@ -10,6 +12,13 @@ import {
 } from 'reka-ui';
 import { XIcon } from 'lucide-vue-next';
 import { reactiveOmit } from '@vueuse/core';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = withDefaults(defineProps<DialogContentProps & {
   closeLabel?: string;
@@ -25,10 +34,11 @@ const forwarded = useForwardPropsEmits(reactiveOmit(props, 'closeLabel'), emits)
   <DialogPortal>
     <DialogOverlay class="sigma-ui-dialog-overlay" />
     <DialogContent
-      v-bind="forwarded"
+      v-bind="{ ...forwarded, ...delegatedAttrs }"
       class="sigma-ui-dialog-content"
       :class="[$attrs.class]"
-     data-slot="dialog-content">
+      data-slot="dialog-content"
+    >
       <slot />
 
       <DialogClose class="sigma-ui-dialog-close">

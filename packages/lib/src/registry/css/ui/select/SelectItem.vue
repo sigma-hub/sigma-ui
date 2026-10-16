@@ -1,13 +1,21 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import {
   SelectItem,
   SelectItemIndicator,
   type SelectItemProps,
   SelectItemText,
   useForwardProps,
-
 } from 'reka-ui';
 import { CheckIcon } from 'lucide-vue-next';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<SelectItemProps>();
 
@@ -17,8 +25,9 @@ const forwardedProps = useForwardProps(props);
 <template>
   <SelectItem
     data-slot="select-item"
-    v-bind="forwardedProps"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs }"
     class="sigma-ui-select-item"
+    :class="[$attrs.class]"
   >
     <span class="sigma-ui-select-item__indicator-wrapper">
       <SelectItemIndicator>

@@ -1,4 +1,13 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
+
 defineSlots<{
   /**
    * Secondary text. Links inside it are underlined.
@@ -9,6 +18,7 @@ defineSlots<{
 
 <template>
   <p
+    v-bind="delegatedAttrs"
     data-slot="item-description"
     class="sigma-ui-item-description"
     :class="[$attrs.class]"

@@ -1,15 +1,26 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { PaginationEllipsis, type PaginationEllipsisProps } from 'reka-ui';
 import { MoreHorizontalIcon } from 'lucide-vue-next';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<PaginationEllipsisProps>();
 </script>
 
 <template>
   <PaginationEllipsis
-    v-bind="props"
+    v-bind="{ ...props, ...delegatedAttrs }"
     class="sigma-ui-pagination-ellipsis"
-   data-slot="pagination-ellipsis">
+    data-slot="pagination-ellipsis"
+    :class="[$attrs.class]"
+  >
     <slot>
       <MoreHorizontalIcon class="sigma-ui-pagination-ellipsis__icon" />
     </slot>

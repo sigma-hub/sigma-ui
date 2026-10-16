@@ -1,9 +1,18 @@
 <script lang="ts" setup>
+import { computed, useAttrs } from 'vue';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 </script>
 
 <template>
   <ol
+    v-bind="delegatedAttrs"
     class="sigma-ui-breadcrumb__list"
     :class="[$attrs.class]"
     data-slot="breadcrumb-list"

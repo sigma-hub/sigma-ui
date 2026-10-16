@@ -1,5 +1,14 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { TagsInputRoot, type TagsInputRootEmits, type TagsInputRootProps, useForwardPropsEmits } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<TagsInputRootProps>();
 const emits = defineEmits<TagsInputRootEmits>();
@@ -9,9 +18,10 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <TagsInputRoot
-    v-bind="forwarded"
+    v-bind="{ ...forwarded, ...delegatedAttrs }"
     class="sigma-ui-tags-input"
     data-slot="tags-input"
+    :class="[$attrs.class]"
   >
     <slot />
   </TagsInputRoot>

@@ -1,6 +1,15 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import type { ComboboxRootEmits, ComboboxRootProps } from 'reka-ui';
 import { ComboboxRoot, useForwardPropsEmits } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = withDefaults(defineProps<ComboboxRootProps>(), {
   open: true,
@@ -14,9 +23,10 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <ComboboxRoot
-    v-bind="forwarded"
+    v-bind="{ ...forwarded, ...delegatedAttrs }"
     class="sigma-ui-command"
     data-slot="command"
+    :class="[$attrs.class]"
   >
     <slot />
   </ComboboxRoot>

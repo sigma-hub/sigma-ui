@@ -1,9 +1,15 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { ColorSwatchPickerItem, type ColorSwatchPickerItemProps, type ListboxItemEmits, useForwardPropsEmits } from 'reka-ui';
 import { cn } from '@ui/utils';
 
 defineOptions({
   inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
 });
 
 const props = defineProps<ColorSwatchPickerItemProps>();
@@ -14,7 +20,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 <template>
   <ColorSwatchPickerItem
     data-slot="color-swatch-picker-item"
-    v-bind="{ ...forwarded, ...$attrs }"
+    v-bind="{ ...forwarded, ...delegatedAttrs }"
     :class="cn('rounded-md outline-none focus-visible:outline-2 focus-visible:outline-ring data-[highlighted]:outline-2 data-[highlighted]:outline-ring', $attrs.class ?? '')"
   >
     <slot />

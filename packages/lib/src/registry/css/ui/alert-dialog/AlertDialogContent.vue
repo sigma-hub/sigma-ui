@@ -23,7 +23,8 @@ const forwarded = useForwardPropsEmits(props, emits);
       v-bind="forwarded"
       class="sigma-ui-alert-dialog-content"
       :class="attrs.class"
-     data-slot="alert-dialog-content">
+      data-slot="alert-dialog-content"
+    >
       <slot />
     </AlertDialogContent>
   </AlertDialogPortal>

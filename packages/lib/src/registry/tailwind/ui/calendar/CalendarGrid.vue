@@ -1,6 +1,15 @@
 <script lang="ts" setup>
+import { computed, useAttrs } from 'vue';
+
 import { CalendarGrid, type CalendarGridProps, useForwardProps } from 'reka-ui';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<CalendarGridProps>();
 
@@ -9,9 +18,10 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <CalendarGrid
+    v-bind="{ ...forwardedProps, ...delegatedAttrs }"
     :class="cn('w-full border-collapse space-y-1', $attrs.class ?? '')"
-    v-bind="forwardedProps"
-   data-slot="calendar-grid">
+    data-slot="calendar-grid"
+  >
     <slot />
   </CalendarGrid>
 </template>

@@ -14,8 +14,10 @@ defineProps<{
 </script>
 
 <template>
-  <Card class="text-sm"
-  data-slot="chart-tooltip">
+  <Card
+    class="text-sm"
+    data-slot="chart-tooltip"
+  >
     <CardHeader
       v-if="title"
       class="p-3 border-b"

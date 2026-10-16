@@ -1,4 +1,13 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
+
 defineSlots<{
   /**
    * A `FieldLegend`, an optional `FieldDescription`, and a `FieldGroup`.
@@ -11,6 +20,8 @@ defineSlots<{
   <fieldset
     data-slot="field-set"
     class="sigma-ui-field-set"
+    v-bind="delegatedAttrs"
+    :class="[$attrs.class]"
   >
     <slot />
   </fieldset>

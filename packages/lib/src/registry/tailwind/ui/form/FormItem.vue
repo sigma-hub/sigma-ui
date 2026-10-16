@@ -1,16 +1,26 @@
 <script lang="ts" setup>
-import { provide } from 'vue';
+import { provide, computed, useAttrs } from 'vue';
 import { useId } from 'reka-ui';
 import { FORM_ITEM_INJECTION_KEY } from './injectionKeys';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const id = useId();
 provide(FORM_ITEM_INJECTION_KEY, id);
 </script>
 
 <template>
-  <div :class="cn('flex flex-col gap-2', $attrs.class ?? '')"
-  data-slot="form-item">
+  <div
+    v-bind="delegatedAttrs"
+    :class="cn('flex flex-col gap-2', $attrs.class ?? '')"
+    data-slot="form-item"
+  >
     <slot />
   </div>
 </template>

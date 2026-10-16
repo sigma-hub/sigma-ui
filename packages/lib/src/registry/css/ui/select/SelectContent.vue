@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import {
   SelectContent,
   type SelectContentEmits,
@@ -12,6 +14,10 @@ import { SelectScrollDownButton, SelectScrollUpButton } from '.';
 
 defineOptions({
   inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
 });
 
 const props = withDefaults(
@@ -29,7 +35,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   <SelectPortal>
     <SelectContent
       data-slot="select-content"
-      v-bind="{ ...forwarded, ...$attrs }"
+      v-bind="{ ...forwarded, ...delegatedAttrs }"
       class="sigma-ui-select-content"
       :class="[$attrs.class]"
     >

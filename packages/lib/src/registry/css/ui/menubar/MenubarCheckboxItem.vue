@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import {
   MenubarCheckboxItem,
   type MenubarCheckboxItemEmits,
@@ -7,6 +9,13 @@ import {
   useForwardPropsEmits,
 } from 'reka-ui';
 import { CheckIcon } from 'lucide-vue-next';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<MenubarCheckboxItemProps>();
 const emits = defineEmits<MenubarCheckboxItemEmits>();
@@ -16,9 +25,11 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <MenubarCheckboxItem
-    v-bind="forwarded"
+    v-bind="{ ...forwarded, ...delegatedAttrs }"
     class="sigma-ui-menubar-checkbox-item"
-   data-slot="menubar-checkbox-item">
+    data-slot="menubar-checkbox-item"
+    :class="[$attrs.class]"
+  >
     <span class="sigma-ui-menubar-checkbox-item__indicator">
       <MenubarItemIndicator>
         <CheckIcon class="sigma-ui-menubar-checkbox-item__icon" />

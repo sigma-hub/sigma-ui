@@ -1,6 +1,15 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { useProvideCarousel } from './useCarousel';
 import type { CarouselEmits, CarouselProps } from './interface';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = withDefaults(defineProps<CarouselProps>(), {
   orientation: 'horizontal',
@@ -32,13 +41,14 @@ function onKeyDown(event: KeyboardEvent) {
 
 <template>
   <div
+    v-bind="delegatedAttrs"
     class="sigma-ui-carousel"
     :class="[$attrs.class]"
     role="region"
     aria-roledescription="carousel"
     tabindex="0"
-    @keydown="onKeyDown"
     data-slot="carousel"
+    @keydown="onKeyDown"
   >
     <slot v-bind="carouselArgs" />
   </div>

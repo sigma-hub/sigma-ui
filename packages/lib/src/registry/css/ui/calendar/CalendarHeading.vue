@@ -1,5 +1,14 @@
 <script lang="ts" setup>
+import { computed, useAttrs } from 'vue';
+
 import { CalendarHeading, type CalendarHeadingProps, useForwardProps } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<CalendarHeadingProps>();
 
@@ -10,8 +19,10 @@ const forwardedProps = useForwardProps(props);
   <CalendarHeading
     v-slot="{ headingValue }"
     class="sigma-ui-calendar-heading"
-    v-bind="forwardedProps"
-   data-slot="calendar-heading">
+    v-bind="{ ...forwardedProps, ...delegatedAttrs }"
+    data-slot="calendar-heading"
+    :class="[$attrs.class]"
+  >
     <slot :heading-value="headingValue">
       {{ headingValue }}
     </slot>
