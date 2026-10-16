@@ -70,7 +70,7 @@ const props = withDefaults(defineProps<Props>(), {
 }
 
 .sigma-ui-button[aria-invalid="true"] {
-  border-color: hsl(var(--destructive));
+  border-color: var(--destructive);
 }
 
 .sigma-ui-button:focus-visible {
