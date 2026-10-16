@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { AutocompleteItem, type AutocompleteItemEmits, type AutocompleteItemProps, useForwardPropsEmits } from 'reka-ui';
+import { AutocompleteItem, type ComboboxItemEmits, type ComboboxItemProps, useForwardPropsEmits } from 'reka-ui';
 import { cn } from '@ui/utils';
 
 defineOptions({
   inheritAttrs: false,
 });
 
-const props = defineProps<AutocompleteItemProps>();
-const emits = defineEmits<AutocompleteItemEmits>();
+const props = defineProps<ComboboxItemProps>();
+const emits = defineEmits<ComboboxItemEmits>();
 const forwarded = useForwardPropsEmits(props, emits);
 </script>
 
