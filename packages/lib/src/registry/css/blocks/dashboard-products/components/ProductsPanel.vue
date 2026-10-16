@@ -207,8 +207,8 @@ defineProps<{
 .dashboard-products__toolbar-actions {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
   margin-left: auto;
+  gap: 0.5rem;
 }
 
 .dashboard-products .dashboard-products__tab--desktop {
@@ -238,23 +238,23 @@ defineProps<{
 
 .dashboard-products__action-label {
   position: absolute;
+  overflow: hidden;
   width: 1px;
   height: 1px;
   padding: 0;
+  border-width: 0;
   margin: -1px;
-  overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  border-width: 0;
 }
 
 @media (width >= 640px) {
   .dashboard-products__action-label {
     position: static;
+    overflow: visible;
     width: auto;
     height: auto;
     margin: 0;
-    overflow: visible;
     clip: auto;
     white-space: nowrap;
   }
@@ -284,8 +284,8 @@ defineProps<{
 }
 
 .dashboard-products__image {
-  aspect-ratio: 1 / 1;
   border-radius: calc(var(--radius) - 2px);
+  aspect-ratio: 1 / 1;
   object-fit: cover;
 }
 
@@ -301,13 +301,13 @@ defineProps<{
 
 .dashboard-products__sr-only {
   position: absolute;
+  overflow: hidden;
   width: 1px;
   height: 1px;
   padding: 0;
+  border-width: 0;
   margin: -1px;
-  overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  border-width: 0;
 }
 </style>
