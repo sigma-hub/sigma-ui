@@ -175,7 +175,7 @@ export function assemblePlaygroundFiles(options: {
   if (styleSystem === 'tailwind') {
     dependencies.set('clsx', 'latest');
     dependencies.set('tailwind-merge', 'latest');
-    dependencies.set('tailwindcss-animate', 'latest');
+    dependencies.set('tw-animate-css', 'latest');
   }
 
   const files: Record<string, PlaygroundProjectFile> = {};

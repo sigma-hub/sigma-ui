@@ -29,6 +29,7 @@ describe('playground project', () => {
     expect(JSON.parse(files['package.json'].content).dependencies['reka-ui']).toBe('^2.2.1');
     expect(files['src/components/ui/button/Button.vue'].content).toContain('@/components/ui/button');
     expect(files['src/App.vue'].content).toContain(`from '@/components/ui/button'`);
+    expect(JSON.parse(files['package.json'].content).dependencies['tw-animate-css']).toBe('latest');
     expect(files['src/lib/utils.ts']).toBeDefined();
     expect(rawConfigSchema.safeParse(JSON.parse(files['sigma-ui.config.json'].content)).success).toBe(true);
   });
@@ -57,7 +58,10 @@ describe('playground project', () => {
     const plainCss = createPlaygroundStylesheet('css');
 
     expect(tailwindCss).toContain('--background:');
+    expect(tailwindCss).toContain('@import "tw-animate-css"');
+    expect(tailwindCss).toContain('--color-chart-1');
     expect(tailwindCss).not.toContain('@config');
+    expect(tailwindCss).not.toContain('tailwindcss-animate');
     expect(plainCss).toContain('@import "./preflight.css"');
     expect(plainCss).toContain('--background:');
   });
