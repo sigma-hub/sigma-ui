@@ -1,4 +1,13 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
+
 defineSlots<{
   /**
    * List of `SidebarMenuItem` components.
@@ -12,6 +21,8 @@ defineSlots<{
     data-slot="sidebar-menu"
     data-sidebar="menu"
     class="sigma-ui-sidebar-menu"
+    v-bind="delegatedAttrs"
+    :class="[$attrs.class]"
   >
     <slot />
   </ul>

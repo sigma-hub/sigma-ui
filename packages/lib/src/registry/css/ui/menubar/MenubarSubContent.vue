@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import {
   MenubarPortal,
   MenubarSubContent,
@@ -6,6 +8,13 @@ import {
   type MenubarSubContentProps,
   useForwardPropsEmits,
 } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<MenubarSubContentProps>();
 const emits = defineEmits<MenubarSubContentEmits>();
@@ -16,10 +25,11 @@ const forwarded = useForwardPropsEmits(props, emits);
 <template>
   <MenubarPortal>
     <MenubarSubContent
-      v-bind="forwarded"
+      v-bind="{ ...forwarded, ...delegatedAttrs }"
       class="sigma-ui-menubar-subcontent"
       :class="[$attrs.class]"
-     data-slot="menubar-sub-content">
+      data-slot="menubar-sub-content"
+    >
       <slot />
     </MenubarSubContent>
   </MenubarPortal>

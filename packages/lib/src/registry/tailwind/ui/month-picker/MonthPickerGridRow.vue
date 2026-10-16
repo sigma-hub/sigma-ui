@@ -1,6 +1,15 @@
 <script lang="ts" setup>
+import { computed, useAttrs } from 'vue';
+
 import { MonthPickerGridRow, type MonthPickerGridRowProps, useForwardProps } from 'reka-ui';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<MonthPickerGridRowProps>();
 const forwarded = useForwardProps(props);
@@ -8,9 +17,9 @@ const forwarded = useForwardProps(props);
 
 <template>
   <MonthPickerGridRow
+    v-bind="{ ...forwarded, ...delegatedAttrs }"
 
     data-slot="month-picker-gridrow"
-    v-bind="forwarded"
     :class="cn('flex', $attrs.class ?? '')"
   >
     <slot />

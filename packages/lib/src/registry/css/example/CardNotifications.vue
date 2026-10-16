@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { BellRingIcon, CheckIcon } from 'lucide-vue-next';
 import { Button } from '@ui/registry/css/ui/button';
 import {
@@ -10,6 +12,13 @@ import {
   CardTitle,
 } from '@ui/registry/css/ui/card';
 import { Switch } from '@ui/registry/css/ui/switch';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const notifications = [
   {
@@ -28,7 +37,11 @@ const notifications = [
 </script>
 
 <template>
-  <Card class="example-sigma-ui-card-notifications">
+  <Card
+    class="example-sigma-ui-card-notifications"
+    v-bind="delegatedAttrs"
+    :class="[$attrs.class]"
+  >
     <CardHeader>
       <CardTitle>Notifications</CardTitle>
       <CardDescription>You have 3 unread messages.</CardDescription>

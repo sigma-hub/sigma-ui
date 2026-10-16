@@ -1,8 +1,14 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { useCarousel } from './useCarousel';
 
 defineOptions({
   inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
 });
 
 const { carouselRef, orientation } = useCarousel();
@@ -20,7 +26,7 @@ const { carouselRef, orientation } = useCarousel();
         orientation === 'horizontal' ? 'sigma-ui-carousel-content__wrapper--horizontal' : 'sigma-ui-carousel-content__wrapper--vertical',
         $attrs.class ?? '',
       ]"
-      v-bind="$attrs"
+      v-bind="delegatedAttrs"
     >
       <slot />
     </div>

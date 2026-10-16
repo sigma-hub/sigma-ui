@@ -24,8 +24,10 @@ const emit = defineEmits<Emits>();
 </script>
 
 <template>
-  <div class="flex w-full gap-6 items-end justify-between bg-background rounded border border-border p-4 shadow-lg"
-  data-slot="custom-progress">
+  <div
+    class="flex w-full gap-6 items-end justify-between bg-background rounded border border-border p-4 shadow-lg"
+    data-slot="custom-progress"
+  >
     <div class="flex flex-col flex-1">
       <div class="flex gap-2 items-center text-sm font-semibold">
         {{ props.data.title }}

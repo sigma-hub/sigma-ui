@@ -1,5 +1,14 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { type ItemMediaVariants, itemMediaVariants } from '.';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 interface ItemMediaProps {
   /**
@@ -20,6 +29,7 @@ defineSlots<{
 
 <template>
   <div
+    v-bind="delegatedAttrs"
     data-slot="item-media"
     :data-variant="props.variant"
     :class="[itemMediaVariants({ variant: props.variant }), $attrs.class]"

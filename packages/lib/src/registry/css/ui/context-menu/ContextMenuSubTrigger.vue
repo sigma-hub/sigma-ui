@@ -1,10 +1,19 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import {
   ContextMenuSubTrigger,
   type ContextMenuSubTriggerProps,
   useForwardProps,
 } from 'reka-ui';
 import { ChevronRightIcon } from 'lucide-vue-next';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<ContextMenuSubTriggerProps & {
   /** Adds left padding to align with items that have an icon or indicator. */
@@ -16,10 +25,11 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <ContextMenuSubTrigger
-    v-bind="forwardedProps"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs }"
     class="sigma-ui-context-menu-sub-trigger"
-    :class="[{ 'sigma-ui-context-menu-sub-trigger--inset': inset }]"
-   data-slot="context-menu-sub-trigger">
+    :class="[{ 'sigma-ui-context-menu-sub-trigger--inset': inset }, $attrs.class]"
+    data-slot="context-menu-sub-trigger"
+  >
     <slot />
     <ChevronRightIcon class="sigma-ui-context-menu-sub-trigger__icon" />
   </ContextMenuSubTrigger>

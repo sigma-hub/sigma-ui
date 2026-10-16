@@ -1,7 +1,16 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import type { LabelProps } from 'reka-ui';
 import { Label } from '@ui/registry/tailwind/ui/label';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<LabelProps>();
 
@@ -15,7 +24,7 @@ defineSlots<{
 
 <template>
   <Label
-    v-bind="props"
+    v-bind="{ ...props, ...delegatedAttrs }"
     data-slot="field-label"
     :class="cn(
       'group/field-label peer/field-label flex w-fit gap-2 leading-snug group-data-[disabled=true]/field:opacity-50',

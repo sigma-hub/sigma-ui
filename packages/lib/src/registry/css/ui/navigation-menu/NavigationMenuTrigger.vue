@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import {
   NavigationMenuTrigger,
   type NavigationMenuTriggerProps,
@@ -6,6 +8,13 @@ import {
 } from 'reka-ui';
 import { ChevronDownIcon } from 'lucide-vue-next';
 import { navigationMenuTriggerStyle } from '.';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<NavigationMenuTriggerProps>();
 
@@ -14,10 +23,11 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <NavigationMenuTrigger
-    v-bind="forwardedProps"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs }"
     class="sigma-ui-navigation-menu-trigger"
-    :class="[navigationMenuTriggerStyle()]"
-   data-slot="navigation-menu-trigger">
+    :class="[navigationMenuTriggerStyle(), $attrs.class]"
+    data-slot="navigation-menu-trigger"
+  >
     <slot />
     <ChevronDownIcon
       class="sigma-ui-navigation-menu-trigger__icon"

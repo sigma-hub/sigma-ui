@@ -1,4 +1,13 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
+
 defineSlots<{
   /**
    * Explanation of the empty state. Links inside it are underlined.
@@ -9,6 +18,7 @@ defineSlots<{
 
 <template>
   <p
+    v-bind="delegatedAttrs"
     data-slot="empty-description"
     class="sigma-ui-empty-description"
     :class="[$attrs.class]"

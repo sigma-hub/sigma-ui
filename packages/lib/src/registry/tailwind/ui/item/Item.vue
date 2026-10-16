@@ -1,7 +1,16 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { Primitive, type PrimitiveProps } from 'reka-ui';
 import { cn } from '@ui/utils';
 import { type ItemVariants, itemVariants } from '.';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 interface ItemProps extends PrimitiveProps {
   /**
@@ -30,6 +39,7 @@ defineSlots<{
 
 <template>
   <Primitive
+    v-bind="delegatedAttrs"
     data-slot="item"
     :data-variant="props.variant"
     :data-size="props.size"

@@ -1,11 +1,20 @@
-<script setup lang="ts" generic="T extends Record<string, any>">
+<script setup lang="ts" generic="T extends Record<string, any>
+"
+>
 import type { BulletLegendItemInterface } from '@unovis/ts';
 import { VisAxis, VisGroupedBar, VisStackedBar, VisXYContainer } from '@unovis/vue';
 import { Axis, GroupedBar, StackedBar } from '@unovis/ts';
-import { type Component, computed, ref } from 'vue';
+import { type Component, computed, ref, useAttrs } from 'vue';
 import { useMounted } from '@vueuse/core';
 import type { BaseChartProps } from '.';
 import { ChartContainer, ChartCrosshair, ChartLegend, colorsFromConfig } from '@ui/registry/css/ui/chart';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = withDefaults(defineProps<BaseChartProps<T> & {
   /**
@@ -61,6 +70,7 @@ const selectorsBar = computed(() => props.type === 'grouped' ? GroupedBar.select
 
 <template>
   <div
+    v-bind="delegatedAttrs"
     class="sigma-ui-bar-chart"
     :class="$attrs.class"
     data-slot="bar-chart"
@@ -69,66 +79,66 @@ const selectorsBar = computed(() => props.type === 'grouped' ? GroupedBar.select
       :config="config"
       passthrough
     >
-    <ChartLegend
-      v-if="showLegend"
-      v-model:items="legendItems"
-      @legend-item-click="handleLegendItemClick"
-    />
-
-    <VisXYContainer
-      :data="data"
-      :style="{ height: isMounted ? '100%' : 'auto' }"
-      :margin="margin"
-    >
-      <ChartCrosshair
-        v-if="showTooltip"
-        :colors="colors"
-        :items="legendItems"
-        :custom-tooltip="customTooltip"
-        :index="index"
+      <ChartLegend
+        v-if="showLegend"
+        v-model:items="legendItems"
+        @legend-item-click="handleLegendItemClick"
       />
 
-      <VisBarComponent
-        :x="(d: Data, i: number) => i"
-        :y="categories.map(category => (d: Data) => d[category]) "
-        :color="colors"
-        :rounded-corners="roundedCorners"
-        :bar-padding="0.05"
-        :attributes="{
-          [selectorsBar]: {
-            opacity: (d: Data, i:number) => {
-              const pos = i % categories.length
-              return legendItems[pos]?.inactive ? filterOpacity : 1
+      <VisXYContainer
+        :data="data"
+        :style="{ height: isMounted ? '100%' : 'auto' }"
+        :margin="margin"
+      >
+        <ChartCrosshair
+          v-if="showTooltip"
+          :colors="colors"
+          :items="legendItems"
+          :custom-tooltip="customTooltip"
+          :index="index"
+        />
+
+        <VisBarComponent
+          :x="(d: Data, i: number) => i"
+          :y="categories.map(category => (d: Data) => d[category]) "
+          :color="colors"
+          :rounded-corners="roundedCorners"
+          :bar-padding="0.05"
+          :attributes="{
+            [selectorsBar]: {
+              opacity: (d: Data, i:number) => {
+                const pos = i % categories.length
+                return legendItems[pos]?.inactive ? filterOpacity : 1
+              },
             },
-          },
-        }"
-      />
+          }"
+        />
 
-      <VisAxis
-        v-if="showXAxis"
-        type="x"
-        :tick-format="xFormatter ?? ((v: number) => data[v]?.[index])"
-        :grid-line="false"
-        :tick-line="false"
-        tick-text-color="var(--vis-text-color)"
-      />
-      <VisAxis
-        v-if="showYAxis"
-        type="y"
-        :tick-line="false"
-        :tick-format="yFormatter"
-        :domain-line="false"
-        :grid-line="showGridLine"
-        :attributes="{
-          [Axis.selectors.grid]: {
-            class: 'text-muted',
-          },
-        }"
-        tick-text-color="var(--vis-text-color)"
-      />
+        <VisAxis
+          v-if="showXAxis"
+          type="x"
+          :tick-format="xFormatter ?? ((v: number) => data[v]?.[index])"
+          :grid-line="false"
+          :tick-line="false"
+          tick-text-color="var(--vis-text-color)"
+        />
+        <VisAxis
+          v-if="showYAxis"
+          type="y"
+          :tick-line="false"
+          :tick-format="yFormatter"
+          :domain-line="false"
+          :grid-line="showGridLine"
+          :attributes="{
+            [Axis.selectors.grid]: {
+              class: 'text-muted',
+            },
+          }"
+          tick-text-color="var(--vis-text-color)"
+        />
 
-      <slot />
-    </VisXYContainer>
+        <slot />
+      </VisXYContainer>
     </ChartContainer>
   </div>
 </template>

@@ -1,6 +1,15 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { MenubarSeparator, type MenubarSeparatorProps, useForwardProps } from 'reka-ui';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<MenubarSeparatorProps>();
 
@@ -9,7 +18,8 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <MenubarSeparator
+    v-bind="{ ...forwardedProps, ...delegatedAttrs }"
     :class=" cn('-mx-1 my-1 h-px bg-muted', $attrs.class ?? '')"
-    v-bind="forwardedProps"
-   data-slot="menubar-separator"/>
+    data-slot="menubar-separator"
+  />
 </template>

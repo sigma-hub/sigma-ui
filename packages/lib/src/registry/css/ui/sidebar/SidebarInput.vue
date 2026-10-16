@@ -1,5 +1,14 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { Input } from '@ui/registry/css/ui/input';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 /** Current value of the input; use with `v-model`. */
 const model = defineModel<string | number>();
@@ -16,6 +25,8 @@ defineEmits<{
     data-slot="sidebar-input"
     data-sidebar="input"
     class="sigma-ui-sidebar-input"
+    v-bind="delegatedAttrs"
+    :class="[$attrs.class]"
   />
 </template>
 

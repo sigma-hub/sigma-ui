@@ -1,11 +1,23 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 </script>
 
 <template>
-  <tfoot :class="cn('border-t bg-muted/50 font-medium [&>tr]:last:border-b-0', $attrs.class ?? '')"
-  data-slot="table-footer">
+  <tfoot
+    v-bind="delegatedAttrs"
+    :class="cn('border-t bg-muted/50 font-medium [&>tr]:last:border-b-0', $attrs.class ?? '')"
+    data-slot="table-footer"
+  >
     <slot />
   </tfoot>
 </template>

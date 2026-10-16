@@ -1,9 +1,15 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import type { CSSProperties } from 'vue';
 import { ColorAreaRoot, type ColorAreaRootEmits, type ColorAreaRootProps, useForwardPropsEmits } from 'reka-ui';
 
 defineOptions({
   inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
 });
 
 const props = defineProps<ColorAreaRootProps>();
@@ -23,7 +29,7 @@ defineSlots<{
     v-slot="slotProps"
     data-slot="color-area"
     class="sigma-ui-color-area"
-    v-bind="{ ...forwarded, ...$attrs }"
+    v-bind="{ ...forwarded, ...delegatedAttrs }"
     :class="[$attrs.class]"
   >
     <slot v-bind="slotProps" />

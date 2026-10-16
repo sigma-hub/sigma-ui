@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import {
   DropdownMenuContent,
   type DropdownMenuContentEmits,
@@ -9,6 +11,10 @@ import {
 
 defineOptions({
   inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
 });
 
 const props = withDefaults(
@@ -25,10 +31,11 @@ const forwarded = useForwardPropsEmits(props, emits);
 <template>
   <DropdownMenuPortal>
     <DropdownMenuContent
-      v-bind="{ ...forwarded, ...$attrs }"
+      v-bind="{ ...forwarded, ...delegatedAttrs }"
       class="sigma-ui-dropdown-menu-content"
       :class="$attrs.class"
-     data-slot="dropdown-menu-content">
+      data-slot="dropdown-menu-content"
+    >
       <slot />
     </DropdownMenuContent>
   </DropdownMenuPortal>

@@ -1,5 +1,14 @@
 <script lang="ts" setup>
+import { computed, useAttrs } from 'vue';
+
 import { MoreHorizontalIcon } from 'lucide-vue-next';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = withDefaults(defineProps<{
   label?: string;
@@ -10,6 +19,7 @@ const props = withDefaults(defineProps<{
 
 <template>
   <span
+    v-bind="delegatedAttrs"
     role="presentation"
     aria-hidden="true"
     class="sigma-ui-breadcrumb__ellipsis"

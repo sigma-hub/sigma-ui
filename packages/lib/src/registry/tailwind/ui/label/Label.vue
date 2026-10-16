@@ -1,13 +1,22 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { Label, type LabelProps } from 'reka-ui';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<LabelProps>();
 </script>
 
 <template>
   <Label
-    v-bind="props"
+    v-bind="{ ...props, ...delegatedAttrs }"
     :class="
 
       cn(
@@ -15,7 +24,8 @@ const props = defineProps<LabelProps>();
         $attrs.class ?? '',
       )
     "
-   data-slot="label">
+    data-slot="label"
+  >
     <slot />
   </Label>
 </template>

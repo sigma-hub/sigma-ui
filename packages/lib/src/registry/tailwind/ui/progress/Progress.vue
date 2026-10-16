@@ -1,10 +1,19 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import {
   ProgressIndicator,
   ProgressRoot,
   type ProgressRootProps,
 } from 'reka-ui';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = withDefaults(
   defineProps<ProgressRootProps>(),
@@ -16,7 +25,7 @@ const props = withDefaults(
 
 <template>
   <ProgressRoot
-    v-bind="props"
+    v-bind="{ ...props, ...delegatedAttrs }"
     :class="
       cn(
         'relative h-4 w-full min-w-[50px] overflow-hidden rounded-full bg-secondary',

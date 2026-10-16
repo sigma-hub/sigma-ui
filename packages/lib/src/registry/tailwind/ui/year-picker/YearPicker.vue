@@ -1,7 +1,16 @@
 <script lang="ts" setup>
+import { computed, useAttrs } from 'vue';
+
 import { YearPickerRoot, type YearPickerRootEmits, type YearPickerRootProps, useForwardPropsEmits } from 'reka-ui';
 import { cn } from '@ui/utils';
 import { YearPickerCell, YearPickerCellTrigger, YearPickerGrid, YearPickerGridBody, YearPickerGridRow, YearPickerHeader, YearPickerHeading, YearPickerNextButton, YearPickerPrevButton } from '.';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<YearPickerRootProps>();
 const emits = defineEmits<YearPickerRootEmits>();
@@ -11,8 +20,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 <template>
   <YearPickerRoot
     v-slot="{ grid }"
+    v-bind="{ ...forwarded, ...delegatedAttrs }"
     data-slot="year-picker"
-    v-bind="forwarded"
     :class="cn('w-fit rounded-md border p-3', $attrs.class ?? '')"
   >
     <YearPickerHeader>

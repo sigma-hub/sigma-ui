@@ -1,5 +1,14 @@
 <script lang="ts" setup>
+import { computed, useAttrs } from 'vue';
+
 import { Primitive, type PrimitiveProps } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = withDefaults(defineProps<PrimitiveProps>(), {
   as: 'a',
@@ -8,6 +17,7 @@ const props = withDefaults(defineProps<PrimitiveProps>(), {
 
 <template>
   <Primitive
+    v-bind="delegatedAttrs"
     :as="as"
     :as-child="asChild"
     class="sigma-ui-breadcrumb__link"

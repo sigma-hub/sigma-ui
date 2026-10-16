@@ -1,10 +1,19 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import {
   DropdownMenuSubTrigger,
   type DropdownMenuSubTriggerProps,
   useForwardProps,
 } from 'reka-ui';
 import { ChevronRightIcon } from 'lucide-vue-next';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<DropdownMenuSubTriggerProps & {
   /** Adds left padding to align with items that have an icon or indicator. */
@@ -16,10 +25,11 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <DropdownMenuSubTrigger
-    v-bind="forwardedProps"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs }"
     class="sigma-ui-dropdown-menu-sub-trigger"
-    :class="[{ 'sigma-ui-dropdown-menu-sub-trigger--inset': inset }]"
-   data-slot="dropdown-menu-sub-trigger">
+    :class="[{ 'sigma-ui-dropdown-menu-sub-trigger--inset': inset }, $attrs.class]"
+    data-slot="dropdown-menu-sub-trigger"
+  >
     <slot />
     <ChevronRightIcon class="sigma-ui-dropdown-menu-sub-trigger__icon" />
   </DropdownMenuSubTrigger>

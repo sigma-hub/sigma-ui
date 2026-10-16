@@ -1,8 +1,14 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { ColorSwatchPickerItemSwatch, type ColorSwatchPickerItemSwatchProps, useForwardProps } from 'reka-ui';
 
 defineOptions({
   inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
 });
 
 const props = defineProps<ColorSwatchPickerItemSwatchProps>();
@@ -13,7 +19,7 @@ const forwarded = useForwardProps(props);
   <ColorSwatchPickerItemSwatch
     data-slot="color-swatch-picker-item-swatch"
     class="sigma-ui-color-swatch-picker-swatch"
-    v-bind="{ ...forwarded, ...$attrs }"
+    v-bind="{ ...forwarded, ...delegatedAttrs }"
     :class="[$attrs.class]"
   />
 </template>

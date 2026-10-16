@@ -1,5 +1,13 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
 import { useSidebar } from './utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const { toggleSidebar } = useSidebar();
 </script>
@@ -13,6 +21,8 @@ const { toggleSidebar } = useSidebar();
     title="Toggle Sidebar"
     :tabindex="-1"
     class="sigma-ui-sidebar-rail"
+    v-bind="delegatedAttrs"
+    :class="[$attrs.class]"
     @click="toggleSidebar"
   >
     <slot />

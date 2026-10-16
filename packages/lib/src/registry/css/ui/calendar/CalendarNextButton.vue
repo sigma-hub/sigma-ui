@@ -1,7 +1,16 @@
 <script lang="ts" setup>
+import { computed, useAttrs } from 'vue';
+
 import { CalendarNext, type CalendarNextProps, useForwardProps } from 'reka-ui';
 import { ChevronRightIcon } from 'lucide-vue-next';
 import { buttonVariants } from '@ui/registry/css/ui/button';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<CalendarNextProps>();
 
@@ -11,8 +20,8 @@ const forwardedProps = useForwardProps(props);
 <template>
   <CalendarNext
     class="sigma-ui-calendar-next"
-    :class="[buttonVariants({ variant: 'outline' })]"
-    v-bind="forwardedProps"
+    :class="[buttonVariants({ variant: 'outline' }), $attrs.class]"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs }"
     data-slot="calendar-next-button"
   >
     <slot>

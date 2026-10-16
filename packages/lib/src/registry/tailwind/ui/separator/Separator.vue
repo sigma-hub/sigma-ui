@@ -1,6 +1,15 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { Separator, type SeparatorProps } from 'reka-ui';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<
   SeparatorProps & {
@@ -12,7 +21,7 @@ const props = defineProps<
 
 <template>
   <Separator
-    v-bind="props"
+    v-bind="{ ...props, ...delegatedAttrs }"
     :class="
       cn(
         'shrink-0 bg-border relative',
@@ -21,7 +30,8 @@ const props = defineProps<
       )
 
     "
-   data-slot="separator">
+    data-slot="separator"
+  >
     <span
       v-if="props.label"
       :class="cn('text-xs text-muted-foreground bg-background absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center',

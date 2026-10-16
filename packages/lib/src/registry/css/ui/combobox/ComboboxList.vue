@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import type { ComboboxContentEmits, ComboboxContentProps } from 'reka-ui';
 import { ComboboxContent, ComboboxPortal, ComboboxViewport, useForwardPropsEmits } from 'reka-ui';
 
@@ -14,13 +16,18 @@ const forwarded = useForwardPropsEmits(props, emits);
 defineOptions({
   inheritAttrs: false,
 });
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
+
 </script>
 
 <template>
   <ComboboxPortal>
     <ComboboxContent
       data-slot="combobox-list"
-      v-bind="{ ...forwarded, ...$attrs }"
+      v-bind="{ ...forwarded, ...delegatedAttrs }"
       :class="['sigma-ui-combobox-list', $attrs.class]"
     >
       <ComboboxViewport>

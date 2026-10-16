@@ -1,10 +1,19 @@
-<script setup lang="ts" generic="T extends Record<string, any>">
+<script setup lang="ts" generic="T extends Record<string, any>
+"
+>
 import { VisDonut, VisSingleContainer } from '@unovis/vue';
 import { Donut } from '@unovis/ts';
-import { type Component, computed, ref } from 'vue';
+import { type Component, computed, ref, useAttrs } from 'vue';
 import { useMounted } from '@vueuse/core';
 import type { BaseChartProps } from '.';
 import { ChartSingleTooltip, defaultColors } from '@ui/registry/css/ui/chart';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = withDefaults(defineProps<Pick<BaseChartProps<T>, 'data' | 'colors' | 'index' | 'margin' | 'showLegend' | 'showTooltip' | 'filterOpacity'> & {
   /**
@@ -60,6 +69,7 @@ const totalValue = computed(() => props.data.reduce((prev, curr) => {
 
 <template>
   <div
+    v-bind="delegatedAttrs"
     class="sigma-ui-donut-chart"
     :class="$attrs.class"
     data-slot="donut-chart"

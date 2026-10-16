@@ -1,8 +1,17 @@
 <script lang="ts" setup>
+import { computed, useAttrs } from 'vue';
+
 import { CalendarPrev, type CalendarPrevProps, useForwardProps } from 'reka-ui';
 import { ChevronLeftIcon } from 'lucide-vue-next';
 import { cn } from '@ui/utils';
 import { buttonVariants } from '@ui/registry/tailwind/ui/button';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<CalendarPrevProps>();
 
@@ -11,12 +20,12 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <CalendarPrev
+    v-bind="{ ...forwardedProps, ...delegatedAttrs }"
     :class="cn(
       buttonVariants({ variant: 'outline' }),
       'h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100',
       $attrs.class ?? '',
     )"
-    v-bind="forwardedProps"
     data-slot="calendar-prev-button"
   >
     <slot>

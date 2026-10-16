@@ -1,5 +1,14 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { Skeleton } from '@ui/registry/css/ui/skeleton';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 interface SidebarMenuSkeletonProps {
   /**
@@ -20,6 +29,8 @@ const width = `${Math.floor(Math.random() * 40) + 50}%`;
     data-slot="sidebar-menu-skeleton"
     data-sidebar="menu-skeleton"
     class="sigma-ui-sidebar-menu-skeleton"
+    v-bind="delegatedAttrs"
+    :class="[$attrs.class]"
   >
     <Skeleton
       v-if="showIcon"

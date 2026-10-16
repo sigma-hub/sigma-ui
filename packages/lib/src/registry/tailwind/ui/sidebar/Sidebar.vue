@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@ui/registry/tailwind/ui/sheet';
 import { cn } from '@ui/utils';
 import { SIDEBAR_WIDTH_MOBILE, useSidebar } from './utils';
@@ -22,6 +24,10 @@ defineOptions({
   inheritAttrs: false,
 });
 
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
+
 withDefaults(defineProps<SidebarProps>(), {
   side: 'left',
   variant: 'sidebar',
@@ -41,7 +47,7 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
 <template>
   <div
     v-if="collapsible === 'none'"
-    v-bind="$attrs"
+    v-bind="delegatedAttrs"
     data-slot="sidebar"
     :class="cn('flex h-full w-(--sidebar-width) flex-col bg-sidebar text-sidebar-foreground', $attrs.class ?? '')"
   >
@@ -54,7 +60,7 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
     @update:open="setOpenMobile"
   >
     <SheetContent
-      v-bind="$attrs"
+      v-bind="delegatedAttrs"
       data-sidebar="sidebar"
       data-slot="sidebar"
       data-mobile="true"
@@ -93,7 +99,7 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
       )"
     />
     <div
-      v-bind="$attrs"
+      v-bind="delegatedAttrs"
       data-slot="sidebar-container"
       :class="cn(
         'fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear md:flex',

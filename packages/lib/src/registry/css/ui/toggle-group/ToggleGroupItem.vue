@@ -1,8 +1,15 @@
 <script setup lang="ts">
 import type { VariantProps } from 'class-variance-authority';
-import { computed, inject } from 'vue';
+import { computed, inject, useAttrs } from 'vue';
 import { ToggleGroupItem, type ToggleGroupItemProps, useForwardProps } from 'reka-ui';
 import { toggleVariants } from '@ui/registry/css/ui/toggle';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 type ToggleGroupVariants = VariantProps<typeof toggleVariants>;
 
@@ -22,14 +29,14 @@ const forwardedProps = useForwardProps(delegatedProps);
 
 <template>
   <ToggleGroupItem
-    v-bind="forwardedProps"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs }"
     :class="[
       toggleVariants({
         variant: context?.variant || variant,
         size: context?.size || size,
-      }),
-    ]"
-   data-slot="toggle-group-item">
+      }),, $attrs.class]"
+    data-slot="toggle-group-item"
+  >
     <slot />
   </ToggleGroupItem>
 </template>

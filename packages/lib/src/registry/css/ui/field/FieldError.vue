@@ -1,6 +1,13 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, useAttrs } from 'vue';
 import type { FieldErrorItem } from '.';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 interface FieldErrorProps {
   /**
@@ -39,6 +46,8 @@ const messages = computed(() => {
     role="alert"
     data-slot="field-error"
     class="sigma-ui-field-error"
+    v-bind="delegatedAttrs"
+    :class="[$attrs.class]"
   >
     <slot v-if="slots.default" />
     <template v-else-if="messages.length === 1">

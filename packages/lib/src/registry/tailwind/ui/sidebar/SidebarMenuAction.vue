@@ -1,6 +1,15 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { Primitive, type PrimitiveProps } from 'reka-ui';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 interface SidebarMenuActionProps extends PrimitiveProps {
   /**
@@ -24,6 +33,7 @@ defineSlots<{
 
 <template>
   <Primitive
+    v-bind="delegatedAttrs"
     data-slot="sidebar-menu-action"
     data-sidebar="menu-action"
     :as="as"

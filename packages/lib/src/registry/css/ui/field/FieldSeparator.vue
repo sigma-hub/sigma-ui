@@ -1,5 +1,14 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { Separator } from '@ui/registry/css/ui/separator';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const slots = defineSlots<{
   /**
@@ -14,6 +23,8 @@ const slots = defineSlots<{
     data-slot="field-separator"
     :data-content="!!slots.default"
     class="sigma-ui-field-separator"
+    v-bind="delegatedAttrs"
+    :class="[$attrs.class]"
   >
     <Separator class="sigma-ui-field-separator__line" />
     <span

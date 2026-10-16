@@ -1,6 +1,15 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import type { LabelProps } from 'reka-ui';
 import { Label } from '@ui/registry/css/ui/label';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<LabelProps>();
 
@@ -14,9 +23,10 @@ defineSlots<{
 
 <template>
   <Label
-    v-bind="props"
+    v-bind="{ ...props, ...delegatedAttrs }"
     data-slot="field-label"
     class="sigma-ui-field-label"
+    :class="[$attrs.class]"
   >
     <slot />
   </Label>

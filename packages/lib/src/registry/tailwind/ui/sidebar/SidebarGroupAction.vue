@@ -1,6 +1,15 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { Primitive, type PrimitiveProps } from 'reka-ui';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 withDefaults(defineProps<PrimitiveProps>(), {
   as: 'button',
@@ -16,6 +25,7 @@ defineSlots<{
 
 <template>
   <Primitive
+    v-bind="delegatedAttrs"
     data-slot="sidebar-group-action"
     data-sidebar="group-action"
     :as="as"

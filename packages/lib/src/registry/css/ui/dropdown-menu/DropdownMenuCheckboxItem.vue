@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import {
   DropdownMenuCheckboxItem,
   type DropdownMenuCheckboxItemEmits,
@@ -7,6 +9,13 @@ import {
   useForwardPropsEmits,
 } from 'reka-ui';
 import { CheckIcon } from 'lucide-vue-next';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<DropdownMenuCheckboxItemProps>();
 const emits = defineEmits<DropdownMenuCheckboxItemEmits>();
@@ -16,9 +25,11 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <DropdownMenuCheckboxItem
-    v-bind="forwarded"
+    v-bind="{ ...forwarded, ...delegatedAttrs }"
     class="sigma-ui-dropdown-menu-checkbox-item"
-   data-slot="dropdown-menu-checkbox-item">
+    data-slot="dropdown-menu-checkbox-item"
+    :class="[$attrs.class]"
+  >
     <span class="sigma-ui-dropdown-menu-checkbox-item__indicator">
       <DropdownMenuItemIndicator>
 

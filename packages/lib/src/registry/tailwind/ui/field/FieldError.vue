@@ -1,7 +1,14 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, useAttrs } from 'vue';
 import { cn } from '@ui/utils';
 import type { FieldErrorItem } from '.';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 interface FieldErrorProps {
   /**
@@ -37,6 +44,7 @@ const messages = computed(() => {
 <template>
   <div
     v-if="slots.default || messages.length"
+    v-bind="delegatedAttrs"
     role="alert"
     data-slot="field-error"
     :class="cn('text-sm font-normal text-destructive', $attrs.class ?? '')"

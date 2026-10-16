@@ -1,4 +1,13 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
+
 defineSlots<{
   /**
    * Label of the option.
@@ -9,6 +18,7 @@ defineSlots<{
 
 <template>
   <option
+    v-bind="delegatedAttrs"
     data-slot="native-select-option"
     class="sigma-ui-native-select-option"
     :class="[$attrs.class]"

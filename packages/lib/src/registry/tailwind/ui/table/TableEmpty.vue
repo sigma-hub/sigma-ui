@@ -1,7 +1,16 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import TableRow from './TableRow.vue';
 import TableCell from './TableCell.vue';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = withDefaults(defineProps<{
   /** Number of columns the empty-state cell spans; usually the column count of the table. */
@@ -13,9 +22,10 @@ const props = withDefaults(defineProps<{
 
 <template>
   <TableRow
-    data-slot="table-empty">
+    data-slot="table-empty"
+  >
     <TableCell
-      v-bind="props"
+      v-bind="{ ...props, ...delegatedAttrs }"
       :class="
 
         cn(

@@ -14,7 +14,8 @@ const attrs = useAttrs();
     v-bind="props"
     class="sigma-ui-alert-dialog-description"
     :class="attrs.class"
-   data-slot="alert-dialog-description">
+    data-slot="alert-dialog-description"
+  >
     <slot />
   </AlertDialogDescription>
 </template>

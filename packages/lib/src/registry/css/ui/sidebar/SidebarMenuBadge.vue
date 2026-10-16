@@ -1,4 +1,13 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
+
 defineSlots<{
   /**
    * Badge content, such as a counter.
@@ -12,6 +21,8 @@ defineSlots<{
     data-slot="sidebar-menu-badge"
     data-sidebar="menu-badge"
     class="sigma-ui-sidebar-menu-badge"
+    v-bind="delegatedAttrs"
+    :class="[$attrs.class]"
   >
     <slot />
   </div>

@@ -1,9 +1,18 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 </script>
 
 <template>
   <span
+    v-bind="delegatedAttrs"
     class="sigma-ui-dropdown-menu-shortcut"
     :class="$attrs.class"
     data-slot="dropdown-menu-shortcut"

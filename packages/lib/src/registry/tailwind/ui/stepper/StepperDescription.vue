@@ -1,9 +1,15 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { StepperDescription, type StepperDescriptionProps, useForwardProps } from 'reka-ui';
 import { cn } from '@ui/utils';
 
 defineOptions({
   inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
 });
 
 const props = defineProps<StepperDescriptionProps>();
@@ -20,7 +26,7 @@ defineSlots<{
 <template>
   <StepperDescription
     data-slot="stepper-description"
-    v-bind="{ ...forwarded, ...$attrs }"
+    v-bind="{ ...forwarded, ...delegatedAttrs }"
     :class="cn('text-xs text-muted-foreground', $attrs.class ?? '')"
   >
     <slot />

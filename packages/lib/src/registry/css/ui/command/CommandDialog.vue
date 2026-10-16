@@ -11,8 +11,10 @@ const forwarded = useForwardPropsEmits(props, emits);
 </script>
 
 <template>
-  <Dialog v-bind="forwarded"
-  data-slot="command-dialog">
+  <Dialog
+    v-bind="forwarded"
+    data-slot="command-dialog"
+  >
     <DialogContent class="sigma-ui-command-dialog">
       <Command class="sigma-ui-command-dialog__command">
         <slot />

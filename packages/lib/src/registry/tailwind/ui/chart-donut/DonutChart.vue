@@ -1,11 +1,20 @@
-<script setup lang="ts" generic="T extends Record<string, any>">
+<script setup lang="ts" generic="T extends Record<string, any>
+"
+>
 import { VisDonut, VisSingleContainer } from '@unovis/vue';
 import { Donut } from '@unovis/ts';
-import { type Component, computed, ref } from 'vue';
+import { type Component, computed, ref, useAttrs } from 'vue';
 import { useMounted } from '@vueuse/core';
 import type { BaseChartProps } from '.';
 import { ChartSingleTooltip, defaultColors } from '@ui/registry/tailwind/ui/chart';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = withDefaults(defineProps<Pick<BaseChartProps<T>, 'data' | 'colors' | 'index' | 'margin' | 'showLegend' | 'showTooltip' | 'filterOpacity'> & {
   /**
@@ -60,8 +69,11 @@ const totalValue = computed(() => props.data.reduce((prev, curr) => {
 </script>
 
 <template>
-  <div :class="cn('w-full h-48 flex flex-col items-end', $attrs.class ?? '')"
-  data-slot="donut-chart">
+  <div
+    v-bind="delegatedAttrs"
+    :class="cn('w-full h-48 flex flex-col items-end', $attrs.class ?? '')"
+    data-slot="donut-chart"
+  >
     <VisSingleContainer
       :style="{ height: isMounted ? '100%' : 'auto' }"
       :margin="{ left: 20, right: 20 }"

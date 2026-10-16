@@ -1,8 +1,14 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { ColorAreaThumb, type ColorAreaThumbProps, useForwardProps } from 'reka-ui';
 
 defineOptions({
   inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
 });
 
 const props = defineProps<ColorAreaThumbProps>();
@@ -13,7 +19,7 @@ const forwarded = useForwardProps(props);
   <ColorAreaThumb
     data-slot="color-area-thumb"
     class="sigma-ui-color-thumb"
-    v-bind="{ ...forwarded, ...$attrs }"
+    v-bind="{ ...forwarded, ...delegatedAttrs }"
     :class="[$attrs.class]"
   >
     <slot />

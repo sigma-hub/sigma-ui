@@ -1,6 +1,15 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { cn } from '@ui/utils';
 import { type ButtonGroupVariants, buttonGroupVariants } from '.';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 interface ButtonGroupProps {
   /**
@@ -23,6 +32,7 @@ defineSlots<{
 
 <template>
   <div
+    v-bind="delegatedAttrs"
     role="group"
     data-slot="button-group"
     :data-orientation="props.orientation"

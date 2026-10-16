@@ -1,5 +1,14 @@
 <script lang="ts" setup>
+import { computed, useAttrs } from 'vue';
+
 import { CalendarGrid, type CalendarGridProps, useForwardProps } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<CalendarGridProps>();
 
@@ -9,8 +18,10 @@ const forwardedProps = useForwardProps(props);
 <template>
   <CalendarGrid
     class="sigma-ui-calendar-grid"
-    v-bind="forwardedProps"
-   data-slot="calendar-grid">
+    v-bind="{ ...forwardedProps, ...delegatedAttrs }"
+    data-slot="calendar-grid"
+    :class="[$attrs.class]"
+  >
     <slot />
   </CalendarGrid>
 </template>

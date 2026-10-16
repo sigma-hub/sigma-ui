@@ -4,7 +4,7 @@ import { CalendarRoot, type CalendarRootEmits, type CalendarRootProps, useDateFo
 import { createDecade, createYear, toDate } from 'reka-ui/date';
 import { type DateValue, getLocalTimeZone, today } from '@internationalized/date';
 import { reactiveOmit, useVModel } from '@vueuse/core';
-import { ref } from 'vue';
+import { ref, computed, useAttrs } from 'vue';
 import { CalendarCell, CalendarCellTrigger, CalendarGrid, CalendarGridBody, CalendarGridHead, CalendarGridRow, CalendarHeadCell, CalendarHeader, CalendarHeading } from '@ui/registry/tailwind/ui/calendar';
 import {
   Select,
@@ -14,6 +14,13 @@ import {
   SelectValue,
 } from '@ui/registry/tailwind/ui/select';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = withDefaults(defineProps<CalendarRootProps>(), {
   modelValue: undefined,
@@ -41,8 +48,8 @@ formatter.setLocale(locale.value);
 <template>
   <CalendarRoot
     v-slot="{ date, grid, weekDays }"
+    v-bind="{ ...forwarded, ...delegatedAttrs }"
     v-model:placeholder="placeholder"
-    v-bind="forwarded"
     :locale="locale"
     :class="cn('rounded-md border p-3', $attrs.class ?? '')"
   >

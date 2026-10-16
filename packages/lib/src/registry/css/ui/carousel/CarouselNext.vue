@@ -1,7 +1,16 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { ArrowRightIcon } from 'lucide-vue-next';
 import { useCarousel } from './useCarousel';
 import { Button } from '@ui/registry/css/ui/button';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = withDefaults(defineProps<{
   label?: string;
@@ -14,6 +23,7 @@ const { orientation, canScrollNext, scrollNext } = useCarousel();
 
 <template>
   <Button
+    v-bind="delegatedAttrs"
     :disabled="!canScrollNext"
     class="sigma-ui-carousel-next"
     :class="[

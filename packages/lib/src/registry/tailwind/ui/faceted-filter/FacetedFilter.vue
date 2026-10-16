@@ -107,7 +107,8 @@ function clearSearch() {
 
 <template>
   <Popover
-    data-slot="faceted-filter">
+    data-slot="faceted-filter"
+  >
     <PopoverTrigger as-child>
       <Button
         variant="outline"

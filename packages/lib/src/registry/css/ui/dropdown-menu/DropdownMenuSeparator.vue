@@ -1,17 +1,28 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import {
   DropdownMenuSeparator,
   type DropdownMenuSeparatorProps,
 } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<DropdownMenuSeparatorProps>();
 </script>
 
 <template>
   <DropdownMenuSeparator
-    v-bind="props"
+    v-bind="{ ...props, ...delegatedAttrs }"
     class="sigma-ui-dropdown-menu-separator"
-   data-slot="dropdown-menu-separator"/>
+    data-slot="dropdown-menu-separator"
+    :class="[$attrs.class]"
+  />
 </template>
 
 <style>

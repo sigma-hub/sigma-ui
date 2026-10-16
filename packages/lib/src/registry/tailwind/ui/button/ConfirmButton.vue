@@ -56,8 +56,8 @@ async function handleClick(event: MouseEvent) {
       'relative overflow-hidden gap-2',
       isConfirmed && 'border-green-500/50',
     )"
-    @click="handleClick"
     data-slot="confirm-button"
+    @click="handleClick"
   >
     <span
       :class="cn(

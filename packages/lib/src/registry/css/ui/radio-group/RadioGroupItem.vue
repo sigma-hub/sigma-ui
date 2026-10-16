@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import {
   RadioGroupIndicator,
   RadioGroupItem,
@@ -6,6 +8,13 @@ import {
   useForwardProps,
 } from 'reka-ui';
 import { CircleIcon } from 'lucide-vue-next';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<RadioGroupItemProps>();
 
@@ -14,9 +23,11 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <RadioGroupItem
-    v-bind="forwardedProps"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs }"
     class="sigma-ui-radio-group-item"
-   data-slot="radio-group-item">
+    data-slot="radio-group-item"
+    :class="[$attrs.class]"
+  >
     <RadioGroupIndicator
       class="sigma-ui-radio-group-item__indicator"
     >

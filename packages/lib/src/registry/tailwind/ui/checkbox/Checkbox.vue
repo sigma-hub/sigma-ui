@@ -19,8 +19,10 @@ const forwarded = useForwardPropsEmits(props, emits);
 </script>
 
 <template>
-  <div :class="cn('peer flex items-center gap-2', { 'items-start': props.description })"
-  data-slot="checkbox">
+  <div
+    :class="cn('peer flex items-center gap-2', { 'items-start': props.description })"
+    data-slot="checkbox"
+  >
     <CheckboxRoot
       v-bind="forwarded"
       :id="(props.label && props.id) || forwarded.id"

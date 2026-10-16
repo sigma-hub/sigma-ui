@@ -1,7 +1,16 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { Primitive, type PrimitiveProps } from 'reka-ui';
 import { cn } from '@ui/utils';
 import { type SidebarMenuButtonVariants, sidebarMenuButtonVariants } from '.';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 export interface SidebarMenuButtonProps extends PrimitiveProps {
   /**
@@ -28,6 +37,7 @@ const props = withDefaults(defineProps<SidebarMenuButtonProps>(), {
 
 <template>
   <Primitive
+    v-bind="delegatedAttrs"
     data-slot="sidebar-menu-button"
     data-sidebar="menu-button"
     :data-size="size"

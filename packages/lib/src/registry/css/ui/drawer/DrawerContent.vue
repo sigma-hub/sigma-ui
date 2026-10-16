@@ -1,10 +1,16 @@
 <script lang="ts" setup>
+import { computed, useAttrs } from 'vue';
+
 import type { DrawerContentEmits, DrawerContentProps } from 'reka-ui';
 import { DrawerContent, DrawerHandle, DrawerPortal, useForwardPropsEmits } from 'reka-ui';
 import DrawerOverlay from './DrawerOverlay.vue';
 
 defineOptions({
   inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
 });
 
 const props = defineProps<DrawerContentProps>();
@@ -19,7 +25,7 @@ const forwarded = useForwardPropsEmits(props, emits);
     <DrawerContent
       data-slot="drawer-content"
       class="sigma-ui-drawer-content"
-      v-bind="{ ...forwarded, ...$attrs }"
+      v-bind="{ ...forwarded, ...delegatedAttrs }"
       :class="[$attrs.class]"
     >
       <DrawerHandle class="sigma-ui-drawer-content__handle" />

@@ -1,6 +1,15 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import type { ListboxContentProps } from 'reka-ui';
 import { ListboxContent, useForwardProps } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 const props = defineProps<ListboxContentProps>();
 
@@ -9,9 +18,10 @@ const forwarded = useForwardProps(props);
 
 <template>
   <ListboxContent
-    v-bind="forwarded"
+    v-bind="{ ...forwarded, ...delegatedAttrs }"
     class="sigma-ui-command-list"
     data-slot="command-list"
+    :class="[$attrs.class]"
   >
     <div
       role="presentation"

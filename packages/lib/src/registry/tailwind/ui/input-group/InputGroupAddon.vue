@@ -1,6 +1,15 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { cn } from '@ui/utils';
 import { type InputGroupVariants, inputGroupAddonVariants } from '.';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 interface InputGroupAddonProps {
   /**
@@ -39,6 +48,7 @@ function focusControl(event: MouseEvent) {
 
 <template>
   <div
+    v-bind="delegatedAttrs"
     role="group"
     data-slot="input-group-addon"
     :data-align="props.align"

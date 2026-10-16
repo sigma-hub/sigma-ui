@@ -1,5 +1,14 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue';
+
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const delegatedAttrs = computed(() => {
+  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
+});
 
 interface FieldLegendProps {
   /**
@@ -22,6 +31,7 @@ defineSlots<{
 
 <template>
   <legend
+    v-bind="delegatedAttrs"
     data-slot="field-legend"
     :data-variant="props.variant"
     :class="cn('mb-3 font-medium data-[variant=label]:text-sm data-[variant=legend]:text-base', $attrs.class ?? '')"
