@@ -8,6 +8,7 @@ import { build } from '@/src/commands/build';
 import { diff } from '@/src/commands/diff';
 import { info } from '@/src/commands/info';
 import { init } from '@/src/commands/init';
+import { mcp } from '@/src/commands/mcp';
 import { migrate } from '@/src/commands/migrate';
 import { search } from '@/src/commands/search';
 import { view } from '@/src/commands/view';
@@ -41,6 +42,7 @@ async function main() {
     .addCommand(view)
     .addCommand(search)
     .addCommand(info)
+    .addCommand(mcp)
     .addCommand(build)
     .addCommand(migrate)
     .addCommand(diff);
