@@ -73,9 +73,9 @@ import {
   min-height: calc(100vh - 4rem);
   flex: 1 1 0%;
   flex-direction: column;
-  gap: 1rem;
-  background-color: color-mix(in oklch, var(--muted) 40%, transparent);
   padding: 1rem;
+  background-color: color-mix(in oklch, var(--muted) 40%, transparent);
+  gap: 1rem;
 }
 
 .dashboard-settings__intro,
@@ -110,8 +110,8 @@ import {
 
 @media (width >= 768px) {
   .dashboard-settings__main {
-    gap: 2rem;
     padding: 2.5rem;
+    gap: 2rem;
   }
 
   .dashboard-settings__layout {
