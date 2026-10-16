@@ -34,6 +34,11 @@ const listedComponents: SidebarNavItem[] = [
     href: '/components/tag-group',
     label: 'New',
   },
+  {
+    title: 'Typography',
+    href: '/components/typography',
+    label: 'New',
+  },
 ];
 
 const listedComponentHrefs = new Set(listedComponents.map(item => item.href));

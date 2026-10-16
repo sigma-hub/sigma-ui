@@ -1890,6 +1890,14 @@ export const Index = {
       component: () => import("../../../packages/lib/src/registry/tailwind/example/TypographyBlockquote.vue").then((m) => m.default),
       files: ["example/TypographyBlockquote.vue"],
     },
+    "TypographyDemo": {
+      name: "TypographyDemo",
+      type: "registry:example",
+      registryDependencies: ["typography"],
+      dependencies: [],
+      component: () => import("../../../packages/lib/src/registry/tailwind/example/TypographyDemo.vue").then((m) => m.default),
+      files: ["example/TypographyDemo.vue"],
+    },
     "TypographyH1": {
       name: "TypographyH1",
       type: "registry:example",
@@ -3883,6 +3891,14 @@ export const Index = {
       dependencies: [],
       component: () => import("../../../packages/lib/src/registry/css/example/TypographyBlockquote.vue").then((m) => m.default),
       files: ["example/TypographyBlockquote.vue"],
+    },
+    "TypographyDemo": {
+      name: "TypographyDemo",
+      type: "registry:example",
+      registryDependencies: ["typography"],
+      dependencies: [],
+      component: () => import("../../../packages/lib/src/registry/css/example/TypographyDemo.vue").then((m) => m.default),
+      files: ["example/TypographyDemo.vue"],
     },
     "TypographyH1": {
       name: "TypographyH1",

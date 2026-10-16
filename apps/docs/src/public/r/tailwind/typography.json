@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "typography",
+  "type": "registry:ui",
+  "dependencies": [
+    "class-variance-authority@^0.7.1",
+    "reka-ui@^2.11.0"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/typography/Typography.vue",
+      "content": "<script setup lang=\"ts\">\nimport { computed, useAttrs } from 'vue';\n\nimport { Primitive, type PrimitiveProps } from 'reka-ui';\nimport { type TypographyVariants, typographyVariants } from '.';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst delegatedAttrs = computed(() => {\n  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));\n});\n\ntype TypographyVariant = NonNullable<TypographyVariants['variant']>;\n\ninterface TypographyProps extends PrimitiveProps {\n  /**\n   * Text style. Also chooses the element when `as` is omitted.\n   */\n  variant?: TypographyVariants['variant'];\n}\n\nconst props = withDefaults(defineProps<TypographyProps>(), {\n  variant: 'p',\n});\n\nconst variant = computed((): TypographyVariant => props.variant ?? 'p');\n\nconst element = computed(() => {\n  if (props.as) {\n    return props.as;\n  }\n\n  switch (variant.value) {\n    case 'h1':\n      return 'h1';\n    case 'h2':\n      return 'h2';\n    case 'h3':\n      return 'h3';\n    case 'h4':\n      return 'h4';\n    case 'p':\n      return 'p';\n    case 'blockquote':\n      return 'blockquote';\n    case 'list':\n      return 'ul';\n    case 'code':\n      return 'code';\n    case 'lead':\n      return 'p';\n    case 'large':\n      return 'div';\n    case 'small':\n      return 'small';\n    case 'muted':\n      return 'p';\n    case 'link':\n      return 'a';\n    case 'table':\n      return 'table';\n    default:\n      return variant.value satisfies never;\n  }\n});\n\ndefineSlots<{\n  /**\n   * Text or other content for this style.\n   */\n  default?: () => unknown;\n}>();\n</script>\n\n<template>\n  <Primitive\n    v-bind=\"delegatedAttrs\"\n    :as=\"element\"\n    :as-child=\"props.asChild\"\n    data-slot=\"typography\"\n    :class=\"cn(typographyVariants({ variant: props.variant }), $attrs.class ?? '')\"\n  >\n    <slot />\n  </Primitive>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/typography/index.ts",
+      "content": "import { type VariantProps, cva } from 'class-variance-authority';\n\nexport { default as Typography } from './Typography.vue';\n\nexport const typographyVariants = cva(\n  'text-foreground',\n  {\n    variants: {\n      variant: {\n        h1: 'scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl',\n        h2: 'mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0',\n        h3: 'mt-8 scroll-m-20 text-2xl font-semibold tracking-tight',\n        h4: 'mt-8 scroll-m-20 text-xl font-semibold tracking-tight',\n        p: 'leading-7 [&:not(:first-child)]:mt-6',\n        blockquote: 'mt-6 border-l-2 pl-6 italic',\n        list: 'my-6 ml-6 list-disc [&>li]:mt-2',\n        code: 'relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold',\n        lead: 'text-xl text-muted-foreground',\n        large: 'text-lg font-semibold',\n        small: 'text-sm font-medium leading-none',\n        muted: 'text-sm text-muted-foreground',\n        link: 'font-medium text-primary underline underline-offset-4',\n        table: 'w-full [&_tr]:border-t [&_tr:nth-child(even)]:bg-muted [&_th]:border [&_th]:px-4 [&_th]:py-2 [&_th]:text-left [&_th]:font-bold [&_td]:border [&_td]:px-4 [&_td]:py-2 [&_td]:text-left',\n      },\n    },\n    defaultVariants: {\n      variant: 'p',\n    },\n  },\n);\n\nexport type TypographyVariants = VariantProps<typeof typographyVariants>;\n",
+      "type": "registry:ui"
+    }
+  ]
+}
