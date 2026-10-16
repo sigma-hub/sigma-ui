@@ -12,10 +12,10 @@
   },
   {
     "name": "size",
-    "type": "\"default\" | \"xs\" | \"sm\" | \"lg\" | \"icon\" | null",
+    "type": "\"default\" | \"xs\" | \"sm\" | \"lg\" | \"icon\" | \"icon-xs\" | \"icon-sm\" | \"icon-lg\" | null",
     "default": "\"default\"",
     "required": false,
-    "description": "<p>Height and padding preset; icon makes a square button.</p>"
+    "description": "<p>Height and padding preset. <code>icon</code>, <code>icon-xs</code>, <code>icon-sm</code>, and <code>icon-lg</code> make a square button.</p>"
   },
   {
     "name": "isLoading",
@@ -66,7 +66,7 @@
   },
   {
     "name": "size",
-    "type": "\"default\" | \"xs\" | \"sm\" | \"lg\" | \"icon\" | null",
+    "type": "\"default\" | \"xs\" | \"sm\" | \"lg\" | \"icon\" | \"icon-xs\" | \"icon-sm\" | \"icon-lg\" | null",
     "default": "\"default\"",
     "required": false,
     "description": "<p>Height and padding preset; icon makes a square button.</p>"

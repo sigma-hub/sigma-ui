@@ -7,7 +7,7 @@ import { type ButtonVariants, buttonVariants } from '.';
 interface Props extends PrimitiveProps {
   /** Visual style of the button. */
   variant?: ButtonVariants['variant'];
-  /** Height and padding preset; icon makes a square button. */
+  /** Height and padding preset. `icon`, `icon-xs`, `icon-sm`, and `icon-lg` make a square button. */
   size?: ButtonVariants['size'];
   /** Shows a spinner and disables the button. */
   isLoading?: boolean;
@@ -26,6 +26,9 @@ const props = withDefaults(defineProps<Props>(), {
 
 <template>
   <Primitive
+    data-slot="button"
+    :data-variant="variant"
+    :data-size="size"
     :as="as"
     :as-child="asChild"
     :class="cn(buttonVariants({ variant, size }), $attrs.class ?? '')"
@@ -33,7 +36,7 @@ const props = withDefaults(defineProps<Props>(), {
   >
     <Loader2Icon
       v-if="isLoading"
-      class="w-4 h-4 mr-2 animate-spin"
+      class="size-4 animate-spin"
     />
     <template v-if="!isLoading || (isLoading && !loadingText)">
       <slot />
