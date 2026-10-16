@@ -76,8 +76,8 @@ import {
   display: flex;
   flex: 1 1 0%;
   flex-direction: column;
-  gap: 1rem;
   padding: 1rem;
+  gap: 1rem;
 }
 
 .dashboard-analytics__stats,
@@ -88,13 +88,13 @@ import {
 
 @media (width >= 768px) {
   .dashboard-analytics__main {
-    gap: 2rem;
     padding: 2rem;
+    gap: 2rem;
   }
 
   .dashboard-analytics__stats {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .dashboard-analytics__panels {
