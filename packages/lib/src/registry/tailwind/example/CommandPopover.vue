@@ -26,7 +26,7 @@ import {
 interface Status {
   value: string;
   label: string;
-  icon: typeof ArrowUpCircleIcon;
+  icon: typeof HelpCircleIcon;
 }
 
 const statuses: Status[] = [
