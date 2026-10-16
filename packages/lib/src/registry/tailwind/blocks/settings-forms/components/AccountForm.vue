@@ -50,6 +50,14 @@ const accountFormSchema = toTypedSchema(z.object({
   language: z.string().min(1, 'Please select a language.'),
 }));
 
+function formatDob(date: DateValue | undefined) {
+  if (!date) {
+    return 'Pick a date';
+  }
+
+  return formatter.format(toDate(date, getLocalTimeZone()));
+}
+
 function applyDob(setFieldValue: (field: string, value: string | undefined) => void, next?: DateValue) {
   dateValue.value = next;
   setFieldValue('dob', next ? toDate(next).toISOString() : undefined);
@@ -118,7 +126,7 @@ function onSubmit(values: Record<string, unknown>) {
                 :class="{ 'text-muted-foreground': !value }"
               >
                 <CalendarIcon class="mr-2 size-4 opacity-50" />
-                <span>{{ value ? formatter.format(toDate(dateValue, getLocalTimeZone())) : 'Pick a date' }}</span>
+                <span>{{ value ? formatDob(dateValue) : 'Pick a date' }}</span>
               </Button>
             </FormControl>
           </PopoverTrigger>
