@@ -51,8 +51,8 @@ import { modelOptions } from '../data';
 .dashboard-ai-playground__model-option {
   display: flex;
   align-items: flex-start;
-  gap: 0.75rem;
   color: var(--muted-foreground);
+  gap: 0.75rem;
 }
 
 .dashboard-ai-playground__model-option svg {
@@ -71,8 +71,8 @@ import { modelOptions } from '../data';
 }
 
 .dashboard-ai-playground__model-name {
-  font-weight: 500;
   color: var(--foreground);
+  font-weight: 500;
 }
 
 .dashboard-ai-playground__model-description {
