@@ -84,19 +84,19 @@ defineProps<{
 
 .dashboard-sidebar__mobile-nav {
   display: grid;
-  gap: 0.5rem;
   font-size: 1.125rem;
   font-weight: 500;
+  gap: 0.5rem;
   line-height: 1.75rem;
 }
 
 .dashboard-sidebar__mobile-brand {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
   color: inherit;
   font-size: 1.125rem;
   font-weight: 600;
+  gap: 0.5rem;
   line-height: 1.75rem;
   text-decoration: none;
 }
@@ -104,12 +104,12 @@ defineProps<{
 .dashboard-sidebar__mobile-link {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: calc(var(--radius) + 4px);
   margin-right: -0.65rem;
   margin-left: -0.65rem;
-  border-radius: calc(var(--radius) + 4px);
-  padding: 0.5rem 0.75rem;
   color: var(--muted-foreground);
+  gap: 1rem;
   text-decoration: none;
 }
 
@@ -133,9 +133,9 @@ defineProps<{
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  margin-left: auto;
   padding: 0;
   border-radius: 9999px;
+  margin-left: auto;
 }
 
 .dashboard-sidebar__sheet-upgrade {
@@ -154,14 +154,14 @@ defineProps<{
 
 .dashboard-sidebar__sr-only {
   position: absolute;
+  overflow: hidden;
   width: 1px;
   height: 1px;
   padding: 0;
+  border-width: 0;
   margin: -1px;
-  overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  border-width: 0;
 }
 
 @media (width >= 768px) {
