@@ -116,8 +116,8 @@ import { sizeOptions, stockVariants } from '../data';
 
 .sigma-ui-card__footer.dashboard-product-edit__stock-footer {
   justify-content: center;
-  border-top: 1px solid var(--border);
   padding: 1rem;
+  border-top: 1px solid var(--border);
 }
 
 button.dashboard-product-edit__add-variant {
@@ -131,13 +131,13 @@ button.dashboard-product-edit__add-variant svg {
 
 .dashboard-product-edit__visually-hidden {
   position: absolute;
+  overflow: hidden;
   width: 1px;
   height: 1px;
   padding: 0;
+  border-width: 0;
   margin: -1px;
-  overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  border-width: 0;
 }
 </style>
