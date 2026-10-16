@@ -1,5 +1,7 @@
+import { mkdirSync, mkdtempSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { describe, expect, it } from 'vitest';
-import { resolve } from 'pathe';
+import { join, resolve } from 'pathe';
 import { crawlRegistry, findStyleMismatches, toPublicImports } from '../src/registry';
 import type { RegistryItem } from '../src/schemas';
 
@@ -62,10 +64,43 @@ describe('findStyleMismatches', () => {
   });
 });
 
+describe('shared registry modules', () => {
+  it('ships a shared module next to the component that imports it', async () => {
+    const root = mkdtempSync(join(tmpdir(), 'sigma-ui-registry-'));
+    const registryRoot = join(root, 'registry');
+    const packageJsonPath = join(root, 'package.json');
+
+    writeFileSync(packageJsonPath, JSON.stringify({ dependencies: { 'left-pad': '1.0.0' } }));
+
+    for (const style of ['css', 'tailwind']) {
+      const directory = join(registryRoot, style, 'ui', 'chart');
+      mkdirSync(directory, { recursive: true });
+      writeFileSync(join(directory, 'Chart.vue'), `<script setup lang="ts">
+import { helper } from '@ui/registry/shared/ui/chart/helper';
+</script>
+<template><p>{{ helper }}</p></template>
+`);
+    }
+
+    mkdirSync(join(registryRoot, 'shared', 'ui', 'chart'), { recursive: true });
+    writeFileSync(join(registryRoot, 'shared', 'ui', 'chart', 'helper.ts'), 'import { pad } from \'left-pad\';\nexport const helper = pad;\n');
+
+    const registries = await crawlRegistry({ registryRoot, styles: ['css', 'tailwind'], packageJsonPath });
+    const chart = registries.css.find(item => item.name === 'chart');
+
+    expect(chart?.files?.map(file => file.path)).toEqual([
+      'ui/chart/Chart.vue',
+      'ui/chart/helper.ts',
+    ]);
+    expect(chart?.dependencies).toContain('left-pad@1.0.0');
+    expect(registries.tailwind.find(item => item.name === 'chart')?.files?.map(file => file.path)).toEqual(chart?.files?.map(file => file.path));
+  });
+});
+
 describe('toPublicImports', () => {
   it('rewrites lib aliases to the default shadcn-style aliases', () => {
-    const source = `import { Button } from '@ui/registry/css/ui/button';\nimport { cn } from "@ui/utils";`;
+    const source = `import { Button } from '@ui/registry/css/ui/button';\nimport { createChartSingleTooltipTemplate } from '@ui/registry/shared/ui/chart/tooltip-template';\nimport { cn } from "@ui/utils";`;
 
-    expect(toPublicImports(source)).toBe(`import { Button } from '@/components/ui/button';\nimport { cn } from "@/lib/utils";`);
+    expect(toPublicImports(source)).toBe(`import { Button } from '@/components/ui/button';\nimport { createChartSingleTooltipTemplate } from '@/components/ui/chart/tooltip-template';\nimport { cn } from "@/lib/utils";`);
   });
 });

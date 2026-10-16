@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, join, relative, resolve } from 'pathe';
 import {
@@ -20,12 +21,24 @@ export interface WriteRegistryOptions {
   transformContent?: (content: string) => string;
 }
 
-function resolveSourceFile(sourceRoot: string, filePath: string, itemName: string) {
+export function resolveRegistrySourceFile(sourceRoot: string, filePath: string, itemName: string) {
   const absolutePath = resolve(sourceRoot, filePath);
   const relativePath = relative(sourceRoot, absolutePath);
 
   if (relativePath.startsWith('..')) {
     throw new Error(`"${itemName}" references ${filePath}, which is outside ${sourceRoot}.`);
+  }
+
+  if (existsSync(absolutePath)) {
+    return absolutePath;
+  }
+
+  const sharedRoot = resolve(sourceRoot, '../shared');
+  const sharedPath = resolve(sharedRoot, filePath);
+  const sharedRelative = relative(sharedRoot, sharedPath);
+
+  if (!sharedRelative.startsWith('..') && existsSync(sharedPath)) {
+    return sharedPath;
   }
 
   return absolutePath;
@@ -37,7 +50,7 @@ export async function withFileContents(
   transformContent: (content: string) => string = content => content,
 ): Promise<RegistryItem> {
   const files = await Promise.all((item.files ?? []).map(async (file) => {
-    const content = await readFile(resolveSourceFile(sourceRoot, file.path, item.name), 'utf8');
+    const content = await readFile(resolveRegistrySourceFile(sourceRoot, file.path, item.name), 'utf8');
     return { ...file, content: transformContent(content.replace(/\r\n/g, '\n')) };
   }));
 

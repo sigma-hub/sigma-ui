@@ -1,9 +1,10 @@
-import { existsSync } from 'node:fs';
+import { existsSync, statSync } from 'node:fs';
 import { readFile, readdir } from 'node:fs/promises';
 import { basename, extname, join, relative, resolve } from 'pathe';
 import type { RegistryItem, RegistryItemFile, RegistryItemType } from '../schemas/registry';
 import { getImportSources } from './imports';
 import { classifyImportSources } from './dependencies';
+import { resolveRegistrySourceFile } from './output';
 import { readPackageVersions } from './package-versions';
 
 export interface BlockManifestEntry {
@@ -26,6 +27,7 @@ const UI_DIRECTORY = 'ui';
 const BLOCKS_DIRECTORY = 'blocks';
 const EXAMPLES_DIRECTORY = 'example';
 const BLOCK_MANIFEST_FILE = 'blocks.json';
+const SHARED_SPECIFIER_PATTERN = /^@ui\/registry\/shared\/(.+)$/;
 
 async function listFiles(directory: string): Promise<string[]> {
   if (!existsSync(directory)) {
@@ -63,9 +65,55 @@ async function readBlockManifest(registryRoot: string): Promise<BlockManifestEnt
   return JSON.parse(await readFile(manifestPath, 'utf8'));
 }
 
+function isFile(filePath: string) {
+  return existsSync(filePath) && statSync(filePath).isFile();
+}
+
+export function resolveSharedRegistryPath(registryRoot: string, source: string) {
+  const match = source.match(SHARED_SPECIFIER_PATTERN);
+
+  if (!match) {
+    return null;
+  }
+
+  const base = join(registryRoot, 'shared', match[1]);
+  const candidates = [base, `${base}.ts`, `${base}.vue`, join(base, 'index.ts')];
+  const found = candidates.find(candidate => isFile(candidate));
+
+  if (!found) {
+    throw new Error(`Missing shared registry module "${source}".`);
+  }
+
+  return relative(join(registryRoot, 'shared'), found);
+}
+
+async function expandSharedFiles(styleRoot: string, files: RegistryItemFile[], itemName: string) {
+  const registryRoot = resolve(styleRoot, '..');
+  const expanded = [...files];
+  const seen = new Set(expanded.map(file => file.path));
+
+  for (const file of expanded) {
+    const filename = resolveRegistrySourceFile(styleRoot, file.path, itemName);
+    const sources = getImportSources(await readFile(filename, 'utf8'), filename);
+
+    for (const source of sources) {
+      const sharedPath = resolveSharedRegistryPath(registryRoot, source);
+
+      if (!sharedPath || seen.has(sharedPath) || !sharedPath.startsWith(`${UI_DIRECTORY}/${itemName}/`)) {
+        continue;
+      }
+
+      seen.add(sharedPath);
+      expanded.push({ path: sharedPath, type: file.type });
+    }
+  }
+
+  return expanded;
+}
+
 async function getItemDependencies(styleRoot: string, files: RegistryItemFile[], itemName: string, packageVersions: Record<string, string>) {
   const sources = await Promise.all(files.map(async (file) => {
-    const filename = join(styleRoot, file.path);
+    const filename = resolveRegistrySourceFile(styleRoot, file.path, itemName);
     return getImportSources(await readFile(filename, 'utf8'), filename);
   }));
 
@@ -77,10 +125,12 @@ async function createItem(
   item: Omit<RegistryItem, 'files'> & { files: RegistryItemFile[] },
   packageVersions: Record<string, string>,
 ): Promise<RegistryItem> {
-  const { dependencies, registryDependencies } = await getItemDependencies(styleRoot, item.files, item.name, packageVersions);
+  const files = await expandSharedFiles(styleRoot, item.files, item.name);
+  const { dependencies, registryDependencies } = await getItemDependencies(styleRoot, files, item.name, packageVersions);
 
   return {
     ...item,
+    files,
     registryDependencies,
     dependencies,
   };

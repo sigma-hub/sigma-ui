@@ -51,6 +51,28 @@ describe('writeRegistry', () => {
     })).rejects.toThrow(/more than once/);
   });
 
+  it('reads a sibling shared file when the style tree does not have a copy', async () => {
+    const registryRoot = mkdtempSync(join(tmpdir(), 'sigma-ui-shared-source-'));
+    const styleRoot = join(registryRoot, 'css');
+    const outputDirectory = join(registryRoot, 'out');
+
+    mkdirSync(join(registryRoot, 'shared', 'ui', 'chart'), { recursive: true });
+    writeFileSync(join(registryRoot, 'shared', 'ui', 'chart', 'helper.ts'), 'export const helper = 1;\n');
+
+    await writeRegistry({
+      registry: registry([{
+        name: 'chart',
+        type: 'registry:ui',
+        files: [{ path: 'ui/chart/helper.ts', type: 'registry:ui' }],
+      }]),
+      sourceRoot: styleRoot,
+      outputDirectory,
+    });
+
+    const item = JSON.parse(readFileSync(join(outputDirectory, 'chart.json'), 'utf8'));
+    expect(item.files[0].content).toBe('export const helper = 1;\n');
+  });
+
   it('rejects files outside the source root', async () => {
     await expect(writeRegistry({
       registry: registry([{ name: 'hello', type: 'registry:block', files: [{ path: '../secret.txt', type: 'registry:file' }] }]),
