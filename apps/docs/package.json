@@ -14,7 +14,6 @@
     "ts": "vue-tsc --noEmit --skipLibCheck",
     "ts:registry": "vue-tsc --noEmit --skipLibCheck -p tsconfig.registry.json",
     "build:registry": "tsx ./scripts/build-registry.ts",
-    "build:registry-strict": "pnpm ts:registry && tsx ./scripts/build-registry.ts",
     "docs:gen": "tsx ./scripts/api-docs/gen-api.ts",
     "docs:check": "tsx ./scripts/api-docs/gen-api.ts --check",
     "docs:lint": "tsx ./scripts/lint-pages.ts",
