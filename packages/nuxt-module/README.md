@@ -26,11 +26,14 @@ Install the module:
 npx nuxi module add sigma-ui-nuxt
 ```
 
-For the Tailwind style system, also install Tailwind v4 and its Vite plugin:
+For the Tailwind style system, install Tailwind v4, its Vite plugin, and the animation stylesheet:
 
 ```bash
 npm install -D tailwindcss @tailwindcss/vite
+npm install tw-animate-css
 ```
+
+`sigma-ui init` writes a CSS-first stylesheet (`@import "tailwindcss"` and `@import "tw-animate-css"`). New projects do not use a `tailwind.config.js`.
 
 Then initialize SIGMA-UI and add components:
 

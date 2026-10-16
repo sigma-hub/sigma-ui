@@ -1,133 +1,85 @@
 ---
 title: Laravel
-description: Initialize SIGMA-UI in a Laravel project.
+description: Install sigma-ui in a Laravel project.
 ---
 
-<Steps>
-
-### Create project (optional step)
-
-If you don't have a Laravel project yet, create it first. Here's an example using `laravel` CLI:
+## Create a project
 
 ```bash
 laravel new my-app --typescript --breeze --stack=vue --git --no-interaction
 ```
 
-### Initialize SIGMA-UI
+## Remove a JavaScript Tailwind config
 
-In your existing Laravel project, run the following command to config SIGMA-UI (learn more in: [CLI docs > init](/docs/cli.html)):
+`sigma-ui init` writes CSS-first Tailwind v4 into `resources/css/app.css` and installs `tw-animate-css`. It does not create or update a `tailwind.config.js`.
+
+Older Laravel starter kits ship `tailwind.config.js`. Delete that file before you run init. While it exists, init keeps it and points the stylesheet at it with `@config`.
+
+## Install Tailwind CSS
+
+Install Tailwind v4 and the Vite plugin if the project does not have them yet:
+
+```bash
+npm install -D tailwindcss @tailwindcss/vite
+npm install tw-animate-css
+```
+
+Register the plugin in `vite.config.ts`:
+
+```ts
+import tailwindcss from '@tailwindcss/vite';
+import vue from '@vitejs/plugin-vue';
+import laravel from 'laravel-vite-plugin';
+import { defineConfig } from 'vite';
+
+export default defineConfig({
+  plugins: [
+    laravel({
+      input: ['resources/css/app.css', 'resources/js/app.ts'],
+      refresh: true,
+    }),
+    tailwindcss(),
+    vue(),
+  ],
+});
+```
+
+## Initialize sigma-ui
 
 ```bash
 npx sigma-ui init
 ```
 
-And follow the steps in your terminal.
+Init rewrites `resources/css/app.css`. The theme lives in that file:
 
-### Update tailwind.config.js
+```css
+@import "tailwindcss";
+@import "tw-animate-css";
 
-The `sigma-ui` CLI will automatically overwrite your `tailwind.config.js`. Update it to look like this:
+@custom-variant dark (&:is(.dark *));
 
-```js
-import forms from '@tailwindcss/forms'
-import defaultTheme from 'tailwindcss/defaultTheme'
-
-/** @type {import('tailwindcss').Config} */
-export default {
-  darkMode: 'class',
-  content: [
-    './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
-    './storage/framework/views/*.php',
-    './resources/views/**/*.blade.php',
-    './resources/js/**/*.{ts,tsx,vue}',
-  ],
-
-  theme: {
-    container: {
-      center: true,
-      padding: '2rem',
-      screens: {
-        '2xl': '1400px',
-      },
-    },
-    extend: {
-      colors: {
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
-        primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
-        },
-        secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
-        },
-        destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))',
-        },
-        muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))',
-        },
-        popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))',
-        },
-        card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))',
-        },
-      },
-      borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
-      },
-      fontFamily: {
-        sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-      },
-      keyframes: {
-        'accordion-down': {
-          from: { height: 0 },
-          to: { height: 'var(--reka-accordion-content-height)' },
-        },
-        'accordion-up': {
-          from: { height: 'var(--reka-accordion-content-height)' },
-          to: { height: 0 },
-        },
-      },
-      animation: {
-        'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out',
-      },
-    },
-  },
-
-  plugins: [forms, require('tailwindcss-animate')],
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --radius-lg: var(--radius);
 }
 ```
 
-### Add components
+`resources/js/app.ts` should still import the stylesheet through Vite, which the Laravel starter already does.
 
-You can now start adding [components](/components/accordion.html) to your project (learn more in: [CLI docs > add](/docs/cli.html)):
+## Add components
 
 ```bash
 npx sigma-ui add button
 ```
 
-The command above will add the `Button` component to your project. You can then import and use it like this:
-
-```vue {2,6}
+```vue
 <script setup lang="ts">
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/button';
 </script>
 
 <template>
   <Button>Click me</Button>
 </template>
 ```
-
-</Steps>
