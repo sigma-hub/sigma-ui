@@ -40,7 +40,7 @@
     },
     {
       "path": "ui/context-menu/ContextMenuPortal.vue",
-      "content": "<script setup lang=\"ts\">\nimport { ContextMenuPortal, type ContextMenuPortalProps } from 'reka-ui';\n\nconst props = defineProps<ContextMenuPortalProps>();\n</script>\n\n<template>\n  <ContextMenuPortal v-bind=\"props\"\n  data-slot=\"context-menu-portal\">\n    <slot />\n  </ContextMenuPortal>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { ContextMenuPortal, type ContextMenuPortalProps } from 'reka-ui';\n\nconst props = defineProps<ContextMenuPortalProps>();\n</script>\n\n<template>\n  <ContextMenuPortal v-bind=\"props\">\n    <slot />\n  </ContextMenuPortal>\n</template>\n",
       "type": "registry:ui"
     },
     {
