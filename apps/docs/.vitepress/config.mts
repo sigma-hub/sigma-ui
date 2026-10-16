@@ -1,6 +1,6 @@
 import path from 'node:path';
 import fs from 'node:fs';
-import { defineConfig } from 'vitepress';
+import { defineConfig, type MarkdownOptions } from 'vitepress';
 import tailwindcss from '@tailwindcss/vite';
 import { transformerMetaWordHighlight } from '@shikijs/transformers';
 import { cssVariables } from './theme/config/shiki';
@@ -58,7 +58,7 @@ export default defineConfig({
   markdown: {
     theme: cssVariables,
     codeTransformers: [
-      transformerMetaWordHighlight(),
+      transformerMetaWordHighlight() as NonNullable<MarkdownOptions['codeTransformers']>[number],
     ],
     config(md) {
       md.use(ComponentPreviewPlugin);
