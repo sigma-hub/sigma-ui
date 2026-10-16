@@ -46,8 +46,8 @@ defineSlots<{
   width: 2.5rem;
   height: 2.5rem;
   border-radius: var(--radius-lg);
-  background-color: hsl(var(--muted));
-  color: hsl(var(--foreground));
+  background-color: var(--muted);
+  color: var(--foreground);
 }
 
 .sigma-ui-empty-media--icon svg {

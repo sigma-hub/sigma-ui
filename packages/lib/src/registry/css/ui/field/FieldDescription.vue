@@ -19,7 +19,7 @@ defineSlots<{
 <style>
 .sigma-ui-field-description {
   margin: 0;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
@@ -47,6 +47,6 @@ defineSlots<{
 }
 
 .sigma-ui-field-description > a:hover {
-  color: hsl(var(--primary));
+  color: var(--primary);
 }
 </style>

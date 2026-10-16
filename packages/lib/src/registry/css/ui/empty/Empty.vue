@@ -26,7 +26,7 @@ defineSlots<{
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
-  border: 1px dashed hsl(var(--border));
+  border: 1px dashed var(--border);
   border-radius: var(--radius-lg);
   text-align: center;
   text-wrap: balance;

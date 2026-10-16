@@ -79,6 +79,6 @@ import {
 }
 
 .example-button-group__destructive-item {
-  color: hsl(var(--destructive));
+  color: var(--destructive);
 }
 </style>

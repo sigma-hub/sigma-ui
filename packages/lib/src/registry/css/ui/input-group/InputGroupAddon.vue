@@ -54,7 +54,7 @@ function focusControl(event: MouseEvent) {
   height: auto;
   align-items: center;
   justify-content: center;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   cursor: text;
   font-size: 0.875rem;
   font-weight: 500;

@@ -14,7 +14,7 @@ import { Spinner } from '@ui/registry/css/ui/spinner';
 .example-spinner {
   display: flex;
   align-items: center;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   gap: 1.5rem;
 }
 
@@ -26,6 +26,6 @@ import { Spinner } from '@ui/registry/css/ui/spinner';
 .example-spinner .example-spinner__lg {
   width: 2rem;
   height: 2rem;
-  color: hsl(var(--primary));
+  color: var(--primary);
 }
 </style>

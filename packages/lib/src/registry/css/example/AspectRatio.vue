@@ -25,8 +25,8 @@ import { AspectRatio } from '@ui/registry/css/ui/aspect-ratio';
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-md);
-  background-color: hsl(var(--muted));
-  color: hsl(var(--muted-foreground));
+  background-color: var(--muted);
+  color: var(--muted-foreground);
   font-size: 0.875rem;
 }
 </style>

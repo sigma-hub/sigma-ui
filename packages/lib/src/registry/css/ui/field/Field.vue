@@ -51,7 +51,7 @@ defineSlots<{
 }
 
 .sigma-ui-field[data-invalid="true"] {
-  color: hsl(var(--destructive));
+  color: var(--destructive);
 }
 
 .sigma-ui-field--vertical,

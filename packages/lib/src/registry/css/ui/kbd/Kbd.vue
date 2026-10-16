@@ -27,8 +27,8 @@ defineSlots<{
   justify-content: center;
   padding: 0 0.25rem;
   border-radius: calc(var(--radius) - 4px);
-  background-color: hsl(var(--muted));
-  color: hsl(var(--muted-foreground));
+  background-color: var(--muted);
+  color: var(--muted-foreground);
   font-family: inherit;
   font-size: 0.75rem;
   font-weight: 500;
@@ -43,7 +43,7 @@ defineSlots<{
 }
 
 [data-slot='tooltip-content'] .sigma-ui-kbd {
-  background-color: hsl(var(--background) / 20%);
-  color: hsl(var(--background));
+  background-color: color-mix(in oklch, var(--background) 20%, transparent);
+  color: var(--background);
 }
 </style>

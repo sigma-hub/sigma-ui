@@ -29,9 +29,9 @@ defineSlots<{
   display: flex;
   align-items: center;
   padding: 0 1rem;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  background-color: hsl(var(--muted));
+  background-color: var(--muted);
   font-size: 0.875rem;
   font-weight: 500;
   gap: 0.5rem;
