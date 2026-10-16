@@ -5,6 +5,26 @@ description: Latest updates and announcements.
 
 Nuxt module releases are listed in the [sigma-ui-nuxt changelog](https://github.com/sigma-hub/sigma-ui/blob/main/packages/nuxt-module/CHANGELOG.md).
 
+## Unreleased 2.0
+
+Blocks use descriptive kebab-case names. The 1.x names have no aliases.
+
+| 1.x name | 2.0 name | Docs page |
+|---|---|---|
+| `Authentication01` | `login-simple` | Auth |
+| `Authentication02` | `login-social` | Auth |
+| `Authentication03` | `signup-card` | Auth |
+| `Authentication04` | `login-split-image` | Auth |
+| `Dashboard01` | `dashboard-analytics` | Dashboard |
+| `Dashboard02` | `dashboard-sidebar` | Dashboard |
+| `Dashboard03` | `dashboard-ai-playground` | Dashboard |
+| `Dashboard04` | `dashboard-settings` | Dashboard |
+| `Dashboard05` | `dashboard-orders` | Dashboard |
+| `Dashboard06` | `dashboard-products` | Dashboard |
+| `Dashboard07` | `dashboard-product-edit` | Dashboard |
+
+[`music-library`](/blocks/music) is a new installable block.
+
 <!--@include: ../../../../../packages/cli/CHANGELOG.md{3,}-->
 
 ## January 2026
