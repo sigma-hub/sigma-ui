@@ -77,7 +77,7 @@ const showEllipsis = computed(() => items.value.length > maxVisibleItems.value);
           <DropdownMenu>
             <DropdownMenuTrigger class="example-sigma-ui-breadcrumb__trigger">
               <BreadcrumbEllipsis />
-              <span class="sr-only">Toggle menu</span>
+              <span class="sigma-ui-sr-only">Toggle menu</span>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start">
               <DropdownMenuItem
@@ -122,5 +122,17 @@ const showEllipsis = computed(() => items.value.length > maxVisibleItems.value);
   display: flex;
   align-items: center;
   gap: 0.25rem;
+}
+
+.sigma-ui-sr-only {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border-width: 0;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
 }
 </style>

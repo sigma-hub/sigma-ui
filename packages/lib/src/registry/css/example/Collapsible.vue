@@ -34,7 +34,7 @@ const isOpen = ref(false);
             v-else
             class="example-sigma-ui-collapsible__icon"
           />
-          <span class="sr-only">Toggle</span>
+          <span class="sigma-ui-sr-only">Toggle</span>
         </Button>
       </CollapsibleTrigger>
     </div>
@@ -94,5 +94,17 @@ const isOpen = ref(false);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+.sigma-ui-sr-only {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border-width: 0;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
 }
 </style>

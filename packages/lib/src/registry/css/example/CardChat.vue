@@ -129,7 +129,7 @@ const filteredUsers = computed(() => users.value.filter(user => user.name.toLowe
           :disabled="inputLength === 0"
         >
           <SendIcon class="example-sigma-ui-card-chat__send-icon" />
-          <span class="sr-only">Send</span>
+          <span class="sigma-ui-sr-only">Send</span>
         </Button>
       </form>
     </CardFooter>
@@ -375,5 +375,17 @@ const filteredUsers = computed(() => users.value.filter(user => user.name.toLowe
 .example-sigma-ui-card-chat__empty-selection {
   color: var(--muted-foreground);
   font-size: 0.875rem;
+}
+
+.sigma-ui-sr-only {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border-width: 0;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
 }
 </style>

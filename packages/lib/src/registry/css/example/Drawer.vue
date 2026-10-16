@@ -57,7 +57,7 @@ const data = [
               @click="goal -= 10"
             >
               <MinusIcon class="example-sigma-ui-drawer__goal-icon" />
-              <span class="sr-only">Decrease</span>
+              <span class="sigma-ui-sr-only">Decrease</span>
             </Button>
             <div class="example-sigma-ui-drawer__goal-display">
               <div class="example-sigma-ui-drawer__goal-value">
@@ -75,7 +75,7 @@ const data = [
               @click="goal += 10"
             >
               <PlusIcon class="example-sigma-ui-drawer__goal-icon" />
-              <span class="sr-only">Increase</span>
+              <span class="sigma-ui-sr-only">Increase</span>
             </Button>
           </div>
           <div class="example-sigma-ui-drawer__chart">
@@ -168,5 +168,17 @@ const data = [
 
 .example-sigma-ui-drawer__chart-container {
   height: 120px;
+}
+
+.sigma-ui-sr-only {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border-width: 0;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
 }
 </style>
