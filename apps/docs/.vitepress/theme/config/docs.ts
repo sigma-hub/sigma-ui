@@ -186,6 +186,10 @@ export const docsConfig: DocsConfig = {
           title: 'Forms',
           href: '/blocks/settings-forms',
         },
+        {
+          title: 'Cards',
+          href: '/blocks/cards-mix',
+        },
       ],
     },
   ],
