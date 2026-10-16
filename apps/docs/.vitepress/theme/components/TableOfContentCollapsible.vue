@@ -6,7 +6,7 @@ import TableOfContentTree from './TableOfContentTree.vue';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@ui/registry/tailwind/ui/collapsible';
 import { buttonVariants } from '@ui/registry/tailwind/ui/button';
 
-const headers = shallowRef<TableOfContents>();
+const headers = shallowRef<TableOfContents>({ items: [] });
 
 function getHeadingsWithHierarchy(divId: string) {
   if (typeof document === 'undefined') {

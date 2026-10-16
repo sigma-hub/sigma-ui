@@ -5,7 +5,7 @@ import type { TableOfContents, TableOfContentsItem } from '../types/docs';
 import TableOfContentTree from './TableOfContentTree.vue';
 import { ScrollArea } from '@ui/registry/tailwind/ui/scroll-area';
 
-const headers = shallowRef<TableOfContents>();
+const headers = shallowRef<TableOfContents>({ items: [] });
 
 function getHeadingsWithHierarchy(divId: string) {
   if (typeof document === 'undefined') {
