@@ -32,15 +32,15 @@ defineProps<StatCardData>();
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 0;
   padding-bottom: 0.5rem;
+  gap: 0;
 }
 
 .dashboard-analytics__stat-title.dashboard-analytics__stat-title {
   font-size: 0.875rem;
   font-weight: 500;
-  line-height: 1.25rem;
   letter-spacing: normal;
+  line-height: 1.25rem;
 }
 
 .dashboard-analytics__stat-icon {
