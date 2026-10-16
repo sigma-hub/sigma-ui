@@ -87,16 +87,16 @@ import RoleSelect from './RoleSelect.vue';
 .dashboard-ai-playground__fieldset {
   display: grid;
   min-width: 0;
-  gap: 1.5rem;
+  padding: 1rem;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 1rem;
+  gap: 1.5rem;
 }
 
 .dashboard-ai-playground__legend {
-  margin-left: -0.25rem;
   padding-right: 0.25rem;
   padding-left: 0.25rem;
+  margin-left: -0.25rem;
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.25rem;
@@ -109,8 +109,8 @@ import RoleSelect from './RoleSelect.vue';
 
 .dashboard-ai-playground__sampling {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 textarea.dashboard-ai-playground__content-input {
