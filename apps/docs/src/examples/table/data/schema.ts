@@ -9,3 +9,4 @@ export const tableSchema = z.object({
 });
 
 export type Table = z.infer<typeof tableSchema>;
+export type Task = Table;
