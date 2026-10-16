@@ -35,11 +35,50 @@ describe('migrateConfig', () => {
       cssPath: './src/assets/css/tailwind.css',
       baseColor: 'grayscale',
       tailwind: { config: './tailwind.config.ts' },
-      aliases: { components: '@/components', utils: '@/lib/utils' },
+      aliases: { components: '@/components/ui', utils: '@/lib/utils' },
       componentNaming: 'pascal-case',
     });
     expect(config.aliases).not.toHaveProperty('ui');
-    expect(changes).toEqual(expect.arrayContaining(['style -> styleSystem', 'tailwind.css -> cssPath', 'framework: "Vite" -> "vite"']));
+    expect(changes).toEqual(expect.arrayContaining([
+      'style -> styleSystem',
+      'tailwind.css -> cssPath',
+      'framework: "Vite" -> "vite"',
+      'aliases.ui -> aliases.components',
+    ]));
+  });
+
+  it('uses the legacy ui alias as the component install path', () => {
+    const uiOnly = migrateConfig({
+      style: 'tailwind',
+      framework: 'vite',
+      tailwind: { config: 'tailwind.config.js', css: 'src/assets/index.css', baseColor: 'grayscale' },
+      aliases: { ui: '@/components/ui', utils: '@/lib/utils' },
+    }, 'vite');
+
+    expect(uiOnly.config.aliases).toEqual({ components: '@/components/ui', utils: '@/lib/utils' });
+    expect(uiOnly.config.aliases).not.toHaveProperty('ui');
+    expect(uiOnly.changes).toEqual(expect.arrayContaining(['aliases.ui -> aliases.components']));
+
+    const replaced = migrateConfig({
+      styleSystem: 'css',
+      framework: 'nuxt',
+      cssPath: 'assets/css/main.css',
+      baseColor: 'blue',
+      aliases: { components: '@/components', ui: '@/my-ui', utils: '' },
+    }, 'nuxt');
+
+    expect(replaced.config.aliases.components).toBe('@/my-ui');
+    expect(replaced.config.aliases).not.toHaveProperty('ui');
+
+    const samePath = migrateConfig({
+      styleSystem: 'tailwind',
+      framework: 'vite',
+      cssPath: 'src/assets/index.css',
+      aliases: { components: '@/components/ui', ui: '@/components/ui', utils: '@/lib/utils' },
+    }, 'vite');
+
+    expect(samePath.config.aliases).toEqual({ components: '@/components/ui', utils: '@/lib/utils' });
+    expect(samePath.changes).toEqual(expect.arrayContaining(['aliases.ui removed (components are installed into aliases.components)']));
   });
 
   it('keeps a 1.4 config and only fills in 2.0 fields', () => {
@@ -159,6 +198,31 @@ describe('runMigrate', () => {
     const secondRun = await runMigrate(cwd, { yes: true, dryRun: false });
     expect(secondRun.changes).toEqual([]);
     expect(secondRun.renames).toEqual([]);
+  });
+
+  it('renames component directories in the legacy ui install path', async () => {
+    const cwd = createProject({
+      'package.json': JSON.stringify({ dependencies: { vue: '^3.5.0' } }),
+      'tsconfig.json': JSON.stringify({ compilerOptions: { paths: { '@/*': ['./src/*'] } } }),
+      'sigma-ui.config.json': JSON.stringify({
+        style: 'tailwind',
+        framework: 'vite',
+        tailwind: { config: '', css: 'src/assets/index.css', baseColor: 'grayscale' },
+        aliases: { components: '@/components', ui: '@/components/ui', utils: '@/lib/utils' },
+      }),
+      'src/components/ui/Button/Button.vue': '<template><button /></template>\n',
+      'src/components/ui/Button/index.ts': 'export { default as Button } from \'./Button.vue\';\n',
+      'src/App.vue': '<script setup lang="ts">\nimport { Button } from \'@/components/ui/Button\';\n</script>\n',
+    });
+
+    await runMigrate(cwd, { yes: true, dryRun: false });
+
+    expect(readdirSync(path.join(cwd, 'src/components/ui')).sort()).toEqual(['button']);
+    expect(readFileSync(path.join(cwd, 'src/App.vue'), 'utf8')).toContain('from \'@/components/ui/button\'');
+    expect(JSON.parse(readFileSync(path.join(cwd, 'sigma-ui.config.json'), 'utf8')).aliases).toEqual({
+      components: '@/components/ui',
+      utils: '@/lib/utils',
+    });
   });
 
   it('fails without a config file', async () => {

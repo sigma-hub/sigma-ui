@@ -29,6 +29,27 @@ function normalizeFramework(value: unknown, detectedFramework: Framework, change
   return detectedFramework;
 }
 
+function migrateAliases(legacyAliases: Record<string, unknown>, changes: string[]) {
+  const { ui: legacyUiAlias, ...aliases } = legacyAliases;
+
+  if (typeof legacyUiAlias !== 'string' || legacyUiAlias === '') {
+    if (legacyUiAlias !== undefined) {
+      changes.push('aliases.ui removed (components are installed into aliases.components)');
+    }
+
+    return aliases;
+  }
+
+  if (aliases.components !== legacyUiAlias) {
+    changes.push('aliases.ui -> aliases.components');
+  } else {
+    changes.push('aliases.ui removed (components are installed into aliases.components)');
+  }
+
+  aliases.components = legacyUiAlias;
+  return aliases;
+}
+
 function moveValue(
   target: Record<string, unknown>,
   targetKey: string,
@@ -71,13 +92,7 @@ export function migrateConfig(input: unknown, detectedFramework: Framework): Con
     prefix: legacyTailwind.prefix,
   }).filter(([, value]) => typeof value === 'string' && value !== ''));
 
-  const { ui: legacyUiAlias, ...aliases } = legacyAliases;
-
-  if (legacyUiAlias !== undefined) {
-    changes.push('aliases.ui removed (components are installed into aliases.components)');
-  }
-
-  next.aliases = aliases;
+  next.aliases = migrateAliases(legacyAliases, changes);
 
   if (next.componentNaming === undefined) {
     next.componentNaming = 'pascal-case';
