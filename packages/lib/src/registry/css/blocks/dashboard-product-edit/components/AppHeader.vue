@@ -110,26 +110,26 @@ import { breadcrumbLinks, breadcrumbPage, mobileNavItems } from '../data';
 <style>
 .dashboard-product-edit__header {
   position: sticky;
-  top: 0;
   z-index: 30;
+  top: 0;
   display: flex;
   height: 3.5rem;
   align-items: center;
-  gap: 1rem;
-  border-bottom: 1px solid var(--border);
-  background-color: var(--background);
   padding-right: 1rem;
   padding-left: 1rem;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--background);
+  gap: 1rem;
 }
 
 @media (width >= 640px) {
   .dashboard-product-edit__header {
     position: static;
     height: auto;
-    border-bottom-width: 0;
-    background-color: transparent;
     padding-right: 1.5rem;
     padding-left: 1.5rem;
+    border-bottom-width: 0;
+    background-color: transparent;
   }
 
   button.dashboard-product-edit__menu-button {
@@ -153,9 +153,9 @@ button.dashboard-product-edit__account-button {
 
 .dashboard-product-edit__sheet-nav {
   display: grid;
-  gap: 1.5rem;
   font-size: 1.125rem;
   font-weight: 500;
+  gap: 1.5rem;
   line-height: 1.75rem;
 }
 
@@ -166,12 +166,12 @@ button.dashboard-product-edit__account-button {
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
   border-radius: var(--radius-full);
   background-color: var(--primary);
   color: var(--primary-foreground);
   font-size: 1.125rem;
   font-weight: 600;
+  gap: 0.5rem;
   line-height: 1.75rem;
   text-decoration: none;
 }
@@ -196,10 +196,10 @@ button.dashboard-product-edit__account-button {
 .dashboard-product-edit__sheet-link {
   display: flex;
   align-items: center;
-  gap: 1rem;
   padding-right: 0.625rem;
   padding-left: 0.625rem;
   color: var(--muted-foreground);
+  gap: 1rem;
   text-decoration: none;
 }
 
@@ -226,8 +226,8 @@ button.dashboard-product-edit__account-button {
 
 .dashboard-product-edit__search {
   position: relative;
-  margin-left: auto;
   flex: 1 1 0%;
+  margin-left: auto;
 }
 
 @media (width >= 768px) {
@@ -247,9 +247,9 @@ button.dashboard-product-edit__account-button {
 
 input.dashboard-product-edit__search-input {
   width: 100%;
+  padding-left: 2rem;
   border-radius: var(--radius-lg);
   background-color: var(--background);
-  padding-left: 2rem;
 }
 
 @media (width >= 768px) {
@@ -266,13 +266,13 @@ input.dashboard-product-edit__search-input {
 
 .dashboard-product-edit__visually-hidden {
   position: absolute;
+  overflow: hidden;
   width: 1px;
   height: 1px;
   padding: 0;
+  border-width: 0;
   margin: -1px;
-  overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  border-width: 0;
 }
 </style>
