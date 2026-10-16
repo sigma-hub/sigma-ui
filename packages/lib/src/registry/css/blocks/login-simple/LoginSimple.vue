@@ -6,17 +6,17 @@ import { Label } from '@ui/registry/css/ui/label';
 </script>
 
 <template>
-  <Card class="css-class-name w-full max-w-sm">
+  <Card class="login-simple__card">
     <CardHeader>
-      <CardTitle class="text-2xl">
+      <CardTitle class="login-simple__title">
         Login
       </CardTitle>
       <CardDescription>
         Enter your email below to login to your account.
       </CardDescription>
     </CardHeader>
-    <CardContent class="grid gap-4">
-      <div class="grid gap-2">
+    <CardContent class="login-simple__content">
+      <div class="login-simple__field">
         <Label for="email">Email</Label>
         <Input
           id="email"
@@ -25,7 +25,7 @@ import { Label } from '@ui/registry/css/ui/label';
           required
         />
       </div>
-      <div class="grid gap-2">
+      <div class="login-simple__field">
         <Label for="password">Password</Label>
         <Input
           id="password"
@@ -35,9 +35,35 @@ import { Label } from '@ui/registry/css/ui/label';
       </div>
     </CardContent>
     <CardFooter>
-      <Button class="w-full">
+      <Button class="login-simple__submit">
         Sign in
       </Button>
     </CardFooter>
   </Card>
 </template>
+
+<style>
+.login-simple__card {
+  width: 100%;
+  max-width: 24rem;
+}
+
+.login-simple__title {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.login-simple__content {
+  display: grid;
+  gap: 1rem;
+}
+
+.login-simple__field {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.login-simple__submit {
+  width: 100%;
+}
+</style>
