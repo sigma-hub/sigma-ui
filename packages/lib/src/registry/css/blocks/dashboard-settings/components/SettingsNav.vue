@@ -27,14 +27,14 @@ defineProps<{
 }
 
 .dashboard-settings__side-link {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.875rem;
   line-height: 1.25rem;
   text-decoration: none;
 }
 
 .dashboard-settings__side-link--active {
-  color: hsl(var(--primary));
+  color: var(--primary);
   font-weight: 600;
 }
 </style>

@@ -139,8 +139,8 @@ defineProps<{
   height: 3.5rem;
   align-items: center;
   gap: 1rem;
-  border-bottom: 1px solid hsl(var(--border));
-  background-color: hsl(var(--background));
+  border-bottom: 1px solid var(--border);
+  background-color: var(--background);
   padding-right: 1rem;
   padding-left: 1rem;
 }
@@ -190,8 +190,8 @@ defineProps<{
   justify-content: center;
   gap: 0.5rem;
   border-radius: 9999px;
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  background-color: var(--primary);
+  color: var(--primary-foreground);
   font-size: 1.125rem;
   font-weight: 600;
   line-height: 1.75rem;
@@ -220,13 +220,13 @@ defineProps<{
   gap: 1rem;
   padding-right: 0.625rem;
   padding-left: 0.625rem;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 .dashboard-orders__mobile-link:hover,
 .dashboard-orders__mobile-link--active,
 .dashboard-orders__mobile-link--active:hover {
-  color: hsl(var(--foreground));
+  color: var(--foreground);
 }
 
 .dashboard-orders__mobile-link svg {
@@ -262,13 +262,13 @@ defineProps<{
   left: 0.625rem;
   width: 1rem;
   height: 1rem;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 .dashboard-orders .dashboard-orders__search-input {
   width: 100%;
   border-radius: var(--radius);
-  background-color: hsl(var(--background));
+  background-color: var(--background);
   padding-left: 2rem;
 }
 

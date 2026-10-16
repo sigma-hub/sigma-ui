@@ -74,7 +74,7 @@ defineProps<{
 }
 
 .dashboard-analytics__sale-email {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 .dashboard-analytics__sale-amount {

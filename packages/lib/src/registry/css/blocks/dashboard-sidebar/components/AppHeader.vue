@@ -43,8 +43,8 @@ defineProps<{
   height: 3.5rem;
   align-items: center;
   gap: 1rem;
-  border-bottom: 1px solid hsl(var(--border));
-  background-color: hsl(var(--muted) / 40%);
+  border-bottom: 1px solid var(--border);
+  background-color: color-mix(in oklch, var(--muted) 40%, transparent);
   padding: 0 1rem;
 }
 

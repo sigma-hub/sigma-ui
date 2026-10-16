@@ -36,7 +36,7 @@ defineProps<{
   left: 0.625rem;
   width: 1rem;
   height: 1rem;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 .dashboard-analytics__search-input.dashboard-analytics__search-input {

@@ -93,8 +93,8 @@ function navLinkClass(tone: SidebarLinkTone) {
   display: none;
   width: 3.5rem;
   flex-direction: column;
-  border-right: 1px solid hsl(var(--border));
-  background-color: hsl(var(--background));
+  border-right: 1px solid var(--border);
+  background-color: var(--background);
 }
 
 @media (width >= 640px) {
@@ -125,8 +125,8 @@ function navLinkClass(tone: SidebarLinkTone) {
   justify-content: center;
   gap: 0.5rem;
   border-radius: 9999px;
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  background-color: var(--primary);
+  color: var(--primary-foreground);
   font-size: 1.125rem;
   font-weight: 600;
   line-height: 1.75rem;
@@ -164,16 +164,16 @@ function navLinkClass(tone: SidebarLinkTone) {
 }
 
 .dashboard-products__nav-link:hover {
-  color: hsl(var(--foreground));
+  color: var(--foreground);
 }
 
 .dashboard-products__nav-link--muted {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 .dashboard-products__nav-link--active {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
 }
 
 @media (width >= 768px) {

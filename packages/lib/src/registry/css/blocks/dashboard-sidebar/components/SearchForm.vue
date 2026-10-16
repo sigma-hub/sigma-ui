@@ -38,13 +38,13 @@ defineProps<{
   left: 0.625rem;
   width: 1rem;
   height: 1rem;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 .dashboard-sidebar__search-input.dashboard-sidebar__search-input {
   width: 100%;
   padding-left: 2rem;
-  background-color: hsl(var(--background));
+  background-color: var(--background);
   box-shadow: none;
   appearance: none;
 }

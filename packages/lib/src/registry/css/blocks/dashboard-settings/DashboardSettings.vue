@@ -74,7 +74,7 @@ import {
   flex: 1 1 0%;
   flex-direction: column;
   gap: 1rem;
-  background-color: hsl(var(--muted) / 40%);
+  background-color: color-mix(in oklch, var(--muted) 40%, transparent);
   padding: 1rem;
 }
 

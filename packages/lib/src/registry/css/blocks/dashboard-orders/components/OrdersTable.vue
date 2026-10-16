@@ -251,7 +251,7 @@ defineProps<{
 
 .dashboard-orders__email {
   display: none;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
@@ -263,6 +263,6 @@ defineProps<{
 }
 
 .dashboard-orders__row--selected {
-  background-color: hsl(var(--secondary));
+  background-color: var(--secondary);
 }
 </style>

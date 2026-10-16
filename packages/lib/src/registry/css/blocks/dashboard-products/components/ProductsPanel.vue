@@ -294,7 +294,7 @@ defineProps<{
 }
 
 .dashboard-products__summary {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.75rem;
   line-height: 1rem;
 }
