@@ -35,11 +35,11 @@ import PlaygroundHeader from './components/PlaygroundHeader.vue';
 
 .dashboard-ai-playground__main {
   display: grid;
-  flex: 1 1 0%;
-  gap: 1rem;
-  min-height: 0;
   overflow: auto;
+  min-height: 0;
+  flex: 1 1 0%;
   padding: 1rem;
+  gap: 1rem;
 }
 
 @media (width >= 768px) {
