@@ -81,8 +81,8 @@ defineProps<{
   display: none;
   width: 3.5rem;
   flex-direction: column;
-  border-right: 1px solid hsl(var(--border));
-  background-color: hsl(var(--background));
+  border-right: 1px solid var(--border);
+  background-color: var(--background);
 }
 
 @media (width >= 640px) {
@@ -122,8 +122,8 @@ defineProps<{
   justify-content: center;
   gap: 0.5rem;
   border-radius: 9999px;
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  background-color: var(--primary);
+  color: var(--primary-foreground);
   font-size: 1.125rem;
   font-weight: 600;
   line-height: 1.75rem;
@@ -155,19 +155,19 @@ defineProps<{
   align-items: center;
   justify-content: center;
   border-radius: var(--radius);
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   transition-duration: 150ms;
   transition-property: color, background-color, border-color;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .dashboard-orders__nav-link:hover {
-  color: hsl(var(--foreground));
+  color: var(--foreground);
 }
 
 .dashboard-orders__nav-link--active {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
 }
 
 @media (width >= 768px) {

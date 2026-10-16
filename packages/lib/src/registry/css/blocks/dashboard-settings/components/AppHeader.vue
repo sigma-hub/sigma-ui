@@ -87,8 +87,8 @@ defineProps<{
   height: 4rem;
   align-items: center;
   gap: 1rem;
-  border-bottom: 1px solid hsl(var(--border));
-  background-color: hsl(var(--background));
+  border-bottom: 1px solid var(--border);
+  background-color: var(--background);
   padding: 0 1rem;
 }
 
@@ -109,7 +109,7 @@ defineProps<{
 }
 
 .dashboard-settings__desktop-link {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   text-decoration: none;
   transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -117,7 +117,7 @@ defineProps<{
 .dashboard-settings__desktop-link:hover,
 .dashboard-settings__desktop-link--active,
 .dashboard-settings__desktop-link--active:hover {
-  color: hsl(var(--foreground));
+  color: var(--foreground);
 }
 
 .dashboard-settings__mobile-nav {
@@ -129,17 +129,17 @@ defineProps<{
 }
 
 .dashboard-settings__mobile-link {
-  color: hsl(var(--foreground));
+  color: var(--foreground);
   text-decoration: none;
 }
 
 .dashboard-settings__mobile-link:hover,
 .dashboard-settings__mobile-link--muted:hover {
-  color: hsl(var(--foreground));
+  color: var(--foreground);
 }
 
 .dashboard-settings__mobile-link--muted {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 .dashboard-settings__tools {

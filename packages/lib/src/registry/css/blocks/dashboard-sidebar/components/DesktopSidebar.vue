@@ -74,8 +74,8 @@ defineProps<{
 <style>
 .dashboard-sidebar__panel {
   display: none;
-  border-right: 1px solid hsl(var(--border));
-  background-color: hsl(var(--muted) / 40%);
+  border-right: 1px solid var(--border);
+  background-color: color-mix(in oklch, var(--muted) 40%, transparent);
 }
 
 .dashboard-sidebar__panel-inner {
@@ -90,7 +90,7 @@ defineProps<{
   display: flex;
   height: 3.5rem;
   align-items: center;
-  border-bottom: 1px solid hsl(var(--border));
+  border-bottom: 1px solid var(--border);
   padding: 0 1rem;
 }
 
@@ -128,19 +128,19 @@ defineProps<{
   gap: 0.75rem;
   border-radius: var(--radius);
   padding: 0.5rem 0.75rem;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   text-decoration: none;
   transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .dashboard-sidebar__link:hover,
 .dashboard-sidebar__link--active:hover {
-  color: hsl(var(--primary));
+  color: var(--primary);
 }
 
 .dashboard-sidebar__link--active {
-  background-color: hsl(var(--muted));
-  color: hsl(var(--primary));
+  background-color: var(--muted);
+  color: var(--primary);
 }
 
 .dashboard-sidebar__badge.dashboard-sidebar__badge {

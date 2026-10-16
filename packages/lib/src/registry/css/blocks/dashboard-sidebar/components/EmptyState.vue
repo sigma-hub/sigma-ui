@@ -27,7 +27,7 @@ defineProps<EmptyStateData>();
   flex: 1 1 0%;
   align-items: center;
   justify-content: center;
-  border: 1px dashed hsl(var(--border));
+  border: 1px dashed var(--border);
   border-radius: var(--radius);
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
 }
@@ -50,7 +50,7 @@ defineProps<EmptyStateData>();
 
 .dashboard-sidebar__empty-description {
   margin: 0;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.875rem;
   line-height: 1.25rem;
 }

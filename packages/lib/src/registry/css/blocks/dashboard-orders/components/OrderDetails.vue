@@ -213,7 +213,7 @@ defineProps<{
 .dashboard-orders .dashboard-orders__detail-header {
   flex-direction: row;
   align-items: flex-start;
-  background-color: hsl(var(--muted) / 50%);
+  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
 }
 
 .dashboard-orders__detail-heading {
@@ -321,7 +321,7 @@ defineProps<{
 .dashboard-orders__muted,
 .dashboard-orders__address,
 .dashboard-orders__payment-brand {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 .dashboard-orders .dashboard-orders__separator--tight {
@@ -366,13 +366,13 @@ defineProps<{
 .dashboard-orders .dashboard-orders__detail-footer {
   flex-direction: row;
   align-items: center;
-  border-top: 1px solid hsl(var(--border));
-  background-color: hsl(var(--muted) / 50%);
+  border-top: 1px solid var(--border);
+  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
   padding: 0.75rem 1.5rem;
 }
 
 .dashboard-orders__updated {
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.75rem;
   line-height: 1rem;
 }

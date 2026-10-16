@@ -90,7 +90,7 @@ import {
   min-height: 100vh;
   width: 100%;
   flex-direction: column;
-  background-color: hsl(var(--muted) / 40%);
+  background-color: color-mix(in oklch, var(--muted) 40%, transparent);
 }
 
 .dashboard-orders__shell {

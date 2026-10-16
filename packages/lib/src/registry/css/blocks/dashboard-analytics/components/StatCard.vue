@@ -46,7 +46,7 @@ defineProps<StatCardData>();
 .dashboard-analytics__stat-icon {
   width: 1rem;
   height: 1rem;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
 }
 
 .dashboard-analytics__stat-value {
@@ -57,7 +57,7 @@ defineProps<StatCardData>();
 
 .dashboard-analytics__stat-change {
   margin: 0;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.75rem;
   line-height: 1rem;
 }

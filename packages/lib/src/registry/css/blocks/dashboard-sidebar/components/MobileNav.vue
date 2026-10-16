@@ -109,21 +109,21 @@ defineProps<{
   margin-left: -0.65rem;
   border-radius: calc(var(--radius) + 4px);
   padding: 0.5rem 0.75rem;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   text-decoration: none;
 }
 
 .dashboard-sidebar__mobile-link:hover {
-  color: hsl(var(--foreground));
+  color: var(--foreground);
 }
 
 .dashboard-sidebar__mobile-link--active {
-  background-color: hsl(var(--muted));
-  color: hsl(var(--foreground));
+  background-color: var(--muted);
+  color: var(--foreground);
 }
 
 .dashboard-sidebar__mobile-link--active:hover {
-  color: hsl(var(--foreground));
+  color: var(--foreground);
 }
 
 .dashboard-sidebar__badge.dashboard-sidebar__badge {
