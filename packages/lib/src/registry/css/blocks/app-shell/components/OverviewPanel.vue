@@ -61,11 +61,11 @@ defineProps<{
 
 .app-shell__card,
 .app-shell__activity {
+  padding: 1rem;
   border: 1px solid var(--border);
   border-radius: calc(var(--radius) + 4px);
   background-color: var(--card);
   color: var(--card-foreground);
-  padding: 1rem;
 }
 
 .app-shell__card-label,
@@ -102,18 +102,18 @@ defineProps<{
 
 .app-shell__activity-list {
   display: grid;
-  margin: 1rem 0 0;
   padding: 0;
-  list-style: none;
+  margin: 1rem 0 0;
   gap: 0.75rem;
+  list-style: none;
 }
 
 .app-shell__activity-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
   font-size: 0.875rem;
+  gap: 1rem;
 }
 
 @media (width >= 768px) {
