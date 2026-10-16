@@ -31,6 +31,8 @@ import {
   importCssInViteEntry,
   registerNuxtCss,
   registerTailwindVitePlugin,
+  registerTsconfigPaths,
+  registerViteSourceAlias,
   type ConfigUpdateResult,
 } from '@/src/utils/framework-config';
 import { excludeInstalledDependencies } from '@/src/utils/install-plan';
@@ -314,6 +316,16 @@ async function updateFrameworkConfig(config: Config) {
 
   if (config.framework === 'vite') {
     reportConfigUpdate(await importCssInViteEntry(cwd, config.cssPath), cwd, `Import ${colors.cyan(config.cssPath)} in your app entry file.`);
+    reportConfigUpdate(
+      await registerViteSourceAlias(cwd),
+      cwd,
+      `Add an ${colors.cyan('@')} alias to ${colors.cyan('./src')} in your Vite config.`,
+    );
+    reportConfigUpdate(
+      await registerTsconfigPaths(cwd),
+      cwd,
+      `Add ${colors.cyan('"@/*": ["./src/*"]')} to compilerOptions.paths.`,
+    );
   }
 }
 

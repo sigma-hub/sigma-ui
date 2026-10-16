@@ -29,7 +29,7 @@ function createProject(files: Record<string, string>) {
 const read = (cwd: string, filePath: string) => readFileSync(path.join(cwd, filePath), 'utf8');
 
 const VITE_PROJECT = {
-  'package.json': JSON.stringify({ dependencies: { vue: '^3.5.0' } }),
+  'package.json': JSON.stringify({ dependencies: { vue: '^3.5.0' }, devDependencies: { typescript: '~6.0.2' } }),
   'tsconfig.json': JSON.stringify({ compilerOptions: { paths: { '@/*': ['./src/*'] } } }),
   'vite.config.ts': `import { defineConfig } from 'vite'\nimport vue from '@vitejs/plugin-vue'\n\nexport default defineConfig({\n  plugins: [vue()],\n})\n`,
   'src/main.ts': `import { createApp } from 'vue'\nimport App from './App.vue'\n\ncreateApp(App).mount('#app')\n`,
@@ -72,10 +72,35 @@ describe('init', () => {
     expect(read(cwd, 'src/lib/utils.ts')).toContain('twMerge');
     expect(read(cwd, 'vite.config.ts')).toMatch(/import tailwindcss from ['"]@tailwindcss\/vite['"]/);
     expect(read(cwd, 'vite.config.ts')).toMatch(/plugins: \[vue\(\), tailwindcss\(\)\]/);
+    expect(read(cwd, 'vite.config.ts')).toMatch(/['"]@['"]:\s*fileURLToPath\(new URL\('\.\/src', import\.meta\.url\)\)/);
     expect(read(cwd, 'src/main.ts').startsWith('import \'./assets/index.css\';\n')).toBe(true);
     expect(existsSync(path.join(cwd, 'tailwind.config.js'))).toBe(false);
     expect(installPackages).toHaveBeenCalledWith(['clsx', 'tailwind-merge', 'tailwindcss-animate'], { cwd, silent: true });
     expect(installPackages).toHaveBeenCalledWith(['tailwindcss', '@tailwindcss/vite'], { cwd, dev: true, silent: true });
+  });
+
+  it('adds the @ alias to a Vite project that uses tsconfig references', async () => {
+    const cwd = createProject({
+      ...VITE_PROJECT,
+      'tsconfig.json': JSON.stringify({ files: [], references: [{ path: './tsconfig.app.json' }] }),
+      'tsconfig.app.json': `{
+  "compilerOptions": {
+    /* Linting */
+    "noUnusedLocals": true
+  },
+  "include": ["src/**/*.vue"]
+}
+`,
+    });
+
+    await initProject(cwd, 'tailwind');
+
+    const appConfig = read(cwd, 'tsconfig.app.json');
+    expect(appConfig).toContain('"@/*": ["./src/*"]');
+    expect(appConfig).not.toContain('baseUrl');
+    expect(appConfig).toContain('/* Linting */');
+    expect(read(cwd, 'tsconfig.json')).not.toContain('"@/*"');
+    expect(read(cwd, 'vite.config.ts')).toContain('fileURLToPath');
   });
 
   it('is idempotent when run twice', async () => {

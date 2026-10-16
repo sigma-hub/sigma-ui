@@ -101,6 +101,77 @@ export function getNuxtCssEntry(cwd: string, cssPath: string) {
   return relativePath.startsWith('..') ? path.resolve(cwd, cssPath) : `~/${relativePath}`;
 }
 
+export async function registerViteSourceAlias(cwd: string): Promise<ConfigUpdateResult> {
+  const file = findFrameworkConfigFile(cwd, 'vite');
+
+  if (!file || !existsSync(path.join(cwd, 'src'))) {
+    return { status: 'not-found' };
+  }
+
+  return updateModule(file, (module, source) => {
+    const options = getDefaultExportOptions(module);
+    const alias = options.resolve?.alias as Record<string, unknown> | undefined;
+
+    if (alias?.['@'] || alias?.['@/']) {
+      return false;
+    }
+
+    options.resolve ||= {};
+    options.resolve.alias ||= {};
+    options.resolve.alias['@'] = builders.raw(`fileURLToPath(new URL('./src', import.meta.url))`);
+
+    if (!source.includes('fileURLToPath')) {
+      module.imports.$prepend({ from: 'node:url', imported: 'fileURLToPath', local: 'fileURLToPath' });
+    }
+
+    return true;
+  });
+}
+
+function sourceAliasGlob(cwd: string) {
+  return existsSync(path.join(cwd, 'src')) ? './src/*' : './*';
+}
+
+async function typescriptMajor(cwd: string) {
+  try {
+    const packageJson = JSON.parse(await readFile(path.join(cwd, 'package.json'), 'utf8')) as { dependencies?: Record<string, string>; devDependencies?: Record<string, string> };
+    const range = packageJson.devDependencies?.typescript ?? packageJson.dependencies?.typescript ?? '';
+    const major = range.match(/(\d+)/)?.[1];
+    return major ? Number(major) : null;
+  } catch {
+    return null;
+  }
+}
+
+export async function registerTsconfigPaths(cwd: string): Promise<ConfigUpdateResult> {
+  const fileName = ['tsconfig.app.json', 'tsconfig.json', 'jsconfig.json'].find(candidate => existsSync(path.join(cwd, candidate)));
+
+  if (!fileName) {
+    return { status: 'not-found' };
+  }
+
+  const file = path.join(cwd, fileName);
+  const source = await readFile(file, 'utf8');
+
+  if (source.includes('"@/*"') || source.includes('\'@/*\'')) {
+    return { status: 'unchanged', file };
+  }
+
+  const compilerOptionsMatch = source.match(/"compilerOptions"\s*:\s*\{/);
+
+  if (!compilerOptionsMatch || compilerOptionsMatch.index === undefined) {
+    return { status: 'unchanged', file };
+  }
+
+  const major = await typescriptMajor(cwd);
+  const hasBaseUrl = /"baseUrl"\s*:/.test(source);
+  const baseUrlLine = (major !== null && major >= 6) || hasBaseUrl ? '' : '\n    "baseUrl": ".",';
+  const insertion = `${baseUrlLine}\n    "paths": {\n      "@/*": ["${sourceAliasGlob(cwd)}"]\n    },`;
+  const insertAt = compilerOptionsMatch.index + compilerOptionsMatch[0].length;
+  await writeFile(file, `${source.slice(0, insertAt)}${insertion}${source.slice(insertAt)}`, 'utf8');
+  return { status: 'updated', file };
+}
+
 export async function importCssInViteEntry(cwd: string, cssPath: string): Promise<ConfigUpdateResult> {
   const entryName = ENTRY_FILES.find(candidate => existsSync(path.join(cwd, candidate)));
 
