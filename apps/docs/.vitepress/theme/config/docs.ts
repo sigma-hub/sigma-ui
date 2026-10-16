@@ -23,6 +23,24 @@ interface DocsConfig {
   sidebarNav: SidebarNavItem[];
 }
 
+const listedComponents: SidebarNavItem[] = [
+  {
+    title: 'Direction',
+    href: '/components/direction',
+    label: 'New',
+  },
+  {
+    title: 'Tag Group',
+    href: '/components/tag-group',
+    label: 'New',
+  },
+];
+
+const listedComponentHrefs = new Set(listedComponents.map(item => item.href));
+
+const componentSidebar = [...componentPages.filter(page => !listedComponentHrefs.has(page.href)), ...listedComponents]
+  .sort((first, second) => first.title.localeCompare(second.title));
+
 export const docsConfig: DocsConfig = {
   mainNav: [
     {
@@ -137,7 +155,7 @@ export const docsConfig: DocsConfig = {
     {
       title: 'Components',
       name: 'components',
-      items: componentPages,
+      items: componentSidebar,
     },
     {
       title: 'Blocks',
@@ -150,6 +168,10 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Dashboard',
           href: '/blocks/dashboard',
+        },
+        {
+          title: 'Music',
+          href: '/blocks/music',
         },
       ],
     },
