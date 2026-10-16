@@ -46,7 +46,7 @@ const slots = defineSlots<{
   width: fit-content;
   padding: 0 0.5rem;
   margin: 0 auto;
-  background-color: hsl(var(--background));
-  color: hsl(var(--muted-foreground));
+  background-color: var(--background);
+  color: var(--muted-foreground);
 }
 </style>

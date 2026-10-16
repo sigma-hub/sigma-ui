@@ -60,7 +60,7 @@ const messages = computed(() => {
 
 <style>
 .sigma-ui-field-error {
-  color: hsl(var(--destructive));
+  color: var(--destructive);
   font-size: 0.875rem;
   font-weight: 400;
 }

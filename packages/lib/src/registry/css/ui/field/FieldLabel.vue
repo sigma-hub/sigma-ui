@@ -37,7 +37,7 @@ defineSlots<{
 .sigma-ui-label.sigma-ui-field-label:has(> [data-slot="field"]) {
   width: 100%;
   flex-direction: column;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
 }
 
@@ -46,7 +46,7 @@ defineSlots<{
 }
 
 .sigma-ui-label.sigma-ui-field-label:has([data-state="checked"]) {
-  border-color: hsl(var(--primary));
-  background-color: hsl(var(--primary) / 5%);
+  border-color: var(--primary);
+  background-color: color-mix(in oklch, var(--primary) 5%, transparent);
 }
 </style>

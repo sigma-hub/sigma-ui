@@ -20,7 +20,7 @@ defineSlots<{
 .sigma-ui-input-group-text {
   display: flex;
   align-items: center;
-  color: hsl(var(--muted-foreground));
+  color: var(--muted-foreground);
   font-size: 0.875rem;
   gap: 0.5rem;
 }

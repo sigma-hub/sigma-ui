@@ -26,9 +26,9 @@ defineSlots<{
   min-width: 0;
   height: 2.25rem;
   align-items: center;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  background-color: hsl(var(--input));
+  background-color: var(--input);
   outline: none;
   transition: color 0.15s, box-shadow 0.15s;
 }
@@ -60,12 +60,12 @@ defineSlots<{
 }
 
 .sigma-ui-input-group:has(.sigma-ui-input-group__control:focus-visible) {
-  outline: 2px solid hsl(var(--ring));
+  outline: 2px solid var(--ring);
   outline-offset: 2px;
 }
 
 .sigma-ui-input-group:has([aria-invalid="true"]) {
-  border-color: hsl(var(--destructive));
+  border-color: var(--destructive);
 }
 
 .sigma-ui-input-group:has(.sigma-ui-input-group__control:disabled) {

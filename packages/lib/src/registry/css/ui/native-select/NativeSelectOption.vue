@@ -19,7 +19,7 @@ defineSlots<{
 
 <style>
 .sigma-ui-native-select-option {
-  background-color: hsl(var(--popover));
-  color: hsl(var(--popover-foreground));
+  background-color: var(--popover);
+  color: var(--popover-foreground);
 }
 </style>

@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<SeparatorProps>(), {
   position: relative;
   align-self: stretch;
   margin: 0;
-  background-color: hsl(var(--border));
+  background-color: var(--border);
 }
 
 .sigma-ui-separator.sigma-ui-button-group-separator[data-orientation="vertical"] {
