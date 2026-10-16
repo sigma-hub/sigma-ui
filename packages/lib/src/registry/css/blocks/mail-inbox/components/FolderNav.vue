@@ -72,8 +72,8 @@ defineProps<{
 <style>
 .mail-inbox__nav {
   display: grid;
-  gap: 0.25rem;
   padding: 0.5rem;
+  gap: 0.25rem;
 }
 
 .mail-inbox__nav--collapsed {
@@ -84,11 +84,11 @@ defineProps<{
   display: flex;
   width: 100%;
   align-items: center;
-  gap: 0.5rem;
-  border-radius: var(--radius);
   padding: 0.375rem 0.75rem;
+  border-radius: var(--radius);
   color: var(--foreground);
   font-size: 0.875rem;
+  gap: 0.5rem;
   line-height: 1.25rem;
   text-decoration: none;
 }
@@ -138,13 +138,13 @@ defineProps<{
 
 .mail-inbox__sr-only {
   position: absolute;
+  overflow: hidden;
   width: 1px;
   height: 1px;
   padding: 0;
+  border-width: 0;
   margin: -1px;
-  overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  border-width: 0;
 }
 </style>
