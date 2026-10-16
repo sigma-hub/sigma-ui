@@ -3465,6 +3465,43 @@
       ]
     },
     {
+      "name": "signup-quote",
+      "type": "registry:block",
+      "title": "Sign up with quote",
+      "description": "A two-column sign up page. One column quotes a customer. The other collects an email, offers GitHub, and links to the terms and privacy policy.",
+      "dependencies": [
+        "lucide-vue-next@^1.0.0"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "label"
+      ],
+      "files": [
+        {
+          "path": "blocks/signup-quote/SignupQuote.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/signup-quote/components/SignupForm.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/signup-quote/data.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "800px",
+        "containerClass": "w-full h-full"
+      },
+      "categories": [
+        "authentication",
+        "signup",
+        "signup-quote"
+      ]
+    },
+    {
       "name": "tasks-table",
       "type": "registry:block",
       "title": "Tasks table",
