@@ -133,26 +133,26 @@ defineProps<{
 <style>
 .dashboard-products__header {
   position: sticky;
-  top: 0;
   z-index: 30;
+  top: 0;
   display: flex;
   height: 3.5rem;
   align-items: center;
-  gap: 1rem;
-  border-bottom: 1px solid var(--border);
-  background-color: var(--background);
   padding-right: 1rem;
   padding-left: 1rem;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--background);
+  gap: 1rem;
 }
 
 @media (width >= 640px) {
   .dashboard-products__header {
     position: static;
     height: auto;
-    border-bottom-width: 0;
-    background-color: transparent;
     padding-right: 1.5rem;
     padding-left: 1.5rem;
+    border-bottom-width: 0;
+    background-color: transparent;
   }
 }
 
@@ -175,9 +175,9 @@ defineProps<{
 
 .dashboard-products__mobile-nav {
   display: grid;
-  gap: 1.5rem;
   font-size: 1.125rem;
   font-weight: 500;
+  gap: 1.5rem;
   line-height: 1.75rem;
 }
 
@@ -188,12 +188,12 @@ defineProps<{
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
   border-radius: 9999px;
   background-color: var(--primary);
   color: var(--primary-foreground);
   font-size: 1.125rem;
   font-weight: 600;
+  gap: 0.5rem;
   line-height: 1.75rem;
 }
 
@@ -217,10 +217,10 @@ defineProps<{
 .dashboard-products__mobile-link {
   display: flex;
   align-items: center;
-  gap: 1rem;
   padding-right: 0.625rem;
   padding-left: 0.625rem;
   color: var(--muted-foreground);
+  gap: 1rem;
 }
 
 .dashboard-products__mobile-link:hover,
@@ -246,8 +246,8 @@ defineProps<{
 
 .dashboard-products__search {
   position: relative;
-  margin-left: auto;
   flex: 1 1 0%;
+  margin-left: auto;
 }
 
 @media (width >= 768px) {
@@ -267,9 +267,9 @@ defineProps<{
 
 .dashboard-products .dashboard-products__search-input {
   width: 100%;
+  padding-left: 2rem;
   border-radius: var(--radius);
   background-color: var(--background);
-  padding-left: 2rem;
 }
 
 @media (width >= 768px) {
@@ -295,13 +295,13 @@ defineProps<{
 
 .dashboard-products__sr-only {
   position: absolute;
+  overflow: hidden;
   width: 1px;
   height: 1px;
   padding: 0;
+  border-width: 0;
   margin: -1px;
-  overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  border-width: 0;
 }
 </style>
