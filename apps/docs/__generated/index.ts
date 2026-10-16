@@ -114,6 +114,14 @@ export const Index = {
       component: () => import("../../../packages/lib/src/registry/tailwind/blocks/music-library/MusicLibrary.vue").then((m) => m.default),
       files: ["blocks/music-library/MusicLibrary.vue","blocks/music-library/components/AlbumArtwork.vue","blocks/music-library/components/LibraryMenu.vue","blocks/music-library/components/LibrarySidebar.vue","blocks/music-library/components/MenuEntries.vue","blocks/music-library/components/PodcastEmpty.vue","blocks/music-library/data.ts"],
     },
+    "settings-forms": {
+      name: "settings-forms",
+      type: "registry:block",
+      registryDependencies: ["button","calendar","card","checkbox","command","form","input","popover","radio-group","select","separator","switch","textarea","toaster"],
+      dependencies: ["@internationalized/date@^3.12.4","@vee-validate/zod@^4.15.1","lucide-vue-next@^1.0.0","reka-ui@^2.11.0","vee-validate@^4.15.1","zod@^3.25.76"],
+      component: () => import("../../../packages/lib/src/registry/tailwind/blocks/settings-forms/SettingsForms.vue").then((m) => m.default),
+      files: ["blocks/settings-forms/SettingsForms.vue","blocks/settings-forms/components/AccountForm.vue","blocks/settings-forms/components/AppearanceForm.vue","blocks/settings-forms/components/DisplayForm.vue","blocks/settings-forms/components/NotificationsForm.vue","blocks/settings-forms/components/ProfileForm.vue","blocks/settings-forms/components/SettingsNav.vue"],
+    },
     "signup-card": {
       name: "signup-card",
       type: "registry:block",
@@ -2131,6 +2139,14 @@ export const Index = {
       dependencies: ["lucide-vue-next@^1.0.0"],
       component: () => import("../../../packages/lib/src/registry/css/blocks/music-library/MusicLibrary.vue").then((m) => m.default),
       files: ["blocks/music-library/MusicLibrary.vue","blocks/music-library/components/AlbumArtwork.vue","blocks/music-library/components/LibraryMenu.vue","blocks/music-library/components/LibrarySidebar.vue","blocks/music-library/components/MenuEntries.vue","blocks/music-library/components/PodcastEmpty.vue","blocks/music-library/data.ts"],
+    },
+    "settings-forms": {
+      name: "settings-forms",
+      type: "registry:block",
+      registryDependencies: ["button","calendar","card","checkbox","command","form","input","popover","radio-group","select","separator","switch","textarea","toaster"],
+      dependencies: ["@internationalized/date@^3.12.4","@vee-validate/zod@^4.15.1","lucide-vue-next@^1.0.0","reka-ui@^2.11.0","vee-validate@^4.15.1","zod@^3.25.76"],
+      component: () => import("../../../packages/lib/src/registry/css/blocks/settings-forms/SettingsForms.vue").then((m) => m.default),
+      files: ["blocks/settings-forms/SettingsForms.vue","blocks/settings-forms/components/AccountForm.vue","blocks/settings-forms/components/AppearanceForm.vue","blocks/settings-forms/components/DisplayForm.vue","blocks/settings-forms/components/NotificationsForm.vue","blocks/settings-forms/components/ProfileForm.vue","blocks/settings-forms/components/SettingsNav.vue"],
     },
     "signup-card": {
       name: "signup-card",

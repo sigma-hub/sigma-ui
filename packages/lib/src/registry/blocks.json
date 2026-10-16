@@ -212,5 +212,18 @@
       "iframeHeight": "800px",
       "containerClass": "w-full h-full"
     }
+  },
+  {
+    "name": "settings-forms",
+    "title": "Settings forms",
+    "description": "A settings page with a section nav and forms for profile, account, appearance, notifications, and display.",
+    "categories": [
+      "forms",
+      "settings"
+    ],
+    "meta": {
+      "iframeHeight": "1100px",
+      "containerClass": "w-full h-full"
+    }
   }
 ]
