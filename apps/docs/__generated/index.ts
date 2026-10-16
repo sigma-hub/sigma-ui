@@ -122,6 +122,14 @@ export const Index = {
       component: () => import("../../../packages/lib/src/registry/tailwind/blocks/signup-card/SignupCard.vue").then((m) => m.default),
       files: ["blocks/signup-card/SignupCard.vue"],
     },
+    "signup-quote": {
+      name: "signup-quote",
+      type: "registry:block",
+      registryDependencies: ["button","input","label"],
+      dependencies: ["lucide-vue-next@^1.0.0"],
+      component: () => import("../../../packages/lib/src/registry/tailwind/blocks/signup-quote/SignupQuote.vue").then((m) => m.default),
+      files: ["blocks/signup-quote/SignupQuote.vue","blocks/signup-quote/components/SignupForm.vue","blocks/signup-quote/data.ts"],
+    },
     "tasks-table": {
       name: "tasks-table",
       type: "registry:block",
@@ -2131,6 +2139,14 @@ export const Index = {
       dependencies: [],
       component: () => import("../../../packages/lib/src/registry/css/blocks/signup-card/SignupCard.vue").then((m) => m.default),
       files: ["blocks/signup-card/SignupCard.vue"],
+    },
+    "signup-quote": {
+      name: "signup-quote",
+      type: "registry:block",
+      registryDependencies: ["button","input","label"],
+      dependencies: ["lucide-vue-next@^1.0.0"],
+      component: () => import("../../../packages/lib/src/registry/css/blocks/signup-quote/SignupQuote.vue").then((m) => m.default),
+      files: ["blocks/signup-quote/SignupQuote.vue","blocks/signup-quote/components/SignupForm.vue","blocks/signup-quote/data.ts"],
     },
     "tasks-table": {
       name: "tasks-table",

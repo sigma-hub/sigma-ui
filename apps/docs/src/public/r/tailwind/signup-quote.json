@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "signup-quote",
+  "type": "registry:block",
+  "title": "Sign up with quote",
+  "description": "A two-column sign up page. One column quotes a customer. The other collects an email, offers GitHub, and links to the terms and privacy policy.",
+  "dependencies": [
+    "lucide-vue-next@^1.0.0"
+  ],
+  "registryDependencies": [
+    "button",
+    "input",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "blocks/signup-quote/SignupQuote.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/components/ui/button';\nimport SignupForm from './components/SignupForm.vue';\nimport {\n  brandName,\n  conjunctionLabel,\n  description,\n  dividerLabel,\n  emailLabel,\n  emailPlaceholder,\n  emailSubmitLabel,\n  githubLabel,\n  loginHref,\n  loginLabel,\n  privacyHref,\n  privacyLabel,\n  quote,\n  quoteAuthor,\n  termsHref,\n  termsLabel,\n  termsLead,\n  title,\n} from './data';\n</script>\n\n<template>\n  <div class=\"relative grid min-h-screen items-center justify-center lg:max-w-none lg:grid-cols-2 lg:px-0\">\n    <Button\n      as=\"a\"\n      variant=\"ghost\"\n      :href=\"loginHref\"\n      class=\"absolute top-4 right-4 md:top-8 md:right-8\"\n    >\n      {{ loginLabel }}\n    </Button>\n    <div class=\"relative hidden h-full flex-col bg-muted p-10 text-white lg:flex dark:border-r\">\n      <div class=\"absolute inset-0 bg-zinc-900\" />\n      <div class=\"relative z-20 flex items-center text-lg font-medium\">\n        <svg\n          xmlns=\"http://www.w3.org/2000/svg\"\n          viewBox=\"0 0 24 24\"\n          fill=\"none\"\n          stroke=\"currentColor\"\n          stroke-width=\"2\"\n          stroke-linecap=\"round\"\n          stroke-linejoin=\"round\"\n          class=\"mr-2 size-6\"\n          aria-hidden=\"true\"\n        >\n          <path d=\"M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3\" />\n        </svg>\n        {{ brandName }}\n      </div>\n      <div class=\"relative z-20 mt-auto\">\n        <blockquote class=\"space-y-2\">\n          <p class=\"text-lg\">\n            &ldquo;{{ quote }}&rdquo;\n          </p>\n          <footer class=\"text-sm\">\n            {{ quoteAuthor }}\n          </footer>\n        </blockquote>\n      </div>\n    </div>\n    <div class=\"p-4 lg:p-8\">\n      <div class=\"mx-auto flex w-full flex-col justify-center gap-6 sm:w-[350px]\">\n        <div class=\"flex flex-col gap-2 text-center\">\n          <h1 class=\"text-2xl font-semibold tracking-tight\">\n            {{ title }}\n          </h1>\n          <p class=\"text-sm text-muted-foreground\">\n            {{ description }}\n          </p>\n        </div>\n        <SignupForm\n          :email-label=\"emailLabel\"\n          :email-placeholder=\"emailPlaceholder\"\n          :email-submit-label=\"emailSubmitLabel\"\n          :divider-label=\"dividerLabel\"\n          :github-label=\"githubLabel\"\n        />\n        <p class=\"px-8 text-center text-sm text-muted-foreground\">\n          {{ termsLead }}\n          <a\n            :href=\"termsHref\"\n            class=\"underline underline-offset-4 hover:text-primary\"\n          >\n            {{ termsLabel }}\n          </a>\n          {{ conjunctionLabel }}\n          <a\n            :href=\"privacyHref\"\n            class=\"underline underline-offset-4 hover:text-primary\"\n          >\n            {{ privacyLabel }}\n          </a>\n          .\n        </p>\n      </div>\n    </div>\n  </div>\n</template>\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "blocks/signup-quote/components/SignupForm.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue';\nimport { GithubIcon, LoaderCircleIcon } from 'lucide-vue-next';\nimport { Button } from '@/components/ui/button';\nimport { Input } from '@/components/ui/input';\nimport { Label } from '@/components/ui/label';\n\ndefineProps<{\n  emailLabel: string;\n  emailPlaceholder: string;\n  emailSubmitLabel: string;\n  dividerLabel: string;\n  githubLabel: string;\n}>();\n\nconst isLoading = ref(false);\n\nfunction onSubmit(event: Event) {\n  event.preventDefault();\n  isLoading.value = true;\n\n  setTimeout(() => {\n    isLoading.value = false;\n  }, 3000);\n}\n</script>\n\n<template>\n  <div class=\"grid gap-6\">\n    <form @submit=\"onSubmit\">\n      <div class=\"grid gap-2\">\n        <Label\n          class=\"sr-only\"\n          for=\"email\"\n        >\n          {{ emailLabel }}\n        </Label>\n        <Input\n          id=\"email\"\n          :placeholder=\"emailPlaceholder\"\n          type=\"email\"\n          auto-capitalize=\"none\"\n          auto-complete=\"email\"\n          auto-correct=\"off\"\n          :disabled=\"isLoading\"\n        />\n        <Button :disabled=\"isLoading\">\n          <LoaderCircleIcon\n            v-if=\"isLoading\"\n            class=\"mr-2 size-4 animate-spin\"\n          />\n          {{ emailSubmitLabel }}\n        </Button>\n      </div>\n    </form>\n    <div class=\"relative\">\n      <div class=\"absolute inset-0 flex items-center\">\n        <span class=\"w-full border-t\" />\n      </div>\n      <div class=\"relative flex justify-center text-xs uppercase\">\n        <span class=\"bg-background px-2 text-muted-foreground\">\n          {{ dividerLabel }}\n        </span>\n      </div>\n    </div>\n    <Button\n      variant=\"outline\"\n      type=\"button\"\n      :disabled=\"isLoading\"\n    >\n      <LoaderCircleIcon\n        v-if=\"isLoading\"\n        class=\"mr-2 size-4 animate-spin\"\n      />\n      <GithubIcon\n        v-else\n        class=\"mr-2 size-4\"\n      />\n      {{ githubLabel }}\n    </Button>\n  </div>\n</template>\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "blocks/signup-quote/data.ts",
+      "content": "export const loginLabel = 'Login';\nexport const loginHref = '#';\nexport const brandName = 'Acme Inc';\nexport const quote = 'This library has saved me countless hours of work and helped me deliver stunning designs to my clients faster than ever before.';\nexport const quoteAuthor = 'Sofia Davis';\nexport const title = 'Create an account';\nexport const description = 'Enter your email below to create your account';\nexport const termsLead = 'By clicking continue, you agree to our';\nexport const termsLabel = 'Terms of Service';\nexport const termsHref = '#';\nexport const privacyLabel = 'Privacy Policy';\nexport const privacyHref = '#';\nexport const conjunctionLabel = 'and';\nexport const emailLabel = 'Email';\nexport const emailPlaceholder = 'name@example.com';\nexport const emailSubmitLabel = 'Sign in with Email';\nexport const dividerLabel = 'Or continue with';\nexport const githubLabel = 'GitHub';\n",
+      "type": "registry:lib"
+    }
+  ],
+  "meta": {
+    "iframeHeight": "800px",
+    "containerClass": "w-full h-full"
+  },
+  "categories": [
+    "authentication",
+    "signup",
+    "signup-quote"
+  ]
+}
