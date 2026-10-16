@@ -47,6 +47,7 @@ import {
 
 - Use `v-model` to control the selected value, or `defaultValue` to set an initial one.
 - `SelectValue` shows the selected item, or its `placeholder` when nothing is selected.
+- `size` on `SelectTrigger` is `default` or `sm`. The selected item shows a check on the right.
 
 ## Examples
 

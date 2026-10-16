@@ -35,7 +35,7 @@ defineSlots<{
       v-model="model"
       data-slot="native-select"
       :class="cn(
-        'flex h-10 w-full min-w-0 appearance-none rounded-md border border-border bg-input py-2 pr-9 pl-3 text-sm outline-none',
+        'flex h-9 w-full min-w-0 appearance-none rounded-md border border-border bg-input py-2 pr-9 pl-3 text-sm outline-none',
         'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring',
         'disabled:cursor-not-allowed disabled:opacity-50',
         'aria-invalid:border-destructive',

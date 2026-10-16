@@ -16,6 +16,7 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <SelectItem
+    data-slot="select-item"
     v-bind="forwardedProps"
     class="sigma-ui-select-item"
   >
@@ -37,10 +38,11 @@ const forwardedProps = useForwardProps(props);
   display: flex;
   width: 100%;
   align-items: center;
-  padding: 0.375rem 0.5rem 0.375rem 2rem;
+  padding: 0.375rem 2rem 0.375rem 0.5rem;
   border-radius: var(--radius-sm);
   cursor: default;
   font-size: 0.875rem;
+  gap: 0.5rem;
   outline: none;
   user-select: none;
 }
@@ -57,7 +59,7 @@ const forwardedProps = useForwardProps(props);
 
 .sigma-ui-select-item__indicator-wrapper {
   position: absolute;
-  left: 0.5rem;
+  right: 0.5rem;
   display: flex;
   width: 0.875rem;
   height: 0.875rem;
