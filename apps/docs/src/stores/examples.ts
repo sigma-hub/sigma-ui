@@ -26,10 +26,6 @@ export const useExamplesStore = defineStore('examples', () => {
         code: 'https://github.com/sigma-hub/sigma-ui/tree/main/apps/docs/src/examples/forms',
       },
       {
-        name: 'music',
-        code: 'https://github.com/sigma-hub/sigma-ui/tree/main/apps/docs/src/examples/music',
-      },
-      {
         name: 'authentication',
         code: 'https://github.com/sigma-hub/sigma-ui/tree/main/apps/docs/src/examples/authentication',
       },
