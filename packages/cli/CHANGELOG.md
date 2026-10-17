@@ -17,4 +17,3 @@
 - `init` installs `@types/node` on Vite so `vue-tsc` accepts `node:url` in the generated alias.
 - `add` rejects registry `file.target` paths that escape the project (`..` or absolute paths).
 - `add` refuses to install into an unmigrated 1.x directory layout or stylesheet.
-- Installed `tasks-table` and `cards-mix` blocks no longer depend on `valueUpdater` from `@/lib/utils`.
