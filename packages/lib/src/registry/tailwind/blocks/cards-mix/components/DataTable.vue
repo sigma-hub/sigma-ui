@@ -34,7 +34,12 @@ import {
   TableRow,
 } from '@ui/registry/tailwind/ui/table';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@ui/registry/tailwind/ui/card';
-import { valueUpdater } from '@ui/utils';
+
+function valueUpdater<T>(updaterOrValue: T | ((value: T) => T), reference: { value: T }) {
+  reference.value = typeof updaterOrValue === 'function'
+    ? (updaterOrValue as (value: T) => T)(reference.value)
+    : updaterOrValue;
+}
 
 export interface Payment {
   id: string;

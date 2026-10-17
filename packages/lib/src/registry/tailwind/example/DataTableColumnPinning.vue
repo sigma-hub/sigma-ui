@@ -35,7 +35,13 @@ import {
   TableHeader,
   TableRow,
 } from '@ui/registry/tailwind/ui/table';
-import { cn, valueUpdater } from '@ui/utils';
+import { cn } from '@ui/utils';
+
+function valueUpdater<T>(updaterOrValue: T | ((value: T) => T), reference: { value: T }) {
+  reference.value = typeof updaterOrValue === 'function'
+    ? (updaterOrValue as (value: T) => T)(reference.value)
+    : updaterOrValue;
+}
 
 export interface Payment {
   id: string;
