@@ -9,13 +9,6 @@ export const Index = {
       dependencies: ["lucide-vue-next@^1.0.0"],
       files: ["blocks/app-shell/AppShell.vue","blocks/app-shell/components/OverviewPanel.vue","blocks/app-shell/components/ShellHeader.vue","blocks/app-shell/components/ShellSidebar.vue","blocks/app-shell/data.ts"],
     },
-    "cards-mix": {
-      name: "cards-mix",
-      type: "registry:block",
-      registryDependencies: ["avatar","button","card","checkbox","command","dialog","dropdown-menu","input","label","popover","radio-group","range-calendar","select","separator","switch","table","textarea","tooltip"],
-      dependencies: ["@internationalized/date@^3.12.4","@tanstack/vue-table@^8.21.3","@unovis/ts@^1.7.1","@unovis/vue@^1.7.1","lucide-vue-next@^1.0.0","reka-ui@^2.11.0"],
-      files: ["blocks/cards-mix/CardsMix.vue","blocks/cards-mix/components/ActivityGoal.vue","blocks/cards-mix/components/CardChat.vue","blocks/cards-mix/components/CardStats.vue","blocks/cards-mix/components/CookieSettings.vue","blocks/cards-mix/components/CreateAccount.vue","blocks/cards-mix/components/DataTable.vue","blocks/cards-mix/components/DataTableMenu.vue","blocks/cards-mix/components/DatePicker.vue","blocks/cards-mix/components/DatePickerWithRange.vue","blocks/cards-mix/components/GitHubCard.vue","blocks/cards-mix/components/Metric.vue","blocks/cards-mix/components/Notifications.vue","blocks/cards-mix/components/PaymentMethod.vue","blocks/cards-mix/components/ReportAnIssue.vue","blocks/cards-mix/components/ShareDocument.vue","blocks/cards-mix/components/TeamMembers.vue"],
-    },
     "dashboard-ai-playground": {
       name: "dashboard-ai-playground",
       type: "registry:block",
@@ -99,13 +92,6 @@ export const Index = {
       registryDependencies: ["avatar","badge","button","calendar","dropdown-menu","input","label","popover","resizable","scroll-area","select","separator","switch","tabs","textarea","tooltip"],
       dependencies: ["@vueuse/core@^14.4.0","date-fns@^4.4.0","lucide-vue-next@^1.0.0"],
       files: ["blocks/mail-inbox/MailInbox.vue","blocks/mail-inbox/components/AccountSwitcher.vue","blocks/mail-inbox/components/FolderNav.vue","blocks/mail-inbox/components/MailDisplay.vue","blocks/mail-inbox/components/MailList.vue","blocks/mail-inbox/data.ts"],
-    },
-    "music-library": {
-      name: "music-library",
-      type: "registry:block",
-      registryDependencies: ["button","context-menu","dialog","input","label","menubar","scroll-area","separator","tabs"],
-      dependencies: ["lucide-vue-next@^1.0.0"],
-      files: ["blocks/music-library/MusicLibrary.vue","blocks/music-library/components/AlbumArtwork.vue","blocks/music-library/components/LibraryMenu.vue","blocks/music-library/components/LibrarySidebar.vue","blocks/music-library/components/MenuEntries.vue","blocks/music-library/components/PodcastEmpty.vue","blocks/music-library/data.ts"],
     },
     "settings-forms": {
       name: "settings-forms",
@@ -1789,13 +1775,6 @@ export const Index = {
       dependencies: ["lucide-vue-next@^1.0.0"],
       files: ["blocks/app-shell/AppShell.vue","blocks/app-shell/components/OverviewPanel.vue","blocks/app-shell/components/ShellHeader.vue","blocks/app-shell/components/ShellSidebar.vue","blocks/app-shell/data.ts"],
     },
-    "cards-mix": {
-      name: "cards-mix",
-      type: "registry:block",
-      registryDependencies: ["avatar","button","card","checkbox","command","dialog","dropdown-menu","input","label","popover","radio-group","range-calendar","select","separator","switch","table","textarea","tooltip"],
-      dependencies: ["@internationalized/date@^3.12.4","@tanstack/vue-table@^8.21.3","@unovis/ts@^1.7.1","@unovis/vue@^1.7.1","lucide-vue-next@^1.0.0","reka-ui@^2.11.0"],
-      files: ["blocks/cards-mix/CardsMix.vue","blocks/cards-mix/components/ActivityGoal.vue","blocks/cards-mix/components/CardChat.vue","blocks/cards-mix/components/CardStats.vue","blocks/cards-mix/components/CookieSettings.vue","blocks/cards-mix/components/CreateAccount.vue","blocks/cards-mix/components/DataTable.vue","blocks/cards-mix/components/DataTableMenu.vue","blocks/cards-mix/components/DatePicker.vue","blocks/cards-mix/components/DatePickerWithRange.vue","blocks/cards-mix/components/GitHubCard.vue","blocks/cards-mix/components/Metric.vue","blocks/cards-mix/components/Notifications.vue","blocks/cards-mix/components/PaymentMethod.vue","blocks/cards-mix/components/ReportAnIssue.vue","blocks/cards-mix/components/ShareDocument.vue","blocks/cards-mix/components/TeamMembers.vue"],
-    },
     "dashboard-ai-playground": {
       name: "dashboard-ai-playground",
       type: "registry:block",
@@ -1879,13 +1858,6 @@ export const Index = {
       registryDependencies: ["avatar","badge","button","calendar","dropdown-menu","input","label","popover","resizable","scroll-area","select","separator","switch","tabs","textarea","tooltip"],
       dependencies: ["@vueuse/core@^14.4.0","date-fns@^4.4.0","lucide-vue-next@^1.0.0"],
       files: ["blocks/mail-inbox/MailInbox.vue","blocks/mail-inbox/components/AccountSwitcher.vue","blocks/mail-inbox/components/FolderNav.vue","blocks/mail-inbox/components/MailDisplay.vue","blocks/mail-inbox/components/MailList.vue","blocks/mail-inbox/data.ts"],
-    },
-    "music-library": {
-      name: "music-library",
-      type: "registry:block",
-      registryDependencies: ["button","context-menu","dialog","input","label","menubar","scroll-area","separator","tabs"],
-      dependencies: ["lucide-vue-next@^1.0.0"],
-      files: ["blocks/music-library/MusicLibrary.vue","blocks/music-library/components/AlbumArtwork.vue","blocks/music-library/components/LibraryMenu.vue","blocks/music-library/components/LibrarySidebar.vue","blocks/music-library/components/MenuEntries.vue","blocks/music-library/components/PodcastEmpty.vue","blocks/music-library/data.ts"],
     },
     "settings-forms": {
       name: "settings-forms",

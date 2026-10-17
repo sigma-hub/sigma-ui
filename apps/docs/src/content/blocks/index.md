@@ -23,12 +23,6 @@ Application shells, sidebars, and data-heavy screens.
 
 - [Dashboard](/blocks/dashboard)
 
-## Music
-
-A media library layout.
-
-- [Music](/blocks/music)
-
 ## Tasks
 
 A filterable task table.
@@ -40,9 +34,3 @@ A filterable task table.
 Settings and profile forms.
 
 - [Forms](/blocks/settings-forms)
-
-## Cards
-
-A mixed card gallery.
-
-- [Cards](/blocks/cards-mix)

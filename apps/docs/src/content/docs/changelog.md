@@ -23,8 +23,6 @@ Blocks use descriptive kebab-case names. The 1.x names have no aliases.
 | `Dashboard06` | `dashboard-products` | Dashboard |
 | `Dashboard07` | `dashboard-product-edit` | Dashboard |
 
-[`music-library`](/blocks/music) is a new installable block.
-
 <!--@include: ../../../../../packages/cli/CHANGELOG.md{3,}-->
 
 ## January 2026

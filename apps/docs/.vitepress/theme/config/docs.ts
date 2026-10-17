@@ -179,20 +179,12 @@ export const docsConfig: DocsConfig = {
           href: '/blocks/dashboard',
         },
         {
-          title: 'Music',
-          href: '/blocks/music',
-        },
-        {
           title: 'Tasks',
           href: '/blocks/tasks',
         },
         {
           title: 'Forms',
           href: '/blocks/settings-forms',
-        },
-        {
-          title: 'Cards',
-          href: '/blocks/cards-mix',
         },
       ],
     },
