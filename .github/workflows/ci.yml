@@ -2,9 +2,13 @@ name: CI
 
 on:
   pull_request:
+    branches:
+      - main
+      - sigma-ui-v2
   push:
     branches:
       - main
+      - sigma-ui-v2
 
 permissions:
   contents: read
