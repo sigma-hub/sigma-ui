@@ -35,7 +35,12 @@ import {
   TableHeader,
   TableRow,
 } from '@ui/registry/css/ui/table';
-import { valueUpdater } from '@ui/utils';
+
+function valueUpdater<T>(updaterOrValue: T | ((value: T) => T), reference: { value: T }) {
+  reference.value = typeof updaterOrValue === 'function'
+    ? (updaterOrValue as (value: T) => T)(reference.value)
+    : updaterOrValue;
+}
 
 export interface Payment {
   id: string;
