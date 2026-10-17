@@ -11,6 +11,7 @@ export interface ComponentExport {
 
 const INDEX_EXTENSIONS = ['.ts', '.js'];
 const COMPONENT_EXPORT_PATTERN = /^[A-Z]/;
+const ALL_CAPS_EXPORT_PATTERN = /^[A-Z0-9_]+$/;
 
 function isPathInside(child: string, parent: string): boolean {
   const relativePath = relative(parent, child);
@@ -56,7 +57,9 @@ export function getComponentExportNames(filePath: string, source: string): strin
     .flatMap(staticExport => staticExport.entries)
     .filter(entry => !entry.isType && entry.exportName.kind === 'Name')
     .map(entry => entry.exportName.name)
-    .filter((exportName): exportName is string => !!exportName && COMPONENT_EXPORT_PATTERN.test(exportName));
+    .filter((exportName): exportName is string => {
+      return !!exportName && COMPONENT_EXPORT_PATTERN.test(exportName) && !ALL_CAPS_EXPORT_PATTERN.test(exportName);
+    });
 }
 
 export async function scanComponentExports(

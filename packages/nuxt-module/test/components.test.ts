@@ -13,6 +13,7 @@ describe('getComponentExportNames', () => {
       `export { DialogClose, type DialogProps } from 'reka-ui';`,
       `export { Form, Field as FormField } from 'vee-validate';`,
       `export const buttonVariants = cva('');`,
+      `export const FORM_ITEM_INJECTION_KEY = Symbol('form-item');`,
       `export type ButtonVariants = string;`,
       `export interface ButtonProps { size?: string }`,
       `export type { Foo } from './types';`,
