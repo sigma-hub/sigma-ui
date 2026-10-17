@@ -34,12 +34,12 @@ function setTitleFilter(event: Event) {
 </script>
 
 <template>
-  <div class="tasks-table__toolbar">
-    <div class="tasks-table__filters">
+  <div class="table-simple__toolbar">
+    <div class="table-simple__filters">
       <Input
         :placeholder="filterPlaceholder"
         :model-value="(table.getColumn('title')?.getFilterValue() as string) ?? ''"
-        class="tasks-table__search"
+        class="table-simple__search"
         @input="setTitleFilter"
       />
       <TasksFacetedFilter
@@ -57,11 +57,11 @@ function setTitleFilter(event: Event) {
       <Button
         v-if="isFiltered"
         variant="ghost"
-        class="tasks-table__reset"
+        class="table-simple__reset"
         @click="table.resetColumnFilters()"
       >
         {{ resetFiltersLabel }}
-        <XIcon class="tasks-table__reset-icon" />
+        <XIcon class="table-simple__reset-icon" />
       </Button>
     </div>
     <TasksViewOptions :table="table" />
@@ -69,14 +69,14 @@ function setTitleFilter(event: Event) {
 </template>
 
 <style>
-.tasks-table__toolbar {
+.table-simple__toolbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
 }
 
-.tasks-table__filters {
+.table-simple__filters {
   display: flex;
   flex: 1;
   flex-wrap: wrap;
@@ -84,28 +84,28 @@ function setTitleFilter(event: Event) {
   gap: 0.5rem;
 }
 
-.tasks-table__search {
+.table-simple__search {
   width: 150px;
   height: 2rem;
 }
 
-.tasks-table__reset {
+.table-simple__reset {
   height: 2rem;
   padding: 0 0.5rem;
 }
 
-.tasks-table__reset-icon {
+.table-simple__reset-icon {
   width: 1rem;
   height: 1rem;
   margin-left: 0.5rem;
 }
 
 @media (width >= 1024px) {
-  .tasks-table__search {
+  .table-simple__search {
     width: 250px;
   }
 
-  .tasks-table__reset {
+  .table-simple__reset {
     padding: 0 0.75rem;
   }
 }

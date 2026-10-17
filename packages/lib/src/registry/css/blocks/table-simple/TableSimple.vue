@@ -6,13 +6,13 @@ import UserMenu from './components/UserMenu.vue';
 </script>
 
 <template>
-  <div class="tasks-table">
-    <div class="tasks-table__header">
+  <div class="table-simple">
+    <div class="table-simple__header">
       <div>
-        <h2 class="tasks-table__title">
+        <h2 class="table-simple__title">
           {{ pageTitle }}
         </h2>
-        <p class="tasks-table__description">
+        <p class="table-simple__description">
           {{ pageDescription }}
         </p>
       </div>
@@ -29,7 +29,7 @@ import UserMenu from './components/UserMenu.vue';
 </template>
 
 <style>
-.tasks-table {
+.table-simple {
   display: flex;
   height: 100%;
   flex: 1;
@@ -38,14 +38,14 @@ import UserMenu from './components/UserMenu.vue';
   gap: 2rem;
 }
 
-.tasks-table__header {
+.table-simple__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
 }
 
-.tasks-table__title {
+.table-simple__title {
   margin: 0;
   font-size: 1.5rem;
   font-weight: 700;
@@ -53,7 +53,7 @@ import UserMenu from './components/UserMenu.vue';
   line-height: 2rem;
 }
 
-.tasks-table__description {
+.table-simple__description {
   margin: 0;
   color: var(--muted-foreground);
 }

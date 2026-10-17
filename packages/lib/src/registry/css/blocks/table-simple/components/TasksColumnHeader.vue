@@ -20,42 +20,42 @@ defineProps<{
 <template>
   <div
     v-if="column.getCanSort()"
-    class="tasks-table__column-header"
+    class="table-simple__column-header"
   >
     <DropdownMenu>
       <DropdownMenuTrigger as-child>
         <Button
           variant="ghost"
           size="sm"
-          class="tasks-table__column-button"
+          class="table-simple__column-button"
         >
           <span>{{ title }}</span>
           <ArrowDownIcon
             v-if="column.getIsSorted() === 'desc'"
-            class="tasks-table__column-icon"
+            class="table-simple__column-icon"
           />
           <ArrowUpIcon
             v-else-if="column.getIsSorted() === 'asc'"
-            class="tasks-table__column-icon"
+            class="table-simple__column-icon"
           />
           <ChevronsUpDownIcon
             v-else
-            class="tasks-table__column-icon"
+            class="table-simple__column-icon"
           />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start">
         <DropdownMenuItem @click="column.toggleSorting(false)">
-          <ArrowUpIcon class="tasks-table__menu-icon" />
+          <ArrowUpIcon class="table-simple__menu-icon" />
           {{ ascLabel }}
         </DropdownMenuItem>
         <DropdownMenuItem @click="column.toggleSorting(true)">
-          <ArrowDownIcon class="tasks-table__menu-icon" />
+          <ArrowDownIcon class="table-simple__menu-icon" />
           {{ descLabel }}
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem @click="column.toggleVisibility(false)">
-          <EyeOffIcon class="tasks-table__menu-icon" />
+          <EyeOffIcon class="table-simple__menu-icon" />
           {{ hideColumnLabel }}
         </DropdownMenuItem>
       </DropdownMenuContent>
@@ -67,29 +67,29 @@ defineProps<{
 </template>
 
 <style>
-.tasks-table__column-header {
+.table-simple__column-header {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.tasks-table__column-button {
+.table-simple__column-button {
   height: 2rem;
   margin-left: -0.75rem;
 }
 
-.tasks-table__column-button[data-state='open'] {
+.table-simple__column-button[data-state='open'] {
   background: var(--secondary);
 }
 
-.tasks-table__column-icon,
-.tasks-table__menu-icon {
+.table-simple__column-icon,
+.table-simple__menu-icon {
   width: 1rem;
   height: 1rem;
   margin-left: 0.5rem;
 }
 
-.tasks-table__menu-icon {
+.table-simple__menu-icon {
   width: 0.875rem;
   height: 0.875rem;
   margin-right: 0.5rem;

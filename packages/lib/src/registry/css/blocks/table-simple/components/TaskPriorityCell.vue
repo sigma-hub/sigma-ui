@@ -8,23 +8,23 @@ defineProps<{
 </script>
 
 <template>
-  <div class="tasks-table__priority">
+  <div class="table-simple__priority">
     <component
       :is="icon"
       v-if="icon"
-      class="tasks-table__priority-icon"
+      class="table-simple__priority-icon"
     />
     <span>{{ label }}</span>
   </div>
 </template>
 
 <style>
-.tasks-table__priority {
+.table-simple__priority {
   display: flex;
   align-items: center;
 }
 
-.tasks-table__priority-icon {
+.table-simple__priority-icon {
   width: 1rem;
   height: 1rem;
   margin-right: 0.5rem;

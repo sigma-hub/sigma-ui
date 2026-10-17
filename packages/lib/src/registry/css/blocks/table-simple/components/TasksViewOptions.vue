@@ -31,22 +31,22 @@ function setColumnVisibility(columnId: string, visible: boolean) {
       <Button
         variant="outline"
         size="sm"
-        class="tasks-table__view-button"
+        class="table-simple__view-button"
       >
-        <Settings2Icon class="tasks-table__view-icon" />
+        <Settings2Icon class="table-simple__view-icon" />
         {{ viewOptionsLabel }}
       </Button>
     </DropdownMenuTrigger>
     <DropdownMenuContent
       align="end"
-      class="tasks-table__view-menu"
+      class="table-simple__view-menu"
     >
       <DropdownMenuLabel>{{ toggleColumnsLabel }}</DropdownMenuLabel>
       <DropdownMenuSeparator />
       <DropdownMenuCheckboxItem
         v-for="column in columns"
         :key="column.id"
-        class="tasks-table__view-item"
+        class="table-simple__view-item"
         :model-value="column.getIsVisible()"
         @update:model-value="setColumnVisibility(column.id, !!$event)"
       >
@@ -57,28 +57,28 @@ function setColumnVisibility(columnId: string, visible: boolean) {
 </template>
 
 <style>
-.tasks-table__view-button {
+.table-simple__view-button {
   display: none;
   height: 2rem;
   margin-left: auto;
 }
 
-.tasks-table__view-icon {
+.table-simple__view-icon {
   width: 1rem;
   height: 1rem;
   margin-right: 0.5rem;
 }
 
-.tasks-table__view-menu {
+.table-simple__view-menu {
   width: 150px;
 }
 
-.tasks-table__view-item {
+.table-simple__view-item {
   text-transform: capitalize;
 }
 
 @media (width >= 1024px) {
-  .tasks-table__view-button {
+  .table-simple__view-button {
     display: flex;
   }
 }

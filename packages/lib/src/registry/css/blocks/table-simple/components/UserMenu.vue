@@ -23,14 +23,14 @@ defineProps<{
     <DropdownMenuTrigger as-child>
       <Button
         variant="ghost"
-        class="tasks-table__user-button"
+        class="table-simple__user-button"
       >
         <Avatar size="sm" />
-        <span class="tasks-table__sr-only">{{ triggerLabel }}</span>
+        <span class="table-simple__sr-only">{{ triggerLabel }}</span>
       </Button>
     </DropdownMenuTrigger>
     <DropdownMenuContent
-      class="tasks-table__user-menu"
+      class="table-simple__user-menu"
       align="end"
     >
       <template
@@ -39,15 +39,15 @@ defineProps<{
       >
         <DropdownMenuLabel
           v-if="entry.kind === 'label'"
-          class="tasks-table__user-label"
+          class="table-simple__user-label"
         >
-          <div class="tasks-table__user-identity">
-            <p class="tasks-table__user-name">
+          <div class="table-simple__user-identity">
+            <p class="table-simple__user-name">
               {{ entry.label }}
             </p>
             <p
               v-if="entry.detail"
-              class="tasks-table__user-email"
+              class="table-simple__user-email"
             >
               {{ entry.detail }}
             </p>
@@ -66,44 +66,44 @@ defineProps<{
 </template>
 
 <style>
-.tasks-table__user-button {
+.table-simple__user-button {
   position: relative;
   width: 2rem;
   height: 2rem;
   border-radius: 9999px;
 }
 
-.tasks-table__user-menu {
+.table-simple__user-menu {
   width: 14rem;
 }
 
-.tasks-table__user-label {
+.table-simple__user-label {
   font-weight: 400;
 }
 
-.tasks-table__user-identity {
+.table-simple__user-identity {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
 
-.tasks-table__user-name,
-.tasks-table__user-email {
+.table-simple__user-name,
+.table-simple__user-email {
   margin: 0;
   line-height: 1;
 }
 
-.tasks-table__user-name {
+.table-simple__user-name {
   font-size: 0.875rem;
   font-weight: 500;
 }
 
-.tasks-table__user-email {
+.table-simple__user-email {
   color: var(--muted-foreground);
   font-size: 0.75rem;
 }
 
-.tasks-table__sr-only {
+.table-simple__sr-only {
   position: absolute;
   overflow: hidden;
   width: 1px;

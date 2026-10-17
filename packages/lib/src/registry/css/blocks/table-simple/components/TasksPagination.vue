@@ -33,21 +33,21 @@ function updatePageSize(pageSize: unknown) {
 </script>
 
 <template>
-  <div class="tasks-table__pagination">
-    <div class="tasks-table__selection">
+  <div class="table-simple__pagination">
+    <div class="table-simple__selection">
       {{ table.getFilteredSelectedRowModel().rows.length }} {{ ofLabel }}
       {{ table.getFilteredRowModel().rows.length }} {{ selectedRowsLabel }}
     </div>
-    <div class="tasks-table__pagination-controls">
-      <div class="tasks-table__page-size">
-        <p class="tasks-table__page-size-label">
+    <div class="table-simple__pagination-controls">
+      <div class="table-simple__page-size">
+        <p class="table-simple__page-size-label">
           {{ rowsPerPageLabel }}
         </p>
         <Select
           :model-value="`${table.getState().pagination.pageSize}`"
           @update:model-value="updatePageSize"
         >
-          <SelectTrigger class="tasks-table__page-size-trigger">
+          <SelectTrigger class="table-simple__page-size-trigger">
             <SelectValue :placeholder="`${table.getState().pagination.pageSize}`" />
           </SelectTrigger>
           <SelectContent side="top">
@@ -61,46 +61,46 @@ function updatePageSize(pageSize: unknown) {
           </SelectContent>
         </Select>
       </div>
-      <div class="tasks-table__page-count">
+      <div class="table-simple__page-count">
         {{ pageLabel }} {{ table.getState().pagination.pageIndex + 1 }} {{ ofLabel }}
         {{ table.getPageCount() }}
       </div>
-      <div class="tasks-table__page-buttons">
+      <div class="table-simple__page-buttons">
         <Button
           variant="outline"
-          class="tasks-table__page-button tasks-table__page-button--wide"
+          class="table-simple__page-button table-simple__page-button--wide"
           :disabled="!table.getCanPreviousPage()"
           @click="table.setPageIndex(0)"
         >
-          <span class="tasks-table__sr-only">{{ firstPageLabel }}</span>
-          <ChevronsLeftIcon class="tasks-table__page-icon" />
+          <span class="table-simple__sr-only">{{ firstPageLabel }}</span>
+          <ChevronsLeftIcon class="table-simple__page-icon" />
         </Button>
         <Button
           variant="outline"
-          class="tasks-table__page-button"
+          class="table-simple__page-button"
           :disabled="!table.getCanPreviousPage()"
           @click="table.previousPage()"
         >
-          <span class="tasks-table__sr-only">{{ previousPageLabel }}</span>
-          <ChevronLeftIcon class="tasks-table__page-icon" />
+          <span class="table-simple__sr-only">{{ previousPageLabel }}</span>
+          <ChevronLeftIcon class="table-simple__page-icon" />
         </Button>
         <Button
           variant="outline"
-          class="tasks-table__page-button"
+          class="table-simple__page-button"
           :disabled="!table.getCanNextPage()"
           @click="table.nextPage()"
         >
-          <span class="tasks-table__sr-only">{{ nextPageLabel }}</span>
-          <ChevronRightIcon class="tasks-table__page-icon" />
+          <span class="table-simple__sr-only">{{ nextPageLabel }}</span>
+          <ChevronRightIcon class="table-simple__page-icon" />
         </Button>
         <Button
           variant="outline"
-          class="tasks-table__page-button tasks-table__page-button--wide"
+          class="table-simple__page-button table-simple__page-button--wide"
           :disabled="!table.getCanNextPage()"
           @click="table.setPageIndex(table.getPageCount() - 1)"
         >
-          <span class="tasks-table__sr-only">{{ lastPageLabel }}</span>
-          <ChevronsRightIcon class="tasks-table__page-icon" />
+          <span class="table-simple__sr-only">{{ lastPageLabel }}</span>
+          <ChevronsRightIcon class="table-simple__page-icon" />
         </Button>
       </div>
     </div>
@@ -108,75 +108,75 @@ function updatePageSize(pageSize: unknown) {
 </template>
 
 <style>
-.tasks-table__pagination {
+.table-simple__pagination {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 0.5rem;
 }
 
-.tasks-table__selection {
+.table-simple__selection {
   flex: 1;
   color: var(--muted-foreground);
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
-.tasks-table__pagination-controls,
-.tasks-table__page-size,
-.tasks-table__page-buttons {
+.table-simple__pagination-controls,
+.table-simple__page-size,
+.table-simple__page-buttons {
   display: flex;
   align-items: center;
 }
 
-.tasks-table__pagination-controls {
+.table-simple__pagination-controls {
   gap: 1.5rem;
 }
 
-.tasks-table__page-size {
+.table-simple__page-size {
   gap: 0.5rem;
 }
 
-.tasks-table__page-size-label,
-.tasks-table__page-count {
+.table-simple__page-size-label,
+.table-simple__page-count {
   margin: 0;
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.25rem;
 }
 
-.tasks-table__page-size-trigger {
+.table-simple__page-size-trigger {
   width: 70px;
   height: 2rem;
 }
 
-.tasks-table__page-count {
+.table-simple__page-count {
   display: flex;
   width: 100px;
   align-items: center;
   justify-content: center;
 }
 
-.tasks-table__page-buttons {
+.table-simple__page-buttons {
   gap: 0.5rem;
 }
 
-.tasks-table__page-button {
+.table-simple__page-button {
   width: 2rem;
   height: 2rem;
   padding: 0;
 }
 
-.tasks-table__page-button--wide {
+.table-simple__page-button--wide {
   display: none;
 }
 
-.tasks-table__page-icon {
+.table-simple__page-icon {
   width: 1rem;
   height: 1rem;
 }
 
-.tasks-table__sr-only {
+.table-simple__sr-only {
   position: absolute;
   overflow: hidden;
   width: 1px;
@@ -189,11 +189,11 @@ function updatePageSize(pageSize: unknown) {
 }
 
 @media (width >= 1024px) {
-  .tasks-table__pagination-controls {
+  .table-simple__pagination-controls {
     gap: 2rem;
   }
 
-  .tasks-table__page-button--wide {
+  .table-simple__page-button--wide {
     display: flex;
   }
 }

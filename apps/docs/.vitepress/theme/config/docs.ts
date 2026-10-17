@@ -179,8 +179,8 @@ export const docsConfig: DocsConfig = {
           href: '/blocks/dashboard',
         },
         {
-          title: 'Tasks',
-          href: '/blocks/tasks',
+          title: 'Table',
+          href: '/blocks/table',
         },
         {
           title: 'Forms',

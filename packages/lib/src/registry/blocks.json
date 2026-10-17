@@ -163,11 +163,11 @@
     }
   },
   {
-    "name": "tasks-table",
-    "title": "Tasks table",
+    "name": "table-simple",
+    "title": "Simple table",
     "description": "A tasks page with a user menu and a filterable data table. Tasks can be searched, filtered by status and priority, sorted, and shown or hidden by column.",
     "categories": [
-      "tasks"
+      "table"
     ],
     "meta": {
       "iframeHeight": "800px",

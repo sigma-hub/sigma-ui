@@ -8,25 +8,25 @@ defineProps<{
 </script>
 
 <template>
-  <div class="tasks-table__title">
+  <div class="table-simple__title">
     <Badge
       v-if="label"
       variant="outline"
     >
       {{ label }}
     </Badge>
-    <span class="tasks-table__title-text">{{ title }}</span>
+    <span class="table-simple__title-text">{{ title }}</span>
   </div>
 </template>
 
 <style>
-.tasks-table__title {
+.table-simple__title {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.tasks-table__title-text {
+.table-simple__title-text {
   overflow: hidden;
   max-width: 500px;
   font-weight: 500;

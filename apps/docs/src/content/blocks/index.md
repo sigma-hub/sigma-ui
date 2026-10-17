@@ -23,11 +23,11 @@ Application shells, sidebars, and data-heavy screens.
 
 - [Dashboard](/blocks/dashboard)
 
-## Tasks
+## Table
 
-A filterable task table.
+A filterable data table.
 
-- [Tasks](/blocks/tasks)
+- [Table](/blocks/table)
 
 ## Forms
 

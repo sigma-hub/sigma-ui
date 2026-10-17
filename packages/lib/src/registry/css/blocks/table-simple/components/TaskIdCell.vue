@@ -5,13 +5,13 @@ defineProps<{
 </script>
 
 <template>
-  <div class="tasks-table__id">
+  <div class="table-simple__id">
     {{ value }}
   </div>
 </template>
 
 <style>
-.tasks-table__id {
+.table-simple__id {
   width: 5rem;
 }
 </style>

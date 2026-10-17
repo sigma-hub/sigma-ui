@@ -114,12 +114,12 @@ export const Index = {
       dependencies: ["lucide-vue-next@^1.0.0"],
       files: ["blocks/signup-quote/SignupQuote.vue","blocks/signup-quote/components/SignupForm.vue","blocks/signup-quote/data.ts"],
     },
-    "tasks-table": {
-      name: "tasks-table",
+    "table-simple": {
+      name: "table-simple",
       type: "registry:block",
       registryDependencies: ["avatar","badge","button","checkbox","command","dropdown-menu","input","popover","select","separator","table"],
       dependencies: ["@tanstack/vue-table@^8.21.3","lucide-vue-next@^1.0.0","zod@^3.25.76"],
-      files: ["blocks/tasks-table/TasksTable.vue","blocks/tasks-table/components/SelectCell.vue","blocks/tasks-table/components/TaskIdCell.vue","blocks/tasks-table/components/TaskPriorityCell.vue","blocks/tasks-table/components/TaskStatusCell.vue","blocks/tasks-table/components/TaskTitleCell.vue","blocks/tasks-table/components/TasksColumnHeader.vue","blocks/tasks-table/components/TasksDataTable.vue","blocks/tasks-table/components/TasksFacetedFilter.vue","blocks/tasks-table/components/TasksPagination.vue","blocks/tasks-table/components/TasksRowActions.vue","blocks/tasks-table/components/TasksToolbar.vue","blocks/tasks-table/components/TasksViewOptions.vue","blocks/tasks-table/components/UserMenu.vue","blocks/tasks-table/components/columns.ts","blocks/tasks-table/data.ts"],
+      files: ["blocks/table-simple/TableSimple.vue","blocks/table-simple/components/SelectCell.vue","blocks/table-simple/components/TaskIdCell.vue","blocks/table-simple/components/TaskPriorityCell.vue","blocks/table-simple/components/TaskStatusCell.vue","blocks/table-simple/components/TaskTitleCell.vue","blocks/table-simple/components/TasksColumnHeader.vue","blocks/table-simple/components/TasksDataTable.vue","blocks/table-simple/components/TasksFacetedFilter.vue","blocks/table-simple/components/TasksPagination.vue","blocks/table-simple/components/TasksRowActions.vue","blocks/table-simple/components/TasksToolbar.vue","blocks/table-simple/components/TasksViewOptions.vue","blocks/table-simple/components/UserMenu.vue","blocks/table-simple/components/columns.ts","blocks/table-simple/data.ts"],
     },
     "Accordion": {
       name: "Accordion",
@@ -1880,12 +1880,12 @@ export const Index = {
       dependencies: ["lucide-vue-next@^1.0.0"],
       files: ["blocks/signup-quote/SignupQuote.vue","blocks/signup-quote/components/SignupForm.vue","blocks/signup-quote/data.ts"],
     },
-    "tasks-table": {
-      name: "tasks-table",
+    "table-simple": {
+      name: "table-simple",
       type: "registry:block",
       registryDependencies: ["avatar","badge","button","checkbox","command","dropdown-menu","input","popover","select","separator","table"],
       dependencies: ["@tanstack/vue-table@^8.21.3","lucide-vue-next@^1.0.0","zod@^3.25.76"],
-      files: ["blocks/tasks-table/TasksTable.vue","blocks/tasks-table/components/SelectCell.vue","blocks/tasks-table/components/TaskIdCell.vue","blocks/tasks-table/components/TaskPriorityCell.vue","blocks/tasks-table/components/TaskStatusCell.vue","blocks/tasks-table/components/TaskTitleCell.vue","blocks/tasks-table/components/TasksColumnHeader.vue","blocks/tasks-table/components/TasksDataTable.vue","blocks/tasks-table/components/TasksFacetedFilter.vue","blocks/tasks-table/components/TasksPagination.vue","blocks/tasks-table/components/TasksRowActions.vue","blocks/tasks-table/components/TasksToolbar.vue","blocks/tasks-table/components/TasksViewOptions.vue","blocks/tasks-table/components/UserMenu.vue","blocks/tasks-table/components/columns.ts","blocks/tasks-table/data.ts"],
+      files: ["blocks/table-simple/TableSimple.vue","blocks/table-simple/components/SelectCell.vue","blocks/table-simple/components/TaskIdCell.vue","blocks/table-simple/components/TaskPriorityCell.vue","blocks/table-simple/components/TaskStatusCell.vue","blocks/table-simple/components/TaskTitleCell.vue","blocks/table-simple/components/TasksColumnHeader.vue","blocks/table-simple/components/TasksDataTable.vue","blocks/table-simple/components/TasksFacetedFilter.vue","blocks/table-simple/components/TasksPagination.vue","blocks/table-simple/components/TasksRowActions.vue","blocks/table-simple/components/TasksToolbar.vue","blocks/table-simple/components/TasksViewOptions.vue","blocks/table-simple/components/UserMenu.vue","blocks/table-simple/components/columns.ts","blocks/table-simple/data.ts"],
     },
     "Accordion": {
       name: "Accordion",

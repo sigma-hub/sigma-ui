@@ -41,15 +41,15 @@ const task = computed(() => taskSchema.parse(props.row.original));
     <DropdownMenuTrigger as-child>
       <Button
         variant="ghost"
-        class="tasks-table__row-trigger"
+        class="table-simple__row-trigger"
       >
-        <EllipsisIcon class="tasks-table__row-icon" />
-        <span class="tasks-table__sr-only">{{ openRowMenuLabel }}</span>
+        <EllipsisIcon class="table-simple__row-icon" />
+        <span class="table-simple__sr-only">{{ openRowMenuLabel }}</span>
       </Button>
     </DropdownMenuTrigger>
     <DropdownMenuContent
       align="end"
-      class="tasks-table__row-menu"
+      class="table-simple__row-menu"
     >
       <DropdownMenuItem>{{ editLabel }}</DropdownMenuItem>
       <DropdownMenuItem>{{ copyLabel }}</DropdownMenuItem>
@@ -79,27 +79,27 @@ const task = computed(() => taskSchema.parse(props.row.original));
 </template>
 
 <style>
-.tasks-table__row-trigger {
+.table-simple__row-trigger {
   display: flex;
   width: 2rem;
   height: 2rem;
   padding: 0;
 }
 
-.tasks-table__row-trigger[data-state='open'] {
+.table-simple__row-trigger[data-state='open'] {
   background: var(--muted);
 }
 
-.tasks-table__row-icon {
+.table-simple__row-icon {
   width: 1rem;
   height: 1rem;
 }
 
-.tasks-table__row-menu {
+.table-simple__row-menu {
   width: 10rem;
 }
 
-.tasks-table__sr-only {
+.table-simple__sr-only {
   position: absolute;
   overflow: hidden;
   width: 1px;

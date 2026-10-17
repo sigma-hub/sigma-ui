@@ -68,9 +68,9 @@ const table = useVueTable({
 </script>
 
 <template>
-  <div class="tasks-table__data">
+  <div class="table-simple__data">
     <TasksToolbar :table="table" />
-    <div class="tasks-table__frame">
+    <div class="table-simple__frame">
       <Table>
         <TableHeader>
           <TableRow
@@ -110,7 +110,7 @@ const table = useVueTable({
           <TableRow v-else>
             <TableCell
               :colspan="columns.length"
-              class="tasks-table__empty"
+              class="table-simple__empty"
             >
               {{ noResultsLabel }}
             </TableCell>
@@ -123,18 +123,18 @@ const table = useVueTable({
 </template>
 
 <style>
-.tasks-table__data {
+.table-simple__data {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.tasks-table__frame {
+.table-simple__frame {
   border: 1px solid var(--border);
   border-radius: calc(var(--radius) - 2px);
 }
 
-.tasks-table__empty {
+.table-simple__empty {
   height: 6rem;
   text-align: center;
 }

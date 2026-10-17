@@ -3545,9 +3545,9 @@
       ]
     },
     {
-      "name": "tasks-table",
+      "name": "table-simple",
       "type": "registry:block",
-      "title": "Tasks table",
+      "title": "Simple table",
       "description": "A tasks page with a user menu and a filterable data table. Tasks can be searched, filtered by status and priority, sorted, and shown or hidden by column.",
       "dependencies": [
         "@tanstack/vue-table@^8.21.3",
@@ -3569,67 +3569,67 @@
       ],
       "files": [
         {
-          "path": "blocks/tasks-table/TasksTable.vue",
+          "path": "blocks/table-simple/TableSimple.vue",
           "type": "registry:component"
         },
         {
-          "path": "blocks/tasks-table/components/SelectCell.vue",
+          "path": "blocks/table-simple/components/SelectCell.vue",
           "type": "registry:component"
         },
         {
-          "path": "blocks/tasks-table/components/TaskIdCell.vue",
+          "path": "blocks/table-simple/components/TaskIdCell.vue",
           "type": "registry:component"
         },
         {
-          "path": "blocks/tasks-table/components/TaskPriorityCell.vue",
+          "path": "blocks/table-simple/components/TaskPriorityCell.vue",
           "type": "registry:component"
         },
         {
-          "path": "blocks/tasks-table/components/TaskStatusCell.vue",
+          "path": "blocks/table-simple/components/TaskStatusCell.vue",
           "type": "registry:component"
         },
         {
-          "path": "blocks/tasks-table/components/TaskTitleCell.vue",
+          "path": "blocks/table-simple/components/TaskTitleCell.vue",
           "type": "registry:component"
         },
         {
-          "path": "blocks/tasks-table/components/TasksColumnHeader.vue",
+          "path": "blocks/table-simple/components/TasksColumnHeader.vue",
           "type": "registry:component"
         },
         {
-          "path": "blocks/tasks-table/components/TasksDataTable.vue",
+          "path": "blocks/table-simple/components/TasksDataTable.vue",
           "type": "registry:component"
         },
         {
-          "path": "blocks/tasks-table/components/TasksFacetedFilter.vue",
+          "path": "blocks/table-simple/components/TasksFacetedFilter.vue",
           "type": "registry:component"
         },
         {
-          "path": "blocks/tasks-table/components/TasksPagination.vue",
+          "path": "blocks/table-simple/components/TasksPagination.vue",
           "type": "registry:component"
         },
         {
-          "path": "blocks/tasks-table/components/TasksRowActions.vue",
+          "path": "blocks/table-simple/components/TasksRowActions.vue",
           "type": "registry:component"
         },
         {
-          "path": "blocks/tasks-table/components/TasksToolbar.vue",
+          "path": "blocks/table-simple/components/TasksToolbar.vue",
           "type": "registry:component"
         },
         {
-          "path": "blocks/tasks-table/components/TasksViewOptions.vue",
+          "path": "blocks/table-simple/components/TasksViewOptions.vue",
           "type": "registry:component"
         },
         {
-          "path": "blocks/tasks-table/components/UserMenu.vue",
+          "path": "blocks/table-simple/components/UserMenu.vue",
           "type": "registry:component"
         },
         {
-          "path": "blocks/tasks-table/components/columns.ts",
+          "path": "blocks/table-simple/components/columns.ts",
           "type": "registry:lib"
         },
         {
-          "path": "blocks/tasks-table/data.ts",
+          "path": "blocks/table-simple/data.ts",
           "type": "registry:lib"
         }
       ],
@@ -3638,7 +3638,7 @@
         "containerClass": "w-full h-full"
       },
       "categories": [
-        "tasks"
+        "table"
       ]
     }
   ]

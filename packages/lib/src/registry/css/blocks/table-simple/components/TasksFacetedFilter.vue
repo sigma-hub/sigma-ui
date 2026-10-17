@@ -49,26 +49,26 @@ function clearFilters() {
       <Button
         variant="outline"
         size="sm"
-        class="tasks-table__filter-button"
+        class="table-simple__filter-button"
       >
-        <CirclePlusIcon class="tasks-table__filter-icon" />
+        <CirclePlusIcon class="table-simple__filter-icon" />
         {{ title }}
         <template v-if="selectedValues.size > 0">
           <Separator
             orientation="vertical"
-            class="tasks-table__filter-separator"
+            class="table-simple__filter-separator"
           />
           <Badge
             variant="secondary"
-            class="tasks-table__filter-count tasks-table__filter-count--compact"
+            class="table-simple__filter-count table-simple__filter-count--compact"
           >
             {{ selectedValues.size }}
           </Badge>
-          <div class="tasks-table__filter-badges">
+          <div class="table-simple__filter-badges">
             <Badge
               v-if="selectedValues.size > 2"
               variant="secondary"
-              class="tasks-table__filter-count"
+              class="table-simple__filter-count"
             >
               {{ selectedValues.size }} {{ selectedCountLabel }}
             </Badge>
@@ -77,7 +77,7 @@ function clearFilters() {
                 v-for="option in options.filter(option => selectedValues.has(option.value))"
                 :key="option.value"
                 variant="secondary"
-                class="tasks-table__filter-count"
+                class="table-simple__filter-count"
               >
                 {{ option.label }}
               </Badge>
@@ -87,7 +87,7 @@ function clearFilters() {
       </Button>
     </PopoverTrigger>
     <PopoverContent
-      class="tasks-table__filter-popover"
+      class="table-simple__filter-popover"
       align="start"
     >
       <Command>
@@ -105,20 +105,20 @@ function clearFilters() {
               @select="toggleOption(option.value)"
             >
               <div
-                class="tasks-table__check"
-                :class="{ 'tasks-table__check--selected': selectedValues.has(option.value) }"
+                class="table-simple__check"
+                :class="{ 'table-simple__check--selected': selectedValues.has(option.value) }"
               >
-                <CheckIcon class="tasks-table__check-icon" />
+                <CheckIcon class="table-simple__check-icon" />
               </div>
               <component
                 :is="option.icon"
                 v-if="option.icon"
-                class="tasks-table__option-icon"
+                class="table-simple__option-icon"
               />
               <span>{{ option.label }}</span>
               <span
                 v-if="facets?.get(option.value)"
-                class="tasks-table__facet-count"
+                class="table-simple__facet-count"
               >
                 {{ facets.get(option.value) }}
               </span>
@@ -129,7 +129,7 @@ function clearFilters() {
             <CommandGroup>
               <CommandItem
                 value="clear-filters"
-                class="tasks-table__clear"
+                class="table-simple__clear"
                 @select="clearFilters"
               >
                 {{ clearFiltersLabel }}
@@ -143,49 +143,49 @@ function clearFilters() {
 </template>
 
 <style>
-.tasks-table__filter-button {
+.table-simple__filter-button {
   height: 2rem;
   border-style: dashed;
 }
 
-.tasks-table__filter-icon,
-.tasks-table__option-icon,
-.tasks-table__check-icon {
+.table-simple__filter-icon,
+.table-simple__option-icon,
+.table-simple__check-icon {
   width: 1rem;
   height: 1rem;
 }
 
-.tasks-table__filter-icon,
-.tasks-table__option-icon {
+.table-simple__filter-icon,
+.table-simple__option-icon {
   margin-right: 0.5rem;
 }
 
-.tasks-table__option-icon {
+.table-simple__option-icon {
   color: var(--muted-foreground);
 }
 
-.tasks-table__filter-separator {
+.table-simple__filter-separator {
   height: 1rem;
   margin: 0 0.5rem;
 }
 
-.tasks-table__filter-count {
+.table-simple__filter-count {
   padding: 0 0.25rem;
   border-radius: calc(var(--radius) - 4px);
   font-weight: 400;
 }
 
-.tasks-table__filter-badges {
+.table-simple__filter-badges {
   display: none;
   gap: 0.25rem;
 }
 
-.tasks-table__filter-popover {
+.table-simple__filter-popover {
   width: 200px;
   padding: 0;
 }
 
-.tasks-table__check {
+.table-simple__check {
   display: flex;
   width: 1rem;
   height: 1rem;
@@ -197,21 +197,21 @@ function clearFilters() {
   opacity: 0.5;
 }
 
-.tasks-table__check .tasks-table__check-icon {
+.table-simple__check .table-simple__check-icon {
   visibility: hidden;
 }
 
-.tasks-table__check--selected {
+.table-simple__check--selected {
   background: var(--primary);
   color: var(--primary-foreground);
   opacity: 1;
 }
 
-.tasks-table__check--selected .tasks-table__check-icon {
+.table-simple__check--selected .table-simple__check-icon {
   visibility: visible;
 }
 
-.tasks-table__facet-count {
+.table-simple__facet-count {
   display: flex;
   width: 1rem;
   height: 1rem;
@@ -222,17 +222,17 @@ function clearFilters() {
   font-size: 0.75rem;
 }
 
-.tasks-table__clear {
+.table-simple__clear {
   justify-content: center;
   text-align: center;
 }
 
 @media (width >= 1024px) {
-  .tasks-table__filter-count--compact {
+  .table-simple__filter-count--compact {
     display: none;
   }
 
-  .tasks-table__filter-badges {
+  .table-simple__filter-badges {
     display: flex;
   }
 }
