@@ -71,9 +71,34 @@ function getFileBaseDirectory(file: RegistryItemFile, item: RegistryItem, config
   }
 }
 
+export function assertPathInsideProject(cwd: string, targetPath: string, originalTarget: string) {
+  const relativePath = path.relative(cwd, targetPath);
+
+  if (relativePath.startsWith('..') || path.isAbsolute(relativePath)) {
+    throw new Error(`Registry file target "${originalTarget}" resolves outside the project.`);
+  }
+}
+
+export function resolveRegistryFileTarget(cwd: string, target: string) {
+  if (path.isAbsolute(target)) {
+    throw new Error(`Registry file target "${target}" must be a path inside the project.`);
+  }
+
+  const withoutHomeAlias = target.replace(/^~\//, '');
+  const segments = withoutHomeAlias.split(/[\\/]/).filter(Boolean);
+
+  if (segments.includes('..')) {
+    throw new Error(`Registry file target "${target}" must not contain "..".`);
+  }
+
+  const resolved = path.resolve(cwd, withoutHomeAlias);
+  assertPathInsideProject(cwd, resolved, target);
+  return resolved;
+}
+
 export function getFileTargetPath(file: RegistryItemFile, item: RegistryItem, config: Config, pathOverride?: string) {
   if (file.target) {
-    return path.resolve(config.resolvedPaths.cwd, file.target.replace(/^~\//, ''));
+    return resolveRegistryFileTarget(config.resolvedPaths.cwd, file.target);
   }
 
   const relativePath = withNaming(getPathWithinItem(file.path, item.name), config);

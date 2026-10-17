@@ -1,12 +1,21 @@
 import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'pathe';
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { runMigrate } from '../../src/commands/migrate';
 import { migrateConfig } from '../../src/utils/migrate/config';
 import { rewriteComponentImports, rewriteRelativeImports } from '../../src/utils/migrate/components';
+import { installPackages } from '../../src/utils/package-manager';
 
+vi.mock('../../src/utils/package-manager', async (importOriginal) => {
+  const original = await importOriginal<typeof import('../../src/utils/package-manager')>();
+  return { ...original, installPackages: vi.fn() };
+});
 vi.mock('consola');
+
+afterEach(() => {
+  vi.mocked(installPackages).mockReset();
+});
 
 function createProject(files: Record<string, string>) {
   const cwd = mkdtempSync(path.join(tmpdir(), 'sigma-ui-migrate-'));
@@ -227,5 +236,69 @@ describe('runMigrate', () => {
 
   it('fails without a config file', async () => {
     await expect(runMigrate(createProject({ 'package.json': '{}' }), { yes: true, dryRun: false })).rejects.toThrow(/No sigma-ui.config.json/);
+  });
+
+  it('patches a 1.x Tailwind stylesheet and leaves the project addable', async () => {
+    const cwd = createProject({
+      'package.json': JSON.stringify({ dependencies: { vue: '^3.5.0' } }),
+      'tsconfig.json': JSON.stringify({ compilerOptions: { paths: { '@/*': ['./src/*'] } } }),
+      'vite.config.ts': `import { defineConfig } from 'vite'\nimport vue from '@vitejs/plugin-vue'\n\nexport default defineConfig({\n  plugins: [vue()],\n})\n`,
+      'sigma-ui.config.json': JSON.stringify({
+        styleSystem: 'tailwind',
+        framework: 'vite',
+        cssPath: 'src/assets/index.css',
+        tailwind: { config: '' },
+        aliases: { components: '@/components/ui', utils: '@/lib/utils' },
+        componentNaming: 'pascal-case',
+      }),
+      'src/assets/index.css': `@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --border: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+`,
+      'src/components/ui/Button/Button.vue': '<template><button /></template>\n',
+    });
+
+    const result = await runMigrate(cwd, { yes: true, dryRun: false });
+    const css = readFileSync(path.join(cwd, 'src/assets/index.css'), 'utf8');
+
+    expect(result.cssChanges.length).toBeGreaterThan(0);
+    expect(css).toContain('@import "tailwindcss";');
+    expect(css).toContain('@import "tw-animate-css";');
+    expect(css).toContain('--primary: hsl(240 5.9% 10%);');
+    expect(css).toContain('--sidebar:');
+    expect(css).toContain('--accent:');
+    expect(css).toContain('@theme inline');
+    expect(css).not.toContain('@tailwind base');
+    expect(readFileSync(path.join(cwd, 'vite.config.ts'), 'utf8')).toContain('@tailwindcss/vite');
+    expect(installPackages).toHaveBeenCalled();
+
+    const secondRun = await runMigrate(cwd, { yes: true, dryRun: false });
+    expect(secondRun.changes).toEqual([]);
+    expect(secondRun.renames).toEqual([]);
+    expect(secondRun.cssChanges).toEqual([]);
   });
 });
