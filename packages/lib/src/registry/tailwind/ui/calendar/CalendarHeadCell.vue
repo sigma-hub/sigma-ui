@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { CalendarHeadCell, type CalendarHeadCellProps, useForwardProps } from 'reka-ui';
 import { cn } from '@ui/utils';
@@ -7,9 +7,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<CalendarHeadCellProps>();
 
@@ -18,7 +20,7 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <CalendarHeadCell
-    v-bind="{ ...forwardedProps, ...delegatedAttrs }"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     :class="cn('w-9 rounded-md text-[0.8rem] font-normal text-muted-foreground', $attrs.class ?? '')"
     data-slot="calendar-head-cell"
   >

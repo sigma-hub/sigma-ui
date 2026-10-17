@@ -1,20 +1,22 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { cn } from '@ui/utils';
 defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 </script>
 
 <template>
   <h5
-    v-bind="delegatedAttrs"
+    v-bind="delegatedAttrs()"
     :class="cn('mb-1 font-medium leading-none tracking-tight', $attrs.class ?? '')"
     data-slot="alert-title"
   >

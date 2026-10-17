@@ -9,18 +9,14 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 defineSlots<{
   /**
-   * Trigger and content. Receives the open state and a close function.
+   * Trigger and content.
    */
-  default?: (props: { open: boolean; close: () => void }) => unknown;
+  default?: () => unknown;
 }>();
 </script>
 
 <template>
-  <DrawerRoot
-    v-slot="slotProps"
-    data-slot="drawer"
-    v-bind="forwarded"
-  >
-    <slot v-bind="slotProps" />
+  <DrawerRoot v-bind="forwarded">
+    <slot />
   </DrawerRoot>
 </template>

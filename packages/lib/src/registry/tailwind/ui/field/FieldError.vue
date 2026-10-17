@@ -6,9 +6,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 interface FieldErrorProps {
   /**
@@ -44,7 +46,7 @@ const messages = computed(() => {
 <template>
   <div
     v-if="slots.default || messages.length"
-    v-bind="delegatedAttrs"
+    v-bind="delegatedAttrs()"
     role="alert"
     data-slot="field-error"
     :class="cn('text-sm font-normal text-destructive', $attrs.class ?? '')"

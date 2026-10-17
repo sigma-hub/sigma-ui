@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { MenubarLabel, type MenubarLabelProps } from 'reka-ui';
 import { cn } from '@ui/utils';
@@ -7,11 +7,13 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
 
-const props = defineProps<MenubarLabelProps & {
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
+
+defineProps<MenubarLabelProps & {
   /** Adds left padding so the text lines up with items that have an icon or indicator. */
   inset?: boolean;
 }>();
@@ -19,7 +21,7 @@ const props = defineProps<MenubarLabelProps & {
 
 <template>
   <MenubarLabel
-    v-bind="delegatedAttrs"
+    v-bind="delegatedAttrs()"
     :class="cn('px-2 py-1.5 text-sm font-semibold', inset && 'pl-8', $attrs.class ?? '')"
     data-slot="menubar-label"
   >

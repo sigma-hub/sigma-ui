@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import type { Ref } from 'vue';
 import { CalendarRoot, type CalendarRootEmits, type CalendarRootProps, useDateFormatter, useForwardPropsEmits } from 'reka-ui';
@@ -19,9 +19,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = withDefaults(defineProps<CalendarRootProps>(), {
   modelValue: undefined,
@@ -46,7 +48,7 @@ const formatter = useDateFormatter('en');
 <template>
   <CalendarRoot
     v-slot="{ date, grid, weekDays }"
-    v-bind="{ ...forwarded, ...delegatedAttrs }"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     v-model:placeholder="placeholder"
     :class="cn('rounded-md border p-3', $attrs.class ?? '')"
   >

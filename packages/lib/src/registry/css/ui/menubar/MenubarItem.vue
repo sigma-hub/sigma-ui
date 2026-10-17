@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import {
   MenubarItem,
@@ -11,9 +11,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<MenubarItemProps & {
   /** Adds left padding so the text lines up with items that have an icon or indicator. */
@@ -26,7 +28,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <MenubarItem
-    v-bind="{ ...forwarded, ...delegatedAttrs }"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     class="sigma-ui-menubar-item"
     :class="[{ 'sigma-ui-menubar-item--inset': inset }, $attrs.class]"
     data-slot="menubar-item"

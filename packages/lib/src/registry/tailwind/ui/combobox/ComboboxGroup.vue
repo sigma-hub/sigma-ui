@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import type { ComboboxGroupProps } from 'reka-ui';
 import { ComboboxGroup, ComboboxLabel } from 'reka-ui';
@@ -8,9 +8,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<ComboboxGroupProps & {
   /** Label shown above the group items. */
@@ -20,7 +22,7 @@ const props = defineProps<ComboboxGroupProps & {
 
 <template>
   <ComboboxGroup
-    v-bind="{ ...props, ...delegatedAttrs }"
+    v-bind="{ ...props, ...delegatedAttrs() }"
     :class="cn('overflow-hidden p-1 text-foreground [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground', $attrs.class ?? '')"
     data-slot="combobox-group"
   >

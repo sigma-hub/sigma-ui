@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import {
   MenubarContent,
@@ -11,9 +11,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = withDefaults(
   defineProps<MenubarContentProps>(),
@@ -30,7 +32,7 @@ const forwardedProps = useForwardProps(props);
 <template>
   <MenubarPortal>
     <MenubarContent
-      v-bind="{ ...forwardedProps, ...delegatedAttrs }"
+      v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
       class="sigma-ui-menubar-content"
       :class="[$attrs.class]"
       data-slot="menubar-content"

@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
 
-const props = defineProps<{
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
+
+defineProps<{
   /** Current value of the textarea; use with `v-model`. */
   modelValue?: string | number;
 }>();
@@ -24,7 +26,7 @@ defineEmits<{
 
 <template>
   <textarea
-    v-bind="delegatedAttrs"
+    v-bind="delegatedAttrs()"
     v-model="model"
     class="sigma-ui-textarea"
     :class="[$attrs.class]"

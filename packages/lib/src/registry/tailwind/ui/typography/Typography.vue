@@ -9,9 +9,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 type TypographyVariant = NonNullable<TypographyVariants['variant']>;
 
@@ -77,7 +79,7 @@ defineSlots<{
 
 <template>
   <Primitive
-    v-bind="delegatedAttrs"
+    v-bind="delegatedAttrs()"
     :as="element"
     :as-child="props.asChild"
     data-slot="typography"

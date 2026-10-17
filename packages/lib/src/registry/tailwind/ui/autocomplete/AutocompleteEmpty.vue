@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { AutocompleteEmpty, type ComboboxEmptyProps } from 'reka-ui';
 import { cn } from '@ui/utils';
@@ -8,9 +8,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<ComboboxEmptyProps>();
 </script>
@@ -18,7 +20,7 @@ const props = defineProps<ComboboxEmptyProps>();
 <template>
   <AutocompleteEmpty
     data-slot="autocomplete-empty"
-    v-bind="{ ...props, ...delegatedAttrs }"
+    v-bind="{ ...props, ...delegatedAttrs() }"
     :class="cn('py-6 text-center text-sm', $attrs.class ?? '')"
   >
     <slot />

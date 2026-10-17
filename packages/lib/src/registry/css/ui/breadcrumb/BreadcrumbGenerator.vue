@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import type { Component } from 'vue';
 import { ChevronRightIcon } from 'lucide-vue-next';
@@ -15,9 +15,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 export interface BreadcrumbRouteLocation {
   name?: string | symbol;
@@ -70,7 +72,7 @@ function getActionProps(item: BreadcrumbItem, isLast: boolean): ActionProps {
 
 <template>
   <Breadcrumb
-    v-bind="delegatedAttrs"
+    v-bind="delegatedAttrs()"
     :class="$attrs.class"
     data-slot="breadcrumb-generator"
   >

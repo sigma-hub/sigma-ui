@@ -12,9 +12,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = withDefaults(defineProps<BaseChartProps<T> & {
   /**
@@ -70,7 +72,7 @@ const selectorsBar = computed(() => props.type === 'grouped' ? GroupedBar.select
 
 <template>
   <div
-    v-bind="delegatedAttrs"
+    v-bind="delegatedAttrs()"
     class="sigma-ui-bar-chart"
     :class="$attrs.class"
     data-slot="bar-chart"

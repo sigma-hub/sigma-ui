@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { ColorSliderRoot, type ColorSliderRootEmits, type ColorSliderRootProps, useForwardPropsEmits } from 'reka-ui';
 
@@ -7,9 +7,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<ColorSliderRootProps>();
 const emits = defineEmits<ColorSliderRootEmits>();
@@ -20,7 +22,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   <ColorSliderRoot
     data-slot="color-slider"
     class="sigma-ui-color-slider"
-    v-bind="{ ...forwarded, ...delegatedAttrs }"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="[$attrs.class]"
   >
     <slot />

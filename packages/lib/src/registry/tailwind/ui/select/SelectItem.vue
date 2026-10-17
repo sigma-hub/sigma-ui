@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import {
   SelectItem,
@@ -14,9 +14,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<SelectItemProps>();
 
@@ -25,7 +27,7 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <SelectItem
-    v-bind="{ ...forwardedProps, ...delegatedAttrs }"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     data-slot="select-item"
     :class="
       cn(

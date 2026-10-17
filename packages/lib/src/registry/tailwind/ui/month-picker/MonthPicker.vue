@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { MonthPickerRoot, type MonthPickerRootEmits, type MonthPickerRootProps, useForwardPropsEmits } from 'reka-ui';
 import { cn } from '@ui/utils';
@@ -8,9 +8,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<MonthPickerRootProps>();
 const emits = defineEmits<MonthPickerRootEmits>();
@@ -20,7 +22,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 <template>
   <MonthPickerRoot
     v-slot="{ grid }"
-    v-bind="{ ...forwarded, ...delegatedAttrs }"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     data-slot="month-picker"
     :class="cn('w-fit rounded-md border p-3', $attrs.class ?? '')"
   >

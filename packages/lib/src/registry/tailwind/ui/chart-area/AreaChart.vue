@@ -14,9 +14,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = withDefaults(defineProps<BaseChartProps<T> & {
   /**
@@ -72,7 +74,7 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
 
 <template>
   <div
-    v-bind="delegatedAttrs"
+    v-bind="delegatedAttrs()"
     :class="cn('w-full h-[400px] flex flex-col items-end', $attrs.class ?? '')"
     data-slot="area-chart"
   >

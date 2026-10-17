@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { SelectIcon, SelectTrigger, type SelectTriggerProps, useForwardProps } from 'reka-ui';
 import { reactiveOmit } from '@vueuse/core';
@@ -9,9 +9,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 interface SelectTriggerExtraProps extends SelectTriggerProps {
   /**
@@ -29,7 +31,7 @@ const forwardedProps = useForwardProps(reactiveOmit(props, 'size'));
 
 <template>
   <SelectTrigger
-    v-bind="{ ...forwardedProps, ...delegatedAttrs }"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     data-slot="select-trigger"
     :data-size="props.size"
     :class="cn(

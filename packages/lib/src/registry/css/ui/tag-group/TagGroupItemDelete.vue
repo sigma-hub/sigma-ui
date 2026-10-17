@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { TagGroupItemDelete, type TagGroupItemDeleteProps, useForwardProps } from 'reka-ui';
 import { XIcon } from 'lucide-vue-next';
@@ -8,9 +8,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<TagGroupItemDeleteProps>();
 const forwarded = useForwardProps(props);
@@ -20,7 +22,7 @@ const forwarded = useForwardProps(props);
   <TagGroupItemDelete
     data-slot="tag-group-item-delete"
     class="sigma-ui-tag-group-item-delete"
-    v-bind="{ ...forwarded, ...delegatedAttrs }"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="[$attrs.class]"
   >
     <slot>

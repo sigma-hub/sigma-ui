@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { MenubarSubTrigger, type MenubarSubTriggerProps, useForwardProps } from 'reka-ui';
 import { ChevronRightIcon } from 'lucide-vue-next';
@@ -7,9 +7,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<MenubarSubTriggerProps & {
   /** Adds left padding so the text lines up with items that have an icon or indicator. */
@@ -21,7 +23,7 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <MenubarSubTrigger
-    v-bind="{ ...forwardedProps, ...delegatedAttrs }"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     class="sigma-ui-menubar-subtrigger"
     :class="[{ 'sigma-ui-menubar-subtrigger--inset': inset }, $attrs.class]"
     data-slot="menubar-sub-trigger"

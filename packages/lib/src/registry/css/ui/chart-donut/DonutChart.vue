@@ -11,9 +11,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = withDefaults(defineProps<Pick<BaseChartProps<T>, 'data' | 'colors' | 'index' | 'margin' | 'showLegend' | 'showTooltip' | 'filterOpacity'> & {
   /**
@@ -69,7 +71,7 @@ const totalValue = computed(() => props.data.reduce((prev, curr) => {
 
 <template>
   <div
-    v-bind="delegatedAttrs"
+    v-bind="delegatedAttrs()"
     class="sigma-ui-donut-chart"
     :class="$attrs.class"
     data-slot="donut-chart"

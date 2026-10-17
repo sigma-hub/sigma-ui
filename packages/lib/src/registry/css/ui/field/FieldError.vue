@@ -5,9 +5,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 interface FieldErrorProps {
   /**
@@ -46,7 +48,7 @@ const messages = computed(() => {
     role="alert"
     data-slot="field-error"
     class="sigma-ui-field-error"
-    v-bind="delegatedAttrs"
+    v-bind="delegatedAttrs()"
     :class="[$attrs.class]"
   >
     <slot v-if="slots.default" />

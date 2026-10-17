@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { cn } from '@ui/utils';
 defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 defineSlots<{
   /**
@@ -20,7 +22,7 @@ defineSlots<{
 
 <template>
   <kbd
-    v-bind="delegatedAttrs"
+    v-bind="delegatedAttrs()"
     data-slot="kbd"
     :class="cn(
       'pointer-events-none inline-flex h-5 w-fit min-w-5 select-none items-center justify-center gap-1 rounded-sm bg-muted px-1 font-sans text-xs font-medium text-muted-foreground',

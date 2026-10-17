@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { TooltipContent, type TooltipContentEmits, type TooltipContentProps, TooltipPortal, useForwardPropsEmits } from 'reka-ui';
 
@@ -7,9 +7,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = withDefaults(defineProps<TooltipContentProps>(), {
   sideOffset: 4,
@@ -23,7 +25,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 <template>
   <TooltipPortal>
     <TooltipContent
-      v-bind="{ ...forwarded, ...delegatedAttrs }"
+      v-bind="{ ...forwarded, ...delegatedAttrs() }"
       class="sigma-ui-tooltip-content"
       :class="[$attrs.class]"
       data-slot="tooltip-content"

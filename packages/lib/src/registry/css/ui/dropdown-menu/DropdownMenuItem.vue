@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { DropdownMenuItem, type DropdownMenuItemProps, useForwardProps } from 'reka-ui';
 defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<DropdownMenuItemProps & {
   /** Adds left padding to align with items that have an icon or indicator. */
@@ -20,7 +22,7 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <DropdownMenuItem
-    v-bind="{ ...forwardedProps, ...delegatedAttrs }"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     class="sigma-ui-dropdown-menu-item"
     :class="[{ 'sigma-ui-dropdown-menu-item--inset': inset }, $attrs.class]"
     data-slot="dropdown-menu-item"

@@ -22,9 +22,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<SheetContentProps>();
 const emits = defineEmits<DialogContentEmits>();
@@ -42,7 +44,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
     <DialogContent
       data-slot="sheet-content"
       :class="cn(sheetVariants({ side }), $attrs.class ?? '')"
-      v-bind="{ ...forwarded, ...delegatedAttrs }"
+      v-bind="{ ...forwarded, ...delegatedAttrs() }"
     >
       <slot />
 

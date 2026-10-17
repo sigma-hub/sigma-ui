@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { Separator } from '@ui/registry/css/ui/separator';
 defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 </script>
 
@@ -17,7 +19,7 @@ const delegatedAttrs = computed(() => {
     data-slot="sidebar-separator"
     data-sidebar="separator"
     class="sigma-ui-sidebar-separator"
-    v-bind="delegatedAttrs"
+    v-bind="delegatedAttrs()"
     :class="[$attrs.class]"
   />
 </template>

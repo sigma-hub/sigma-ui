@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import {
   NavigationMenuTrigger,
@@ -12,9 +12,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<NavigationMenuTriggerProps>();
 
@@ -23,7 +25,7 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <NavigationMenuTrigger
-    v-bind="{ ...forwardedProps, ...delegatedAttrs }"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     class="sigma-ui-navigation-menu-trigger"
     :class="[navigationMenuTriggerStyle(), $attrs.class]"
     data-slot="navigation-menu-trigger"

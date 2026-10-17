@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { cn } from '@ui/utils';
 defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 defineSlots<{
   /**
@@ -20,7 +22,7 @@ defineSlots<{
 
 <template>
   <fieldset
-    v-bind="delegatedAttrs"
+    v-bind="delegatedAttrs()"
     data-slot="field-set"
     :class="cn('flex flex-col gap-6 has-[>[data-slot=checkbox-group]]:gap-3 has-[>[data-slot=radio-group]]:gap-3', $attrs.class ?? '')"
   >

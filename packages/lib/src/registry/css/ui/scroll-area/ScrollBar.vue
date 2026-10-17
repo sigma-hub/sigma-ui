@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { ScrollAreaScrollbar, type ScrollAreaScrollbarProps, ScrollAreaThumb } from 'reka-ui';
 defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = withDefaults(defineProps<ScrollAreaScrollbarProps>(), {
   orientation: 'vertical',
@@ -17,7 +19,7 @@ const props = withDefaults(defineProps<ScrollAreaScrollbarProps>(), {
 
 <template>
   <ScrollAreaScrollbar
-    v-bind="{ ...props, ...delegatedAttrs }"
+    v-bind="{ ...props, ...delegatedAttrs() }"
     class="sigma-ui-scroll-area-scrollbar"
     data-slot="scroll-bar"
     :class="[$attrs.class]"

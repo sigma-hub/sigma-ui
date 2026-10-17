@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { PanelLeftIcon } from 'lucide-vue-next';
 import { Button } from '@ui/registry/tailwind/ui/button';
@@ -9,9 +9,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 defineSlots<{
   /**
@@ -25,7 +27,7 @@ const { toggleSidebar } = useSidebar();
 
 <template>
   <Button
-    v-bind="delegatedAttrs"
+    v-bind="delegatedAttrs()"
     data-sidebar="trigger"
     data-slot="sidebar-trigger"
     variant="ghost"

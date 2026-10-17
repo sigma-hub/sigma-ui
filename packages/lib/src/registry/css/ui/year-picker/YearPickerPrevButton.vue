@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { YearPickerPrev, type YearPickerPrevProps, useForwardProps } from 'reka-ui';
 import { ChevronLeftIcon } from 'lucide-vue-next';
@@ -8,9 +8,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<YearPickerPrevProps>();
 const forwarded = useForwardProps(props);
@@ -18,7 +20,7 @@ const forwarded = useForwardProps(props);
 
 <template>
   <YearPickerPrev
-    v-bind="{ ...forwarded, ...delegatedAttrs }"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     data-slot="year-picker-prev-button"
     class="sigma-ui-year-picker-prev"
     :class="[buttonVariants({ variant: 'outline' }), $attrs.class]"

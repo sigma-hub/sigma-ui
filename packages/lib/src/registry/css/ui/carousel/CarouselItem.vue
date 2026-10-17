@@ -1,21 +1,23 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { useCarousel } from './useCarousel';
 defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const { orientation } = useCarousel();
 </script>
 
 <template>
   <div
-    v-bind="delegatedAttrs"
+    v-bind="delegatedAttrs()"
     class="sigma-ui-carousel-item"
     :class="[
       orientation === 'horizontal' ? 'sigma-ui-carousel-item--horizontal' : 'sigma-ui-carousel-item--vertical',

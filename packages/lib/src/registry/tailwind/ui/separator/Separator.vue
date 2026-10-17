@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { Separator, type SeparatorProps } from 'reka-ui';
 import { cn } from '@ui/utils';
@@ -7,9 +7,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<
   SeparatorProps & {
@@ -21,7 +23,7 @@ const props = defineProps<
 
 <template>
   <Separator
-    v-bind="{ ...props, ...delegatedAttrs }"
+    v-bind="{ ...props, ...delegatedAttrs() }"
     :class="
       cn(
         'shrink-0 bg-border relative',

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { PaginationPrev, type PaginationPrevProps } from 'reka-ui';
 import { ChevronLeftIcon } from 'lucide-vue-next';
@@ -11,9 +11,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = withDefaults(defineProps<PaginationPrevProps>(), {
   asChild: true,
@@ -26,7 +28,7 @@ const props = withDefaults(defineProps<PaginationPrevProps>(), {
     data-slot="pagination-prev"
   >
     <Button
-      v-bind="delegatedAttrs"
+      v-bind="delegatedAttrs()"
       :class="cn('w-10 h-10 p-0', $attrs.class ?? '')"
       variant="outline"
     >

@@ -58,6 +58,7 @@
     "@vue/compiler-dom": "catalog:",
     "@vue/tsconfig": "catalog:",
     "fast-glob": "^3.3.3",
+    "happy-dom": "^20.0.11",
     "lodash-es": "catalog:",
     "markdown-it": "^14.3.2",
     "pathe": "catalog:",

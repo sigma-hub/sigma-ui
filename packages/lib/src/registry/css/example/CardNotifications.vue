@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { BellRingIcon, CheckIcon } from 'lucide-vue-next';
 import { Button } from '@ui/registry/css/ui/button';
@@ -16,9 +16,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const notifications = [
   {
@@ -39,7 +41,7 @@ const notifications = [
 <template>
   <Card
     class="example-sigma-ui-card-notifications"
-    v-bind="delegatedAttrs"
+    v-bind="delegatedAttrs()"
     :class="[$attrs.class]"
   >
     <CardHeader>

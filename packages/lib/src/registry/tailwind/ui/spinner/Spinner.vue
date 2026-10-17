@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { Loader2Icon } from 'lucide-vue-next';
 import { cn } from '@ui/utils';
@@ -7,9 +7,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 interface SpinnerProps {
   /**
@@ -25,7 +27,7 @@ const props = withDefaults(defineProps<SpinnerProps>(), {
 
 <template>
   <Loader2Icon
-    v-bind="delegatedAttrs"
+    v-bind="delegatedAttrs()"
     role="status"
     data-slot="spinner"
     :aria-label="props.label"

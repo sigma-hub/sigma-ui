@@ -1,16 +1,18 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { type BadgeVariants, badgeVariants } from '.';
 defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
 
-const props = defineProps<{
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
+
+defineProps<{
   /** Visual style of the badge. */
   variant?: BadgeVariants['variant'];
 
@@ -19,7 +21,7 @@ const props = defineProps<{
 
 <template>
   <div
-    v-bind="delegatedAttrs"
+    v-bind="delegatedAttrs()"
     :class="[badgeVariants({ variant }), $attrs.class]"
     data-slot="badge"
   >

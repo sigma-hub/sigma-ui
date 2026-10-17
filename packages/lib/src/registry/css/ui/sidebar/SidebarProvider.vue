@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type Ref, computed, ref, useAttrs } from 'vue';
+import { computed, type Ref, ref, useAttrs } from 'vue';
 import { useEventListener, useMediaQuery, useVModel } from '@vueuse/core';
 import { TooltipProvider } from 'reka-ui';
 import {
@@ -40,9 +40,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = withDefaults(defineProps<SidebarProviderProps>(), {
   defaultOpen: true,
@@ -134,7 +136,7 @@ provideSidebarContext({
   <TooltipProvider :delay-duration="0">
     <div
       ref="wrapper"
-      v-bind="delegatedAttrs"
+      v-bind="delegatedAttrs()"
       data-slot="sidebar-wrapper"
       class="sigma-ui-sidebar-wrapper"
       :style="{

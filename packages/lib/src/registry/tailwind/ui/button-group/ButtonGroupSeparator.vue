@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import type { SeparatorProps } from 'reka-ui';
 import { Separator } from '@ui/registry/tailwind/ui/separator';
@@ -8,9 +8,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = withDefaults(defineProps<SeparatorProps>(), {
   orientation: 'vertical',
@@ -19,7 +21,7 @@ const props = withDefaults(defineProps<SeparatorProps>(), {
 
 <template>
   <Separator
-    v-bind="{ ...props, ...delegatedAttrs }"
+    v-bind="{ ...props, ...delegatedAttrs() }"
     data-slot="button-group-separator"
     :class="cn('relative m-0! self-stretch bg-border data-[orientation=vertical]:h-auto', $attrs.class ?? '')"
   />

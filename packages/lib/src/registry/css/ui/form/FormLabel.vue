@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import type { LabelProps } from 'reka-ui';
 import { useFormField } from './useFormField';
@@ -8,18 +8,20 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
 
-const props = defineProps<LabelProps>();
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
+
+defineProps<LabelProps>();
 
 const { error, formItemId } = useFormField();
 </script>
 
 <template>
   <Label
-    v-bind="delegatedAttrs"
+    v-bind="delegatedAttrs()"
     class="sigma-ui-form-label"
     :class="[$attrs.class ?? '', { 'sigma-ui-form-label--error': error }]"
     :for="formItemId"

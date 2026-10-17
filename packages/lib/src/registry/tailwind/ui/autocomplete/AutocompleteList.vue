@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import type { ComboboxContentEmits, ComboboxContentProps } from 'reka-ui';
 import { AutocompleteContent, AutocompletePortal, AutocompleteViewport, useForwardPropsEmits } from 'reka-ui';
@@ -9,9 +9,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = withDefaults(defineProps<ComboboxContentProps>(), {
   position: 'popper',
@@ -26,7 +28,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   <AutocompletePortal>
     <AutocompleteContent
       data-slot="autocomplete-list"
-      v-bind="{ ...forwarded, ...delegatedAttrs }"
+      v-bind="{ ...forwarded, ...delegatedAttrs() }"
       :class="cn('z-50 w-64 rounded-md border bg-popover p-1 text-popover-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0', $attrs.class ?? '')"
     >
       <AutocompleteViewport>

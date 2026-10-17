@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { SearchIcon } from 'lucide-vue-next';
 import { ComboboxInput, type ComboboxInputProps, useForwardProps } from 'reka-ui';
@@ -9,9 +9,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<ComboboxInputProps>();
 
@@ -26,7 +28,7 @@ const forwardedProps = useForwardProps(props);
   >
     <SearchIcon class="mr-2 h-4 w-4 shrink-0 opacity-50" />
     <ComboboxInput
-      v-bind="{ ...forwardedProps, ...delegatedAttrs }"
+      v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
       auto-focus
       :class="cn('flex h-11 w-full rounded-md bg-transparent py-3 text-sm outline-hidden placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50', $attrs.class ?? '')"
     />
