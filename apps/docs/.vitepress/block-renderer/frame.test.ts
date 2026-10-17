@@ -72,7 +72,8 @@ describe('block renderer request paths', () => {
 });
 
 describe('docs preview appearance', () => {
-  it('reads vueuse json storage and falls back to auto', () => {
+  it('reads a raw vitepress appearance string and quoted json', () => {
+    expect(resolvePreviewAppearance(parseStoredJson('dark'))).toBe('dark');
     expect(resolvePreviewAppearance(parseStoredJson('"dark"'))).toBe('dark');
     expect(resolvePreviewAppearance(parseStoredJson('null'))).toBe('auto');
     expect(resolvePreviewAppearance(parseStoredJson('not-json'))).toBe('auto');

@@ -9,7 +9,13 @@
         var appearance = 'auto';
         try {
           var storedAppearance = localStorage.getItem('vitepress-theme-appearance');
-          if (storedAppearance) appearance = JSON.parse(storedAppearance);
+          if (storedAppearance) {
+            try {
+              appearance = JSON.parse(storedAppearance);
+            } catch (error) {
+              appearance = storedAppearance;
+            }
+          }
         } catch (error) {}
         var dark = appearance === 'dark' || (appearance !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches);
         if (dark) document.documentElement.classList.add('dark');

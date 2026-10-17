@@ -29,9 +29,9 @@
   },
   {
     "name": "config",
-    "type": "Record<string, { label?: string; color?: string; theme?: { light?: string; dark?: string; }; }>",
+    "type": "ChartConfig",
     "required": false,
-    "description": ""
+    "description": "<p>Config-driven series colors. Keys match category names and set --color-&amp;lt;key&amp;gt; and --chart-N.</p>"
   },
   {
     "name": "margin",

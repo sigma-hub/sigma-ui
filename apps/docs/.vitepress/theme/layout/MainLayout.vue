@@ -15,6 +15,7 @@ import Kbd from '../components/Kbd.vue';
 import MobileNav from '../components/MobileNav.vue';
 import Logo from '../components/Logo.vue';
 import { type NavItem, docsConfig } from '../config/docs';
+import { siteConfig } from '../config/site';
 import { useConfigStore } from '@/stores/config';
 import { baseColors } from '@sigma-ui/shared/themes';
 import {
@@ -101,7 +102,7 @@ function isRouteActive(href: string) {
 }
 
 const appVersion = computed(() => {
-  return `v${import.meta.env.VITE_APP_VERSION}`;
+  return `v${siteConfig.version}`;
 });
 
 const isConfigReady = computed(() => {

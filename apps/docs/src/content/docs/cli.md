@@ -18,7 +18,7 @@ npx sigma-ui init
 
 Pin a CLI version with `npx sigma-ui@latest init`. The latest version is the default.
 
-The prompt asks for the style system (`tailwind` or `css`), a base color, and the component file naming. It then writes `sigma-ui.config.json` and the stylesheet for that style system. For Tailwind it also writes `cn` when `@/lib/utils` is missing, and installs `tw-animate-css`. It installs `tailwindcss` and `@tailwindcss/vite` when Tailwind is not already installed. New Tailwind projects do not get a `tailwind.config.js`. The CSS style system does not install Tailwind. It writes `preflight.css` next to the stylesheet.
+The prompt asks for the style system (`tailwind` or `css`), a base color, and the component file naming. It then writes `sigma-ui.config.json` and the stylesheet for that style system. For Tailwind it also writes `cn` when `@/lib/utils` is missing, installs `tw-animate-css`, and always registers `@tailwindcss/vite` (the helper skips the file if the plugin is already there). It installs `tailwindcss` and `@tailwindcss/vite` when they are missing, even if one of them is already in `package.json`. Vite projects also get `@types/node` so `vue-tsc` accepts `node:url` in the generated `@` alias. New Tailwind projects do not get a `tailwind.config.js`. The CSS style system does not install Tailwind. It writes `preflight.css` next to the stylesheet.
 
 ### Options
 

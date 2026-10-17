@@ -39,9 +39,6 @@ export default defineConfig({
   ],
   sitemap: {
     hostname: 'https://sigma-ui.dev',
-    transformItems(items) {
-      return items.filter(item => !item.url.includes('migration'));
-    },
   },
   lastUpdated: true,
   themeConfig: {
