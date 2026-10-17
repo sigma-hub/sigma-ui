@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "ui/skeleton/Skeleton.vue",
-      "content": "<script setup lang=\"ts\">\nimport { computed, useAttrs } from 'vue';\n\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst delegatedAttrs = computed(() => {\n  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));\n});\n\n</script>\n\n<template>\n  <div\n    v-bind=\"delegatedAttrs\"\n    :class=\"cn('animate-pulse rounded-md bg-muted', $attrs.class ?? '')\"\n    data-slot=\"skeleton\"\n  />\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <div\n    v-bind=\"delegatedAttrs()\"\n    :class=\"cn('animate-pulse rounded-md bg-muted', $attrs.class ?? '')\"\n    data-slot=\"skeleton\"\n  />\n</template>\n",
       "type": "registry:ui"
     },
     {
