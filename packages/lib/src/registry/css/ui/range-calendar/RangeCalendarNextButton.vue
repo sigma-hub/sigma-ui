@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { RangeCalendarNext, type RangeCalendarNextProps, useForwardProps } from 'reka-ui';
 import { ChevronRightIcon } from 'lucide-vue-next';
@@ -8,9 +8,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<RangeCalendarNextProps>();
 
@@ -21,7 +23,7 @@ const forwardedProps = useForwardProps(props);
   <RangeCalendarNext
     class="sigma-ui-range-calendar-next"
     :class="[buttonVariants({ variant: 'outline' }), $attrs.class]"
-    v-bind="{ ...forwardedProps, ...delegatedAttrs }"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     data-slot="range-calendar-next-button"
   >
     <slot>

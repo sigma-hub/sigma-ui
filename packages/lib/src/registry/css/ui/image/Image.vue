@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { nextTick, ref, watch, computed, useAttrs } from 'vue';
+import { nextTick, ref, watch, useAttrs } from 'vue';
 import { useForwardProps } from 'reka-ui';
 import { ImageIcon, LoaderCircleIcon } from 'lucide-vue-next';
 import { type ImageVariants, imageVariants } from '.';
@@ -7,9 +7,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 type Emits = {
   /** Emitted when the image finishes loading. */
@@ -70,7 +72,7 @@ function onLoad() {
 
 <template>
   <div
-    v-bind="delegatedAttrs"
+    v-bind="delegatedAttrs()"
     :class="[
       $attrs.class ?? '',
       imageVariants({ shape }),

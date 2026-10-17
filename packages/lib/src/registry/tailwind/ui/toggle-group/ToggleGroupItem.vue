@@ -8,9 +8,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 type ToggleGroupVariants = VariantProps<typeof toggleVariants>;
 
@@ -30,7 +32,7 @@ const forwardedProps = useForwardProps(delegatedProps);
 
 <template>
   <ToggleGroupItem
-    v-bind="{ ...forwardedProps, ...delegatedAttrs }"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     :class="cn(toggleVariants({
       variant: context?.variant || variant,
       size: context?.size || size,

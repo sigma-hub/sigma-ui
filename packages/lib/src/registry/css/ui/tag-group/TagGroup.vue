@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { TagGroupRoot, type TagGroupRootEmits, type TagGroupRootProps, useForwardPropsEmits } from 'reka-ui';
 
@@ -7,9 +7,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<TagGroupRootProps>();
 const emits = defineEmits<TagGroupRootEmits>();
@@ -28,7 +30,7 @@ defineSlots<{
     v-slot="slotProps"
     data-slot="tag-group"
     class="sigma-ui-tag-group"
-    v-bind="{ ...forwarded, ...delegatedAttrs }"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="[$attrs.class]"
   >
     <slot v-bind="slotProps" />

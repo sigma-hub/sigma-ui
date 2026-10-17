@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import {
   ContextMenuContent,
@@ -13,9 +13,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<ContextMenuContentProps>();
 const emits = defineEmits<ContextMenuContentEmits>();
@@ -26,7 +28,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 <template>
   <ContextMenuPortal>
     <ContextMenuContent
-      v-bind="{ ...forwarded, ...delegatedAttrs }"
+      v-bind="{ ...forwarded, ...delegatedAttrs() }"
       class="sigma-ui-context-menu-content"
       :class="$attrs.class"
       data-slot="context-menu-content"

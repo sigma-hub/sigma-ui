@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import {
   DialogClose,
@@ -16,9 +16,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = withDefaults(defineProps<DialogContentProps & {
   closeLabel?: string;
@@ -34,7 +36,7 @@ const forwarded = useForwardPropsEmits(reactiveOmit(props, 'closeLabel'), emits)
   <DialogPortal>
     <DialogOverlay class="sigma-ui-dialog-overlay" />
     <DialogContent
-      v-bind="{ ...forwarded, ...delegatedAttrs }"
+      v-bind="{ ...forwarded, ...delegatedAttrs() }"
       class="sigma-ui-dialog-content"
       :class="[$attrs.class]"
       data-slot="dialog-content"

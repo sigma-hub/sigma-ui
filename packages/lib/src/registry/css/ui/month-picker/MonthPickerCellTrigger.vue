@@ -1,14 +1,16 @@
 <script lang="ts" setup>
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { MonthPickerCellTrigger, type MonthPickerCellTriggerProps, useForwardProps } from 'reka-ui';
 defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<MonthPickerCellTriggerProps>();
 const forwarded = useForwardProps(props);
@@ -16,7 +18,7 @@ const forwarded = useForwardProps(props);
 
 <template>
   <MonthPickerCellTrigger
-    v-bind="{ ...forwarded, ...delegatedAttrs }"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     data-slot="month-picker-cell-trigger"
     class="sigma-ui-month-picker-cell-trigger"
     :class="[$attrs.class]"

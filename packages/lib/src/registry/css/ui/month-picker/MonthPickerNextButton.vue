@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { MonthPickerNext, type MonthPickerNextProps, useForwardProps } from 'reka-ui';
 import { ChevronRightIcon } from 'lucide-vue-next';
@@ -8,9 +8,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<MonthPickerNextProps>();
 const forwarded = useForwardProps(props);
@@ -18,7 +20,7 @@ const forwarded = useForwardProps(props);
 
 <template>
   <MonthPickerNext
-    v-bind="{ ...forwarded, ...delegatedAttrs }"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     data-slot="month-picker-next-button"
     class="sigma-ui-month-picker-next"
     :class="[buttonVariants({ variant: 'outline' }), $attrs.class]"

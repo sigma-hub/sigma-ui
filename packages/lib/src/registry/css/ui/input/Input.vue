@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 /** Current value of the input; use with `v-model`. */
 const model = defineModel<string | number>();
@@ -19,7 +21,7 @@ defineEmits<{
 
 <template>
   <input
-    v-bind="delegatedAttrs"
+    v-bind="delegatedAttrs()"
     v-model="model"
     data-slot="input"
     class="sigma-ui-input"

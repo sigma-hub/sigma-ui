@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { MoreHorizontalIcon } from 'lucide-vue-next';
 import { cn } from '@ui/utils';
@@ -7,9 +7,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = withDefaults(defineProps<{
   label?: string;
@@ -20,7 +22,7 @@ const props = withDefaults(defineProps<{
 
 <template>
   <span
-    v-bind="delegatedAttrs"
+    v-bind="delegatedAttrs()"
     role="presentation"
     aria-hidden="true"
     :class="cn('flex items-center justify-center', $attrs.class ?? '')"

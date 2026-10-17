@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import {
   MenubarRoot,
@@ -12,9 +12,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<MenubarRootProps>();
 const emits = defineEmits<MenubarRootEmits>();
@@ -24,7 +26,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <MenubarRoot
-    v-bind="{ ...forwarded, ...delegatedAttrs }"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="
       cn(
         'flex h-10 items-center gap-x-1 rounded-md border bg-background p-1',

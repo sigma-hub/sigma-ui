@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { AcceptableValue } from 'reka-ui';
 import { ChevronDownIcon } from 'lucide-vue-next';
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 import { cn } from '@ui/utils';
 
 defineOptions({
@@ -13,9 +13,9 @@ const model = defineModel<AcceptableValue | AcceptableValue[]>({
 });
 
 const attrs = useAttrs();
-const selectAttrs = computed(() => Object.fromEntries(
+const selectAttrs = () => Object.fromEntries(
   Object.entries(attrs).filter(([key]) => key !== 'class'),
-));
+);
 
 defineSlots<{
   /**
@@ -31,7 +31,7 @@ defineSlots<{
     :class="cn('group/native-select relative w-fit has-[select:disabled]:opacity-50', attrs.class ?? '')"
   >
     <select
-      v-bind="selectAttrs"
+      v-bind="selectAttrs()"
       v-model="model"
       data-slot="native-select"
       :class="cn(

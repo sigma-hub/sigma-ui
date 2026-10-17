@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import {
   HoverCardContent,
@@ -11,9 +11,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = withDefaults(
   defineProps<HoverCardContentProps>(),
@@ -28,7 +30,7 @@ const forwardedProps = useForwardProps(props);
 <template>
   <HoverCardPortal>
     <HoverCardContent
-      v-bind="{ ...forwardedProps, ...delegatedAttrs }"
+      v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
       class="sigma-ui-hover-card-content"
       :class="$attrs.class"
       data-slot="hover-card-content"

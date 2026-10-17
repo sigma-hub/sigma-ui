@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { Input } from '@ui/registry/tailwind/ui/input';
 import { cn } from '@ui/utils';
@@ -7,9 +7,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 /** Current value of the input; use with `v-model`. */
 const model = defineModel<string | number>();
@@ -22,7 +24,7 @@ defineEmits<{
 
 <template>
   <Input
-    v-bind="delegatedAttrs"
+    v-bind="delegatedAttrs()"
     v-model="model"
     data-slot="sidebar-input"
     data-sidebar="input"

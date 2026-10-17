@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { Separator } from '@ui/registry/tailwind/ui/separator';
 import { cn } from '@ui/utils';
@@ -7,9 +7,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const slots = defineSlots<{
   /**
@@ -21,7 +23,7 @@ const slots = defineSlots<{
 
 <template>
   <div
-    v-bind="delegatedAttrs"
+    v-bind="delegatedAttrs()"
     data-slot="field-separator"
     :data-content="!!slots.default"
     :class="cn('relative -my-2 h-5 text-sm group-data-[variant=outline]/field-group:-mb-2', $attrs.class ?? '')"

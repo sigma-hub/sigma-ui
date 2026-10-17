@@ -1,14 +1,16 @@
 <script lang="ts" setup>
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { MonthPickerHeading, type MonthPickerHeadingProps, useForwardProps } from 'reka-ui';
 defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<MonthPickerHeadingProps>();
 const forwarded = useForwardProps(props);
@@ -17,7 +19,7 @@ const forwarded = useForwardProps(props);
 <template>
   <MonthPickerHeading
     v-slot="{ headingValue }"
-    v-bind="{ ...forwarded, ...delegatedAttrs }"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     data-slot="month-picker-heading"
     class="sigma-ui-month-picker-heading"
     :class="[$attrs.class]"

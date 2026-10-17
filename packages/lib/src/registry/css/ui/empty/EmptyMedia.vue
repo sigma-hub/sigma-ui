@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { type EmptyMediaVariants, emptyMediaVariants } from '.';
 defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 interface EmptyMediaProps {
   /**
@@ -29,7 +31,7 @@ defineSlots<{
 
 <template>
   <div
-    v-bind="delegatedAttrs"
+    v-bind="delegatedAttrs()"
     data-slot="empty-icon"
     :data-variant="props.variant"
     :class="[emptyMediaVariants({ variant: props.variant }), $attrs.class]"

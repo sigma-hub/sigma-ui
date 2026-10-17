@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { RatingItem, type RatingItemProps, useForwardProps } from 'reka-ui';
 import { cn } from '@ui/utils';
@@ -8,9 +8,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<RatingItemProps>();
 const forwarded = useForwardProps(props);
@@ -27,7 +29,7 @@ defineSlots<{
   <RatingItem
     v-slot="slotProps"
     data-slot="rating-item"
-    v-bind="{ ...forwarded, ...delegatedAttrs }"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="cn('relative inline-flex', $attrs.class ?? '')"
   >
     <slot v-bind="slotProps" />

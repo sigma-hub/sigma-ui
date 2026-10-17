@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { ContextMenuLabel, type ContextMenuLabelProps } from 'reka-ui';
 defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<ContextMenuLabelProps & {
   /** Adds left padding to align with items that have an icon or indicator. */
@@ -18,7 +20,7 @@ const props = defineProps<ContextMenuLabelProps & {
 
 <template>
   <ContextMenuLabel
-    v-bind="{ ...props, ...delegatedAttrs }"
+    v-bind="{ ...props, ...delegatedAttrs() }"
     class="sigma-ui-context-menu-label"
     :class="[{ 'sigma-ui-context-menu-label--inset': inset }, $attrs.class]"
     data-slot="context-menu-label"

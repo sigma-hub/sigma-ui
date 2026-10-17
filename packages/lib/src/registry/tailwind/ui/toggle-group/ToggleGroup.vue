@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { VariantProps } from 'class-variance-authority';
-import { provide, computed, useAttrs } from 'vue';
+import { provide, useAttrs } from 'vue';
 import { ToggleGroupRoot, type ToggleGroupRootEmits, type ToggleGroupRootProps, useForwardPropsEmits } from 'reka-ui';
 import type { toggleVariants } from '@ui/registry/tailwind/ui/toggle';
 import { cn } from '@ui/utils';
@@ -8,9 +8,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 type ToggleGroupVariants = VariantProps<typeof toggleVariants>;
 
@@ -32,7 +34,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <ToggleGroupRoot
-    v-bind="{ ...forwarded, ...delegatedAttrs }"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="cn('flex items-center justify-center gap-1', $attrs.class ?? '')"
     data-slot="toggle-group"
   >

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import { Primitive, type PrimitiveProps } from 'reka-ui';
 import { Loader2Icon } from 'lucide-vue-next';
@@ -9,9 +9,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 interface Props extends PrimitiveProps {
   /** Visual style of the button. */
@@ -24,7 +26,7 @@ interface Props extends PrimitiveProps {
   loadingText?: string;
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   as: 'button',
   variant: 'default',
   size: 'default',
@@ -35,7 +37,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 <template>
   <Primitive
-    v-bind="delegatedAttrs"
+    v-bind="delegatedAttrs()"
     data-slot="button"
     :data-variant="variant"
     :data-size="size"

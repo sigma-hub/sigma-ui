@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import {
   ContextMenuItem,
@@ -11,9 +11,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<ContextMenuItemProps & {
   /** Adds left padding to align with items that have an icon or indicator. */
@@ -26,7 +28,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <ContextMenuItem
-    v-bind="{ ...forwarded, ...delegatedAttrs }"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     class="sigma-ui-context-menu-item"
     :class="[{ 'sigma-ui-context-menu-item--inset': inset }, $attrs.class]"
     data-slot="context-menu-item"

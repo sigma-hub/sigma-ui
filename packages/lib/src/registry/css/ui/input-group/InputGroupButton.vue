@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { useAttrs } from 'vue';
 
 import type { ButtonVariants } from '@ui/registry/css/ui/button';
 import { Button } from '@ui/registry/css/ui/button';
@@ -9,9 +9,11 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const delegatedAttrs = computed(() => {
-  return Object.fromEntries(Object.entries(useAttrs()).filter(([key]) => key !== 'class'));
-});
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 interface InputGroupButtonProps {
   /**
@@ -43,7 +45,7 @@ defineSlots<{
     data-slot="input-group-button"
     :variant="props.variant"
     :data-size="props.size"
-    v-bind="delegatedAttrs"
+    v-bind="delegatedAttrs()"
     :class="[inputGroupButtonVariants({ size: props.size }), $attrs.class]"
   >
     <slot />
