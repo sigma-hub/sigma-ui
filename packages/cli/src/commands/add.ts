@@ -11,6 +11,8 @@ import { addOptionsSchema, type AddOptions, type Config } from '@/src/schemas';
 import { getConfigOrExit, getDerivedAliases } from '@/src/utils/get-config';
 import { handleError } from '@/src/utils/handle-error';
 import { createInstallPlan, excludeInstalledDependencies, type InstallPlan, type PlannedFile } from '@/src/utils/install-plan';
+import { planComponentDirectoryRenames } from '@/src/utils/migrate/components';
+import { isLegacyThemeCss, readCssFile } from '@/src/utils/migrate/css';
 import { getInstalledPackages, installPackages } from '@/src/utils/package-manager';
 import { fetchRegistryIndex, resolveRegistryTree, type RegistryContext } from '@/src/utils/registry';
 import { kebabToPascal } from '@/src/utils/transformers/transform-component-naming';
@@ -42,6 +44,7 @@ export async function runAdd(options: AddOptions) {
   }
 
   const config = await getConfigOrExit(cwd);
+  await assertProjectIsMigrated(config);
   const context: RegistryContext = { cwd, styleSystem: config.styleSystem, registries: config.registries };
 
   if (options.diff && !options.components?.length && !options.all) {
@@ -292,4 +295,24 @@ async function showInstalledComponentsDiff(config: Config, context: RegistryCont
   consola.info('These components differ from the registry:');
   changedItems.forEach(itemName => consola.log(`  - ${itemName}`));
   consola.info(`Run ${colors.green('sigma-ui add <component> --diff')} to see the changes.`);
+}
+
+export async function assertProjectIsMigrated(config: Config) {
+  const { renames } = await planComponentDirectoryRenames(config.resolvedPaths.components);
+
+  if (renames.length) {
+    const examples = renames.slice(0, 3).map(rename => rename.from).join(', ');
+    const extra = renames.length > 3 ? ', ...' : '';
+    throw new Error(
+      `This project still uses 1.x component directories (${examples}${extra}). Run ${colors.green('npx sigma-ui migrate')} before adding 2.0 components.`,
+    );
+  }
+
+  const css = await readCssFile(config.resolvedPaths.tailwindCss);
+
+  if (css && isLegacyThemeCss(css, config.styleSystem)) {
+    throw new Error(
+      `The stylesheet still uses the 1.x theme format (HSL triplets, missing sidebar/accent tokens, or Tailwind 3 directives). Run ${colors.green('npx sigma-ui migrate')} first.`,
+    );
+  }
 }

@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os';
 import path from 'pathe';
 import { beforeAll, describe, expect, it } from 'vitest';
 import type { Config, RegistryItem } from '../../src/schemas';
-import { createInstallPlan, excludeInstalledDependencies, getFileTargetPath } from '../../src/utils/install-plan';
+import { createInstallPlan, excludeInstalledDependencies, getFileTargetPath, resolveRegistryFileTarget } from '../../src/utils/install-plan';
 
 function createConfig(cwd: string, overrides: Partial<Config> = {}): Config {
   return {
@@ -64,6 +64,18 @@ describe('getFileTargetPath', () => {
 
     expect(getFileTargetPath({ path: 'ui/button/index.ts', type: 'registry:ui', target: '~/app/button.ts' }, item, config)).toBe('/project/app/button.ts');
     expect(getFileTargetPath({ path: 'ui/button/index.ts', type: 'registry:ui' }, item, config, '/elsewhere')).toBe('/elsewhere/button/index.ts');
+  });
+
+  it('rejects registry targets that escape the project', () => {
+    const item: RegistryItem = { name: 'button', type: 'registry:ui', files: [] };
+
+    expect(() => resolveRegistryFileTarget(cwd, '/etc/passwd')).toThrow(/must be a path inside the project/);
+    expect(() => resolveRegistryFileTarget(cwd, '../secret.ts')).toThrow(/must not contain "\.\."/);
+    expect(() => resolveRegistryFileTarget(cwd, 'ui/../../secret.ts')).toThrow(/must not contain "\.\."/);
+    expect(() => resolveRegistryFileTarget(cwd, '~/../../etc/passwd')).toThrow(/must not contain "\.\."/);
+    expect(() => getFileTargetPath({ path: 'ui/button/Button.vue', type: 'registry:ui', target: '../outside.vue' }, item, config))
+      .toThrow(/must not contain "\.\."/);
+    expect(resolveRegistryFileTarget(cwd, 'src/components/ui/button/Button.vue')).toBe('/project/src/components/ui/button/Button.vue');
   });
 });
 

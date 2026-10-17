@@ -6,6 +6,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "engines": {
+    "node": ">=20.19.0"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",

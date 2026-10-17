@@ -43,6 +43,7 @@ import { applyPrefixesCss } from '@/src/utils/transformers/transform-tw-prefix';
 const UTILS_DEPENDENCIES = ['clsx', 'tailwind-merge'];
 const TAILWIND_DEPENDENCIES = ['tw-animate-css'];
 const TAILWIND_DEV_DEPENDENCIES = ['tailwindcss', '@tailwindcss/vite'];
+const VITE_DEV_DEPENDENCIES = ['@types/node'];
 const NUXT_DEV_DEPENDENCIES = ['typescript@~5.9.3'];
 
 interface ConfigAnswers {
@@ -302,7 +303,7 @@ function reportConfigUpdate(result: ConfigUpdateResult, cwd: string, manualStep:
 async function updateFrameworkConfig(config: Config) {
   const { cwd } = config.resolvedPaths;
 
-  if (config.styleSystem === 'tailwind' && config.setupTailwind) {
+  if (config.styleSystem === 'tailwind') {
     reportConfigUpdate(
       await registerTailwindVitePlugin(cwd, config.framework),
       cwd,
@@ -341,7 +342,8 @@ async function installDependencies(config: Config) {
   ], installedPackages);
   const devDependencies = excludeInstalledDependencies([
     ...(config.framework === 'nuxt' ? NUXT_DEV_DEPENDENCIES : []),
-    ...(usesTailwind && config.setupTailwind ? TAILWIND_DEV_DEPENDENCIES : []),
+    ...(config.framework === 'vite' ? VITE_DEV_DEPENDENCIES : []),
+    ...(usesTailwind ? TAILWIND_DEV_DEPENDENCIES : []),
   ], installedPackages);
 
   if (!dependencies.length && !devDependencies.length) {

@@ -76,7 +76,7 @@ describe('init', () => {
     expect(read(cwd, 'src/main.ts').startsWith('import \'./assets/index.css\';\n')).toBe(true);
     expect(existsSync(path.join(cwd, 'tailwind.config.js'))).toBe(false);
     expect(installPackages).toHaveBeenCalledWith(['clsx', 'tailwind-merge', 'tw-animate-css'], { cwd, silent: true });
-    expect(installPackages).toHaveBeenCalledWith(['tailwindcss', '@tailwindcss/vite'], { cwd, dev: true, silent: true });
+    expect(installPackages).toHaveBeenCalledWith(['@types/node', 'tailwindcss', '@tailwindcss/vite'], { cwd, dev: true, silent: true });
   });
 
   it('adds the @ alias to a Vite project that uses tsconfig references', async () => {
@@ -151,6 +151,18 @@ describe('init', () => {
     expect(vi.mocked(installPackages).mock.calls.flat(2)).not.toContain('@nuxtjs/tailwindcss');
   });
 
+  it('registers @tailwindcss/vite when tailwindcss is already installed', async () => {
+    const cwd = createProject({
+      ...VITE_PROJECT,
+      'package.json': JSON.stringify({ dependencies: { vue: '^3.5.0' }, devDependencies: { tailwindcss: '^4.1.0' } }),
+    });
+    await initProject(cwd, 'tailwind');
+
+    expect(read(cwd, 'vite.config.ts')).toMatch(/import tailwindcss from ['"]@tailwindcss\/vite['"]/);
+    expect(read(cwd, 'vite.config.ts')).toMatch(/plugins: \[vue\(\), tailwindcss\(\)\]/);
+    expect(installPackages).toHaveBeenCalledWith(['@types/node', '@tailwindcss/vite'], { cwd, dev: true, silent: true });
+  });
+
   it('references an existing JS Tailwind config without overwriting it', async () => {
     const tailwindConfig = 'module.exports = { content: [] }\n';
     const cwd = createProject({
@@ -162,6 +174,7 @@ describe('init', () => {
 
     expect(read(cwd, 'tailwind.config.js')).toBe(tailwindConfig);
     expect(read(cwd, 'src/assets/index.css')).toContain('@config "tailwind.config.js";');
-    expect(read(cwd, 'vite.config.ts')).not.toContain('@tailwindcss/vite');
+    expect(read(cwd, 'vite.config.ts')).toMatch(/import tailwindcss from ['"]@tailwindcss\/vite['"]/);
+    expect(read(cwd, 'vite.config.ts')).toMatch(/plugins: \[vue\(\), tailwindcss\(\)\]/);
   });
 });
