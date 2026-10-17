@@ -6,7 +6,6 @@ import type {
   VisibilityState,
 } from '@tanstack/vue-table';
 import {
-  FlexRender,
   getCoreRowModel,
   getFacetedRowModel,
   getFacetedUniqueValues,
@@ -34,6 +33,10 @@ interface DataTableProps {
   data: Task[];
 }
 const props = defineProps<DataTableProps>();
+
+function renderTablePart(render: unknown, context: unknown) {
+  return typeof render === 'function' ? (render as (value: unknown) => unknown)(context) : render;
+}
 
 const sorting = ref<SortingState>([]);
 const columnFilters = ref<ColumnFiltersState>([]);
@@ -89,10 +92,9 @@ const table = useVueTable({
               v-for="header in headerGroup.headers"
               :key="header.id"
             >
-              <FlexRender
+              <component
+                :is="() => renderTablePart(header.column.columnDef.header, header.getContext())"
                 v-if="!header.isPlaceholder"
-                :render="header.column.columnDef.header"
-                :props="header.getContext()"
               />
             </TableHead>
           </TableRow>
@@ -108,9 +110,8 @@ const table = useVueTable({
                 v-for="cell in row.getVisibleCells()"
                 :key="cell.id"
               >
-                <FlexRender
-                  :render="cell.column.columnDef.cell"
-                  :props="cell.getContext()"
+                <component
+                  :is="() => renderTablePart(cell.column.columnDef.cell, cell.getContext())"
                 />
               </TableCell>
             </TableRow>

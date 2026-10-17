@@ -76,8 +76,8 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "{ open: boolean; close: () => void; }",
-    "description": "<p>Trigger and content. Receives the open state and a close function.</p>"
+    "scope": "",
+    "description": "<p>Trigger and content.</p>"
   }
 ]' />
 

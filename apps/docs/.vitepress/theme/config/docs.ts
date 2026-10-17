@@ -62,7 +62,7 @@ export const docsConfig: DocsConfig = {
     },
     {
       title: 'Blocks',
-      href: '/blocks/auth',
+      href: '/blocks',
     },
     {
       title: 'Changelog',
@@ -103,6 +103,10 @@ export const docsConfig: DocsConfig = {
         {
           title: 'CLI',
           href: '/docs/cli',
+        },
+        {
+          title: 'Upgrade to 2.0',
+          href: '/docs/migration',
         },
         {
           title: 'CLI config',

@@ -96,7 +96,7 @@ export function parseStoredJson(raw: string | null): unknown {
   try {
     return JSON.parse(raw) as unknown;
   } catch {
-    return undefined;
+    return raw;
   }
 }
 
