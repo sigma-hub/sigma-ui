@@ -22,8 +22,8 @@ export const useExamplesStore = defineStore('examples', () => {
         code: 'https://github.com/sigma-hub/sigma-ui/tree/main/apps/docs/src/examples/table',
       },
       {
-        name: 'forms',
-        code: 'https://github.com/sigma-hub/sigma-ui/tree/main/apps/docs/src/examples/forms',
+        name: 'settings',
+        code: 'https://github.com/sigma-hub/sigma-ui/tree/main/apps/docs/src/examples/settings',
       },
       {
         name: 'authentication',

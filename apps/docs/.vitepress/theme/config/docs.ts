@@ -183,8 +183,8 @@ export const docsConfig: DocsConfig = {
           href: '/blocks/table',
         },
         {
-          title: 'Forms',
-          href: '/blocks/settings-forms',
+          title: 'Settings',
+          href: '/blocks/settings',
         },
       ],
     },

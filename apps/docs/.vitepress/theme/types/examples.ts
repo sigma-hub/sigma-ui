@@ -3,7 +3,7 @@ export type Example = {
     | 'mail'
     | 'dashboard'
     | 'table'
-    | 'forms'
+    | 'settings'
     | 'authentication';
   code: string;
 };

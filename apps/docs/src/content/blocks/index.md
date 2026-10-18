@@ -29,8 +29,8 @@ A filterable data table.
 
 - [Table](/blocks/table)
 
-## Forms
+## Settings
 
-Settings and profile forms.
+Settings pages and profile forms.
 
-- [Forms](/blocks/settings-forms)
+- [Settings](/blocks/settings)
