@@ -6,7 +6,7 @@ primitive: https://reka-ui.com/docs/components/date-picker
 
 ## Preview
 
-<ComponentPreview name="DatePicker" />
+<ComponentPreview name="DatePicker" size="lg" />
 
 ## Installation
 
@@ -57,31 +57,31 @@ To pick only a month or a year, put `MonthPicker` or `YearPicker` in the popover
 
 ### Date picker
 
-<ComponentPreview name="DatePicker" />
+<ComponentPreview name="DatePicker" size="lg" />
 
 ### Date range picker
 
-<ComponentPreview name="DatePickerWithRange" />
+<ComponentPreview name="DatePickerWithRange" size="lg" />
 
 ### Independent months
 
-<ComponentPreview name="DatePickerWithIndependentMonths" />
+<ComponentPreview name="DatePickerWithIndependentMonths" size="lg" />
 
 ### Month picker
 
-<ComponentPreview name="DatePickerMonth" />
+<ComponentPreview name="DatePickerMonth" size="lg" />
 
 ### Year picker
 
-<ComponentPreview name="DatePickerYear" />
+<ComponentPreview name="DatePickerYear" size="lg" />
 
 ### With presets
 
-<ComponentPreview name="DatePickerWithPresets" />
+<ComponentPreview name="DatePickerWithPresets" size="lg" />
 
 ### Form
 
-<ComponentPreview name="DatePickerForm" />
+<ComponentPreview name="DatePickerForm" size="lg" />
 
 ## API Reference
 
