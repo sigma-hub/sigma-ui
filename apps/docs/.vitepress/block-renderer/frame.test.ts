@@ -4,6 +4,9 @@ import {
   buildBlockFrameSrc,
   buildExampleFrameSrc,
   canExtendRollupInput,
+  DEMO_FRAME_MIN_HEIGHT,
+  FRAME_HEIGHT_MESSAGE,
+  isFrameHeightMessage,
   FRAME_OVERFLOW_MESSAGE,
   isFrameOverflowMessage,
   MAX_FRAME_EXTRA_HEIGHT,
@@ -12,6 +15,7 @@ import {
   parseStoredJson,
   readPreviewConfig,
   resolvePreviewAppearance,
+  resolveDemoFrameHeight,
   resolveFrameExtraHeight,
   resolvePreviewDark,
   stripThemeChunkPreload,
@@ -134,5 +138,22 @@ describe('frame overflow', () => {
 
   it('caps the extra height', () => {
     expect(resolveFrameExtraHeight(0, message(true, 10_000), 350)).toBe(MAX_FRAME_EXTRA_HEIGHT);
+  });
+});
+
+describe('demo frame height', () => {
+  it('grows the frame to a taller demo', () => {
+    expect(resolveDemoFrameHeight(1866.4)).toBe(1867);
+  });
+
+  it('keeps the default height for a shorter demo', () => {
+    expect(resolveDemoFrameHeight(420)).toBe(DEMO_FRAME_MIN_HEIGHT);
+  });
+
+  it('accepts only finite height messages', () => {
+    expect(isFrameHeightMessage({ type: FRAME_HEIGHT_MESSAGE, height: 1200 })).toBe(true);
+    expect(isFrameHeightMessage({ type: FRAME_HEIGHT_MESSAGE, height: Number.NaN })).toBe(false);
+    expect(isFrameHeightMessage({ type: 'other', height: 1200 })).toBe(false);
+    expect(isFrameHeightMessage(null)).toBe(false);
   });
 });

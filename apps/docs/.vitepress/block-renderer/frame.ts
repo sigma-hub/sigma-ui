@@ -3,6 +3,13 @@ export const DOCS_APPEARANCE_KEY = 'vitepress-theme-appearance';
 export const DOCS_CONFIG_KEY = 'config';
 export const FRAME_OVERFLOW_MESSAGE = 'sigma-ui:frame-overflow';
 export const MAX_FRAME_EXTRA_HEIGHT = 720;
+export const FRAME_HEIGHT_MESSAGE = 'sigma-ui:frame-height';
+export const DEMO_FRAME_MIN_HEIGHT = 900;
+
+export interface FrameHeightMessage {
+  type: typeof FRAME_HEIGHT_MESSAGE;
+  height: number;
+}
 
 export interface FrameOverflowMessage {
   type: typeof FRAME_OVERFLOW_MESSAGE;
@@ -172,6 +179,27 @@ export function isFrameOverflowMessage(value: unknown): value is FrameOverflowMe
     && typeof message.open === 'boolean'
     && typeof message.requiredHeight === 'number'
     && Number.isFinite(message.requiredHeight);
+}
+
+export function isFrameHeightMessage(value: unknown): value is FrameHeightMessage {
+  if (!value || typeof value !== 'object') {
+    return false;
+  }
+
+  const message = value as Partial<FrameHeightMessage>;
+
+  return message.type === FRAME_HEIGHT_MESSAGE
+    && typeof message.height === 'number'
+    && Number.isFinite(message.height);
+}
+
+/**
+ * Height of a homepage demo frame that grows with its content. It never drops
+ * below the default demo height, so short demos keep the same frame as the
+ * full-app ones and switching tabs does not move the content under them.
+ */
+export function resolveDemoFrameHeight(contentHeight: number, minHeight = DEMO_FRAME_MIN_HEIGHT) {
+  return Math.max(minHeight, Math.ceil(contentHeight));
 }
 
 /**

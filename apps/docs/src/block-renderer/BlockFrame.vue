@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { computed, defineAsyncComponent, defineComponent, h, onUnmounted, ref } from 'vue';
+import { computed, defineAsyncComponent, defineComponent, h, onMounted, onUnmounted, ref } from 'vue';
 import { styleSystems, type StyleSystem } from '@sigma-ui/shared/style-systems';
-import { FRAME_OVERFLOW_MESSAGE, parseBlockFrameHash, type FrameOverflowMessage } from '../../.vitepress/block-renderer/frame';
+import { FRAME_HEIGHT_MESSAGE, FRAME_OVERFLOW_MESSAGE, parseBlockFrameHash, type FrameHeightMessage, type FrameOverflowMessage } from '../../.vitepress/block-renderer/frame';
 import { applyPreviewTheme, installPreviewThemeStyles } from './preview-theme';
 
 installPreviewThemeStyles();
@@ -200,6 +200,67 @@ floatingObserver.observe(document.body, {
   attributeFilter: ['data-state', 'data-side', 'style'],
 });
 
+// Homepage demos report the height of their content so the docs page can size the frame
+// to fit and scroll the page instead of the frame. The loading spinner is skipped, so the
+// frame keeps its height until the demo itself has rendered.
+const frameRoot = ref<HTMLElement>();
+let observedDemo: Element | undefined;
+let lastReportedHeight = 0;
+
+function demoContentHeight(demo: Element) {
+  const style = getComputedStyle(demo);
+
+  return demo.getBoundingClientRect().height + Number.parseFloat(style.marginTop) + Number.parseFloat(style.marginBottom);
+}
+
+function reportDemoHeight() {
+  const demo = observedDemo;
+
+  if (!demo || window.parent === window) {
+    return;
+  }
+
+  const height = Math.ceil(demoContentHeight(demo));
+
+  if (height === lastReportedHeight) {
+    return;
+  }
+
+  lastReportedHeight = height;
+  const message: FrameHeightMessage = { type: FRAME_HEIGHT_MESSAGE, height };
+  window.parent.postMessage(message, window.location.origin);
+}
+
+const demoResizeObserver = new ResizeObserver(reportDemoHeight);
+
+function observeDemoRoot() {
+  const demo = frameRoot.value?.firstElementChild ?? undefined;
+  const nextDemo = demo && !demo.classList.contains('block-frame-loading') ? demo : undefined;
+
+  if (nextDemo === observedDemo) {
+    return;
+  }
+
+  if (observedDemo) {
+    demoResizeObserver.unobserve(observedDemo);
+  }
+
+  observedDemo = nextDemo;
+
+  if (observedDemo) {
+    demoResizeObserver.observe(observedDemo);
+  }
+}
+
+const demoRootObserver = new MutationObserver(observeDemoRoot);
+
+onMounted(() => {
+  if (params.value.kind === 'demo' && frameRoot.value) {
+    demoRootObserver.observe(frameRoot.value, { childList: true });
+    observeDemoRoot();
+  }
+});
+
 function syncPreviewTheme() {
   applyPreviewTheme(colorScheme.matches);
 }
@@ -214,6 +275,8 @@ window.addEventListener('storage', syncPreviewTheme);
 colorScheme.addEventListener('change', syncPreviewTheme);
 
 onUnmounted(() => {
+  demoRootObserver.disconnect();
+  demoResizeObserver.disconnect();
   floatingObserver.disconnect();
   document.removeEventListener('animationend', reportFloatingOverflow, true);
   window.removeEventListener('resize', onFrameResize);
@@ -228,6 +291,7 @@ onUnmounted(() => {
 <template>
   <div
     v-if="Block"
+    ref="frameRoot"
     :class="params.kind === 'example' ? ['flex h-full min-h-full w-full p-6', previewAlignClass] : params.kind === 'demo' ? 'min-h-full w-full' : params.containerClass"
     :style="exampleStyle"
   >

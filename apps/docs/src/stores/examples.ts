@@ -8,26 +8,32 @@ export const useExamplesStore = defineStore('examples', () => {
       {
         name: 'mix',
         code: 'https://github.com/sigma-hub/sigma-ui/tree/main/apps/docs/src/examples/mix',
+        frameHeight: 'content',
       },
       {
         name: 'mail',
         code: 'https://github.com/sigma-hub/sigma-ui/tree/main/apps/docs/src/examples/mail',
+        frameHeight: 'fixed',
       },
       {
         name: 'dashboard',
         code: 'https://github.com/sigma-hub/sigma-ui/tree/main/apps/docs/src/examples/dashboard',
+        frameHeight: 'content',
       },
       {
         name: 'table',
         code: 'https://github.com/sigma-hub/sigma-ui/tree/main/apps/docs/src/examples/table',
+        frameHeight: 'content',
       },
       {
         name: 'settings',
         code: 'https://github.com/sigma-hub/sigma-ui/tree/main/apps/docs/src/examples/settings',
+        frameHeight: 'content',
       },
       {
         name: 'authentication',
         code: 'https://github.com/sigma-hub/sigma-ui/tree/main/apps/docs/src/examples/authentication',
+        frameHeight: 'fixed',
       },
     ]
   ));
