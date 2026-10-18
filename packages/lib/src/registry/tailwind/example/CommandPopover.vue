@@ -87,7 +87,7 @@ const selectedStatus = ref<Status>();
       </PopoverTrigger>
       <PopoverContent
         class="p-0"
-        side="right"
+        side="bottom"
         align="start"
       >
         <Command>

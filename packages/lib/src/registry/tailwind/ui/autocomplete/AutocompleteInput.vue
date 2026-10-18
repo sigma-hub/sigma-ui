@@ -23,7 +23,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   <AutocompleteInput
     data-slot="autocomplete-input"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
-    :class="cn('flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm outline-none placeholder:text-muted-foreground focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-50', $attrs.class ?? '')"
+    :class="cn('flex h-9 w-full rounded-md border border-border bg-input px-3 py-1 text-sm outline-none placeholder:text-muted-foreground focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-50', $attrs.class ?? '')"
   >
     <slot />
   </AutocompleteInput>

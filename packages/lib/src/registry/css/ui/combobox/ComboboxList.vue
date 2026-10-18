@@ -43,7 +43,11 @@ const delegatedAttrs = () => {
 .sigma-ui-combobox-list {
   position: relative;
   z-index: 50;
+  display: flex;
+  overflow: hidden;
   width: 200px;
+  max-height: min(var(--reka-combobox-content-available-height, 18rem), 18rem);
+  flex-direction: column;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   backdrop-filter: blur(var(--backdrop-filter-blur));

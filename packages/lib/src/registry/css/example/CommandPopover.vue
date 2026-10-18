@@ -86,7 +86,7 @@ const selectedStatus = ref<Status>();
       </PopoverTrigger>
       <PopoverContent
         class="example-sigma-ui-command-popover__content"
-        side="right"
+        side="bottom"
         align="start"
       >
         <Command>

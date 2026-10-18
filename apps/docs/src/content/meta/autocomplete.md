@@ -387,7 +387,7 @@
   {
     "name": "collisionPadding",
     "type": "number | Partial<Record<\"top\" | \"right\" | \"bottom\" | \"left\", number>>",
-    "default": "0",
+    "default": "8",
     "required": false,
     "description": "<p>The distance in pixels from the boundary edges where collision\ndetection should occur. Accepts a number (same for all sides),\nor a partial padding object, for example: { top: 20, left: 20 }.</p>"
   },

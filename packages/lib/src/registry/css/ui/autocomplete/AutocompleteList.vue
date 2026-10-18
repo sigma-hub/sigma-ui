@@ -18,6 +18,7 @@ const props = withDefaults(defineProps<ComboboxContentProps>(), {
   position: 'popper',
   align: 'center',
   sideOffset: 4,
+  collisionPadding: 8,
 });
 const emits = defineEmits<ComboboxContentEmits>();
 const forwarded = useForwardPropsEmits(props, emits);
@@ -41,14 +42,21 @@ const forwarded = useForwardPropsEmits(props, emits);
 <style>
 .sigma-ui-autocomplete-list {
   z-index: 50;
-  width: 16rem;
+  display: flex;
+  overflow: hidden;
+  width: var(--reka-combobox-trigger-width);
+  min-width: 8rem;
+  max-height: min(var(--reka-combobox-content-available-height, 18rem), 18rem);
+  flex-direction: column;
   padding: 0.25rem;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background-color: var(--popover);
   box-shadow: var(--shadow-md);
+  backdrop-filter: blur(var(--backdrop-filter-blur));
   color: var(--popover-foreground);
   outline: none;
+  transform-origin: var(--reka-combobox-content-transform-origin);
 }
 
 .sigma-ui-autocomplete-list[data-state="open"] {
