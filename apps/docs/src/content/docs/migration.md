@@ -12,7 +12,7 @@ SIGMA-UI 2.0 is a new major version of the CLI and the component registry. Exist
 - **Animations use `tw-animate-css`.** Replace `tailwindcss-animate`. `migrate` adds the import and can install the package.
 - **Component directories are kebab-case.** `Button/` becomes `button/`. File names still follow `componentNaming` in `sigma-ui.config.json`.
 - **Config shape.** `style` is `styleSystem`, `tailwind.css` is `cssPath`, `aliases.ui` is `aliases.components`.
-- **`diff` is removed.** Use `npx sigma-ui add --diff` (or `npx sigma-ui add button --diff`) instead.
+- **`diff` is deprecated.** It still works, prints a warning, and runs `add --diff`. Use `npx sigma-ui add --diff` (or `npx sigma-ui add button --diff`) instead.
 
 ## `migrate`
 
