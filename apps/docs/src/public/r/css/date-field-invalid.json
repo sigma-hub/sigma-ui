@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "date-field-invalid",
+  "type": "registry:example",
+  "title": "DateFieldInvalid",
+  "dependencies": [
+    "@internationalized/date@^3.12.4"
+  ],
+  "registryDependencies": [
+    "date-field",
+    "field"
+  ],
+  "files": [
+    {
+      "path": "example/DateFieldInvalid.vue",
+      "content": "<script setup lang=\"ts\">\nimport { CalendarDate, type DateValue, getLocalTimeZone, today } from '@internationalized/date';\nimport { computed, type Ref, ref } from 'vue';\nimport { DateField } from '@/components/ui/date-field';\nimport { Field, FieldDescription, FieldError, FieldLabel } from '@/components/ui/field';\n\nconst value = ref(new CalendarDate(2020, 1, 1)) as Ref<DateValue>;\n\nconst isInvalid = computed(() => !!value.value && value.value.compare(today(getLocalTimeZone())) < 0);\n</script>\n\n<template>\n  <Field\n    class=\"example-sigma-ui-date-field-invalid\"\n    :invalid=\"isInvalid\"\n  >\n    <FieldLabel for=\"date-field-start\">\n      Start date\n    </FieldLabel>\n    <DateField\n      id=\"date-field-start\"\n      v-model=\"value\"\n      :aria-invalid=\"isInvalid\"\n    />\n    <FieldDescription v-if=\"!isInvalid\">\n      Looks good.\n    </FieldDescription>\n    <FieldError :errors=\"[isInvalid ? 'The start date can\\'t be in the past.' : undefined]\" />\n  </Field>\n</template>\n\n<style>\n.example-sigma-ui-date-field-invalid {\n  max-width: 20rem;\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

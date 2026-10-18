@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-block-lines",
+  "type": "registry:example",
+  "title": "CodeBlockLines",
+  "dependencies": [],
+  "registryDependencies": [
+    "code-block"
+  ],
+  "files": [
+    {
+      "path": "example/CodeBlockLines.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  CodeBlock,\n  CodeBlockActions,\n  CodeBlockContent,\n  CodeBlockCopyButton,\n  CodeBlockLine,\n} from '@/components/ui/code-block';\n\nconst steps = [\n  { text: '$ git switch -c feature/code-block', variant: 'default' },\n  { text: 'Switched to a new branch \\'feature/code-block\\'', variant: 'highlighted' },\n  { text: '$ git push -u origin feature/code-block', variant: 'default' },\n] as const;\n\nconst copyText = steps.filter(step => step.text.startsWith('$')).map(step => step.text.slice(2)).join('\\n');\n</script>\n\n<template>\n  <CodeBlock>\n    <CodeBlockActions>\n      <CodeBlockCopyButton :value=\"copyText\" />\n    </CodeBlockActions>\n    <CodeBlockContent>\n      <CodeBlockLine\n        v-for=\"step in steps\"\n        :key=\"step.text\"\n        :variant=\"step.variant\"\n      >\n        {{ step.text }}\n      </CodeBlockLine>\n    </CodeBlockContent>\n  </CodeBlock>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

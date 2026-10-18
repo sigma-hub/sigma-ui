@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "alert-dialog",
   "type": "registry:ui",
+  "title": "Alert Dialog",
+  "description": "A modal dialog that interrupts the user with important content and expects a response.",
   "dependencies": [
     "reka-ui@^2.11.0"
   ],

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "collapsible-demo",
+  "type": "registry:example",
+  "title": "Collapsible",
+  "dependencies": [
+    "lucide-vue-next@^1.0.0"
+  ],
+  "registryDependencies": [
+    "button",
+    "collapsible"
+  ],
+  "files": [
+    {
+      "path": "example/Collapsible.vue",
+      "content": "<script setup lang=\"ts\">\nimport { MinusIcon, PlusIcon } from 'lucide-vue-next';\nimport { ref } from 'vue';\nimport { Button } from '@/components/ui/button';\nimport {\n  Collapsible,\n  CollapsibleContent,\n  CollapsibleTrigger,\n} from '@/components/ui/collapsible';\n\nconst isOpen = ref(false);\n</script>\n\n<template>\n  <Collapsible\n    v-model:open=\"isOpen\"\n    class=\"flex flex-col w-[350px] gap-2\"\n  >\n    <div class=\"flex items-center justify-between space-x-4 px-4\">\n      <h4 class=\"text-sm font-semibold\">\n        Header\n      </h4>\n      <CollapsibleTrigger as-child>\n        <Button\n          variant=\"ghost\"\n          size=\"sm\"\n          class=\"w-9 p-0\"\n        >\n          <MinusIcon\n            v-if=\"isOpen\"\n            class=\"h-4 w-4\"\n          />\n          <PlusIcon\n            v-else\n            class=\"h-4 w-4\"\n          />\n          <span class=\"sr-only\">Toggle</span>\n        </Button>\n      </CollapsibleTrigger>\n    </div>\n    <div class=\"rounded-md border px-4 py-3 font-mono text-sm\">\n      Component 1\n    </div>\n    <CollapsibleContent class=\"space-y-2\">\n      <div class=\"rounded-md border px-4 py-3 font-mono text-sm\">\n        Component 2\n      </div>\n      <div class=\"rounded-md border px-4 py-3 font-mono text-sm\">\n        Component 3\n      </div>\n    </CollapsibleContent>\n  </Collapsible>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

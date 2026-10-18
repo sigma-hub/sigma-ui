@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toaster-custom-simple",
+  "type": "registry:example",
+  "title": "ToasterCustomSimple",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "toaster"
+  ],
+  "files": [
+    {
+      "path": "example/ToasterCustomSimple.vue",
+      "content": "<script setup lang=\"ts\">\nimport { markRaw, ref } from 'vue';\nimport { toast, CustomSimple } from '@/components/ui/toaster';\nimport { Button } from '@/components/ui/button';\n\nconst toastId = ref<number | string>('');\n\nconst onClick = () => {\n  toastId.value = toast.custom(markRaw(CustomSimple), {\n    componentProps: {\n      title: 'Custom Title',\n      description: 'This is a custom description',\n      actionText: 'Undo',\n      onAction: () => {\n        toast.dismiss(toastId.value);\n      },\n    },\n    duration: 10000,\n  });\n};\n</script>\n\n<template>\n  <Button\n    variant=\"outline\"\n    @click=\"onClick\"\n  >\n    Default toast\n  </Button>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

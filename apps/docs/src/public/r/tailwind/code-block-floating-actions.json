@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-block-floating-actions",
+  "type": "registry:example",
+  "title": "CodeBlockFloatingActions",
+  "dependencies": [],
+  "registryDependencies": [
+    "code-block"
+  ],
+  "files": [
+    {
+      "path": "example/CodeBlockFloatingActions.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  CodeBlock,\n  CodeBlockActions,\n  CodeBlockContent,\n  CodeBlockCopyButton,\n  useHighlightedCode,\n} from '@/components/ui/code-block';\n\nconst code = `VITE_API_URL=https://api.acme.dev\nVITE_SENTRY_DSN=https://public@sentry.acme.dev/12\nVITE_FEATURE_FLAGS=checkout-v2,search-suggestions`;\n\nconst { lines } = useHighlightedCode(code, 'bash');\n</script>\n\n<template>\n  <CodeBlock>\n    <CodeBlockActions>\n      <CodeBlockCopyButton />\n    </CodeBlockActions>\n    <CodeBlockContent\n      :code=\"code\"\n      :lines=\"lines\"\n      language=\"bash\"\n    />\n  </CodeBlock>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

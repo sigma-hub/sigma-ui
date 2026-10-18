@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "avatar",
   "type": "registry:ui",
+  "title": "Avatar",
+  "description": "An image element with a fallback for representing the user.",
   "dependencies": [
     "class-variance-authority@^0.7.1",
     "lucide-vue-next@^1.0.0"

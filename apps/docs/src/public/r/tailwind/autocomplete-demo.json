@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "autocomplete-demo",
+  "type": "registry:example",
+  "title": "Autocomplete",
+  "dependencies": [],
+  "registryDependencies": [
+    "autocomplete"
+  ],
+  "files": [
+    {
+      "path": "example/Autocomplete.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue';\nimport {\n  Autocomplete,\n  AutocompleteAnchor,\n  AutocompleteEmpty,\n  AutocompleteInput,\n  AutocompleteItem,\n  AutocompleteList,\n} from '@/components/ui/autocomplete';\n\nconst value = ref('');\nconst fruits = ['Apple', 'Banana', 'Blueberry', 'Grapes', 'Pineapple'];\n</script>\n\n<template>\n  <Autocomplete\n    v-model=\"value\"\n    open-on-focus\n  >\n    <AutocompleteAnchor>\n      <AutocompleteInput placeholder=\"Search fruit...\" />\n    </AutocompleteAnchor>\n    <AutocompleteList>\n      <AutocompleteEmpty>\n        No fruit found.\n      </AutocompleteEmpty>\n      <AutocompleteItem\n        v-for=\"fruit in fruits\"\n        :key=\"fruit\"\n        :value=\"fruit\"\n      >\n        {{ fruit }}\n      </AutocompleteItem>\n    </AutocompleteList>\n  </Autocomplete>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

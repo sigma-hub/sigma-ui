@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-block-tabs",
+  "type": "registry:example",
+  "title": "CodeBlockTabs",
+  "dependencies": [],
+  "registryDependencies": [
+    "code-block"
+  ],
+  "files": [
+    {
+      "path": "example/CodeBlockTabs.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  CodeBlock,\n  CodeBlockActions,\n  CodeBlockContent,\n  CodeBlockCopyButton,\n  CodeBlockHeader,\n  CodeBlockTabs,\n  CodeBlockTabsContent,\n  CodeBlockTabsList,\n  CodeBlockTabsTrigger,\n  CodeBlockWrapButton,\n  useHighlightedCode,\n} from '@/components/ui/code-block';\n\nconst files = [\n  {\n    name: 'App.vue',\n    language: 'vue',\n    code: `<script setup lang=\"ts\">\nimport { Button } from '@/components/ui/button';\n<\\u002Fscript>\n\n<template>\n  <Button variant=\"outline\">\n    Get started\n  </Button>\n</template>`,\n  },\n  {\n    name: 'main.ts',\n    language: 'ts',\n    code: `import { createApp } from 'vue';\nimport App from './App.vue';\nimport './style.css';\n\ncreateApp(App).mount('#app');`,\n  },\n  {\n    name: 'style.css',\n    language: 'css',\n    code: `@import \"tailwindcss\";\n@import \"tw-animate-css\";\n\n:root {\n  --radius: 0.5rem;\n}`,\n  },\n];\n\nconst highlighted = files.map(file => useHighlightedCode(file.code, file.language).lines);\n</script>\n\n<template>\n  <CodeBlock>\n    <CodeBlockTabs default-value=\"App.vue\">\n      <CodeBlockHeader>\n        <CodeBlockTabsList aria-label=\"Files\">\n          <CodeBlockTabsTrigger\n            v-for=\"file in files\"\n            :key=\"file.name\"\n            :value=\"file.name\"\n          >\n            {{ file.name }}\n          </CodeBlockTabsTrigger>\n        </CodeBlockTabsList>\n        <CodeBlockActions>\n          <CodeBlockWrapButton />\n          <CodeBlockCopyButton />\n        </CodeBlockActions>\n      </CodeBlockHeader>\n      <CodeBlockTabsContent\n        v-for=\"(file, index) in files\"\n        :key=\"file.name\"\n        :value=\"file.name\"\n      >\n        <CodeBlockContent\n          :code=\"file.code\"\n          :lines=\"highlighted[index].value\"\n          :language=\"file.language\"\n          line-numbers\n        />\n      </CodeBlockTabsContent>\n    </CodeBlockTabs>\n  </CodeBlock>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

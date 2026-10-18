@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-block-highlight-lines",
+  "type": "registry:example",
+  "title": "CodeBlockHighlightLines",
+  "dependencies": [],
+  "registryDependencies": [
+    "code-block"
+  ],
+  "files": [
+    {
+      "path": "example/CodeBlockHighlightLines.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  CodeBlock,\n  CodeBlockContent,\n  useHighlightedCode,\n} from '@/components/ui/code-block';\n\nconst code = `export function formatPrice(amount: number, currency = 'USD') {\n  const formatter = new Intl.NumberFormat('en-US', {\n    style: 'currency',\n    currency,\n  });\n\n  return formatter.format(amount);\n}\n\nexport const total = formatPrice(42.5);`;\n\nconst { lines } = useHighlightedCode(code, 'ts');\n</script>\n\n<template>\n  <CodeBlock>\n    <CodeBlockContent\n      :code=\"code\"\n      :lines=\"lines\"\n      language=\"ts\"\n      line-numbers\n      highlight-lines=\"2-5,8\"\n    />\n  </CodeBlock>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

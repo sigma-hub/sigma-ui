@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-block-focus",
+  "type": "registry:example",
+  "title": "CodeBlockFocus",
+  "dependencies": [],
+  "registryDependencies": [
+    "code-block"
+  ],
+  "files": [
+    {
+      "path": "example/CodeBlockFocus.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  CodeBlock,\n  CodeBlockContent,\n  useHighlightedCode,\n} from '@/components/ui/code-block';\n\nconst code = `export default defineConfig({\n  plugins: [vue()],\n  resolve: {\n    alias: {\n      '@': fileURLToPath(new URL('./src', import.meta.url)),\n    },\n  },\n  server: {\n    port: 5173,\n  },\n});`;\n\nconst { lines } = useHighlightedCode(code, 'ts');\n</script>\n\n<template>\n  <CodeBlock>\n    <CodeBlockContent\n      :code=\"code\"\n      :lines=\"lines\"\n      language=\"ts\"\n      line-numbers\n      focus-lines=\"3-7\"\n    />\n  </CodeBlock>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

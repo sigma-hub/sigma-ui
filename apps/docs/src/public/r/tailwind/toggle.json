@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "toggle",
   "type": "registry:ui",
+  "title": "Toggle",
+  "description": "A two-state button that can be either on or off.",
   "dependencies": [
     "class-variance-authority@^0.7.1",
     "reka-ui@^2.11.0"

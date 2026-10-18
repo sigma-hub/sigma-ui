@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "rating",
   "type": "registry:ui",
+  "title": "Rating",
+  "description": "A star rating that can be set with the pointer or the keyboard.",
   "dependencies": [
     "reka-ui@^2.11.0"
   ],

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field-invalid",
+  "type": "registry:example",
+  "title": "FieldInvalid",
+  "dependencies": [],
+  "registryDependencies": [
+    "field",
+    "input"
+  ],
+  "files": [
+    {
+      "path": "example/FieldInvalid.vue",
+      "content": "<script setup lang=\"ts\">\nimport { computed, ref } from 'vue';\nimport { Field, FieldDescription, FieldError, FieldLabel } from '@/components/ui/field';\nimport { Input } from '@/components/ui/input';\n\nconst password = ref('short');\n\nconst errors = computed(() => {\n  const value = String(password.value);\n  return [\n    value.length < 8 ? 'Use at least 8 characters.' : undefined,\n    /\\d/.test(value) ? undefined : 'Include at least one number.',\n  ];\n});\n\nconst isInvalid = computed(() => errors.value.some(Boolean));\n</script>\n\n<template>\n  <Field\n    :invalid=\"isInvalid\"\n    class=\"w-full max-w-sm\"\n  >\n    <FieldLabel for=\"field-invalid-password\">\n      Password\n    </FieldLabel>\n    <Input\n      id=\"field-invalid-password\"\n      v-model=\"password\"\n      type=\"password\"\n      :aria-invalid=\"isInvalid\"\n    />\n    <FieldDescription v-if=\"!isInvalid\">\n      Looks good.\n    </FieldDescription>\n    <FieldError :errors=\"errors\" />\n  </Field>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "autocomplete",
   "type": "registry:ui",
+  "title": "Autocomplete",
+  "description": "A text field that suggests matching options as you type.",
   "dependencies": [
     "reka-ui@^2.11.0"
   ],

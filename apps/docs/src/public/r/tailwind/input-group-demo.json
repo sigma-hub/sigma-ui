@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-group-demo",
+  "type": "registry:example",
+  "title": "InputGroup",
+  "dependencies": [
+    "lucide-vue-next@^1.0.0"
+  ],
+  "registryDependencies": [
+    "input-group"
+  ],
+  "files": [
+    {
+      "path": "example/InputGroup.vue",
+      "content": "<script setup lang=\"ts\">\nimport { SearchIcon } from 'lucide-vue-next';\nimport { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from '@/components/ui/input-group';\n</script>\n\n<template>\n  <InputGroup class=\"max-w-sm\">\n    <InputGroupAddon>\n      <SearchIcon />\n    </InputGroupAddon>\n    <InputGroupInput placeholder=\"Search docs...\" />\n    <InputGroupAddon align=\"inline-end\">\n      <InputGroupButton>Search</InputGroupButton>\n    </InputGroupAddon>\n  </InputGroup>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

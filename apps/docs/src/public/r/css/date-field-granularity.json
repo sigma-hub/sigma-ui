@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "date-field-granularity",
+  "type": "registry:example",
+  "title": "DateFieldGranularity",
+  "dependencies": [
+    "@internationalized/date@^3.12.4"
+  ],
+  "registryDependencies": [
+    "date-field",
+    "field"
+  ],
+  "files": [
+    {
+      "path": "example/DateFieldGranularity.vue",
+      "content": "<script setup lang=\"ts\">\nimport { CalendarDateTime, type DateValue } from '@internationalized/date';\nimport { type Ref, ref } from 'vue';\nimport { DateField } from '@/components/ui/date-field';\nimport { Field, FieldDescription, FieldLabel } from '@/components/ui/field';\n\nconst value = ref(new CalendarDateTime(2026, 10, 18, 14, 30)) as Ref<DateValue>;\n</script>\n\n<template>\n  <Field class=\"example-sigma-ui-date-field-granularity\">\n    <FieldLabel for=\"date-field-departure\">\n      Departure\n    </FieldLabel>\n    <DateField\n      id=\"date-field-departure\"\n      v-model=\"value\"\n      granularity=\"minute\"\n      :hour-cycle=\"24\"\n    />\n    <FieldDescription>\n      Minute granularity with a 24-hour clock.\n    </FieldDescription>\n  </Field>\n</template>\n\n<style>\n.example-sigma-ui-date-field-granularity {\n  max-width: 20rem;\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

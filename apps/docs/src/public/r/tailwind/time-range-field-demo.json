@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "time-range-field-demo",
+  "type": "registry:example",
+  "title": "TimeRangeField",
+  "dependencies": [
+    "@internationalized/date@^3.12.4",
+    "reka-ui@^2.11.0"
+  ],
+  "registryDependencies": [
+    "time-range-field"
+  ],
+  "files": [
+    {
+      "path": "example/TimeRangeField.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Time } from '@internationalized/date';\nimport type { TimeValue } from 'reka-ui';\nimport { type Ref, ref } from 'vue';\nimport { TimeRangeField } from '@/components/ui/time-range-field';\n\nconst value = ref({\n  start: new Time(9, 0),\n  end: new Time(17, 0),\n}) as Ref<{ start: TimeValue; end: TimeValue }>;\n</script>\n\n<template>\n  <TimeRangeField v-model=\"value\" />\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

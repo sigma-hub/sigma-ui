@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "faceted-filter-with-footer",
+  "type": "registry:example",
+  "title": "FacetedFilterWithFooter",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "faceted-filter"
+  ],
+  "files": [
+    {
+      "path": "example/FacetedFilterWithFooter.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue';\nimport { FacetedFilter } from '@/components/ui/faceted-filter';\nimport { Button } from '@/components/ui/button';\n\nconst selectedPriorities = ref<string[]>([]);\n\nconst priorityOptions = [\n  'Low',\n  'Medium',\n  'High',\n  'Critical',\n];\n\nfunction clearFilters() {\n  selectedPriorities.value = [];\n}\n</script>\n\n<template>\n  <FacetedFilter\n    v-model=\"selectedPriorities\"\n    title=\"Priority\"\n    :options=\"priorityOptions\"\n  >\n    <template #footer>\n      <Button\n        variant=\"ghost\"\n        size=\"sm\"\n        class=\"w-full justify-center\"\n        @click=\"clearFilters\"\n      >\n        Clear filters\n      </Button>\n    </template>\n  </FacetedFilter>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

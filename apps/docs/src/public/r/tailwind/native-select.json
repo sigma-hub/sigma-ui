@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "native-select",
   "type": "registry:ui",
+  "title": "Native Select",
+  "description": "A styled native select element.",
   "dependencies": [
     "lucide-vue-next@^1.0.0",
     "reka-ui@^2.11.0"

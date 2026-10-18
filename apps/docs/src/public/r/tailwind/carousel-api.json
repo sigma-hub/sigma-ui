@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "carousel-api",
+  "type": "registry:example",
+  "title": "CarouselApi",
+  "dependencies": [
+    "@vueuse/core@^14.4.0"
+  ],
+  "registryDependencies": [
+    "carousel"
+  ],
+  "files": [
+    {
+      "path": "example/CarouselApi.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue';\nimport { watchOnce } from '@vueuse/core';\nimport type { CarouselApi } from '@/components/ui/carousel';\nimport { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';\n\nconst api = ref<CarouselApi>();\nconst totalCount = ref(0);\nconst current = ref(0);\n\nfunction setApi(val: CarouselApi) {\n  api.value = val;\n}\n\nwatchOnce(api, (api) => {\n  if (!api) {\n    return;\n  }\n\n  totalCount.value = api.scrollSnapList().length;\n  current.value = api.selectedScrollSnap() + 1;\n\n  api.on('select', () => {\n    current.value = api.selectedScrollSnap() + 1;\n  });\n});\n</script>\n\n<template>\n  <div class=\"w-full sm:w-auto\">\n    <Carousel\n      class=\"relative w-full max-w-xs\"\n      @init-api=\"setApi\"\n    >\n      <CarouselContent>\n        <CarouselItem\n          v-for=\"(_, index) in 5\"\n          :key=\"index\"\n        >\n          <div class=\"p-1\">\n            <div class=\"flex aspect-square items-center justify-center p-6 border rounded-lg text-4xl font-semibold select-none\">\n              {{ index + 1 }}\n            </div>\n          </div>\n        </CarouselItem>\n      </CarouselContent>\n      <CarouselPrevious />\n      <CarouselNext />\n    </Carousel>\n\n    <div class=\"py-2 text-center text-sm text-muted-foreground\">\n      Slide {{ current }} of {{ totalCount }}\n    </div>\n  </div>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

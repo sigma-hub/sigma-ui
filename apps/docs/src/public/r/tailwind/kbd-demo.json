@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kbd-demo",
+  "type": "registry:example",
+  "title": "Kbd",
+  "dependencies": [],
+  "registryDependencies": [
+    "kbd"
+  ],
+  "files": [
+    {
+      "path": "example/Kbd.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Kbd, KbdGroup } from '@/components/ui/kbd';\n</script>\n\n<template>\n  <div class=\"flex items-center gap-4 text-sm\">\n    <KbdGroup>\n      <Kbd>Ctrl</Kbd>\n      <Kbd>B</Kbd>\n    </KbdGroup>\n    <KbdGroup>\n      <Kbd>⌘</Kbd>\n      <Kbd>K</Kbd>\n    </KbdGroup>\n  </div>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

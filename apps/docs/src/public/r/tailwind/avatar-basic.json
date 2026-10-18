@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar-basic",
+  "type": "registry:example",
+  "title": "AvatarBasic",
+  "dependencies": [],
+  "registryDependencies": [
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "example/AvatarBasic.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Avatar } from '@/components/ui/avatar';\n</script>\n\n<template>\n  <Avatar\n    src=\"/avatars/avatar-example@0.25x.png\"\n  />\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

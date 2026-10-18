@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge-demo",
+  "type": "registry:example",
+  "title": "Badge",
+  "dependencies": [],
+  "registryDependencies": [
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "example/Badge.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Badge } from '@/components/ui/badge';\n</script>\n\n<template>\n  <Badge>Badge</Badge>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

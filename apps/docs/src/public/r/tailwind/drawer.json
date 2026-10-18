@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "drawer",
   "type": "registry:ui",
+  "title": "Drawer",
+  "description": "Mobile-style drawer panel that slides in from the bottom of the screen.",
   "dependencies": [
     "reka-ui@^2.11.0"
   ],

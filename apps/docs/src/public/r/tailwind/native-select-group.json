@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "native-select-group",
+  "type": "registry:example",
+  "title": "NativeSelectGroup",
+  "dependencies": [],
+  "registryDependencies": [
+    "native-select"
+  ],
+  "files": [
+    {
+      "path": "example/NativeSelectGroup.vue",
+      "content": "<script setup lang=\"ts\">\nimport { NativeSelect, NativeSelectOptGroup, NativeSelectOption } from '@/components/ui/native-select';\n</script>\n\n<template>\n  <NativeSelect aria-label=\"Timezone\">\n    <NativeSelectOptGroup label=\"North America\">\n      <NativeSelectOption value=\"est\">\n        Eastern\n      </NativeSelectOption>\n      <NativeSelectOption value=\"pst\">\n        Pacific\n      </NativeSelectOption>\n    </NativeSelectOptGroup>\n    <NativeSelectOptGroup label=\"Europe\">\n      <NativeSelectOption value=\"gmt\">\n        London\n      </NativeSelectOption>\n      <NativeSelectOption value=\"cet\">\n        Berlin\n      </NativeSelectOption>\n    </NativeSelectOptGroup>\n  </NativeSelect>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

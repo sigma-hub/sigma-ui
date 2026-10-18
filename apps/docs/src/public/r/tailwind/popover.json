@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "popover",
   "type": "registry:ui",
+  "title": "Popover",
+  "description": "Displays a popover card with some content over the main content.",
   "dependencies": [
     "reka-ui@^2.11.0"
   ],

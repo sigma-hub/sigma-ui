@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-disabled",
+  "type": "registry:example",
+  "title": "InputDisabled",
+  "dependencies": [],
+  "registryDependencies": [
+    "input"
+  ],
+  "files": [
+    {
+      "path": "example/InputDisabled.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Input } from '@/components/ui/input';\n</script>\n\n<template>\n  <Input\n    disabled\n    type=\"email\"\n    placeholder=\"Email\"\n  />\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

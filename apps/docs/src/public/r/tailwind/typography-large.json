@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "typography-large",
+  "type": "registry:example",
+  "title": "TypographyLarge",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "example/TypographyLarge.vue",
+      "content": "<template>\n  <div class=\"text-lg font-semibold\">\n    Are you absolutely sure?\n  </div>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

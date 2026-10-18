@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "typography-lead",
+  "type": "registry:example",
+  "title": "TypographyLead",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "example/TypographyLead.vue",
+      "content": "<template>\n  <p class=\"example-sigma-ui-typography__lead\">\n    A modal dialog that interrupts the user with important content and expects a\n    response.\n  </p>\n</template>\n\n<style>\n.example-sigma-ui-typography__lead {\n  color: var(--muted-foreground);\n  font-size: 1.25rem;\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

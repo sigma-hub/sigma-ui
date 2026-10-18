@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field-choice-card",
+  "type": "registry:example",
+  "title": "FieldChoiceCard",
+  "dependencies": [],
+  "registryDependencies": [
+    "field",
+    "radio-group"
+  ],
+  "files": [
+    {
+      "path": "example/FieldChoiceCard.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  Field,\n  FieldContent,\n  FieldDescription,\n  FieldLabel,\n  FieldLegend,\n  FieldSet,\n  FieldTitle,\n} from '@/components/ui/field';\nimport { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';\n\nconst plans = [\n  { value: 'starter', title: 'Starter', description: 'For personal projects. Up to 3 sites.' },\n  { value: 'pro', title: 'Pro', description: 'For growing teams. Unlimited sites and analytics.' },\n];\n</script>\n\n<template>\n  <FieldSet class=\"example-field-choice-card\">\n    <FieldLegend variant=\"label\">\n      Plan\n    </FieldLegend>\n    <FieldDescription>You can change your plan at any time.</FieldDescription>\n    <RadioGroup default-value=\"pro\">\n      <FieldLabel\n        v-for=\"plan in plans\"\n        :key=\"plan.value\"\n        :for=\"`field-plan-${plan.value}`\"\n      >\n        <Field orientation=\"horizontal\">\n          <FieldContent>\n            <FieldTitle>{{ plan.title }}</FieldTitle>\n            <FieldDescription>{{ plan.description }}</FieldDescription>\n          </FieldContent>\n          <RadioGroupItem\n            :id=\"`field-plan-${plan.value}`\"\n            :value=\"plan.value\"\n          />\n        </Field>\n      </FieldLabel>\n    </RadioGroup>\n  </FieldSet>\n</template>\n\n<style>\n.example-field-choice-card {\n  width: 100%;\n  max-width: 28rem;\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

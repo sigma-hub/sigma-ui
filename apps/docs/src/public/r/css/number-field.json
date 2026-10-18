@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "number-field",
   "type": "registry:ui",
+  "title": "Number Field",
+  "description": "A number field allows a user to enter a number and increment or decrement the value using stepper buttons.",
   "dependencies": [
     "lucide-vue-next@^1.0.0",
     "reka-ui@^2.11.0"

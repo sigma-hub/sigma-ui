@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scroll-area-demo",
+  "type": "registry:example",
+  "title": "ScrollArea",
+  "dependencies": [],
+  "registryDependencies": [
+    "scroll-area",
+    "separator"
+  ],
+  "files": [
+    {
+      "path": "example/ScrollArea.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ScrollArea } from '@/components/ui/scroll-area';\nimport { Separator } from '@/components/ui/separator';\n\nconst tags = Array.from({ length: 50 }).map(\n  (_, i, a) => `v1.2.0-beta.${a.length - i}`,\n);\n</script>\n\n<template>\n  <ScrollArea class=\"example-sigma-ui-scroll-area\">\n    <div class=\"example-sigma-ui-scroll-area__content\">\n      <h4 class=\"example-sigma-ui-scroll-area__heading\">\n        Tags\n      </h4>\n\n      <div\n        v-for=\"tag in tags\"\n        :key=\"tag\"\n        class=\"example-sigma-ui-scroll-area__tag-container\"\n      >\n        <div class=\"example-sigma-ui-scroll-area__tag\">\n          {{ tag }}\n        </div>\n        <Separator class=\"example-sigma-ui-scroll-area__separator\" />\n      </div>\n    </div>\n  </ScrollArea>\n</template>\n\n<style>\n.example-sigma-ui-scroll-area {\n  width: calc(var(--spacing) * 48);\n  height: calc(var(--spacing) * 72);\n  border: 1px solid var(--border);\n  border-radius: var(--radius);\n}\n\n.example-sigma-ui-scroll-area__content {\n  padding: calc(var(--spacing) * 4);\n}\n\n.example-sigma-ui-scroll-area__heading {\n  margin-bottom: calc(var(--spacing) * 4);\n  font-size: 0.875rem;\n  font-weight: 500;\n  line-height: 1;\n}\n\n.example-sigma-ui-scroll-area__tag {\n  font-size: 0.875rem;\n}\n\n.example-sigma-ui-scroll-area__separator {\n  margin: calc(var(--spacing) * 2) 0;\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

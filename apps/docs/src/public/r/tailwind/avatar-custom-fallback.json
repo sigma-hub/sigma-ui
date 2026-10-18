@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar-custom-fallback",
+  "type": "registry:example",
+  "title": "AvatarCustomFallback",
+  "dependencies": [],
+  "registryDependencies": [
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "example/AvatarCustomFallback.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Avatar } from '@/components/ui/avatar';\n</script>\n\n<template>\n  <div class=\"flex gap-4\">\n    <Avatar>\n      <template #fallback>\n        <div class=\"text-primary/50\">\n          YU\n        </div>\n      </template>\n    </Avatar>\n\n    <Avatar />\n  </div>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox-basic",
+  "type": "registry:example",
+  "title": "CheckboxBasic",
+  "dependencies": [],
+  "registryDependencies": [
+    "checkbox"
+  ],
+  "files": [
+    {
+      "path": "example/CheckboxBasic.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue';\nimport { Checkbox } from '@/components/ui/checkbox';\n\nconst termsAccepted = ref<boolean | 'indeterminate'>(false);\n</script>\n\n<template>\n  <Checkbox\n    id=\"checkbox-basic-1\"\n    label=\"Accept terms and conditions\"\n    :model-value=\"termsAccepted\"\n    @update:model-value=\"termsAccepted = $event\"\n  />\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

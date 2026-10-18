@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "carousel-thumbnails",
+  "type": "registry:example",
+  "title": "CarouselThumbnails",
+  "dependencies": [
+    "@vueuse/core@^14.4.0"
+  ],
+  "registryDependencies": [
+    "carousel"
+  ],
+  "files": [
+    {
+      "path": "example/CarouselThumbnails.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue';\nimport { watchOnce } from '@vueuse/core';\nimport { Carousel, type CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';\n\nconst emblaMainApi = ref<CarouselApi>();\nconst emblaThumbnailApi = ref<CarouselApi>();\nconst selectedIndex = ref(0);\n\nfunction onSelect() {\n  if (!emblaMainApi.value || !emblaThumbnailApi.value) {\n    return;\n  }\n\n  selectedIndex.value = emblaMainApi.value.selectedScrollSnap();\n  emblaThumbnailApi.value.scrollTo(emblaMainApi.value.selectedScrollSnap());\n}\n\nfunction onThumbClick(index: number) {\n  if (!emblaMainApi.value || !emblaThumbnailApi.value) {\n    return;\n  }\n\n  emblaMainApi.value.scrollTo(index);\n}\n\nwatchOnce(emblaMainApi, (emblaMainApi) => {\n  if (!emblaMainApi) {\n    return;\n  }\n\n  onSelect();\n  emblaMainApi.on('select', onSelect);\n  emblaMainApi.on('reInit', onSelect);\n});\n</script>\n\n<template>\n  <div class=\"w-full sm:w-auto\">\n    <Carousel\n      class=\"relative w-full max-w-xs\"\n      @init-api=\"(val) => emblaMainApi = val\"\n    >\n      <CarouselContent>\n        <CarouselItem\n          v-for=\"(_, index) in 10\"\n          :key=\"index\"\n        >\n          <div class=\"p-1\">\n            <div class=\"flex items-center justify-center aspect-square p-6 border rounded-lg text-4xl font-semibold select-none\">\n              {{ index + 1 }}\n            </div>\n          </div>\n        </CarouselItem>\n      </CarouselContent>\n      <CarouselPrevious />\n      <CarouselNext />\n    </Carousel>\n\n    <Carousel\n      class=\"relative w-full max-w-xs\"\n      @init-api=\"(val) => emblaThumbnailApi = val\"\n    >\n      <CarouselContent class=\"flex gap-1 ml-0\">\n        <CarouselItem\n          v-for=\"(_, index) in 10\"\n          :key=\"index\"\n          class=\"pl-0 basis-1/4 cursor-pointer\"\n          @click=\"onThumbClick(index)\"\n        >\n          <div\n            class=\"p-1\"\n            :class=\"index === selectedIndex ? '' : 'opacity-50'\"\n          >\n            <div class=\"flex items-center justify-center aspect-square p-6 border rounded-lg text-xl font-semibold select-none\">\n              {{ index + 1 }}\n            </div>\n          </div>\n        </CarouselItem>\n      </CarouselContent>\n    </Carousel>\n  </div>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

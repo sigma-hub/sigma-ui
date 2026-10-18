@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "card",
   "type": "registry:ui",
+  "title": "Card",
+  "description": "Displays a card with header, content, and footer.",
   "dependencies": [],
   "registryDependencies": [],
   "files": [

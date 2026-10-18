@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spinner-demo",
+  "type": "registry:example",
+  "title": "Spinner",
+  "dependencies": [],
+  "registryDependencies": [
+    "spinner"
+  ],
+  "files": [
+    {
+      "path": "example/Spinner.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Spinner } from '@/components/ui/spinner';\n</script>\n\n<template>\n  <div class=\"flex items-center gap-6 text-muted-foreground\">\n    <Spinner />\n    <Spinner class=\"size-6\" />\n    <Spinner class=\"size-8 text-primary\" />\n  </div>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

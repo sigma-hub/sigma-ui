@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "context-menu",
   "type": "registry:ui",
+  "title": "Context Menu",
+  "description": "Displays a menu located at the pointer, triggered by a right-click or a long-press.",
   "dependencies": [
     "lucide-vue-next@^1.0.0",
     "reka-ui@^2.11.0"

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "radio-group-demo",
+  "type": "registry:example",
+  "title": "RadioGroup",
+  "dependencies": [],
+  "registryDependencies": [
+    "label",
+    "radio-group"
+  ],
+  "files": [
+    {
+      "path": "example/RadioGroup.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Label } from '@/components/ui/label';\nimport { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';\n</script>\n\n<template>\n  <RadioGroup default-value=\"comfortable\">\n    <div class=\"example-sigma-ui-radio-group__item\">\n      <RadioGroupItem\n        id=\"r1\"\n        value=\"default\"\n      />\n      <Label for=\"r1\">Default</Label>\n    </div>\n    <div class=\"example-sigma-ui-radio-group__item\">\n      <RadioGroupItem\n        id=\"r2\"\n        value=\"comfortable\"\n      />\n      <Label for=\"r2\">Comfortable</Label>\n    </div>\n    <div class=\"example-sigma-ui-radio-group__item\">\n      <RadioGroupItem\n        id=\"r3\"\n        value=\"compact\"\n      />\n      <Label for=\"r3\">Compact</Label>\n    </div>\n  </RadioGroup>\n</template>\n\n<style>\n.example-sigma-ui-radio-group__item {\n  display: flex;\n  align-items: center;\n  gap: calc(var(--spacing) * 2);\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

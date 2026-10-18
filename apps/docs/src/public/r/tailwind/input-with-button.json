@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-with-button",
+  "type": "registry:example",
+  "title": "InputWithButton",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "input"
+  ],
+  "files": [
+    {
+      "path": "example/InputWithButton.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Input } from '@/components/ui/input';\nimport { Button } from '@/components/ui/button';\n</script>\n\n<template>\n  <div class=\"flex w-full max-w-sm gap-2\">\n    <Input\n      id=\"email\"\n      type=\"email\"\n      placeholder=\"Email\"\n    />\n    <Button type=\"submit\">\n      Subscribe\n    </Button>\n  </div>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

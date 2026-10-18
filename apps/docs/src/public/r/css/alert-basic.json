@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "alert-basic",
+  "type": "registry:example",
+  "title": "AlertBasic",
+  "dependencies": [],
+  "registryDependencies": [
+    "alert"
+  ],
+  "files": [
+    {
+      "path": "example/AlertBasic.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';\n</script>\n\n<template>\n  <Alert>\n    <AlertTitle>Heads up!</AlertTitle>\n    <AlertDescription>\n      You can add components to your app using the cli.\n    </AlertDescription>\n  </Alert>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "donut-chart-custom-tooltip",
+  "type": "registry:example",
+  "title": "DonutChartCustomTooltip",
+  "dependencies": [],
+  "registryDependencies": [
+    "card",
+    "chart-donut"
+  ],
+  "files": [
+    {
+      "path": "example/DonutChartCustomTooltip.vue",
+      "content": "<script setup lang=\"ts\">\nimport CustomChartTooltip from './CustomChartTooltip.vue';\nimport { DonutChart } from '@/components/ui/chart-donut';\n\nconst data = [\n  { name: 'Jan', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },\n  { name: 'Feb', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },\n  { name: 'Mar', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },\n  { name: 'Apr', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },\n  { name: 'May', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },\n  { name: 'Jun', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },\n];\n</script>\n\n<template>\n  <DonutChart\n    index=\"name\"\n    :category=\"'total'\"\n    :data=\"data\"\n    :custom-tooltip=\"CustomChartTooltip\"\n  />\n</template>\n",
+      "type": "registry:example"
+    },
+    {
+      "path": "example/CustomChartTooltip.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Card, CardContent } from '@/components/ui/card';\n\ndefineProps<{\n  title?: string;\n  data: {\n    name: string;\n    color: string;\n    value: any;\n  }[];\n}>();\n</script>\n\n<template>\n  <Card class=\"text-sm\">\n    <CardContent class=\"p-3 min-w-[180px] flex flex-col gap-2\">\n      <div\n        v-for=\"(item, key) in data\"\n        :key=\"key\"\n        class=\"flex justify-between items-center\"\n      >\n        <div class=\"flex items-center\">\n          <span\n            class=\"w-1 h-7 mr-4 rounded-full\"\n            :style=\"{ background: item.color }\"\n          />\n          <span>{{ item.name }}</span>\n        </div>\n        <span class=\"font-semibold ml-4\">{{ item.value }}</span>\n      </div>\n    </CardContent>\n  </Card>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

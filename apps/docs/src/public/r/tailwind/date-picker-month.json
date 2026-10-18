@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "date-picker-month",
+  "type": "registry:example",
+  "title": "DatePickerMonth",
+  "dependencies": [
+    "@internationalized/date@^3.12.4",
+    "lucide-vue-next@^1.0.0"
+  ],
+  "registryDependencies": [
+    "button",
+    "calendar",
+    "popover"
+  ],
+  "files": [
+    {
+      "path": "example/DatePickerMonth.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue';\nimport {\n  DateFormatter,\n  type DateValue,\n  getLocalTimeZone,\n} from '@internationalized/date';\nimport { CalendarIcon } from 'lucide-vue-next';\nimport { MonthPicker } from '@/components/ui/calendar';\nimport { Button } from '@/components/ui/button';\nimport { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';\nimport { cn } from '@/lib/utils';\n\nconst df = new DateFormatter('en-US', { month: 'long', year: 'numeric' });\n\nconst open = ref(false);\nconst value = ref<DateValue>();\n</script>\n\n<template>\n  <Popover v-model:open=\"open\">\n    <PopoverTrigger as-child>\n      <Button\n        variant=\"outline\"\n        :class=\"cn(\n          'w-[240px] justify-start text-left font-normal',\n          !value && 'text-muted-foreground',\n        )\"\n      >\n        <CalendarIcon class=\"mr-2 h-4 w-4\" />\n        {{ value ? df.format(value.toDate(getLocalTimeZone())) : 'Pick a month' }}\n      </Button>\n    </PopoverTrigger>\n    <PopoverContent class=\"w-auto p-0\">\n      <MonthPicker\n        v-model=\"value\"\n        @update:model-value=\"open = false\"\n      />\n    </PopoverContent>\n  </Popover>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

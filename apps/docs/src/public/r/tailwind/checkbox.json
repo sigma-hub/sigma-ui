@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "checkbox",
   "type": "registry:ui",
+  "title": "Checkbox",
+  "description": "Customizable checkbox input element.",
   "dependencies": [
     "lucide-vue-next@^1.0.0",
     "reka-ui@^2.11.0"

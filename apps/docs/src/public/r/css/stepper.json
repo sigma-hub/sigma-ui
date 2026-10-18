@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "stepper",
   "type": "registry:ui",
+  "title": "Stepper",
+  "description": "A sequence of steps for a multi-part task.",
   "dependencies": [
     "reka-ui@^2.11.0"
   ],

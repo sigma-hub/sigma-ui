@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle-disabled",
+  "type": "registry:example",
+  "title": "ToggleDisabled",
+  "dependencies": [
+    "lucide-vue-next@^1.0.0"
+  ],
+  "registryDependencies": [
+    "toggle"
+  ],
+  "files": [
+    {
+      "path": "example/ToggleDisabled.vue",
+      "content": "<script setup lang=\"ts\">\nimport { UnderlineIcon } from 'lucide-vue-next';\nimport { Toggle } from '@/components/ui/toggle';\n</script>\n\n<template>\n  <Toggle\n    aria-label=\"Toggle underline\"\n    disabled\n  >\n    <UnderlineIcon class=\"example-sigma-ui-toggle__icon\" />\n  </Toggle>\n</template>\n\n<style>\n.example-sigma-ui-toggle__icon {\n  width: calc(var(--spacing) * 4);\n  height: calc(var(--spacing) * 4);\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

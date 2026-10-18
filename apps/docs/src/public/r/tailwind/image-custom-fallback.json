@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-custom-fallback",
+  "type": "registry:example",
+  "title": "ImageCustomFallback",
+  "dependencies": [
+    "lucide-vue-next@^1.0.0"
+  ],
+  "registryDependencies": [
+    "image"
+  ],
+  "files": [
+    {
+      "path": "example/ImageCustomFallback.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ImageIcon } from 'lucide-vue-next';\nimport { Image } from '@/components/ui/image';\n</script>\n\n<template>\n  <div class=\"flex items-center justify-center h-[300px] w-[250px]\">\n    <Image\n      alt=\"Image\"\n    >\n      <template #fallback>\n        <div\n          class=\"flex flex-col gap-1 items-center justify-center text-muted-foreground w-full h-full bg-[length:16px_16px] bg-[image:linear-gradient(90deg,transparent_95%,color-mix(in oklch, var(--foreground) 10%, transparent)_95%),linear-gradient(0deg,transparent_95%,color-mix(in oklch, var(--foreground) 10%, transparent)_95%)]\"\n        >\n          <ImageIcon class=\"w-[50%] max-w-[50px] h-[50%] max-h-[50px]\" />\n          no photo\n        </div>\n      </template>\n    </Image>\n  </div>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "typography-h1",
+  "type": "registry:example",
+  "title": "TypographyH1",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "example/TypographyH1.vue",
+      "content": "<template>\n  <h1 class=\"example-sigma-ui-typography__heading-1\">\n    Taxing Laughter: The Joke Tax Chronicles\n  </h1>\n</template>\n\n<style>\n.example-sigma-ui-typography__heading-1 {\n  font-size: 2.25rem;\n  font-weight: 800;\n  letter-spacing: -0.025em;\n  line-height: 1.1;\n  scroll-margin-top: calc(var(--spacing) * 20);\n}\n\n@media (width >= 64rem) {\n  .example-sigma-ui-typography__heading-1 {\n    font-size: 3rem;\n  }\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

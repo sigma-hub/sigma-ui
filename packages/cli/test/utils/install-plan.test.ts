@@ -51,6 +51,15 @@ describe('getFileTargetPath', () => {
       .toBe('/project/src/components/blocks/dashboard-orders/data.ts');
   });
 
+  it('puts an example and its sibling files in one folder named after the item', () => {
+    const item: RegistryItem = { name: 'area-chart-custom-tooltip', type: 'registry:example', files: [] };
+
+    expect(getFileTargetPath({ path: 'example/AreaChartCustomTooltip.vue', type: 'registry:example' }, item, config))
+      .toBe('/project/src/components/examples/area-chart-custom-tooltip/AreaChartCustomTooltip.vue');
+    expect(getFileTargetPath({ path: 'example/CustomChartTooltip.vue', type: 'registry:example' }, item, config))
+      .toBe('/project/src/components/examples/area-chart-custom-tooltip/CustomChartTooltip.vue');
+  });
+
   it('routes lib and composable files to their own directories', () => {
     const lib: RegistryItem = { name: 'format', type: 'registry:lib', files: [] };
     const composable: RegistryItem = { name: 'use-theme', type: 'registry:composable', files: [] };

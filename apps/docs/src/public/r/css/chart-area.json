@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "chart-area",
   "type": "registry:ui",
+  "title": "Area",
+  "description": "An area chart shows values over time as a line with the region underneath filled in.",
   "dependencies": [
     "@unovis/ts@^1.7.1",
     "@unovis/vue@^1.7.1",

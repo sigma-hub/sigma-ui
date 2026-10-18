@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "card-lightbox",
   "type": "registry:ui",
+  "title": "Card lightbox",
+  "description": "A grid of cards where each card expands into a full view on click.",
   "dependencies": [
     "lucide-vue-next@^1.0.0",
     "motion-v@^2.7.0"

@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "tags-input",
   "type": "registry:ui",
+  "title": "Tags Input",
+  "description": "Tag inputs render tags inside an input, followed by an actual text input.",
   "dependencies": [
     "@vueuse/core@^14.4.0",
     "lucide-vue-next@^1.0.0",

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea-with-text",
+  "type": "registry:example",
+  "title": "TextareaWithText",
+  "dependencies": [],
+  "registryDependencies": [
+    "label",
+    "textarea"
+  ],
+  "files": [
+    {
+      "path": "example/TextareaWithText.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Textarea } from '@/components/ui/textarea';\nimport { Label } from '@/components/ui/label';\n</script>\n\n<template>\n  <div class=\"grid w-full gap-2\">\n    <Label for=\"message-2\">Your message</Label>\n    <Textarea\n      id=\"message-2\"\n      placeholder=\"Type your message here.\"\n    />\n    <p class=\"text-sm text-muted-foreground\">\n      Your message will be copied to the support team.\n    </p>\n  </div>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sidebar-inset-variant",
+  "type": "registry:example",
+  "title": "SidebarInsetVariant",
+  "dependencies": [
+    "lucide-vue-next@^1.0.0"
+  ],
+  "registryDependencies": [
+    "separator",
+    "sidebar"
+  ],
+  "files": [
+    {
+      "path": "example/SidebarInsetVariant.vue",
+      "content": "<script setup lang=\"ts\">\nimport { FolderIcon, HomeIcon, InboxIcon, UsersIcon } from 'lucide-vue-next';\nimport { Separator } from '@/components/ui/separator';\nimport {\n  Sidebar,\n  SidebarContent,\n  SidebarGroup,\n  SidebarGroupContent,\n  SidebarInset,\n  SidebarMenu,\n  SidebarMenuButton,\n  SidebarMenuItem,\n  SidebarProvider,\n  SidebarTrigger,\n} from '@/components/ui/sidebar';\n\nconst items = [\n  { title: 'Home', icon: HomeIcon, isActive: true },\n  { title: 'Inbox', icon: InboxIcon },\n  { title: 'Projects', icon: FolderIcon },\n  { title: 'Team', icon: UsersIcon },\n];\n</script>\n\n<template>\n  <div class=\"relative h-[420px] w-full overflow-hidden rounded-lg border [transform:translateZ(0)]\">\n    <SidebarProvider\n      cookie-name=\"\"\n      class=\"h-full min-h-full\"\n    >\n      <Sidebar\n        variant=\"inset\"\n        class=\"h-full\"\n      >\n        <SidebarContent>\n          <SidebarGroup>\n            <SidebarGroupContent>\n              <SidebarMenu>\n                <SidebarMenuItem\n                  v-for=\"item in items\"\n                  :key=\"item.title\"\n                >\n                  <SidebarMenuButton :is-active=\"item.isActive\">\n                    <component :is=\"item.icon\" />\n                    <span>{{ item.title }}</span>\n                  </SidebarMenuButton>\n                </SidebarMenuItem>\n              </SidebarMenu>\n            </SidebarGroupContent>\n          </SidebarGroup>\n        </SidebarContent>\n      </Sidebar>\n      <SidebarInset>\n        <header class=\"flex h-12 shrink-0 items-center gap-2 border-b px-4\">\n          <SidebarTrigger class=\"-ml-1\" />\n          <Separator\n            orientation=\"vertical\"\n            class=\"mr-2 h-4!\"\n          />\n          <span class=\"text-sm font-medium\">Home</span>\n        </header>\n        <div class=\"flex flex-1 flex-col gap-4 p-4\">\n          <div class=\"flex-1 rounded-xl bg-muted/50\" />\n        </div>\n      </SidebarInset>\n    </SidebarProvider>\n  </div>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

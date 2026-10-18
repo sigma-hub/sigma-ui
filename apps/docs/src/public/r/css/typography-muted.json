@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "typography-muted",
+  "type": "registry:example",
+  "title": "TypographyMuted",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "example/TypographyMuted.vue",
+      "content": "<template>\n  <p class=\"example-sigma-ui-typography__muted\">\n    Enter your email address.\n  </p>\n</template>\n\n<style>\n.example-sigma-ui-typography__muted {\n  color: var(--muted-foreground);\n  font-size: 0.875rem;\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "radio-group",
   "type": "registry:ui",
+  "title": "Radio Group",
+  "description": "A set of checkable buttons, known as radio buttons, where no more than one of the buttons can be checked at a time.",
   "dependencies": [
     "lucide-vue-next@^1.0.0",
     "reka-ui@^2.11.0"

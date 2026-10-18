@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "chart-line",
   "type": "registry:ui",
+  "title": "Line",
+  "description": "A line chart connects values along a continuous axis to show a trend.",
   "dependencies": [
     "@unovis/ts@^1.7.1",
     "@unovis/vue@^1.7.1",

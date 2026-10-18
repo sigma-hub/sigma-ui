@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "typography-h3",
+  "type": "registry:example",
+  "title": "TypographyH3",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "example/TypographyH3.vue",
+      "content": "<template>\n  <h3 class=\"example-sigma-ui-typography__heading-3\">\n    The Joke Tax\n  </h3>\n</template>\n\n<style>\n.example-sigma-ui-typography__heading-3 {\n  font-size: 1.5rem;\n  font-weight: 600;\n  letter-spacing: -0.025em;\n  scroll-margin-top: calc(var(--spacing) * 20);\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

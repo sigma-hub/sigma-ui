@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "chart",
   "type": "registry:ui",
+  "title": "Charts",
+  "description": "Versatile visualization tool, allowing users to represent data using various types of charts for effective analysis.",
   "dependencies": [
     "@unovis/ts@^1.7.1",
     "@unovis/vue@^1.7.1"

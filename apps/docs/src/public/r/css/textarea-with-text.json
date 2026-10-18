@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea-with-text",
+  "type": "registry:example",
+  "title": "TextareaWithText",
+  "dependencies": [],
+  "registryDependencies": [
+    "label",
+    "textarea"
+  ],
+  "files": [
+    {
+      "path": "example/TextareaWithText.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Textarea } from '@/components/ui/textarea';\nimport { Label } from '@/components/ui/label';\n</script>\n\n<template>\n  <div class=\"example-sigma-ui-textarea-with-text\">\n    <Label for=\"message-2\">Your message</Label>\n    <Textarea\n      id=\"message-2\"\n      placeholder=\"Type your message here.\"\n    />\n    <p class=\"example-sigma-ui-textarea-with-text__help-text\">\n      Your message will be copied to the support team.\n    </p>\n  </div>\n</template>\n\n<style>\n.example-sigma-ui-textarea-with-text {\n  display: grid;\n  width: 100%;\n  gap: calc(var(--spacing) * 2);\n}\n\n.example-sigma-ui-textarea-with-text__help-text {\n  color: var(--muted-foreground);\n  font-size: 0.875rem;\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

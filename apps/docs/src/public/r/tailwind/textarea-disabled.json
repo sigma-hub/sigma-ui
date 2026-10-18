@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea-disabled",
+  "type": "registry:example",
+  "title": "TextareaDisabled",
+  "dependencies": [],
+  "registryDependencies": [
+    "textarea"
+  ],
+  "files": [
+    {
+      "path": "example/TextareaDisabled.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Textarea } from '@/components/ui/textarea';\n</script>\n\n<template>\n  <Textarea\n    placeholder=\"Type your message here.\"\n    disabled\n  />\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

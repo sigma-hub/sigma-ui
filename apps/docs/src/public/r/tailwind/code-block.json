@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "code-block",
   "type": "registry:ui",
+  "title": "Code Block",
+  "description": "Shows code with syntax highlighting, line numbers, diffs, tabs, and a copy button.",
   "dependencies": [
     "@vueuse/core@^14.4.0",
     "class-variance-authority@^0.7.1",

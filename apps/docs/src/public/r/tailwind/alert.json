@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "alert",
   "type": "registry:ui",
+  "title": "Alert",
+  "description": "Displays a callout for user attention.",
   "dependencies": [
     "class-variance-authority@^0.7.1"
   ],

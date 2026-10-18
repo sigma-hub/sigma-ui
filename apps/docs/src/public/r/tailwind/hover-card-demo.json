@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hover-card-demo",
+  "type": "registry:example",
+  "title": "HoverCard",
+  "dependencies": [
+    "lucide-vue-next@^1.0.0"
+  ],
+  "registryDependencies": [
+    "avatar",
+    "button",
+    "hover-card"
+  ],
+  "files": [
+    {
+      "path": "example/HoverCard.vue",
+      "content": "<script setup lang=\"ts\">\nimport { CalendarDaysIcon } from 'lucide-vue-next';\nimport { Avatar } from '@/components/ui/avatar';\nimport { Button } from '@/components/ui/button';\nimport {\n  HoverCard,\n  HoverCardContent,\n  HoverCardTrigger,\n} from '@/components/ui/hover-card';\n</script>\n\n<template>\n  <HoverCard\n    :open-delay=\"0\"\n    :close-delay=\"100\"\n  >\n    <HoverCardTrigger as-child>\n      <Button variant=\"link\">\n        @vuejs\n      </Button>\n    </HoverCardTrigger>\n    <HoverCardContent class=\"w-80\">\n      <div class=\"flex justify-between space-x-4\">\n        <Avatar size=\"sm\" />\n\n        <div class=\"space-y-1\">\n          <h4 class=\"text-sm font-semibold\">\n            @vuejs\n          </h4>\n          <p class=\"text-sm\">\n            Progressive JavaScript framework for building modern web interfaces.\n          </p>\n          <div class=\"flex items-center pt-2\">\n            <CalendarDaysIcon class=\"mr-2 h-4 w-4 opacity-70\" />\n            <span class=\"text-xs text-muted-foreground\">\n              Joined January 2014\n            </span>\n          </div>\n        </div>\n      </div>\n    </HoverCardContent>\n  </HoverCard>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

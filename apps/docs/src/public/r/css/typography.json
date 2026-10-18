@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "typography",
   "type": "registry:ui",
+  "title": "Typography",
+  "description": "Styles for headings, paragraphs, lists, and the other text in a page.",
   "dependencies": [
     "class-variance-authority@^0.7.1",
     "reka-ui@^2.11.0"

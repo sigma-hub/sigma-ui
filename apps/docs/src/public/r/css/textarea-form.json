@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea-form",
+  "type": "registry:example",
+  "title": "TextareaForm",
+  "dependencies": [
+    "@vee-validate/zod@^4.15.1",
+    "vee-validate@^4.15.1",
+    "zod@^3.25.76"
+  ],
+  "registryDependencies": [
+    "button",
+    "form",
+    "textarea",
+    "toaster"
+  ],
+  "files": [
+    {
+      "path": "example/TextareaForm.vue",
+      "content": "<script setup lang=\"ts\">\nimport { h } from 'vue';\nimport { useForm } from 'vee-validate';\nimport { toTypedSchema } from '@vee-validate/zod';\nimport * as z from 'zod';\nimport { toast } from '@/components/ui/toaster';\nimport { Button } from '@/components/ui/button';\nimport {\n  FormControl,\n  FormDescription,\n  FormField,\n  FormItem,\n  FormLabel,\n  FormMessage,\n} from '@/components/ui/form';\nimport { Textarea } from '@/components/ui/textarea';\n\nconst formSchema = toTypedSchema(z.object({\n  bio: z\n    .string()\n    .min(10, {\n      message: 'Bio must be at least 10 characters.',\n    })\n    .max(160, {\n      message: 'Bio must not be longer than 30 characters.',\n    }),\n}));\n\nconst { handleSubmit } = useForm({\n  validationSchema: formSchema,\n});\n\nconst onSubmit = handleSubmit((values) => {\n  toast('You submitted the following values:', {\n    description: h('pre', { class: 'example-sigma-ui-textarea-form__toast-pre' }, h('code', {}, JSON.stringify(values, null, 2))),\n  });\n});\n</script>\n\n<template>\n  <form\n    class=\"example-sigma-ui-textarea-form\"\n    @submit=\"onSubmit\"\n  >\n    <FormField\n      v-slot=\"{ componentField }\"\n      name=\"bio\"\n    >\n      <FormItem class=\"example-sigma-ui-textarea-form__item\">\n        <FormLabel>Bio</FormLabel>\n        <FormControl>\n          <Textarea\n            placeholder=\"Tell us a little bit about yourself\"\n            class=\"example-sigma-ui-textarea-form__input\"\n            v-bind=\"componentField\"\n          />\n        </FormControl>\n        <FormDescription>\n          You can <span>@mention</span> other users and organizations.\n        </FormDescription>\n        <FormMessage />\n      </FormItem>\n    </FormField>\n    <Button\n      type=\"submit\"\n      class=\"example-sigma-ui-textarea-form__button\"\n    >\n      Submit\n    </Button>\n  </form>\n</template>\n\n<style>\n.example-sigma-ui-textarea-form {\n  display: flex;\n  width: 100%;\n  flex-direction: column;\n  gap: calc(var(--spacing) * 6);\n}\n\n.example-sigma-ui-textarea-form__item {\n  display: flex;\n  flex-direction: column;\n  gap: calc(var(--spacing) * 2);\n}\n\n.example-sigma-ui-textarea-form__input {\n  resize: none;\n}\n\n.example-sigma-ui-textarea-form__button {\n  width: fit-content;\n}\n\n.example-sigma-ui-textarea-form__toast-pre {\n  padding: calc(var(--spacing) * 4);\n  border-radius: var(--radius);\n  margin-top: calc(var(--spacing) * 2);\n  background-color: color-mix(in oklch, var(--muted) 50%, transparent);\n  color: var(--foreground);\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

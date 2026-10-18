@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "direction",
   "type": "registry:ui",
+  "title": "Direction",
+  "description": "Sets the reading direction for Reka primitives, including right-to-left layouts.",
   "dependencies": [
     "reka-ui@^2.11.0"
   ],

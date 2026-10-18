@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "image",
   "type": "registry:ui",
+  "title": "Image",
+  "description": "An image element with a fallback.",
   "dependencies": [
     "class-variance-authority@^0.7.1",
     "lucide-vue-next@^1.0.0",

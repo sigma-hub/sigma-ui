@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "field",
   "type": "registry:ui",
+  "title": "Field",
+  "description": "Combine labels, controls, help text, and errors into accessible form fields.",
   "dependencies": [
     "class-variance-authority@^0.7.1",
     "reka-ui@^2.11.0"

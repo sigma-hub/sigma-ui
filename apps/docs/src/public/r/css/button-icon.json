@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-icon",
+  "type": "registry:example",
+  "title": "ButtonIcon",
+  "dependencies": [
+    "lucide-vue-next@^1.0.0"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "example/ButtonIcon.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ChevronRightIcon } from 'lucide-vue-next';\nimport { Button } from '@/components/ui/button';\n</script>\n\n<template>\n  <Button\n    variant=\"outline\"\n    size=\"icon\"\n  >\n    <ChevronRightIcon class=\"example-sigma-ui-button-icon\" />\n  </Button>\n</template>\n\n<style>\n.example-sigma-ui-button-icon {\n  width: calc(var(--spacing) * 4);\n  height: calc(var(--spacing) * 4);\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

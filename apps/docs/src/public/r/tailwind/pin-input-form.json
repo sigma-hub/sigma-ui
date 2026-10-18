@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pin-input-form",
+  "type": "registry:example",
+  "title": "PinInputForm",
+  "dependencies": [
+    "@vee-validate/zod@^4.15.1",
+    "vee-validate@^4.15.1",
+    "zod@^3.25.76"
+  ],
+  "registryDependencies": [
+    "button",
+    "form",
+    "pin-input",
+    "toaster"
+  ],
+  "files": [
+    {
+      "path": "example/PinInputForm.vue",
+      "content": "<script setup lang=\"ts\">\nimport { h } from 'vue';\nimport { useForm } from 'vee-validate';\nimport { toTypedSchema } from '@vee-validate/zod';\nimport * as z from 'zod';\nimport { toast } from '@/components/ui/toaster';\nimport {\n  PinInput,\n  PinInputGroup,\n  PinInputInput,\n} from '@/components/ui/pin-input';\nimport { Button } from '@/components/ui/button';\nimport {\n  FormControl,\n  FormDescription,\n  FormField,\n  FormItem,\n  FormLabel,\n  FormMessage,\n} from '@/components/ui/form';\n\nconst formSchema = toTypedSchema(z.object({\n  pin: z.array(z.coerce.number()).length(5, { message: 'Invalid input' }),\n}));\n\nconst { handleSubmit, setFieldValue } = useForm({\n  validationSchema: formSchema,\n  initialValues: {\n    pin: [1, 2, 3],\n  },\n});\n\nconst onSubmit = handleSubmit(({ pin }) => {\n  toast('You submitted the following values:', {\n    description: h('pre', { class: 'mt-2 rounded-md bg-muted/50 p-4' }, h('code', {}, JSON.stringify(pin.join(''), null, 2))),\n  });\n});\n\nconst handleComplete = (digits: (number | undefined)[]) => console.log(digits.join(''));\n</script>\n\n<template>\n  <form\n    class=\"w-2/3 space-y-6 mx-auto\"\n    @submit=\"onSubmit\"\n  >\n    <FormField\n      v-slot=\"{ componentField, value }\"\n      name=\"pin\"\n    >\n      <FormItem>\n        <FormLabel>OTP</FormLabel>\n        <FormControl>\n          <PinInput\n            id=\"pin-input\"\n            v-model=\"value!\"\n            placeholder=\"○\"\n            class=\"flex gap-2 items-center mt-1\"\n            otp\n            type=\"number\"\n            :name=\"componentField.name\"\n            @complete=\"handleComplete\"\n            @update:model-value=\"(digits) => {\n              setFieldValue('pin', digits.filter((digit) => digit !== undefined))\n            }\"\n          >\n            <PinInputGroup>\n              <PinInputInput\n                v-for=\"(id, index) in 5\"\n                :key=\"id\"\n                :index=\"index\"\n              />\n            </PinInputGroup>\n          </PinInput>\n        </FormControl>\n        <FormDescription>\n          Allows users to input a sequence of one-character alphanumeric inputs.\n        </FormDescription>\n        <FormMessage />\n      </FormItem>\n    </FormField>\n\n    <Button>Submit</Button>\n  </form>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

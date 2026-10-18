@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sheet-side",
+  "type": "registry:example",
+  "title": "SheetSide",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "input",
+    "label",
+    "sheet"
+  ],
+  "files": [
+    {
+      "path": "example/SheetSide.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue';\nimport { Button } from '@/components/ui/button';\nimport { Input } from '@/components/ui/input';\nimport { Label } from '@/components/ui/label';\nimport {\n  Sheet,\n  SheetClose,\n  SheetContent,\n  SheetDescription,\n  SheetFooter,\n  SheetHeader,\n  SheetTitle,\n  SheetTrigger,\n} from '@/components/ui/sheet';\n\nconst SHEET_SIDES = ['top', 'right', 'bottom', 'left'] as const;\n\nconst username = ref('');\n</script>\n\n<template>\n  <div class=\"grid grid-cols-2 gap-2\">\n    <Sheet\n      v-for=\"side in SHEET_SIDES\"\n      :key=\"side\"\n    >\n      <SheetTrigger as-child>\n        <Button variant=\"outline\">\n          {{ side }}\n        </Button>\n      </SheetTrigger>\n      <SheetContent :side=\"side\">\n        <SheetHeader>\n          <SheetTitle>Edit profile</SheetTitle>\n          <SheetDescription>\n            Make changes to your profile here. Click save when you're done.\n          </SheetDescription>\n        </SheetHeader>\n        <div class=\"grid gap-4 py-4\">\n          <div class=\"grid items-center grid-cols-4 gap-4\">\n            <Label\n              for=\"name\"\n              class=\"text-right\"\n            >Name</Label>\n            <Input\n              id=\"name\"\n              v-model=\"username\"\n              class=\"col-span-3\"\n            />\n          </div>\n          <div class=\"grid items-center grid-cols-4 gap-4\">\n            <Label\n              for=\"username\"\n              class=\"text-right\"\n            >Username</Label>\n            <Input\n              id=\"username\"\n              v-model=\"username\"\n              class=\"col-span-3\"\n            />\n          </div>\n        </div>\n        <SheetFooter>\n          <SheetClose as-child>\n            <Button type=\"submit\">\n              Save changes\n            </Button>\n          </SheetClose>\n        </SheetFooter>\n      </SheetContent>\n    </Sheet>\n  </div>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

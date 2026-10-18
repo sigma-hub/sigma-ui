@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "hover-card",
   "type": "registry:ui",
+  "title": "Hover Card",
+  "description": "For displaying additional content that appears when hovering over a trigger element.",
   "dependencies": [
     "reka-ui@^2.11.0"
   ],

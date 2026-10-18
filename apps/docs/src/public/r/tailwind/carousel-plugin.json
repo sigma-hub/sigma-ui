@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "carousel-plugin",
+  "type": "registry:example",
+  "title": "CarouselPlugin",
+  "dependencies": [
+    "embla-carousel-autoplay@^8.6.0"
+  ],
+  "registryDependencies": [
+    "carousel"
+  ],
+  "files": [
+    {
+      "path": "example/CarouselPlugin.vue",
+      "content": "<script setup lang=\"ts\">\nimport Autoplay from 'embla-carousel-autoplay';\nimport { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';\n\nconst plugin = Autoplay({\n  delay: 2000,\n  stopOnMouseEnter: true,\n  stopOnInteraction: false,\n});\n</script>\n\n<template>\n  <Carousel\n    class=\"relative w-full max-w-xs\"\n    :plugins=\"[plugin]\"\n    @mouseenter=\"plugin.stop\"\n    @mouseleave=\"[plugin.reset(), plugin.play()];\"\n  >\n    <CarouselContent>\n      <CarouselItem\n        v-for=\"(_, index) in 5\"\n        :key=\"index\"\n      >\n        <div class=\"p-1\">\n          <div class=\"flex aspect-square items-center justify-center p-6 border rounded-lg text-4xl font-semibold select-none\">\n            {{ index + 1 }}\n          </div>\n        </div>\n      </CarouselItem>\n    </CarouselContent>\n    <CarouselPrevious />\n    <CarouselNext />\n  </Carousel>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

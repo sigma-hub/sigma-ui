@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea-demo",
+  "type": "registry:example",
+  "title": "Textarea",
+  "dependencies": [],
+  "registryDependencies": [
+    "textarea"
+  ],
+  "files": [
+    {
+      "path": "example/Textarea.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Textarea } from '@/components/ui/textarea';\n</script>\n\n<template>\n  <Textarea placeholder=\"Type your message here.\" />\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

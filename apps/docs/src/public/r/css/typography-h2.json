@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "typography-h2",
+  "type": "registry:example",
+  "title": "TypographyH2",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "example/TypographyH2.vue",
+      "content": "<template>\n  <h2 class=\"example-sigma-ui-typography__heading-2\">\n    The People of the Kingdom\n  </h2>\n</template>\n\n<style>\n.example-sigma-ui-typography__heading-2 {\n  padding-bottom: calc(var(--spacing) * 2);\n  border-bottom: 1px solid var(--border);\n  font-size: 1.875rem;\n  font-weight: 600;\n  letter-spacing: -0.025em;\n  scroll-margin-top: calc(var(--spacing) * 20);\n  transition-duration: 150ms;\n  transition-property: color;\n  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);\n}\n\n.example-sigma-ui-typography__heading-2:first-child {\n  margin-top: 0;\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

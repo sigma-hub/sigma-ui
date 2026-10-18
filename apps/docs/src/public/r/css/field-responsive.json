@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field-responsive",
+  "type": "registry:example",
+  "title": "FieldResponsive",
+  "dependencies": [],
+  "registryDependencies": [
+    "field",
+    "input"
+  ],
+  "files": [
+    {
+      "path": "example/FieldResponsive.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Field, FieldContent, FieldDescription, FieldGroup, FieldLabel } from '@/components/ui/field';\nimport { Input } from '@/components/ui/input';\n</script>\n\n<template>\n  <FieldGroup class=\"example-field-responsive\">\n    <Field orientation=\"responsive\">\n      <FieldContent>\n        <FieldLabel for=\"field-responsive-name\">\n          Display name\n        </FieldLabel>\n        <FieldDescription>Shown next to your comments.</FieldDescription>\n      </FieldContent>\n      <Input\n        id=\"field-responsive-name\"\n        placeholder=\"Jane Doe\"\n        class=\"example-field-responsive__input\"\n      />\n    </Field>\n    <Field orientation=\"responsive\">\n      <FieldContent>\n        <FieldLabel for=\"field-responsive-email\">\n          Email\n        </FieldLabel>\n        <FieldDescription>Where we send receipts.</FieldDescription>\n      </FieldContent>\n      <Input\n        id=\"field-responsive-email\"\n        type=\"email\"\n        placeholder=\"jane@example.com\"\n        class=\"example-field-responsive__input\"\n      />\n    </Field>\n  </FieldGroup>\n</template>\n\n<style>\n.example-field-responsive {\n  max-width: 36rem;\n}\n\n@container field-group (width >= 28rem) {\n  .example-field-responsive .example-field-responsive__input {\n    max-width: 260px;\n  }\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

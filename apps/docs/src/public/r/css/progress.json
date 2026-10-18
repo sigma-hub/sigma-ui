@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "progress",
   "type": "registry:ui",
+  "title": "Progress",
+  "description": "Displays an indicator of progress.",
   "dependencies": [
     "reka-ui@^2.11.0"
   ],

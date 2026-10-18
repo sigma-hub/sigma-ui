@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sidebar-controlled",
+  "type": "registry:example",
+  "title": "SidebarControlled",
+  "dependencies": [
+    "lucide-vue-next@^1.0.0"
+  ],
+  "registryDependencies": [
+    "button",
+    "sidebar"
+  ],
+  "files": [
+    {
+      "path": "example/SidebarControlled.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue';\nimport { CalendarIcon, HomeIcon, InboxIcon } from 'lucide-vue-next';\nimport { Button } from '@/components/ui/button';\nimport {\n  Sidebar,\n  SidebarContent,\n  SidebarGroup,\n  SidebarGroupContent,\n  SidebarInset,\n  SidebarMenu,\n  SidebarMenuButton,\n  SidebarMenuItem,\n  SidebarProvider,\n} from '@/components/ui/sidebar';\n\nconst isOpen = ref(true);\n\nconst items = [\n  { title: 'Home', icon: HomeIcon },\n  { title: 'Inbox', icon: InboxIcon },\n  { title: 'Calendar', icon: CalendarIcon },\n];\n</script>\n\n<template>\n  <div class=\"example-sidebar-controlled\">\n    <SidebarProvider\n      v-model:open=\"isOpen\"\n      cookie-name=\"\"\n      class=\"example-sidebar-controlled__provider\"\n    >\n      <SidebarInset>\n        <div class=\"example-sidebar-controlled__main\">\n          <Button\n            variant=\"outline\"\n            @click=\"isOpen = !isOpen\"\n          >\n            {{ isOpen ? 'Close sidebar' : 'Open sidebar' }}\n          </Button>\n          <p class=\"example-sidebar-controlled__text\">\n            The sidebar is {{ isOpen ? 'open' : 'closed' }}.\n          </p>\n        </div>\n      </SidebarInset>\n      <Sidebar\n        side=\"right\"\n        class=\"example-sidebar-controlled__sidebar\"\n      >\n        <SidebarContent>\n          <SidebarGroup>\n            <SidebarGroupContent>\n              <SidebarMenu>\n                <SidebarMenuItem\n                  v-for=\"item in items\"\n                  :key=\"item.title\"\n                >\n                  <SidebarMenuButton>\n                    <component :is=\"item.icon\" />\n                    <span>{{ item.title }}</span>\n                  </SidebarMenuButton>\n                </SidebarMenuItem>\n              </SidebarMenu>\n            </SidebarGroupContent>\n          </SidebarGroup>\n        </SidebarContent>\n      </Sidebar>\n    </SidebarProvider>\n  </div>\n</template>\n\n<style>\n.example-sidebar-controlled {\n  position: relative;\n  overflow: hidden;\n  width: 100%;\n  height: 360px;\n  border: 1px solid var(--border);\n  border-radius: var(--radius);\n  transform: translateZ(0);\n}\n\n.example-sidebar-controlled .example-sidebar-controlled__provider {\n  height: 100%;\n  min-height: 100%;\n}\n\n.example-sidebar-controlled .example-sidebar-controlled__sidebar {\n  height: 100%;\n}\n\n.example-sidebar-controlled__main {\n  display: flex;\n  flex: 1;\n  flex-direction: column;\n  align-items: flex-start;\n  padding: calc(var(--spacing) * 4);\n  gap: calc(var(--spacing) * 4);\n}\n\n.example-sidebar-controlled__text {\n  margin: 0;\n  color: var(--muted-foreground);\n  font-size: 0.875rem;\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

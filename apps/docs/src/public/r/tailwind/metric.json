@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "metric",
+  "type": "registry:example",
+  "title": "Metric",
+  "dependencies": [
+    "@unovis/ts@^1.7.1",
+    "@unovis/vue@^1.7.1"
+  ],
+  "registryDependencies": [
+    "card"
+  ],
+  "files": [
+    {
+      "path": "example/Cards/Metric.vue",
+      "content": "<script setup lang=\"ts\">\nimport { VisCrosshair, VisLine, VisScatter, VisTooltip, VisXYContainer } from '@unovis/vue';\nimport { Line } from '@unovis/ts';\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card';\n\ntype Data = typeof data[number];\nconst data = [\n  { average: 400, today: 240 },\n  { average: 300, today: 139 },\n  { average: 200, today: 980 },\n  { average: 278, today: 390 },\n  { average: 189, today: 480 },\n  { average: 239, today: 380 },\n  { average: 349, today: 430 },\n];\n\nconst x = (d: Data, i: number) => i;\n\nfunction template(d: Data) {\n  return `\n<div class=\"rounded-lg border bg-background p-2 shadow-sm\">\n  <div class=\"grid grid-cols-2 gap-2\">\n    <div class=\"flex flex-col\">\n      <span class=\"text-[0.70rem] uppercase text-muted-foreground\">\n        Average\n      </span>\n      <span class=\"font-bold text-muted-foreground\">\n        ${d.average}\n      </span>\n    </div>\n    <div class=\"flex flex-col\">\n      <span class=\"text-[0.70rem] uppercase text-muted-foreground\">\n        Today\n      </span>\n      <span class=\"font-bold text-white\">\n        ${d.today}\n      </span>\n    </div>\n  </div>\n</div>`;\n}\n\nfunction computeLineOpacity(val: any, index: number) {\n  if (index === 0) {\n    return '0.5';\n  }\n}\n</script>\n\n<template>\n  <Card>\n    <CardHeader>\n      <CardTitle>Exercise Minutes</CardTitle>\n      <CardDescription>\n        Your exercise minutes are ahead of where you normally are.\n      </CardDescription>\n    </CardHeader>\n    <CardContent class=\"pb-4\">\n      <div class=\"h-[200px]\">\n        <VisXYContainer\n          height=\"200px\"\n          :data=\"data\"\n          :margin=\"{\n            top: 5,\n            right: 10,\n            left: 10,\n            bottom: 0,\n          }\"\n          :style=\"{\n            '--vis-tooltip-padding': '0px',\n            '--vis-tooltip-background-color': 'transparent',\n            '--vis-tooltip-border-color': 'transparent',\n          }\"\n        >\n          <VisTooltip />\n          <VisLine\n            :x=\"x\"\n            :y=\"[(d: Data) => d.average, (d: Data) => d.today]\"\n            :stroke-width=\"2\"\n            color=\"var(--primary)\"\n            :attributes=\"{ [Line.selectors.linePath]: { opacity: computeLineOpacity } }\"\n          />\n          <VisScatter\n            :x=\"x\"\n            :y=\"[(d: Data) => d.average, (d: Data) => d.today]\"\n            :size=\"6\"\n            :stroke-width=\"2\"\n            stroke-color=\"var(--primary)\"\n            color=\"white\"\n          />\n          <VisCrosshair :template=\"template\" />\n        </VisXYContainer>\n      </div>\n    </CardContent>\n  </Card>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

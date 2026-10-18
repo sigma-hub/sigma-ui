@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pin-input-demo",
+  "type": "registry:example",
+  "title": "PinInput",
+  "dependencies": [],
+  "registryDependencies": [
+    "pin-input"
+  ],
+  "files": [
+    {
+      "path": "example/PinInput.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue';\nimport {\n  PinInput,\n  PinInputGroup,\n  PinInputInput,\n} from '@/components/ui/pin-input';\n\nconst value = ref<string[]>([]);\nconst handleComplete = (e: string[]) => alert(e.join(''));\n</script>\n\n<template>\n  <div>\n    <PinInput\n      id=\"pin-input\"\n      v-model=\"value\"\n      placeholder=\"○\"\n      @complete=\"handleComplete\"\n    >\n      <PinInputGroup>\n        <PinInputInput\n          v-for=\"(id, index) in 5\"\n          :key=\"id\"\n          :index=\"index\"\n        />\n      </PinInputGroup>\n    </PinInput>\n  </div>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

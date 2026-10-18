@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slider-form",
+  "type": "registry:example",
+  "title": "SliderForm",
+  "dependencies": [
+    "@vee-validate/zod@^4.15.1",
+    "vee-validate@^4.15.1",
+    "zod@^3.25.76"
+  ],
+  "registryDependencies": [
+    "button",
+    "form",
+    "slider",
+    "toaster"
+  ],
+  "files": [
+    {
+      "path": "example/SliderForm.vue",
+      "content": "<script setup lang=\"ts\">\nimport { h, ref } from 'vue';\nimport { useForm } from 'vee-validate';\nimport { toTypedSchema } from '@vee-validate/zod';\nimport * as z from 'zod';\nimport { toast } from '@/components/ui/toaster';\nimport { Button } from '@/components/ui/button';\nimport {\n  FormControl,\n  FormDescription,\n  FormField,\n  FormItem,\n  FormLabel,\n  FormMessage,\n} from '@/components/ui/form';\nimport { Slider } from '@/components/ui/slider';\n\nconst formSchema = toTypedSchema(z.object({\n  duration: z.array(\n    z.number().min(0).max(60),\n  ),\n}));\n\nconst { handleSubmit } = useForm({\n  validationSchema: formSchema,\n  initialValues: {\n    duration: [30],\n  },\n});\n\nconst model = ref([30]);\n\nconst onSubmit = handleSubmit((values) => {\n  toast('You submitted the following values:', {\n    description: h('pre', { class: 'example-sigma-ui-slider-form__toast-pre' }, h('code', {}, JSON.stringify(values, null, 2))),\n  });\n});\n</script>\n\n<template>\n  <form\n    class=\"example-sigma-ui-slider-form\"\n    @submit=\"onSubmit\"\n  >\n    <FormField\n      v-slot=\"{ componentField, value }\"\n      name=\"duration\"\n    >\n      <FormItem\n        class=\"example-sigma-ui-slider-form__field-item\"\n      >\n        <FormLabel>Duration</FormLabel>\n        <FormControl>\n          <Slider\n            v-bind=\"componentField\"\n            v-model=\"model\"\n            :max=\"100\"\n            :min=\"0\"\n            :step=\"5\"\n          />\n          <FormDescription class=\"example-sigma-ui-slider-form__description\">\n            <span>How many minutes are you available?</span>\n            <span>{{ value?.[0] }} min</span>\n          </FormDescription>\n        </FormControl>\n        <FormMessage />\n      </FormItem>\n    </FormField>\n\n    <Button\n      type=\"submit\"\n      class=\"example-sigma-ui-slider-form__submit\"\n    >\n      Submit\n    </Button>\n  </form>\n</template>\n\n<style>\n.example-sigma-ui-slider-form {\n  display: flex;\n  width: 66%;\n  flex-direction: column;\n  gap: calc(var(--spacing) * 6);\n}\n\n.example-sigma-ui-slider-form__field-item {\n  display: flex;\n  flex-direction: column;\n  gap: calc(var(--spacing) * 2);\n}\n\n.example-sigma-ui-slider-form__description {\n  display: flex;\n  justify-content: space-between;\n}\n\n.example-sigma-ui-slider-form__submit {\n  width: fit-content;\n}\n\n.example-sigma-ui-slider-form__toast-pre {\n  padding: calc(var(--spacing) * 4);\n  border-radius: var(--radius);\n  margin-top: calc(var(--spacing) * 2);\n  background-color: color-mix(in oklch, var(--muted) 50%, transparent);\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

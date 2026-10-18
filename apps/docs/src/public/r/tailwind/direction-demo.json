@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "direction-demo",
+  "type": "registry:example",
+  "title": "Direction",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "direction"
+  ],
+  "files": [
+    {
+      "path": "example/Direction.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue';\nimport { Button } from '@/components/ui/button';\nimport { Direction } from '@/components/ui/direction';\n\nconst dir = ref<'ltr' | 'rtl'>('rtl');\n\nfunction toggleDirection() {\n  dir.value = dir.value === 'rtl' ? 'ltr' : 'rtl';\n}\n</script>\n\n<template>\n  <Direction\n    :dir=\"dir\"\n    class=\"w-full max-w-sm\"\n  >\n    <div class=\"flex w-full max-w-sm flex-col items-start gap-3 rounded-md border p-4 text-start\">\n      <p class=\"text-sm\">\n        Reading direction: {{ dir }}\n      </p>\n      <Button\n        variant=\"outline\"\n        @click=\"toggleDirection\"\n      >\n        Switch to {{ dir === 'rtl' ? 'LTR' : 'RTL' }}\n      </Button>\n    </div>\n  </Direction>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

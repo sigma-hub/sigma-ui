@@ -119,7 +119,7 @@ async function getSelectedItems(options: AddOptions, context: RegistryContext) {
     message: 'Which components would you like to add?',
     hint: 'Type to filter, [Space] to select, [Enter] to submit.',
     instructions: false,
-    choices: index.items.map(item => ({
+    choices: index.items.filter(item => item.type !== 'registry:example').map(item => ({
       title: item.type === 'registry:block' ? `${item.name} ${colors.dim('(block)')}` : item.name,
       description: item.description,
       value: item.name,

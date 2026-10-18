@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "kbd",
   "type": "registry:ui",
+  "title": "Kbd",
+  "description": "Display a keyboard key or a shortcut.",
   "dependencies": [],
   "registryDependencies": [],
   "files": [

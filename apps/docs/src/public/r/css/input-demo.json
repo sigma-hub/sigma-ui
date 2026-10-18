@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-demo",
+  "type": "registry:example",
+  "title": "Input",
+  "dependencies": [],
+  "registryDependencies": [
+    "input"
+  ],
+  "files": [
+    {
+      "path": "example/Input.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Input } from '@/components/ui/input';\n</script>\n\n<template>\n  <Input\n    type=\"email\"\n    placeholder=\"Email\"\n  />\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

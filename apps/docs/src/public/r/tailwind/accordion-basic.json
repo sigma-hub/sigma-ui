@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion-basic",
+  "type": "registry:example",
+  "title": "AccordionBasic",
+  "dependencies": [],
+  "registryDependencies": [
+    "accordion"
+  ],
+  "files": [
+    {
+      "path": "example/AccordionBasic.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';\n</script>\n\n<template>\n  <Accordion\n    class=\"w-full\"\n    type=\"single\"\n    collapsible\n  >\n    <AccordionItem value=\"item-1\">\n      <AccordionTrigger>Is it accessible?</AccordionTrigger>\n      <AccordionContent>\n        Yes. It adheres to the WAI-ARIA design pattern.\n      </AccordionContent>\n    </AccordionItem>\n  </Accordion>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

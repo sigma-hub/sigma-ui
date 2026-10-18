@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "combobox",
   "type": "registry:ui",
+  "title": "Combobox",
+  "description": "Autocomplete input with a list of suggestions.",
   "dependencies": [
     "@vueuse/core@^14.4.0",
     "reka-ui@^2.11.0"

@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "dialog",
   "type": "registry:ui",
+  "title": "Dialog",
+  "description": "Container for displaying content on top of other content.",
   "dependencies": [
     "@vueuse/core@^14.4.0",
     "lucide-vue-next@^1.0.0",

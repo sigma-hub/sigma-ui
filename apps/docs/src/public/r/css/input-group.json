@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "input-group",
   "type": "registry:ui",
+  "title": "Input Group",
+  "description": "Add icons, text, and buttons inside an input or textarea.",
   "dependencies": [
     "class-variance-authority@^0.7.1"
   ],

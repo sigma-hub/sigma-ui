@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle-italic-with-text",
+  "type": "registry:example",
+  "title": "ToggleItalicWithText",
+  "dependencies": [
+    "lucide-vue-next@^1.0.0"
+  ],
+  "registryDependencies": [
+    "toggle"
+  ],
+  "files": [
+    {
+      "path": "example/ToggleItalicWithText.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ItalicIcon } from 'lucide-vue-next';\nimport { Toggle } from '@/components/ui/toggle';\n</script>\n\n<template>\n  <Toggle aria-label=\"Toggle italic\">\n    <ItalicIcon class=\"w-4 h-4 mr-2\" />\n    Italic\n  </Toggle>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

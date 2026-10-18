@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "aspect-ratio",
   "type": "registry:ui",
+  "title": "Aspect Ratio",
+  "description": "Keep content at a fixed width-to-height ratio.",
   "dependencies": [
     "reka-ui@^2.11.0"
   ],

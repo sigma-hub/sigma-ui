@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sheet-demo",
+  "type": "registry:example",
+  "title": "Sheet",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "input",
+    "label",
+    "sheet"
+  ],
+  "files": [
+    {
+      "path": "example/Sheet.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/components/ui/button';\nimport { Input } from '@/components/ui/input';\nimport { Label } from '@/components/ui/label';\nimport {\n  Sheet,\n  SheetClose,\n  SheetContent,\n  SheetDescription,\n  SheetFooter,\n  SheetHeader,\n  SheetTitle,\n  SheetTrigger,\n} from '@/components/ui/sheet';\n</script>\n\n<template>\n  <Sheet>\n    <SheetTrigger as-child>\n      <Button variant=\"outline\">\n        Open\n      </Button>\n    </SheetTrigger>\n    <SheetContent class=\"example-sigma-ui-sheet\">\n      <SheetHeader>\n        <SheetTitle>Edit profile</SheetTitle>\n        <SheetDescription>\n          Make changes to your profile here. Click save when you're done.\n        </SheetDescription>\n      </SheetHeader>\n      <div class=\"example-sigma-ui-sheet__form\">\n        <div class=\"example-sigma-ui-sheet__form-row\">\n          <Label\n            for=\"name\"\n            class=\"example-sigma-ui-sheet__label\"\n          >\n            Name\n          </Label>\n          <Input\n            id=\"name\"\n            value=\"Pedro Duarte\"\n            class=\"example-sigma-ui-sheet__input\"\n          />\n        </div>\n        <div class=\"example-sigma-ui-sheet__form-row\">\n          <Label\n            for=\"username\"\n            class=\"example-sigma-ui-sheet__label\"\n          >\n            Username\n          </Label>\n          <Input\n            id=\"username\"\n            value=\"@peduarte\"\n            class=\"example-sigma-ui-sheet__input\"\n          />\n        </div>\n      </div>\n      <SheetFooter>\n        <SheetClose as-child>\n          <Button type=\"submit\">\n            Save changes\n          </Button>\n        </SheetClose>\n      </SheetFooter>\n    </SheetContent>\n  </Sheet>\n</template>\n\n<style>\n.example-sigma-ui-sheet {\n  padding: calc(var(--spacing) * 6);\n}\n\n.example-sigma-ui-sheet__form {\n  display: grid;\n  padding: calc(var(--spacing) * 4) 0;\n  gap: calc(var(--spacing) * 4);\n}\n\n.example-sigma-ui-sheet__form-row {\n  display: grid;\n  align-items: center;\n  gap: calc(var(--spacing) * 4);\n  grid-template-columns: repeat(4, 1fr);\n}\n\n.example-sigma-ui-sheet__label {\n  text-align: right;\n}\n\n.example-sigma-ui-sheet__input {\n  grid-column: span 3;\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

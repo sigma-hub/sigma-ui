@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox-with-description",
+  "type": "registry:example",
+  "title": "CheckboxWithDescription",
+  "dependencies": [],
+  "registryDependencies": [
+    "checkbox"
+  ],
+  "files": [
+    {
+      "path": "example/CheckboxWithDescription.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue';\nimport { Checkbox } from '@/components/ui/checkbox';\n\nconst termsAccepted = ref<boolean | 'indeterminate'>(false);\nconst disabledTerms = ref<boolean | 'indeterminate'>(false);\n</script>\n\n<template>\n  <div class=\"example-sigma-ui-checkbox-custom__container\">\n    <div class=\"example-sigma-ui-checkbox-custom\">\n      <Checkbox\n        id=\"checkbox-custom-1\"\n        :model-value=\"termsAccepted\"\n        @update:model-value=\"termsAccepted = $event\"\n      />\n      <div class=\"example-sigma-ui-checkbox-custom__content\">\n        <label\n          for=\"checkbox-custom-1\"\n          class=\"example-sigma-ui-checkbox-custom__label\"\n        >\n          Accept terms and conditions\n        </label>\n        <p class=\"example-sigma-ui-checkbox-custom__description\">\n          You agree to our Terms of Service and Privacy Policy.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"example-sigma-ui-checkbox-custom\">\n      <Checkbox\n        id=\"checkbox-custom-disabled-2\"\n        disabled\n        :model-value=\"disabledTerms\"\n        @update:model-value=\"disabledTerms = $event\"\n      />\n      <div class=\"example-sigma-ui-checkbox-custom__content\">\n        <label\n          for=\"checkbox-custom-disabled-2\"\n          class=\"example-sigma-ui-checkbox-custom__label\"\n        >\n          Accept terms and conditions\n        </label>\n        <p class=\"example-sigma-ui-checkbox-custom__description\">\n          You agree to our Terms of Service and Privacy Policy.\n        </p>\n      </div>\n    </div>\n  </div>\n</template>\n\n<style>\n.example-sigma-ui-checkbox-custom__container {\n  display: flex;\n  flex-direction: column;\n  gap: calc(var(--spacing) * 8);\n}\n\n.example-sigma-ui-checkbox-custom {\n  display: flex;\n  align-items: flex-start;\n  gap: calc(var(--spacing) * 2);\n}\n\n.example-sigma-ui-checkbox-custom__content {\n  display: grid;\n  gap: calc(var(--spacing) * 1.5);\n  line-height: 1;\n}\n\n.example-sigma-ui-checkbox-custom__label {\n  font-size: 0.875rem;\n  font-weight: 500;\n  line-height: 1;\n}\n\n.example-sigma-ui-checkbox-custom:has([data-disabled]) .example-sigma-ui-checkbox-custom__label,\n.example-sigma-ui-checkbox-custom:has([data-disabled]) .example-sigma-ui-checkbox-custom__description {\n  cursor: not-allowed;\n  opacity: 0.7;\n}\n\n.example-sigma-ui-checkbox-custom__description {\n  color: var(--muted-foreground);\n  font-size: 0.875rem;\n  line-height: 1.25rem;\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

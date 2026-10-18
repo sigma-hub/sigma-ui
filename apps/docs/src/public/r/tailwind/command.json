@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "command",
   "type": "registry:ui",
+  "title": "Command",
+  "description": "Composable command menu (command palette) with search.",
   "dependencies": [
     "lucide-vue-next@^1.0.0",
     "reka-ui@^2.11.0"

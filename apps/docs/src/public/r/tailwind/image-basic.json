@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-basic",
+  "type": "registry:example",
+  "title": "ImageBasic",
+  "dependencies": [],
+  "registryDependencies": [
+    "image"
+  ],
+  "files": [
+    {
+      "path": "example/ImageBasic.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Image } from '@/components/ui/image';\n</script>\n\n<template>\n  <div class=\"flex items-center justify-center h-[300px] w-[250px]\">\n    <Image\n      src=\"/avatars/avatar-example.png\"\n      alt=\"Image\"\n    />\n  </div>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

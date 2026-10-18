@@ -102,7 +102,7 @@ export function getFileTargetPath(file: RegistryItemFile, item: RegistryItem, co
   }
 
   const relativePath = withNaming(getPathWithinItem(file.path, item.name), config);
-  const groupsFilesInItemDirectory = item.type === 'registry:ui' || item.type === 'registry:block';
+  const groupsFilesInItemDirectory = item.type === 'registry:ui' || item.type === 'registry:block' || item.type === 'registry:example';
 
   if (pathOverride) {
     return path.resolve(pathOverride, groupsFilesInItemDirectory ? path.join(item.name, relativePath) : relativePath);
@@ -110,6 +110,11 @@ export function getFileTargetPath(file: RegistryItemFile, item: RegistryItem, co
 
   if (item.type === 'registry:block') {
     return path.join(config.resolvedPaths.blocks, item.name, relativePath);
+  }
+
+  // An example and the sibling files it imports share one folder, so `./CustomChartTooltip.vue` keeps resolving.
+  if (item.type === 'registry:example') {
+    return path.join(path.dirname(config.resolvedPaths.components), 'examples', item.name, path.basename(relativePath));
   }
 
   const baseDirectory = getFileBaseDirectory(file, item, config);

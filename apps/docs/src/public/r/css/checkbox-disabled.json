@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox-disabled",
+  "type": "registry:example",
+  "title": "CheckboxDisabled",
+  "dependencies": [],
+  "registryDependencies": [
+    "checkbox"
+  ],
+  "files": [
+    {
+      "path": "example/CheckboxDisabled.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue';\nimport { Checkbox } from '@/components/ui/checkbox';\n\nconst termsAccepted = ref<boolean | 'indeterminate'>(false);\n</script>\n\n<template>\n  <Checkbox\n    id=\"checkbox-disabled-1\"\n    label=\"Accept terms and conditions\"\n    description=\"You agree to our Terms of Service and Privacy Policy.\"\n    disabled\n    :model-value=\"termsAccepted\"\n    @update:model-value=\"termsAccepted = $event\"\n  />\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

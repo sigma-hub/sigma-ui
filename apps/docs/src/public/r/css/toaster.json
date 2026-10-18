@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "toaster",
   "type": "registry:ui",
+  "title": "Toaster",
+  "description": "An opinionated toast component for Vue.",
   "dependencies": [
     "vue-sonner@^2.0.9"
   ],

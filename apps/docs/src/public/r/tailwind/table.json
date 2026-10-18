@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "table",
   "type": "registry:ui",
+  "title": "Table",
+  "description": "A responsive table component.",
   "dependencies": [],
   "registryDependencies": [],
   "files": [

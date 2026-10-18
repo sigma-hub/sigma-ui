@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-demo",
+  "type": "registry:example",
+  "title": "Image",
+  "dependencies": [
+    "lucide-vue-next@^1.0.0"
+  ],
+  "registryDependencies": [
+    "image"
+  ],
+  "files": [
+    {
+      "path": "example/Image.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ImageIcon } from 'lucide-vue-next';\nimport { Image } from '@/components/ui/image';\n</script>\n\n<template>\n  <div class=\"example-image-container\">\n    <Image\n      src=\"/avatars/avatar-example.png\"\n      alt=\"Image\"\n    />\n\n    <Image alt=\"Image\">\n      <template #fallback>\n        <div class=\"example-fallback-container\">\n          NO IMAGE\n        </div>\n      </template>\n    </Image>\n\n    <Image alt=\"Image\">\n      <template #fallback>\n        <div class=\"example-fallback-container\">\n          <ImageIcon class=\"example-fallback-icon\" />\n          no photo\n        </div>\n      </template>\n    </Image>\n  </div>\n</template>\n\n<style scoped>\n.example-image-container {\n  display: grid;\n  height: 250px;\n  align-items: center;\n  justify-content: center;\n  gap: calc(var(--spacing) * 4);\n  grid-template-columns: repeat(3, minmax(120px, 220px));\n}\n\n.example-fallback-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  color: var(--muted-foreground);\n  gap: calc(var(--spacing) * 1);\n}\n\n.example-fallback-icon {\n  width: 50%;\n  max-width: 50px;\n  height: 50%;\n  max-height: 50px;\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

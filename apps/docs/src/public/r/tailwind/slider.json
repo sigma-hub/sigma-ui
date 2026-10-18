@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "slider",
   "type": "registry:ui",
+  "title": "Slider",
+  "description": "An input where the user selects a value from within a given range.",
   "dependencies": [
     "reka-ui@^2.11.0"
   ],

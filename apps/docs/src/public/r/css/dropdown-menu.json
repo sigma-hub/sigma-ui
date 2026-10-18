@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "dropdown-menu",
   "type": "registry:ui",
+  "title": "Dropdown Menu",
+  "description": "Displays a menu located at the trigger element.",
   "dependencies": [
     "lucide-vue-next@^1.0.0",
     "reka-ui@^2.11.0"

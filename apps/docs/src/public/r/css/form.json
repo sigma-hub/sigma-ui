@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "form",
   "type": "registry:ui",
+  "title": "Form",
+  "description": "Building forms with VeeValidate and Zod.",
   "dependencies": [
     "reka-ui@^2.11.0",
     "vee-validate@^4.15.1"

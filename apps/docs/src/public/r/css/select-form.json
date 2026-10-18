@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-form",
+  "type": "registry:example",
+  "title": "SelectForm",
+  "dependencies": [
+    "@vee-validate/zod@^4.15.1",
+    "vee-validate@^4.15.1",
+    "zod@^3.25.76"
+  ],
+  "registryDependencies": [
+    "button",
+    "form",
+    "select",
+    "toaster"
+  ],
+  "files": [
+    {
+      "path": "example/SelectForm.vue",
+      "content": "<script setup lang=\"ts\">\nimport { h } from 'vue';\nimport { useForm } from 'vee-validate';\nimport { toTypedSchema } from '@vee-validate/zod';\nimport * as z from 'zod';\nimport { toast } from '@/components/ui/toaster';\nimport { Button } from '@/components/ui/button';\nimport {\n  FormControl,\n  FormDescription,\n  FormField,\n  FormItem,\n  FormLabel,\n  FormMessage,\n} from '@/components/ui/form';\nimport {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select';\n\nconst formSchema = toTypedSchema(z.object({\n  email: z\n    .string({\n      required_error: 'Please select an email to display.',\n    })\n    .email(),\n}));\n\nconst { handleSubmit } = useForm({\n  validationSchema: formSchema,\n});\n\nconst onSubmit = handleSubmit((values) => {\n  toast('You submitted the following values:', {\n    description: h('pre', { class: 'example-sigma-ui-select-form__toast-pre' }, h('code', {}, JSON.stringify(values, null, 2))),\n  });\n});\n</script>\n\n<template>\n  <form\n    class=\"example-sigma-ui-select-form\"\n    @submit=\"onSubmit\"\n  >\n    <FormField\n      v-slot=\"{ componentField }\"\n      name=\"email\"\n    >\n      <FormItem>\n        <FormLabel>Email</FormLabel>\n\n        <Select v-bind=\"componentField\">\n          <FormControl>\n            <SelectTrigger>\n              <SelectValue placeholder=\"Select a verified email to display\" />\n            </SelectTrigger>\n          </FormControl>\n          <SelectContent>\n            <SelectGroup>\n              <SelectItem value=\"m@example.com\">\n                m@example.com\n              </SelectItem>\n              <SelectItem value=\"m@google.com\">\n                m@google.com\n              </SelectItem>\n              <SelectItem value=\"m@support.com\">\n                m@support.com\n              </SelectItem>\n            </SelectGroup>\n          </SelectContent>\n        </Select>\n        <FormDescription>\n          You can manage email addresses in your\n          <a href=\"/examples/forms\">email settings</a>.\n        </FormDescription>\n        <FormMessage />\n      </FormItem>\n    </FormField>\n\n    <Button\n      type=\"submit\"\n      class=\"example-sigma-ui-select-form__submit\"\n    >\n      Submit\n    </Button>\n  </form>\n</template>\n\n<style>\n.example-sigma-ui-select-form {\n  display: flex;\n  width: 66%;\n  flex-direction: column;\n  gap: calc(var(--spacing) * 6);\n}\n\n.example-sigma-ui-select-form__submit {\n  width: fit-content;\n}\n\n.example-sigma-ui-select-form__toast-pre {\n  padding: calc(var(--spacing) * 4);\n  border-radius: var(--radius);\n  margin-top: calc(var(--spacing) * 2);\n  background-color: color-mix(in oklch, var(--muted) 50%, transparent);\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

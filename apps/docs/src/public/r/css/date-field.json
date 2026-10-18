@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "date-field",
   "type": "registry:ui",
+  "title": "Date Field",
+  "description": "A field for typing a date, one segment at a time.",
   "dependencies": [
     "reka-ui@^2.11.0"
   ],

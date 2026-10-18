@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "custom-chart-tooltip",
+  "type": "registry:example",
+  "title": "CustomChartTooltip",
+  "dependencies": [],
+  "registryDependencies": [
+    "card"
+  ],
+  "files": [
+    {
+      "path": "example/CustomChartTooltip.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Card, CardContent } from '@/components/ui/card';\n\ndefineProps<{\n  title?: string;\n  data: {\n    name: string;\n    color: string;\n    value: any;\n  }[];\n}>();\n</script>\n\n<template>\n  <Card class=\"example-sigma-ui-custom-chart-tooltip\">\n    <CardContent class=\"example-sigma-ui-custom-chart-tooltip__content\">\n      <div\n        v-for=\"(item, key) in data\"\n        :key=\"key\"\n        class=\"example-sigma-ui-custom-chart-tooltip__item\"\n      >\n        <div class=\"example-sigma-ui-custom-chart-tooltip__item-label\">\n          <span\n            class=\"example-sigma-ui-custom-chart-tooltip__color-indicator\"\n            :style=\"{ background: item.color }\"\n          />\n          <span>{{ item.name }}</span>\n        </div>\n        <span class=\"example-sigma-ui-custom-chart-tooltip__value\">{{ item.value }}</span>\n      </div>\n    </CardContent>\n  </Card>\n</template>\n\n<style>\n.example-sigma-ui-custom-chart-tooltip {\n  font-size: 0.875rem;\n}\n\n.example-sigma-ui-custom-chart-tooltip__content {\n  display: flex;\n  min-width: 180px;\n  flex-direction: column;\n  padding: calc(var(--spacing) * 3);\n  gap: calc(var(--spacing) * 2);\n}\n\n.example-sigma-ui-custom-chart-tooltip__item {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n\n.example-sigma-ui-custom-chart-tooltip__item-label {\n  display: flex;\n  align-items: center;\n}\n\n.example-sigma-ui-custom-chart-tooltip__color-indicator {\n  width: 4px;\n  height: 28px;\n  border-radius: 9999px;\n  margin-right: calc(var(--spacing) * 4);\n}\n\n.example-sigma-ui-custom-chart-tooltip__value {\n  margin-left: calc(var(--spacing) * 4);\n  font-weight: 600;\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

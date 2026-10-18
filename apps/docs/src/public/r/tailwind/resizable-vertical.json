@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "resizable-vertical",
+  "type": "registry:example",
+  "title": "ResizableVertical",
+  "dependencies": [],
+  "registryDependencies": [
+    "resizable"
+  ],
+  "files": [
+    {
+      "path": "example/ResizableVertical.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  ResizableHandle,\n  ResizablePanel,\n  ResizablePanelGroup,\n} from '@/components/ui/resizable';\n</script>\n\n<template>\n  <ResizablePanelGroup\n    id=\"vertical-demo-group-1\"\n    direction=\"vertical\"\n    class=\"min-h-[200px] max-w-md rounded-lg border\"\n  >\n    <ResizablePanel\n      id=\"vertical-demo-panel-1\"\n      :default-size=\"25\"\n    >\n      <div class=\"flex h-full items-center justify-center p-6\">\n        <span class=\"font-semibold\">Header</span>\n      </div>\n    </ResizablePanel>\n    <ResizableHandle id=\"vertical-demo-handle-1\" />\n    <ResizablePanel\n      id=\"vertical-demo-panel-2\"\n      :default-size=\"75\"\n    >\n      <div class=\"flex h-full items-center justify-center p-6\">\n        <span class=\"font-semibold\">Content</span>\n      </div>\n    </ResizablePanel>\n  </ResizablePanelGroup>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

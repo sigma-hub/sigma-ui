@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-group",
   "type": "registry:ui",
+  "title": "Button Group",
+  "description": "Join related buttons, inputs, and text into a single control.",
   "dependencies": [
     "class-variance-authority@^0.7.1",
     "reka-ui@^2.11.0"

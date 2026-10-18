@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "time-range-field",
   "type": "registry:ui",
+  "title": "Time Range Field",
+  "description": "A field for a start time and an end time.",
   "dependencies": [
     "reka-ui@^2.11.0"
   ],

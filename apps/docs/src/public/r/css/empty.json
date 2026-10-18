@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "empty",
   "type": "registry:ui",
+  "title": "Empty",
+  "description": "A placeholder for a page or section that has no content yet.",
   "dependencies": [
     "class-variance-authority@^0.7.1"
   ],

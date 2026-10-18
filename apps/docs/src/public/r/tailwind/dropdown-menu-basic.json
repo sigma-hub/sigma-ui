@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dropdown-menu-basic",
+  "type": "registry:example",
+  "title": "DropdownMenuBasic",
+  "dependencies": [],
+  "registryDependencies": [
+    "dropdown-menu"
+  ],
+  "files": [
+    {
+      "path": "example/DropdownMenuBasic.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuLabel,\n  DropdownMenuSeparator,\n  DropdownMenuTrigger,\n} from '@/components/ui/dropdown-menu';\n</script>\n\n<template>\n  <DropdownMenu>\n    <DropdownMenuTrigger>Open</DropdownMenuTrigger>\n    <DropdownMenuContent>\n      <DropdownMenuLabel>My Account</DropdownMenuLabel>\n      <DropdownMenuSeparator />\n      <DropdownMenuItem>Profile</DropdownMenuItem>\n      <DropdownMenuItem>Billing</DropdownMenuItem>\n      <DropdownMenuItem>Team</DropdownMenuItem>\n      <DropdownMenuItem>Subscription</DropdownMenuItem>\n    </DropdownMenuContent>\n  </DropdownMenu>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

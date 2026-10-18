@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "breadcrumb-dynamic",
+  "type": "registry:example",
+  "title": "BreadcrumbDynamic",
+  "dependencies": [],
+  "registryDependencies": [
+    "breadcrumb"
+  ],
+  "files": [
+    {
+      "path": "example/BreadcrumbDynamic.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { ref } from 'vue';\nimport {\n  Breadcrumb,\n  BreadcrumbItem,\n  BreadcrumbLink,\n  BreadcrumbList,\n  BreadcrumbPage,\n  BreadcrumbSeparator,\n} from '@/components/ui/breadcrumb';\n\ninterface BreadcrumbItemType {\n  href?: string;\n  label: string;\n}\n\nconst items = ref<BreadcrumbItemType[]>([\n  { href: '/', label: 'Home' },\n  { href: '/docs/components/breadcrumb.html', label: 'Nesting level 1' },\n  { href: '/docs/components/breadcrumb.html', label: 'Nesting level 2' },\n  { href: '/docs/components/breadcrumb.html', label: 'Nesting level 3' },\n  { href: '/docs/components/breadcrumb.html', label: 'Nesting level 4' },\n  { href: '/docs/components/breadcrumb.html', label: 'Nesting level 5' },\n]);\n</script>\n\n<template>\n  <Breadcrumb>\n    <BreadcrumbList>\n      <template\n        v-for=\"(item, index) in items\"\n        :key=\"item.label\"\n      >\n        <BreadcrumbItem>\n          <template v-if=\"item.href && index !== items.length - 1\">\n            <BreadcrumbLink :href=\"item.href\">\n              {{ item.label }}\n            </BreadcrumbLink>\n          </template>\n          <template v-else>\n            <BreadcrumbPage>{{ item.label }}</BreadcrumbPage>\n          </template>\n        </BreadcrumbItem>\n        <BreadcrumbSeparator v-if=\"index < items.length - 1\" />\n      </template>\n    </BreadcrumbList>\n  </Breadcrumb>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-block-package-managers",
+  "type": "registry:example",
+  "title": "CodeBlockPackageManagers",
+  "dependencies": [
+    "@vueuse/core@^14.4.0"
+  ],
+  "registryDependencies": [
+    "code-block"
+  ],
+  "files": [
+    {
+      "path": "example/CodeBlockPackageManagers.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useStorage } from '@vueuse/core';\nimport {\n  CodeBlock,\n  CodeBlockActions,\n  CodeBlockContent,\n  CodeBlockCopyButton,\n  CodeBlockHeader,\n  CodeBlockTabs,\n  CodeBlockTabsContent,\n  CodeBlockTabsList,\n  CodeBlockTabsTrigger,\n  useHighlightedCode,\n} from '@/components/ui/code-block';\n\nconst commands = {\n  pnpm: 'pnpm dlx sigma-ui@latest add code-block',\n  npm: 'npx sigma-ui@latest add code-block',\n  yarn: 'yarn dlx sigma-ui@latest add code-block',\n  bun: 'bunx --bun sigma-ui@latest add code-block',\n};\n\ntype PackageManager = keyof typeof commands;\n\nconst packageManagers = Object.keys(commands) as PackageManager[];\nconst packageManager = useStorage<PackageManager>('code-block-package-manager', 'pnpm');\nconst highlighted = Object.fromEntries(packageManagers.map(name => [name, useHighlightedCode(commands[name], 'bash').lines]));\n</script>\n\n<template>\n  <CodeBlock>\n    <CodeBlockTabs v-model=\"packageManager\">\n      <CodeBlockHeader>\n        <CodeBlockTabsList aria-label=\"Package manager\">\n          <CodeBlockTabsTrigger\n            v-for=\"name in packageManagers\"\n            :key=\"name\"\n            :value=\"name\"\n          >\n            {{ name }}\n          </CodeBlockTabsTrigger>\n        </CodeBlockTabsList>\n        <CodeBlockActions>\n          <CodeBlockCopyButton />\n        </CodeBlockActions>\n      </CodeBlockHeader>\n      <CodeBlockTabsContent\n        v-for=\"name in packageManagers\"\n        :key=\"name\"\n        :value=\"name\"\n      >\n        <CodeBlockContent\n          :code=\"commands[name]\"\n          :lines=\"highlighted[name].value\"\n          language=\"bash\"\n        />\n      </CodeBlockTabsContent>\n    </CodeBlockTabs>\n  </CodeBlock>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

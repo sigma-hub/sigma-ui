@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toaster-custom-progress",
+  "type": "registry:example",
+  "title": "ToasterCustomProgress",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "toaster"
+  ],
+  "files": [
+    {
+      "path": "example/ToasterCustomProgress.vue",
+      "content": "<script setup lang=\"ts\">\nimport { markRaw, ref, onUnmounted, type Ref } from 'vue';\nimport { toast, CustomProgress } from '@/components/ui/toaster';\nimport { Button } from '@/components/ui/button';\nimport type { ToastItem } from '@/components/ui/toaster/CustomProgress.vue';\n\nconst toasts = ref<Ref<ToastItem['data']>[]>([]);\n\nconst onClick = () => {\n  const toastData = ref<ToastItem['data']>({\n    id: '',\n    title: 'Downloading...',\n    description: 'This is a description',\n    progress: 0,\n    timer: 0,\n    actionText: 'Cancel',\n    cleanup: () => {},\n  });\n\n  toastData.value.id = toast.custom(markRaw(CustomProgress), {\n    componentProps: {\n      data: toastData.value,\n      onAction: () => {\n        toast.dismiss(toastData.value.id);\n      },\n    },\n    duration: Infinity,\n  });\n\n  toastData.value.timer = window.setInterval(() => {\n    toastData.value.progress += 1;\n\n    if (toastData.value.progress >= 100) {\n      window.clearInterval(toastData.value.timer);\n      toastData.value.title = 'Download finished';\n      toastData.value.actionText = 'Open file';\n    }\n  }, 50);\n\n  toastData.value.cleanup = () => {\n    window.clearInterval(toastData.value.timer);\n  };\n\n  toasts.value.push(toastData);\n};\n\nonUnmounted(() => {\n  toasts.value.forEach(toast => toast.value.cleanup());\n});\n</script>\n\n<template>\n  <Button\n    variant=\"outline\"\n    @click=\"onClick\"\n  >\n    Progress toast\n  </Button>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

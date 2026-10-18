@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "faceted-filter",
   "type": "registry:ui",
+  "title": "Faceted Filter",
+  "description": "A filter component with multi-select options, search functionality, and optional item creation.",
   "dependencies": [
     "lucide-vue-next@^1.0.0"
   ],

@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "input",
   "type": "registry:ui",
+  "title": "Input",
+  "description": "Displays a form input field.",
   "dependencies": [],
   "registryDependencies": [],
   "files": [

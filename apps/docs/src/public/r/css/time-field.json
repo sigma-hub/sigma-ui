@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "time-field",
   "type": "registry:ui",
+  "title": "Time Field",
+  "description": "A field for typing a time, one segment at a time.",
   "dependencies": [
     "reka-ui@^2.11.0"
   ],

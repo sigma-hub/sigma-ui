@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "chart-donut",
   "type": "registry:ui",
+  "title": "Donut",
+  "description": "A donut chart shows parts of a whole as slices around an empty center.",
   "dependencies": [
     "@unovis/ts@^1.7.1",
     "@unovis/vue@^1.7.1",
