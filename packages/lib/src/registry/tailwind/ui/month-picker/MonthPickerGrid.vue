@@ -19,9 +19,8 @@ const forwarded = useForwardProps(props);
 
 <template>
   <MonthPickerGrid
-    v-bind="{ ...forwarded, ...delegatedAttrs() }"
-
     data-slot="month-picker-grid"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="cn('w-full border-collapse', $attrs.class ?? '')"
   >
     <slot />

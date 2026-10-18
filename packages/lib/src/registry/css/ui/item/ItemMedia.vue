@@ -31,8 +31,8 @@ defineSlots<{
 
 <template>
   <div
-    v-bind="delegatedAttrs()"
     data-slot="item-media"
+    v-bind="delegatedAttrs()"
     :data-variant="props.variant"
     :class="[itemMediaVariants({ variant: props.variant }), $attrs.class]"
   >

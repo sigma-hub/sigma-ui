@@ -19,9 +19,9 @@ const forwarded = useForwardProps(props);
 
 <template>
   <AccordionContent
+    data-slot="accordion-content"
     v-bind="forwarded"
     class="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
-    data-slot="accordion-content"
   >
     <div
       v-bind="delegatedAttrs()"

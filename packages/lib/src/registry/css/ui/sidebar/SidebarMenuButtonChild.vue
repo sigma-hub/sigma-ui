@@ -38,8 +38,8 @@ const props = withDefaults(defineProps<SidebarMenuButtonProps>(), {
 
 <template>
   <Primitive
-    v-bind="delegatedAttrs()"
     data-slot="sidebar-menu-button"
+    v-bind="delegatedAttrs()"
     data-sidebar="menu-button"
     :data-size="size"
     :data-active="props.isActive"

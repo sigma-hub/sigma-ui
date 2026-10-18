@@ -22,8 +22,8 @@ defineSlots<{
 
 <template>
   <div
-    v-bind="delegatedAttrs()"
     data-slot="sidebar-header"
+    v-bind="delegatedAttrs()"
     data-sidebar="header"
     :class="cn('flex flex-col gap-2 p-2', $attrs.class ?? '')"
   >

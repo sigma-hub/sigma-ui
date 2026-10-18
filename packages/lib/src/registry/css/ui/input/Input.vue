@@ -21,9 +21,9 @@ defineEmits<{
 
 <template>
   <input
-    v-bind="delegatedAttrs()"
     v-model="model"
     data-slot="input"
+    v-bind="delegatedAttrs()"
     class="sigma-ui-input"
     :class="[$attrs.class]"
     autocomplete="off"

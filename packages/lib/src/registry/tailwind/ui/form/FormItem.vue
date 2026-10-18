@@ -19,9 +19,9 @@ provide(FORM_ITEM_INJECTION_KEY, id);
 
 <template>
   <div
+    data-slot="form-item"
     v-bind="delegatedAttrs()"
     :class="cn('flex flex-col gap-2', $attrs.class ?? '')"
-    data-slot="form-item"
   >
     <slot />
   </div>

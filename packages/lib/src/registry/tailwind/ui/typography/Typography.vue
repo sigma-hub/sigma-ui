@@ -79,10 +79,10 @@ defineSlots<{
 
 <template>
   <Primitive
+    data-slot="typography"
     v-bind="delegatedAttrs()"
     :as="element"
     :as-child="props.asChild"
-    data-slot="typography"
     :class="cn(typographyVariants({ variant: props.variant }), $attrs.class ?? '')"
   >
     <slot />

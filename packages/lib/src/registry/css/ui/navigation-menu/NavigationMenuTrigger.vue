@@ -25,10 +25,10 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <NavigationMenuTrigger
+    data-slot="navigation-menu-trigger"
     v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     class="sigma-ui-navigation-menu-trigger"
     :class="[navigationMenuTriggerStyle(), $attrs.class]"
-    data-slot="navigation-menu-trigger"
   >
     <slot />
     <ChevronDownIcon

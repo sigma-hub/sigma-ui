@@ -22,8 +22,8 @@ defineSlots<{
 
 <template>
   <p
-    v-bind="delegatedAttrs()"
     data-slot="empty-description"
+    v-bind="delegatedAttrs()"
     :class="cn('text-sm/relaxed text-muted-foreground [&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-primary', $attrs.class ?? '')"
   >
     <slot />

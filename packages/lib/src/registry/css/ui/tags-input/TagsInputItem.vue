@@ -19,9 +19,9 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <TagsInputItem
+    data-slot="tags-input-item"
     v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     class="sigma-ui-tags-input-item"
-    data-slot="tags-input-item"
     :class="[$attrs.class]"
   >
     <slot />

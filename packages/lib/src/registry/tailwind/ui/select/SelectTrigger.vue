@@ -31,8 +31,8 @@ const forwardedProps = useForwardProps(reactiveOmit(props, 'size'));
 
 <template>
   <SelectTrigger
-    v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     data-slot="select-trigger"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     :data-size="props.size"
     :class="cn(
       'flex w-full items-center justify-between gap-2 rounded-md border border-border bg-input px-3 py-2 text-sm whitespace-nowrap outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive data-[placeholder]:text-muted-foreground data-[size=default]:h-9 data-[size=sm]:h-8 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 *:data-[slot=select-value]:line-clamp-1 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*=size-])]:size-4',

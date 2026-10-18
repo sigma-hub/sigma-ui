@@ -43,8 +43,8 @@ defineSlots<{
     :locale="props.locale"
   >
     <div
-      v-bind="delegatedAttrs()"
       data-slot="direction"
+      v-bind="delegatedAttrs()"
       class="sigma-ui-direction"
       :dir="props.dir"
       :class="[$attrs.class]"

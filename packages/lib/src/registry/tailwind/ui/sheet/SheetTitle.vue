@@ -18,9 +18,9 @@ const props = defineProps<DialogTitleProps>();
 
 <template>
   <DialogTitle
+    data-slot="sheet-title"
     v-bind="{ ...props, ...delegatedAttrs() }"
     :class="cn('text-lg font-semibold text-foreground', $attrs.class ?? '')"
-    data-slot="sheet-title"
   >
     <slot />
   </DialogTitle>

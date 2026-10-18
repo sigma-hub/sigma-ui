@@ -30,10 +30,10 @@ const forwardedProps = useForwardProps(props);
 <template>
   <HoverCardPortal>
     <HoverCardContent
+      data-slot="hover-card-content"
       v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
       class="sigma-ui-hover-card-content"
       :class="$attrs.class"
-      data-slot="hover-card-content"
     >
       <slot />
     </HoverCardContent>

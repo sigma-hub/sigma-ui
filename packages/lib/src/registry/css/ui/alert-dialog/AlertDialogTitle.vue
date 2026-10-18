@@ -8,10 +8,10 @@ const attrs = useAttrs();
 
 <template>
   <AlertDialogTitle
+    data-slot="alert-dialog-title"
     v-bind="props"
     class="sigma-ui-alert-dialog-title"
     :class="attrs.class"
-    data-slot="alert-dialog-title"
   >
     <slot />
   </AlertDialogTitle>

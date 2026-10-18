@@ -23,10 +23,10 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <MenubarSubTrigger
+    data-slot="menubar-sub-trigger"
     v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     class="sigma-ui-menubar-subtrigger"
     :class="[{ 'sigma-ui-menubar-subtrigger--inset': inset }, $attrs.class]"
-    data-slot="menubar-sub-trigger"
   >
     <slot />
     <ChevronRightIcon class="sigma-ui-menubar-subtrigger__icon" />

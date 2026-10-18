@@ -6,8 +6,8 @@ const props = defineProps<DropdownMenuGroupProps>();
 
 <template>
   <DropdownMenuGroup
-    v-bind="props"
     data-slot="dropdown-menu-group"
+    v-bind="props"
   >
     <slot />
   </DropdownMenuGroup>

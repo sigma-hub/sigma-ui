@@ -25,6 +25,7 @@ const { orientation, canScrollPrev, scrollPrev } = useCarousel();
 
 <template>
   <Button
+    data-slot="carousel-previous"
     v-bind="delegatedAttrs()"
     :disabled="!canScrollPrev"
     class="sigma-ui-carousel-previous"
@@ -33,7 +34,6 @@ const { orientation, canScrollPrev, scrollPrev } = useCarousel();
       $attrs.class ?? '',
     ]"
     variant="outline"
-    data-slot="carousel-previous"
     @click="scrollPrev"
   >
     <slot>

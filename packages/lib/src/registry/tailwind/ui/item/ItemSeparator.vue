@@ -21,8 +21,8 @@ const props = withDefaults(defineProps<SeparatorProps>(), {
 
 <template>
   <Separator
-    v-bind="{ ...props, ...delegatedAttrs() }"
     data-slot="item-separator"
+    v-bind="{ ...props, ...delegatedAttrs() }"
     :class="cn('my-0', $attrs.class ?? '')"
   />
 </template>

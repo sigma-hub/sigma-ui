@@ -18,8 +18,8 @@ const delegatedAttrs = () => {
 
 <template>
   <Textarea
-    v-bind="delegatedAttrs()"
     data-slot="input-group-control"
+    v-bind="delegatedAttrs()"
     :class="cn('flex-1 resize-none rounded-none border-0 bg-transparent py-3 shadow-none focus-visible:outline-none', $attrs.class ?? '')"
   />
 </template>

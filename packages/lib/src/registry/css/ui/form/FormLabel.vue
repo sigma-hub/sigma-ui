@@ -21,11 +21,11 @@ const { error, formItemId } = useFormField();
 
 <template>
   <Label
+    data-slot="form-label"
     v-bind="delegatedAttrs()"
     class="sigma-ui-form-label"
     :class="[$attrs.class ?? '', { 'sigma-ui-form-label--error': error }]"
     :for="formItemId"
-    data-slot="form-label"
   >
     <slot />
   </Label>

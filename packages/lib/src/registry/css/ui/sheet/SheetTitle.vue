@@ -18,8 +18,8 @@ const props = defineProps<DialogTitleProps>();
 <template>
   <DialogTitle
     class="sigma-ui-sheet-title"
-    v-bind="{ ...props, ...delegatedAttrs() }"
     data-slot="sheet-title"
+    v-bind="{ ...props, ...delegatedAttrs() }"
     :class="[$attrs.class]"
   >
     <slot />

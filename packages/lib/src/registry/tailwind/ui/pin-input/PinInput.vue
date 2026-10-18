@@ -23,9 +23,9 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <PinInputRoot
+    data-slot="pin-input"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="cn('flex gap-2 items-center', $attrs.class ?? '')"
-    data-slot="pin-input"
   >
     <slot />
   </PinInputRoot>

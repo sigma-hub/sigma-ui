@@ -22,8 +22,8 @@ defineSlots<{
 
 <template>
   <TabsContent
-    v-bind="{ ...forwardedProps, tabindex: -1, ...delegatedAttrs() }"
     data-slot="code-block-tabs-content"
+    v-bind="{ ...forwardedProps, tabindex: -1, ...delegatedAttrs() }"
     class="sigma-ui-code-block__tabs-content"
     :class="[$attrs.class]"
   >

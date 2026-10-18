@@ -58,10 +58,10 @@ async function toggle() {
 <template>
   <Button
     v-if="context?.collapsible.value"
-    v-bind="delegatedAttrs()"
     ref="button"
-    type="button"
     data-slot="code-block-expand-button"
+    v-bind="delegatedAttrs()"
+    type="button"
     :data-state="expanded ? 'open' : 'closed'"
     :variant="props.variant"
     :size="props.size"

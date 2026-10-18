@@ -19,9 +19,9 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <NavigationMenuIndicator
+    data-slot="navigation-menu-indicator"
     v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     class="sigma-ui-navigation-menu-indicator"
-    data-slot="navigation-menu-indicator"
     :class="[$attrs.class]"
   >
     <div class="sigma-ui-navigation-menu-indicator__pointer" />

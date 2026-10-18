@@ -6,8 +6,8 @@ const props = defineProps<CalendarGridHeadProps>();
 
 <template>
   <CalendarGridHead
-    v-bind="props"
     data-slot="calendar-grid-head"
+    v-bind="props"
   >
     <slot />
   </CalendarGridHead>

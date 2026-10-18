@@ -18,9 +18,9 @@ const props = defineProps<DialogDescriptionProps>();
 
 <template>
   <DialogDescription
+    data-slot="sheet-description"
     v-bind="{ ...props, ...delegatedAttrs() }"
     :class="cn('text-sm text-muted-foreground', $attrs.class ?? '')"
-    data-slot="sheet-description"
   >
     <slot />
   </DialogDescription>

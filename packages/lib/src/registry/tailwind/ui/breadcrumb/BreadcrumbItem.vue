@@ -16,9 +16,9 @@ const delegatedAttrs = () => {
 
 <template>
   <li
+    data-slot="breadcrumb-item"
     v-bind="delegatedAttrs()"
     :class="cn('inline-flex items-center gap-1.5', $attrs.class ?? '')"
-    data-slot="breadcrumb-item"
   >
     <slot />
   </li>

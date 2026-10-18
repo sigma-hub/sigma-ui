@@ -20,9 +20,9 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <SelectScrollDownButton
+    data-slot="select-scroll-down-button"
     v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     class="sigma-ui-select-scroll-down"
-    data-slot="select-scroll-down-button"
     :class="[$attrs.class]"
   >
     <slot>

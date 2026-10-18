@@ -21,8 +21,8 @@ const props = defineProps<ContextMenuSeparatorProps>();
 
 <template>
   <ContextMenuSeparator
+    data-slot="context-menu-separator"
     v-bind="{ ...props, ...delegatedAttrs() }"
     :class="cn('-mx-1 my-1 h-px bg-border', $attrs.class ?? '')"
-    data-slot="context-menu-separator"
   />
 </template>

@@ -22,8 +22,8 @@ defineSlots<{
 
 <template>
   <div
-    v-bind="delegatedAttrs()"
     data-slot="empty-title"
+    v-bind="delegatedAttrs()"
     :class="cn('text-lg font-medium tracking-tight', $attrs.class ?? '')"
   >
     <slot />

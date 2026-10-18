@@ -20,8 +20,8 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <MenubarSeparator
+    data-slot="menubar-separator"
     v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     :class=" cn('-mx-1 my-1 h-px bg-muted', $attrs.class ?? '')"
-    data-slot="menubar-separator"
   />
 </template>

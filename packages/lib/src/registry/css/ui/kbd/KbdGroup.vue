@@ -20,8 +20,8 @@ defineSlots<{
 
 <template>
   <kbd
-    v-bind="delegatedAttrs()"
     data-slot="kbd-group"
+    v-bind="delegatedAttrs()"
     class="sigma-ui-kbd-group"
     :class="[$attrs.class]"
   >

@@ -18,8 +18,8 @@ defineSlots<{
 
 <template>
   <div
-    v-bind="delegatedAttrs()"
     data-slot="code-block-footer"
+    v-bind="delegatedAttrs()"
     class="sigma-ui-code-block__footer"
     :class="[$attrs.class]"
   >

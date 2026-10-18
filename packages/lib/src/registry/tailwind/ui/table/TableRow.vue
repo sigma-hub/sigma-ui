@@ -16,9 +16,9 @@ const delegatedAttrs = () => {
 
 <template>
   <tr
+    data-slot="table-row"
     v-bind="delegatedAttrs()"
     :class="cn('border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted', $attrs.class ?? '')"
-    data-slot="table-row"
   >
     <slot />
   </tr>

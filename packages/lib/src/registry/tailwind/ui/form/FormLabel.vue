@@ -22,13 +22,13 @@ const { error, formItemId } = useFormField();
 
 <template>
   <Label
+    data-slot="form-label"
     v-bind="delegatedAttrs()"
     :class="cn(
       error && 'text-destructive',
       $attrs.class ?? '',
     )"
     :for="formItemId"
-    data-slot="form-label"
   >
     <slot />
   </Label>

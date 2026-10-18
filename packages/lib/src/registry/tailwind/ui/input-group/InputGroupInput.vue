@@ -18,8 +18,8 @@ const delegatedAttrs = () => {
 
 <template>
   <Input
-    v-bind="delegatedAttrs()"
     data-slot="input-group-control"
+    v-bind="delegatedAttrs()"
     :class="cn('h-auto flex-1 rounded-none border-0 bg-transparent shadow-none focus-visible:outline-none', $attrs.class ?? '')"
   />
 </template>

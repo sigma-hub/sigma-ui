@@ -20,11 +20,11 @@ withDefaults(defineProps<PrimitiveProps>(), {
 
 <template>
   <Primitive
+    data-slot="breadcrumb-link"
     v-bind="delegatedAttrs()"
     :as="as"
     :as-child="asChild"
     :class="cn('transition-colors hover:text-foreground', $attrs.class ?? '')"
-    data-slot="breadcrumb-link"
   >
     <slot />
   </Primitive>

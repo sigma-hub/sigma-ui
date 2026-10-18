@@ -22,9 +22,9 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <PinInputRoot
+    data-slot="pin-input"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
     class="sigma-ui-pin-input"
-    data-slot="pin-input"
     :class="[$attrs.class]"
   >
     <slot />

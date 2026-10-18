@@ -25,10 +25,10 @@ const forwarded = useForwardPropsEmits(props, emits);
 <template>
   <TooltipPortal>
     <TooltipContent
+      data-slot="tooltip-content"
       v-bind="{ ...forwarded, ...delegatedAttrs() }"
       class="sigma-ui-tooltip-content"
       :class="[$attrs.class]"
-      data-slot="tooltip-content"
     >
       <slot />
     </TooltipContent>

@@ -18,6 +18,7 @@ const { orientation } = useCarousel();
 
 <template>
   <div
+    data-slot="carousel-item"
     v-bind="delegatedAttrs()"
     role="group"
     aria-roledescription="slide"
@@ -26,7 +27,6 @@ const { orientation } = useCarousel();
       orientation === 'horizontal' ? 'pl-4' : 'pt-4',
       $attrs.class ?? '',
     )"
-    data-slot="carousel-item"
   >
     <slot />
   </div>

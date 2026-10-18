@@ -20,8 +20,8 @@ const forwarded = useForwardProps(props);
 
 <template>
   <MonthPickerPrev
-    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     data-slot="month-picker-prev-button"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     class="sigma-ui-month-picker-prev"
     :class="[buttonVariants({ variant: 'outline' }), $attrs.class]"
   >

@@ -20,9 +20,9 @@ const forwarded = useForwardProps(props);
 
 <template>
   <ListboxContent
+    data-slot="command-list"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
     class="sigma-ui-command-list"
-    data-slot="command-list"
     :class="[$attrs.class]"
   >
     <div

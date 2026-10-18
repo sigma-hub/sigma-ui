@@ -20,9 +20,9 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <SplitterGroup
+    data-slot="resizable-panel-group"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
     class="sigma-ui-resizable-panel-group"
-    data-slot="resizable-panel-group"
     :class="[$attrs.class]"
   >
     <slot />

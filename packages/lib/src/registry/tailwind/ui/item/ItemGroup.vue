@@ -22,9 +22,9 @@ defineSlots<{
 
 <template>
   <div
+    data-slot="item-group"
     v-bind="delegatedAttrs()"
     role="list"
-    data-slot="item-group"
     :class="cn('group/item-group flex flex-col', $attrs.class ?? '')"
   >
     <slot />

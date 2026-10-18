@@ -17,6 +17,7 @@ const { orientation } = useCarousel();
 
 <template>
   <div
+    data-slot="carousel-item"
     v-bind="delegatedAttrs()"
     class="sigma-ui-carousel-item"
     :class="[
@@ -25,7 +26,6 @@ const { orientation } = useCarousel();
     ]"
     role="group"
     aria-roledescription="slide"
-    data-slot="carousel-item"
   >
     <slot />
   </div>

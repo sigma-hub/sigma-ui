@@ -18,8 +18,8 @@ const props = defineProps<SelectGroupProps>();
 <template>
   <SelectGroup
     class="sigma-ui-select-group"
-    v-bind="{ ...props, ...delegatedAttrs() }"
     data-slot="select-group"
+    v-bind="{ ...props, ...delegatedAttrs() }"
     :class="[$attrs.class]"
   >
     <slot />

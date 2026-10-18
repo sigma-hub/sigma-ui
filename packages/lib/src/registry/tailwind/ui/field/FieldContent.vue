@@ -22,8 +22,8 @@ defineSlots<{
 
 <template>
   <div
-    v-bind="delegatedAttrs()"
     data-slot="field-content"
+    v-bind="delegatedAttrs()"
     :class="cn('group/field-content flex flex-1 flex-col gap-1.5 leading-snug', $attrs.class ?? '')"
   >
     <slot />

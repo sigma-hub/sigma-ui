@@ -18,10 +18,10 @@ const props = defineProps<DrawerOverlayProps>();
 
 <template>
   <DrawerOverlay
+    data-slot="drawer-overlay"
     v-bind="{ ...props, ...delegatedAttrs() }"
     class="sigma-ui-drawer-overlay"
     :class="[$attrs.class]"
-    data-slot="drawer-overlay"
   />
 </template>
 

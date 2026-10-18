@@ -22,8 +22,8 @@ defineSlots<{
 
 <template>
   <li
-    v-bind="delegatedAttrs()"
     data-slot="sidebar-menu-item"
+    v-bind="delegatedAttrs()"
     data-sidebar="menu-item"
     :class="cn('group/menu-item relative', $attrs.class ?? '')"
   >

@@ -72,10 +72,10 @@ const selectorsBar = computed(() => props.type === 'grouped' ? GroupedBar.select
 
 <template>
   <div
+    data-slot="bar-chart"
     v-bind="delegatedAttrs()"
     class="sigma-ui-bar-chart"
     :class="$attrs.class"
-    data-slot="bar-chart"
   >
     <ChartContainer
       :config="config"

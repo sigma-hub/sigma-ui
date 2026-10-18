@@ -44,9 +44,9 @@ defineSlots<{
 
 <template>
   <div
+    data-slot="field"
     v-bind="delegatedAttrs()"
     role="group"
-    data-slot="field"
     :data-orientation="props.orientation"
     :data-invalid="props.invalid || undefined"
     :data-disabled="props.disabled || undefined"

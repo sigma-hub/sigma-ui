@@ -16,8 +16,8 @@ const delegatedAttrs = () => {
 
 <template>
   <div
+    data-slot="skeleton"
     v-bind="delegatedAttrs()"
     :class="cn('animate-pulse rounded-md bg-muted', $attrs.class ?? '')"
-    data-slot="skeleton"
   />
 </template>

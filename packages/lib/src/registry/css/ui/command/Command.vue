@@ -25,9 +25,9 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <ComboboxRoot
+    data-slot="command"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
     class="sigma-ui-command"
-    data-slot="command"
     :class="[$attrs.class]"
   >
     <slot />

@@ -8,6 +8,7 @@ const props = defineProps<ToasterProps>();
 <template>
   <Toaster
     class="sigma-ui-toaster"
+    data-slot="toaster"
     v-bind="props"
     :toast-options="{
       ...props.toastOptions,
@@ -19,7 +20,6 @@ const props = defineProps<ToasterProps>();
         cancelButton: 'sigma-ui-toast__cancel-button',
       },
     }"
-    data-slot="toaster"
   />
 </template>
 

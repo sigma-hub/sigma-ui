@@ -27,9 +27,9 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <DropdownMenuRadioItem
+    data-slot="dropdown-menu-radio-item"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
     class="sigma-ui-dropdown-menu-radio-item"
-    data-slot="dropdown-menu-radio-item"
     :class="[$attrs.class]"
   >
     <span class="sigma-ui-dropdown-menu-radio-item__indicator">

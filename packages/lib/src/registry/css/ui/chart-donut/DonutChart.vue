@@ -71,10 +71,10 @@ const totalValue = computed(() => props.data.reduce((prev, curr) => {
 
 <template>
   <div
+    data-slot="donut-chart"
     v-bind="delegatedAttrs()"
     class="sigma-ui-donut-chart"
     :class="$attrs.class"
-    data-slot="donut-chart"
   >
     <VisSingleContainer
       :style="{ height: isMounted ? '100%' : 'auto' }"

@@ -19,9 +19,9 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <Primitive
+    data-slot="pin-input-group"
     v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     class="sigma-ui-pin-input-group"
-    data-slot="pin-input-group"
     :class="[$attrs.class]"
   >
     <slot />

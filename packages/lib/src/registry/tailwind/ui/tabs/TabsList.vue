@@ -18,12 +18,12 @@ const props = defineProps<TabsListProps>();
 
 <template>
   <TabsList
+    data-slot="tabs-list"
     v-bind="{ ...props, ...delegatedAttrs() }"
     :class="cn(
       'flex items-center justify-center w-[fit-content] h-10 p-[2px] rounded-md bg-muted text-muted-foreground',
       $attrs.class ?? '',
     )"
-    data-slot="tabs-list"
   >
     <slot />
   </TabsList>

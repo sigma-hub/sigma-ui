@@ -59,8 +59,8 @@ const isEmpty = computed(() => segments.value !== null && segments.value.length 
 
 <template>
   <span
-    v-bind="delegatedAttrs()"
     data-slot="code-block-line"
+    v-bind="delegatedAttrs()"
     :data-variant="props.variant"
     :data-focused="props.focused || undefined"
     :class="cn('relative flex min-h-lh px-(--code-block-padding-x) data-[variant=added]:bg-(--code-block-added) data-[variant=added]:shadow-[inset_2px_0_0_var(--code-block-added-border)] data-[variant=highlighted]:bg-(--code-block-highlighted) data-[variant=highlighted]:shadow-[inset_2px_0_0_var(--code-block-highlighted-border)] data-[variant=removed]:bg-(--code-block-removed) data-[variant=removed]:shadow-[inset_2px_0_0_var(--code-block-removed-border)] [[data-diff]>code>&]:pl-[calc(var(--code-block-padding-x)+1ch)]', $attrs.class ?? '')"

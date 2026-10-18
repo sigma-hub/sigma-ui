@@ -11,12 +11,12 @@
   "files": [
     {
       "path": "ui/sheet/Sheet.vue",
-      "content": "<script setup lang=\"ts\">\nimport { DialogRoot, type DialogRootEmits, type DialogRootProps, useForwardPropsEmits } from 'reka-ui';\n\nconst props = defineProps<DialogRootProps>();\nconst emits = defineEmits<DialogRootEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <DialogRoot\n    v-bind=\"forwarded\"\n    data-slot=\"sheet\"\n  >\n    <slot />\n  </DialogRoot>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { DialogRoot, type DialogRootEmits, type DialogRootProps, useForwardPropsEmits } from 'reka-ui';\n\nconst props = defineProps<DialogRootProps>();\nconst emits = defineEmits<DialogRootEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <DialogRoot\n    data-slot=\"sheet\"\n    v-bind=\"forwarded\"\n  >\n    <slot />\n  </DialogRoot>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/sheet/SheetClose.vue",
-      "content": "<script setup lang=\"ts\">\nimport { DialogClose, type DialogCloseProps } from 'reka-ui';\n\nconst props = defineProps<DialogCloseProps>();\n</script>\n\n<template>\n  <DialogClose\n    v-bind=\"props\"\n    data-slot=\"sheet-close\"\n  >\n    <slot />\n  </DialogClose>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { DialogClose, type DialogCloseProps } from 'reka-ui';\n\nconst props = defineProps<DialogCloseProps>();\n</script>\n\n<template>\n  <DialogClose\n    data-slot=\"sheet-close\"\n    v-bind=\"props\"\n  >\n    <slot />\n  </DialogClose>\n</template>\n",
       "type": "registry:ui"
     },
     {
@@ -26,27 +26,27 @@
     },
     {
       "path": "ui/sheet/SheetDescription.vue",
-      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { DialogDescription, type DialogDescriptionProps } from 'reka-ui';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<DialogDescriptionProps>();\n</script>\n\n<template>\n  <DialogDescription\n    class=\"sigma-ui-sheet-description\"\n    v-bind=\"{ ...props, ...delegatedAttrs() }\"\n    data-slot=\"sheet-description\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </DialogDescription>\n</template>\n\n<style>\n.sigma-ui-sheet-description {\n  color: var(--muted-foreground);\n  font-size: 0.875rem;\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { DialogDescription, type DialogDescriptionProps } from 'reka-ui';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<DialogDescriptionProps>();\n</script>\n\n<template>\n  <DialogDescription\n    class=\"sigma-ui-sheet-description\"\n    data-slot=\"sheet-description\"\n    v-bind=\"{ ...props, ...delegatedAttrs() }\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </DialogDescription>\n</template>\n\n<style>\n.sigma-ui-sheet-description {\n  color: var(--muted-foreground);\n  font-size: 0.875rem;\n}\n</style>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/sheet/SheetFooter.vue",
-      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <div\n    v-bind=\"delegatedAttrs()\"\n    class=\"sigma-ui-sheet-footer\"\n    :class=\"[$attrs.class]\"\n    data-slot=\"sheet-footer\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n.sigma-ui-sheet-footer {\n  display: flex;\n  flex-direction: column-reverse;\n}\n\n@media (width >= 640px) {\n  .sigma-ui-sheet-footer {\n    flex-direction: row;\n    justify-content: flex-end;\n    gap: 0.5rem;\n  }\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <div\n    data-slot=\"sheet-footer\"\n    v-bind=\"delegatedAttrs()\"\n    class=\"sigma-ui-sheet-footer\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n.sigma-ui-sheet-footer {\n  display: flex;\n  flex-direction: column-reverse;\n}\n\n@media (width >= 640px) {\n  .sigma-ui-sheet-footer {\n    flex-direction: row;\n    justify-content: flex-end;\n    gap: 0.5rem;\n  }\n}\n</style>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/sheet/SheetHeader.vue",
-      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <div\n    v-bind=\"delegatedAttrs()\"\n    class=\"sigma-ui-sheet-header\"\n    :class=\"[$attrs.class]\"\n    data-slot=\"sheet-header\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n.sigma-ui-sheet-header {\n  display: flex;\n  flex-direction: column;\n  gap: 0.5rem;\n  text-align: center;\n}\n\n@media (width >= 640px) {\n  .sigma-ui-sheet-header {\n    text-align: left;\n  }\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <div\n    data-slot=\"sheet-header\"\n    v-bind=\"delegatedAttrs()\"\n    class=\"sigma-ui-sheet-header\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n.sigma-ui-sheet-header {\n  display: flex;\n  flex-direction: column;\n  gap: 0.5rem;\n  text-align: center;\n}\n\n@media (width >= 640px) {\n  .sigma-ui-sheet-header {\n    text-align: left;\n  }\n}\n</style>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/sheet/SheetTitle.vue",
-      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { DialogTitle, type DialogTitleProps } from 'reka-ui';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<DialogTitleProps>();\n</script>\n\n<template>\n  <DialogTitle\n    class=\"sigma-ui-sheet-title\"\n    v-bind=\"{ ...props, ...delegatedAttrs() }\"\n    data-slot=\"sheet-title\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </DialogTitle>\n</template>\n\n<style>\n.sigma-ui-sheet-title {\n  color: var(--foreground);\n  font-size: 1.125rem;\n  font-weight: 600;\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { DialogTitle, type DialogTitleProps } from 'reka-ui';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<DialogTitleProps>();\n</script>\n\n<template>\n  <DialogTitle\n    class=\"sigma-ui-sheet-title\"\n    data-slot=\"sheet-title\"\n    v-bind=\"{ ...props, ...delegatedAttrs() }\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </DialogTitle>\n</template>\n\n<style>\n.sigma-ui-sheet-title {\n  color: var(--foreground);\n  font-size: 1.125rem;\n  font-weight: 600;\n}\n</style>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/sheet/SheetTrigger.vue",
-      "content": "<script setup lang=\"ts\">\nimport { DialogTrigger, type DialogTriggerProps } from 'reka-ui';\n\nconst props = defineProps<DialogTriggerProps>();\n</script>\n\n<template>\n  <DialogTrigger\n    v-bind=\"props\"\n    data-slot=\"sheet-trigger\"\n  >\n    <slot />\n  </DialogTrigger>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { DialogTrigger, type DialogTriggerProps } from 'reka-ui';\n\nconst props = defineProps<DialogTriggerProps>();\n</script>\n\n<template>\n  <DialogTrigger\n    data-slot=\"sheet-trigger\"\n    v-bind=\"props\"\n  >\n    <slot />\n  </DialogTrigger>\n</template>\n",
       "type": "registry:ui"
     },
     {

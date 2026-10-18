@@ -12,8 +12,8 @@ const forwarded = useForwardPropsEmits(props, emits);
   <CollapsibleRoot
     v-slot="{ open }"
     class="sigma-ui-collapsible"
-    v-bind="forwarded"
     data-slot="collapsible"
+    v-bind="forwarded"
   >
     <slot :open="open" />
   </CollapsibleRoot>

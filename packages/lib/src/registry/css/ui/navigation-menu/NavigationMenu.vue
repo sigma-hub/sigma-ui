@@ -26,9 +26,9 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <NavigationMenuRoot
+    data-slot="navigation-menu"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
     class="sigma-ui-navigation-menu"
-    data-slot="navigation-menu"
     :class="[$attrs.class]"
   >
     <slot />

@@ -19,9 +19,9 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <DialogDescription
+    data-slot="dialog-description"
     v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     class="sigma-ui-dialog-description"
-    data-slot="dialog-description"
     :class="[$attrs.class]"
   >
     <slot />

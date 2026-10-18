@@ -41,8 +41,8 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
 <template>
   <div
     v-if="collapsible === 'none'"
-    v-bind="$attrs"
     data-slot="sidebar"
+    v-bind="$attrs"
     class="sigma-ui-sidebar--static"
   >
     <slot />
@@ -54,9 +54,9 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
     @update:open="setOpenMobile"
   >
     <SheetContent
+      data-slot="sidebar"
       v-bind="$attrs"
       data-sidebar="sidebar"
-      data-slot="sidebar"
       data-mobile="true"
       :side="side"
       class="sigma-ui-sidebar--mobile"
@@ -88,8 +88,8 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
       class="sigma-ui-sidebar__gap"
     />
     <div
-      v-bind="$attrs"
       data-slot="sidebar-container"
+      v-bind="$attrs"
       class="sigma-ui-sidebar__container"
     >
       <div

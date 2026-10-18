@@ -194,12 +194,12 @@ onBeforeUnmount(() => {
 
 <template>
   <Primitive
-    v-bind="delegatedAttrs()"
     :id="id"
     ref="pre"
+    data-slot="code-block-content"
+    v-bind="delegatedAttrs()"
     as="pre"
     dir="ltr"
-    data-slot="code-block-content"
     :data-language="props.language"
     :data-wrap="wrap || undefined"
     :data-numbered="props.lineNumbers || undefined"

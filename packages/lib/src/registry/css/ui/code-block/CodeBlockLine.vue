@@ -58,8 +58,8 @@ const isEmpty = computed(() => segments.value !== null && segments.value.length 
 
 <template>
   <span
-    v-bind="delegatedAttrs()"
     data-slot="code-block-line"
+    v-bind="delegatedAttrs()"
     :data-variant="props.variant"
     :data-focused="props.focused || undefined"
     class="sigma-ui-code-block__line"

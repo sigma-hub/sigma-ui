@@ -27,9 +27,9 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <MenubarRadioItem
+    data-slot="menubar-radio-item"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
     class="sigma-ui-menubar-radio-item"
-    data-slot="menubar-radio-item"
     :class="[$attrs.class]"
   >
     <span class="sigma-ui-menubar-radio-item__indicator">

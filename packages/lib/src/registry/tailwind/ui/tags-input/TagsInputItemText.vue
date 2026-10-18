@@ -20,8 +20,8 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <TagsInputItemText
+    data-slot="tags-input-item-text"
     v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     :class="cn('py-1 px-2 text-sm rounded bg-transparent', $attrs.class ?? '')"
-    data-slot="tags-input-item-text"
   />
 </template>

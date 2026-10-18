@@ -9,7 +9,7 @@ defineOptions({
 const attrs = useAttrs();
 
 const delegatedAttrs = () => {
-  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class' && key !== 'id'));
 };
 
 const { formDescriptionId } = useFormField();
@@ -17,11 +17,11 @@ const { formDescriptionId } = useFormField();
 
 <template>
   <p
-    v-bind="delegatedAttrs()"
     :id="formDescriptionId"
+    data-slot="form-description"
+    v-bind="delegatedAttrs()"
     class="sigma-ui-form-description"
     :class="$attrs.class"
-    data-slot="form-description"
   >
     <slot />
   </p>

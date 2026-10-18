@@ -22,9 +22,9 @@ const props = defineProps<
 
 <template>
   <Separator
+    data-slot="separator"
     v-bind="{ ...props, ...delegatedAttrs() }"
     class="sigma-ui-separator"
-    data-slot="separator"
     :class="[$attrs.class]"
   >
     <span

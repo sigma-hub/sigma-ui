@@ -20,6 +20,7 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <DialogTitle
+    data-slot="dialog-title"
     v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     :class="
       cn(
@@ -27,7 +28,6 @@ const forwardedProps = useForwardProps(props);
         $attrs.class ?? '',
       )
     "
-    data-slot="dialog-title"
   >
     <slot />
   </DialogTitle>

@@ -18,10 +18,10 @@ const props = defineProps<DrawerDescriptionProps>();
 
 <template>
   <DrawerDescription
+    data-slot="drawer-description"
     v-bind="{ ...props, ...delegatedAttrs() }"
     class="sigma-ui-drawer-description"
     :class="[$attrs.class]"
-    data-slot="drawer-description"
   >
     <slot />
   </DrawerDescription>

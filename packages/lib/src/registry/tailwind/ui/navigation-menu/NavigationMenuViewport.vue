@@ -25,6 +25,7 @@ const forwardedProps = useForwardProps(props);
 <template>
   <div class="absolute left-0 top-full flex justify-center">
     <NavigationMenuViewport
+      data-slot="navigation-menu-viewport"
       v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
       :class="
         cn(
@@ -32,7 +33,6 @@ const forwardedProps = useForwardProps(props);
           $attrs.class ?? '',
         )
       "
-      data-slot="navigation-menu-viewport"
     />
   </div>
 </template>

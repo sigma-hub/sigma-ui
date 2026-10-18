@@ -16,9 +16,9 @@ const delegatedAttrs = () => {
 
 <template>
   <tfoot
+    data-slot="table-footer"
     v-bind="delegatedAttrs()"
     :class="cn('border-t bg-muted/50 font-medium [&>tr]:last:border-b-0', $attrs.class ?? '')"
-    data-slot="table-footer"
   >
     <slot />
   </tfoot>

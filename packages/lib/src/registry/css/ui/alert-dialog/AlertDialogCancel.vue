@@ -9,10 +9,10 @@ const attrs = useAttrs();
 
 <template>
   <AlertDialogCancel
+    data-slot="alert-dialog-cancel"
     v-bind="props"
     class="sigma-ui-button sigma-ui-alert-dialog-cancel"
     :class="[buttonVariants({ variant: 'outline' }), attrs.class]"
-    data-slot="alert-dialog-cancel"
   >
     <slot />
   </AlertDialogCancel>

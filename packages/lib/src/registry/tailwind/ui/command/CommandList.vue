@@ -21,9 +21,9 @@ const forwarded = useForwardProps(props);
 
 <template>
   <ListboxContent
+    data-slot="command-list"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="cn('max-h-[300px] overflow-y-auto overflow-x-hidden', $attrs.class ?? '')"
-    data-slot="command-list"
   >
     <div role="presentation">
       <slot />

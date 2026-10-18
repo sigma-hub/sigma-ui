@@ -16,12 +16,12 @@ const delegatedAttrs = () => {
 
 <template>
   <li
+    data-slot="breadcrumb-separator"
     v-bind="delegatedAttrs()"
     role="presentation"
     aria-hidden="true"
     class="sigma-ui-breadcrumb__separator"
     :class="$attrs.class"
-    data-slot="breadcrumb-separator"
   >
     <slot>
       <ChevronRightIcon />

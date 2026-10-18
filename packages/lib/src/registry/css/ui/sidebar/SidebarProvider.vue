@@ -136,8 +136,8 @@ provideSidebarContext({
   <TooltipProvider :delay-duration="0">
     <div
       ref="wrapper"
-      v-bind="delegatedAttrs()"
       data-slot="sidebar-wrapper"
+      v-bind="delegatedAttrs()"
       class="sigma-ui-sidebar-wrapper"
       :style="{
         '--sidebar-width': SIDEBAR_WIDTH,

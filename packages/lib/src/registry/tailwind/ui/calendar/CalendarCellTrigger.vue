@@ -21,6 +21,7 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <CalendarCellTrigger
+    data-slot="calendar-cell-trigger"
     v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     :class="cn(
       buttonVariants({ variant: 'ghost' }),
@@ -36,7 +37,6 @@ const forwardedProps = useForwardProps(props);
       'data-[outside-month]:pointer-events-none data-[outside-month]:text-muted-foreground data-[outside-month]:opacity-50 [&[data-outside-month][data-selected]]:bg-secondary/50 [&[data-outside-month][data-selected]]:text-muted-foreground [&[data-outside-month][data-selected]]:opacity-30',
       $attrs.class ?? '',
     )"
-    data-slot="calendar-cell-trigger"
   >
     <slot />
   </CalendarCellTrigger>

@@ -33,9 +33,9 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <ToggleGroupRoot
+    data-slot="toggle-group"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
     class="sigma-ui-toggle-group"
-    data-slot="toggle-group"
     :class="[$attrs.class]"
   >
     <slot />

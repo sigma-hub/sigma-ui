@@ -20,8 +20,8 @@ defineSlots<{
 
 <template>
   <div
-    v-bind="delegatedAttrs()"
     data-slot="empty-title"
+    v-bind="delegatedAttrs()"
     class="sigma-ui-empty-title"
     :class="[$attrs.class]"
   >

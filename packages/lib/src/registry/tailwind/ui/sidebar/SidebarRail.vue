@@ -18,10 +18,10 @@ const { toggleSidebar } = useSidebar();
 
 <template>
   <button
+    data-slot="sidebar-rail"
     v-bind="delegatedAttrs()"
     type="button"
     data-sidebar="rail"
-    data-slot="sidebar-rail"
     aria-label="Toggle Sidebar"
     title="Toggle Sidebar"
     :tabindex="-1"

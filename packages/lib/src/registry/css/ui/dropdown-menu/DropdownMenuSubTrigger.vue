@@ -27,10 +27,10 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <DropdownMenuSubTrigger
+    data-slot="dropdown-menu-sub-trigger"
     v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     class="sigma-ui-dropdown-menu-sub-trigger"
     :class="[{ 'sigma-ui-dropdown-menu-sub-trigger--inset': inset }, $attrs.class]"
-    data-slot="dropdown-menu-sub-trigger"
   >
     <slot />
     <ChevronRightIcon class="sigma-ui-dropdown-menu-sub-trigger__icon" />

@@ -50,9 +50,9 @@ function focusControl(event: MouseEvent) {
 
 <template>
   <div
+    data-slot="input-group-addon"
     v-bind="delegatedAttrs()"
     role="group"
-    data-slot="input-group-addon"
     :data-align="props.align"
     :class="cn(inputGroupAddonVariants({ align: props.align }), $attrs.class ?? '')"
     @click="focusControl"

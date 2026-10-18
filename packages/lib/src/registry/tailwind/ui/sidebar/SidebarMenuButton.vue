@@ -39,8 +39,8 @@ const delegatedProps = reactiveOmit(props, 'tooltip');
 <template>
   <SidebarMenuButtonChild
     v-if="!tooltip"
-    v-bind="{ ...delegatedProps, ...$attrs }"
     data-slot="sidebar-menu-button"
+    v-bind="{ ...delegatedProps, ...$attrs }"
   >
     <slot />
   </SidebarMenuButtonChild>

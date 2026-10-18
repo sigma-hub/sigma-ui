@@ -40,11 +40,11 @@ onBeforeUnmount(() => {
 
 <template>
   <Primitive
-    v-bind="delegatedAttrs()"
     :id="id"
+    data-slot="code-block-title"
+    v-bind="delegatedAttrs()"
     :as="props.as"
     :as-child="props.asChild"
-    data-slot="code-block-title"
     class="sigma-ui-code-block__title"
     :class="[$attrs.class]"
   >

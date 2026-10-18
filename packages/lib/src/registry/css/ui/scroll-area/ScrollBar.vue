@@ -19,9 +19,9 @@ const props = withDefaults(defineProps<ScrollAreaScrollbarProps>(), {
 
 <template>
   <ScrollAreaScrollbar
+    data-slot="scroll-bar"
     v-bind="{ ...props, ...delegatedAttrs() }"
     class="sigma-ui-scroll-area-scrollbar"
-    data-slot="scroll-bar"
     :class="[$attrs.class]"
   >
     <ScrollAreaThumb class="sigma-ui-scroll-area-scrollbar__thumb" />

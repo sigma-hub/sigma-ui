@@ -14,10 +14,10 @@ const delegatedAttrs = () => {
 
 <template>
   <h3
+    data-slot="card-title"
     v-bind="delegatedAttrs()"
     class="sigma-ui-card__title"
     :class="[$attrs.class]"
-    data-slot="card-title"
   >
     <slot />
   </h3>

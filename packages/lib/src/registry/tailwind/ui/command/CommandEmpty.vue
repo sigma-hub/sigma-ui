@@ -19,9 +19,9 @@ const props = defineProps<ComboboxEmptyProps>();
 
 <template>
   <ComboboxEmpty
+    data-slot="command-empty"
     v-bind="{ ...props, ...delegatedAttrs() }"
     :class="cn('py-6 text-center text-sm', $attrs.class ?? '')"
-    data-slot="command-empty"
   >
     <slot />
   </ComboboxEmpty>

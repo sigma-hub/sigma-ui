@@ -14,10 +14,10 @@ const delegatedAttrs = () => {
 
 <template>
   <tfoot
+    data-slot="table-footer"
     v-bind="delegatedAttrs()"
     class="sigma-ui-table-footer"
     :class="[$attrs.class]"
-    data-slot="table-footer"
   >
     <slot />
   </tfoot>

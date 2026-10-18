@@ -49,8 +49,8 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
 <template>
   <div
     v-if="collapsible === 'none'"
-    v-bind="delegatedAttrs()"
     data-slot="sidebar"
+    v-bind="delegatedAttrs()"
     :class="cn('flex h-full w-(--sidebar-width) flex-col bg-sidebar text-sidebar-foreground', $attrs.class ?? '')"
   >
     <slot />
@@ -62,9 +62,9 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
     @update:open="setOpenMobile"
   >
     <SheetContent
+      data-slot="sidebar"
       v-bind="delegatedAttrs()"
       data-sidebar="sidebar"
-      data-slot="sidebar"
       data-mobile="true"
       :side="side"
       :class="cn('w-(--sidebar-width) bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden', $attrs.class ?? '')"
@@ -101,8 +101,8 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
       )"
     />
     <div
-      v-bind="delegatedAttrs()"
       data-slot="sidebar-container"
+      v-bind="delegatedAttrs()"
       :class="cn(
         'fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear md:flex',
         side === 'left'

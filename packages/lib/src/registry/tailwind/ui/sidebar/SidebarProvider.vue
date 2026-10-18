@@ -137,8 +137,8 @@ provideSidebarContext({
   <TooltipProvider :delay-duration="0">
     <div
       ref="wrapper"
-      v-bind="delegatedAttrs()"
       data-slot="sidebar-wrapper"
+      v-bind="delegatedAttrs()"
       :style="{
         '--sidebar-width': SIDEBAR_WIDTH,
         '--sidebar-width-icon': SIDEBAR_WIDTH_ICON,

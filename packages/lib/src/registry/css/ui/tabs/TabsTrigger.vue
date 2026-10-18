@@ -19,9 +19,9 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <TabsTrigger
+    data-slot="tabs-trigger"
     v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     class="sigma-ui-tabs-trigger"
-    data-slot="tabs-trigger"
     :class="[$attrs.class]"
   >
     <slot />

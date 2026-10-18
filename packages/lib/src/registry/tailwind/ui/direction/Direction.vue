@@ -44,8 +44,8 @@ defineSlots<{
     :locale="props.locale"
   >
     <div
-      v-bind="delegatedAttrs()"
       data-slot="direction"
+      v-bind="delegatedAttrs()"
       :dir="props.dir"
       :class="cn('contents', $attrs.class ?? '')"
     >

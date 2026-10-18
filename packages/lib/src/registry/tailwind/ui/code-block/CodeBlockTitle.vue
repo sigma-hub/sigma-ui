@@ -41,11 +41,11 @@ onBeforeUnmount(() => {
 
 <template>
   <Primitive
-    v-bind="delegatedAttrs()"
     :id="id"
+    data-slot="code-block-title"
+    v-bind="delegatedAttrs()"
     :as="props.as"
     :as-child="props.asChild"
-    data-slot="code-block-title"
     :class="cn(
       'min-w-0 truncate font-medium text-foreground [&_a]:text-inherit [&_a]:no-underline [&_a:hover]:underline [&_a:hover]:underline-offset-4 [&_svg]:pointer-events-none [&_svg]:mr-1.5 [&_svg]:inline-block [&_svg]:size-3.5 [&_svg]:-translate-y-px [&_svg]:align-middle [&_svg]:text-muted-foreground',
       'in-data-[variant=destructive]:text-(color:--code-block-destructive-foreground) in-data-[variant=destructive]:[&_svg]:text-(color:--code-block-destructive-foreground)',

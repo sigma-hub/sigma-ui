@@ -6,8 +6,8 @@ const props = defineProps<CollapsibleTriggerProps>();
 
 <template>
   <CollapsibleTrigger
-    v-bind="props"
     data-slot="collapsible-trigger"
+    v-bind="props"
   >
     <slot />
   </CollapsibleTrigger>

@@ -18,9 +18,8 @@ const forwarded = useForwardProps(props);
 
 <template>
   <YearPickerGrid
-    v-bind="{ ...forwarded, ...delegatedAttrs() }"
-
     data-slot="year-picker-grid"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     class="sigma-ui-year-picker-grid"
     :class="[$attrs.class]"
   >

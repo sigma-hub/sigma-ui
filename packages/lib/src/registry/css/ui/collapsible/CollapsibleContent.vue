@@ -6,9 +6,9 @@ const props = defineProps<CollapsibleContentProps>();
 
 <template>
   <CollapsibleContent
+    data-slot="collapsible-content"
     v-bind="props"
     class="sigma-ui-collapsible__content"
-    data-slot="collapsible-content"
   >
     <slot />
   </CollapsibleContent>

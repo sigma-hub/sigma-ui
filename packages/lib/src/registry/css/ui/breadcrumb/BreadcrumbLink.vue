@@ -19,12 +19,12 @@ withDefaults(defineProps<PrimitiveProps>(), {
 
 <template>
   <Primitive
+    data-slot="breadcrumb-link"
     v-bind="delegatedAttrs()"
     :as="as"
     :as-child="asChild"
     class="sigma-ui-breadcrumb__link"
     :class="$attrs.class"
-    data-slot="breadcrumb-link"
   >
     <slot />
   </Primitive>

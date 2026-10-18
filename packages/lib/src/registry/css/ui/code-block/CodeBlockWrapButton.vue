@@ -41,9 +41,9 @@ function toggle() {
 
 <template>
   <Button
+    data-slot="code-block-wrap-button"
     v-bind="delegatedAttrs()"
     type="button"
-    data-slot="code-block-wrap-button"
     :data-state="wrap ? 'on' : 'off'"
     :variant="props.variant"
     :size="props.size"

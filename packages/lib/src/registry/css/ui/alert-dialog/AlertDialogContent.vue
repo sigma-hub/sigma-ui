@@ -20,10 +20,10 @@ const forwarded = useForwardPropsEmits(props, emits);
   <AlertDialogPortal>
     <AlertDialogOverlay class="sigma-ui-alert-dialog-overlay" />
     <AlertDialogContent
+      data-slot="alert-dialog-content"
       v-bind="forwarded"
       class="sigma-ui-alert-dialog-content"
       :class="attrs.class"
-      data-slot="alert-dialog-content"
     >
       <slot />
     </AlertDialogContent>

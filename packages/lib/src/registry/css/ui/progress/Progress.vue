@@ -26,9 +26,9 @@ const props = withDefaults(
 
 <template>
   <ProgressRoot
+    data-slot="progress"
     v-bind="{ ...props, ...delegatedAttrs() }"
     class="sigma-ui-progress"
-    data-slot="progress"
     :class="[$attrs.class]"
   >
     <ProgressIndicator

@@ -30,8 +30,8 @@ const forwardedProps = useForwardProps(reactiveOmit(props, 'size'));
 
 <template>
   <SelectTrigger
-    v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     data-slot="select-trigger"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     :data-size="props.size"
     class="sigma-ui-select-trigger"
     :class="[$attrs.class]"

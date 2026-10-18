@@ -17,8 +17,8 @@ const props = defineProps<SelectSeparatorProps>();
 
 <template>
   <SelectSeparator
-    v-bind="{ ...props, ...delegatedAttrs() }"
     data-slot="select-separator"
+    v-bind="{ ...props, ...delegatedAttrs() }"
     class="sigma-ui-select-separator"
     :class="[$attrs.class]"
   />

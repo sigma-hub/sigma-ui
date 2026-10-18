@@ -20,8 +20,8 @@ const forwardedProps = useForwardProps(props);
 <template>
   <CalendarHeadCell
     class="sigma-ui-calendar-head-cell"
-    v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     data-slot="calendar-head-cell"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     :class="[$attrs.class]"
   >
     <slot />

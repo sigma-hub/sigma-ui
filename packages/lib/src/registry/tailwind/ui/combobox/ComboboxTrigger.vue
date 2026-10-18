@@ -21,10 +21,10 @@ const forwarded = useForwardProps(props);
 
 <template>
   <ComboboxTrigger
+    data-slot="combobox-trigger"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="cn('', $attrs.class ?? '')"
     tabindex="0"
-    data-slot="combobox-trigger"
   >
     <slot />
   </ComboboxTrigger>

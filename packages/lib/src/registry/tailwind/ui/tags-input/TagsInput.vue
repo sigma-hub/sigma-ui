@@ -21,9 +21,9 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <TagsInputRoot
+    data-slot="tags-input"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="cn('flex flex-wrap gap-2 items-center rounded-md border border-border bg-input px-3 py-2 text-sm', $attrs.class ?? '')"
-    data-slot="tags-input"
   >
     <slot />
   </TagsInputRoot>

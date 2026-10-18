@@ -21,9 +21,9 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <RadioGroupRoot
+    data-slot="radio-group"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="cn('grid gap-2', $attrs.class ?? '')"
-    data-slot="radio-group"
   >
     <slot />
   </RadioGroupRoot>

@@ -73,6 +73,7 @@ function onLoad() {
 
 <template>
   <div
+    data-slot="image"
     v-bind="delegatedAttrs()"
     :class="[
       cn(imageVariants({ shape }), $attrs.class ?? ''),
@@ -81,7 +82,6 @@ function onLoad() {
       },
     ]"
     class="relative"
-    data-slot="image"
   >
     <div
       v-if="isError"

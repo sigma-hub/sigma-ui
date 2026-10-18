@@ -22,9 +22,9 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <ComboboxItem
+    data-slot="command-item"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="cn('relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-hidden data-[highlighted]:bg-secondary data-[highlighted]:text-secondary-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50', $attrs.class ?? '')"
-    data-slot="command-item"
   >
     <slot />
   </ComboboxItem>

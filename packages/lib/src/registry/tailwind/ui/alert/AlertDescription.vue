@@ -16,9 +16,9 @@ const delegatedAttrs = () => {
 
 <template>
   <div
+    data-slot="alert-description"
     v-bind="delegatedAttrs()"
     :class="cn('text-sm [&_p]:leading-relaxed', $attrs.class ?? '')"
-    data-slot="alert-description"
   >
     <slot />
   </div>

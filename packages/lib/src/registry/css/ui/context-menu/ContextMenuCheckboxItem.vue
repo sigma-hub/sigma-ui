@@ -27,9 +27,9 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <ContextMenuCheckboxItem
+    data-slot="context-menu-checkbox-item"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
     class="sigma-ui-context-menu-checkbox-item"
-    data-slot="context-menu-checkbox-item"
     :class="[$attrs.class]"
   >
     <span class="sigma-ui-context-menu-checkbox-item__indicator">

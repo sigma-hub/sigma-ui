@@ -21,9 +21,9 @@ const props = defineProps<ComboboxGroupProps & {
 
 <template>
   <ComboboxGroup
+    data-slot="combobox-group"
     v-bind="{ ...props, ...delegatedAttrs() }"
     :class="['sigma-ui-combobox-group', $attrs.class]"
-    data-slot="combobox-group"
   >
     <ComboboxLabel
       v-if="heading"

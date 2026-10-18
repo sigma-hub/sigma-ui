@@ -21,9 +21,9 @@ const forwarded = useForwardProps(props);
 
 <template>
   <ComboboxAnchor
+    data-slot="combobox-anchor"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="cn('w-[200px]', $attrs.class ?? '')"
-    data-slot="combobox-anchor"
   >
     <slot />
   </ComboboxAnchor>

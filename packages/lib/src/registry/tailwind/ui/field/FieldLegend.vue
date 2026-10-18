@@ -33,8 +33,8 @@ defineSlots<{
 
 <template>
   <legend
-    v-bind="delegatedAttrs()"
     data-slot="field-legend"
+    v-bind="delegatedAttrs()"
     :data-variant="props.variant"
     :class="cn('mb-3 font-medium data-[variant=label]:text-sm data-[variant=legend]:text-base', $attrs.class ?? '')"
   >

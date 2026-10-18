@@ -23,6 +23,7 @@ const props = defineProps<
 
 <template>
   <Separator
+    data-slot="separator"
     v-bind="{ ...props, ...delegatedAttrs() }"
     :class="
       cn(
@@ -32,7 +33,6 @@ const props = defineProps<
       )
 
     "
-    data-slot="separator"
   >
     <span
       v-if="props.label"

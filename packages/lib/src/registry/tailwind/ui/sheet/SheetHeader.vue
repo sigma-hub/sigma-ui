@@ -16,11 +16,11 @@ const delegatedAttrs = () => {
 
 <template>
   <div
+    data-slot="sheet-header"
     v-bind="delegatedAttrs()"
     :class="
       cn('flex flex-col gap-y-2 text-center sm:text-left', $attrs.class ?? '')
     "
-    data-slot="sheet-header"
   >
     <slot />
   </div>

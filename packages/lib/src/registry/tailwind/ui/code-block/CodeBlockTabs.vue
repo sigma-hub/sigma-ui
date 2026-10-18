@@ -28,8 +28,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 <template>
   <TabsRoot
     v-slot="{ modelValue }"
-    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     data-slot="code-block-tabs"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="cn('flex min-h-0 min-w-0 flex-col', $attrs.class ?? '')"
   >
     <slot :model-value="modelValue" />

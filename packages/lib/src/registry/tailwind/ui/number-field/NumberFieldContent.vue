@@ -16,8 +16,8 @@ const delegatedAttrs = () => {
 
 <template>
   <div
-    v-bind="delegatedAttrs()"
     data-slot="number-field-content"
+    v-bind="delegatedAttrs()"
     :class="cn('relative [&>[data-slot=input]]:has-[[data-slot=increment]]:pr-5 [&>[data-slot=input]]:has-[[data-slot=decrement]]:pl-5', $attrs.class ?? '')"
   >
     <slot />

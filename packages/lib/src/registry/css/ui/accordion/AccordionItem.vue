@@ -18,10 +18,10 @@ const forwarded = useForwardProps(props);
 
 <template>
   <AccordionItem
+    data-slot="accordion-item"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
     class="sigma-ui-accordion-item"
     :class="[$attrs.class]"
-    data-slot="accordion-item"
   >
     <slot />
   </AccordionItem>

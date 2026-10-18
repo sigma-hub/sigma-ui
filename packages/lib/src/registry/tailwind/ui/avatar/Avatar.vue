@@ -39,9 +39,9 @@ defineSlots<{
 
 <template>
   <div
+    data-slot="avatar"
     v-bind="delegatedAttrs()"
     :class="[cn(avatarVariants({ size }), $attrs.class ?? '')]"
-    data-slot="avatar"
   >
     <Image
       v-bind="props"

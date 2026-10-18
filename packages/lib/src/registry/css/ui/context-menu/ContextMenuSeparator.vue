@@ -20,9 +20,9 @@ const props = defineProps<ContextMenuSeparatorProps>();
 
 <template>
   <ContextMenuSeparator
+    data-slot="context-menu-separator"
     v-bind="{ ...props, ...delegatedAttrs() }"
     class="sigma-ui-context-menu-separator"
-    data-slot="context-menu-separator"
     :class="[$attrs.class]"
   />
 </template>

@@ -64,10 +64,10 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
 
 <template>
   <div
+    data-slot="line-chart"
     v-bind="delegatedAttrs()"
     class="sigma-ui-line-chart"
     :class="$attrs.class"
-    data-slot="line-chart"
   >
     <ChartContainer
       :config="config"

@@ -19,8 +19,8 @@ const forwarded = useForwardProps(props);
 
 <template>
   <MonthPickerCell
-    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     data-slot="month-picker-cell"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="cn('relative p-0 text-center text-sm', $attrs.class ?? '')"
   >
     <slot />

@@ -21,8 +21,8 @@ const props = withDefaults(defineProps<SeparatorProps>(), {
 
 <template>
   <Separator
-    v-bind="{ ...props, ...delegatedAttrs() }"
     data-slot="button-group-separator"
+    v-bind="{ ...props, ...delegatedAttrs() }"
     :class="cn('relative m-0! self-stretch bg-border data-[orientation=vertical]:h-auto', $attrs.class ?? '')"
   />
 </template>

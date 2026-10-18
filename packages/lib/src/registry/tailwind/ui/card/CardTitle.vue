@@ -16,11 +16,11 @@ const delegatedAttrs = () => {
 
 <template>
   <h3
+    data-slot="card-title"
     v-bind="delegatedAttrs()"
     :class="
       cn('text-2xl font-semibold leading-none tracking-tight', $attrs.class ?? '')
     "
-    data-slot="card-title"
   >
     <slot />
   </h3>

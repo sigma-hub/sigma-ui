@@ -16,9 +16,9 @@ const delegatedAttrs = () => {
 
 <template>
   <div
+    data-slot="drawer-header"
     v-bind="delegatedAttrs()"
     :class="cn('grid gap-1.5 p-4 text-center sm:text-left', $attrs.class ?? '')"
-    data-slot="drawer-header"
   >
     <slot />
   </div>

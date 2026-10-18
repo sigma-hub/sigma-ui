@@ -22,9 +22,9 @@ defineProps<{
 
 <template>
   <div
+    data-slot="badge"
     v-bind="delegatedAttrs()"
     :class="cn(badgeVariants({ variant }), $attrs.class ?? '')"
-    data-slot="badge"
   >
     <slot />
   </div>

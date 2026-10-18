@@ -41,8 +41,8 @@ defineSlots<{
 
 <template>
   <Primitive
-    v-bind="delegatedAttrs()"
     data-slot="item"
+    v-bind="delegatedAttrs()"
     :data-variant="props.variant"
     :data-size="props.size"
     :as="as"

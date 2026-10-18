@@ -28,13 +28,13 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <DropdownMenuSubTrigger
+    data-slot="dropdown-menu-sub-trigger"
     v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     :class="cn(
       'flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-hidden focus:bg-secondary data-[state=open]:bg-secondary',
       inset && 'pl-8',
       $attrs.class ?? '',
     )"
-    data-slot="dropdown-menu-sub-trigger"
   >
     <slot />
     <ChevronRightIcon class="ml-auto h-4 w-4" />

@@ -24,10 +24,10 @@ const forwardedProps = useForwardProps(props);
 <template>
   <div class="sigma-ui-navigation-menu-viewport-wrapper">
     <NavigationMenuViewport
+      data-slot="navigation-menu-viewport"
       v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
       class="sigma-ui-navigation-menu-viewport"
       :class="$attrs.class"
-      data-slot="navigation-menu-viewport"
     />
   </div>
 </template>

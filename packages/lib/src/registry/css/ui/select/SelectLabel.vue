@@ -17,8 +17,8 @@ defineProps<SelectLabelProps>();
 
 <template>
   <SelectLabel
-    v-bind="delegatedAttrs()"
     data-slot="select-label"
+    v-bind="delegatedAttrs()"
     class="sigma-ui-select-label"
     :class="[$attrs.class]"
   >

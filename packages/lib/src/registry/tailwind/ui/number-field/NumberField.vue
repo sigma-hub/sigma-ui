@@ -22,9 +22,9 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <NumberFieldRoot
+    data-slot="number-field"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="cn('grid gap-1.5', $attrs.class ?? '')"
-    data-slot="number-field"
   >
     <slot />
   </NumberFieldRoot>

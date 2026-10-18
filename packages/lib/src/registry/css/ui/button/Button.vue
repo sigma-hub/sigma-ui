@@ -36,8 +36,8 @@ withDefaults(defineProps<Props>(), {
 
 <template>
   <Primitive
-    v-bind="delegatedAttrs()"
     data-slot="button"
+    v-bind="delegatedAttrs()"
     :data-variant="variant"
     :data-size="size"
     :as="as"

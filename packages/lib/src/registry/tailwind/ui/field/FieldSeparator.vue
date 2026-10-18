@@ -23,8 +23,8 @@ const slots = defineSlots<{
 
 <template>
   <div
-    v-bind="delegatedAttrs()"
     data-slot="field-separator"
+    v-bind="delegatedAttrs()"
     :data-content="!!slots.default"
     :class="cn('relative -my-2 h-5 text-sm group-data-[variant=outline]/field-group:-mb-2', $attrs.class ?? '')"
   >

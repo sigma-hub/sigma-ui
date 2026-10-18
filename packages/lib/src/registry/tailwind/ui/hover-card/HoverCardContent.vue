@@ -31,6 +31,7 @@ const forwardedProps = useForwardProps(props);
 <template>
   <HoverCardPortal>
     <HoverCardContent
+      data-slot="hover-card-content"
       v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
       :class="
         cn(
@@ -38,7 +39,6 @@ const forwardedProps = useForwardProps(props);
           $attrs.class ?? '',
         )
       "
-      data-slot="hover-card-content"
     >
       <slot />
     </HoverCardContent>

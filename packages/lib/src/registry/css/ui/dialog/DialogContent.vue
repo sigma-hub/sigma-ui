@@ -36,10 +36,10 @@ const forwarded = useForwardPropsEmits(reactiveOmit(props, 'closeLabel'), emits)
   <DialogPortal>
     <DialogOverlay class="sigma-ui-dialog-overlay" />
     <DialogContent
+      data-slot="dialog-content"
       v-bind="{ ...forwarded, ...delegatedAttrs() }"
       class="sigma-ui-dialog-content"
       :class="[$attrs.class]"
-      data-slot="dialog-content"
     >
       <slot />
 

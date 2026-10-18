@@ -16,12 +16,12 @@ const delegatedAttrs = () => {
 
 <template>
   <span
+    data-slot="breadcrumb-page"
     v-bind="delegatedAttrs()"
     role="link"
     aria-disabled="true"
     aria-current="page"
     :class="cn('font-normal text-foreground', $attrs.class ?? '')"
-    data-slot="breadcrumb-page"
   >
     <slot />
   </span>

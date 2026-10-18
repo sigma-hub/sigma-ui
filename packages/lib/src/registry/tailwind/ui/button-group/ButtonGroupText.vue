@@ -27,8 +27,8 @@ defineSlots<{
 
 <template>
   <Primitive
-    v-bind="delegatedAttrs()"
     data-slot="button-group-text"
+    v-bind="delegatedAttrs()"
     :as="as"
     :as-child="asChild"
     :class="cn('flex items-center gap-2 rounded-md border border-border bg-muted px-4 text-sm font-medium [&_svg]:pointer-events-none [&_svg:not([class*=size-])]:size-4', $attrs.class ?? '')"

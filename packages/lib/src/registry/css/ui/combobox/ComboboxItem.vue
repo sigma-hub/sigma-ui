@@ -21,9 +21,9 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <ComboboxItem
+    data-slot="combobox-item"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="['sigma-ui-combobox-item', $attrs.class]"
-    data-slot="combobox-item"
   >
     <slot />
   </ComboboxItem>

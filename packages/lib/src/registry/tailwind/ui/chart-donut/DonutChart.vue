@@ -72,9 +72,9 @@ const totalValue = computed(() => props.data.reduce((prev, curr) => {
 
 <template>
   <div
+    data-slot="donut-chart"
     v-bind="delegatedAttrs()"
     :class="cn('w-full h-48 flex flex-col items-end', $attrs.class ?? '')"
-    data-slot="donut-chart"
   >
     <VisSingleContainer
       :style="{ height: isMounted ? '100%' : 'auto' }"

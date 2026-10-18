@@ -19,8 +19,8 @@ defineSlots<{
 
 <template>
   <div
-    v-bind="delegatedAttrs()"
     data-slot="code-block-footer"
+    v-bind="delegatedAttrs()"
     :class="cn('flex min-w-0 shrink-0 items-center justify-center gap-2 border-t border-(--code-block-border) p-1 text-muted-foreground empty:hidden', $attrs.class ?? '')"
   >
     <slot />

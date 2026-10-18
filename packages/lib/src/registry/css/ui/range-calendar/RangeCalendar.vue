@@ -23,8 +23,8 @@ const forwarded = useForwardPropsEmits(props, emits);
   <RangeCalendarRoot
     v-slot="{ grid, weekDays }"
     class="sigma-ui-range-calendar"
-    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     data-slot="range-calendar"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="[$attrs.class]"
   >
     <RangeCalendarHeader>

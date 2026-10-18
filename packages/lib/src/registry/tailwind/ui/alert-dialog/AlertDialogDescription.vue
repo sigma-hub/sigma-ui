@@ -21,9 +21,9 @@ const props = defineProps<AlertDialogDescriptionProps>();
 
 <template>
   <AlertDialogDescription
+    data-slot="alert-dialog-description"
     v-bind="{ ...props, ...delegatedAttrs() }"
     :class="cn('text-sm text-muted-foreground', $attrs.class ?? '')"
-    data-slot="alert-dialog-description"
   >
     <slot />
   </AlertDialogDescription>

@@ -18,8 +18,8 @@ const forwarded = useForwardProps(props);
 
 <template>
   <YearPickerCellTrigger
-    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     data-slot="year-picker-cell-trigger"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     class="sigma-ui-year-picker-cell-trigger"
     :class="[$attrs.class]"
   >

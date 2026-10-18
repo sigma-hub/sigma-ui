@@ -14,13 +14,13 @@ const delegatedAttrs = () => {
 
 <template>
   <span
+    data-slot="breadcrumb-page"
     v-bind="delegatedAttrs()"
     role="link"
     aria-disabled="true"
     aria-current="page"
     class="sigma-ui-breadcrumb__page"
     :class="$attrs.class"
-    data-slot="breadcrumb-page"
   >
     <slot />
   </span>

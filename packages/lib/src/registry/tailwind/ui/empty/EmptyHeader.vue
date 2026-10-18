@@ -22,8 +22,8 @@ defineSlots<{
 
 <template>
   <div
-    v-bind="delegatedAttrs()"
     data-slot="empty-header"
+    v-bind="delegatedAttrs()"
     :class="cn('flex max-w-sm flex-col items-center gap-2 text-center', $attrs.class ?? '')"
   >
     <slot />

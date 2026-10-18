@@ -19,9 +19,9 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <MenubarTrigger
+    data-slot="menubar-trigger"
     v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     class="sigma-ui-menubar-trigger"
-    data-slot="menubar-trigger"
     :class="[$attrs.class]"
   >
     <slot />

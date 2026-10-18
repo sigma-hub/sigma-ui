@@ -23,10 +23,10 @@ defineSlots<{
 
 <template>
   <Primitive
+    data-slot="code-block-header"
     v-bind="delegatedAttrs()"
     :as="props.as"
     :as-child="props.asChild"
-    data-slot="code-block-header"
     class="sigma-ui-code-block__header"
     :class="[$attrs.class]"
   >

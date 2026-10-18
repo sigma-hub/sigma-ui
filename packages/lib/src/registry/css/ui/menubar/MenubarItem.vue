@@ -28,10 +28,10 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <MenubarItem
+    data-slot="menubar-item"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
     class="sigma-ui-menubar-item"
     :class="[{ 'sigma-ui-menubar-item--inset': inset }, $attrs.class]"
-    data-slot="menubar-item"
   >
     <slot />
   </MenubarItem>

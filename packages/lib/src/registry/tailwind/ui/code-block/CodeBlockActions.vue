@@ -19,13 +19,13 @@ defineSlots<{
 
 <template>
   <div
-    v-bind="delegatedAttrs()"
     data-slot="code-block-actions"
+    v-bind="delegatedAttrs()"
     :class="cn(
       'ml-auto flex shrink-0 items-center gap-0.5',
       '[[data-slot=code-block]>&]:absolute [[data-slot=code-block]>&]:top-1.5 [[data-slot=code-block]>&]:right-1.5 [[data-slot=code-block]>&]:z-1 [[data-slot=code-block]>&]:opacity-0 [[data-slot=code-block]>&]:transition-opacity motion-reduce:transition-none pointer-coarse:opacity-100',
       '[[data-slot=code-block]:hover>&]:opacity-100 [[data-slot=code-block]:focus-within>&]:opacity-100 [[data-slot=code-block][data-size=sm]>&]:top-1 [[data-slot=code-block][data-size=sm]>&]:right-1',
-      '[[data-slot=code-block]>&_[data-slot=button]]:border [[data-slot=code-block]>&_[data-slot=button]]:border-(--code-block-border) [[data-slot=code-block]>&_[data-slot=button]]:bg-background/85 [[data-slot=code-block]>&_[data-slot=button]]:backdrop-blur-sm',
+      '[[data-slot=code-block]>&_button]:border [[data-slot=code-block]>&_button]:border-(--code-block-border) [[data-slot=code-block]>&_button]:bg-background/85 [[data-slot=code-block]>&_button]:backdrop-blur-sm',
       $attrs.class ?? '',
     )"
   >

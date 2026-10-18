@@ -6,8 +6,8 @@ const props = defineProps<NavigationMenuItemProps>();
 
 <template>
   <NavigationMenuItem
-    v-bind="props"
     data-slot="navigation-menu-item"
+    v-bind="props"
   >
     <slot />
   </NavigationMenuItem>

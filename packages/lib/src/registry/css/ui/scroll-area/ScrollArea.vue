@@ -23,9 +23,9 @@ const props = defineProps<ScrollAreaRootProps>();
 
 <template>
   <ScrollAreaRoot
+    data-slot="scroll-area"
     v-bind="{ ...props, ...delegatedAttrs() }"
     class="sigma-ui-scroll-area"
-    data-slot="scroll-area"
     :class="[$attrs.class]"
   >
     <ScrollAreaViewport class="sigma-ui-scroll-area__viewport">

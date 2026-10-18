@@ -26,9 +26,9 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <SwitchRoot
+    data-slot="switch"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
     class="sigma-ui-switch"
-    data-slot="switch"
     :class="[$attrs.class]"
   >
     <SwitchThumb class="sigma-ui-switch__thumb" />

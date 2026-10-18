@@ -22,8 +22,8 @@ const forwardedProps = useForwardProps(props);
   <CalendarCellTrigger
     class="sigma-ui-calendar-cell-trigger"
     :class="[buttonVariants({ variant: 'ghost' }), $attrs.class]"
-    v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     data-slot="calendar-cell-trigger"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
   >
     <slot />
   </CalendarCellTrigger>

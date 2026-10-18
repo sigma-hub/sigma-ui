@@ -18,6 +18,7 @@ const props = defineProps<LabelProps>();
 
 <template>
   <Label
+    data-slot="label"
     v-bind="{ ...props, ...delegatedAttrs() }"
     :class="
 
@@ -26,7 +27,6 @@ const props = defineProps<LabelProps>();
         $attrs.class ?? '',
       )
     "
-    data-slot="label"
   >
     <slot />
   </Label>

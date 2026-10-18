@@ -21,12 +21,12 @@ const props = withDefaults(defineProps<{
 
 <template>
   <span
+    data-slot="breadcrumb-ellipsis"
     v-bind="delegatedAttrs()"
     role="presentation"
     aria-hidden="true"
     class="sigma-ui-breadcrumb__ellipsis"
     :class="$attrs.class"
-    data-slot="breadcrumb-ellipsis"
   >
     <slot>
       <MoreHorizontalIcon class="sigma-ui-breadcrumb__ellipsis-icon" />

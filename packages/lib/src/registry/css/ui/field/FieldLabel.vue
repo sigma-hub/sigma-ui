@@ -25,8 +25,8 @@ defineSlots<{
 
 <template>
   <Label
-    v-bind="{ ...props, ...delegatedAttrs() }"
     data-slot="field-label"
+    v-bind="{ ...props, ...delegatedAttrs() }"
     class="sigma-ui-field-label"
     :class="[$attrs.class]"
   >

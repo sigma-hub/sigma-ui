@@ -27,8 +27,8 @@ defineSlots<{
 
 <template>
   <Primitive
-    v-bind="delegatedAttrs()"
     data-slot="sidebar-group-action"
+    v-bind="delegatedAttrs()"
     data-sidebar="group-action"
     :as="as"
     :as-child="asChild"

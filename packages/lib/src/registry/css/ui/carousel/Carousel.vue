@@ -43,13 +43,13 @@ function onKeyDown(event: KeyboardEvent) {
 
 <template>
   <div
+    data-slot="carousel"
     v-bind="delegatedAttrs()"
     class="sigma-ui-carousel"
     :class="[$attrs.class]"
     role="region"
     aria-roledescription="carousel"
     tabindex="0"
-    data-slot="carousel"
     @keydown="onKeyDown"
   >
     <slot v-bind="carouselArgs" />

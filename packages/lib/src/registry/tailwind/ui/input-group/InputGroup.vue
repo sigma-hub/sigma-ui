@@ -22,8 +22,8 @@ defineSlots<{
 
 <template>
   <div
-    v-bind="delegatedAttrs()"
     data-slot="input-group"
+    v-bind="delegatedAttrs()"
     role="group"
     :class="cn(
       'group/input-group relative flex h-9 w-full min-w-0 items-center rounded-md border border-border bg-input outline-none transition-[color,box-shadow] has-[>textarea]:h-auto',

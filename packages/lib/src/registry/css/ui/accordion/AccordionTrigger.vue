@@ -26,10 +26,10 @@ defineSlots<{
 <template>
   <AccordionHeader class="sigma-ui-accordion-header">
     <AccordionTrigger
+      data-slot="accordion-trigger"
       v-bind="{ ...forwarded, ...delegatedAttrs() }"
       class="sigma-ui-accordion-trigger"
       :class="[$attrs.class]"
-      data-slot="accordion-trigger"
     >
       <slot />
       <slot name="icon">

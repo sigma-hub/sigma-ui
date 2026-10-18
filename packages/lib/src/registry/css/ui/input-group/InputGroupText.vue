@@ -20,8 +20,8 @@ defineSlots<{
 
 <template>
   <span
-    v-bind="delegatedAttrs()"
     data-slot="input-group-text"
+    v-bind="delegatedAttrs()"
     class="sigma-ui-input-group-text"
     :class="[$attrs.class]"
   >

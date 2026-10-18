@@ -19,9 +19,9 @@ const props = defineProps<AlertDialogCancelProps>();
 
 <template>
   <AlertDialogCancel
+    data-slot="alert-dialog-cancel"
     v-bind="{ ...props, ...delegatedAttrs() }"
     :class="cn(buttonVariants({ variant: 'outline' }), 'mt-2 sm:mt-0', $attrs.class ?? '')"
-    data-slot="alert-dialog-cancel"
   >
     <slot />
   </AlertDialogCancel>

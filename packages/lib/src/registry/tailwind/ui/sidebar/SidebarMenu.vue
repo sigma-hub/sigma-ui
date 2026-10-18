@@ -22,8 +22,8 @@ defineSlots<{
 
 <template>
   <ul
-    v-bind="delegatedAttrs()"
     data-slot="sidebar-menu"
+    v-bind="delegatedAttrs()"
     data-sidebar="menu"
     :class="cn('flex w-full min-w-0 flex-col gap-1', $attrs.class ?? '')"
   >

@@ -19,8 +19,8 @@ const props = defineProps<DrawerDescriptionProps>();
 
 <template>
   <DrawerDescription
-    v-bind="{ ...props, ...delegatedAttrs() }"
     data-slot="drawer-description"
+    v-bind="{ ...props, ...delegatedAttrs() }"
     :class="cn('text-sm text-muted-foreground', $attrs.class ?? '')"
   >
     <slot />

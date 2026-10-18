@@ -26,10 +26,10 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <DropdownMenuSubContent
+    data-slot="dropdown-menu-sub-content"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
     class="sigma-ui-dropdown-menu-sub-content"
     :class="$attrs.class"
-    data-slot="dropdown-menu-sub-content"
   >
     <slot />
   </DropdownMenuSubContent>

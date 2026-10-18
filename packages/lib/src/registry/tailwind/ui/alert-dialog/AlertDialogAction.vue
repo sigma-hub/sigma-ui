@@ -19,9 +19,9 @@ const props = defineProps<AlertDialogActionProps>();
 
 <template>
   <AlertDialogAction
+    data-slot="alert-dialog-action"
     v-bind="{ ...props, ...delegatedAttrs() }"
     :class="cn(buttonVariants(), $attrs.class ?? '')"
-    data-slot="alert-dialog-action"
   >
     <slot />
   </AlertDialogAction>

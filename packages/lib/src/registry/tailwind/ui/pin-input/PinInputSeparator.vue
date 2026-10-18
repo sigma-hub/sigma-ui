@@ -8,8 +8,8 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <Primitive
-    v-bind="forwardedProps"
     data-slot="pin-input-separator"
+    v-bind="forwardedProps"
   >
     <slot>
       <DotIcon class="w-4 h-4 text-muted-foreground" />

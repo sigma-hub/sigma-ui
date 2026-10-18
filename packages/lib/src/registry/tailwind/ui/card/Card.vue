@@ -16,6 +16,7 @@ const delegatedAttrs = () => {
 
 <template>
   <div
+    data-slot="card"
     v-bind="delegatedAttrs()"
     :class="
       cn(
@@ -23,7 +24,6 @@ const delegatedAttrs = () => {
         $attrs.class ?? '',
       )
     "
-    data-slot="card"
   >
     <slot />
   </div>

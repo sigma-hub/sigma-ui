@@ -27,9 +27,9 @@ const { toggleSidebar } = useSidebar();
 
 <template>
   <Button
+    data-slot="sidebar-trigger"
     v-bind="delegatedAttrs()"
     data-sidebar="trigger"
-    data-slot="sidebar-trigger"
     variant="ghost"
     size="icon"
     :class="cn('size-7', $attrs.class ?? '')"

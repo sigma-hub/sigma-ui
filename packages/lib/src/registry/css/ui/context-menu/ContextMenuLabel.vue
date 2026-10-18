@@ -20,10 +20,10 @@ const props = defineProps<ContextMenuLabelProps & {
 
 <template>
   <ContextMenuLabel
+    data-slot="context-menu-label"
     v-bind="{ ...props, ...delegatedAttrs() }"
     class="sigma-ui-context-menu-label"
     :class="[{ 'sigma-ui-context-menu-label--inset': inset }, $attrs.class]"
-    data-slot="context-menu-label"
   >
     <slot />
   </ContextMenuLabel>

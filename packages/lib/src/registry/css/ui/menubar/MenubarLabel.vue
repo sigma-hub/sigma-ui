@@ -20,10 +20,10 @@ defineProps<MenubarLabelProps & {
 
 <template>
   <MenubarLabel
+    data-slot="menubar-label"
     v-bind="delegatedAttrs()"
     class="sigma-ui-menubar-label"
     :class="[{ 'sigma-ui-menubar-label--inset': inset }, $attrs.class]"
-    data-slot="menubar-label"
   >
     <slot />
   </MenubarLabel>

@@ -19,10 +19,10 @@ const props = withDefaults(defineProps<{
 
 <template>
   <nav
+    data-slot="breadcrumb"
     v-bind="delegatedAttrs()"
     :aria-label="props.ariaLabel"
     :class="[$attrs.class]"
-    data-slot="breadcrumb"
   >
     <slot />
   </nav>

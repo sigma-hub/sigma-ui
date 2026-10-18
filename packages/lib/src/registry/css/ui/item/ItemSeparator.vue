@@ -20,8 +20,8 @@ const props = withDefaults(defineProps<SeparatorProps>(), {
 
 <template>
   <Separator
-    v-bind="{ ...props, ...delegatedAttrs() }"
     data-slot="item-separator"
+    v-bind="{ ...props, ...delegatedAttrs() }"
     class="sigma-ui-item-separator"
     :class="[$attrs.class]"
   />

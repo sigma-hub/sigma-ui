@@ -85,9 +85,9 @@ async function onClick() {
 
 <template>
   <Button
+    data-slot="code-block-copy-button"
     v-bind="delegatedAttrs()"
     type="button"
-    data-slot="code-block-copy-button"
     :data-copied="copied || undefined"
     :variant="props.variant"
     :size="props.size"

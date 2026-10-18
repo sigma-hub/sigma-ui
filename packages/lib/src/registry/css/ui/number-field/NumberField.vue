@@ -21,9 +21,9 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <NumberFieldRoot
+    data-slot="number-field"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
     class="sigma-ui-number-field"
-    data-slot="number-field"
     :class="[$attrs.class]"
   >
     <slot />

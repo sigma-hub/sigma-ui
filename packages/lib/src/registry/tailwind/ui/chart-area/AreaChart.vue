@@ -74,9 +74,9 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
 
 <template>
   <div
+    data-slot="area-chart"
     v-bind="delegatedAttrs()"
     :class="cn('w-full h-[400px] flex flex-col items-end', $attrs.class ?? '')"
-    data-slot="area-chart"
   >
     <ChartContainer
       :config="config"

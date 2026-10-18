@@ -16,9 +16,9 @@ const delegatedAttrs = () => {
 
 <template>
   <thead
+    data-slot="table-header"
     v-bind="delegatedAttrs()"
     :class="cn('[&_tr]:border-b', $attrs.class ?? '')"
-    data-slot="table-header"
   >
     <slot />
   </thead>

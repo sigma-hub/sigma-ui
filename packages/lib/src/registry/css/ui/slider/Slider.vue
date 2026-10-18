@@ -22,8 +22,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 <template>
   <SliderRoot
     class="sigma-ui-slider"
-    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     data-slot="slider"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="[$attrs.class]"
   >
     <SliderTrack class="sigma-ui-slider__track">

@@ -26,6 +26,7 @@ const { orientation, canScrollNext, scrollNext } = useCarousel();
 
 <template>
   <Button
+    data-slot="carousel-next"
     v-bind="delegatedAttrs()"
     :disabled="!canScrollNext"
     :class="cn(
@@ -36,7 +37,6 @@ const { orientation, canScrollNext, scrollNext } = useCarousel();
       $attrs.class ?? '',
     )"
     variant="outline"
-    data-slot="carousel-next"
     @click="scrollNext"
   >
     <slot>

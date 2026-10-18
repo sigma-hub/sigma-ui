@@ -6,8 +6,8 @@ const props = defineProps<RangeCalendarGridBodyProps>();
 
 <template>
   <RangeCalendarGridBody
-    v-bind="props"
     data-slot="range-calendar-grid-body"
+    v-bind="props"
   >
     <slot />
   </RangeCalendarGridBody>

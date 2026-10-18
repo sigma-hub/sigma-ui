@@ -26,9 +26,9 @@ const props = withDefaults(defineProps<SpinnerProps>(), {
 
 <template>
   <Loader2Icon
+    data-slot="spinner"
     v-bind="delegatedAttrs()"
     role="status"
-    data-slot="spinner"
     :aria-label="props.label"
     class="sigma-ui-spinner"
     :class="[$attrs.class]"

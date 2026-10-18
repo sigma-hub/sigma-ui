@@ -26,6 +26,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <MenubarRoot
+    data-slot="menubar"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="
       cn(
@@ -33,7 +34,6 @@ const forwarded = useForwardPropsEmits(props, emits);
         $attrs.class ?? '',
       )
     "
-    data-slot="menubar"
   >
     <slot />
   </MenubarRoot>

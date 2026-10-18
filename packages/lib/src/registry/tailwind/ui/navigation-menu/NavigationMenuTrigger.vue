@@ -26,9 +26,9 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <NavigationMenuTrigger
+    data-slot="navigation-menu-trigger"
     v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     :class="cn(navigationMenuTriggerStyle(), 'group', $attrs.class ?? '')"
-    data-slot="navigation-menu-trigger"
   >
     <slot />
     <ChevronDownIcon

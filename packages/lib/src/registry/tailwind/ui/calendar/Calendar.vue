@@ -23,9 +23,9 @@ const forwarded = useForwardPropsEmits(props, emits);
 <template>
   <CalendarRoot
     v-slot="{ grid, weekDays }"
+    data-slot="calendar"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="cn('p-3', $attrs.class ?? '')"
-    data-slot="calendar"
   >
     <CalendarHeader>
       <CalendarPrevButton />

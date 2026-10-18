@@ -22,8 +22,8 @@ const forwarded = useForwardProps(props);
 
 <template>
   <NumberFieldIncrement
-    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     data-slot="increment"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="cn('absolute top-1/2 -translate-y-1/2 right-0 disabled:cursor-not-allowed disabled:opacity-20 p-3', $attrs.class ?? '')"
   >
     <slot>

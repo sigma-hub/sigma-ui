@@ -25,9 +25,9 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <RadioGroupItem
+    data-slot="radio-group-item"
     v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     class="sigma-ui-radio-group-item"
-    data-slot="radio-group-item"
     :class="[$attrs.class]"
   >
     <RadioGroupIndicator

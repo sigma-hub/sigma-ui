@@ -19,8 +19,8 @@ const props = defineProps<DrawerTitleProps>();
 
 <template>
   <DrawerTitle
-    v-bind="{ ...props, ...delegatedAttrs() }"
     data-slot="drawer-title"
+    v-bind="{ ...props, ...delegatedAttrs() }"
     :class="cn('text-lg font-semibold leading-none tracking-tight', $attrs.class ?? '')"
   >
     <slot />

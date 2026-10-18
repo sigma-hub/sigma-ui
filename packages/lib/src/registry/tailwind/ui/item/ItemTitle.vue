@@ -22,8 +22,8 @@ defineSlots<{
 
 <template>
   <div
-    v-bind="delegatedAttrs()"
     data-slot="item-title"
+    v-bind="delegatedAttrs()"
     :class="cn('flex w-fit items-center gap-2 text-sm leading-snug font-medium', $attrs.class ?? '')"
   >
     <slot />

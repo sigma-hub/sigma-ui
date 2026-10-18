@@ -16,9 +16,9 @@ const delegatedAttrs = () => {
 
 <template>
   <div
+    data-slot="drawer-footer"
     v-bind="delegatedAttrs()"
     :class="cn('mt-auto flex flex-col gap-2 p-4', $attrs.class ?? '')"
-    data-slot="drawer-footer"
   >
     <slot />
   </div>

@@ -14,10 +14,10 @@ const delegatedAttrs = () => {
 
 <template>
   <span
+    data-slot="dropdown-menu-shortcut"
     v-bind="delegatedAttrs()"
     class="sigma-ui-dropdown-menu-shortcut"
     :class="$attrs.class"
-    data-slot="dropdown-menu-shortcut"
   >
     <slot />
   </span>

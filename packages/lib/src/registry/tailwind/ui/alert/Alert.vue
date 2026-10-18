@@ -21,10 +21,10 @@ defineProps<{
 
 <template>
   <div
+    data-slot="alert"
     v-bind="delegatedAttrs()"
     :class="cn(alertVariants({ variant }), $attrs.class ?? '')"
     role="alert"
-    data-slot="alert"
   >
     <slot />
   </div>

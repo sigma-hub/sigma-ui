@@ -20,9 +20,9 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <TagsInputItemDelete
+    data-slot="tags-input-item-delete"
     v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     class="sigma-ui-tags-input-item-delete"
-    data-slot="tags-input-item-delete"
     :class="[$attrs.class]"
   >
     <slot>

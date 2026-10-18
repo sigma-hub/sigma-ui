@@ -27,8 +27,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 <template>
   <TabsRoot
     v-slot="{ modelValue }"
-    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     data-slot="code-block-tabs"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     class="sigma-ui-code-block__tabs"
     :class="[$attrs.class]"
   >

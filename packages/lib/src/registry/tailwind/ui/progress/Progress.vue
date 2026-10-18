@@ -27,6 +27,7 @@ const props = withDefaults(
 
 <template>
   <ProgressRoot
+    data-slot="progress"
     v-bind="{ ...props, ...delegatedAttrs() }"
     :class="
       cn(
@@ -34,7 +35,6 @@ const props = withDefaults(
         $attrs.class ?? '',
       )
     "
-    data-slot="progress"
   >
     <ProgressIndicator
       class="h-full w-full flex-1 bg-primary transition-all"

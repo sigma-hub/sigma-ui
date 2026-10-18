@@ -62,8 +62,8 @@ provideCodeBlockContext({
 
 <template>
   <div
-    v-bind="delegatedAttrs()"
     data-slot="code-block"
+    v-bind="delegatedAttrs()"
     :data-variant="props.variant"
     :data-size="props.size"
     :data-wrap="wrap || undefined"

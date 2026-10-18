@@ -17,8 +17,8 @@ const delegatedAttrs = () => {
 
 <template>
   <Separator
-    v-bind="delegatedAttrs()"
     data-slot="sidebar-separator"
+    v-bind="delegatedAttrs()"
     data-sidebar="separator"
     :class="cn('mx-2 w-auto bg-border', $attrs.class ?? '')"
   />

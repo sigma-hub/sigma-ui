@@ -6,8 +6,8 @@ const props = defineProps<MenubarMenuProps>();
 
 <template>
   <MenubarMenu
-    v-bind="props"
     data-slot="menubar-menu"
+    v-bind="props"
   >
     <slot />
   </MenubarMenu>

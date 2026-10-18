@@ -8,6 +8,7 @@ const props = defineProps<ToasterProps>();
 <template>
   <Toaster
     class="!z-[60] pointer-events-auto fixed flex flex-col gap-[10px] max-w-[420px]"
+    data-slot="toaster"
     v-bind="props"
     :toast-options="{
       ...props.toastOptions,
@@ -19,6 +20,5 @@ const props = defineProps<ToasterProps>();
         cancelButton: 'group-[&[data-type=default]]:px-2 group-[&[data-type=default]]:py-0.5 group-[&[data-type=default]]:rounded group-[&[data-type=default]]:bg-muted group-[&[data-type=default]]:text-muted-foreground group-[&[data-type=default]]:hover:opacity-90',
       },
     }"
-    data-slot="toaster"
   />
 </template>

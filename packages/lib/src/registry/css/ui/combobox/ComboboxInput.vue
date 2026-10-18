@@ -16,9 +16,9 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 
 <template>
   <ComboboxInput
+    data-slot="combobox-input"
     v-bind="forwarded"
     :class="['sigma-ui-combobox-input', props.class]"
-    data-slot="combobox-input"
   >
     <slot />
   </ComboboxInput>

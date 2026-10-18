@@ -21,8 +21,8 @@ const forwardedProps = useForwardProps(props);
   <RangeCalendarHeading
     v-slot="{ headingValue }"
     class="sigma-ui-range-calendar-heading"
-    v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     data-slot="range-calendar-heading"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     :class="[$attrs.class]"
   >
     <slot :heading-value="headingValue">

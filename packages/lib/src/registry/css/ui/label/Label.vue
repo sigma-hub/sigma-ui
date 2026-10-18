@@ -17,9 +17,9 @@ const props = defineProps<LabelProps>();
 
 <template>
   <Label
+    data-slot="label"
     v-bind="{ ...props, ...delegatedAttrs() }"
     class="sigma-ui-label"
-    data-slot="label"
     :class="[$attrs.class]"
   >
     <slot />

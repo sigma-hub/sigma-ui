@@ -22,10 +22,10 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <DropdownMenuItem
+    data-slot="dropdown-menu-item"
     v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     class="sigma-ui-dropdown-menu-item"
     :class="[{ 'sigma-ui-dropdown-menu-item--inset': inset }, $attrs.class]"
-    data-slot="dropdown-menu-item"
   >
     <slot />
   </DropdownMenuItem>

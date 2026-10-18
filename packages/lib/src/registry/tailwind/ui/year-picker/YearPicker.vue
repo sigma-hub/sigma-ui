@@ -22,8 +22,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 <template>
   <YearPickerRoot
     v-slot="{ grid }"
-    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     data-slot="year-picker"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="cn('w-fit rounded-md border p-3', $attrs.class ?? '')"
   >
     <YearPickerHeader>

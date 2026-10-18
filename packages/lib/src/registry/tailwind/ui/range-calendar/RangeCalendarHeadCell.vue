@@ -20,9 +20,9 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <RangeCalendarHeadCell
+    data-slot="range-calendar-head-cell"
     v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     :class="cn('w-8 rounded-md text-[0.8rem] font-normal text-muted-foreground', $attrs.class ?? '')"
-    data-slot="range-calendar-head-cell"
   >
     <slot />
   </RangeCalendarHeadCell>

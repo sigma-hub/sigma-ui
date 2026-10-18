@@ -22,8 +22,8 @@ defineSlots<{
 
 <template>
   <div
-    v-bind="delegatedAttrs()"
     data-slot="sidebar-group"
+    v-bind="delegatedAttrs()"
     data-sidebar="group"
     :class="cn('relative flex w-full min-w-0 flex-col p-2', $attrs.class ?? '')"
   >

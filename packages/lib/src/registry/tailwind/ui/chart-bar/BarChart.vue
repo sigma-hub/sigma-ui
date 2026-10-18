@@ -73,9 +73,9 @@ const selectorsBar = computed(() => props.type === 'grouped' ? GroupedBar.select
 
 <template>
   <div
+    data-slot="bar-chart"
     v-bind="delegatedAttrs()"
     :class="cn('w-full h-[400px] flex flex-col items-end', $attrs.class ?? '')"
-    data-slot="bar-chart"
   >
     <ChartContainer
       :config="config"

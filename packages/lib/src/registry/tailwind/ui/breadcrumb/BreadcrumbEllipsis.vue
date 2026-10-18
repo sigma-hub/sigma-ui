@@ -22,11 +22,11 @@ const props = withDefaults(defineProps<{
 
 <template>
   <span
+    data-slot="breadcrumb-ellipsis"
     v-bind="delegatedAttrs()"
     role="presentation"
     aria-hidden="true"
     :class="cn('flex items-center justify-center', $attrs.class ?? '')"
-    data-slot="breadcrumb-ellipsis"
   >
     <slot>
       <MoreHorizontalIcon class="h-4 w-4" />

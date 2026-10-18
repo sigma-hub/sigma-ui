@@ -6,8 +6,8 @@ const props = defineProps<HoverCardTriggerProps>();
 
 <template>
   <HoverCardTrigger
-    v-bind="props"
     data-slot="hover-card-trigger"
+    v-bind="props"
   >
     <slot />
   </HoverCardTrigger>

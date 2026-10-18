@@ -17,11 +17,11 @@ const delegatedAttrs = () => {
 
 <template>
   <li
+    data-slot="breadcrumb-separator"
     v-bind="delegatedAttrs()"
     role="presentation"
     aria-hidden="true"
     :class="cn('[&>svg]:size-3.5', $attrs.class ?? '')"
-    data-slot="breadcrumb-separator"
   >
     <slot>
       <ChevronRightIcon />

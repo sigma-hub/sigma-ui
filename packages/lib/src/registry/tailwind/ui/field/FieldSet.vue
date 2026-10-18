@@ -22,8 +22,8 @@ defineSlots<{
 
 <template>
   <fieldset
-    v-bind="delegatedAttrs()"
     data-slot="field-set"
+    v-bind="delegatedAttrs()"
     :class="cn('flex flex-col gap-6 has-[>[data-slot=checkbox-group]]:gap-3 has-[>[data-slot=radio-group]]:gap-3', $attrs.class ?? '')"
   >
     <slot />

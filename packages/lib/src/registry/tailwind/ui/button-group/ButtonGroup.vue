@@ -34,9 +34,9 @@ defineSlots<{
 
 <template>
   <div
+    data-slot="button-group"
     v-bind="delegatedAttrs()"
     role="group"
-    data-slot="button-group"
     :data-orientation="props.orientation"
     :class="cn(buttonGroupVariants({ orientation: props.orientation }), $attrs.class ?? '')"
   >

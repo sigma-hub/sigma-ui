@@ -18,8 +18,8 @@ const forwarded = useForwardProps(props);
 
 <template>
   <MonthPickerCell
-    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     data-slot="month-picker-cell"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     class="sigma-ui-month-picker-cell"
     :class="[$attrs.class]"
   >

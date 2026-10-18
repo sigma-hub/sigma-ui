@@ -22,8 +22,8 @@ defineSlots<{
 
 <template>
   <kbd
-    v-bind="delegatedAttrs()"
     data-slot="kbd-group"
+    v-bind="delegatedAttrs()"
     :class="cn('inline-flex items-center gap-1', $attrs.class ?? '')"
   >
     <slot />

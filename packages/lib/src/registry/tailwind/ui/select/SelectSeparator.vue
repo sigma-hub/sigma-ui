@@ -18,8 +18,8 @@ const props = defineProps<SelectSeparatorProps>();
 
 <template>
   <SelectSeparator
-    v-bind="{ ...props, ...delegatedAttrs() }"
     data-slot="select-separator"
+    v-bind="{ ...props, ...delegatedAttrs() }"
     :class="cn('-mx-1 my-1 h-px bg-border pointer-events-none', $attrs.class ?? '')"
   />
 </template>

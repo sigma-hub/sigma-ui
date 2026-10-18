@@ -31,9 +31,9 @@ defineSlots<{
     :class="cn('group/native-select relative w-fit has-[select:disabled]:opacity-50', attrs.class ?? '')"
   >
     <select
-      v-bind="selectAttrs()"
       v-model="model"
       data-slot="native-select"
+      v-bind="selectAttrs()"
       :class="cn(
         'flex h-9 w-full min-w-0 appearance-none rounded-md border border-border bg-input py-2 pr-9 pl-3 text-sm outline-none',
         'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring',

@@ -17,9 +17,9 @@ const props = defineProps<TabsListProps>();
 
 <template>
   <TabsList
+    data-slot="tabs-list"
     v-bind="{ ...props, ...delegatedAttrs() }"
     class="sigma-ui-tabs-list"
-    data-slot="tabs-list"
     :class="[$attrs.class]"
   >
     <slot />

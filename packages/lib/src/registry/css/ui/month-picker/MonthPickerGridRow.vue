@@ -18,9 +18,8 @@ const forwarded = useForwardProps(props);
 
 <template>
   <MonthPickerGridRow
-    v-bind="{ ...forwarded, ...delegatedAttrs() }"
-
     data-slot="month-picker-gridrow"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     class="sigma-ui-month-picker-gridrow"
     :class="[$attrs.class]"
   >

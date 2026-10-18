@@ -46,9 +46,9 @@ const messages = computed(() => {
 <template>
   <div
     v-if="slots.default || messages.length"
+    data-slot="field-error"
     v-bind="delegatedAttrs()"
     role="alert"
-    data-slot="field-error"
     :class="cn('text-sm font-normal text-destructive', $attrs.class ?? '')"
   >
     <slot v-if="slots.default" />

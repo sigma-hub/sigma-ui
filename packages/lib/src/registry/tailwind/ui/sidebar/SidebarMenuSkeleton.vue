@@ -29,8 +29,8 @@ const width = `${Math.floor(Math.random() * 40) + 50}%`;
 
 <template>
   <div
-    v-bind="delegatedAttrs()"
     data-slot="sidebar-menu-skeleton"
+    v-bind="delegatedAttrs()"
     data-sidebar="menu-skeleton"
     :class="cn('flex h-8 items-center gap-2 rounded-md px-2', $attrs.class ?? '')"
   >

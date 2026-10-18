@@ -22,8 +22,8 @@ defineSlots<{
 
 <template>
   <optgroup
-    v-bind="delegatedAttrs()"
     data-slot="native-select-optgroup"
+    v-bind="delegatedAttrs()"
     :class="cn('bg-popover text-popover-foreground', $attrs.class ?? '')"
   >
     <slot />

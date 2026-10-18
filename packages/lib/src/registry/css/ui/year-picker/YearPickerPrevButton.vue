@@ -20,8 +20,8 @@ const forwarded = useForwardProps(props);
 
 <template>
   <YearPickerPrev
-    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     data-slot="year-picker-prev-button"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     class="sigma-ui-year-picker-prev"
     :class="[buttonVariants({ variant: 'outline' }), $attrs.class]"
   >

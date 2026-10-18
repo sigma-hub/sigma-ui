@@ -20,9 +20,9 @@ const props = defineProps<DropdownMenuSeparatorProps>();
 
 <template>
   <DropdownMenuSeparator
+    data-slot="dropdown-menu-separator"
     v-bind="{ ...props, ...delegatedAttrs() }"
     class="sigma-ui-dropdown-menu-separator"
-    data-slot="dropdown-menu-separator"
     :class="[$attrs.class]"
   />
 </template>

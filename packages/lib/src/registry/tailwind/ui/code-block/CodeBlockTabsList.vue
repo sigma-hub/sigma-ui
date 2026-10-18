@@ -23,8 +23,8 @@ defineSlots<{
 
 <template>
   <TabsList
-    v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     data-slot="code-block-tabs-list"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     :class="cn('-my-0.5 flex min-w-0 items-center gap-0.5 overflow-x-auto p-0.5 [scrollbar-width:none]', $attrs.class ?? '')"
   >
     <slot />

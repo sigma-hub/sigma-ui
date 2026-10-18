@@ -24,8 +24,8 @@ const props = withDefaults(defineProps<PaginationFirstProps>(), {
 
 <template>
   <PaginationFirst
-    v-bind="props"
     data-slot="pagination-first"
+    v-bind="props"
   >
     <Button
       v-bind="delegatedAttrs()"

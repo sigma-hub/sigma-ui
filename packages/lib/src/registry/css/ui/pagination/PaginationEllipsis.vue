@@ -18,9 +18,9 @@ const props = defineProps<PaginationEllipsisProps>();
 
 <template>
   <PaginationEllipsis
+    data-slot="pagination-ellipsis"
     v-bind="{ ...props, ...delegatedAttrs() }"
     class="sigma-ui-pagination-ellipsis"
-    data-slot="pagination-ellipsis"
     :class="[$attrs.class]"
   >
     <slot>

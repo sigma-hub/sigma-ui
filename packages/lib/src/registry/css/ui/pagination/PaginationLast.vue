@@ -21,8 +21,8 @@ const props = withDefaults(defineProps<PaginationLastProps>(), {
 
 <template>
   <PaginationLast
-    v-bind="props"
     data-slot="pagination-last"
+    v-bind="props"
   >
     <Button
       v-bind="delegatedAttrs()"

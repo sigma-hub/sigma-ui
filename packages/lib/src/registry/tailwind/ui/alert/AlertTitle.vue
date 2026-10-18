@@ -16,9 +16,9 @@ const delegatedAttrs = () => {
 
 <template>
   <h5
+    data-slot="alert-title"
     v-bind="delegatedAttrs()"
     :class="cn('mb-1 font-medium leading-none tracking-tight', $attrs.class ?? '')"
-    data-slot="alert-title"
   >
     <slot />
   </h5>

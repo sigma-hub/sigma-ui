@@ -21,9 +21,9 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <TagsInputItemDelete
+    data-slot="tags-input-item-delete"
     v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     :class="cn('flex rounded bg-transparent mr-1', $attrs.class ?? '')"
-    data-slot="tags-input-item-delete"
   >
     <slot>
       <XIcon class="w-4 h-4" />

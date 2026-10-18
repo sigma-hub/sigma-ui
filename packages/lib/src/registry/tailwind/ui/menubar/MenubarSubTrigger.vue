@@ -24,13 +24,13 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <MenubarSubTrigger
+    data-slot="menubar-sub-trigger"
     v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     :class="cn(
       'flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-hidden focus:bg-secondary focus:text-secondary-foreground data-[state=open]:bg-secondary data-[state=open]:text-secondary-foreground',
       inset && 'pl-8',
       $attrs.class ?? '',
     )"
-    data-slot="menubar-sub-trigger"
   >
     <slot />
     <ChevronRightIcon class="ml-auto h-4 w-4" />

@@ -72,6 +72,7 @@ function onLoad() {
 
 <template>
   <div
+    data-slot="image"
     v-bind="delegatedAttrs()"
     :class="[
       $attrs.class ?? '',
@@ -81,7 +82,6 @@ function onLoad() {
       },
     ]"
     class="sigma-ui-image__container"
-    data-slot="image"
   >
     <div
       v-if="isError"

@@ -27,9 +27,9 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <MenubarCheckboxItem
+    data-slot="menubar-checkbox-item"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
     class="sigma-ui-menubar-checkbox-item"
-    data-slot="menubar-checkbox-item"
     :class="[$attrs.class]"
   >
     <span class="sigma-ui-menubar-checkbox-item__indicator">

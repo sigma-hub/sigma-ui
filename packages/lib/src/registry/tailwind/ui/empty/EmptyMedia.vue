@@ -32,8 +32,8 @@ defineSlots<{
 
 <template>
   <div
-    v-bind="delegatedAttrs()"
     data-slot="empty-icon"
+    v-bind="delegatedAttrs()"
     :data-variant="variant"
     :class="cn(emptyMediaVariants({ variant }), $attrs.class ?? '')"
   >

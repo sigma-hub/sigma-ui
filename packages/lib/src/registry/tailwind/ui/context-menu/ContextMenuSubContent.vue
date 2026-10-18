@@ -26,6 +26,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <ContextMenuSubContent
+    data-slot="context-menu-sub-content"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="
       cn(
@@ -33,7 +34,6 @@ const forwarded = useForwardPropsEmits(props, emits);
         $attrs.class ?? '',
       )
     "
-    data-slot="context-menu-sub-content"
   >
     <slot />
   </ContextMenuSubContent>

@@ -16,9 +16,9 @@ const delegatedAttrs = () => {
 
 <template>
   <span
+    data-slot="dropdown-menu-shortcut"
     v-bind="delegatedAttrs()"
     :class="cn('ml-auto text-xs tracking-widest opacity-60', $attrs.class ?? '')"
-    data-slot="dropdown-menu-shortcut"
   >
     <slot />
   </span>

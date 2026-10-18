@@ -17,8 +17,8 @@ const delegatedAttrs = () => {
 
 <template>
   <Textarea
-    v-bind="delegatedAttrs()"
     data-slot="input-group-control"
+    v-bind="delegatedAttrs()"
     class="sigma-ui-input-group__control"
     :class="[$attrs.class]"
   />

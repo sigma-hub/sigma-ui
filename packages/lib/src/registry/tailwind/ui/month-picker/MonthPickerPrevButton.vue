@@ -21,8 +21,8 @@ const forwarded = useForwardProps(props);
 
 <template>
   <MonthPickerPrev
-    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     data-slot="month-picker-prev-button"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="cn(buttonVariants({ variant: 'outline' }), 'size-7 bg-transparent p-0 opacity-50 hover:bg-accent hover:text-accent-foreground hover:opacity-100', $attrs.class ?? '')"
   >
     <slot>

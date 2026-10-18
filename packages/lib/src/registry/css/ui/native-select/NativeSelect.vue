@@ -31,9 +31,9 @@ defineSlots<{
     :class="[attrs.class]"
   >
     <select
-      v-bind="selectAttrs()"
       v-model="model"
       data-slot="native-select"
+      v-bind="selectAttrs()"
       class="sigma-ui-native-select__control"
     >
       <slot />

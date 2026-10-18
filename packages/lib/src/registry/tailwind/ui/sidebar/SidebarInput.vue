@@ -24,9 +24,9 @@ defineEmits<{
 
 <template>
   <Input
-    v-bind="delegatedAttrs()"
     v-model="model"
     data-slot="sidebar-input"
+    v-bind="delegatedAttrs()"
     data-sidebar="input"
     :class="cn('h-8 w-full bg-background shadow-none', $attrs.class ?? '')"
   />

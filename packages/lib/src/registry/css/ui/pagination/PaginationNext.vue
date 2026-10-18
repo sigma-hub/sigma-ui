@@ -21,8 +21,8 @@ const props = withDefaults(defineProps<PaginationNextProps>(), {
 
 <template>
   <PaginationNext
-    v-bind="props"
     data-slot="pagination-next"
+    v-bind="props"
   >
     <Button
       v-bind="delegatedAttrs()"

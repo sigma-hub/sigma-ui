@@ -18,8 +18,8 @@ defineSlots<{
 
 <template>
   <div
-    v-bind="delegatedAttrs()"
     data-slot="code-block-actions"
+    v-bind="delegatedAttrs()"
     class="sigma-ui-code-block__actions"
     :class="[$attrs.class]"
   >

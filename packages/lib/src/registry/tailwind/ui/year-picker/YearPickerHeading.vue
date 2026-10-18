@@ -20,8 +20,8 @@ const forwarded = useForwardProps(props);
 <template>
   <YearPickerHeading
     v-slot="{ headingValue }"
-    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     data-slot="year-picker-heading"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="cn('text-sm font-medium', $attrs.class ?? '')"
   >
     <slot :heading-value="headingValue">

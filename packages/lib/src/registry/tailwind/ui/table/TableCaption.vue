@@ -16,9 +16,9 @@ const delegatedAttrs = () => {
 
 <template>
   <caption
+    data-slot="table-caption"
     v-bind="delegatedAttrs()"
     :class="cn('mt-4 text-sm text-muted-foreground', $attrs.class ?? '')"
-    data-slot="table-caption"
   >
     <slot />
   </caption>

@@ -16,9 +16,9 @@ const delegatedAttrs = () => {
 
 <template>
   <div
+    data-slot="card-footer"
     v-bind="delegatedAttrs()"
     :class="cn('flex items-center p-6 pt-0', $attrs.class ?? '')"
-    data-slot="card-footer"
   >
     <slot />
   </div>

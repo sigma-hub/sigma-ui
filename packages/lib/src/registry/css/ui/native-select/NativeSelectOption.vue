@@ -20,8 +20,8 @@ defineSlots<{
 
 <template>
   <option
-    v-bind="delegatedAttrs()"
     data-slot="native-select-option"
+    v-bind="delegatedAttrs()"
     class="sigma-ui-native-select-option"
     :class="[$attrs.class]"
   >

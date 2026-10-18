@@ -19,9 +19,8 @@ const forwarded = useForwardProps(props);
 
 <template>
   <YearPickerHeader
-    v-bind="{ ...forwarded, ...delegatedAttrs() }"
-
     data-slot="year-picker-header"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="cn('relative flex w-full items-center justify-between', $attrs.class ?? '')"
   >
     <slot />

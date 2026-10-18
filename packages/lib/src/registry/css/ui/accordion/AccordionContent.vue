@@ -18,9 +18,9 @@ const forwarded = useForwardProps(props);
 
 <template>
   <AccordionContent
+    data-slot="accordion-content"
     v-bind="forwarded"
     class="sigma-ui-accordion-content"
-    data-slot="accordion-content"
   >
     <div
       v-bind="delegatedAttrs()"
