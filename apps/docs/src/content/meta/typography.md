@@ -5,7 +5,7 @@
 <ApiTable kind="props" :items='[
   {
     "name": "variant",
-    "type": "\"h2\" | \"h3\" | \"p\" | \"link\" | \"small\" | \"muted\" | \"h1\" | \"h4\" | \"blockquote\" | \"list\" | \"code\" | \"lead\" | \"large\" | \"table\" | null",
+    "type": "\"h2\" | \"h3\" | \"p\" | \"link\" | \"small\" | \"code\" | \"muted\" | \"h1\" | \"h4\" | \"blockquote\" | \"list\" | \"lead\" | \"large\" | \"table\" | null",
     "default": "\"p\"",
     "required": false,
     "description": "<p>Text style. Also chooses the element when <code>as</code> is omitted.</p>"

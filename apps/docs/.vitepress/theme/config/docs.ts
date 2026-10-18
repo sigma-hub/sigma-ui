@@ -25,6 +25,11 @@ interface DocsConfig {
 
 const listedComponents: SidebarNavItem[] = [
   {
+    title: 'Code Block',
+    href: '/components/code-block',
+    label: 'New',
+  },
+  {
     title: 'Direction',
     href: '/components/direction',
     label: 'New',
