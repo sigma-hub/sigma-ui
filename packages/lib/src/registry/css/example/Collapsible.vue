@@ -57,14 +57,14 @@ const isOpen = ref(false);
   display: flex;
   width: 350px;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-collapsible__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1rem;
+  padding: 0 calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-collapsible__title {
@@ -73,17 +73,17 @@ const isOpen = ref(false);
 }
 
 .example-sigma-ui-collapsible__trigger {
-  width: 2.25rem;
+  width: calc(var(--spacing) * 9);
   padding: 0;
 }
 
 .example-sigma-ui-collapsible__icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-collapsible__component {
-  padding: 0.75rem 1rem;
+  padding: calc(var(--spacing) * 3) calc(var(--spacing) * 4);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   font-family: var(--font-mono);
@@ -93,7 +93,7 @@ const isOpen = ref(false);
 .example-sigma-ui-collapsible__content {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .sigma-ui-sr-only {

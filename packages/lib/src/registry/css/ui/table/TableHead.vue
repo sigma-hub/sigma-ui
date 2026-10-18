@@ -25,9 +25,9 @@ const delegatedAttrs = () => {
 
 <style>
 .sigma-ui-table-head {
-  height: 3rem;
-  padding-right: 1rem;
-  padding-left: 1rem;
+  height: calc(var(--spacing) * 12);
+  padding-right: calc(var(--spacing) * 4);
+  padding-left: calc(var(--spacing) * 4);
   color: var(--muted-foreground);
   font-weight: 500;
   text-align: left;

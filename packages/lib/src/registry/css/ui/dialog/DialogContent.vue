@@ -76,11 +76,11 @@ const forwarded = useForwardPropsEmits(reactiveOmit(props, 'closeLabel'), emits)
   display: grid;
   width: 100%;
   max-width: 32rem;
-  padding: 1.5rem;
+  padding: calc(var(--spacing) * 6);
   border: 1px solid var(--border);
   background-color: var(--background);
   box-shadow: var(--shadow-lg);
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
   transform: translate(-50%, -50%);
   transition-duration: 200ms;
 }
@@ -95,8 +95,8 @@ const forwarded = useForwardPropsEmits(reactiveOmit(props, 'closeLabel'), emits)
 
 .sigma-ui-dialog-close {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: calc(var(--spacing) * 4);
+  right: calc(var(--spacing) * 4);
   border-radius: var(--radius-sm);
   opacity: 0.7;
   transition-duration: 150ms;
@@ -123,8 +123,8 @@ const forwarded = useForwardPropsEmits(reactiveOmit(props, 'closeLabel'), emits)
 }
 
 .sigma-ui-dialog-close__icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 
 .sigma-ui-dialog-close__label {

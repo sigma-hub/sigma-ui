@@ -96,11 +96,11 @@ const onSubmit = handleSubmit((values) => {
   display: flex;
   width: 66%;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: calc(var(--spacing) * 6);
 }
 
 .example-sigma-ui-number-field-form__field {
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-number-field-form__button {
@@ -108,9 +108,9 @@ const onSubmit = handleSubmit((values) => {
 }
 
 .example-sigma-ui-number-field-form__toast-pre {
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
   border-radius: var(--radius);
-  margin-top: 0.5rem;
+  margin-top: calc(var(--spacing) * 2);
   background-color: color-mix(in oklch, var(--muted) 50%, transparent);
 }
 </style>

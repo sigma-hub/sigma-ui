@@ -116,7 +116,7 @@ const onSubmit = handleSubmit((values) => {
 }
 
 .example-sigma-ui-checkbox-multiple__header {
-  margin-bottom: 0.5rem;
+  margin-bottom: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-checkbox-multiple__title {
@@ -127,7 +127,7 @@ const onSubmit = handleSubmit((values) => {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 0.75rem;
+  gap: calc(var(--spacing) * 3);
 }
 
 .example-sigma-ui-checkbox-multiple__label {
@@ -137,13 +137,13 @@ const onSubmit = handleSubmit((values) => {
 .example-sigma-ui-checkbox-multiple__footer {
   display: flex;
   justify-content: flex-start;
-  margin-top: 1rem;
+  margin-top: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-checkbox-multiple__toast-pre {
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
   border-radius: var(--radius);
-  margin-top: 0.5rem;
+  margin-top: calc(var(--spacing) * 2);
   background-color: color-mix(in oklch, var(--muted) 50%, transparent);
 }
 </style>

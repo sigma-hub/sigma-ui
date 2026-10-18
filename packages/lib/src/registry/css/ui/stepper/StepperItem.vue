@@ -40,7 +40,7 @@ defineSlots<{
 .sigma-ui-stepper-item {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .sigma-ui-stepper-item[data-disabled] {

@@ -80,13 +80,13 @@ async function handleClick(event: MouseEvent) {
 .sigma-ui-confirm-button {
   position: relative;
   overflow: hidden;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .sigma-ui-confirm-button__content {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
   transition: opacity 0.15s ease;
 }
 

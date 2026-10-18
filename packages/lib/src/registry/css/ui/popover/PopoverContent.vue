@@ -47,8 +47,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 <style>
 .sigma-ui-popover-content {
   z-index: 50;
-  width: 18rem;
-  padding: 1rem;
+  width: calc(var(--spacing) * 72);
+  padding: calc(var(--spacing) * 4);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   backdrop-filter: blur(var(--backdrop-filter-blur));

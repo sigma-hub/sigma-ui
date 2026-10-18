@@ -76,29 +76,29 @@ import {
   display: flex;
   flex: 1 1 0%;
   flex-direction: column;
-  padding: 1rem;
-  gap: 1rem;
+  padding: calc(var(--spacing) * 4);
+  gap: calc(var(--spacing) * 4);
 }
 
 .dashboard-analytics__stats,
 .dashboard-analytics__panels {
   display: grid;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 @media (width >= 48rem) {
   .dashboard-analytics__main {
-    padding: 2rem;
-    gap: 2rem;
+    padding: calc(var(--spacing) * 8);
+    gap: calc(var(--spacing) * 8);
   }
 
   .dashboard-analytics__stats {
-    gap: 2rem;
+    gap: calc(var(--spacing) * 8);
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .dashboard-analytics__panels {
-    gap: 2rem;
+    gap: calc(var(--spacing) * 8);
   }
 }
 

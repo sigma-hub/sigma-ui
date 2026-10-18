@@ -70,49 +70,49 @@ function focusControl(event: MouseEvent) {
   cursor: text;
   font-size: 0.875rem;
   font-weight: 500;
-  gap: 0.5rem;
-  padding-block: 0.375rem;
+  gap: calc(var(--spacing) * 2);
+  padding-block: calc(var(--spacing) * 1.5);
   user-select: none;
 }
 
 .sigma-ui-input-group-addon svg {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   pointer-events: none;
 }
 
 .sigma-ui-input-group-addon--inline-start {
   order: -1;
-  padding-left: 0.75rem;
+  padding-left: calc(var(--spacing) * 3);
 }
 
 .sigma-ui-input-group-addon--inline-start:has(> button) {
-  margin-left: -0.375rem;
+  margin-left: calc(var(--spacing) * -1.5);
 }
 
 .sigma-ui-input-group-addon--inline-end {
   order: 1;
-  padding-right: 0.75rem;
+  padding-right: calc(var(--spacing) * 3);
 }
 
 .sigma-ui-input-group-addon--inline-end:has(> button) {
-  margin-right: -0.375rem;
+  margin-right: calc(var(--spacing) * -1.5);
 }
 
 .sigma-ui-input-group-addon--block-start,
 .sigma-ui-input-group-addon--block-end {
   width: 100%;
   justify-content: flex-start;
-  padding-inline: 0.75rem;
+  padding-inline: calc(var(--spacing) * 3);
 }
 
 .sigma-ui-input-group-addon--block-start {
   order: -1;
-  padding-top: 0.75rem;
+  padding-top: calc(var(--spacing) * 3);
 }
 
 .sigma-ui-input-group-addon--block-end {
   order: 1;
-  padding-bottom: 0.75rem;
+  padding-bottom: calc(var(--spacing) * 3);
 }
 </style>

@@ -46,8 +46,8 @@ const { orientation, canScrollNext, scrollNext } = useCarousel();
 <style>
 .sigma-ui-carousel-next {
   position: absolute;
-  width: 2rem;
-  height: 2rem;
+  width: calc(var(--spacing) * 8);
+  height: calc(var(--spacing) * 8);
   padding: 0;
   border-radius: var(--radius);
   touch-action: manipulation;
@@ -55,19 +55,19 @@ const { orientation, canScrollNext, scrollNext } = useCarousel();
 
 .sigma-ui-carousel-next--horizontal {
   top: 50%;
-  right: -3rem;
+  right: calc(var(--spacing) * -12);
   transform: translateY(-50%);
 }
 
 .sigma-ui-carousel-next--vertical {
-  bottom: -3rem;
+  bottom: calc(var(--spacing) * -12);
   left: 50%;
   transform: translateX(-50%) rotate(90deg);
 }
 
 .sigma-ui-carousel-next__icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 
 .sigma-ui-sr-only {

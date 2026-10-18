@@ -39,10 +39,10 @@ const { orientation } = useCarousel();
 }
 
 .sigma-ui-carousel-item--horizontal {
-  padding-left: 1rem;
+  padding-left: calc(var(--spacing) * 4);
 }
 
 .sigma-ui-carousel-item--vertical {
-  padding-top: 1rem;
+  padding-top: calc(var(--spacing) * 4);
 }
 </style>

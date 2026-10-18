@@ -217,8 +217,8 @@ const navigation: NavigationItem[] = [
 
 .example-sidebar-frame__logo {
   display: flex;
-  width: 2rem;
-  height: 2rem;
+  width: calc(var(--spacing) * 8);
+  height: calc(var(--spacing) * 8);
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
@@ -229,8 +229,8 @@ const navigation: NavigationItem[] = [
 
 .example-sidebar-frame__avatar {
   display: flex;
-  width: 2rem;
-  height: 2rem;
+  width: calc(var(--spacing) * 8);
+  height: calc(var(--spacing) * 8);
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
@@ -241,8 +241,8 @@ const navigation: NavigationItem[] = [
 }
 
 .example-sidebar-frame__icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 
 .example-sidebar-frame__label {
@@ -283,17 +283,17 @@ const navigation: NavigationItem[] = [
 
 .example-sidebar-frame__header {
   display: flex;
-  height: 3.5rem;
+  height: calc(var(--spacing) * 14);
   flex-shrink: 0;
   align-items: center;
-  padding: 0 1rem;
+  padding: 0 calc(var(--spacing) * 4);
   border-bottom: 1px solid var(--border);
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .example-sidebar-frame .example-sidebar-frame__separator {
-  height: 1rem;
-  margin-right: 0.5rem;
+  height: calc(var(--spacing) * 4);
+  margin-right: calc(var(--spacing) * 2);
 }
 
 .example-sidebar-frame__page-title {
@@ -305,13 +305,13 @@ const navigation: NavigationItem[] = [
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 1rem;
-  gap: 1rem;
+  padding: calc(var(--spacing) * 4);
+  gap: calc(var(--spacing) * 4);
 }
 
 .example-sidebar-frame__grid {
   display: grid;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
   grid-auto-rows: min-content;
 }
 
@@ -328,7 +328,7 @@ const navigation: NavigationItem[] = [
 }
 
 .example-sidebar-frame__panel {
-  min-height: 6rem;
+  min-height: calc(var(--spacing) * 24);
   flex: 1;
   border-radius: calc(var(--radius) + 4px);
   background-color: color-mix(in oklch, var(--muted) 50%, transparent);

@@ -36,7 +36,7 @@ defineProps<EmptyStateData>();
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
   text-align: center;
 }
 
@@ -56,6 +56,6 @@ defineProps<EmptyStateData>();
 }
 
 .dashboard-sidebar__empty-action {
-  margin-top: 1rem;
+  margin-top: calc(var(--spacing) * 4);
 }
 </style>

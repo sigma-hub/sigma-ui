@@ -80,8 +80,8 @@ const messages = computed(() => {
   display: flex;
   flex-direction: column;
   padding: 0;
-  margin: 0 0 0 1rem;
-  gap: 0.25rem;
+  margin: 0 0 0 calc(var(--spacing) * 4);
+  gap: calc(var(--spacing) * 1);
   list-style: disc;
 }
 </style>

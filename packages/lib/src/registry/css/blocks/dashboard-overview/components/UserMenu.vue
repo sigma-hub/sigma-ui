@@ -68,13 +68,13 @@ defineProps<{
 <style>
 .dashboard-overview__user-button {
   position: relative;
-  width: 2rem;
-  height: 2rem;
+  width: calc(var(--spacing) * 8);
+  height: calc(var(--spacing) * 8);
   border-radius: 9999px;
 }
 
 .dashboard-overview__user-menu {
-  width: 14rem;
+  width: calc(var(--spacing) * 56);
 }
 
 .dashboard-overview__user-label {
@@ -84,7 +84,7 @@ defineProps<{
 .dashboard-overview__user-identity {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 .dashboard-overview__user-name,

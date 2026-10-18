@@ -70,10 +70,10 @@ import {
 
 @media (width >= 40rem) {
   .dashboard-products__shell {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    padding-left: 3.5rem;
-    gap: 1rem;
+    padding-top: calc(var(--spacing) * 4);
+    padding-bottom: calc(var(--spacing) * 4);
+    padding-left: calc(var(--spacing) * 14);
+    gap: calc(var(--spacing) * 4);
   }
 }
 
@@ -81,19 +81,19 @@ import {
   display: grid;
   flex: 1 1 0%;
   align-items: flex-start;
-  padding: 1rem;
-  gap: 1rem;
+  padding: calc(var(--spacing) * 4);
+  gap: calc(var(--spacing) * 4);
 }
 
 @media (width >= 40rem) {
   .dashboard-products__main {
-    padding: 0 1.5rem;
+    padding: 0 calc(var(--spacing) * 6);
   }
 }
 
 @media (width >= 48rem) {
   .dashboard-products__main {
-    gap: 2rem;
+    gap: calc(var(--spacing) * 8);
   }
 }
 </style>

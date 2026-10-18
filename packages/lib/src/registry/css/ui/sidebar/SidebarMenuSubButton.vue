@@ -58,13 +58,13 @@ defineSlots<{
   display: flex;
   overflow: hidden;
   min-width: 0;
-  height: 1.75rem;
+  height: calc(var(--spacing) * 7);
   align-items: center;
-  padding: 0 0.5rem;
+  padding: 0 calc(var(--spacing) * 2);
   border-radius: var(--radius-md);
   color: var(--foreground);
   font-size: 0.875rem;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
   outline: none;
   text-decoration: none;
   transform: translateX(-1px);
@@ -92,8 +92,8 @@ defineSlots<{
 }
 
 .sigma-ui-sidebar-menu-sub-button > svg {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   flex-shrink: 0;
   color: var(--sidebar-accent-foreground);
 }

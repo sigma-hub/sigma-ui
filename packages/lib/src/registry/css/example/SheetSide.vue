@@ -79,24 +79,24 @@ const username = ref('');
 <style>
 .example-sigma-ui-sheet-side {
   display: grid;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
   grid-template-columns: repeat(2, 1fr);
 }
 
 .example-sigma-ui-sheet-side__content {
-  padding: 1.5rem;
+  padding: calc(var(--spacing) * 6);
 }
 
 .example-sigma-ui-sheet-side__form {
   display: grid;
-  padding: 1rem 0;
-  gap: 1rem;
+  padding: calc(var(--spacing) * 4) 0;
+  gap: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-sheet-side__form-row {
   display: grid;
   align-items: center;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
   grid-template-columns: repeat(4, 1fr);
 }
 

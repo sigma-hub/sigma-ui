@@ -126,8 +126,8 @@ defineProps<{
 <style>
 .app-shell__logo {
   display: flex;
-  width: 2rem;
-  height: 2rem;
+  width: calc(var(--spacing) * 8);
+  height: calc(var(--spacing) * 8);
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
@@ -137,8 +137,8 @@ defineProps<{
 }
 
 .app-shell__icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   margin-left: auto;
 }
 
@@ -170,8 +170,8 @@ defineProps<{
 }
 
 .app-shell__chevron {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   margin-left: auto;
   transition: transform 200ms;
 }
@@ -182,8 +182,8 @@ defineProps<{
 
 .app-shell__avatar {
   display: flex;
-  width: 2rem;
-  height: 2rem;
+  width: calc(var(--spacing) * 8);
+  height: calc(var(--spacing) * 8);
   flex-shrink: 0;
   align-items: center;
   justify-content: center;

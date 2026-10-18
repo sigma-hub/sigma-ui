@@ -44,7 +44,7 @@ defineSlots<{
 <style>
 .sigma-ui-field-legend {
   padding: 0;
-  margin-bottom: 0.75rem;
+  margin-bottom: calc(var(--spacing) * 3);
   font-size: 1rem;
   font-weight: 500;
 }

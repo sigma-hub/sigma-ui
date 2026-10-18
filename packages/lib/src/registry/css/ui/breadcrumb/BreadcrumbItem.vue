@@ -27,6 +27,6 @@ const delegatedAttrs = () => {
 .sigma-ui-breadcrumb__item {
   display: inline-flex;
   align-items: center;
-  gap: 0.375rem;
+  gap: calc(var(--spacing) * 1.5);
 }
 </style>

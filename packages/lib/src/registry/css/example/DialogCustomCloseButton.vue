@@ -80,23 +80,23 @@ import { Label } from '@ui/registry/css/ui/label';
 .example-sigma-ui-dialog__share {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-dialog__share-input {
   display: grid;
   flex: 1;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-dialog__share-button {
-  padding-right: 0.75rem;
-  padding-left: 0.75rem;
+  padding-right: calc(var(--spacing) * 3);
+  padding-left: calc(var(--spacing) * 3);
 }
 
 .example-sigma-ui-dialog__share-icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-dialog__footer {

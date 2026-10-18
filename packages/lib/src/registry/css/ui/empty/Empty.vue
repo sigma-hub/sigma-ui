@@ -37,17 +37,17 @@ defineSlots<{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: calc(var(--spacing) * 6);
   border: 1px dashed var(--border);
   border-radius: var(--radius-lg);
-  gap: 1.5rem;
+  gap: calc(var(--spacing) * 6);
   text-align: center;
   text-wrap: balance;
 }
 
 @media (width >= 48rem) {
   .sigma-ui-empty {
-    padding: 3rem;
+    padding: calc(var(--spacing) * 12);
   }
 }
 </style>

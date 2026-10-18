@@ -84,20 +84,20 @@ import { primaryNavItems, secondaryNavItems } from '../data';
 }
 
 .dashboard-ai-playground__brand {
-  padding: 0.5rem;
+  padding: calc(var(--spacing) * 2);
   border-bottom: 1px solid var(--border);
 }
 
 .dashboard-ai-playground__brand svg {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: calc(var(--spacing) * 5);
+  height: calc(var(--spacing) * 5);
   fill: var(--foreground);
 }
 
 .dashboard-ai-playground__nav {
   display: grid;
-  padding: 0.5rem;
-  gap: 0.25rem;
+  padding: calc(var(--spacing) * 2);
+  gap: calc(var(--spacing) * 1);
 }
 
 .dashboard-ai-playground__nav--end {
@@ -109,8 +109,8 @@ button.dashboard-ai-playground__nav-button--pinned {
 }
 
 button.dashboard-ai-playground__nav-button svg {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: calc(var(--spacing) * 5);
+  height: calc(var(--spacing) * 5);
 }
 
 button.dashboard-ai-playground__nav-button--active {

@@ -72,7 +72,36 @@ Border radius for card, input and buttons
 ```
 --radius: 0.5rem;
 ```
+
+Spacing step for padding, gaps and sizes (CSS style system; Tailwind defines it in its theme)
+```
+--spacing: 0.25rem;
+```
 </Steps>
+
+### Pixel-based spacing
+
+Spacing and sizes are in `rem`, so components grow when the user raises the browser's default font size. If you'd rather keep spacing in pixels, change the spacing step:
+
+Tailwind style system:
+
+```css
+@theme {
+  --spacing: 4px;
+}
+```
+
+CSS style system:
+
+```css
+:root {
+  --spacing: 4px;
+}
+```
+
+All spacing and sizing (padding, margin, gap, width, height, icon sizes) switches from `rem` to `px`. At the default 16px font size nothing moves. Font sizes, line heights, radii, breakpoints and container widths such as `max-w-md` stay in `rem`.
+
+The tradeoff: buttons, inputs and other controls no longer grow with the user's default font size, while their text still does, so large text can get cramped or clipped in fixed-height controls. Browser zoom still scales everything.
 
 ### Color format
 

@@ -14,7 +14,7 @@ import { Button } from '@ui/registry/css/ui/button';
 
 <style>
 .example-sigma-ui-button-icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 </style>

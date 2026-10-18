@@ -39,8 +39,8 @@ defineEmits<{
 .sigma-ui-textarea {
   display: flex;
   width: 100%;
-  min-height: 5rem;
-  padding: 0.5rem 0.75rem;
+  min-height: calc(var(--spacing) * 20);
+  padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background-color: var(--input);

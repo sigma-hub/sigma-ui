@@ -312,7 +312,7 @@ export async function assertProjectIsMigrated(config: Config) {
 
   if (css && isLegacyThemeCss(css, config.styleSystem)) {
     throw new Error(
-      `The stylesheet still uses the 1.x theme format (HSL triplets, missing sidebar/accent tokens, or Tailwind 3 directives). Run ${colors.green('npx sigma-ui migrate')} first.`,
+      `The stylesheet still uses the 1.x theme format (HSL triplets, missing sidebar/accent/spacing tokens, or Tailwind 3 directives). Run ${colors.green('npx sigma-ui migrate')} first.`,
     );
   }
 }

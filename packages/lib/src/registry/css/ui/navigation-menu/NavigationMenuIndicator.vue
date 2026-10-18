@@ -35,7 +35,7 @@ const forwardedProps = useForwardProps(props);
   top: 100%;
   display: flex;
   overflow: hidden;
-  height: 0.375rem;
+  height: calc(var(--spacing) * 1.5);
   align-items: flex-end;
   justify-content: center;
 }
@@ -51,8 +51,8 @@ const forwardedProps = useForwardProps(props);
 .sigma-ui-navigation-menu-indicator__pointer {
   position: relative;
   top: 60%;
-  width: 0.5rem;
-  height: 0.5rem;
+  width: calc(var(--spacing) * 2);
+  height: calc(var(--spacing) * 2);
   background-color: var(--border);
   border-top-left-radius: 0.125rem;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%);

@@ -116,17 +116,17 @@ import { sizeOptions, stockVariants } from '../data';
 
 .sigma-ui-card__footer.dashboard-product-edit__stock-footer {
   justify-content: center;
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
   border-top: 1px solid var(--border);
 }
 
 button.dashboard-product-edit__add-variant {
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 button.dashboard-product-edit__add-variant svg {
-  width: 0.875rem;
-  height: 0.875rem;
+  width: calc(var(--spacing) * 3.5);
+  height: calc(var(--spacing) * 3.5);
 }
 
 .dashboard-product-edit__visually-hidden {

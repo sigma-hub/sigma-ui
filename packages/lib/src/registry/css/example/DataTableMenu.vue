@@ -49,8 +49,8 @@ function copy(id: string) {
 
 <style>
 .example-sigma-ui-data-table-menu__button {
-  width: 2rem;
-  height: 2rem;
+  width: calc(var(--spacing) * 8);
+  height: calc(var(--spacing) * 8);
   padding: 0;
 }
 
@@ -67,7 +67,7 @@ function copy(id: string) {
 }
 
 .example-sigma-ui-data-table-menu__button-icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 </style>

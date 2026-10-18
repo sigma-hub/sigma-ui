@@ -29,8 +29,8 @@ const props = defineProps<ComboboxEmptyProps>();
 
 <style>
 .sigma-ui-command-empty {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding-top: calc(var(--spacing) * 6);
+  padding-bottom: calc(var(--spacing) * 6);
   font-size: var(--text-sm);
   text-align: center;
 }

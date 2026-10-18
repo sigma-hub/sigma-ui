@@ -31,13 +31,13 @@ const forwarded = useForwardProps(props);
   display: flex;
   width: 100%;
   min-width: 0;
-  height: 2.25rem;
+  height: calc(var(--spacing) * 9);
   border: 1px solid var(--input);
   border-radius: var(--radius-md);
   background-color: transparent;
   font-size: 1rem;
-  padding-block: 0.25rem;
-  padding-inline: 0.75rem;
+  padding-block: calc(var(--spacing) * 1);
+  padding-inline: calc(var(--spacing) * 3);
 }
 
 .sigma-ui-color-field-input:focus-visible {

@@ -54,11 +54,11 @@ import {
 .example-sigma-ui-breadcrumb__trigger {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 .example-sigma-ui-breadcrumb__trigger-icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 </style>

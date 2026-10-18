@@ -19,7 +19,7 @@ import { Avatar } from '@ui/registry/css/ui/avatar';
 <style>
 .example-sigma-ui-avatar-group {
   display: flex;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-avatar__text {

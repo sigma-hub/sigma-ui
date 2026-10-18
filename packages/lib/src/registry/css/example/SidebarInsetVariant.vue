@@ -89,17 +89,17 @@ const items = [
 
 .example-sidebar-inset__header {
   display: flex;
-  height: 3rem;
+  height: calc(var(--spacing) * 12);
   flex-shrink: 0;
   align-items: center;
-  padding: 0 1rem;
+  padding: 0 calc(var(--spacing) * 4);
   border-bottom: 1px solid var(--border);
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .example-sidebar-inset .example-sidebar-inset__separator {
-  height: 1rem;
-  margin-right: 0.5rem;
+  height: calc(var(--spacing) * 4);
+  margin-right: calc(var(--spacing) * 2);
 }
 
 .example-sidebar-inset__title {
@@ -111,7 +111,7 @@ const items = [
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
 }
 
 .example-sidebar-inset__panel {

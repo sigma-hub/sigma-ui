@@ -35,11 +35,11 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 
 .example-sigma-ui-carousel-orientation__content {
   height: 200px;
-  margin-top: -0.25rem;
+  margin-top: calc(var(--spacing) * -1);
 }
 
 .example-sigma-ui-carousel-orientation__slide {
-  padding: 0.25rem;
+  padding: calc(var(--spacing) * 1);
 }
 
 @media (width >= 48rem) {
@@ -52,7 +52,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: calc(var(--spacing) * 6);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   font-size: 2.25rem;

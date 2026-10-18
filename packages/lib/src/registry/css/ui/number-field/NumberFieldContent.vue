@@ -29,10 +29,10 @@ const delegatedAttrs = () => {
 }
 
 .sigma-ui-number-field-content > [data-slot="input"]:has([data-slot="increment"]) {
-  padding-right: 1.25rem;
+  padding-right: calc(var(--spacing) * 5);
 }
 
 .sigma-ui-number-field-content > [data-slot="input"]:has([data-slot="decrement"]) {
-  padding-left: 1.25rem;
+  padding-left: calc(var(--spacing) * 5);
 }
 </style>

@@ -126,7 +126,7 @@ const table = useVueTable({
 .table-simple__data {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .table-simple__frame {
@@ -135,7 +135,7 @@ const table = useVueTable({
 }
 
 .table-simple__empty {
-  height: 6rem;
+  height: calc(var(--spacing) * 24);
   text-align: center;
 }
 </style>

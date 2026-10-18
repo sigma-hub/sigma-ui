@@ -52,7 +52,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 0.5rem;
+  height: calc(var(--spacing) * 2);
   flex-grow: 1;
   border-radius: var(--radius-full);
   background-color: var(--secondary);
@@ -66,8 +66,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 .sigma-ui-slider__thumb {
   display: block;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: calc(var(--spacing) * 5);
+  height: calc(var(--spacing) * 5);
   border: 2px solid var(--primary);
   border-radius: var(--radius-full);
   background-color: var(--background);

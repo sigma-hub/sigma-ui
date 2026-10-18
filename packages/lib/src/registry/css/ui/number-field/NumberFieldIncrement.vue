@@ -37,7 +37,7 @@ const forwarded = useForwardProps(props);
   position: absolute;
   top: 50%;
   right: 0;
-  padding: 0.75rem;
+  padding: calc(var(--spacing) * 3);
   transform: translateY(-50%);
 }
 
@@ -47,7 +47,7 @@ const forwarded = useForwardProps(props);
 }
 
 .sigma-ui-number-field-increment__icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 </style>

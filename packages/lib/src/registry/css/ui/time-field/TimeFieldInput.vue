@@ -34,7 +34,7 @@ const forwarded = useForwardProps(props);
   border-radius: var(--radius-sm);
   font-variant-numeric: tabular-nums;
   outline: none;
-  padding-inline: 0.125rem;
+  padding-inline: calc(var(--spacing) * 0.5);
 }
 
 .sigma-ui-time-field-input:focus {

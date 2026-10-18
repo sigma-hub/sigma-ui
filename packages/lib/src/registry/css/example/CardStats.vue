@@ -99,7 +99,7 @@ const lineY = (d: Data) => d.revenue;
 <style>
 .example-sigma-ui-card-stats {
   display: grid;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 @media (width >= 40rem) {
@@ -109,7 +109,7 @@ const lineY = (d: Data) => d.revenue;
 }
 
 .example-sigma-ui-card-stats__header {
-  padding-bottom: 0.5rem;
+  padding-bottom: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-card-stats__title {
@@ -128,7 +128,7 @@ const lineY = (d: Data) => d.revenue;
 }
 
 .example-sigma-ui-card-stats__chart {
-  height: 5rem;
-  margin-top: 1rem;
+  height: calc(var(--spacing) * 20);
+  margin-top: calc(var(--spacing) * 4);
 }
 </style>

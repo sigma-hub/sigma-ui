@@ -59,7 +59,7 @@ function statValueClass(valueSize: StatCard['valueSize']) {
 <style>
 .dashboard-orders__stats {
   display: grid;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 @media (width >= 40rem) {
@@ -91,7 +91,7 @@ function statValueClass(valueSize: StatCard['valueSize']) {
 }
 
 .dashboard-orders .dashboard-orders__intro-header {
-  padding-bottom: 0.75rem;
+  padding-bottom: calc(var(--spacing) * 3);
 }
 
 .dashboard-orders .dashboard-orders__intro-description {
@@ -101,7 +101,7 @@ function statValueClass(valueSize: StatCard['valueSize']) {
 }
 
 .dashboard-orders .dashboard-orders__stat-header {
-  padding-bottom: 0.5rem;
+  padding-bottom: calc(var(--spacing) * 2);
 }
 
 .dashboard-orders .dashboard-orders__stat-value--large {

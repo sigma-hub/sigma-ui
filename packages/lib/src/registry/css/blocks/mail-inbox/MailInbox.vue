@@ -175,9 +175,9 @@ const selectedMailData = computed(() => mails.find(mail => mail.id === selectedM
 
 .mail-inbox__account-bar {
   display: flex;
-  height: 3.25rem;
+  height: calc(var(--spacing) * 13);
   align-items: center;
-  padding: 0 0.5rem;
+  padding: 0 calc(var(--spacing) * 2);
 }
 
 .mail-inbox__account-bar--collapsed {
@@ -194,7 +194,7 @@ const selectedMailData = computed(() => mails.find(mail => mail.id === selectedM
 .mail-inbox__list-header {
   display: flex;
   align-items: center;
-  padding: 0.5rem 1rem;
+  padding: calc(var(--spacing) * 2) calc(var(--spacing) * 4);
 }
 
 .mail-inbox__title {
@@ -209,20 +209,20 @@ const selectedMailData = computed(() => mails.find(mail => mail.id === selectedM
 
 .mail-inbox__search {
   position: relative;
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
 }
 
 .mail-inbox__search-icon {
   position: absolute;
   top: 1.65rem;
-  left: 1.5rem;
-  width: 1rem;
-  height: 1rem;
+  left: calc(var(--spacing) * 6);
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   color: var(--muted-foreground);
 }
 
 .mail-inbox__search-input {
-  padding-left: 2rem;
+  padding-left: calc(var(--spacing) * 8);
 }
 
 .mail-inbox__tab {

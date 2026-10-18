@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { isLegacyThemeCss, migrateThemeCss } from '../../src/utils/migrate/css';
+import { CSS_STYLES_WITH_VARS_TEMPLATE } from '@sigma-ui/shared/templates/css-styles';
+import { cssDefinesSpacing, isLegacyThemeCss, migrateThemeCss } from '../../src/utils/migrate/css';
 
 const LEGACY_TAILWIND_CSS = `@tailwind base;
 @tailwind components;
@@ -35,6 +36,9 @@ describe('isLegacyThemeCss', () => {
   it('detects 1.x Tailwind stylesheets', () => {
     expect(isLegacyThemeCss(LEGACY_TAILWIND_CSS, 'tailwind')).toBe(true);
     expect(isLegacyThemeCss(':root { --primary: 240 5.9% 10%; }', 'css')).toBe(true);
+    expect(isLegacyThemeCss(':root { --primary: oklch(0.2 0 0); --sidebar: oklch(1 0 0); }', 'css')).toBe(true);
+    expect(isLegacyThemeCss(':root { --spacing: 0.25rem; --primary: oklch(0.2 0 0); --sidebar: oklch(1 0 0); }', 'css')).toBe(false);
+    expect(isLegacyThemeCss('@import "tailwindcss";\n:root { --primary: oklch(0.2 0 0); --sidebar: oklch(1 0 0); }', 'css')).toBe(false);
   });
 
   it('treats a migrated stylesheet as current', () => {
@@ -80,5 +84,35 @@ describe('migrateThemeCss', () => {
     expect(css).toContain('--primary: hsl(240 5.9% 10%);');
     expect(css).toContain('--sidebar:');
     expect(css).not.toContain('tw-animate-css');
+  });
+
+  it('adds the spacing token for the CSS style system', () => {
+    const { css, changes } = migrateThemeCss(':root { --primary: 240 5.9% 10%; }', { styleSystem: 'css', hasJsConfig: false });
+
+    expect(css).toMatch(/:root \{\n\s+--spacing: 0\.25rem;/);
+    expect(changes).toContain('added the --spacing token used by CSS style components');
+    expect(isLegacyThemeCss(css, 'css')).toBe(false);
+  });
+
+  it('keeps an existing spacing token', () => {
+    const source = ':root { --spacing: 4px; --primary: oklch(0.2 0 0); --sidebar: oklch(1 0 0); }';
+    const { css, changes } = migrateThemeCss(source, { styleSystem: 'css', hasJsConfig: false });
+
+    expect(css.match(/--spacing:/g)).toHaveLength(1);
+    expect(css).toContain('--spacing: 4px;');
+    expect(changes).not.toContain('added the --spacing token used by CSS style components');
+  });
+
+  it('does not add the spacing token for the Tailwind style system', () => {
+    const { css } = migrateThemeCss(LEGACY_TAILWIND_CSS, { styleSystem: 'tailwind', hasJsConfig: false });
+
+    expect(css).not.toContain('--spacing');
+  });
+});
+
+describe('cssDefinesSpacing', () => {
+  it('is true for the stylesheet init writes for the CSS style system', () => {
+    expect(CSS_STYLES_WITH_VARS_TEMPLATE).toContain('--spacing: 0.25rem;');
+    expect(cssDefinesSpacing(CSS_STYLES_WITH_VARS_TEMPLATE)).toBe(true);
   });
 });

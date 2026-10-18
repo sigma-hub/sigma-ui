@@ -36,7 +36,7 @@ const forwardedProps = useForwardProps(props);
   position: relative;
   display: flex;
   align-items: center;
-  padding: 0.375rem 0.5rem;
+  padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
   border-radius: var(--radius-sm);
   cursor: default;
   font-size: 0.875rem;
@@ -47,7 +47,7 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-dropdown-menu-item--inset {
-  padding-left: 2rem;
+  padding-left: calc(var(--spacing) * 8);
 }
 
 .sigma-ui-dropdown-menu-item:focus {

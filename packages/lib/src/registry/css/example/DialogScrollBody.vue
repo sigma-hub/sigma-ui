@@ -62,14 +62,14 @@ import {
 }
 
 .example-sigma-ui-dialog-scroll__header {
-  padding: 1.5rem;
+  padding: calc(var(--spacing) * 6);
   padding-bottom: 0;
 }
 
 .example-sigma-ui-dialog-scroll__body {
   display: grid;
-  padding: 1.5rem;
-  gap: 1rem;
+  padding: calc(var(--spacing) * 6);
+  gap: calc(var(--spacing) * 4);
   overflow-y: auto;
 }
 
@@ -81,7 +81,7 @@ import {
 }
 
 .example-sigma-ui-dialog-scroll__footer {
-  padding: 1.5rem;
+  padding: calc(var(--spacing) * 6);
   padding-top: 0;
 }
 </style>

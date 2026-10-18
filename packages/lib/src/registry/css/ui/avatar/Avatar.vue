@@ -72,26 +72,26 @@ defineSlots<{
 }
 
 .sigma-ui-avatar--xs {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: calc(var(--spacing) * 6);
+  height: calc(var(--spacing) * 6);
   font-size: 0.75rem;
 }
 
 .sigma-ui-avatar--sm {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: calc(var(--spacing) * 10);
+  height: calc(var(--spacing) * 10);
   font-size: 0.75rem;
 }
 
 .sigma-ui-avatar--base {
-  width: 4rem;
-  height: 4rem;
+  width: calc(var(--spacing) * 16);
+  height: calc(var(--spacing) * 16);
   font-size: 1.5rem;
 }
 
 .sigma-ui-avatar--lg {
-  width: 8rem;
-  height: 8rem;
+  width: calc(var(--spacing) * 32);
+  height: calc(var(--spacing) * 32);
   font-size: 3rem;
 }
 </style>

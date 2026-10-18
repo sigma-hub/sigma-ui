@@ -37,8 +37,8 @@ const props = withDefaults(defineProps<SpinnerProps>(), {
 
 <style>
 .sigma-ui-spinner {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   animation: sigma-ui-spin 1s linear infinite;
 }
 

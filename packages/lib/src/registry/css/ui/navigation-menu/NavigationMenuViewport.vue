@@ -48,7 +48,7 @@ const forwardedProps = useForwardProps(props);
   height: var(--reka-navigation-menu-viewport-height);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  margin-top: 0.375rem;
+  margin-top: calc(var(--spacing) * 1.5);
   backdrop-filter: blur(var(--backdrop-filter-blur));
   background-color: var(--popover);
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);

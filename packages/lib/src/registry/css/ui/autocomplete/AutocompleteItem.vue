@@ -34,7 +34,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   position: relative;
   display: flex;
   align-items: center;
-  padding: 0.375rem 0.5rem;
+  padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
   border-radius: var(--radius-sm);
   font-size: 0.875rem;
   outline: none;

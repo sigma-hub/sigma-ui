@@ -38,7 +38,7 @@ const forwardedProps = useForwardProps(props);
   border-radius: var(--radius-sm);
   font-size: 0.875rem;
   font-weight: 500;
-  padding-inline: 0.75rem;
+  padding-inline: calc(var(--spacing) * 3);
   transition-duration: 150ms;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);

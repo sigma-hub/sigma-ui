@@ -46,13 +46,13 @@ defineProps<PluginsDirectoryCardData>();
 .dashboard-settings__plugin-form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .dashboard-settings__checkbox-row {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .dashboard-settings__checkbox-label {
@@ -62,7 +62,7 @@ defineProps<PluginsDirectoryCardData>();
 }
 
 .dashboard-settings__card-footer.dashboard-settings__card-footer {
-  padding: 1rem 1.5rem;
+  padding: calc(var(--spacing) * 4) calc(var(--spacing) * 6);
   border-top: 1px solid var(--border);
 }
 </style>

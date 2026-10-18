@@ -40,8 +40,8 @@ const forwardedProps = useForwardProps(props);
 
 <style>
 .sigma-ui-radio-group-item {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   border: 1px solid var(--primary);
   border-radius: var(--radius-full);
   aspect-ratio: 1;
@@ -71,8 +71,8 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-radio-group-item__icon {
-  width: 0.625rem;
-  height: 0.625rem;
+  width: calc(var(--spacing) * 2.5);
+  height: calc(var(--spacing) * 2.5);
   color: currentcolor;
   fill: currentcolor;
 }

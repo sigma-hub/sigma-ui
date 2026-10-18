@@ -119,7 +119,7 @@ const open = ref(false);
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 0.75rem 1rem;
+  padding: calc(var(--spacing) * 3) calc(var(--spacing) * 4);
   border: 1px solid var(--border);
   border-radius: var(--radius);
 }
@@ -138,9 +138,9 @@ const open = ref(false);
 }
 
 .example-sigma-ui-command-dropdown__label {
-  padding: 0.25rem 0.5rem;
+  padding: calc(var(--spacing) * 1) calc(var(--spacing) * 2);
   border-radius: var(--radius-lg);
-  margin-right: 0.5rem;
+  margin-right: calc(var(--spacing) * 2);
   background-color: var(--primary);
   color: var(--primary-foreground);
   font-size: 0.75rem;
@@ -155,9 +155,9 @@ const open = ref(false);
 }
 
 .example-sigma-ui-command-dropdown__icon {
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.5rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
+  margin-right: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-command-dropdown__sub-content {

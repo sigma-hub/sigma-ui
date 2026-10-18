@@ -40,18 +40,18 @@ defineProps<{
 <style>
 .dashboard-sidebar__header {
   display: flex;
-  height: 3.5rem;
+  height: calc(var(--spacing) * 14);
   align-items: center;
-  padding: 0 1rem;
+  padding: 0 calc(var(--spacing) * 4);
   border-bottom: 1px solid var(--border);
   background-color: color-mix(in oklch, var(--muted) 40%, transparent);
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 @media (width >= 64rem) {
   .dashboard-sidebar__header {
     height: 60px;
-    padding: 0 1.5rem;
+    padding: 0 calc(var(--spacing) * 6);
   }
 }
 </style>

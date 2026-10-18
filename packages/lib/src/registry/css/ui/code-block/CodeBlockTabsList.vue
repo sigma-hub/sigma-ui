@@ -36,9 +36,9 @@ defineSlots<{
   display: flex;
   min-width: 0;
   align-items: center;
-  padding: 0.125rem;
-  margin: -0.125rem 0;
-  gap: 0.125rem;
+  padding: calc(var(--spacing) * 0.5);
+  margin: calc(var(--spacing) * -0.5) 0;
+  gap: calc(var(--spacing) * 0.5);
   overflow-x: auto;
   scrollbar-width: none;
 }

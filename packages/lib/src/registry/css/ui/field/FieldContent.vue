@@ -34,7 +34,7 @@ defineSlots<{
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 0.375rem;
+  gap: calc(var(--spacing) * 1.5);
   line-height: 1.375;
 }
 </style>

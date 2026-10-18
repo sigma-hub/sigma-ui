@@ -41,8 +41,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 <style>
 .sigma-ui-context-menu-content {
   z-index: 50;
-  min-width: 8rem;
-  padding: 0.25rem;
+  min-width: calc(var(--spacing) * 32);
+  padding: calc(var(--spacing) * 1);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   backdrop-filter: blur(var(--backdrop-filter-blur));

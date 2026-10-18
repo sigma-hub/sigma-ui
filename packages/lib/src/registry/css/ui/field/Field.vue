@@ -59,7 +59,7 @@ defineSlots<{
 .sigma-ui-field {
   display: flex;
   width: 100%;
-  gap: 0.75rem;
+  gap: calc(var(--spacing) * 3);
 }
 
 .sigma-ui-field[data-invalid="true"] {

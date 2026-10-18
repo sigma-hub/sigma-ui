@@ -35,14 +35,14 @@ defineSlots<{
   width: 100%;
   flex-direction: column;
   container: field-group / inline-size;
-  gap: 1.75rem;
+  gap: calc(var(--spacing) * 7);
 }
 
 .sigma-ui-field-group[data-slot="checkbox-group"] {
-  gap: 0.75rem;
+  gap: calc(var(--spacing) * 3);
 }
 
 .sigma-ui-field-group > .sigma-ui-field-group {
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 </style>

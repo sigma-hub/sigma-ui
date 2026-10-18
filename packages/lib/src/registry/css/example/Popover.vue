@@ -71,18 +71,18 @@ import { Input } from '@ui/registry/css/ui/input';
 
 <style>
 .example-sigma-ui-popover__content {
-  width: 20rem;
+  width: calc(var(--spacing) * 80);
 }
 
 .example-sigma-ui-popover__container {
   display: grid;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-popover__header {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-popover__title {
@@ -97,18 +97,18 @@ import { Input } from '@ui/registry/css/ui/input';
 
 .example-sigma-ui-popover__form {
   display: grid;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-popover__form-row {
   display: grid;
   align-items: center;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
   grid-template-columns: repeat(3, 1fr);
 }
 
 .example-sigma-ui-popover__input {
-  height: 2rem;
+  height: calc(var(--spacing) * 8);
   grid-column: span 2;
 }
 </style>

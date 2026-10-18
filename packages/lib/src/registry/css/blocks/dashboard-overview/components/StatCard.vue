@@ -32,7 +32,7 @@ defineProps<StatCardData>();
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 0.5rem;
+  padding-bottom: calc(var(--spacing) * 2);
   gap: 0;
 }
 
@@ -43,8 +43,8 @@ defineProps<StatCardData>();
 }
 
 .dashboard-overview__stat-icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   color: var(--muted-foreground);
 }
 

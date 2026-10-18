@@ -61,14 +61,14 @@ defineSlots<{
   flex: 1;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 0;
+  padding: calc(var(--spacing) * 4) 0;
   font-weight: 500;
   transition: all 0.2s;
 }
 
 .sigma-ui-accordion-trigger-icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   flex-shrink: 0;
   transition: transform 0.2s;
 }

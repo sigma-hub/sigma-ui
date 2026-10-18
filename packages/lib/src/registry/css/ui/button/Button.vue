@@ -68,15 +68,15 @@ withDefaults(defineProps<Props>(), {
   border-radius: var(--radius);
   font-size: 0.875rem;
   font-weight: 500;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
   transition: background-color 0.1s ease, colors 0.2s;
   user-select: none;
   white-space: nowrap;
 }
 
 .sigma-ui-button svg {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   flex-shrink: 0;
   pointer-events: none;
 }
@@ -147,74 +147,74 @@ withDefaults(defineProps<Props>(), {
 }
 
 .sigma-ui-button--size-default {
-  height: 2.25rem;
-  padding-inline: 1rem;
+  height: calc(var(--spacing) * 9);
+  padding-inline: calc(var(--spacing) * 4);
 }
 
 .sigma-ui-button--size-default:has(> svg) {
-  padding-inline: 0.75rem;
+  padding-inline: calc(var(--spacing) * 3);
 }
 
 .sigma-ui-button--size-xs {
-  height: 1.5rem;
+  height: calc(var(--spacing) * 6);
   border-radius: var(--radius-md);
   font-size: 0.75rem;
-  gap: 0.25rem;
-  padding-inline: 0.5rem;
+  gap: calc(var(--spacing) * 1);
+  padding-inline: calc(var(--spacing) * 2);
 }
 
 .sigma-ui-button--size-xs:has(> svg) {
-  padding-inline: 0.375rem;
+  padding-inline: calc(var(--spacing) * 1.5);
 }
 
 .sigma-ui-button--size-xs svg,
 .sigma-ui-button--size-icon-xs svg {
-  width: 0.75rem;
-  height: 0.75rem;
+  width: calc(var(--spacing) * 3);
+  height: calc(var(--spacing) * 3);
 }
 
 .sigma-ui-button--size-sm {
-  height: 2rem;
-  gap: 0.375rem;
-  padding-inline: 0.75rem;
+  height: calc(var(--spacing) * 8);
+  gap: calc(var(--spacing) * 1.5);
+  padding-inline: calc(var(--spacing) * 3);
 }
 
 .sigma-ui-button--size-sm:has(> svg) {
-  padding-inline: 0.625rem;
+  padding-inline: calc(var(--spacing) * 2.5);
 }
 
 .sigma-ui-button--size-lg {
-  height: 2.5rem;
-  padding-inline: 1.5rem;
+  height: calc(var(--spacing) * 10);
+  padding-inline: calc(var(--spacing) * 6);
 }
 
 .sigma-ui-button--size-lg:has(> svg) {
-  padding-inline: 1rem;
+  padding-inline: calc(var(--spacing) * 4);
 }
 
 .sigma-ui-button--size-icon {
-  width: 2.25rem;
-  height: 2.25rem;
+  width: calc(var(--spacing) * 9);
+  height: calc(var(--spacing) * 9);
 }
 
 .sigma-ui-button--size-icon-xs {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: calc(var(--spacing) * 6);
+  height: calc(var(--spacing) * 6);
 }
 
 .sigma-ui-button--size-icon-sm {
-  width: 2rem;
-  height: 2rem;
+  width: calc(var(--spacing) * 8);
+  height: calc(var(--spacing) * 8);
 }
 
 .sigma-ui-button--size-icon-lg {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: calc(var(--spacing) * 10);
+  height: calc(var(--spacing) * 10);
 }
 
 .sigma-ui-button__loader {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   animation: sigma-ui-spin 1s linear infinite;
 }
 

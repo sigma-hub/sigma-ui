@@ -46,10 +46,10 @@ const forwardedProps = useForwardProps(props);
 .sigma-ui-navigation-menu-trigger__base {
   display: inline-flex;
   width: max-content;
-  height: 2.5rem;
+  height: calc(var(--spacing) * 10);
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 1rem;
+  padding: calc(var(--spacing) * 2) calc(var(--spacing) * 4);
   border-radius: var(--radius);
   background-color: var(--background);
   font-size: 0.875rem;
@@ -86,9 +86,9 @@ const forwardedProps = useForwardProps(props);
 .sigma-ui-navigation-menu-trigger__icon {
   position: relative;
   top: 1px;
-  width: 0.75rem;
-  height: 0.75rem;
-  margin-left: 0.25rem;
+  width: calc(var(--spacing) * 3);
+  height: calc(var(--spacing) * 3);
+  margin-left: calc(var(--spacing) * 1);
   transition: transform 0.2s;
 }
 

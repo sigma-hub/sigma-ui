@@ -118,13 +118,13 @@ function onSubmit(event: Event) {
 <style>
 .signup-quote__form {
   display: grid;
-  gap: 1.5rem;
+  gap: calc(var(--spacing) * 6);
 }
 
 .signup-quote__fields,
 .signup-quote__social {
   display: grid;
-  gap: 0.75rem;
+  gap: calc(var(--spacing) * 3);
 }
 
 .sigma-ui-button.signup-quote__button {
@@ -132,14 +132,14 @@ function onSubmit(event: Event) {
 }
 
 .signup-quote__icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 
 .signup-quote__divider {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: calc(var(--spacing) * 3);
 }
 
 .sigma-ui-separator.signup-quote__divider-line {

@@ -63,12 +63,12 @@ const emit = defineEmits<Emits>();
   width: 100%;
   align-items: flex-end;
   justify-content: space-between;
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background-color: var(--background);
   box-shadow: var(--shadow-md);
-  gap: 1.5rem;
+  gap: calc(var(--spacing) * 6);
 }
 
 .sigma-ui-toaster-progress__content {
@@ -82,7 +82,7 @@ const emit = defineEmits<Emits>();
   align-items: center;
   font-size: 0.875rem;
   font-weight: 600;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .sigma-ui-toaster-progress__percentage {
@@ -99,7 +99,7 @@ const emit = defineEmits<Emits>();
   width: 100%;
   height: 2px;
   border-radius: var(--rounded-full);
-  margin-top: 0.5rem;
+  margin-top: calc(var(--spacing) * 2);
   background-color: color-mix(in oklch, var(--primary) 10%, transparent);
   font-size: 0.875rem;
 }

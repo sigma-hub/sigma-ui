@@ -70,7 +70,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 .sigma-ui-sheet-content__base {
   position: fixed;
   z-index: 50;
-  padding: 1.5rem;
+  padding: calc(var(--spacing) * 6);
   background-color: var(--background);
   box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
   transition: all 0.3s ease-in-out;
@@ -160,8 +160,8 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 
 .sigma-ui-sheet-close {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: calc(var(--spacing) * 4);
+  right: calc(var(--spacing) * 4);
   border-radius: var(--radius-sm);
   opacity: 0.7;
   transition: opacity 0.2s;
@@ -185,8 +185,8 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 }
 
 .sigma-ui-sheet-close__icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   color: var(--muted-foreground);
 }
 

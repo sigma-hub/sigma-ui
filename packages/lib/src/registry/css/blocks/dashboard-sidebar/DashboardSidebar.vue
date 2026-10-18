@@ -74,8 +74,8 @@ import {
   display: flex;
   flex: 1 1 0%;
   flex-direction: column;
-  padding: 1rem;
-  gap: 1rem;
+  padding: calc(var(--spacing) * 4);
+  gap: calc(var(--spacing) * 4);
 }
 
 .dashboard-sidebar__heading-row {
@@ -107,8 +107,8 @@ import {
   }
 
   .dashboard-sidebar__main {
-    padding: 1.5rem;
-    gap: 1.5rem;
+    padding: calc(var(--spacing) * 6);
+    gap: calc(var(--spacing) * 6);
   }
 }
 </style>

@@ -35,10 +35,10 @@ const forwardedProps = useForwardProps(props);
 <style>
 .sigma-ui-code-block__tabs-trigger {
   display: inline-flex;
-  height: 1.75rem;
+  height: calc(var(--spacing) * 7);
   flex-shrink: 0;
   align-items: center;
-  padding: 0 0.625rem;
+  padding: 0 calc(var(--spacing) * 2.5);
   border: 0;
   border-radius: calc(var(--radius) - 4px);
   background: none;
@@ -46,20 +46,20 @@ const forwardedProps = useForwardProps(props);
   cursor: pointer;
   font: inherit;
   font-weight: 500;
-  gap: 0.375rem;
+  gap: calc(var(--spacing) * 1.5);
   outline: none;
   transition: color 150ms ease, background-color 150ms ease, box-shadow 150ms ease;
   white-space: nowrap;
 }
 
 [data-size='sm'] .sigma-ui-code-block__tabs-trigger {
-  height: 1.5rem;
-  padding: 0 0.5rem;
+  height: calc(var(--spacing) * 6);
+  padding: 0 calc(var(--spacing) * 2);
 }
 
 .sigma-ui-code-block__tabs-trigger svg {
-  width: 0.875rem;
-  height: 0.875rem;
+  width: calc(var(--spacing) * 3.5);
+  height: calc(var(--spacing) * 3.5);
   flex-shrink: 0;
 }
 

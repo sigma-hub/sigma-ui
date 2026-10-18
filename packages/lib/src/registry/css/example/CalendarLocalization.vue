@@ -144,7 +144,7 @@ formatter.setLocale(locale.value);
 
 <style>
 .example-sigma-ui-calendar-localization {
-  padding: 0.75rem;
+  padding: calc(var(--spacing) * 3);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
 }
@@ -154,7 +154,7 @@ formatter.setLocale(locale.value);
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-calendar-localization__month-trigger {
@@ -173,8 +173,8 @@ formatter.setLocale(locale.value);
 .example-sigma-ui-calendar-localization__grid-container {
   display: flex;
   flex-direction: column;
-  padding-top: 1rem;
-  gap: 1rem;
+  padding-top: calc(var(--spacing) * 4);
+  gap: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-calendar-localization__grid {
@@ -183,13 +183,13 @@ formatter.setLocale(locale.value);
 
 .example-sigma-ui-calendar-localization__week-row {
   width: 100%;
-  margin-top: 0.5rem;
+  margin-top: calc(var(--spacing) * 2);
 }
 
 @media (width >= 40rem) {
   .example-sigma-ui-calendar-localization__grid-container {
     flex-direction: row;
-    gap: 1rem;
+    gap: calc(var(--spacing) * 4);
   }
 }
 </style>

@@ -30,6 +30,27 @@ export function cssHasHslTriplets(css: string) {
   return HSL_TRIPLET_TEST.test(css);
 }
 
+const SPACING_TOKEN_TEST = /--spacing\s*:/;
+const TAILWIND_IMPORT_TEST = /@import\s+["']tailwindcss["']/;
+
+/**
+ * Whether the stylesheet gives CSS style components their `--spacing` token, either directly or through Tailwind's theme.
+ */
+export function cssDefinesSpacing(css: string) {
+  return SPACING_TOKEN_TEST.test(css) || TAILWIND_IMPORT_TEST.test(css);
+}
+
+function insertSpacingToken(css: string) {
+  const root = /:root\s*\{/.exec(css);
+
+  if (!root) {
+    return `:root {\n  --spacing: 0.25rem;\n}\n\n${css}`;
+  }
+
+  const insertAt = root.index + root[0].length;
+  return `${css.slice(0, insertAt)}\n    --spacing: 0.25rem;${css.slice(insertAt)}`;
+}
+
 export function isLegacyThemeCss(css: string, styleSystem: 'tailwind' | 'css' = 'tailwind') {
   if (
     css.includes('tailwindcss-animate')
@@ -42,7 +63,7 @@ export function isLegacyThemeCss(css: string, styleSystem: 'tailwind' | 'css' = 
   }
 
   if (styleSystem === 'css') {
-    return cssHasHslTriplets(css);
+    return cssHasHslTriplets(css) || !cssDefinesSpacing(css);
   }
 
   return cssHasHslTriplets(css) && !css.includes('@theme');
@@ -138,6 +159,11 @@ export function migrateThemeCss(
 
   if (rootPatched.added.length || darkPatched.added.length) {
     changes.push(`added missing theme tokens: ${[...new Set([...rootPatched.added, ...darkPatched.added])].join(', ')}`);
+  }
+
+  if (options.styleSystem === 'css' && !cssDefinesSpacing(next)) {
+    next = insertSpacingToken(next);
+    changes.push('added the --spacing token used by CSS style components');
   }
 
   if (next.includes('@tailwind base') || next.includes('@tailwind components') || next.includes('@tailwind utilities')) {

@@ -32,7 +32,7 @@ const forwarded = useForwardProps(props);
 .sigma-ui-color-slider-track {
   position: relative;
   width: 100%;
-  height: 0.75rem;
+  height: calc(var(--spacing) * 3);
   flex-grow: 1;
   border-radius: var(--radius-full);
 }

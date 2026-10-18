@@ -39,14 +39,14 @@ const props = withDefaults(defineProps<ScrollAreaScrollbarProps>(), {
 }
 
 .sigma-ui-scroll-area-scrollbar[data-orientation="vertical"] {
-  width: 0.625rem;
+  width: calc(var(--spacing) * 2.5);
   height: 100%;
   padding: 1px;
   border-left: 1px solid transparent;
 }
 
 .sigma-ui-scroll-area-scrollbar[data-orientation="horizontal"] {
-  height: 0.625rem;
+  height: calc(var(--spacing) * 2.5);
   flex-direction: column;
   padding: 1px;
   border-top: 1px solid transparent;

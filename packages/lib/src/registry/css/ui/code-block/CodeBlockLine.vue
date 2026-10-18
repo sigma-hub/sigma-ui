@@ -106,7 +106,7 @@ const isEmpty = computed(() => segments.value !== null && segments.value.length 
 [data-numbered] > code > .sigma-ui-code-block__line::before {
   width: var(--code-block-gutter, 2ch);
   flex: none;
-  margin-right: 1.25rem;
+  margin-right: calc(var(--spacing) * 5);
   color: var(--code-block-line-number);
   content: counter(code-block-line);
   content: counter(code-block-line) / '';

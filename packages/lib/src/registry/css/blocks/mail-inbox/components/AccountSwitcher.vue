@@ -52,8 +52,8 @@ const selectedAccount = computed(() => props.accounts.find(account => account.em
 }
 
 .mail-inbox__account--collapsed.mail-inbox__account--collapsed {
-  width: 2.25rem;
-  height: 2.25rem;
+  width: calc(var(--spacing) * 9);
+  height: calc(var(--spacing) * 9);
   flex-shrink: 0;
   justify-content: center;
   padding: 0;
@@ -63,13 +63,13 @@ const selectedAccount = computed(() => props.accounts.find(account => account.em
   display: flex;
   min-width: 0;
   align-items: center;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .mail-inbox__mark {
   display: flex;
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   flex-shrink: 0;
   align-items: center;
   justify-content: center;

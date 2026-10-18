@@ -68,13 +68,13 @@ defineProps<{
 <style>
 .table-simple__user-button {
   position: relative;
-  width: 2rem;
-  height: 2rem;
+  width: calc(var(--spacing) * 8);
+  height: calc(var(--spacing) * 8);
   border-radius: 9999px;
 }
 
 .table-simple__user-menu {
-  width: 14rem;
+  width: calc(var(--spacing) * 56);
 }
 
 .table-simple__user-label {
@@ -84,7 +84,7 @@ defineProps<{
 .table-simple__user-identity {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 .table-simple__user-name,

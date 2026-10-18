@@ -33,6 +33,6 @@ const forwarded = useForwardPropsEmits(props, emits);
 <style>
 .sigma-ui-number-field {
   display: grid;
-  gap: 0.375rem;
+  gap: calc(var(--spacing) * 1.5);
 }
 </style>

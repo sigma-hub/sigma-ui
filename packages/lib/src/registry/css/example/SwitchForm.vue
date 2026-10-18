@@ -104,11 +104,11 @@ const onSubmit = handleSubmit((values) => {
   display: flex;
   width: 100%;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: calc(var(--spacing) * 6);
 }
 
 .example-sigma-ui-switch-form__title {
-  margin-bottom: 1rem;
+  margin-bottom: calc(var(--spacing) * 4);
   font-size: 1.125rem;
   font-weight: 500;
 }
@@ -116,7 +116,7 @@ const onSubmit = handleSubmit((values) => {
 .example-sigma-ui-switch-form__fields {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-switch-form__field-item {
@@ -124,7 +124,7 @@ const onSubmit = handleSubmit((values) => {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
   border: 1px solid var(--border);
   border-radius: var(--radius);
 }
@@ -132,7 +132,7 @@ const onSubmit = handleSubmit((values) => {
 .example-sigma-ui-switch-form__field-content {
   display: flex;
   flex-direction: column;
-  gap: 0.125rem;
+  gap: calc(var(--spacing) * 0.5);
 }
 
 .example-sigma-ui-switch-form__label {
@@ -144,9 +144,9 @@ const onSubmit = handleSubmit((values) => {
 }
 
 .example-sigma-ui-switch-form__toast-pre {
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
   border-radius: var(--radius);
-  margin-top: 0.5rem;
+  margin-top: calc(var(--spacing) * 2);
   background-color: color-mix(in oklch, var(--muted) 50%, transparent);
 }
 </style>

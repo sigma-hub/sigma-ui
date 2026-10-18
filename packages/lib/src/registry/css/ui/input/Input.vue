@@ -35,13 +35,13 @@ defineEmits<{
   display: flex;
   width: 100%;
   min-width: 0;
-  height: 2.25rem;
+  height: calc(var(--spacing) * 9);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background-color: var(--input);
   font-size: 1rem;
-  padding-block: 0.25rem;
-  padding-inline: 0.75rem;
+  padding-block: calc(var(--spacing) * 1);
+  padding-inline: calc(var(--spacing) * 3);
 }
 
 @media (width >= 48rem) {
@@ -52,7 +52,7 @@ defineEmits<{
 
 .sigma-ui-input::file-selector-button {
   display: inline-flex;
-  height: 1.75rem;
+  height: calc(var(--spacing) * 7);
   border: 0;
   background-color: transparent;
   color: var(--foreground);

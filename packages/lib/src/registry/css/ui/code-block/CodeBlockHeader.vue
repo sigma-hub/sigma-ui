@@ -38,31 +38,31 @@ defineSlots<{
 .sigma-ui-code-block__header {
   display: flex;
   min-width: 0;
-  min-height: 2.5rem;
+  min-height: calc(var(--spacing) * 10);
   flex-shrink: 0;
   align-items: center;
-  padding: 0.25rem 0.375rem 0.25rem 0.875rem;
+  padding: calc(var(--spacing) * 1) calc(var(--spacing) * 1.5) calc(var(--spacing) * 1) calc(var(--spacing) * 3.5);
   border-bottom: 1px solid var(--code-block-border);
   background-color: var(--code-block-header);
   color: var(--muted-foreground);
   font-family: inherit;
   font-size: 0.8125rem;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
   line-height: 1.25rem;
 }
 
 .sigma-ui-code-block__header:has(> [data-slot='code-block-tabs-list']) {
-  padding-left: 0.375rem;
+  padding-left: calc(var(--spacing) * 1.5);
 }
 
 [data-size='sm'] .sigma-ui-code-block__header {
-  min-height: 2rem;
-  padding: 0.125rem 0.25rem 0.125rem 0.625rem;
+  min-height: calc(var(--spacing) * 8);
+  padding: calc(var(--spacing) * 0.5) calc(var(--spacing) * 1) calc(var(--spacing) * 0.5) calc(var(--spacing) * 2.5);
   font-size: 0.75rem;
 }
 
 [data-size='sm'] .sigma-ui-code-block__header:has(> [data-slot='code-block-tabs-list']) {
-  padding-left: 0.25rem;
+  padding-left: calc(var(--spacing) * 1);
 }
 
 [data-variant='destructive'] > .sigma-ui-code-block__header {

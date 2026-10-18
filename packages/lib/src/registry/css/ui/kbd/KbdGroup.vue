@@ -33,6 +33,6 @@ defineSlots<{
 .sigma-ui-kbd-group {
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 </style>

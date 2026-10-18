@@ -132,14 +132,14 @@ const onSubmit = handleSubmit((values) => {
 .settings-forms__theme {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 .settings-forms__theme-grid {
   display: grid;
   max-width: 28rem;
-  padding-top: 0.5rem;
-  gap: 2rem;
+  padding-top: calc(var(--spacing) * 2);
+  gap: calc(var(--spacing) * 8);
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
@@ -148,7 +148,7 @@ const onSubmit = handleSubmit((values) => {
 }
 
 .settings-forms__theme-frame {
-  padding: 0.25rem;
+  padding: calc(var(--spacing) * 1);
   border: 2px solid var(--muted);
   border-radius: var(--radius);
 }
@@ -170,11 +170,11 @@ const onSubmit = handleSubmit((values) => {
 .settings-forms__theme-card {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .settings-forms__theme-canvas {
-  padding: 0.5rem;
+  padding: calc(var(--spacing) * 2);
   border-radius: calc(var(--radius) - 4px);
 }
 
@@ -188,7 +188,7 @@ const onSubmit = handleSubmit((values) => {
 
 .settings-forms__theme-card,
 .settings-forms__theme-row {
-  padding: 0.5rem;
+  padding: calc(var(--spacing) * 2);
   border-radius: var(--radius);
   box-shadow: 0 1px 2px rgb(0 0 0 / 5%);
 }
@@ -206,7 +206,7 @@ const onSubmit = handleSubmit((values) => {
 .settings-forms__theme-row {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .settings-forms__theme-line,
@@ -215,11 +215,11 @@ const onSubmit = handleSubmit((values) => {
 }
 
 .settings-forms__theme-line {
-  height: 0.5rem;
+  height: calc(var(--spacing) * 2);
 }
 
 .settings-forms__theme-line--short {
-  width: 5rem;
+  width: calc(var(--spacing) * 20);
 }
 
 .settings-forms__theme-line--long {
@@ -237,14 +237,14 @@ const onSubmit = handleSubmit((values) => {
 }
 
 .settings-forms__theme-dot {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 
 .settings-forms__theme-caption {
   display: block;
   width: 100%;
-  padding: 0.5rem;
+  padding: calc(var(--spacing) * 2);
   font-weight: 400;
   text-align: center;
 }

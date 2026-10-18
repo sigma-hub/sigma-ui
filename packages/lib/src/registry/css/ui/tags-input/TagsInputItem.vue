@@ -31,7 +31,7 @@ const forwardedProps = useForwardProps(props);
 <style>
 .sigma-ui-tags-input-item {
   display: flex;
-  height: 1.5rem;
+  height: calc(var(--spacing) * 6);
   align-items: center;
   border-radius: var(--radius-sm);
   background-color: var(--secondary);

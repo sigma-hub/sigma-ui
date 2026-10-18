@@ -39,7 +39,7 @@ defineSlots<{
 }
 
 .sigma-ui-field-description:nth-last-child(2) {
-  margin-top: -0.25rem;
+  margin-top: calc(var(--spacing) * -1);
 }
 
 .sigma-ui-field-description:last-child {
@@ -47,7 +47,7 @@ defineSlots<{
 }
 
 [data-variant="legend"] + .sigma-ui-field-description {
-  margin-top: -0.375rem;
+  margin-top: calc(var(--spacing) * -1.5);
 }
 
 .sigma-ui-field--horizontal .sigma-ui-field-description {

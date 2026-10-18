@@ -54,11 +54,11 @@ const forwarded = useForwardPropsEmits(props, emits);
 <style>
 .sigma-ui-month-picker {
   width: fit-content;
-  padding: 0.75rem;
+  padding: calc(var(--spacing) * 3);
 }
 
 .sigma-ui-month-picker__row {
   width: 100%;
-  margin-top: 0.5rem;
+  margin-top: calc(var(--spacing) * 2);
 }
 </style>

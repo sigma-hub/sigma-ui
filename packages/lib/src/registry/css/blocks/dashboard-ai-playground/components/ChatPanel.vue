@@ -70,7 +70,7 @@ import { chatActions } from '../data';
   height: 100%;
   min-height: 50vh;
   flex-direction: column;
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
   border-radius: var(--radius-xl);
   background-color: color-mix(in oklch, var(--muted) 50%, transparent);
 }
@@ -83,8 +83,8 @@ import { chatActions } from '../data';
 
 .dashboard-ai-playground__output-badge {
   position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
+  top: calc(var(--spacing) * 3);
+  right: calc(var(--spacing) * 3);
 }
 
 .dashboard-ai-playground__chat-spacer {
@@ -104,8 +104,8 @@ import { chatActions } from '../data';
 }
 
 textarea.dashboard-ai-playground__message-input {
-  min-height: 3rem;
-  padding: 0.75rem;
+  min-height: calc(var(--spacing) * 12);
+  padding: calc(var(--spacing) * 3);
   border-width: 0;
   box-shadow: none;
   resize: none;
@@ -118,22 +118,22 @@ textarea.dashboard-ai-playground__message-input:focus-visible {
 .dashboard-ai-playground__composer-actions {
   display: flex;
   align-items: center;
-  padding: 0 0.75rem 0.75rem;
+  padding: 0 calc(var(--spacing) * 3) calc(var(--spacing) * 3);
 }
 
 button.dashboard-ai-playground__action-button svg {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 
 button.dashboard-ai-playground__send-button {
   margin-left: auto;
-  gap: 0.375rem;
+  gap: calc(var(--spacing) * 1.5);
 }
 
 button.dashboard-ai-playground__send-button svg {
-  width: 0.875rem;
-  height: 0.875rem;
+  width: calc(var(--spacing) * 3.5);
+  height: calc(var(--spacing) * 3.5);
 }
 
 .dashboard-ai-playground__visually-hidden {

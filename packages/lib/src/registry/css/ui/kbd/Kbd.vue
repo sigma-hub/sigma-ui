@@ -33,25 +33,25 @@ defineSlots<{
 .sigma-ui-kbd {
   display: inline-flex;
   width: fit-content;
-  min-width: 1.25rem;
-  height: 1.25rem;
+  min-width: calc(var(--spacing) * 5);
+  height: calc(var(--spacing) * 5);
   align-items: center;
   justify-content: center;
-  padding: 0 0.25rem;
+  padding: 0 calc(var(--spacing) * 1);
   border-radius: calc(var(--radius) - 4px);
   background-color: var(--muted);
   color: var(--muted-foreground);
   font-family: inherit;
   font-size: 0.75rem;
   font-weight: 500;
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
   pointer-events: none;
   user-select: none;
 }
 
 .sigma-ui-kbd svg {
-  width: 0.75rem;
-  height: 0.75rem;
+  width: calc(var(--spacing) * 3);
+  height: calc(var(--spacing) * 3);
 }
 
 [data-slot='tooltip-content'] .sigma-ui-kbd {

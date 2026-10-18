@@ -83,14 +83,14 @@ defineProps<{
   height: 100%;
   max-height: 100vh;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .dashboard-sidebar__brand-bar {
   display: flex;
-  height: 3.5rem;
+  height: calc(var(--spacing) * 14);
   align-items: center;
-  padding: 0 1rem;
+  padding: 0 calc(var(--spacing) * 4);
   border-bottom: 1px solid var(--border);
 }
 
@@ -99,13 +99,13 @@ defineProps<{
   align-items: center;
   color: inherit;
   font-weight: 600;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
   text-decoration: none;
 }
 
 .dashboard-sidebar__bell.dashboard-sidebar__bell {
-  width: 2rem;
-  height: 2rem;
+  width: calc(var(--spacing) * 8);
+  height: calc(var(--spacing) * 8);
   margin-left: auto;
 }
 
@@ -116,7 +116,7 @@ defineProps<{
 .dashboard-sidebar__nav {
   display: grid;
   align-items: start;
-  padding: 0 0.5rem;
+  padding: 0 calc(var(--spacing) * 2);
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.25rem;
@@ -125,10 +125,10 @@ defineProps<{
 .dashboard-sidebar__link {
   display: flex;
   align-items: center;
-  padding: 0.5rem 0.75rem;
+  padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
   border-radius: var(--radius);
   color: var(--muted-foreground);
-  gap: 0.75rem;
+  gap: calc(var(--spacing) * 3);
   text-decoration: none;
   transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -145,8 +145,8 @@ defineProps<{
 
 .dashboard-sidebar__badge.dashboard-sidebar__badge {
   display: flex;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: calc(var(--spacing) * 6);
+  height: calc(var(--spacing) * 6);
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
@@ -156,18 +156,18 @@ defineProps<{
 }
 
 .dashboard-sidebar__upgrade {
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
   margin-top: auto;
 }
 
 .dashboard-sidebar__icon-lg {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: calc(var(--spacing) * 6);
+  height: calc(var(--spacing) * 6);
 }
 
 .dashboard-sidebar__icon-sm {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 
 .dashboard-sidebar__sr-only {
@@ -191,11 +191,11 @@ defineProps<{
 @media (width >= 64rem) {
   .dashboard-sidebar__brand-bar {
     height: 60px;
-    padding: 0 1.5rem;
+    padding: 0 calc(var(--spacing) * 6);
   }
 
   .dashboard-sidebar__nav {
-    padding: 0 1rem;
+    padding: 0 calc(var(--spacing) * 4);
   }
 }
 </style>

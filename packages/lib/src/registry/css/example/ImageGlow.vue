@@ -19,6 +19,6 @@ import { Image } from '@ui/registry/css/ui/image';
   height: 300px;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 </style>

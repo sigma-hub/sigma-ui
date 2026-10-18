@@ -27,7 +27,7 @@ const delegatedAttrs = () => {
 <style>
 .sigma-ui-separator.sigma-ui-sidebar-separator {
   width: auto;
-  margin: 0 0.5rem;
+  margin: 0 calc(var(--spacing) * 2);
   background-color: var(--border);
 }
 </style>

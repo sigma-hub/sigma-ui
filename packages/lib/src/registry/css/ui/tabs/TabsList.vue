@@ -29,7 +29,7 @@ const props = defineProps<TabsListProps>();
 <style>
 .sigma-ui-tabs-list {
   display: inline-flex;
-  height: 2.5rem;
+  height: calc(var(--spacing) * 10);
   align-items: center;
   justify-content: center;
   padding: 2px;

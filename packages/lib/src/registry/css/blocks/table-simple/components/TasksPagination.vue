@@ -112,7 +112,7 @@ function updatePageSize(pageSize: unknown) {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 0.5rem;
+  padding: 0 calc(var(--spacing) * 2);
 }
 
 .table-simple__selection {
@@ -130,11 +130,11 @@ function updatePageSize(pageSize: unknown) {
 }
 
 .table-simple__pagination-controls {
-  gap: 1.5rem;
+  gap: calc(var(--spacing) * 6);
 }
 
 .table-simple__page-size {
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .table-simple__page-size-label,
@@ -147,7 +147,7 @@ function updatePageSize(pageSize: unknown) {
 
 .table-simple__page-size-trigger {
   width: 70px;
-  height: 2rem;
+  height: calc(var(--spacing) * 8);
 }
 
 .table-simple__page-count {
@@ -158,12 +158,12 @@ function updatePageSize(pageSize: unknown) {
 }
 
 .table-simple__page-buttons {
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .table-simple__page-button {
-  width: 2rem;
-  height: 2rem;
+  width: calc(var(--spacing) * 8);
+  height: calc(var(--spacing) * 8);
   padding: 0;
 }
 
@@ -172,8 +172,8 @@ function updatePageSize(pageSize: unknown) {
 }
 
 .table-simple__page-icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 
 .table-simple__sr-only {
@@ -190,7 +190,7 @@ function updatePageSize(pageSize: unknown) {
 
 @media (width >= 64rem) {
   .table-simple__pagination-controls {
-    gap: 2rem;
+    gap: calc(var(--spacing) * 8);
   }
 
   .table-simple__page-button--wide {

@@ -45,8 +45,8 @@ defineProps<{
 }
 
 .dashboard-analytics__icon-md {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: calc(var(--spacing) * 5);
+  height: calc(var(--spacing) * 5);
 }
 
 .dashboard-analytics__sr-only {

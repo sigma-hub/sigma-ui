@@ -18,6 +18,6 @@ import { Label } from '@ui/registry/css/ui/label';
   display: flex;
   max-width: 24rem;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 </style>

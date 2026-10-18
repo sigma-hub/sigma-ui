@@ -81,22 +81,22 @@ function badgeVariant(label: string) {
 .mail-inbox__messages {
   display: flex;
   flex-direction: column;
-  padding: 0 1rem 1rem;
-  gap: 0.5rem;
+  padding: 0 calc(var(--spacing) * 4) calc(var(--spacing) * 4);
+  gap: calc(var(--spacing) * 2);
 }
 
 .mail-inbox__message {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0.75rem;
+  padding: calc(var(--spacing) * 3);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background-color: transparent;
   color: inherit;
   cursor: pointer;
   font-size: 0.875rem;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
   text-align: left;
 }
 
@@ -110,13 +110,13 @@ function badgeVariant(label: string) {
   display: flex;
   width: 100%;
   align-items: center;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .mail-inbox__message-header {
   flex-direction: column;
   align-items: stretch;
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 .mail-inbox__name,
@@ -131,8 +131,8 @@ function badgeVariant(label: string) {
 }
 
 .mail-inbox__unread {
-  width: 0.5rem;
-  height: 0.5rem;
+  width: calc(var(--spacing) * 2);
+  height: calc(var(--spacing) * 2);
   border-radius: 9999px;
   background-color: var(--primary);
 }
@@ -157,6 +157,6 @@ function badgeVariant(label: string) {
 .mail-inbox__labels {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 </style>

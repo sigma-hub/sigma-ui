@@ -18,7 +18,7 @@ const attrs = useAttrs();
 .sigma-ui-alert-dialog-header {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
   text-align: center;
 }
 

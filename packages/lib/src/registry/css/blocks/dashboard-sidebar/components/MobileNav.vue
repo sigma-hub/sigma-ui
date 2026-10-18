@@ -86,7 +86,7 @@ defineProps<{
   display: grid;
   font-size: 1.125rem;
   font-weight: 500;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
   line-height: 1.75rem;
 }
 
@@ -96,7 +96,7 @@ defineProps<{
   color: inherit;
   font-size: 1.125rem;
   font-weight: 600;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
   line-height: 1.75rem;
   text-decoration: none;
 }
@@ -104,12 +104,12 @@ defineProps<{
 .dashboard-sidebar__mobile-link {
   display: flex;
   align-items: center;
-  padding: 0.5rem 0.75rem;
+  padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
   border-radius: calc(var(--radius) + 4px);
   margin-right: -0.65rem;
   margin-left: -0.65rem;
   color: var(--muted-foreground);
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
   text-decoration: none;
 }
 
@@ -128,8 +128,8 @@ defineProps<{
 
 .dashboard-sidebar__badge.dashboard-sidebar__badge {
   display: flex;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: calc(var(--spacing) * 6);
+  height: calc(var(--spacing) * 6);
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
@@ -143,13 +143,13 @@ defineProps<{
 }
 
 .dashboard-sidebar__icon-lg {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: calc(var(--spacing) * 6);
+  height: calc(var(--spacing) * 6);
 }
 
 .dashboard-sidebar__icon-md {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: calc(var(--spacing) * 5);
+  height: calc(var(--spacing) * 5);
 }
 
 .dashboard-sidebar__sr-only {

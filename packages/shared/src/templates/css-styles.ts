@@ -6,6 +6,8 @@ export const CSS_STYLES_WITH_VARS_TEMPLATE = `@layer base {
   }
     
   :root {
+    /* Base step of the spacing scale. Set it to 4px to keep spacing and sizes in pixels. */
+    --spacing: 0.25rem;
     --backdrop-filter-blur: <%- sizes.backdropFilterBlur %>px;
     --radius: <%- sizes.radius %>rem;
     --radius-full: 9999px;

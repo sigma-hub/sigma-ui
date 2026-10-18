@@ -248,7 +248,7 @@ onBeforeUnmount(() => {
   overflow: auto;
   min-width: 0;
   min-height: 0;
-  padding: 0.75rem 0;
+  padding: calc(var(--spacing) * 3) 0;
   margin: 0;
   font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace);
   font-size: inherit;
@@ -264,7 +264,7 @@ onBeforeUnmount(() => {
 [data-size='sm'] .sigma-ui-code-block__content {
   --code-block-padding-x: 0.625rem;
 
-  padding: 0.5rem 0;
+  padding: calc(var(--spacing) * 2) 0;
   line-height: 1.6;
 }
 

@@ -36,7 +36,7 @@ defineSlots<{
   align-items: center;
   font-size: 0.875rem;
   font-weight: 500;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
   line-height: 1.375;
 }
 </style>

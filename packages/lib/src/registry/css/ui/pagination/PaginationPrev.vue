@@ -39,13 +39,13 @@ const props = withDefaults(defineProps<PaginationPrevProps>(), {
 
 <style>
 .sigma-ui-pagination-prev {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: calc(var(--spacing) * 10);
+  height: calc(var(--spacing) * 10);
   padding: 0;
 }
 
 .sigma-ui-pagination-prev__icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 </style>

@@ -88,8 +88,8 @@ const items = [
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 1rem;
-  gap: 1rem;
+  padding: calc(var(--spacing) * 4);
+  gap: calc(var(--spacing) * 4);
 }
 
 .example-sidebar-floating__placeholder {

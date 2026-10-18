@@ -35,10 +35,10 @@ defineSlots<{
   display: flex;
   min-width: 0;
   flex-direction: column;
-  padding: 0.125rem 0.625rem;
+  padding: calc(var(--spacing) * 0.5) calc(var(--spacing) * 2.5);
   border-left: 1px solid var(--border);
-  margin: 0 0.875rem;
-  gap: 0.25rem;
+  margin: 0 calc(var(--spacing) * 3.5);
+  gap: calc(var(--spacing) * 1);
   list-style: none;
   transform: translateX(1px);
 }

@@ -61,12 +61,12 @@ import {
 .example-sigma-ui-pagination__list {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 .example-sigma-ui-pagination__button {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: calc(var(--spacing) * 10);
+  height: calc(var(--spacing) * 10);
   padding: 0;
 }
 </style>

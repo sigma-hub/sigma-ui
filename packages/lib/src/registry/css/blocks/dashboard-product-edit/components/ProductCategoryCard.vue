@@ -68,7 +68,7 @@ import { categoryOptions, subcategoryOptions } from '../data';
 <style>
 .dashboard-product-edit__category-grid {
   display: grid;
-  gap: 1.5rem;
+  gap: calc(var(--spacing) * 6);
 }
 
 @media (width >= 40rem) {
@@ -79,6 +79,6 @@ import { categoryOptions, subcategoryOptions } from '../data';
 
 .dashboard-product-edit__field {
   display: grid;
-  gap: 0.75rem;
+  gap: calc(var(--spacing) * 3);
 }
 </style>

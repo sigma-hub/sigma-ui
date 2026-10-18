@@ -16,11 +16,11 @@ import { Skeleton } from '@ui/registry/css/ui/skeleton';
 .example-sigma-ui-skeleton-card {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: calc(var(--spacing) * 3);
 }
 
 .example-sigma-ui-skeleton-card__image {
-  width: 15.625rem;
+  width: calc(var(--spacing) * 62.5);
   height: 7.8125rem;
   border-radius: var(--radius);
 }
@@ -28,16 +28,16 @@ import { Skeleton } from '@ui/registry/css/ui/skeleton';
 .example-sigma-ui-skeleton-card__content {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-skeleton-card__title {
-  width: 15.625rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 62.5);
+  height: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-skeleton-card__description {
-  width: 12.5rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 50);
+  height: calc(var(--spacing) * 4);
 }
 </style>

@@ -39,8 +39,8 @@ defineSlots<{
 <style>
 .sigma-ui-stepper-indicator {
   display: inline-flex;
-  width: 2rem;
-  height: 2rem;
+  width: calc(var(--spacing) * 8);
+  height: calc(var(--spacing) * 8);
   align-items: center;
   justify-content: center;
   border-radius: 9999px;

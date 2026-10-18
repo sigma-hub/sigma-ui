@@ -91,7 +91,7 @@ function navLinkClass(tone: SidebarLinkTone) {
   bottom: 0;
   left: 0;
   display: none;
-  width: 3.5rem;
+  width: calc(var(--spacing) * 14);
   flex-direction: column;
   border-right: 1px solid var(--border);
   background-color: var(--background);
@@ -108,8 +108,8 @@ function navLinkClass(tone: SidebarLinkTone) {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem 0.5rem;
-  gap: 1rem;
+  padding: calc(var(--spacing) * 4) calc(var(--spacing) * 2);
+  gap: calc(var(--spacing) * 4);
 }
 
 .dashboard-products__sidebar-footer {
@@ -118,8 +118,8 @@ function navLinkClass(tone: SidebarLinkTone) {
 
 .dashboard-products__brand {
   display: flex;
-  width: 2.25rem;
-  height: 2.25rem;
+  width: calc(var(--spacing) * 9);
+  height: calc(var(--spacing) * 9);
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
@@ -128,22 +128,22 @@ function navLinkClass(tone: SidebarLinkTone) {
   color: var(--primary-foreground);
   font-size: 1.125rem;
   font-weight: 600;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
   line-height: 1.75rem;
 }
 
 @media (width >= 48rem) {
   .dashboard-products__brand {
-    width: 2rem;
-    height: 2rem;
+    width: calc(var(--spacing) * 8);
+    height: calc(var(--spacing) * 8);
     font-size: 1rem;
     line-height: 1.5rem;
   }
 }
 
 .dashboard-products__brand svg {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -153,8 +153,8 @@ function navLinkClass(tone: SidebarLinkTone) {
 
 .dashboard-products__nav-link {
   display: flex;
-  width: 2.25rem;
-  height: 2.25rem;
+  width: calc(var(--spacing) * 9);
+  height: calc(var(--spacing) * 9);
   align-items: center;
   justify-content: center;
   border-radius: var(--radius);
@@ -178,14 +178,14 @@ function navLinkClass(tone: SidebarLinkTone) {
 
 @media (width >= 48rem) {
   .dashboard-products__nav-link {
-    width: 2rem;
-    height: 2rem;
+    width: calc(var(--spacing) * 8);
+    height: calc(var(--spacing) * 8);
   }
 }
 
 .dashboard-products__nav-link svg {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: calc(var(--spacing) * 5);
+  height: calc(var(--spacing) * 5);
 }
 
 .dashboard-products__sr-only {

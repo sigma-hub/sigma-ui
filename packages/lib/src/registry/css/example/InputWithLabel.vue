@@ -19,6 +19,6 @@ import { Label } from '@ui/registry/css/ui/label';
   display: flex;
   width: 100%;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 </style>

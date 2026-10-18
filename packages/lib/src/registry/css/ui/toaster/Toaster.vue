@@ -43,11 +43,11 @@ const props = defineProps<ToasterProps>();
   box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
   color: var(--foreground);
   cursor: default;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .sigma-ui-toast[data-type="default"] {
-  padding: 0.75rem 1rem;
+  padding: calc(var(--spacing) * 3) calc(var(--spacing) * 4);
   border: 1px solid var(--border);
 }
 

@@ -49,10 +49,10 @@ defineSlots<{
 <style>
 .sigma-ui-sidebar-menu-action {
   position: absolute;
-  top: 0.375rem;
-  right: 0.25rem;
+  top: calc(var(--spacing) * 1.5);
+  right: calc(var(--spacing) * 1);
   display: flex;
-  width: 1.25rem;
+  width: calc(var(--spacing) * 5);
   align-items: center;
   justify-content: center;
   padding: 0;
@@ -79,23 +79,23 @@ defineSlots<{
 }
 
 .sigma-ui-sidebar-menu-action > svg {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   flex-shrink: 0;
 }
 
 .sigma-ui-sidebar-menu-action::after {
   position: absolute;
   content: "";
-  inset: -0.5rem;
+  inset: calc(var(--spacing) * -2);
 }
 
 .sigma-ui-sidebar-menu-button[data-size="sm"] ~ .sigma-ui-sidebar-menu-action {
-  top: 0.25rem;
+  top: calc(var(--spacing) * 1);
 }
 
 .sigma-ui-sidebar-menu-button[data-size="lg"] ~ .sigma-ui-sidebar-menu-action {
-  top: 0.625rem;
+  top: calc(var(--spacing) * 2.5);
 }
 
 .sigma-ui-sidebar[data-collapsible="icon"] .sigma-ui-sidebar-menu-action {

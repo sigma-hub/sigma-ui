@@ -27,7 +27,7 @@ const delegatedAttrs = () => {
 .sigma-ui-sheet-header {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
   text-align: center;
 }
 

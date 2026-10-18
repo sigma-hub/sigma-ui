@@ -204,25 +204,25 @@ function clearSearch() {
 <style>
 .sigma-ui-faceted-filter__trigger {
   border-style: dashed;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .sigma-ui-faceted-filter__trigger-icon {
-  width: 0.875rem;
-  height: 0.875rem;
+  width: calc(var(--spacing) * 3.5);
+  height: calc(var(--spacing) * 3.5);
 }
 
 .sigma-ui-faceted-filter__separator {
-  height: 0.875rem;
-  margin: 0 0.375rem;
+  height: calc(var(--spacing) * 3.5);
+  margin: 0 calc(var(--spacing) * 1.5);
 }
 
 .sigma-ui-faceted-filter__count {
   display: inline-flex;
-  height: 1rem;
+  height: calc(var(--spacing) * 4);
   align-items: center;
   justify-content: center;
-  padding: 0 0.375rem;
+  padding: 0 calc(var(--spacing) * 1.5);
   border-radius: 0.375rem;
   background-color: var(--secondary);
   color: var(--secondary-foreground);
@@ -231,15 +231,15 @@ function clearSearch() {
 
 .sigma-ui-faceted-filter__badges {
   display: none;
-  gap: 0.375rem;
+  gap: calc(var(--spacing) * 1.5);
 }
 
 .sigma-ui-faceted-filter__badge {
   display: inline-flex;
-  height: 1rem;
+  height: calc(var(--spacing) * 4);
   align-items: center;
   justify-content: center;
-  padding: 0 0.375rem;
+  padding: 0 calc(var(--spacing) * 1.5);
   border-radius: 0.375rem;
   background-color: var(--secondary);
   color: var(--secondary-foreground);
@@ -247,35 +247,35 @@ function clearSearch() {
 }
 
 .sigma-ui-faceted-filter__content {
-  width: 20rem;
+  width: calc(var(--spacing) * 80);
   padding: 0;
 }
 
 .sigma-ui-faceted-filter__empty-create {
-  padding: 0.625rem;
+  padding: calc(var(--spacing) * 2.5);
 }
 
 .sigma-ui-faceted-filter__empty-create-button {
   width: 100%;
   justify-content: flex-start;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .sigma-ui-faceted-filter__empty-create-icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 
 .sigma-ui-faceted-filter__checkbox {
   display: flex;
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
   border: 1px solid var(--border);
   border-radius: 0.25rem;
-  margin-right: 0.625rem;
+  margin-right: calc(var(--spacing) * 2.5);
   opacity: 0.6;
 }
 
@@ -290,8 +290,8 @@ function clearSearch() {
 }
 
 .sigma-ui-faceted-filter__check {
-  width: 0.875rem;
-  height: 0.875rem;
+  width: calc(var(--spacing) * 3.5);
+  height: calc(var(--spacing) * 3.5);
   color: var(--primary);
 }
 
@@ -303,7 +303,7 @@ function clearSearch() {
 }
 
 .sigma-ui-faceted-filter__footer {
-  padding: 0.625rem 0.625rem 0.75rem;
+  padding: calc(var(--spacing) * 2.5) calc(var(--spacing) * 2.5) calc(var(--spacing) * 3);
 }
 
 @media (width >= 64rem) {

@@ -29,7 +29,7 @@ const value = ref(3);
 
 <style>
 .sigma-ui-rating-indicator__icon {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: calc(var(--spacing) * 5);
+  height: calc(var(--spacing) * 5);
 }
 </style>

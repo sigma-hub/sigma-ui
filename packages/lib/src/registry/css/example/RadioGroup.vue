@@ -33,6 +33,6 @@ import { RadioGroup, RadioGroupItem } from '@ui/registry/css/ui/radio-group';
 .example-sigma-ui-radio-group__item {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 </style>

@@ -50,21 +50,21 @@ const width = `${Math.floor(Math.random() * 40) + 50}%`;
 <style>
 .sigma-ui-sidebar-menu-skeleton {
   display: flex;
-  height: 2rem;
+  height: calc(var(--spacing) * 8);
   align-items: center;
-  padding: 0 0.5rem;
+  padding: 0 calc(var(--spacing) * 2);
   border-radius: var(--radius-md);
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .sigma-ui-sidebar-menu-skeleton__icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 
 .sigma-ui-sidebar-menu-skeleton__text {
   max-width: var(--skeleton-width);
-  height: 1rem;
+  height: calc(var(--spacing) * 4);
   flex: 1;
 }
 </style>

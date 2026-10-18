@@ -31,12 +31,12 @@ defineProps<MenubarLabelProps & {
 
 <style>
 .sigma-ui-menubar-label {
-  padding: 0.375rem 0.5rem;
+  padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
   font-size: 0.875rem;
   font-weight: 600;
 }
 
 .sigma-ui-menubar-label--inset {
-  padding-left: 2rem;
+  padding-left: calc(var(--spacing) * 8);
 }
 </style>

@@ -12,6 +12,6 @@ defineProps<{
 
 <style>
 .table-simple__id {
-  width: 5rem;
+  width: calc(var(--spacing) * 20);
 }
 </style>

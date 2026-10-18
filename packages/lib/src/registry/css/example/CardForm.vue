@@ -77,18 +77,18 @@ import { Button } from '@ui/registry/css/ui/button';
 .example-sigma-ui-card-form__grid {
   display: grid;
   width: 100%;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-card-form__field {
   display: flex;
   flex-direction: column;
-  gap: 0.375rem;
+  gap: calc(var(--spacing) * 1.5);
 }
 
 .example-sigma-ui-card-form__footer {
   display: flex;
   justify-content: space-between;
-  padding: 0 1.5rem 1.5rem;
+  padding: 0 calc(var(--spacing) * 6) calc(var(--spacing) * 6);
 }
 </style>

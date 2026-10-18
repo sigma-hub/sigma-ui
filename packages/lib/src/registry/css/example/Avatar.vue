@@ -38,7 +38,7 @@ import { Avatar } from '@ui/registry/css/ui/avatar';
 .example-sigma-ui-avatar-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: calc(var(--spacing) * 8);
 }
 
 .example-sigma-ui-avatar__text {

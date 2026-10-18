@@ -30,18 +30,18 @@ const tags = Array.from({ length: 50 }).map(
 
 <style>
 .example-sigma-ui-scroll-area {
-  width: 12rem;
-  height: 18rem;
+  width: calc(var(--spacing) * 48);
+  height: calc(var(--spacing) * 72);
   border: 1px solid var(--border);
   border-radius: var(--radius);
 }
 
 .example-sigma-ui-scroll-area__content {
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-scroll-area__heading {
-  margin-bottom: 1rem;
+  margin-bottom: calc(var(--spacing) * 4);
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1;
@@ -52,6 +52,6 @@ const tags = Array.from({ length: 50 }).map(
 }
 
 .example-sigma-ui-scroll-area__separator {
-  margin: 0.5rem 0;
+  margin: calc(var(--spacing) * 2) 0;
 }
 </style>

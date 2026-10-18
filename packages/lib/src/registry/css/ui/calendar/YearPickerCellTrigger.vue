@@ -30,13 +30,13 @@ const forwarded = useForwardProps(props);
 <style>
 .sigma-ui-year-picker-cell-trigger {
   display: inline-flex;
-  min-width: 4.5rem;
-  height: 2rem;
+  min-width: calc(var(--spacing) * 18);
+  height: calc(var(--spacing) * 8);
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-md);
   font-size: 0.875rem;
-  padding-inline: 0.5rem;
+  padding-inline: calc(var(--spacing) * 2);
 }
 
 .sigma-ui-year-picker-cell-trigger:hover {

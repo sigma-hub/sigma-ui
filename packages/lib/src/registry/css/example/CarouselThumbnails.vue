@@ -100,14 +100,14 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
 }
 
 .example-sigma-ui-carousel-thumbnails__slide {
-  padding: 0.25rem;
+  padding: calc(var(--spacing) * 1);
 }
 
 .example-sigma-ui-carousel-thumbnails__item {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: calc(var(--spacing) * 6);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   aspect-ratio: 1;
@@ -125,7 +125,7 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
 .example-sigma-ui-carousel-thumbnails__nav-content {
   display: flex;
   margin-left: 0;
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 .example-sigma-ui-carousel-thumbnails__nav-slide {
@@ -135,7 +135,7 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
 }
 
 .example-sigma-ui-carousel-thumbnails__nav-wrapper {
-  padding: 0.25rem;
+  padding: calc(var(--spacing) * 1);
   opacity: 0.5;
 }
 
@@ -147,7 +147,7 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: calc(var(--spacing) * 6);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   aspect-ratio: 1;

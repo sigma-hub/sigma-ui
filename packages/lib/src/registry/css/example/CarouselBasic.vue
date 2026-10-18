@@ -30,7 +30,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: calc(var(--spacing) * 6);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   aspect-ratio: 1;

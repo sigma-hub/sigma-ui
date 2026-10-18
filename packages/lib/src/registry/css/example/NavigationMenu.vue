@@ -155,8 +155,8 @@ const components: { title: string; href: string; description: string }[] = [
 <style>
 .example-sigma-ui-nav-menu__grid {
   display: grid;
-  padding: 1.5rem;
-  gap: 0.75rem;
+  padding: calc(var(--spacing) * 6);
+  gap: calc(var(--spacing) * 3);
 }
 
 .example-sigma-ui-nav-menu__grid--getting-started {
@@ -178,8 +178,8 @@ const components: { title: string; href: string; description: string }[] = [
 
 .example-sigma-ui-nav-menu__grid--components {
   width: 400px;
-  padding: 1rem;
-  gap: 0.75rem;
+  padding: calc(var(--spacing) * 4);
+  gap: calc(var(--spacing) * 3);
 }
 
 @media (width >= 48rem) {
@@ -205,7 +205,7 @@ const components: { title: string; href: string; description: string }[] = [
   height: 100%;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 1.5rem;
+  padding: calc(var(--spacing) * 6);
   border-radius: var(--radius);
   background-image: linear-gradient(to bottom, color-mix(in oklch, var(--muted) 50%, transparent), var(--muted));
   outline: none;
@@ -218,13 +218,13 @@ const components: { title: string; href: string; description: string }[] = [
 }
 
 .example-sigma-ui-nav-menu__logo {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: calc(var(--spacing) * 6);
+  height: calc(var(--spacing) * 6);
 }
 
 .example-sigma-ui-nav-menu__title {
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
+  margin-top: calc(var(--spacing) * 4);
+  margin-bottom: calc(var(--spacing) * 2);
   font-size: 1.125rem;
   font-weight: 500;
 }
@@ -237,7 +237,7 @@ const components: { title: string; href: string; description: string }[] = [
 
 .example-sigma-ui-nav-menu__link {
   display: block;
-  padding: 0.75rem;
+  padding: calc(var(--spacing) * 3);
   border-radius: var(--radius);
   outline: none;
   text-decoration: none;

@@ -72,14 +72,14 @@ watchOnce(api, (api) => {
 }
 
 .example-sigma-ui-carousel-api__slide {
-  padding: 0.25rem;
+  padding: calc(var(--spacing) * 1);
 }
 
 .example-sigma-ui-carousel-api__item {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: calc(var(--spacing) * 6);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   aspect-ratio: 1;
@@ -89,7 +89,7 @@ watchOnce(api, (api) => {
 }
 
 .example-sigma-ui-carousel-api__counter {
-  padding-top: 0.5rem;
+  padding-top: calc(var(--spacing) * 2);
   color: var(--muted-foreground);
   font-size: 0.875rem;
   text-align: center;

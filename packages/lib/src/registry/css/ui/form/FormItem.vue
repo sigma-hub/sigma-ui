@@ -30,6 +30,6 @@ provide(FORM_ITEM_INJECTION_KEY, id);
 .form-item {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 </style>

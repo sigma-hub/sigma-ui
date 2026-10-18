@@ -84,12 +84,12 @@ defineProps<{
   position: sticky;
   top: 0;
   display: flex;
-  height: 4rem;
+  height: calc(var(--spacing) * 16);
   align-items: center;
-  padding: 0 1rem;
+  padding: 0 calc(var(--spacing) * 4);
   border-bottom: 1px solid var(--border);
   background-color: var(--background);
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .dashboard-analytics__desktop-nav {
@@ -103,7 +103,7 @@ defineProps<{
   color: inherit;
   font-size: 1.125rem;
   font-weight: 600;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
   line-height: 1.75rem;
   text-decoration: none;
 }
@@ -124,7 +124,7 @@ defineProps<{
   display: grid;
   font-size: 1.125rem;
   font-weight: 500;
-  gap: 1.5rem;
+  gap: calc(var(--spacing) * 6);
   line-height: 1.75rem;
 }
 
@@ -146,7 +146,7 @@ defineProps<{
   display: flex;
   width: 100%;
   align-items: center;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .dashboard-analytics__menu-button {
@@ -154,13 +154,13 @@ defineProps<{
 }
 
 .dashboard-analytics__icon-lg {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: calc(var(--spacing) * 6);
+  height: calc(var(--spacing) * 6);
 }
 
 .dashboard-analytics__icon-md {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: calc(var(--spacing) * 5);
+  height: calc(var(--spacing) * 5);
 }
 
 .dashboard-analytics__sr-only {
@@ -177,7 +177,7 @@ defineProps<{
 
 @media (width >= 48rem) {
   .dashboard-analytics__header {
-    padding: 0 1.5rem;
+    padding: 0 calc(var(--spacing) * 6);
   }
 
   .dashboard-analytics__desktop-nav {
@@ -185,7 +185,7 @@ defineProps<{
     flex-direction: row;
     align-items: center;
     font-size: 0.875rem;
-    gap: 1.25rem;
+    gap: calc(var(--spacing) * 5);
     line-height: 1.25rem;
   }
 
@@ -196,7 +196,7 @@ defineProps<{
 
   .dashboard-analytics__tools {
     margin-left: auto;
-    gap: 0.5rem;
+    gap: calc(var(--spacing) * 2);
   }
 
   .dashboard-analytics__menu-button.dashboard-analytics__menu-button {
@@ -206,11 +206,11 @@ defineProps<{
 
 @media (width >= 64rem) {
   .dashboard-analytics__desktop-nav {
-    gap: 1.5rem;
+    gap: calc(var(--spacing) * 6);
   }
 
   .dashboard-analytics__tools {
-    gap: 1rem;
+    gap: calc(var(--spacing) * 4);
   }
 }
 </style>

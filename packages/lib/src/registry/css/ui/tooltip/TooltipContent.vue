@@ -39,7 +39,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 .sigma-ui-tooltip-content {
   z-index: 50;
   overflow: hidden;
-  padding: 0.375rem 0.75rem;
+  padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 3);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   animation: sigma-ui-tooltip-in 150ms cubic-bezier(0.16, 1, 0.3, 1);

@@ -73,7 +73,7 @@ function setTitleFilter(event: Event) {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .table-simple__filters {
@@ -81,23 +81,23 @@ function setTitleFilter(event: Event) {
   flex: 1;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .table-simple__search {
   width: 150px;
-  height: 2rem;
+  height: calc(var(--spacing) * 8);
 }
 
 .table-simple__reset {
-  height: 2rem;
-  padding: 0 0.5rem;
+  height: calc(var(--spacing) * 8);
+  padding: 0 calc(var(--spacing) * 2);
 }
 
 .table-simple__reset-icon {
-  width: 1rem;
-  height: 1rem;
-  margin-left: 0.5rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
+  margin-left: calc(var(--spacing) * 2);
 }
 
 @media (width >= 64rem) {
@@ -106,7 +106,7 @@ function setTitleFilter(event: Event) {
   }
 
   .table-simple__reset {
-    padding: 0 0.75rem;
+    padding: 0 calc(var(--spacing) * 3);
   }
 }
 </style>

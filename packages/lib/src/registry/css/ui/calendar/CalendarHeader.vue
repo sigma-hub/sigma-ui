@@ -35,6 +35,6 @@ const forwardedProps = useForwardProps(props);
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  padding-top: 0.25rem;
+  padding-top: calc(var(--spacing) * 1);
 }
 </style>

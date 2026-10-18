@@ -35,11 +35,11 @@ const forwarded = useForwardPropsEmits(props, emits);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.375rem 0.5rem;
+  padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
   border-radius: 0.125rem;
   cursor: default;
   font-size: 0.875rem;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
   line-height: 1.25rem;
   outline: none;
   user-select: none;
@@ -56,8 +56,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-combobox-item svg {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   flex-shrink: 0;
 }
 </style>

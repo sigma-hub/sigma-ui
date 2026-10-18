@@ -73,9 +73,9 @@ import {
   min-height: calc(100vh - 4rem);
   flex: 1 1 0%;
   flex-direction: column;
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
   background-color: color-mix(in oklch, var(--muted) 40%, transparent);
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .dashboard-settings__intro,
@@ -88,12 +88,12 @@ import {
 }
 
 .dashboard-settings__intro {
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .dashboard-settings__layout {
   align-items: start;
-  gap: 1.5rem;
+  gap: calc(var(--spacing) * 6);
 }
 
 .dashboard-settings__title {
@@ -105,13 +105,13 @@ import {
 
 .dashboard-settings__cards {
   display: grid;
-  gap: 1.5rem;
+  gap: calc(var(--spacing) * 6);
 }
 
 @media (width >= 48rem) {
   .dashboard-settings__main {
-    padding: 2.5rem;
-    gap: 2rem;
+    padding: calc(var(--spacing) * 10);
+    gap: calc(var(--spacing) * 8);
   }
 
   .dashboard-settings__layout {

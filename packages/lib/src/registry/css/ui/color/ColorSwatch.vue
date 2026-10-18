@@ -38,8 +38,8 @@ defineSlots<{
 
 <style>
 .sigma-ui-color-swatch {
-  width: 2.25rem;
-  height: 2.25rem;
+  width: calc(var(--spacing) * 9);
+  height: calc(var(--spacing) * 9);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background-color: var(--reka-color-swatch-color);

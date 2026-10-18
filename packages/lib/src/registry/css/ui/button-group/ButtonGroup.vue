@@ -60,7 +60,7 @@ defineSlots<{
 }
 
 .sigma-ui-button-group:has(> .sigma-ui-button-group) {
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .sigma-ui-button-group--horizontal > :not(:first-child) {

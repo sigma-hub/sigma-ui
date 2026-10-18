@@ -64,10 +64,10 @@ import ProductToolbar from './components/ProductToolbar.vue';
 
 @media (width >= 40rem) {
   .dashboard-product-edit__content {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    padding-left: 3.5rem;
-    gap: 1rem;
+    padding-top: calc(var(--spacing) * 4);
+    padding-bottom: calc(var(--spacing) * 4);
+    padding-left: calc(var(--spacing) * 14);
+    gap: calc(var(--spacing) * 4);
   }
 }
 
@@ -75,36 +75,36 @@ import ProductToolbar from './components/ProductToolbar.vue';
   display: grid;
   flex: 1 1 0%;
   align-items: start;
-  padding: 1rem;
-  gap: 1rem;
+  padding: calc(var(--spacing) * 4);
+  gap: calc(var(--spacing) * 4);
 }
 
 @media (width >= 40rem) {
   .dashboard-product-edit__main {
-    padding: 0 1.5rem;
+    padding: 0 calc(var(--spacing) * 6);
   }
 }
 
 @media (width >= 48rem) {
   .dashboard-product-edit__main {
-    gap: 2rem;
+    gap: calc(var(--spacing) * 8);
   }
 }
 
 .dashboard-product-edit__panel {
   display: grid;
   width: 100%;
-  max-width: 59rem;
+  max-width: calc(var(--spacing) * 236);
   flex: 1 1 0%;
   margin-right: auto;
   margin-left: auto;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
   grid-auto-rows: max-content;
 }
 
 .dashboard-product-edit__columns {
   display: grid;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 @media (width >= 48rem) {
@@ -115,7 +115,7 @@ import ProductToolbar from './components/ProductToolbar.vue';
 
 @media (width >= 64rem) {
   .dashboard-product-edit__columns {
-    gap: 2rem;
+    gap: calc(var(--spacing) * 8);
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
@@ -124,18 +124,18 @@ import ProductToolbar from './components/ProductToolbar.vue';
 .dashboard-product-edit__secondary {
   display: grid;
   align-items: start;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
   grid-auto-rows: max-content;
 }
 
 @media (width >= 64rem) {
   .dashboard-product-edit__primary {
-    gap: 2rem;
+    gap: calc(var(--spacing) * 8);
     grid-column: span 2 / span 2;
   }
 
   .dashboard-product-edit__secondary {
-    gap: 2rem;
+    gap: calc(var(--spacing) * 8);
   }
 }
 
@@ -143,7 +143,7 @@ import ProductToolbar from './components/ProductToolbar.vue';
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 @media (width >= 48rem) {

@@ -40,7 +40,7 @@ defineSlots<{
 <style>
 .sigma-ui-stepper {
   display: flex;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .sigma-ui-stepper[data-orientation="vertical"] {

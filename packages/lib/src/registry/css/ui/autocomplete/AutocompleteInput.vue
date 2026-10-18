@@ -33,13 +33,13 @@ const forwarded = useForwardPropsEmits(props, emits);
 .sigma-ui-autocomplete-input {
   display: flex;
   width: 100%;
-  height: 2.25rem;
+  height: calc(var(--spacing) * 9);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background-color: var(--input);
   font-size: 0.875rem;
-  padding-block: 0.25rem;
-  padding-inline: 0.75rem;
+  padding-block: calc(var(--spacing) * 1);
+  padding-inline: calc(var(--spacing) * 3);
 }
 
 .sigma-ui-autocomplete-input::placeholder {

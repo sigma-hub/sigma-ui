@@ -43,19 +43,19 @@ import {
 
 <style>
 .example-sigma-ui-hover__content {
-  width: 20rem;
+  width: calc(var(--spacing) * 80);
 }
 
 .example-sigma-ui-hover__container {
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-hover__info {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 .example-sigma-ui-hover__title {
@@ -70,13 +70,13 @@ import {
 .example-sigma-ui-hover__footer {
   display: flex;
   align-items: center;
-  padding-top: 0.5rem;
+  padding-top: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-hover__icon {
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.5rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
+  margin-right: calc(var(--spacing) * 2);
   opacity: 0.7;
 }
 

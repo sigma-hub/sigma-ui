@@ -11,6 +11,6 @@
 }
 
 .example-sigma-ui-typography__paragraph:not(:first-child) {
-  margin-top: 1.5rem;
+  margin-top: calc(var(--spacing) * 6);
 }
 </style>

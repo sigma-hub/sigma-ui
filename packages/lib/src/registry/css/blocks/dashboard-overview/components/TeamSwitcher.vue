@@ -189,14 +189,14 @@ function closeCreateTeam() {
 }
 
 .dashboard-overview__team-avatar {
-  margin-right: 0.5rem;
+  margin-right: calc(var(--spacing) * 2);
 }
 
 .dashboard-overview__team-chevron,
 .dashboard-overview__team-check,
 .dashboard-overview__create-icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 
 .dashboard-overview__team-chevron {
@@ -215,20 +215,20 @@ function closeCreateTeam() {
 }
 
 .dashboard-overview__create-icon {
-  width: 1.25rem;
-  height: 1.25rem;
-  margin-right: 0.5rem;
+  width: calc(var(--spacing) * 5);
+  height: calc(var(--spacing) * 5);
+  margin-right: calc(var(--spacing) * 2);
 }
 
 .dashboard-overview__team-fields {
   display: grid;
-  padding: 0.5rem 0;
-  gap: 1rem;
+  padding: calc(var(--spacing) * 2) 0;
+  gap: calc(var(--spacing) * 4);
 }
 
 .dashboard-overview__team-field {
   display: grid;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .dashboard-overview__plan-label {

@@ -37,11 +37,11 @@ defineSlots<{
   padding: 0;
   border: none;
   margin: 0;
-  gap: 1.5rem;
+  gap: calc(var(--spacing) * 6);
 }
 
 .sigma-ui-field-set:has(> [data-slot="checkbox-group"]),
 .sigma-ui-field-set:has(> [data-slot="radio-group"]) {
-  gap: 0.75rem;
+  gap: calc(var(--spacing) * 3);
 }
 </style>

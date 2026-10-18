@@ -50,18 +50,18 @@ defineProps<{
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 1rem;
-  gap: 1rem;
+  padding: calc(var(--spacing) * 4);
+  gap: calc(var(--spacing) * 4);
 }
 
 .app-shell__grid {
   display: grid;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .app-shell__card,
 .app-shell__activity {
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
   border: 1px solid var(--border);
   border-radius: calc(var(--radius) + 4px);
   background-color: var(--card);
@@ -81,14 +81,14 @@ defineProps<{
 }
 
 .app-shell__card-value {
-  margin: 0.5rem 0 0;
+  margin: calc(var(--spacing) * 2) 0 0;
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: -0.025em;
 }
 
 .app-shell__card-detail {
-  margin: 0.25rem 0 0;
+  margin: calc(var(--spacing) * 1) 0 0;
   font-size: 0.75rem;
 }
 
@@ -103,8 +103,8 @@ defineProps<{
 .app-shell__activity-list {
   display: grid;
   padding: 0;
-  margin: 1rem 0 0;
-  gap: 0.75rem;
+  margin: calc(var(--spacing) * 4) 0 0;
+  gap: calc(var(--spacing) * 3);
   list-style: none;
 }
 
@@ -113,7 +113,7 @@ defineProps<{
   align-items: center;
   justify-content: space-between;
   font-size: 0.875rem;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 @media (width >= 48rem) {

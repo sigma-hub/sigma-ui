@@ -35,12 +35,12 @@ defineSlots<{
   align-items: center;
   color: var(--muted-foreground);
   font-size: 0.875rem;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .sigma-ui-input-group-text svg {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   pointer-events: none;
 }
 </style>

@@ -232,9 +232,9 @@ function onSubmit(values: Record<string, unknown>) {
 
 .settings-forms__field-icon,
 .settings-forms__check {
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.5rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
+  margin-right: calc(var(--spacing) * 2);
 }
 
 .settings-forms__field-icon {
@@ -256,10 +256,10 @@ function onSubmit(values: Record<string, unknown>) {
 }
 
 .settings-forms__language-icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   flex-shrink: 0;
-  margin-left: 0.5rem;
+  margin-left: calc(var(--spacing) * 2);
   opacity: 0.5;
 }
 

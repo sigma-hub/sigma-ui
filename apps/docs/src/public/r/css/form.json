@@ -22,7 +22,7 @@
     },
     {
       "path": "ui/form/FormItem.vue",
-      "content": "<script lang=\"ts\" setup>\nimport { provide, useAttrs } from 'vue';\nimport { useId } from 'reka-ui';\nimport { FORM_ITEM_INJECTION_KEY } from './injectionKeys';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst id = useId();\nprovide(FORM_ITEM_INJECTION_KEY, id);\n</script>\n\n<template>\n  <div\n    data-slot=\"form-item\"\n    v-bind=\"delegatedAttrs()\"\n    :class=\"['form-item', $attrs.class]\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n.form-item {\n  display: flex;\n  flex-direction: column;\n  gap: 0.5rem;\n}\n</style>\n",
+      "content": "<script lang=\"ts\" setup>\nimport { provide, useAttrs } from 'vue';\nimport { useId } from 'reka-ui';\nimport { FORM_ITEM_INJECTION_KEY } from './injectionKeys';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst id = useId();\nprovide(FORM_ITEM_INJECTION_KEY, id);\n</script>\n\n<template>\n  <div\n    data-slot=\"form-item\"\n    v-bind=\"delegatedAttrs()\"\n    :class=\"['form-item', $attrs.class]\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n.form-item {\n  display: flex;\n  flex-direction: column;\n  gap: calc(var(--spacing) * 2);\n}\n</style>\n",
       "type": "registry:ui"
     },
     {

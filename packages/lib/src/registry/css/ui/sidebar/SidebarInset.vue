@@ -42,13 +42,13 @@ defineSlots<{
 @media (width >= 48rem) {
   .sigma-ui-sidebar[data-variant="inset"] ~ .sigma-ui-sidebar-inset {
     border-radius: calc(var(--radius) + 4px);
-    margin: 0.5rem;
+    margin: calc(var(--spacing) * 2);
     margin-left: 0;
     box-shadow: 0 1px 3px rgb(0 0 0 / 10%), 0 1px 2px -1px rgb(0 0 0 / 10%);
   }
 
   .sigma-ui-sidebar[data-variant="inset"][data-state="collapsed"] ~ .sigma-ui-sidebar-inset {
-    margin-left: 0.5rem;
+    margin-left: calc(var(--spacing) * 2);
   }
 }
 </style>

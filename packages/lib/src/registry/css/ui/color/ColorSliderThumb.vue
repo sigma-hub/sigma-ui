@@ -39,8 +39,8 @@ defineSlots<{
 <style>
 .sigma-ui-color-slider-thumb {
   display: block;
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   border: 2px solid white;
   border-radius: var(--radius-full);
   background-color: var(--background);

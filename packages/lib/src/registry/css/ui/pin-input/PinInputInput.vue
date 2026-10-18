@@ -30,8 +30,8 @@ const forwardedProps = useForwardProps(props);
 .sigma-ui-pin-input-input {
   position: relative;
   display: flex;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: calc(var(--spacing) * 10);
+  height: calc(var(--spacing) * 10);
   align-items: center;
   justify-content: center;
   border: 1px solid var(--input);

@@ -96,8 +96,8 @@ function handleSelect(event: any) {
 }
 
 .example-sigma-ui-command__icon {
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.5rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
+  margin-right: calc(var(--spacing) * 2);
 }
 </style>

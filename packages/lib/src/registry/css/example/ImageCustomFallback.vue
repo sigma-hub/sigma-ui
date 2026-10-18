@@ -40,7 +40,7 @@ import { Image } from '@ui/registry/css/ui/image';
     linear-gradient(0deg, transparent 95%, color-mix(in oklch, var(--foreground) 10%, transparent) 95%);
   background-size: 16px 16px;
   color: var(--muted-foreground);
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 .example-image-fallback-icon {

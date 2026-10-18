@@ -21,6 +21,6 @@ const airplaneMode = ref(false);
 .example-sigma-ui-switch {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 </style>

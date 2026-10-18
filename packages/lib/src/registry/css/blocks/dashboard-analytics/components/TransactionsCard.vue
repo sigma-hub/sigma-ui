@@ -100,17 +100,17 @@ defineProps<{
 
 .dashboard-analytics__transactions-heading {
   display: grid;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .dashboard-analytics__view-all.dashboard-analytics__view-all {
   margin-left: auto;
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 .dashboard-analytics__icon-sm {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 
 .dashboard-analytics__customer {

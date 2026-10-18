@@ -45,7 +45,7 @@ const props = withDefaults(
   overflow: hidden;
   width: 100%;
   min-width: 50px;
-  height: 1rem;
+  height: calc(var(--spacing) * 4);
   border-radius: var(--radius-full);
   background-color: var(--secondary);
 }

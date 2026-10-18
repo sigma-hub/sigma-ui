@@ -143,7 +143,7 @@ const remainingItems = computed(() => items.value.slice(-itemsToDisplay + 1));
 .example-sigma-ui-breadcrumb__trigger {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 .example-sigma-ui-breadcrumb__drawer-header {
@@ -152,23 +152,23 @@ const remainingItems = computed(() => items.value.slice(-itemsToDisplay + 1));
 
 .example-sigma-ui-breadcrumb__drawer-content {
   display: grid;
-  padding: 0 1rem;
-  gap: 0.25rem;
+  padding: 0 calc(var(--spacing) * 4);
+  gap: calc(var(--spacing) * 1);
 }
 
 .example-sigma-ui-breadcrumb__drawer-link {
-  padding: 0.25rem 0;
+  padding: calc(var(--spacing) * 1) 0;
   font-size: 0.875rem;
 }
 
 .example-sigma-ui-breadcrumb__drawer-footer {
-  padding-top: 1rem;
+  padding-top: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-breadcrumb__truncated-link,
 .example-sigma-ui-breadcrumb__truncated-page {
   overflow: hidden;
-  max-width: 5rem;
+  max-width: calc(var(--spacing) * 20);
   text-overflow: ellipsis;
   white-space: nowrap;
 }

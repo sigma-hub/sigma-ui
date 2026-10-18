@@ -45,11 +45,11 @@ const { carouselRef, orientation } = useCarousel();
 }
 
 .sigma-ui-carousel-content__wrapper--horizontal {
-  margin-left: -1rem;
+  margin-left: calc(var(--spacing) * -4);
 }
 
 .sigma-ui-carousel-content__wrapper--vertical {
   flex-direction: column;
-  margin-top: -1rem;
+  margin-top: calc(var(--spacing) * -4);
 }
 </style>

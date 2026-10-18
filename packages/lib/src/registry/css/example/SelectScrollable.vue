@@ -118,6 +118,6 @@ import {
 
 <style>
 .example-sigma-ui-select-scrollable__trigger {
-  width: 17.5rem;
+  width: calc(var(--spacing) * 70);
 }
 </style>

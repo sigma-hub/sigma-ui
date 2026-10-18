@@ -52,13 +52,13 @@ defineProps<{
 
 .dashboard-overview__sales-list {
   display: grid;
-  gap: 2rem;
+  gap: calc(var(--spacing) * 8);
 }
 
 .dashboard-overview__sale {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .dashboard-overview__initials {
@@ -67,7 +67,7 @@ defineProps<{
 
 .dashboard-overview__sale-identity {
   display: grid;
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 .dashboard-overview__sale-name,

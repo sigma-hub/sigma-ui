@@ -122,7 +122,7 @@ const totalValue = computed(() => props.data.reduce((prev, curr) => {
 .sigma-ui-donut-chart {
   display: flex;
   width: 100%;
-  height: 12rem;
+  height: calc(var(--spacing) * 48);
   flex-direction: column;
   align-items: flex-end;
 }

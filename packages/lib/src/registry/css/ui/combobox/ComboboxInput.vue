@@ -28,8 +28,8 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 .sigma-ui-combobox-input {
   display: flex;
   width: 100%;
-  height: 2.25rem;
-  padding: 0.25rem 0.75rem;
+  height: calc(var(--spacing) * 9);
+  padding: calc(var(--spacing) * 1) calc(var(--spacing) * 3);
   border: 1px solid var(--border);
   border-radius: 0.375rem;
   background-color: transparent;

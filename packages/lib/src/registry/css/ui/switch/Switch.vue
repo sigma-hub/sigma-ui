@@ -38,8 +38,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 <style>
 .sigma-ui-switch {
   display: inline-flex;
-  width: 2.75rem;
-  height: 1.5rem;
+  width: calc(var(--spacing) * 11);
+  height: calc(var(--spacing) * 6);
   flex-shrink: 0;
   align-items: center;
   border: 2px solid transparent;
@@ -70,8 +70,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 .sigma-ui-switch__thumb {
   display: block;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: calc(var(--spacing) * 5);
+  height: calc(var(--spacing) * 5);
   border-radius: var(--radius-full);
   animation: none;
   background-color: var(--background);

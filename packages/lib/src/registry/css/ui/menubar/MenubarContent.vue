@@ -46,8 +46,8 @@ const forwardedProps = useForwardProps(props);
 .sigma-ui-menubar-content {
   z-index: 50;
   overflow: hidden;
-  min-width: 12rem;
-  padding: 0.25rem;
+  min-width: calc(var(--spacing) * 48);
+  padding: calc(var(--spacing) * 1);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   backdrop-filter: blur(var(--backdrop-filter-blur));

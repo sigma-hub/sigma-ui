@@ -33,7 +33,7 @@ const delegatedAttrs = () => {
   .sigma-ui-sheet-footer {
     flex-direction: row;
     justify-content: flex-end;
-    gap: 0.5rem;
+    gap: calc(var(--spacing) * 2);
   }
 }
 </style>

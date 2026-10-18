@@ -41,13 +41,13 @@ defineSlots<{
 .sigma-ui-button-group-text {
   display: flex;
   align-items: center;
-  padding: 0 1rem;
+  padding: 0 calc(var(--spacing) * 4);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background-color: var(--muted);
   font-size: 0.875rem;
   font-weight: 500;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .sigma-ui-button-group-text svg {
@@ -55,7 +55,7 @@ defineSlots<{
 }
 
 .sigma-ui-button-group-text svg:not([class*="size-"]) {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 </style>

@@ -73,30 +73,30 @@ const onSubmit = handleSubmit((values) => {
 .example-sigma-ui-checkbox-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: calc(var(--spacing) * 6);
 }
 
 .example-sigma-ui-checkbox-form__item {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  gap: 0.75rem;
+  gap: calc(var(--spacing) * 3);
 }
 
 .example-sigma-ui-checkbox-form__content {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
   line-height: 1;
 }
 
 .example-sigma-ui-checkbox-form__toast-pre {
-  padding: 0.5rem;
+  padding: calc(var(--spacing) * 2);
   border-radius: var(--radius-md);
-  margin-top: 0.5rem;
+  margin-top: calc(var(--spacing) * 2);
   background-color: color-mix(in oklch, var(--muted) 50%, transparent);
 }
 </style>

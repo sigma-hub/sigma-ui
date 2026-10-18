@@ -39,7 +39,7 @@ function selectItem(itemId: string) {
 <style>
 .settings-forms__nav-list {
   display: flex;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .settings-forms__nav-button.settings-forms__nav-button {
@@ -56,7 +56,7 @@ function selectItem(itemId: string) {
 @media (width >= 64rem) {
   .settings-forms__nav-list {
     flex-direction: column;
-    gap: 0.25rem;
+    gap: calc(var(--spacing) * 1);
   }
 }
 </style>

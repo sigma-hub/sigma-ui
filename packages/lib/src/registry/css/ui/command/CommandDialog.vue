@@ -31,8 +31,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-command-dialog__command [cmdk-group-heading] {
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
+  padding-right: calc(var(--spacing) * 2);
+  padding-left: calc(var(--spacing) * 2);
   color: var(--muted-foreground);
   font-weight: 500;
 }
@@ -42,25 +42,25 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-command-dialog__command [cmdk-group] {
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
+  padding-right: calc(var(--spacing) * 2);
+  padding-left: calc(var(--spacing) * 2);
 }
 
 .sigma-ui-command-dialog__command [cmdk-input-wrapper] svg {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: calc(var(--spacing) * 5);
+  height: calc(var(--spacing) * 5);
 }
 
 .sigma-ui-command-dialog__command [cmdk-input] {
-  height: 3rem;
+  height: calc(var(--spacing) * 12);
 }
 
 .sigma-ui-command-dialog__command [cmdk-item] {
-  padding: 0.75rem 0.5rem;
+  padding: calc(var(--spacing) * 3) calc(var(--spacing) * 2);
 }
 
 .sigma-ui-command-dialog__command [cmdk-item] svg {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: calc(var(--spacing) * 5);
+  height: calc(var(--spacing) * 5);
 }
 </style>

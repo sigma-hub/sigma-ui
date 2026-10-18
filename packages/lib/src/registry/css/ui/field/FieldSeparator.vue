@@ -42,8 +42,8 @@ const slots = defineSlots<{
 <style>
 .sigma-ui-field-separator {
   position: relative;
-  height: 1.25rem;
-  margin: -0.5rem 0;
+  height: calc(var(--spacing) * 5);
+  margin: calc(var(--spacing) * -2) 0;
   font-size: 0.875rem;
 }
 
@@ -57,7 +57,7 @@ const slots = defineSlots<{
   position: relative;
   display: block;
   width: fit-content;
-  padding: 0 0.5rem;
+  padding: 0 calc(var(--spacing) * 2);
   margin: 0 auto;
   background-color: var(--background);
   color: var(--muted-foreground);

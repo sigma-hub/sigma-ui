@@ -123,7 +123,7 @@ const selectedStatus = ref<Status>();
 .example-sigma-ui-command-popover {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-command-popover__label {
@@ -137,10 +137,10 @@ const selectedStatus = ref<Status>();
 }
 
 .example-sigma-ui-command-popover__icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   flex-shrink: 0;
-  margin-right: 0.5rem;
+  margin-right: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-command-popover__content {
@@ -148,9 +148,9 @@ const selectedStatus = ref<Status>();
 }
 
 .example-sigma-ui-command-popover__status-icon {
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.5rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
+  margin-right: calc(var(--spacing) * 2);
   opacity: 0.4;
 }
 

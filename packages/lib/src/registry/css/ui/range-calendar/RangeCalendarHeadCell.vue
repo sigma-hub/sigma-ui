@@ -30,7 +30,7 @@ const forwardedProps = useForwardProps(props);
 
 <style>
 .sigma-ui-range-calendar-head-cell {
-  width: 2rem;
+  width: calc(var(--spacing) * 8);
   border-radius: var(--radius-md);
   color: var(--muted-foreground);
   font-size: 0.8rem;

@@ -114,7 +114,7 @@ import { Label } from '@ui/registry/css/ui/label';
   flex: 1 1 0%;
   align-items: center;
   justify-content: center;
-  padding: 3rem 0;
+  padding: calc(var(--spacing) * 12) 0;
 }
 
 .login-split-image__form-container {
@@ -126,7 +126,7 @@ import { Label } from '@ui/registry/css/ui/label';
 
 .login-split-image__header {
   display: grid;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
   text-align: center;
 }
 
@@ -138,19 +138,19 @@ import { Label } from '@ui/registry/css/ui/label';
 }
 
 .login-split-image__description {
-  margin: 0 0 2rem;
+  margin: 0 0 calc(var(--spacing) * 8);
   color: var(--muted-foreground);
   text-wrap: pretty;
 }
 
 .login-split-image__form {
   display: grid;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .login-split-image__field {
   display: grid;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .login-split-image__label-row {
@@ -172,12 +172,12 @@ import { Label } from '@ui/registry/css/ui/label';
 }
 
 .login-split-image__icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 
 .login-split-image__footer {
-  margin-top: 1rem;
+  margin-top: calc(var(--spacing) * 4);
   font-size: 0.875rem;
   line-height: 1.25rem;
   text-align: center;

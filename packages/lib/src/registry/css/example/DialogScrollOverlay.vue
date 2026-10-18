@@ -53,7 +53,7 @@ import {
 .example-sigma-ui-dialog__scroll-content {
   display: grid;
   height: 300dvh;
-  padding: 1rem 0;
-  gap: 1rem;
+  padding: calc(var(--spacing) * 4) 0;
+  gap: calc(var(--spacing) * 4);
 }
 </style>

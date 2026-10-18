@@ -57,7 +57,7 @@ const works: Artwork[] = [
 
 <style>
 .example-sigma-ui-scroll-area-horizontal {
-  width: 24rem;
+  width: calc(var(--spacing) * 96);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   white-space: nowrap;
@@ -66,8 +66,8 @@ const works: Artwork[] = [
 .example-sigma-ui-scroll-area-horizontal__content {
   display: flex;
   width: max-content;
-  padding: 1rem;
-  gap: 1rem;
+  padding: calc(var(--spacing) * 4);
+  gap: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-scroll-area-horizontal__figure {
@@ -80,14 +80,14 @@ const works: Artwork[] = [
 }
 
 .example-sigma-ui-scroll-area-horizontal__image {
-  width: 9rem;
-  height: 14rem;
+  width: calc(var(--spacing) * 36);
+  height: calc(var(--spacing) * 56);
   aspect-ratio: 3/4;
   object-fit: cover;
 }
 
 .example-sigma-ui-scroll-area-horizontal__caption {
-  padding-top: 0.5rem;
+  padding-top: calc(var(--spacing) * 2);
   color: var(--muted-foreground);
   font-size: 0.75rem;
 }

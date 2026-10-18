@@ -113,21 +113,21 @@ import { breadcrumbLinks, breadcrumbPage, mobileNavItems } from '../data';
   z-index: 30;
   top: 0;
   display: flex;
-  height: 3.5rem;
+  height: calc(var(--spacing) * 14);
   align-items: center;
-  padding-right: 1rem;
-  padding-left: 1rem;
+  padding-right: calc(var(--spacing) * 4);
+  padding-left: calc(var(--spacing) * 4);
   border-bottom: 1px solid var(--border);
   background-color: var(--background);
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 @media (width >= 40rem) {
   .dashboard-product-edit__header {
     position: static;
     height: auto;
-    padding-right: 1.5rem;
-    padding-left: 1.5rem;
+    padding-right: calc(var(--spacing) * 6);
+    padding-left: calc(var(--spacing) * 6);
     border-bottom-width: 0;
     background-color: transparent;
   }
@@ -143,8 +143,8 @@ import { breadcrumbLinks, breadcrumbPage, mobileNavItems } from '../data';
 
 button.dashboard-product-edit__menu-button svg,
 button.dashboard-product-edit__account-button svg {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: calc(var(--spacing) * 5);
+  height: calc(var(--spacing) * 5);
 }
 
 button.dashboard-product-edit__account-button {
@@ -155,14 +155,14 @@ button.dashboard-product-edit__account-button {
   display: grid;
   font-size: 1.125rem;
   font-weight: 500;
-  gap: 1.5rem;
+  gap: calc(var(--spacing) * 6);
   line-height: 1.75rem;
 }
 
 .dashboard-product-edit__sheet-logo {
   display: flex;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: calc(var(--spacing) * 10);
+  height: calc(var(--spacing) * 10);
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
@@ -171,7 +171,7 @@ button.dashboard-product-edit__account-button {
   color: var(--primary-foreground);
   font-size: 1.125rem;
   font-weight: 600;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
   line-height: 1.75rem;
   text-decoration: none;
 }
@@ -184,8 +184,8 @@ button.dashboard-product-edit__account-button {
 }
 
 .dashboard-product-edit__sheet-logo svg {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: calc(var(--spacing) * 5);
+  height: calc(var(--spacing) * 5);
   transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -196,10 +196,10 @@ button.dashboard-product-edit__account-button {
 .dashboard-product-edit__sheet-link {
   display: flex;
   align-items: center;
-  padding-right: 0.625rem;
-  padding-left: 0.625rem;
+  padding-right: calc(var(--spacing) * 2.5);
+  padding-left: calc(var(--spacing) * 2.5);
   color: var(--muted-foreground);
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
   text-decoration: none;
 }
 
@@ -209,8 +209,8 @@ button.dashboard-product-edit__account-button {
 }
 
 .dashboard-product-edit__sheet-link svg {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: calc(var(--spacing) * 5);
+  height: calc(var(--spacing) * 5);
   flex-shrink: 0;
 }
 
@@ -238,16 +238,16 @@ button.dashboard-product-edit__account-button {
 
 .dashboard-product-edit__search-icon {
   position: absolute;
-  top: 0.625rem;
-  left: 0.625rem;
-  width: 1rem;
-  height: 1rem;
+  top: calc(var(--spacing) * 2.5);
+  left: calc(var(--spacing) * 2.5);
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   color: var(--muted-foreground);
 }
 
 input.dashboard-product-edit__search-input {
   width: 100%;
-  padding-left: 2rem;
+  padding-left: calc(var(--spacing) * 8);
   border-radius: var(--radius-lg);
   background-color: var(--background);
 }

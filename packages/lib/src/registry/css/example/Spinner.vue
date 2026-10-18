@@ -15,17 +15,17 @@ import { Spinner } from '@ui/registry/css/ui/spinner';
   display: flex;
   align-items: center;
   color: var(--muted-foreground);
-  gap: 1.5rem;
+  gap: calc(var(--spacing) * 6);
 }
 
 .example-spinner .example-spinner__md {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: calc(var(--spacing) * 6);
+  height: calc(var(--spacing) * 6);
 }
 
 .example-spinner .example-spinner__lg {
-  width: 2rem;
-  height: 2rem;
+  width: calc(var(--spacing) * 8);
+  height: calc(var(--spacing) * 8);
   color: var(--primary);
 }
 </style>

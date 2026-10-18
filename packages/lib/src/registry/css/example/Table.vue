@@ -90,7 +90,7 @@ const invoices = [
 
 <style>
 .example-sigma-ui-table__head-invoice {
-  width: 6.25rem;
+  width: calc(var(--spacing) * 25);
 }
 
 .example-sigma-ui-table__head-amount {

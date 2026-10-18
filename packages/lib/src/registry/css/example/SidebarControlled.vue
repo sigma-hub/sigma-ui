@@ -94,8 +94,8 @@ const items = [
   flex: 1;
   flex-direction: column;
   align-items: flex-start;
-  padding: 1rem;
-  gap: 1rem;
+  padding: calc(var(--spacing) * 4);
+  gap: calc(var(--spacing) * 4);
 }
 
 .example-sidebar-controlled__text {

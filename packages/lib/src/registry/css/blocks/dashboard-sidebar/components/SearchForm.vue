@@ -34,16 +34,16 @@ defineProps<{
 
 .dashboard-sidebar__search-icon {
   position: absolute;
-  top: 0.625rem;
-  left: 0.625rem;
-  width: 1rem;
-  height: 1rem;
+  top: calc(var(--spacing) * 2.5);
+  left: calc(var(--spacing) * 2.5);
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   color: var(--muted-foreground);
 }
 
 .dashboard-sidebar__search-input.dashboard-sidebar__search-input {
   width: 100%;
-  padding-left: 2rem;
+  padding-left: calc(var(--spacing) * 8);
   appearance: none;
   background-color: var(--background);
   box-shadow: none;

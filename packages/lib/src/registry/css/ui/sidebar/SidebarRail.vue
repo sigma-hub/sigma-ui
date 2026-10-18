@@ -36,7 +36,7 @@ const { toggleSidebar } = useSidebar();
   position: absolute;
   z-index: 20;
   display: none;
-  width: 1rem;
+  width: calc(var(--spacing) * 4);
   padding: 0;
   border: none;
   background-color: transparent;
@@ -58,7 +58,7 @@ const { toggleSidebar } = useSidebar();
 }
 
 .sigma-ui-sidebar[data-side="left"] .sigma-ui-sidebar-rail {
-  right: -1rem;
+  right: calc(var(--spacing) * -4);
   cursor: w-resize;
 }
 
@@ -88,11 +88,11 @@ const { toggleSidebar } = useSidebar();
 }
 
 .sigma-ui-sidebar[data-side="left"][data-collapsible="offcanvas"] .sigma-ui-sidebar-rail {
-  right: -0.5rem;
+  right: calc(var(--spacing) * -2);
 }
 
 .sigma-ui-sidebar[data-side="right"][data-collapsible="offcanvas"] .sigma-ui-sidebar-rail {
-  left: -0.5rem;
+  left: calc(var(--spacing) * -2);
 }
 
 @media (width >= 40rem) {

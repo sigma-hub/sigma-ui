@@ -46,8 +46,8 @@ const { orientation, canScrollPrev, scrollPrev } = useCarousel();
 <style>
 .sigma-ui-carousel-previous {
   position: absolute;
-  width: 2rem;
-  height: 2rem;
+  width: calc(var(--spacing) * 8);
+  height: calc(var(--spacing) * 8);
   padding: 0;
   border-radius: var(--radius);
   touch-action: manipulation;
@@ -55,19 +55,19 @@ const { orientation, canScrollPrev, scrollPrev } = useCarousel();
 
 .sigma-ui-carousel-previous--horizontal {
   top: 50%;
-  left: -3rem;
+  left: calc(var(--spacing) * -12);
   transform: translateY(-50%);
 }
 
 .sigma-ui-carousel-previous--vertical {
-  top: -3rem;
+  top: calc(var(--spacing) * -12);
   left: 50%;
   transform: translateX(-50%) rotate(90deg);
 }
 
 .sigma-ui-carousel-previous__icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 
 .sigma-ui-sr-only {

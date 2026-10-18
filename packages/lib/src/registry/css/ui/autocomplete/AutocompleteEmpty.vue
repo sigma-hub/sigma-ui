@@ -30,7 +30,7 @@ const props = defineProps<ComboboxEmptyProps>();
 <style>
 .sigma-ui-autocomplete-empty {
   font-size: 0.875rem;
-  padding-block: 1.5rem;
+  padding-block: calc(var(--spacing) * 6);
   text-align: center;
 }
 </style>

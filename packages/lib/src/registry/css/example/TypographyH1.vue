@@ -10,7 +10,7 @@
   font-weight: 800;
   letter-spacing: -0.025em;
   line-height: 1.1;
-  scroll-margin-top: 5rem;
+  scroll-margin-top: calc(var(--spacing) * 20);
 }
 
 @media (width >= 64rem) {

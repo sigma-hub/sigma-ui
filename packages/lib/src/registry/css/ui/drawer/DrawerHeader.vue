@@ -26,8 +26,8 @@ const delegatedAttrs = () => {
 <style>
 .sigma-ui-drawer-header {
   display: grid;
-  padding: 1rem;
-  gap: 0.375rem;
+  padding: calc(var(--spacing) * 4);
+  gap: calc(var(--spacing) * 1.5);
   text-align: center;
 }
 

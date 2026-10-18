@@ -20,7 +20,7 @@ import { Label } from '@ui/registry/css/ui/label';
 .example-sigma-ui-textarea-with-text {
   display: grid;
   width: 100%;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-textarea-with-text__help-text {

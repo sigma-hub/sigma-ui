@@ -80,8 +80,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 .sigma-ui-resizable-handle__grip {
   z-index: 10;
   display: flex;
-  width: 0.75rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 3);
+  height: calc(var(--spacing) * 4);
   align-items: center;
   justify-content: center;
   border: 1px solid var(--border);
@@ -90,7 +90,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-resizable-handle__grip-icon {
-  width: 0.625rem;
-  height: 0.625rem;
+  width: calc(var(--spacing) * 2.5);
+  height: calc(var(--spacing) * 2.5);
 }
 </style>

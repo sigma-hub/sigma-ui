@@ -39,7 +39,7 @@ const handleComplete = (e: string[]) => alert(e.join(''));
 
 <style>
 .example-sigma-ui-pin-input-separator__group {
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 .example-sigma-ui-pin-input-separator__input {

@@ -60,8 +60,8 @@ defineSlots<{
   display: flex;
   width: 100%;
   min-width: 0;
-  height: 2.25rem;
-  padding: 0.5rem 2.25rem 0.5rem 0.75rem;
+  height: calc(var(--spacing) * 9);
+  padding: calc(var(--spacing) * 2) calc(var(--spacing) * 9) calc(var(--spacing) * 2) calc(var(--spacing) * 3);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   appearance: none;
@@ -86,9 +86,9 @@ defineSlots<{
 .sigma-ui-native-select__icon {
   position: absolute;
   top: 50%;
-  right: 0.75rem;
-  width: 1rem;
-  height: 1rem;
+  right: calc(var(--spacing) * 3);
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   color: var(--muted-foreground);
   opacity: 0.5;
   pointer-events: none;

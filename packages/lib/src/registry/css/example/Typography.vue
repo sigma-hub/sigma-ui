@@ -128,7 +128,7 @@
   font-weight: 800;
   letter-spacing: -0.025em;
   line-height: 1.1;
-  scroll-margin-top: 5rem;
+  scroll-margin-top: calc(var(--spacing) * 20);
 }
 
 @media (width >= 64rem) {
@@ -138,13 +138,13 @@
 }
 
 .example-sigma-ui-typography__heading-2 {
-  padding-bottom: 0.5rem;
+  padding-bottom: calc(var(--spacing) * 2);
   border-bottom: 1px solid var(--border);
-  margin-top: 2.5rem;
+  margin-top: calc(var(--spacing) * 10);
   font-size: 1.875rem;
   font-weight: 600;
   letter-spacing: -0.025em;
-  scroll-margin-top: 5rem;
+  scroll-margin-top: calc(var(--spacing) * 20);
   transition-duration: 150ms;
   transition-property: color;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -155,11 +155,11 @@
 }
 
 .example-sigma-ui-typography__heading-3 {
-  margin-top: 2rem;
+  margin-top: calc(var(--spacing) * 8);
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: -0.025em;
-  scroll-margin-top: 5rem;
+  scroll-margin-top: calc(var(--spacing) * 20);
 }
 
 .example-sigma-ui-typography__paragraph {
@@ -167,7 +167,7 @@
 }
 
 .example-sigma-ui-typography__paragraph:not(:first-child) {
-  margin-top: 1.5rem;
+  margin-top: calc(var(--spacing) * 6);
 }
 
 .example-sigma-ui-typography__link {
@@ -178,24 +178,24 @@
 }
 
 .example-sigma-ui-typography__blockquote {
-  padding-left: 1.5rem;
+  padding-left: calc(var(--spacing) * 6);
   border-left: 2px solid var(--border);
-  margin-top: 1.5rem;
+  margin-top: calc(var(--spacing) * 6);
   font-style: italic;
 }
 
 .example-sigma-ui-typography__list {
-  margin: 1.5rem 0 1.5rem 1.5rem;
+  margin: calc(var(--spacing) * 6) 0 calc(var(--spacing) * 6) calc(var(--spacing) * 6);
   list-style-type: disc;
 }
 
 .example-sigma-ui-typography__list-item {
-  margin-top: 0.5rem;
+  margin-top: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-typography__table-container {
   width: 100%;
-  margin: 1.5rem 0;
+  margin: calc(var(--spacing) * 6) 0;
   overflow-y: auto;
 }
 
@@ -211,7 +211,7 @@
 
 .example-sigma-ui-typography__table-header,
 .example-sigma-ui-typography__table-cell {
-  padding: 0.5rem 1rem;
+  padding: calc(var(--spacing) * 2) calc(var(--spacing) * 4);
   border: 1px solid var(--border);
   text-align: left;
 }

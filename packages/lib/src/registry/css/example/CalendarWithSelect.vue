@@ -139,7 +139,7 @@ const formatter = useDateFormatter('en');
 
 <style>
 .example-sigma-ui-calendar-select {
-  padding: 0.75rem;
+  padding: calc(var(--spacing) * 3);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
 }
@@ -149,7 +149,7 @@ const formatter = useDateFormatter('en');
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-calendar-select__month-trigger {
@@ -168,8 +168,8 @@ const formatter = useDateFormatter('en');
 .example-sigma-ui-calendar-select__grid-container {
   display: flex;
   flex-direction: column;
-  padding-top: 1rem;
-  gap: 1rem;
+  padding-top: calc(var(--spacing) * 4);
+  gap: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-calendar-select__grid {
@@ -178,13 +178,13 @@ const formatter = useDateFormatter('en');
 
 .example-sigma-ui-calendar-select__week-row {
   width: 100%;
-  margin-top: 0.5rem;
+  margin-top: calc(var(--spacing) * 2);
 }
 
 @media (width >= 40rem) {
   .example-sigma-ui-calendar-select__grid-container {
     flex-direction: row;
-    gap: 1rem;
+    gap: calc(var(--spacing) * 4);
   }
 }
 </style>

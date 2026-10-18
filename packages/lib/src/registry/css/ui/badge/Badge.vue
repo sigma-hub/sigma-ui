@@ -33,7 +33,7 @@ defineProps<{
 .sigma-ui-badge {
   display: inline-flex;
   align-items: center;
-  padding: 0.125rem 0.625rem;
+  padding: calc(var(--spacing) * 0.5) calc(var(--spacing) * 2.5);
   border: 1px solid var(--border);
   border-radius: var(--radius-full);
   font-size: 0.75rem;

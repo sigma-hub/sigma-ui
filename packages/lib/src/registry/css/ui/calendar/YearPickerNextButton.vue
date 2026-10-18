@@ -33,8 +33,8 @@ const forwarded = useForwardProps(props);
 
 <style>
 .sigma-ui-year-picker-next {
-  width: 1.75rem;
-  height: 1.75rem;
+  width: calc(var(--spacing) * 7);
+  height: calc(var(--spacing) * 7);
   padding: 0;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
@@ -49,7 +49,7 @@ const forwarded = useForwardProps(props);
 }
 
 .sigma-ui-year-picker-next__icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 </style>

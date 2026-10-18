@@ -208,7 +208,7 @@ defineProps<{
   display: flex;
   align-items: center;
   margin-left: auto;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .dashboard-products .dashboard-products__tab--desktop {
@@ -222,18 +222,18 @@ defineProps<{
 }
 
 .dashboard-products .dashboard-products__toolbar-button {
-  height: 1.75rem;
-  gap: 0.25rem;
+  height: calc(var(--spacing) * 7);
+  gap: calc(var(--spacing) * 1);
 }
 
 .dashboard-products .dashboard-products__toolbar-button svg {
-  width: 0.875rem;
-  height: 0.875rem;
+  width: calc(var(--spacing) * 3.5);
+  height: calc(var(--spacing) * 3.5);
 }
 
 .dashboard-products .dashboard-products__row-button svg {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 
 .dashboard-products__action-label {

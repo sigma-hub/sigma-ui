@@ -58,7 +58,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   position: relative;
   z-index: 50;
   overflow: hidden auto;
-  min-width: 8rem;
+  min-width: calc(var(--spacing) * 32);
   max-height: var(--reka-select-content-available-height, 24rem);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
@@ -134,7 +134,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 }
 
 .sigma-ui-select-content__viewport {
-  padding: 0.25rem;
+  padding: calc(var(--spacing) * 1);
   scroll-margin-block: 0.25rem;
 }
 

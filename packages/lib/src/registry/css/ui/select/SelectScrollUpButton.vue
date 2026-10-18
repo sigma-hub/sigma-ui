@@ -36,12 +36,12 @@ const forwardedProps = useForwardProps(props);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.25rem 0;
+  padding: calc(var(--spacing) * 1) 0;
   cursor: default;
 }
 
 .sigma-ui-select-scroll-up__icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 </style>

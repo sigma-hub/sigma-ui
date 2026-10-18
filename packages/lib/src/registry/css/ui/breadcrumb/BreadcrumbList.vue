@@ -30,13 +30,13 @@ const delegatedAttrs = () => {
   align-items: center;
   color: var(--muted-foreground);
   font-size: 0.875rem;
-  gap: 0.375rem;
+  gap: calc(var(--spacing) * 1.5);
   overflow-wrap: break-word;
 }
 
 @media (width >= 40rem) {
   .sigma-ui-breadcrumb__list {
-    gap: 0.625rem;
+    gap: calc(var(--spacing) * 2.5);
   }
 }
 </style>

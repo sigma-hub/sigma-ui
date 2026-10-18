@@ -52,18 +52,18 @@ import { modelOptions } from '../data';
   display: flex;
   align-items: flex-start;
   color: var(--muted-foreground);
-  gap: 0.75rem;
+  gap: calc(var(--spacing) * 3);
 }
 
 .dashboard-ai-playground__model-option svg {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: calc(var(--spacing) * 5);
+  height: calc(var(--spacing) * 5);
   flex-shrink: 0;
 }
 
 .dashboard-ai-playground__model-copy {
   display: grid;
-  gap: 0.125rem;
+  gap: calc(var(--spacing) * 0.5);
 }
 
 .dashboard-ai-playground__model-line {

@@ -106,12 +106,12 @@ import {
 .example-sigma-ui-tabs__content {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: calc(var(--spacing) * 3);
 }
 
 .example-sigma-ui-tabs__field {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 </style>

@@ -37,7 +37,7 @@ defineSlots<{
   min-height: 0;
   flex: 1;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .sigma-ui-sidebar[data-collapsible="icon"] .sigma-ui-sidebar-content {

@@ -165,20 +165,20 @@ defineProps<{
   display: flex;
   align-items: center;
   margin-left: auto;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .dashboard-orders .dashboard-orders__toolbar-button {
-  height: 1.75rem;
-  padding-right: 0.75rem;
-  padding-left: 0.75rem;
+  height: calc(var(--spacing) * 7);
+  padding-right: calc(var(--spacing) * 3);
+  padding-left: calc(var(--spacing) * 3);
   border-radius: calc(var(--radius) - 2px);
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 .dashboard-orders .dashboard-orders__toolbar-button svg {
-  width: 0.875rem;
-  height: 0.875rem;
+  width: calc(var(--spacing) * 3.5);
+  height: calc(var(--spacing) * 3.5);
 }
 
 .dashboard-orders__action-label {
@@ -210,7 +210,7 @@ defineProps<{
 }
 
 .dashboard-orders__filter-option > * + * {
-  margin-left: 0.5rem;
+  margin-left: calc(var(--spacing) * 2);
 }
 
 .dashboard-orders__filter-label {
@@ -220,8 +220,8 @@ defineProps<{
 }
 
 .dashboard-orders .dashboard-orders__table-header {
-  padding-right: 1.75rem;
-  padding-left: 1.75rem;
+  padding-right: calc(var(--spacing) * 7);
+  padding-left: calc(var(--spacing) * 7);
 }
 
 .dashboard-orders__cell--from-sm,

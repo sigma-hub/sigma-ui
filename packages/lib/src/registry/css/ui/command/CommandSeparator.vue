@@ -30,8 +30,8 @@ const props = defineProps<ComboboxSeparatorProps>();
 <style>
 .sigma-ui-command-separator {
   height: 1px;
-  margin-right: -0.25rem;
-  margin-left: -0.25rem;
+  margin-right: calc(var(--spacing) * -1);
+  margin-left: calc(var(--spacing) * -1);
   background-color: var(--border);
 }
 </style>

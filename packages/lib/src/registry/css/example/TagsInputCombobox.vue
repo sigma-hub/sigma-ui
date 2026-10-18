@@ -90,7 +90,7 @@ const filteredFrameworks = computed(() => {
   display: flex;
   width: 200px;
   align-items: center;
-  padding: 0.5rem;
+  padding: calc(var(--spacing) * 2);
   gap: 8px;
 }
 
@@ -99,7 +99,7 @@ const filteredFrameworks = computed(() => {
   flex-wrap: wrap;
   align-items: center;
   padding: 0;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-tags-input-combobox__combobox {

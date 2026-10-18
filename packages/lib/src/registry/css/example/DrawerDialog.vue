@@ -105,13 +105,13 @@ const isOpen = ref(false);
 .example-sigma-ui-drawer-dialog__form {
   display: grid;
   align-items: start;
-  padding: 0 1rem;
-  gap: 1rem;
+  padding: 0 calc(var(--spacing) * 4);
+  gap: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-drawer-dialog__field {
   display: grid;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-drawer-dialog__content {
@@ -129,6 +129,6 @@ const isOpen = ref(false);
 }
 
 .example-sigma-ui-drawer-dialog__footer {
-  padding-top: 0.5rem;
+  padding-top: calc(var(--spacing) * 2);
 }
 </style>

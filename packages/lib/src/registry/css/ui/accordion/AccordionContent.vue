@@ -48,6 +48,6 @@ const forwarded = useForwardProps(props);
 }
 
 .sigma-ui-accordion-content-inner {
-  padding: 0 0 1rem;
+  padding: 0 0 calc(var(--spacing) * 4);
 }
 </style>

@@ -20,6 +20,6 @@ import { Kbd, KbdGroup } from '@ui/registry/css/ui/kbd';
   display: flex;
   align-items: center;
   font-size: 0.875rem;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 </style>

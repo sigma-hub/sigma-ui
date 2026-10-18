@@ -40,9 +40,9 @@ defineSlots<{
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.25rem;
+  padding: calc(var(--spacing) * 1);
   border-radius: var(--radius-md);
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
   text-align: center;
 }
 </style>

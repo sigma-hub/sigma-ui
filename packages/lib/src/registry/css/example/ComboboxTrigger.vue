@@ -93,10 +93,10 @@ const value = ref<typeof frameworks[0]>();
 }
 
 .example-sigma-ui-combobox-trigger__chevron {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   flex-shrink: 0;
-  margin-left: 0.5rem;
+  margin-left: calc(var(--spacing) * 2);
   opacity: 0.5;
 }
 
@@ -107,8 +107,8 @@ const value = ref<typeof frameworks[0]>();
 }
 
 .example-sigma-ui-combobox-trigger__check {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   margin-left: auto;
   opacity: 0;
 }
@@ -118,8 +118,8 @@ const value = ref<typeof frameworks[0]>();
 }
 
 .example-sigma-ui-combobox-trigger__input {
-  height: 2.25rem;
-  padding-left: 2.25rem;
+  height: calc(var(--spacing) * 9);
+  padding-left: calc(var(--spacing) * 9);
   border: none;
   border-radius: 0;
   background-color: transparent;
@@ -141,12 +141,12 @@ const value = ref<typeof frameworks[0]>();
   left: 0;
   display: flex;
   align-items: center;
-  padding: 0 0.75rem;
+  padding: 0 calc(var(--spacing) * 3);
 }
 
 .example-sigma-ui-combobox-trigger__search-icon-icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   color: var(--muted-foreground);
 }
 </style>

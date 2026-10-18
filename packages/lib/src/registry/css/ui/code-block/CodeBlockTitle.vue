@@ -64,9 +64,9 @@ onBeforeUnmount(() => {
 
 .sigma-ui-code-block__title svg {
   display: inline-block;
-  width: 0.875rem;
-  height: 0.875rem;
-  margin-right: 0.375rem;
+  width: calc(var(--spacing) * 3.5);
+  height: calc(var(--spacing) * 3.5);
+  margin-right: calc(var(--spacing) * 1.5);
   color: var(--muted-foreground);
   pointer-events: none;
   vertical-align: -0.125rem;

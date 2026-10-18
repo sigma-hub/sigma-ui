@@ -32,14 +32,14 @@ const props = defineProps<PaginationEllipsisProps>();
 <style>
 .sigma-ui-pagination-ellipsis {
   display: flex;
-  width: 2.25rem;
-  height: 2.25rem;
+  width: calc(var(--spacing) * 9);
+  height: calc(var(--spacing) * 9);
   align-items: center;
   justify-content: center;
 }
 
 .sigma-ui-pagination-ellipsis__icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 </style>

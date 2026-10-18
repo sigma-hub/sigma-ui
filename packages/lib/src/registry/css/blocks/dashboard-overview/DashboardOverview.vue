@@ -174,13 +174,13 @@ import {
 }
 
 .dashboard-overview__header-bar {
-  height: 4rem;
-  padding: 0 1rem;
-  gap: 1rem;
+  height: calc(var(--spacing) * 16);
+  padding: 0 calc(var(--spacing) * 4);
+  gap: calc(var(--spacing) * 4);
 }
 
 .dashboard-overview__nav {
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .dashboard-overview__nav-link {
@@ -201,20 +201,20 @@ import {
 
 .dashboard-overview__header-actions {
   margin-left: auto;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .dashboard-overview__main {
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 1.5rem 2rem 2rem;
-  gap: 1rem;
+  padding: calc(var(--spacing) * 6) calc(var(--spacing) * 8) calc(var(--spacing) * 8);
+  gap: calc(var(--spacing) * 4);
 }
 
 .dashboard-overview__title-row {
   justify-content: space-between;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .dashboard-overview__title {
@@ -226,20 +226,20 @@ import {
 }
 
 .dashboard-overview__title-actions {
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .dashboard-overview__tabs,
 .dashboard-overview__panel {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .dashboard-overview__stats,
 .dashboard-overview__lower {
   display: grid;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 @media (width >= 48rem) {
@@ -255,7 +255,7 @@ import {
 
 @media (width >= 64rem) {
   .dashboard-overview__nav {
-    gap: 1.5rem;
+    gap: calc(var(--spacing) * 6);
   }
 
   .dashboard-overview__search {

@@ -14,7 +14,7 @@ import { Toggle } from '@ui/registry/css/ui/toggle';
 
 <style>
 .example-sigma-ui-toggle__icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 </style>

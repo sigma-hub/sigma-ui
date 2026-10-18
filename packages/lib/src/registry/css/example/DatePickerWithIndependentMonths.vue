@@ -268,9 +268,9 @@ watch(secondMonthPlaceholder, (_secondMonthPlaceholder) => {
 }
 
 .example-sigma-ui-date-picker__button-icon {
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.5rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
+  margin-right: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-date-picker__content {
@@ -279,28 +279,28 @@ watch(secondMonthPlaceholder, (_secondMonthPlaceholder) => {
 }
 
 .example-sigma-ui-date-picker__calendar {
-  padding: 0.75rem;
+  padding: calc(var(--spacing) * 3);
 }
 
 .example-sigma-ui-date-picker__months {
   display: flex;
   flex-direction: column;
-  margin-top: 1rem;
-  gap: 1rem;
+  margin-top: calc(var(--spacing) * 4);
+  gap: calc(var(--spacing) * 4);
 }
 
 @media (width >= 40rem) {
   .example-sigma-ui-date-picker__months {
     flex-direction: row;
     margin-top: 0;
-    gap: 1rem;
+    gap: calc(var(--spacing) * 4);
   }
 }
 
 .example-sigma-ui-date-picker__month {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-date-picker__month-header {
@@ -311,8 +311,8 @@ watch(secondMonthPlaceholder, (_secondMonthPlaceholder) => {
 
 .example-sigma-ui-date-picker__month-button {
   display: flex;
-  width: 1.75rem;
-  height: 1.75rem;
+  width: calc(var(--spacing) * 7);
+  height: calc(var(--spacing) * 7);
   align-items: center;
   justify-content: center;
   padding: 0;
@@ -327,8 +327,8 @@ watch(secondMonthPlaceholder, (_secondMonthPlaceholder) => {
 }
 
 .example-sigma-ui-date-picker__month-button-icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-date-picker__month-label {
@@ -342,6 +342,6 @@ watch(secondMonthPlaceholder, (_secondMonthPlaceholder) => {
 
 .example-sigma-ui-date-picker__week {
   width: 100%;
-  margin-top: 0.5rem;
+  margin-top: calc(var(--spacing) * 2);
 }
 </style>

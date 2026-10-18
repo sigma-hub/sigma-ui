@@ -222,13 +222,13 @@ const filteredUsers = computed(() => users.value.filter(user => user.name.toLowe
 .example-sigma-ui-card-chat__user {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-card-chat__user-info {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 .example-sigma-ui-card-chat__user-name {
@@ -246,29 +246,29 @@ const filteredUsers = computed(() => users.value.filter(user => user.name.toLowe
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.625rem;
+  padding: calc(var(--spacing) * 2.5);
   border-radius: var(--radius-full);
 }
 
 .example-sigma-ui-card-chat__new-message-icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-card-chat__messages {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-card-chat__message {
   display: flex;
   max-width: 75%;
   flex-direction: column;
-  padding: 0.75rem;
+  padding: calc(var(--spacing) * 3);
   border-radius: var(--radius);
   font-size: 0.875rem;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-card-chat__message--agent {
@@ -285,7 +285,7 @@ const filteredUsers = computed(() => users.value.filter(user => user.name.toLowe
   display: flex;
   width: 100%;
   align-items: center;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-card-chat__input {
@@ -296,12 +296,12 @@ const filteredUsers = computed(() => users.value.filter(user => user.name.toLowe
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.625rem;
+  padding: calc(var(--spacing) * 2.5);
 }
 
 .example-sigma-ui-card-chat__send-icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-card-chat__dialog {
@@ -311,7 +311,7 @@ const filteredUsers = computed(() => users.value.filter(user => user.name.toLowe
 }
 
 .example-sigma-ui-card-chat__dialog-header {
-  padding: 1.25rem 1rem 1rem;
+  padding: calc(var(--spacing) * 5) calc(var(--spacing) * 4) calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-card-chat__command {
@@ -322,17 +322,17 @@ const filteredUsers = computed(() => users.value.filter(user => user.name.toLowe
 }
 
 .example-sigma-ui-card-chat__command-group {
-  padding: 0.5rem;
+  padding: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-card-chat__command-item {
   display: flex;
   align-items: center;
-  padding: 0 0.5rem;
+  padding: 0 calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-card-chat__command-user {
-  margin-left: 0.5rem;
+  margin-left: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-card-chat__command-user-name {
@@ -347,8 +347,8 @@ const filteredUsers = computed(() => users.value.filter(user => user.name.toLowe
 }
 
 .example-sigma-ui-card-chat__command-check {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: calc(var(--spacing) * 5);
+  height: calc(var(--spacing) * 5);
   margin-left: auto;
   color: var(--primary);
 }
@@ -357,14 +357,14 @@ const filteredUsers = computed(() => users.value.filter(user => user.name.toLowe
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
   border-top: 1px solid var(--border);
 }
 
 .example-sigma-ui-card-chat__selected-users {
   display: flex;
   overflow: hidden;
-  margin-left: -0.5rem;
+  margin-left: calc(var(--spacing) * -2);
 }
 
 .example-sigma-ui-card-chat__selected-avatar {

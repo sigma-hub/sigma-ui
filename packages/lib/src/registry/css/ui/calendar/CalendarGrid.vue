@@ -34,6 +34,6 @@ const forwardedProps = useForwardProps(props);
   width: 100%;
   flex-direction: column;
   border-collapse: collapse;
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 </style>

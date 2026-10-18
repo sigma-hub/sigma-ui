@@ -82,12 +82,12 @@ defineSlots<{
 }
 
 .sigma-ui-item--size-default {
-  padding: 1rem;
-  gap: 1rem;
+  padding: calc(var(--spacing) * 4);
+  gap: calc(var(--spacing) * 4);
 }
 
 .sigma-ui-item--size-sm {
-  padding: 0.75rem 1rem;
-  gap: 0.625rem;
+  padding: calc(var(--spacing) * 3) calc(var(--spacing) * 4);
+  gap: calc(var(--spacing) * 2.5);
 }
 </style>

@@ -61,7 +61,7 @@ defineProps<{
 }
 
 .sigma-ui-chart-tooltip__header {
-  padding: 0.75rem;
+  padding: calc(var(--spacing) * 3);
   border-bottom: 1px solid var(--border);
 }
 
@@ -69,8 +69,8 @@ defineProps<{
   display: flex;
   min-width: 180px;
   flex-direction: column;
-  padding: 0.75rem;
-  gap: 0.25rem;
+  padding: calc(var(--spacing) * 3);
+  gap: calc(var(--spacing) * 1);
 }
 
 .sigma-ui-chart-tooltip__item {
@@ -84,13 +84,13 @@ defineProps<{
 }
 
 .sigma-ui-chart-tooltip__item-dot {
-  width: 0.625rem;
-  height: 0.625rem;
-  margin-right: 0.5rem;
+  width: calc(var(--spacing) * 2.5);
+  height: calc(var(--spacing) * 2.5);
+  margin-right: calc(var(--spacing) * 2);
 }
 
 .sigma-ui-chart-tooltip__item-value {
-  margin-left: 1rem;
+  margin-left: calc(var(--spacing) * 4);
   font-weight: 600;
 }
 </style>

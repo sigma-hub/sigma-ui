@@ -46,7 +46,7 @@ defineSlots<{
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: calc(var(--spacing) * 2);
 }
 
 .sigma-ui-empty-media svg {
@@ -55,15 +55,15 @@ defineSlots<{
 }
 
 .sigma-ui-empty-media--icon {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: calc(var(--spacing) * 10);
+  height: calc(var(--spacing) * 10);
   border-radius: var(--radius-lg);
   background-color: var(--muted);
   color: var(--foreground);
 }
 
 .sigma-ui-empty-media--icon svg {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: calc(var(--spacing) * 6);
+  height: calc(var(--spacing) * 6);
 }
 </style>

@@ -275,11 +275,11 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
 }
 
 .mail-inbox__actions {
-  padding: 0.5rem;
+  padding: calc(var(--spacing) * 2);
 }
 
 .mail-inbox__action-group {
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .mail-inbox__action-group--end {
@@ -287,13 +287,13 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
 }
 
 .mail-inbox__separator.mail-inbox__separator {
-  height: 1.5rem;
-  margin: 0 0.5rem;
+  height: calc(var(--spacing) * 6);
+  margin: 0 calc(var(--spacing) * 2);
 }
 
 .mail-inbox__icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 
 .mail-inbox__sr-only {
@@ -315,15 +315,15 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
 
 .mail-inbox__snooze-options {
   display: flex;
-  min-width: 15rem;
+  min-width: calc(var(--spacing) * 60);
   flex-direction: column;
-  padding: 1rem 0.5rem;
+  padding: calc(var(--spacing) * 4) calc(var(--spacing) * 2);
   border-right: 1px solid var(--border);
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 .mail-inbox__snooze-title {
-  padding: 0 1rem;
+  padding: 0 calc(var(--spacing) * 4);
   font-size: 0.875rem;
   font-weight: 500;
 }
@@ -339,21 +339,21 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
 }
 
 .mail-inbox__calendar {
-  padding: 0.5rem;
+  padding: calc(var(--spacing) * 2);
 }
 
 .mail-inbox__thread-header {
   align-items: flex-start;
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
   font-size: 0.875rem;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .mail-inbox__thread-meta {
   display: grid;
   min-width: 0;
   flex: 1;
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 .mail-inbox__thread-name {
@@ -379,7 +379,7 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
 
 .mail-inbox__body {
   flex: 1;
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
   font-size: 0.875rem;
   white-space: pre-wrap;
 }
@@ -390,12 +390,12 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
 
 .mail-inbox__reply {
   display: grid;
-  padding: 1rem;
-  gap: 1rem;
+  padding: calc(var(--spacing) * 4);
+  gap: calc(var(--spacing) * 4);
 }
 
 .mail-inbox__reply-input {
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
 }
 
 .mail-inbox__mute {
@@ -403,7 +403,7 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
   align-items: center;
   font-size: 0.75rem;
   font-weight: 400;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .mail-inbox__send {
@@ -411,7 +411,7 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
 }
 
 .mail-inbox__empty {
-  padding: 2rem;
+  padding: calc(var(--spacing) * 8);
   color: var(--muted-foreground);
   text-align: center;
 }

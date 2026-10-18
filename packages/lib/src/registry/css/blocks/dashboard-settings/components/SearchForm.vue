@@ -32,15 +32,15 @@ defineProps<{
 
 .dashboard-settings__search-icon {
   position: absolute;
-  top: 0.625rem;
-  left: 0.625rem;
-  width: 1rem;
-  height: 1rem;
+  top: calc(var(--spacing) * 2.5);
+  left: calc(var(--spacing) * 2.5);
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   color: var(--muted-foreground);
 }
 
 .dashboard-settings__search-input.dashboard-settings__search-input {
-  padding-left: 2rem;
+  padding-left: calc(var(--spacing) * 8);
 }
 
 @media (width >= 40rem) {

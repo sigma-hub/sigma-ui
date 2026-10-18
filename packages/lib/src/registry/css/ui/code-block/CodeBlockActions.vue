@@ -33,21 +33,21 @@ defineSlots<{
   flex-shrink: 0;
   align-items: center;
   margin-left: auto;
-  gap: 0.125rem;
+  gap: calc(var(--spacing) * 0.5);
 }
 
 [data-slot='code-block'] > .sigma-ui-code-block__actions {
   position: absolute;
   z-index: 1;
-  top: 0.375rem;
-  right: 0.375rem;
+  top: calc(var(--spacing) * 1.5);
+  right: calc(var(--spacing) * 1.5);
   opacity: 0;
   transition: opacity 150ms ease;
 }
 
 [data-slot='code-block'][data-size='sm'] > .sigma-ui-code-block__actions {
-  top: 0.25rem;
-  right: 0.25rem;
+  top: calc(var(--spacing) * 1);
+  right: calc(var(--spacing) * 1);
 }
 
 [data-slot='code-block']:hover > .sigma-ui-code-block__actions,

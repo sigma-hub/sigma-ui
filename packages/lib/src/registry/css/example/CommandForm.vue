@@ -123,13 +123,13 @@ const onSubmit = handleSubmit((values) => {
 .example-sigma-ui-command-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: calc(var(--spacing) * 6);
 }
 
 .example-sigma-ui-command-form__item {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-command-form__trigger {
@@ -143,10 +143,10 @@ const onSubmit = handleSubmit((values) => {
 }
 
 .example-sigma-ui-command-form__chevron {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   flex-shrink: 0;
-  margin-left: 0.5rem;
+  margin-left: calc(var(--spacing) * 2);
   opacity: 0.5;
 }
 
@@ -156,9 +156,9 @@ const onSubmit = handleSubmit((values) => {
 }
 
 .example-sigma-ui-command-form__check {
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.5rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
+  margin-right: calc(var(--spacing) * 2);
   opacity: 0;
 }
 
@@ -167,9 +167,9 @@ const onSubmit = handleSubmit((values) => {
 }
 
 .example-sigma-ui-command-form__toast-pre {
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
   border-radius: var(--radius);
-  margin-top: 0.5rem;
+  margin-top: calc(var(--spacing) * 2);
   background-color: color-mix(in oklch, var(--muted) 50%, transparent);
 }
 </style>

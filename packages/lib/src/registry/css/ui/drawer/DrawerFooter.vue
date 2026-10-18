@@ -27,8 +27,8 @@ const delegatedAttrs = () => {
 .sigma-ui-drawer-footer {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
   margin-top: auto;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 </style>

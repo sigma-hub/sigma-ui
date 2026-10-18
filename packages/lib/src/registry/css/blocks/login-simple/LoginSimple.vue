@@ -55,12 +55,12 @@ import { Label } from '@ui/registry/css/ui/label';
 
 .login-simple__content {
   display: grid;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .login-simple__field {
   display: grid;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .login-simple__submit {

@@ -24,13 +24,13 @@ const attrs = useAttrs();
 .sigma-ui-alert {
   position: relative;
   width: 100%;
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
   border-width: 1px;
   border-radius: var(--radius);
 }
 
 .sigma-ui-alert > svg ~ * {
-  padding-left: 1.75rem;
+  padding-left: calc(var(--spacing) * 7);
 }
 
 .sigma-ui-alert > svg + div {
@@ -39,8 +39,8 @@ const attrs = useAttrs();
 
 .sigma-ui-alert > svg {
   position: absolute;
-  top: 1rem;
-  left: 1rem;
+  top: calc(var(--spacing) * 4);
+  left: calc(var(--spacing) * 4);
   color: var(--foreground);
 }
 

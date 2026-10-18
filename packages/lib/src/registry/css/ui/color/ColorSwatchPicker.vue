@@ -33,6 +33,6 @@ const forwarded = useForwardPropsEmits(props, emits);
 .sigma-ui-color-swatch-picker {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 </style>

@@ -41,14 +41,14 @@ const plugin = Autoplay({
 }
 
 .example-sigma-ui-carousel-plugin__slide {
-  padding: 0.25rem;
+  padding: calc(var(--spacing) * 1);
 }
 
 .example-sigma-ui-carousel-plugin__content {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: calc(var(--spacing) * 6);
   aspect-ratio: 1;
 }
 
@@ -61,7 +61,7 @@ const plugin = Autoplay({
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: calc(var(--spacing) * 6);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   aspect-ratio: 1;

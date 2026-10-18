@@ -31,6 +31,6 @@ defineProps<{
 }
 
 .dashboard-overview__chart-content {
-  padding-left: 0.5rem;
+  padding-left: calc(var(--spacing) * 2);
 }
 </style>

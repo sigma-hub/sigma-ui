@@ -38,8 +38,8 @@ import PlaygroundHeader from './components/PlaygroundHeader.vue';
   overflow: auto;
   min-height: 0;
   flex: 1 1 0%;
-  padding: 1rem;
-  gap: 1rem;
+  padding: calc(var(--spacing) * 4);
+  gap: calc(var(--spacing) * 4);
 }
 
 @media (width >= 48rem) {

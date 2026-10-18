@@ -32,12 +32,12 @@ const { toggleSidebar } = useSidebar();
 
 <style>
 .sigma-ui-button.sigma-ui-sidebar-trigger {
-  width: 1.75rem;
-  height: 1.75rem;
+  width: calc(var(--spacing) * 7);
+  height: calc(var(--spacing) * 7);
 }
 
 .sigma-ui-sidebar-trigger__icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 </style>

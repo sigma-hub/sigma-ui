@@ -27,7 +27,7 @@ const delegatedAttrs = () => {
 .sigma-ui-card__header {
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
-  gap: 0.375rem;
+  padding: calc(var(--spacing) * 6);
+  gap: calc(var(--spacing) * 1.5);
 }
 </style>

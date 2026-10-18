@@ -39,7 +39,7 @@ const props = withDefaults(defineProps<{
 
 <style>
 .sigma-ui-table-empty {
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
   color: var(--foreground);
   font-size: 0.875rem;
   vertical-align: middle;
@@ -50,7 +50,7 @@ const props = withDefaults(defineProps<{
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
+  padding-top: calc(var(--spacing) * 10);
+  padding-bottom: calc(var(--spacing) * 10);
 }
 </style>

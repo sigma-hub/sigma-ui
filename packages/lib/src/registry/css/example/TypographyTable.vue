@@ -44,7 +44,7 @@
 <style>
 .example-sigma-ui-typography__table-container {
   width: 100%;
-  margin: 1.5rem 0;
+  margin: calc(var(--spacing) * 6) 0;
   overflow-y: auto;
 }
 
@@ -64,7 +64,7 @@
 
 .example-sigma-ui-typography__table-header,
 .example-sigma-ui-typography__table-cell {
-  padding: 0.5rem 1rem;
+  padding: calc(var(--spacing) * 2) calc(var(--spacing) * 4);
   border: 1px solid var(--border);
   text-align: left;
 }

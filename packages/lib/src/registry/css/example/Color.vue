@@ -56,14 +56,14 @@ const presets = ['#ef4444', '#f59e0b', '#22c55e', '#3b82f6', '#a855f7'];
 <style>
 .sigma-ui-color-example {
   display: flex;
-  width: 16rem;
+  width: calc(var(--spacing) * 64);
   flex-direction: column;
-  gap: 0.75rem;
+  gap: calc(var(--spacing) * 3);
 }
 
 .sigma-ui-color-example__row {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 </style>

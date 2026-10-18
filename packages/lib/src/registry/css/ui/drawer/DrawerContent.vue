@@ -58,7 +58,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 .sigma-ui-drawer-content[data-swipe-direction="down"] {
   bottom: 0;
   max-height: 80vh;
-  margin-top: 6rem;
+  margin-top: calc(var(--spacing) * 24);
   border-top-left-radius: var(--radius-lg);
   border-top-right-radius: var(--radius-lg);
   inset-inline: 0;
@@ -67,7 +67,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 .sigma-ui-drawer-content[data-swipe-direction="up"] {
   top: 0;
   max-height: 80vh;
-  margin-bottom: 6rem;
+  margin-bottom: calc(var(--spacing) * 24);
   border-bottom-left-radius: var(--radius-lg);
   border-bottom-right-radius: var(--radius-lg);
   inset-inline: 0;
@@ -123,10 +123,10 @@ const forwarded = useForwardPropsEmits(props, emits);
 .sigma-ui-drawer-content__handle {
   display: none;
   width: 100px;
-  height: 0.5rem;
+  height: calc(var(--spacing) * 2);
   flex-shrink: 0;
   border-radius: var(--radius-full);
-  margin-top: 1rem;
+  margin-top: calc(var(--spacing) * 4);
   background-color: var(--muted);
   margin-inline: auto;
 }

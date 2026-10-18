@@ -60,7 +60,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 .sigma-ui-checkbox-wrapper {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .sigma-ui-checkbox-wrapper--flex-start {
@@ -69,8 +69,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 .sigma-ui-checkbox {
   overflow: hidden;
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   flex-shrink: 0;
   border: 1px solid var(--primary);
   border-radius: var(--radius-xs);
@@ -104,7 +104,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 .sigma-ui-checkbox__content {
   display: flex;
   flex-direction: column;
-  gap: 0.375rem;
+  gap: calc(var(--spacing) * 1.5);
   line-height: 1;
 }
 

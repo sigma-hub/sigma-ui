@@ -45,7 +45,7 @@ import {
   height: 100%;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: calc(var(--spacing) * 6);
 }
 
 .example-sigma-ui-resizable-vertical__text {

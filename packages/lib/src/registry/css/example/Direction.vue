@@ -41,10 +41,10 @@ function toggleDirection() {
   max-width: 24rem;
   flex-direction: column;
   align-items: flex-start;
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  gap: 0.75rem;
+  gap: calc(var(--spacing) * 3);
   text-align: start;
 }
 

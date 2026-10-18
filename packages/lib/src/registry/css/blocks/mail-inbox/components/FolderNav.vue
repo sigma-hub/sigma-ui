@@ -72,8 +72,8 @@ defineProps<{
 <style>
 .mail-inbox__nav {
   display: grid;
-  padding: 0.5rem;
-  gap: 0.25rem;
+  padding: calc(var(--spacing) * 2);
+  gap: calc(var(--spacing) * 1);
 }
 
 .mail-inbox__nav--collapsed {
@@ -84,11 +84,11 @@ defineProps<{
   display: flex;
   width: 100%;
   align-items: center;
-  padding: 0.375rem 0.75rem;
+  padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 3);
   border-radius: var(--radius);
   color: var(--foreground);
   font-size: 0.875rem;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
   line-height: 1.25rem;
   text-decoration: none;
 }
@@ -99,8 +99,8 @@ defineProps<{
 }
 
 .mail-inbox__nav-link--icon {
-  width: 2.25rem;
-  height: 2.25rem;
+  width: calc(var(--spacing) * 9);
+  height: calc(var(--spacing) * 9);
   justify-content: center;
   padding: 0;
 }
@@ -112,8 +112,8 @@ defineProps<{
 }
 
 .mail-inbox__icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   flex-shrink: 0;
 }
 
@@ -129,7 +129,7 @@ defineProps<{
 .mail-inbox__tooltip {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .mail-inbox__tooltip-count {

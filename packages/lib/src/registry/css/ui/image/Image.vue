@@ -168,7 +168,7 @@ function onLoad() {
   align-items: center;
   justify-content: center;
   color: color-mix(in oklch, var(--foreground) 50%, transparent);
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 .sigma-ui-image__fallback-icon {

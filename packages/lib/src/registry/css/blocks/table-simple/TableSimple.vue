@@ -34,15 +34,15 @@ import UserMenu from './components/UserMenu.vue';
   min-height: 100%;
   flex: 1;
   flex-direction: column;
-  padding: 2rem;
-  gap: 2rem;
+  padding: calc(var(--spacing) * 8);
+  gap: calc(var(--spacing) * 8);
 }
 
 .table-simple__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .table-simple__title {

@@ -29,11 +29,11 @@ import ConfigurationDrawer from './ConfigurationDrawer.vue';
   display: flex;
   height: 57px;
   align-items: center;
-  padding-right: 1rem;
-  padding-left: 1rem;
+  padding-right: calc(var(--spacing) * 4);
+  padding-left: calc(var(--spacing) * 4);
   border-bottom: 1px solid var(--border);
   background-color: var(--background);
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 .dashboard-ai-playground__title {
@@ -46,11 +46,11 @@ import ConfigurationDrawer from './ConfigurationDrawer.vue';
 button.dashboard-ai-playground__share-button {
   margin-left: auto;
   font-size: 0.875rem;
-  gap: 0.375rem;
+  gap: calc(var(--spacing) * 1.5);
 }
 
 button.dashboard-ai-playground__share-button svg {
-  width: 0.875rem;
-  height: 0.875rem;
+  width: calc(var(--spacing) * 3.5);
+  height: calc(var(--spacing) * 3.5);
 }
 </style>

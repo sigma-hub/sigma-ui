@@ -216,20 +216,20 @@ const onSubmit = handleSubmit((values) => {
 .settings-forms__url-remove {
   position: absolute;
   right: 0;
-  padding: 0.5rem 0.75rem;
+  padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
   border: 0;
   background: transparent;
   color: var(--muted-foreground);
 }
 
 .settings-forms__url-icon {
-  width: 0.75rem;
-  height: 0.75rem;
+  width: calc(var(--spacing) * 3);
+  height: calc(var(--spacing) * 3);
 }
 
 .settings-forms__add-url.settings-forms__add-url {
-  width: 5rem;
-  margin-top: 0.5rem;
+  width: calc(var(--spacing) * 20);
+  margin-top: calc(var(--spacing) * 2);
   font-size: 0.75rem;
 }
 </style>

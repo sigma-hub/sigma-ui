@@ -53,14 +53,14 @@ const formComponents: Record<FormType, Component> = {
 .settings-forms__body {
   display: flex;
   flex-direction: column;
-  padding: 2.5rem 2.5rem 4rem;
-  gap: 1.5rem;
+  padding: calc(var(--spacing) * 10) calc(var(--spacing) * 10) calc(var(--spacing) * 16);
+  gap: calc(var(--spacing) * 6);
 }
 
 .settings-forms__intro {
   display: flex;
   flex-direction: column;
-  gap: 0.125rem;
+  gap: calc(var(--spacing) * 0.5);
 }
 
 .settings-forms__title {
@@ -78,7 +78,7 @@ const formComponents: Record<FormType, Component> = {
 }
 
 .settings-forms__separator {
-  margin: 1.5rem 0;
+  margin: calc(var(--spacing) * 6) 0;
 }
 
 .settings-forms__layout,
@@ -89,7 +89,7 @@ const formComponents: Record<FormType, Component> = {
 }
 
 .settings-forms__layout {
-  gap: 2rem;
+  gap: calc(var(--spacing) * 8);
 }
 
 .settings-forms__content {
@@ -98,7 +98,7 @@ const formComponents: Record<FormType, Component> = {
 
 .settings-forms__panel,
 .settings-forms__section {
-  gap: 1.5rem;
+  gap: calc(var(--spacing) * 6);
 }
 
 .settings-forms__section-title {
@@ -116,13 +116,13 @@ const formComponents: Record<FormType, Component> = {
 .settings-forms__form {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: calc(var(--spacing) * 8);
 }
 
 .settings-forms__actions {
   display: flex;
   justify-content: flex-start;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .settings-forms__sr-only {
@@ -138,16 +138,16 @@ const formComponents: Record<FormType, Component> = {
 }
 
 .settings-forms__toast {
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
   border-radius: var(--radius);
-  margin-top: 0.5rem;
+  margin-top: calc(var(--spacing) * 2);
   background: color-mix(in oklch, var(--muted) 50%, transparent);
 }
 
 @media (width >= 64rem) {
   .settings-forms__layout {
     flex-direction: row;
-    gap: 3rem;
+    gap: calc(var(--spacing) * 12);
   }
 
   .settings-forms__nav {

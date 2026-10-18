@@ -31,8 +31,8 @@ const forwardedProps = useForwardProps(props);
 <style>
 .sigma-ui-calendar-cell {
   position: relative;
-  width: 2.25rem;
-  height: 2.25rem;
+  width: calc(var(--spacing) * 9);
+  height: calc(var(--spacing) * 9);
   padding: 0;
   font-size: 0.875rem;
   text-align: center;

@@ -41,17 +41,17 @@ import { Button } from '@ui/registry/css/ui/button';
 .dashboard-product-edit__toolbar {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 button.dashboard-product-edit__back-button {
-  width: 1.75rem;
-  height: 1.75rem;
+  width: calc(var(--spacing) * 7);
+  height: calc(var(--spacing) * 7);
 }
 
 button.dashboard-product-edit__back-button svg {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 
 .dashboard-product-edit__product-title {
@@ -81,7 +81,7 @@ button.dashboard-product-edit__back-button svg {
 .dashboard-product-edit__toolbar-actions {
   display: none;
   align-items: center;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 @media (width >= 48rem) {

@@ -42,7 +42,7 @@ const steps = [
 
 .example-stepper .example-stepper__separator {
   position: absolute;
-  top: 1.25rem;
+  top: calc(var(--spacing) * 5);
   right: 0;
   left: calc(50% + 1.25rem);
   flex: none;

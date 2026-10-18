@@ -65,6 +65,6 @@ function onLegendItemClick(d: BulletLegendItemInterface, i: number) {
 
 .sigma-ui-chart-legend__item {
   display: inline-flex !important;
-  margin-right: 0.5rem;
+  margin-right: calc(var(--spacing) * 2);
 }
 </style>

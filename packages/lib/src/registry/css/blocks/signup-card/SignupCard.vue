@@ -91,18 +91,18 @@ import { Label } from '@ui/registry/css/ui/label';
 
 .signup-card__form {
   display: grid;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .signup-card__name-row {
   display: grid;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .signup-card__field {
   display: grid;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .signup-card__button {
@@ -110,7 +110,7 @@ import { Label } from '@ui/registry/css/ui/label';
 }
 
 .signup-card__footer {
-  margin-top: 1rem;
+  margin-top: calc(var(--spacing) * 4);
   font-size: 0.875rem;
   line-height: 1.25rem;
   text-align: center;

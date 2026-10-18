@@ -111,12 +111,12 @@ function handleSelect(event: any) {
 .example-sigma-ui-command-dialog__kbd {
   display: inline-flex;
   align-items: center;
-  padding: 0.25rem 0.5rem;
+  padding: calc(var(--spacing) * 1) calc(var(--spacing) * 2);
   border-radius: var(--radius-sm);
   background-color: var(--muted);
   color: var(--muted-foreground);
   font-family: var(--font-mono);
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
   pointer-events: none;
 }
 

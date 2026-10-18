@@ -38,7 +38,7 @@ defineSlots<{
 .sigma-ui-label.sigma-ui-field-label {
   display: flex;
   width: fit-content;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
   line-height: 1.375;
 }
 
@@ -54,7 +54,7 @@ defineSlots<{
 }
 
 .sigma-ui-field-label > [data-slot="field"] {
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
 }
 
 .sigma-ui-label.sigma-ui-field-label:has([data-state="checked"]) {

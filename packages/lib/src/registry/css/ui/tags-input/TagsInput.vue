@@ -34,11 +34,11 @@ const forwarded = useForwardPropsEmits(props, emits);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  padding: 0.5rem 0.75rem;
+  padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background-color: var(--input);
   font-size: 0.875rem;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 </style>

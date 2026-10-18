@@ -13,8 +13,8 @@ import { NumberFieldInput } from 'reka-ui';
 .sigma-ui-number-field-input {
   display: flex;
   width: 100%;
-  height: 2.5rem;
-  padding: 0.5rem;
+  height: calc(var(--spacing) * 10);
+  padding: calc(var(--spacing) * 2);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background-color: transparent;

@@ -148,7 +148,7 @@ const quoteAuthorInitials = quoteAuthor
   overflow: hidden;
   height: 100%;
   flex-direction: column;
-  padding: 2.5rem;
+  padding: calc(var(--spacing) * 10);
   border-right: 1px solid var(--border);
   background: var(--muted);
   color: var(--foreground);
@@ -156,22 +156,22 @@ const quoteAuthorInitials = quoteAuthor
 
 .signup-quote__glow {
   position: absolute;
-  width: 24rem;
-  height: 24rem;
+  width: calc(var(--spacing) * 96);
+  height: calc(var(--spacing) * 96);
   border-radius: 9999px;
   filter: blur(64px);
   pointer-events: none;
 }
 
 .signup-quote__glow--top {
-  top: -8rem;
-  left: -8rem;
+  top: calc(var(--spacing) * -32);
+  left: calc(var(--spacing) * -32);
   background: color-mix(in oklch, var(--primary) 10%, transparent);
 }
 
 .signup-quote__glow--bottom {
-  right: -6rem;
-  bottom: -10rem;
+  right: calc(var(--spacing) * -24);
+  bottom: calc(var(--spacing) * -40);
   background: color-mix(in oklch, var(--primary) 5%, transparent);
 }
 
@@ -186,13 +186,13 @@ const quoteAuthorInitials = quoteAuthor
   align-items: center;
   font-size: 1.125rem;
   font-weight: 500;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .signup-quote__logo {
   display: flex;
-  width: 2rem;
-  height: 2rem;
+  width: calc(var(--spacing) * 8);
+  height: calc(var(--spacing) * 8);
   align-items: center;
   justify-content: center;
   border-radius: calc(var(--radius) - 2px);
@@ -201,17 +201,17 @@ const quoteAuthorInitials = quoteAuthor
 }
 
 .signup-quote__logo-icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 
 .signup-quote__quote {
   display: flex;
   max-width: 28rem;
   flex-direction: column;
-  padding: 3rem 0;
+  padding: calc(var(--spacing) * 12) 0;
   margin: auto 0;
-  gap: 1.5rem;
+  gap: calc(var(--spacing) * 6);
 }
 
 .signup-quote__quote-text {
@@ -225,17 +225,17 @@ const quoteAuthorInitials = quoteAuthor
 
 .signup-quote__stats {
   display: grid;
-  padding-top: 1.5rem;
+  padding-top: calc(var(--spacing) * 6);
   border-top: 1px solid var(--border);
   margin: 0;
-  gap: 1.5rem;
+  gap: calc(var(--spacing) * 6);
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .signup-quote__stat {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 .signup-quote__stat-label {
@@ -256,13 +256,13 @@ const quoteAuthorInitials = quoteAuthor
 .signup-quote__author {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: calc(var(--spacing) * 3);
 }
 
 .signup-quote__avatar {
   display: flex;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: calc(var(--spacing) * 10);
+  height: calc(var(--spacing) * 10);
   align-items: center;
   justify-content: center;
   border: 1px solid var(--border);
@@ -292,13 +292,13 @@ const quoteAuthorInitials = quoteAuthor
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4rem 1.5rem;
+  padding: calc(var(--spacing) * 16) calc(var(--spacing) * 6);
 }
 
 .signup-quote__login {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: calc(var(--spacing) * 4);
+  right: calc(var(--spacing) * 4);
 }
 
 .signup-quote__content-inner {
@@ -306,13 +306,13 @@ const quoteAuthorInitials = quoteAuthor
   width: 100%;
   max-width: 24rem;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: calc(var(--spacing) * 6);
 }
 
 .signup-quote__intro {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
   text-align: center;
 }
 
@@ -333,7 +333,7 @@ const quoteAuthorInitials = quoteAuthor
 }
 
 .signup-quote__terms {
-  padding: 0 1.5rem;
+  padding: 0 calc(var(--spacing) * 6);
   text-align: center;
   text-wrap: balance;
 }
@@ -350,8 +350,8 @@ const quoteAuthorInitials = quoteAuthor
 
 @media (width >= 48rem) {
   .signup-quote__login {
-    top: 2rem;
-    right: 2rem;
+    top: calc(var(--spacing) * 8);
+    right: calc(var(--spacing) * 8);
   }
 }
 
@@ -365,7 +365,7 @@ const quoteAuthorInitials = quoteAuthor
   }
 
   .signup-quote__content {
-    padding: 4rem 2.5rem;
+    padding: calc(var(--spacing) * 16) calc(var(--spacing) * 10);
   }
 }
 </style>

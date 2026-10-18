@@ -34,8 +34,8 @@ const forwardedProps = useForwardProps(props);
 
 <style>
 .sigma-ui-range-calendar-prev {
-  width: 1.75rem;
-  height: 1.75rem;
+  width: calc(var(--spacing) * 7);
+  height: calc(var(--spacing) * 7);
   padding: 0;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
@@ -51,7 +51,7 @@ const forwardedProps = useForwardProps(props);
 }
 
 .sigma-ui-range-calendar-prev__icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 </style>

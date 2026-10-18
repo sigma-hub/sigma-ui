@@ -93,14 +93,14 @@ const handleComplete = (digits: (number | undefined)[]) => console.log(digits.jo
   flex-direction: column;
   margin-right: auto;
   margin-left: auto;
-  gap: 1.5rem;
+  gap: calc(var(--spacing) * 6);
 }
 
 .example-sigma-ui-pin-input-form__input {
   display: flex;
   align-items: center;
-  margin-top: 0.25rem;
-  gap: 0.5rem;
+  margin-top: calc(var(--spacing) * 1);
+  gap: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-pin-input-form__button {
@@ -108,9 +108,9 @@ const handleComplete = (digits: (number | undefined)[]) => console.log(digits.jo
 }
 
 .example-sigma-ui-pin-input-form__toast-pre {
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
   border-radius: var(--radius);
-  margin-top: 0.5rem;
+  margin-top: calc(var(--spacing) * 2);
   background-color: color-mix(in oklch, var(--muted) 50%, transparent);
 }
 </style>

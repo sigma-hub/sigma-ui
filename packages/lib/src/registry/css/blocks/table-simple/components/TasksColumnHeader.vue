@@ -70,12 +70,12 @@ defineProps<{
 .table-simple__column-header {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .table-simple__column-button {
-  height: 2rem;
-  margin-left: -0.75rem;
+  height: calc(var(--spacing) * 8);
+  margin-left: calc(var(--spacing) * -3);
 }
 
 .table-simple__column-button[data-state='open'] {
@@ -84,15 +84,15 @@ defineProps<{
 
 .table-simple__column-icon,
 .table-simple__menu-icon {
-  width: 1rem;
-  height: 1rem;
-  margin-left: 0.5rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
+  margin-left: calc(var(--spacing) * 2);
 }
 
 .table-simple__menu-icon {
-  width: 0.875rem;
-  height: 0.875rem;
-  margin-right: 0.5rem;
+  width: calc(var(--spacing) * 3.5);
+  height: calc(var(--spacing) * 3.5);
+  margin-right: calc(var(--spacing) * 2);
   margin-left: 0;
   color: color-mix(in srgb, var(--muted-foreground) 70%, transparent);
 }

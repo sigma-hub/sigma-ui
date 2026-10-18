@@ -144,20 +144,20 @@ function clearFilters() {
 
 <style>
 .table-simple__filter-button {
-  height: 2rem;
+  height: calc(var(--spacing) * 8);
   border-style: dashed;
 }
 
 .table-simple__filter-icon,
 .table-simple__option-icon,
 .table-simple__check-icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 
 .table-simple__filter-icon,
 .table-simple__option-icon {
-  margin-right: 0.5rem;
+  margin-right: calc(var(--spacing) * 2);
 }
 
 .table-simple__option-icon {
@@ -165,19 +165,19 @@ function clearFilters() {
 }
 
 .table-simple__filter-separator {
-  height: 1rem;
-  margin: 0 0.5rem;
+  height: calc(var(--spacing) * 4);
+  margin: 0 calc(var(--spacing) * 2);
 }
 
 .table-simple__filter-count {
-  padding: 0 0.25rem;
+  padding: 0 calc(var(--spacing) * 1);
   border-radius: calc(var(--radius) - 4px);
   font-weight: 400;
 }
 
 .table-simple__filter-badges {
   display: none;
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 .table-simple__filter-popover {
@@ -187,13 +187,13 @@ function clearFilters() {
 
 .table-simple__check {
   display: flex;
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   align-items: center;
   justify-content: center;
   border: 1px solid var(--primary);
   border-radius: calc(var(--radius) - 4px);
-  margin-right: 0.5rem;
+  margin-right: calc(var(--spacing) * 2);
   opacity: 0.5;
 }
 
@@ -213,8 +213,8 @@ function clearFilters() {
 
 .table-simple__facet-count {
   display: flex;
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   align-items: center;
   justify-content: center;
   margin-left: auto;

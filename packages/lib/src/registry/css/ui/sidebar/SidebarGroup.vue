@@ -37,6 +37,6 @@ defineSlots<{
   width: 100%;
   min-width: 0;
   flex-direction: column;
-  padding: 0.5rem;
+  padding: calc(var(--spacing) * 2);
 }
 </style>

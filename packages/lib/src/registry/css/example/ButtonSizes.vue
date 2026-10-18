@@ -51,6 +51,6 @@ import { Button } from '@ui/registry/css/ui/button';
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.75rem;
+  gap: calc(var(--spacing) * 3);
 }
 </style>

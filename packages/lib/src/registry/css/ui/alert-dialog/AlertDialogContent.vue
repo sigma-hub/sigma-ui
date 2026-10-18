@@ -54,11 +54,11 @@ const forwarded = useForwardPropsEmits(props, emits);
   display: grid;
   width: 100%;
   max-width: 32rem;
-  padding: 1.5rem;
+  padding: calc(var(--spacing) * 6);
   border: 1px solid var(--border);
   background-color: var(--background);
   box-shadow: var(--shadow-lg);
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
   transform: translate(-50%, -50%);
   transition-duration: 200ms;
 }

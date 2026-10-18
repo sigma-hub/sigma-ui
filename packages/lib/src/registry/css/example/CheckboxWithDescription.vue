@@ -53,18 +53,18 @@ const disabledTerms = ref<boolean | 'indeterminate'>(false);
 .example-sigma-ui-checkbox-custom__container {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: calc(var(--spacing) * 8);
 }
 
 .example-sigma-ui-checkbox-custom {
   display: flex;
   align-items: flex-start;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-checkbox-custom__content {
   display: grid;
-  gap: 0.375rem;
+  gap: calc(var(--spacing) * 1.5);
   line-height: 1;
 }
 

@@ -38,7 +38,7 @@ defineSlots<{
   flex-direction: column;
   padding: 0;
   margin: 0;
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
   list-style: none;
 }
 </style>

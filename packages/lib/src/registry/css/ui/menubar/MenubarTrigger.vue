@@ -32,7 +32,7 @@ const forwardedProps = useForwardProps(props);
 .sigma-ui-menubar-trigger {
   display: flex;
   align-items: center;
-  padding: 0.375rem 0.75rem;
+  padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 3);
   border-radius: var(--radius-sm);
   cursor: default;
   font-size: 0.875rem;

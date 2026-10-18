@@ -40,6 +40,6 @@ import {
 
 <style>
 .example-sigma-ui-select__trigger {
-  width: 11.25rem;
+  width: calc(var(--spacing) * 45);
 }
 </style>

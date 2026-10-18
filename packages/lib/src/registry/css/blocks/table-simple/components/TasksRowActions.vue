@@ -81,8 +81,8 @@ const task = computed(() => taskSchema.parse(props.row.original));
 <style>
 .table-simple__row-trigger {
   display: flex;
-  width: 2rem;
-  height: 2rem;
+  width: calc(var(--spacing) * 8);
+  height: calc(var(--spacing) * 8);
   padding: 0;
 }
 
@@ -91,12 +91,12 @@ const task = computed(() => taskSchema.parse(props.row.original));
 }
 
 .table-simple__row-icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 
 .table-simple__row-menu {
-  width: 10rem;
+  width: calc(var(--spacing) * 40);
 }
 
 .table-simple__sr-only {

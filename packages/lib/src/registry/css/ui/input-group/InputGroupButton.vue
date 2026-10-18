@@ -58,33 +58,33 @@ defineSlots<{
   align-items: center;
   box-shadow: none;
   font-size: 0.875rem;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .sigma-ui-input-group .sigma-ui-button.sigma-ui-input-group-button--xs {
-  height: 1.5rem;
-  padding: 0 0.5rem;
+  height: calc(var(--spacing) * 6);
+  padding: 0 calc(var(--spacing) * 2);
   border-radius: calc(var(--radius) - 5px);
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 .sigma-ui-input-group .sigma-ui-button.sigma-ui-input-group-button--sm {
-  height: 2rem;
-  padding: 0 0.625rem;
+  height: calc(var(--spacing) * 8);
+  padding: 0 calc(var(--spacing) * 2.5);
   border-radius: var(--radius-md);
-  gap: 0.375rem;
+  gap: calc(var(--spacing) * 1.5);
 }
 
 .sigma-ui-input-group .sigma-ui-button.sigma-ui-input-group-button--icon-xs {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: calc(var(--spacing) * 6);
+  height: calc(var(--spacing) * 6);
   padding: 0;
   border-radius: calc(var(--radius) - 5px);
 }
 
 .sigma-ui-input-group .sigma-ui-button.sigma-ui-input-group-button--icon-sm {
-  width: 2rem;
-  height: 2rem;
+  width: calc(var(--spacing) * 8);
+  height: calc(var(--spacing) * 8);
   padding: 0;
 }
 </style>

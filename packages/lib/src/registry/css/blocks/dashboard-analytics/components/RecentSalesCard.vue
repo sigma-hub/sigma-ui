@@ -43,13 +43,13 @@ defineProps<{
 <style>
 .dashboard-analytics__sales.dashboard-analytics__sales {
   display: grid;
-  gap: 2rem;
+  gap: calc(var(--spacing) * 8);
 }
 
 .dashboard-analytics__sale {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .dashboard-analytics__avatar.dashboard-analytics__avatar {
@@ -58,7 +58,7 @@ defineProps<{
 
 .dashboard-analytics__sale-body {
   display: grid;
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 .dashboard-analytics__sale-name,
@@ -85,8 +85,8 @@ defineProps<{
 @media (width >= 40rem) {
   .dashboard-analytics__avatar.dashboard-analytics__avatar {
     display: flex;
-    width: 2.25rem;
-    height: 2.25rem;
+    width: calc(var(--spacing) * 9);
+    height: calc(var(--spacing) * 9);
   }
 }
 </style>

@@ -28,7 +28,7 @@ const forwardedProps = useForwardProps(props);
 
 <style>
 .sigma-ui-tags-input-item-text {
-  padding: 0.25rem 0.5rem;
+  padding: calc(var(--spacing) * 1) calc(var(--spacing) * 2);
   border-radius: var(--radius-sm);
   background-color: transparent;
   font-size: 0.875rem;

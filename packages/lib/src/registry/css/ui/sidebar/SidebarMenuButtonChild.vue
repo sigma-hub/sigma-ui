@@ -57,13 +57,13 @@ const props = withDefaults(defineProps<SidebarMenuButtonProps>(), {
   overflow: hidden;
   width: 100%;
   align-items: center;
-  padding: 0.5rem;
+  padding: calc(var(--spacing) * 2);
   border: none;
   border-radius: var(--radius-md);
   background-color: transparent;
   color: inherit;
   font-size: 0.875rem;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
   outline: none;
   text-align: left;
   text-decoration: none;
@@ -93,8 +93,8 @@ const props = withDefaults(defineProps<SidebarMenuButtonProps>(), {
 }
 
 .sigma-ui-sidebar-menu-button > svg {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   flex-shrink: 0;
 }
 
@@ -105,7 +105,7 @@ const props = withDefaults(defineProps<SidebarMenuButtonProps>(), {
 }
 
 .sigma-ui-sidebar-menu-item:has(.sigma-ui-sidebar-menu-action) .sigma-ui-sidebar-menu-button {
-  padding-right: 2rem;
+  padding-right: calc(var(--spacing) * 8);
 }
 
 .sigma-ui-sidebar-menu-button--outline {
@@ -114,24 +114,24 @@ const props = withDefaults(defineProps<SidebarMenuButtonProps>(), {
 }
 
 .sigma-ui-sidebar-menu-button--size-default {
-  height: 2rem;
+  height: calc(var(--spacing) * 8);
   font-size: 0.875rem;
 }
 
 .sigma-ui-sidebar-menu-button--size-sm {
-  height: 1.75rem;
+  height: calc(var(--spacing) * 7);
   font-size: 0.75rem;
 }
 
 .sigma-ui-sidebar-menu-button--size-lg {
-  height: 3rem;
+  height: calc(var(--spacing) * 12);
   font-size: 0.875rem;
 }
 
 .sigma-ui-sidebar[data-collapsible="icon"] .sigma-ui-sidebar-menu-button {
-  width: 2rem;
-  height: 2rem;
-  padding: 0.5rem;
+  width: calc(var(--spacing) * 8);
+  height: calc(var(--spacing) * 8);
+  padding: calc(var(--spacing) * 2);
 }
 
 .sigma-ui-sidebar[data-collapsible="icon"] .sigma-ui-sidebar-menu-button--size-lg {

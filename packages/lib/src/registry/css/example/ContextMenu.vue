@@ -88,10 +88,10 @@ import {
 }
 
 .example-sigma-ui-context__content {
-  width: 16rem;
+  width: calc(var(--spacing) * 64);
 }
 
 .example-sigma-ui-context__subcontent {
-  width: 12rem;
+  width: calc(var(--spacing) * 48);
 }
 </style>

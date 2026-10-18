@@ -23,7 +23,7 @@ defineProps<{
 <style>
 .dashboard-settings__side-nav {
   display: grid;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .dashboard-settings__side-link {

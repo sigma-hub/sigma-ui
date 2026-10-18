@@ -121,7 +121,7 @@ const showEllipsis = computed(() => items.value.length > maxVisibleItems.value);
 .example-sigma-ui-breadcrumb__trigger {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 .sigma-ui-sr-only {

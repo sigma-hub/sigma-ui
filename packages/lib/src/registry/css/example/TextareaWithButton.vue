@@ -14,6 +14,6 @@ import { Button } from '@ui/registry/css/ui/button';
 .example-sigma-ui-textarea-with-button {
   display: grid;
   width: 100%;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 </style>

@@ -42,6 +42,6 @@ defineSlots<{
 .sigma-ui-color-area {
   position: relative;
   width: 100%;
-  height: 10rem;
+  height: calc(var(--spacing) * 40);
 }
 </style>

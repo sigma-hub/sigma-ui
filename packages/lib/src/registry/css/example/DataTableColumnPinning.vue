@@ -321,8 +321,8 @@ const table = useVueTable({
 .example-sigma-ui-data-table__toolbar {
   display: flex;
   align-items: center;
-  padding: 1rem 0;
-  gap: 0.5rem;
+  padding: calc(var(--spacing) * 4) 0;
+  gap: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-data-table__search {
@@ -334,9 +334,9 @@ const table = useVueTable({
 }
 
 .example-sigma-ui-data-table__column-button-icon {
-  width: 1rem;
-  height: 1rem;
-  margin-left: 0.5rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
+  margin-left: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-data-table__column-item {
@@ -349,7 +349,7 @@ const table = useVueTable({
 }
 
 .example-sigma-ui-data-table__empty {
-  height: 6rem;
+  height: calc(var(--spacing) * 24);
   text-align: center;
 }
 
@@ -370,8 +370,8 @@ const table = useVueTable({
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: 1rem 0;
-  gap: 0.5rem;
+  padding: calc(var(--spacing) * 4) 0;
+  gap: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-data-table__footer-info {
@@ -382,13 +382,13 @@ const table = useVueTable({
 
 .example-sigma-ui-data-table__footer-pagination {
   display: flex;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-data-table__sort-icon {
-  width: 1rem;
-  height: 1rem;
-  margin-left: 0.5rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
+  margin-left: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-data-table__cell-content--right {

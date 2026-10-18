@@ -21,16 +21,16 @@ defineProps<{
 <style>
 .app-shell__header {
   display: flex;
-  height: 3.5rem;
+  height: calc(var(--spacing) * 14);
   flex-shrink: 0;
   align-items: center;
-  padding: 0 1rem;
+  padding: 0 calc(var(--spacing) * 4);
   border-bottom: 1px solid var(--border);
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .app-shell__separator.app-shell__separator {
-  height: 1rem;
+  height: calc(var(--spacing) * 4);
 }
 
 .app-shell__page-title {

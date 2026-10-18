@@ -118,7 +118,7 @@ const data = [
 }
 
 .example-sigma-ui-drawer__content {
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
   padding-bottom: 0;
 }
 
@@ -126,19 +126,19 @@ const data = [
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-drawer__goal-button {
-  width: 2rem;
-  height: 2rem;
+  width: calc(var(--spacing) * 8);
+  height: calc(var(--spacing) * 8);
   flex-shrink: 0;
   border-radius: var(--radius-full);
 }
 
 .example-sigma-ui-drawer__goal-icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-drawer__goal-display {
@@ -162,8 +162,8 @@ const data = [
 
 .example-sigma-ui-drawer__chart {
   height: 120px;
-  padding: 0 0.75rem;
-  margin: 0.75rem;
+  padding: 0 calc(var(--spacing) * 3);
+  margin: calc(var(--spacing) * 3);
 }
 
 .example-sigma-ui-drawer__chart-container {

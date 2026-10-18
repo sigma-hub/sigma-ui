@@ -43,7 +43,7 @@ const forwardedProps = useForwardProps(props);
 <style>
 .sigma-ui-hover-card-content {
   z-index: 50;
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   animation: sigma-ui-fade-out-scale 100ms ease-in forwards;

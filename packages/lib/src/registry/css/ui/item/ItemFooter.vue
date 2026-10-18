@@ -35,6 +35,6 @@ defineSlots<{
   flex-basis: 100%;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 </style>

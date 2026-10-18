@@ -37,12 +37,12 @@ const forwarded = useForwardPropsEmits(props, emits);
 <style>
 .sigma-ui-menubar {
   display: flex;
-  height: 2.5rem;
+  height: calc(var(--spacing) * 10);
   align-items: center;
-  padding: 0.25rem;
+  padding: calc(var(--spacing) * 1);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background-color: var(--background);
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 </style>

@@ -72,7 +72,7 @@ import { sidebarFooterNavItems, sidebarNavItems } from '../data';
   bottom: 0;
   left: 0;
   display: none;
-  width: 3.5rem;
+  width: calc(var(--spacing) * 14);
   flex-direction: column;
   border-right: 1px solid var(--border);
   background-color: var(--background);
@@ -88,15 +88,15 @@ import { sidebarFooterNavItems, sidebarNavItems } from '../data';
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
-  gap: 1rem;
+  padding-right: calc(var(--spacing) * 2);
+  padding-left: calc(var(--spacing) * 2);
+  gap: calc(var(--spacing) * 4);
 }
 
 @media (width >= 40rem) {
   .dashboard-product-edit__sidebar-nav {
-    padding-top: 1.25rem;
-    padding-bottom: 1.25rem;
+    padding-top: calc(var(--spacing) * 5);
+    padding-bottom: calc(var(--spacing) * 5);
   }
 }
 
@@ -106,8 +106,8 @@ import { sidebarFooterNavItems, sidebarNavItems } from '../data';
 
 .dashboard-product-edit__logo {
   display: flex;
-  width: 2.25rem;
-  height: 2.25rem;
+  width: calc(var(--spacing) * 9);
+  height: calc(var(--spacing) * 9);
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
@@ -116,23 +116,23 @@ import { sidebarFooterNavItems, sidebarNavItems } from '../data';
   color: var(--primary-foreground);
   font-size: 1.125rem;
   font-weight: 600;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
   line-height: 1.75rem;
   text-decoration: none;
 }
 
 @media (width >= 48rem) {
   .dashboard-product-edit__logo {
-    width: 2rem;
-    height: 2rem;
+    width: calc(var(--spacing) * 8);
+    height: calc(var(--spacing) * 8);
     font-size: 1rem;
     line-height: 1.5rem;
   }
 }
 
 .dashboard-product-edit__logo svg {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -142,8 +142,8 @@ import { sidebarFooterNavItems, sidebarNavItems } from '../data';
 
 .dashboard-product-edit__nav-link {
   display: flex;
-  width: 2.25rem;
-  height: 2.25rem;
+  width: calc(var(--spacing) * 9);
+  height: calc(var(--spacing) * 9);
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-lg);
@@ -158,8 +158,8 @@ import { sidebarFooterNavItems, sidebarNavItems } from '../data';
 
 @media (width >= 48rem) {
   .dashboard-product-edit__nav-link {
-    width: 2rem;
-    height: 2rem;
+    width: calc(var(--spacing) * 8);
+    height: calc(var(--spacing) * 8);
   }
 }
 
@@ -169,8 +169,8 @@ import { sidebarFooterNavItems, sidebarNavItems } from '../data';
 }
 
 .dashboard-product-edit__nav-link svg {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: calc(var(--spacing) * 5);
+  height: calc(var(--spacing) * 5);
 }
 
 .dashboard-product-edit__visually-hidden {

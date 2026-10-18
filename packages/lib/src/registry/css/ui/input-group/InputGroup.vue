@@ -36,7 +36,7 @@ defineSlots<{
   display: flex;
   width: 100%;
   min-width: 0;
-  height: 2.25rem;
+  height: calc(var(--spacing) * 9);
   align-items: center;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
@@ -50,11 +50,11 @@ defineSlots<{
 }
 
 .sigma-ui-input-group:has(> [data-align="inline-start"]) > .sigma-ui-input-group__control {
-  padding-left: 0.5rem;
+  padding-left: calc(var(--spacing) * 2);
 }
 
 .sigma-ui-input-group:has(> [data-align="inline-end"]) > .sigma-ui-input-group__control {
-  padding-right: 0.5rem;
+  padding-right: calc(var(--spacing) * 2);
 }
 
 .sigma-ui-input-group:has(> [data-align="block-start"]),
@@ -64,11 +64,11 @@ defineSlots<{
 }
 
 .sigma-ui-input-group:has(> [data-align="block-start"]) > .sigma-ui-input-group__control {
-  padding-bottom: 0.75rem;
+  padding-bottom: calc(var(--spacing) * 3);
 }
 
 .sigma-ui-input-group:has(> [data-align="block-end"]) > .sigma-ui-input-group__control {
-  padding-top: 0.75rem;
+  padding-top: calc(var(--spacing) * 3);
 }
 
 .sigma-ui-input-group:has(.sigma-ui-input-group__control:focus-visible) {
@@ -100,7 +100,7 @@ defineSlots<{
 }
 
 .sigma-ui-input-group .sigma-ui-textarea.sigma-ui-input-group__control {
-  padding-block: 0.75rem;
+  padding-block: calc(var(--spacing) * 3);
   resize: none;
 }
 </style>

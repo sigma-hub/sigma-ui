@@ -34,7 +34,7 @@ defineSlots<{
 .sigma-ui-sidebar-footer {
   display: flex;
   flex-direction: column;
-  padding: 0.5rem;
-  gap: 0.5rem;
+  padding: calc(var(--spacing) * 2);
+  gap: calc(var(--spacing) * 2);
 }
 </style>

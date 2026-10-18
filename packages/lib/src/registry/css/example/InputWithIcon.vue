@@ -25,7 +25,7 @@ import { Input } from '@ui/registry/css/ui/input';
 }
 
 .example-sigma-ui-input-with-icon__input {
-  padding-left: 2.5rem;
+  padding-left: calc(var(--spacing) * 10);
 }
 
 .example-sigma-ui-input-with-icon__icon-wrapper {
@@ -36,12 +36,12 @@ import { Input } from '@ui/registry/css/ui/input';
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 0.5rem;
+  padding: 0 calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-input-with-icon__icon {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: calc(var(--spacing) * 6);
+  height: calc(var(--spacing) * 6);
   color: var(--muted-foreground);
 }
 </style>

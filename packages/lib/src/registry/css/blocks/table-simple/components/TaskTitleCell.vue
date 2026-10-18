@@ -23,7 +23,7 @@ defineProps<{
 .table-simple__task-title {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .table-simple__task-title-text {

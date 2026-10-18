@@ -98,7 +98,7 @@ defineSlots<{
   font-weight: 800;
   letter-spacing: -0.025em;
   line-height: 1.1;
-  scroll-margin-top: 5rem;
+  scroll-margin-top: calc(var(--spacing) * 20);
 }
 
 @media (width >= 64rem) {
@@ -108,13 +108,13 @@ defineSlots<{
 }
 
 .sigma-ui-typography--h2 {
-  padding-bottom: 0.5rem;
+  padding-bottom: calc(var(--spacing) * 2);
   border-bottom: 1px solid var(--border);
-  margin-top: 2.5rem;
+  margin-top: calc(var(--spacing) * 10);
   font-size: 1.875rem;
   font-weight: 600;
   letter-spacing: -0.025em;
-  scroll-margin-top: 5rem;
+  scroll-margin-top: calc(var(--spacing) * 20);
   transition-duration: 150ms;
   transition-property: color;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -125,19 +125,19 @@ defineSlots<{
 }
 
 .sigma-ui-typography--h3 {
-  margin-top: 2rem;
+  margin-top: calc(var(--spacing) * 8);
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: -0.025em;
-  scroll-margin-top: 5rem;
+  scroll-margin-top: calc(var(--spacing) * 20);
 }
 
 .sigma-ui-typography--h4 {
-  margin-top: 2rem;
+  margin-top: calc(var(--spacing) * 8);
   font-size: 1.25rem;
   font-weight: 600;
   letter-spacing: -0.025em;
-  scroll-margin-top: 5rem;
+  scroll-margin-top: calc(var(--spacing) * 20);
 }
 
 .sigma-ui-typography--p {
@@ -145,23 +145,23 @@ defineSlots<{
 }
 
 .sigma-ui-typography--p:not(:first-child) {
-  margin-top: 1.5rem;
+  margin-top: calc(var(--spacing) * 6);
 }
 
 .sigma-ui-typography--blockquote {
-  padding-left: 1.5rem;
+  padding-left: calc(var(--spacing) * 6);
   border-left: 2px solid var(--border);
-  margin-top: 1.5rem;
+  margin-top: calc(var(--spacing) * 6);
   font-style: italic;
 }
 
 .sigma-ui-typography--list {
-  margin: 1.5rem 0 1.5rem 1.5rem;
+  margin: calc(var(--spacing) * 6) 0 calc(var(--spacing) * 6) calc(var(--spacing) * 6);
   list-style-type: disc;
 }
 
 .sigma-ui-typography--list > li {
-  margin-top: 0.5rem;
+  margin-top: calc(var(--spacing) * 2);
 }
 
 .sigma-ui-typography--code {
@@ -216,7 +216,7 @@ defineSlots<{
 
 .sigma-ui-typography--table th,
 .sigma-ui-typography--table td {
-  padding: 0.5rem 1rem;
+  padding: calc(var(--spacing) * 2) calc(var(--spacing) * 4);
   border: 1px solid var(--border);
   text-align: left;
 }

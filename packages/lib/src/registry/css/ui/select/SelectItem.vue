@@ -49,11 +49,11 @@ const forwardedProps = useForwardProps(props);
   display: flex;
   width: 100%;
   align-items: center;
-  padding: 0.375rem 2rem 0.375rem 0.5rem;
+  padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 8) calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
   border-radius: var(--radius-sm);
   cursor: default;
   font-size: 0.875rem;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
   outline: none;
   user-select: none;
 }
@@ -70,16 +70,16 @@ const forwardedProps = useForwardProps(props);
 
 .sigma-ui-select-item__indicator-wrapper {
   position: absolute;
-  right: 0.5rem;
+  right: calc(var(--spacing) * 2);
   display: flex;
-  width: 0.875rem;
-  height: 0.875rem;
+  width: calc(var(--spacing) * 3.5);
+  height: calc(var(--spacing) * 3.5);
   align-items: center;
   justify-content: center;
 }
 
 .sigma-ui-select-item__check-icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 </style>

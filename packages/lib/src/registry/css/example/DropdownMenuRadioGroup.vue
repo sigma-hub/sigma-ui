@@ -41,6 +41,6 @@ const position = ref('bottom');
 
 <style>
 .example-sigma-ui-dropdown-radio__content {
-  width: 14rem;
+  width: calc(var(--spacing) * 56);
 }
 </style>

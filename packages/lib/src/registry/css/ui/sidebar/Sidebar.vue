@@ -201,7 +201,7 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
 
 .sigma-ui-sidebar[data-variant="floating"] .sigma-ui-sidebar__container,
 .sigma-ui-sidebar[data-variant="inset"] .sigma-ui-sidebar__container {
-  padding: 0.5rem;
+  padding: calc(var(--spacing) * 2);
 }
 
 .sigma-ui-sidebar[data-variant="floating"][data-collapsible="icon"] .sigma-ui-sidebar__gap,

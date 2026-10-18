@@ -122,6 +122,6 @@ function onStatusSelect(status: Status) {
 
 .example-sigma-ui-command-responsive__drawer-content {
   border-top: 1px solid var(--border);
-  margin-top: 1rem;
+  margin-top: calc(var(--spacing) * 4);
 }
 </style>

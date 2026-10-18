@@ -69,19 +69,19 @@ import {
 
 <style>
 .example-sigma-ui-sheet {
-  padding: 1.5rem;
+  padding: calc(var(--spacing) * 6);
 }
 
 .example-sigma-ui-sheet__form {
   display: grid;
-  padding: 1rem 0;
-  gap: 1rem;
+  padding: calc(var(--spacing) * 4) 0;
+  gap: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-sheet__form-row {
   display: grid;
   align-items: center;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
   grid-template-columns: repeat(4, 1fr);
 }
 

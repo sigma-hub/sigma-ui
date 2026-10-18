@@ -50,6 +50,6 @@ const showPanel = ref<Checked>(false);
 
 <style>
 .example-sigma-ui-dropdown__content {
-  width: 14rem;
+  width: calc(var(--spacing) * 56);
 }
 </style>

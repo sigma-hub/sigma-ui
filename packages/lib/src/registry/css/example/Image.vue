@@ -35,7 +35,7 @@ import { Image } from '@ui/registry/css/ui/image';
   height: 250px;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
   grid-template-columns: repeat(3, minmax(120px, 220px));
 }
 
@@ -45,7 +45,7 @@ import { Image } from '@ui/registry/css/ui/image';
   align-items: center;
   justify-content: center;
   color: var(--muted-foreground);
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 .example-fallback-icon {

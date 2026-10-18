@@ -80,20 +80,20 @@ defineOptions({
   display: grid;
   width: 100%;
   max-width: 32rem;
-  padding: 1.5rem;
+  padding: calc(var(--spacing) * 6);
   border: 1px solid var(--border);
-  margin: 2rem 0;
+  margin: calc(var(--spacing) * 8) 0;
   background-color: var(--background);
   box-shadow: var(--shadow-lg);
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
   transition-duration: 200ms;
 }
 
 .sigma-ui-dialog-scroll-close {
   position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  padding: 0.125rem;
+  top: calc(var(--spacing) * 3);
+  right: calc(var(--spacing) * 3);
+  padding: calc(var(--spacing) * 0.5);
   border-radius: var(--radius-md);
   transition-duration: 150ms;
   transition-property: background-color;
@@ -105,8 +105,8 @@ defineOptions({
 }
 
 .sigma-ui-dialog-scroll-close__icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 
 .sigma-ui-dialog-scroll-close__label {

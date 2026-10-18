@@ -30,6 +30,6 @@ const forwarded = useForwardProps(props);
 
 <style>
 .sigma-ui-autocomplete-anchor {
-  width: 16rem;
+  width: calc(var(--spacing) * 64);
 }
 </style>

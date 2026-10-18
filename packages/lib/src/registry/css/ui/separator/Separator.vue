@@ -67,13 +67,13 @@ const props = defineProps<
 
 .sigma-ui-separator[data-orientation="vertical"] .sigma-ui-separator__label {
   width: 1px;
-  padding: 0 0.25rem;
-  padding-block: 0.5rem;
+  padding: 0 calc(var(--spacing) * 1);
+  padding-block: calc(var(--spacing) * 2);
 }
 
 .sigma-ui-separator[data-orientation="horizontal"] .sigma-ui-separator__label {
   height: 1px;
-  padding: 0.25rem 0;
-  padding-inline: 0.5rem;
+  padding: calc(var(--spacing) * 1) 0;
+  padding-inline: calc(var(--spacing) * 2);
 }
 </style>

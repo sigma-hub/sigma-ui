@@ -52,7 +52,7 @@ import { mainProductImage, productThumbnails } from '../data';
 
 .dashboard-product-edit__image-grid {
   display: grid;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
 }
 
 .dashboard-product-edit__image {
@@ -65,7 +65,7 @@ import { mainProductImage, productThumbnails } from '../data';
 
 .dashboard-product-edit__thumbnails {
   display: grid;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
@@ -89,8 +89,8 @@ import { mainProductImage, productThumbnails } from '../data';
 }
 
 .dashboard-product-edit__upload svg {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   color: var(--muted-foreground);
 }
 

@@ -49,23 +49,23 @@ const forwardedProps = useForwardProps(reactiveOmit(props, 'size'));
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 0.75rem;
+  padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background-color: var(--input);
   font-size: 0.875rem;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
   line-height: 1.25rem;
   outline: none;
   white-space: nowrap;
 }
 
 .sigma-ui-select-trigger[data-size="default"] {
-  height: 2.25rem;
+  height: calc(var(--spacing) * 9);
 }
 
 .sigma-ui-select-trigger[data-size="sm"] {
-  height: 2rem;
+  height: calc(var(--spacing) * 8);
 }
 
 .sigma-ui-select-trigger[data-placeholder] {
@@ -91,7 +91,7 @@ const forwardedProps = useForwardProps(reactiveOmit(props, 'size'));
   overflow: hidden;
   align-items: center;
   -webkit-box-orient: vertical;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) * 2);
   -webkit-line-clamp: 1;
 }
 
@@ -101,8 +101,8 @@ const forwardedProps = useForwardProps(reactiveOmit(props, 'size'));
 }
 
 .sigma-ui-select-trigger__icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   opacity: 0.5;
 }
 </style>

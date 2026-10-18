@@ -233,7 +233,7 @@ const onSubmit = handleSubmit((values) => {
 .settings-forms__notify {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: calc(var(--spacing) * 3);
 }
 
 .settings-forms__radio-list,
@@ -243,7 +243,7 @@ const onSubmit = handleSubmit((values) => {
 }
 
 .settings-forms__radio-list {
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 .settings-forms__radio-row,
@@ -251,7 +251,7 @@ const onSubmit = handleSubmit((values) => {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 0.75rem;
+  gap: calc(var(--spacing) * 3);
 }
 
 .settings-forms__choice.settings-forms__choice {
@@ -259,14 +259,14 @@ const onSubmit = handleSubmit((values) => {
 }
 
 .settings-forms__email-title {
-  margin: 0 0 1rem;
+  margin: 0 0 calc(var(--spacing) * 4);
   font-size: 1.125rem;
   font-weight: 500;
   line-height: 1.75rem;
 }
 
 .settings-forms__email-list {
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .settings-forms__switch-row {
@@ -274,7 +274,7 @@ const onSubmit = handleSubmit((values) => {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
   border: 1px solid var(--border);
   border-radius: var(--radius);
 }
@@ -286,11 +286,11 @@ const onSubmit = handleSubmit((values) => {
 }
 
 .settings-forms__switch-copy {
-  gap: 0.125rem;
+  gap: calc(var(--spacing) * 0.5);
 }
 
 .settings-forms__checkbox-copy {
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
   line-height: 1;
 }
 

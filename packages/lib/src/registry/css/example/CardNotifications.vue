@@ -94,23 +94,23 @@ const notifications = [
 
 .example-sigma-ui-card-notifications__content {
   display: grid;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-card-notifications__switch {
   display: flex;
   align-items: center;
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-card-notifications__switch-content {
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 .example-sigma-ui-card-notifications__switch-title {
@@ -127,8 +127,8 @@ const notifications = [
 .example-sigma-ui-card-notifications__item {
   display: grid;
   align-items: start;
-  padding-bottom: 1rem;
-  margin-bottom: 1rem;
+  padding-bottom: calc(var(--spacing) * 4);
+  margin-bottom: calc(var(--spacing) * 4);
   grid-template-columns: 25px minmax(0, 1fr);
 }
 
@@ -138,17 +138,17 @@ const notifications = [
 }
 
 .example-sigma-ui-card-notifications__item-dot {
-  width: 0.5rem;
-  height: 0.5rem;
+  width: calc(var(--spacing) * 2);
+  height: calc(var(--spacing) * 2);
   border-radius: var(--radius-full);
-  margin-top: 0.25rem;
+  margin-top: calc(var(--spacing) * 1);
   background-color: hsl(200deg 98% 39%);
 }
 
 .example-sigma-ui-card-notifications__item-content {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: calc(var(--spacing) * 1);
 }
 
 .example-sigma-ui-card-notifications__item-title {
@@ -167,8 +167,8 @@ const notifications = [
 }
 
 .example-sigma-ui-card-notifications__button-icon {
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.5rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
+  margin-right: calc(var(--spacing) * 2);
 }
 </style>

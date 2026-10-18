@@ -36,7 +36,7 @@ import { Label } from '@ui/registry/css/ui/label';
   width: 100%;
   max-width: 24rem;
   flex-direction: column;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .example-button-group-input .example-button-group-input__group {
@@ -44,7 +44,7 @@ import { Label } from '@ui/registry/css/ui/label';
 }
 
 .example-button-group-input__icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 </style>

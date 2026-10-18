@@ -88,17 +88,17 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 }
 
 .sigma-ui-toggle--size-default {
-  height: 2.5rem;
-  padding-inline: 0.75rem;
+  height: calc(var(--spacing) * 10);
+  padding-inline: calc(var(--spacing) * 3);
 }
 
 .sigma-ui-toggle--size-sm {
-  height: 2.25rem;
-  padding-inline: 0.625rem;
+  height: calc(var(--spacing) * 9);
+  padding-inline: calc(var(--spacing) * 2.5);
 }
 
 .sigma-ui-toggle--size-lg {
-  height: 2.75rem;
-  padding-inline: 1.25rem;
+  height: calc(var(--spacing) * 11);
+  padding-inline: calc(var(--spacing) * 5);
 }
 </style>

@@ -146,7 +146,7 @@ const projects = ['Design system', 'Marketing site'];
   flex: 1;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
   color: var(--muted-foreground);
   font-size: 0.875rem;
 }

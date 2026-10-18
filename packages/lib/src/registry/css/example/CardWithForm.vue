@@ -77,13 +77,13 @@ import {
 .example-sigma-ui-card-form__grid {
   display: grid;
   width: 100%;
-  gap: 1rem;
+  gap: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-card-form__field {
   display: flex;
   flex-direction: column;
-  gap: 0.375rem;
+  gap: calc(var(--spacing) * 1.5);
 }
 
 .example-sigma-ui-card-form__footer {

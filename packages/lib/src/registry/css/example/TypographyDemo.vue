@@ -82,7 +82,7 @@ import { Typography } from '@ui/registry/css/ui/typography';
 
 .example-typography__table {
   width: 100%;
-  margin: 1.5rem 0;
+  margin: calc(var(--spacing) * 6) 0;
   overflow-y: auto;
 }
 </style>

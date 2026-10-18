@@ -41,8 +41,8 @@ defineProps<{
   display: flex;
   min-width: 180px;
   flex-direction: column;
-  padding: 0.75rem;
-  gap: 0.5rem;
+  padding: calc(var(--spacing) * 3);
+  gap: calc(var(--spacing) * 2);
 }
 
 .example-sigma-ui-custom-chart-tooltip__item {
@@ -60,11 +60,11 @@ defineProps<{
   width: 4px;
   height: 28px;
   border-radius: 9999px;
-  margin-right: 1rem;
+  margin-right: calc(var(--spacing) * 4);
 }
 
 .example-sigma-ui-custom-chart-tooltip__value {
-  margin-left: 1rem;
+  margin-left: calc(var(--spacing) * 4);
   font-weight: 600;
 }
 </style>

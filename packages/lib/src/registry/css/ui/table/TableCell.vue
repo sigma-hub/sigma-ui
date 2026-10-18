@@ -25,7 +25,7 @@ const delegatedAttrs = () => {
 
 <style>
 .sigma-ui-table-cell {
-  padding: 1rem;
+  padding: calc(var(--spacing) * 4);
   vertical-align: middle;
 }
 

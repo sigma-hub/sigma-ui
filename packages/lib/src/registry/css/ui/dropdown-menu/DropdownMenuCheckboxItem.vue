@@ -47,7 +47,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   position: relative;
   display: flex;
   align-items: center;
-  padding: 0.375rem 0.5rem 0.375rem 2rem;
+  padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2) calc(var(--spacing) * 1.5) calc(var(--spacing) * 8);
   border-radius: var(--radius-sm);
   cursor: default;
   font-size: 0.875rem;
@@ -69,16 +69,16 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 .sigma-ui-dropdown-menu-checkbox-item__indicator {
   position: absolute;
-  left: 0.5rem;
+  left: calc(var(--spacing) * 2);
   display: flex;
-  width: 0.875rem;
-  height: 0.875rem;
+  width: calc(var(--spacing) * 3.5);
+  height: calc(var(--spacing) * 3.5);
   align-items: center;
   justify-content: center;
 }
 
 .sigma-ui-dropdown-menu-checkbox-item__icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
 }
 </style>

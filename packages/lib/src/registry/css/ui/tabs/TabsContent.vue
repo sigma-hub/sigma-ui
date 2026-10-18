@@ -28,7 +28,7 @@ const props = defineProps<TabsContentProps>();
 
 <style>
 .sigma-ui-tabs-content {
-  margin-top: 0.5rem;
+  margin-top: calc(var(--spacing) * 2);
 }
 
 .sigma-ui-tabs-content:focus-visible {

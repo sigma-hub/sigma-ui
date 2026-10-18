@@ -38,25 +38,25 @@ const forwardedProps = useForwardProps(props);
 .sigma-ui-command-input {
   display: flex;
   align-items: center;
-  padding-right: 0.75rem;
-  padding-left: 0.75rem;
+  padding-right: calc(var(--spacing) * 3);
+  padding-left: calc(var(--spacing) * 3);
   border-bottom: 1px solid var(--border);
 }
 
 .sigma-ui-command-input__icon {
-  width: 1rem;
-  height: 1rem;
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
   flex-shrink: 0;
-  margin-right: 0.5rem;
+  margin-right: calc(var(--spacing) * 2);
   opacity: 0.5;
 }
 
 .sigma-ui-command-input__field {
   display: flex;
   width: 100%;
-  height: 2.75rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  height: calc(var(--spacing) * 11);
+  padding-top: calc(var(--spacing) * 3);
+  padding-bottom: calc(var(--spacing) * 3);
   border-radius: var(--radius-md);
   background-color: transparent;
   font-size: 0.875rem;

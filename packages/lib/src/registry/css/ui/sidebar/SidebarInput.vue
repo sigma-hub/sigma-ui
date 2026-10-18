@@ -35,7 +35,7 @@ defineEmits<{
 <style>
 .sigma-ui-input.sigma-ui-sidebar-input {
   width: 100%;
-  height: 2rem;
+  height: calc(var(--spacing) * 8);
   background-color: var(--background);
   box-shadow: none;
 }

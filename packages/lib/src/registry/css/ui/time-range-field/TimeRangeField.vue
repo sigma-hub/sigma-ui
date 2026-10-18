@@ -70,13 +70,13 @@ defineSlots<{
 <style>
 .sigma-ui-time-range-field {
   display: inline-flex;
-  height: 2.25rem;
+  height: calc(var(--spacing) * 9);
   align-items: center;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background-color: var(--input);
   font-size: 1rem;
-  padding-inline: 0.75rem;
+  padding-inline: calc(var(--spacing) * 3);
 }
 
 @media (width >= 48rem) {
@@ -102,6 +102,6 @@ defineSlots<{
 
 .sigma-ui-time-range-field__separator {
   color: var(--muted-foreground);
-  padding-inline: 0.375rem;
+  padding-inline: calc(var(--spacing) * 1.5);
 }
 </style>

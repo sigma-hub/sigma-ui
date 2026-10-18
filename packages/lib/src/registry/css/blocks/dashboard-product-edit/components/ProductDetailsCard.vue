@@ -41,12 +41,12 @@ import { productDescription, productName } from '../data';
 <style>
 .dashboard-product-edit__stack {
   display: grid;
-  gap: 1.5rem;
+  gap: calc(var(--spacing) * 6);
 }
 
 .dashboard-product-edit__field {
   display: grid;
-  gap: 0.75rem;
+  gap: calc(var(--spacing) * 3);
 }
 
 input.dashboard-product-edit__full-input {
@@ -54,6 +54,6 @@ input.dashboard-product-edit__full-input {
 }
 
 textarea.dashboard-product-edit__description {
-  min-height: 8rem;
+  min-height: calc(var(--spacing) * 32);
 }
 </style>
