@@ -1,6 +1,14 @@
 export const BLOCK_RENDERER_PATH = '/block-renderer/index.html';
 export const DOCS_APPEARANCE_KEY = 'vitepress-theme-appearance';
 export const DOCS_CONFIG_KEY = 'config';
+export const FRAME_OVERFLOW_MESSAGE = 'sigma-ui:frame-overflow';
+export const MAX_FRAME_EXTRA_HEIGHT = 720;
+
+export interface FrameOverflowMessage {
+  type: typeof FRAME_OVERFLOW_MESSAGE;
+  open: boolean;
+  requiredHeight: number;
+}
 
 const DEFAULT_THEME = 'grayscale';
 const DEFAULT_RADIUS = 0.5;
@@ -151,4 +159,34 @@ export function canExtendRollupInput(input: unknown): input is Record<string, un
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+export function isFrameOverflowMessage(value: unknown): value is FrameOverflowMessage {
+  if (!value || typeof value !== 'object') {
+    return false;
+  }
+
+  const message = value as Partial<FrameOverflowMessage>;
+
+  return message.type === FRAME_OVERFLOW_MESSAGE
+    && typeof message.open === 'boolean'
+    && typeof message.requiredHeight === 'number'
+    && Number.isFinite(message.requiredHeight);
+}
+
+/**
+ * Extra iframe height for an example whose floating content (a menu, list, or
+ * popover) does not fit. The frame keeps the example where it is and the new
+ * room appears below it, so the trigger never moves away from the pointer.
+ * The height only grows while something is open and resets once everything
+ * closes, so it never oscillates.
+ */
+export function resolveFrameExtraHeight(current: number, message: FrameOverflowMessage, baseHeight: number) {
+  if (!message.open) {
+    return 0;
+  }
+
+  const needed = Math.ceil(message.requiredHeight) - baseHeight;
+
+  return Math.min(MAX_FRAME_EXTRA_HEIGHT, Math.max(current, needed));
 }

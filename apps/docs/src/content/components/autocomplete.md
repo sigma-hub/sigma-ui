@@ -45,6 +45,10 @@ import {
 
 `v-model` is the input text. Items stay visible while their value matches that text. Set `open-on-focus` to show the list when the field is focused.
 
+### Autocomplete or Combobox
+
+Use Autocomplete when any text is a valid answer and the options are only suggestions, such as a search field or a city name. The value is the typed string. Use [Combobox](/components/combobox) when the value must be one of the options. There, typing only filters the list.
+
 ## Examples
 
 ### Fruits

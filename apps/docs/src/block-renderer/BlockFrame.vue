@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, defineAsyncComponent, defineComponent, h, onUnmounted, ref } from 'vue';
 import { styleSystems, type StyleSystem } from '@sigma-ui/shared/style-systems';
-import { parseBlockFrameHash } from '../../.vitepress/block-renderer/frame';
+import { FRAME_OVERFLOW_MESSAGE, parseBlockFrameHash, type FrameOverflowMessage } from '../../.vitepress/block-renderer/frame';
 import { applyPreviewTheme, installPreviewThemeStyles } from './preview-theme';
 
 installPreviewThemeStyles();
@@ -115,6 +115,91 @@ const Block = computed(() => {
   });
 });
 
+const COLLISION_EDGE = 16;
+const EDGE_GAP = 8;
+const MAX_SCROLLING_CONTENT_HEIGHT = 384;
+const FLOATING_CONTENT_SELECTOR = '[data-reka-popper-content-wrapper] > *, [data-slot="navigation-menu-viewport"]';
+
+function isScrollable(element: Element) {
+  const overflowY = getComputedStyle(element).overflowY;
+
+  return overflowY === 'auto' || overflowY === 'scroll';
+}
+
+function measureFloatingContent() {
+  let open = false;
+  let requiredHeight = 0;
+
+  for (const content of document.querySelectorAll(FLOATING_CONTENT_SELECTOR)) {
+    const rect = content.getBoundingClientRect();
+
+    if (!rect.height) {
+      continue;
+    }
+
+    open = true;
+
+    let hiddenHeight = 0;
+
+    if (rect.bottom >= window.innerHeight - COLLISION_EDGE) {
+      for (const element of [content, ...content.querySelectorAll('*')]) {
+        if (isScrollable(element)) {
+          hiddenHeight = Math.max(hiddenHeight, element.scrollHeight - element.clientHeight);
+        }
+      }
+
+      hiddenHeight = Math.max(0, Math.min(hiddenHeight, MAX_SCROLLING_CONTENT_HEIGHT - rect.height));
+    }
+
+    requiredHeight = Math.max(requiredHeight, rect.bottom + hiddenHeight + EDGE_GAP);
+
+    if (rect.top < EDGE_GAP) {
+      requiredHeight = Math.max(requiredHeight, window.innerHeight + rect.height + EDGE_GAP);
+    }
+  }
+
+  return { open, requiredHeight };
+}
+
+let overflowFrame = 0;
+let isFloatingContentOpen = false;
+const exampleHeight = ref(window.innerHeight);
+const exampleStyle = computed(() => (
+  params.value.kind === 'example' ? { height: `${exampleHeight.value}px`, minHeight: '0' } : undefined
+));
+
+function onFrameResize() {
+  if (isFloatingContentOpen) {
+    reportFloatingOverflow();
+  } else {
+    exampleHeight.value = window.innerHeight;
+  }
+}
+
+function reportFloatingOverflow() {
+  if (params.value.kind !== 'example' || window.parent === window) {
+    return;
+  }
+
+  cancelAnimationFrame(overflowFrame);
+  overflowFrame = requestAnimationFrame(() => {
+    const message: FrameOverflowMessage = { type: FRAME_OVERFLOW_MESSAGE, ...measureFloatingContent() };
+    isFloatingContentOpen = message.open;
+    window.parent.postMessage(message, window.location.origin);
+  });
+}
+
+const floatingObserver = new MutationObserver(reportFloatingOverflow);
+document.addEventListener('animationend', reportFloatingOverflow, true);
+window.addEventListener('resize', onFrameResize);
+document.addEventListener('transitionend', reportFloatingOverflow, true);
+floatingObserver.observe(document.body, {
+  childList: true,
+  subtree: true,
+  attributes: true,
+  attributeFilter: ['data-state', 'data-side', 'style'],
+});
+
 function syncPreviewTheme() {
   applyPreviewTheme(colorScheme.matches);
 }
@@ -129,6 +214,11 @@ window.addEventListener('storage', syncPreviewTheme);
 colorScheme.addEventListener('change', syncPreviewTheme);
 
 onUnmounted(() => {
+  floatingObserver.disconnect();
+  document.removeEventListener('animationend', reportFloatingOverflow, true);
+  window.removeEventListener('resize', onFrameResize);
+  document.removeEventListener('transitionend', reportFloatingOverflow, true);
+  cancelAnimationFrame(overflowFrame);
   window.removeEventListener('hashchange', onHashChange);
   window.removeEventListener('storage', syncPreviewTheme);
   colorScheme.removeEventListener('change', syncPreviewTheme);
@@ -139,6 +229,7 @@ onUnmounted(() => {
   <div
     v-if="Block"
     :class="params.kind === 'example' ? ['flex h-full min-h-full w-full p-6', previewAlignClass] : params.kind === 'demo' ? 'min-h-full w-full' : params.containerClass"
+    :style="exampleStyle"
   >
     <component
       :is="Block"

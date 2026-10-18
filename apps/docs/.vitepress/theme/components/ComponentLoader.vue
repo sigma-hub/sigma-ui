@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
-import { buildBlockFrameSrc, buildExampleFrameSrc } from '../../block-renderer/frame';
+import { computed, onMounted, onUnmounted, ref, useAttrs, useTemplateRef } from 'vue';
+import { buildBlockFrameSrc, buildExampleFrameSrc, isFrameOverflowMessage, resolveFrameExtraHeight } from '../../block-renderer/frame';
 import { getBlockMeta } from '../utils/blocks';
 import { useConfigStore } from '@/stores/config';
 
@@ -17,6 +17,29 @@ const props = withDefaults(defineProps<{
 
 const attrs = useAttrs();
 const { config } = useConfigStore();
+const frame = useTemplateRef<HTMLIFrameElement>('frame');
+const extraHeight = ref(0);
+
+const frameHeight = computed(() => {
+  if (props.typeName !== 'example') {
+    return '600px';
+  }
+
+  return extraHeight.value ? `calc(${props.height} + ${extraHeight.value}px)` : props.height;
+});
+
+function onFrameMessage(event: MessageEvent) {
+  const element = frame.value;
+
+  if (!element || event.origin !== window.location.origin || event.source !== element.contentWindow || !isFrameOverflowMessage(event.data)) {
+    return;
+  }
+
+  extraHeight.value = resolveFrameExtraHeight(extraHeight.value, event.data, element.clientHeight - extraHeight.value);
+}
+
+onMounted(() => window.addEventListener('message', onFrameMessage));
+onUnmounted(() => window.removeEventListener('message', onFrameMessage));
 
 const frameSrc = computed(() => {
   if (props.typeName === 'example') {
@@ -38,9 +61,10 @@ const frameSrc = computed(() => {
 
 <template>
   <iframe
+    ref="frame"
     :src="frameSrc"
     :title="name"
     class="w-full border-0 bg-background"
-    :style="{ height: typeName === 'example' ? height : '600px' }"
+    :style="{ height: frameHeight }"
   />
 </template>

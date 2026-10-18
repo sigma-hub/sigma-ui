@@ -41,6 +41,10 @@ import { Combobox, ComboboxAnchor, ComboboxEmpty, ComboboxGroup, ComboboxInput, 
 - `by` compares objects by a key, for example `by="label"`.
 - Use `ComboboxTrigger` when the field should open from a button instead of the input.
 
+### Combobox or Autocomplete
+
+Use Combobox when the value must be one of the options, such as a framework or a status. Typing only filters the list, and the value is the selected option. Use [Autocomplete](/components/autocomplete) when any text is a valid answer and the options are only suggestions. Its value is the typed string.
+
 ## Examples
 
 ### Basic

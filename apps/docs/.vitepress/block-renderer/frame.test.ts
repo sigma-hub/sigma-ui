@@ -4,11 +4,15 @@ import {
   buildBlockFrameSrc,
   buildExampleFrameSrc,
   canExtendRollupInput,
+  FRAME_OVERFLOW_MESSAGE,
+  isFrameOverflowMessage,
+  MAX_FRAME_EXTRA_HEIGHT,
   isBlockRendererRequest,
   parseBlockFrameHash,
   parseStoredJson,
   readPreviewConfig,
   resolvePreviewAppearance,
+  resolveFrameExtraHeight,
   resolvePreviewDark,
   stripThemeChunkPreload,
   stripThemeChunkSideEffect,
@@ -108,5 +112,27 @@ describe('block renderer rollup input', () => {
     expect(canExtendRollupInput({ app: '/app.js' })).toBe(true);
     expect(canExtendRollupInput(['/app.js'])).toBe(false);
     expect(canExtendRollupInput('/app.js')).toBe(false);
+  });
+});
+
+describe('frame overflow', () => {
+  const message = (open: boolean, requiredHeight: number) => ({ type: FRAME_OVERFLOW_MESSAGE, open, requiredHeight } as const);
+
+  it('accepts only well-formed overflow messages', () => {
+    expect(isFrameOverflowMessage(message(true, 420))).toBe(true);
+    expect(isFrameOverflowMessage({ type: FRAME_OVERFLOW_MESSAGE, open: true, requiredHeight: Number.NaN })).toBe(false);
+    expect(isFrameOverflowMessage({ type: 'other', open: true, requiredHeight: 1 })).toBe(false);
+    expect(isFrameOverflowMessage(null)).toBe(false);
+  });
+
+  it('grows to the required height while open and resets on close', () => {
+    expect(resolveFrameExtraHeight(0, message(true, 389.2), 350)).toBe(40);
+    expect(resolveFrameExtraHeight(40, message(true, 389.2), 350)).toBe(40);
+    expect(resolveFrameExtraHeight(40, message(true, 300), 350)).toBe(40);
+    expect(resolveFrameExtraHeight(40, message(false, 0), 350)).toBe(0);
+  });
+
+  it('caps the extra height', () => {
+    expect(resolveFrameExtraHeight(0, message(true, 10_000), 350)).toBe(MAX_FRAME_EXTRA_HEIGHT);
   });
 });
