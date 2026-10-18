@@ -23,13 +23,18 @@ const SHELL_SAFE_ITEM = /^[\w@./:-]+$/;
 const DEFAULT_REGISTRY_NAMES = new Set(['sigma-ui', 'default']);
 
 const AUDIT_CHECKLIST = [
-  'Audit the installed sigma-ui code before shipping:',
+  'Audit the sigma-ui code you added before you finish:',
   '',
-  '1. Imports match the installed files. Named exports come from the component file, for example `import { Button } from \'@/components/ui/button\'`, and default exports stay default imports.',
-  '2. Every registry dependency of the item is installed. Run `npx sigma-ui add <item>` again when a component is missing.',
-  '3. Component directories stay kebab-case (`components/ui/dropdown-menu`), including when componentNaming is pascal-case.',
-  '4. CSS style-system blocks keep the block prefix on every static class, including classes written inside :class strings.',
-  '5. Run the project typecheck and lint. Registry files are Vue single-file components, so check the script and the template.',
+  '- [ ] Every item was installed with `npx sigma-ui add`, so its files, npm dependencies, and registry dependencies are all present. Run `add` again for anything missing.',
+  '- [ ] Imports use the aliases from sigma-ui.config.json (for example `@/components/ui/button`) and match the installed files. Named exports stay named, default exports stay default.',
+  '- [ ] Component directories stay kebab-case (`components/ui/dropdown-menu`), including when componentNaming is pascal-case.',
+  '- [ ] The stylesheet from `sigma-ui init` is imported once in the app entry and defines the theme tokens the components use (`--background`, `--primary`, `--radius`, `--sidebar`, and for the CSS style `--spacing`).',
+  '- [ ] Tailwind style: the stylesheet imports `tailwindcss` and `tw-animate-css`, and `@source` covers any folder with components outside the default scan.',
+  '- [ ] CSS style: block components keep the block prefix on every static class, including classes inside `:class` strings.',
+  '- [ ] Dark mode toggles the `dark` class on an ancestor (usually `<html>`), not a media query, unless the theme was changed on purpose.',
+  '- [ ] Forms: each field has a label, inputs set `autocomplete` (email, username, current-password, new-password, name), and validation messages render through FormMessage or FieldError.',
+  '- [ ] Icon-only buttons have an `aria-label` or `sr-only` text.',
+  '- [ ] Run the project typecheck (`vue-tsc --noEmit` or `nuxi typecheck`) and lint, then start the app and check the new UI in the browser, in light and dark mode.',
 ].join('\n');
 
 export interface McpToolResult {
@@ -39,9 +44,14 @@ export interface McpToolResult {
 
 export interface ToolDefinition {
   name: ToolName;
+  title: string;
   description: string;
   inputSchema: Record<string, unknown>;
+  annotations: { readOnlyHint: true; openWorldHint: boolean };
 }
+
+const readsProject = { readOnlyHint: true, openWorldHint: false } as const;
+const readsRegistries = { readOnlyHint: true, openWorldHint: true } as const;
 
 const registriesProperty = {
   type: 'array',
@@ -85,11 +95,15 @@ function objectSchema(properties: Record<string, unknown>, required: string[] = 
 export const TOOL_DEFINITIONS: ToolDefinition[] = [
   {
     name: 'get_project_registries',
+    title: 'Project registries',
+    annotations: readsProject,
     description: 'List the default sigma-ui registry and the registries configured in sigma-ui.config.json.',
     inputSchema: objectSchema({}),
   },
   {
     name: 'list_items_in_registries',
+    title: 'List registry items',
+    annotations: readsRegistries,
     description: 'List registry items. A registry that cannot be read is skipped and reported.',
     inputSchema: objectSchema({
       registries: registriesProperty,
@@ -100,6 +114,8 @@ export const TOOL_DEFINITIONS: ToolDefinition[] = [
   },
   {
     name: 'search_items_in_registries',
+    title: 'Search registry items',
+    annotations: readsRegistries,
     description: 'Search item names, titles, descriptions, and categories. A registry that cannot be read is skipped and reported.',
     inputSchema: objectSchema({
       query: { type: 'string', description: 'Words to match. Every word must appear in the item name, title, description, or categories.' },
@@ -111,11 +127,15 @@ export const TOOL_DEFINITIONS: ToolDefinition[] = [
   },
   {
     name: 'view_items_in_registries',
+    title: 'View registry items',
+    annotations: readsRegistries,
     description: 'Fetch full registry items, including file contents, dependencies, and registry dependencies.',
     inputSchema: objectSchema({ items: itemsProperty }, ['items']),
   },
   {
     name: 'get_item_examples_from_registries',
+    title: 'Get usage examples',
+    annotations: readsRegistries,
     description: 'Find example and demo items and return their source. At most 5 items are returned.',
     inputSchema: objectSchema({
       query: { type: 'string', description: 'Optional words matched against example and demo items.' },
@@ -124,11 +144,15 @@ export const TOOL_DEFINITIONS: ToolDefinition[] = [
   },
   {
     name: 'get_add_command_for_items',
+    title: 'Get the add command',
+    annotations: readsProject,
     description: 'Return the npx sigma-ui add command for the given items.',
     inputSchema: objectSchema({ items: itemsProperty }, ['items']),
   },
   {
     name: 'get_audit_checklist',
+    title: 'Audit checklist',
+    annotations: readsProject,
     description: 'Return a Vue-oriented checklist for reviewing code installed from the registry.',
     inputSchema: objectSchema({}),
   },

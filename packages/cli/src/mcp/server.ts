@@ -2,7 +2,9 @@ import readline from 'node:readline';
 import { getPackageInfo } from '@/src/utils/get-package-info';
 import { dispatchToolCall, TOOL_DEFINITIONS } from './tools';
 
-const DEFAULT_PROTOCOL_VERSION = '2024-11-05';
+/** Protocol revisions this server speaks, newest first. */
+export const SUPPORTED_PROTOCOL_VERSIONS = ['2025-11-25', '2025-06-18', '2025-03-26', '2024-11-05'];
+const LATEST_PROTOCOL_VERSION = SUPPORTED_PROTOCOL_VERSIONS[0];
 const PARSE_ERROR = -32700;
 const INVALID_REQUEST = -32600;
 const METHOD_NOT_FOUND = -32601;
@@ -97,18 +99,18 @@ function initializeResult(params: unknown) {
   return {
     protocolVersion: readProtocolVersion(params),
     capabilities: { tools: { listChanged: false } },
-    serverInfo: { name: 'sigma-ui', version: packageInfo.version || '0.0.0' },
+    serverInfo: { name: 'sigma-ui', title: 'Sigma UI', version: packageInfo.version || '0.0.0' },
+    instructions: 'Browse, search, and view sigma-ui registry items (components, blocks, examples) and get the `npx sigma-ui add` command that installs them. Registries come from sigma-ui.config.json in the project.',
   };
 }
 
+/** Answers with the client's revision when this server speaks it, and with the newest one otherwise. */
 function readProtocolVersion(params: unknown) {
-  if (!params || typeof params !== 'object' || !('protocolVersion' in params)) {
-    return DEFAULT_PROTOCOL_VERSION;
-  }
+  const requested = params && typeof params === 'object' && 'protocolVersion' in params ? params.protocolVersion : undefined;
 
-  return typeof params.protocolVersion === 'string' && params.protocolVersion
-    ? params.protocolVersion
-    : DEFAULT_PROTOCOL_VERSION;
+  return typeof requested === 'string' && SUPPORTED_PROTOCOL_VERSIONS.includes(requested)
+    ? requested
+    : LATEST_PROTOCOL_VERSION;
 }
 
 function readId(message: object): string | number | null | undefined {

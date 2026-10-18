@@ -36,7 +36,10 @@ describe('mcp', () => {
     });
 
     const fallback = await request(cwd, 'initialize', {});
-    expect(resultOf(fallback).protocolVersion).toBe('2024-11-05');
+    expect(resultOf(fallback).protocolVersion).toBe('2025-11-25');
+
+    const unknown = await request(cwd, 'initialize', { protocolVersion: '1999-01-01' });
+    expect(resultOf(unknown).protocolVersion).toBe('2025-11-25');
 
     const listed = await request(cwd, 'tools/list');
     const tools = resultOf(listed).tools as Array<{ name: string }>;
@@ -156,7 +159,8 @@ describe('mcp', () => {
 
     const checklist = toolText(await callTool(cwd, 'get_audit_checklist'));
     expect(checklist.text).toContain('kebab-case');
-    expect(checklist.text).toContain('CSS style-system');
+    expect(checklist.text).toContain('CSS style: block components keep the block prefix');
+    expect(checklist.text).toContain('autocomplete');
     expect(checklist.text).toContain('typecheck');
     expect(checklist.text).not.toContain('next/image');
   });
