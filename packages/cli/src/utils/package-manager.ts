@@ -18,6 +18,7 @@ const LOCK_FILES: { name: PackageManagerName; files: string[] }[] = [
 ];
 
 interface PackageJson {
+  version?: string;
   packageManager?: unknown;
   dependencies?: Record<string, string>;
   devDependencies?: Record<string, string>;
@@ -85,6 +86,41 @@ export function getInstalledPackages(cwd: string) {
     ...Object.keys(packageJson.devDependencies ?? {}),
     ...Object.keys(packageJson.peerDependencies ?? {}),
   ]);
+}
+
+function findInstalledVersion(cwd: string, packageName: string) {
+  let directory = cwd;
+
+  while (true) {
+    const version = readPackageJson(path.join(directory, 'node_modules', packageName))?.version;
+
+    if (typeof version === 'string') {
+      return version;
+    }
+
+    const parent = path.dirname(directory);
+
+    if (parent === directory) {
+      return undefined;
+    }
+
+    directory = parent;
+  }
+}
+
+/**
+ * The installed version of each dependency in package.json: the version in node_modules, or the range from
+ * package.json when the package is not installed yet.
+ */
+export function getInstalledPackageVersions(cwd: string) {
+  const packageJson = readPackageJson(cwd) ?? {};
+  const ranges = {
+    ...packageJson.peerDependencies,
+    ...packageJson.devDependencies,
+    ...packageJson.dependencies,
+  };
+
+  return new Map(Object.entries(ranges).map(([name, range]) => [name, findInstalledVersion(cwd, name) ?? range]));
 }
 
 export function getInstallCommand(packageManager: PackageManagerName, dependencies: string[], dev: boolean) {

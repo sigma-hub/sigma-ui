@@ -10,10 +10,17 @@ import prompts from 'prompts';
 import { addOptionsSchema, type AddOptions, type Config } from '@/src/schemas';
 import { getConfigOrExit, getDerivedAliases } from '@/src/utils/get-config';
 import { handleError } from '@/src/utils/handle-error';
-import { createInstallPlan, excludeInstalledDependencies, type InstallPlan, type PlannedFile } from '@/src/utils/install-plan';
+import {
+  createInstallPlan,
+  excludeInstalledDependencies,
+  findIncompatibleDependencies,
+  type IncompatibleDependency,
+  type InstallPlan,
+  type PlannedFile,
+} from '@/src/utils/install-plan';
 import { planComponentDirectoryRenames } from '@/src/utils/migrate/components';
 import { isLegacyThemeCss, readCssFile } from '@/src/utils/migrate/css';
-import { getInstalledPackages, installPackages } from '@/src/utils/package-manager';
+import { detectPackageManager, getInstallCommand, getInstalledPackages, getInstalledPackageVersions, installPackages } from '@/src/utils/package-manager';
 import { fetchRegistryIndex, resolveRegistryTree, type RegistryContext } from '@/src/utils/registry';
 import { kebabToPascal } from '@/src/utils/transformers/transform-component-naming';
 
@@ -71,8 +78,20 @@ export async function runAdd(options: AddOptions) {
   }
 
   const installedPackages = getInstalledPackages(cwd);
+  const installedVersions = getInstalledPackageVersions(cwd);
+  const incompatibleDependencies = findIncompatibleDependencies(plan.dependencies, installedVersions);
+  const incompatibleDevDependencies = findIncompatibleDependencies(plan.devDependencies, installedVersions);
   plan.dependencies = excludeInstalledDependencies(plan.dependencies, installedPackages);
   plan.devDependencies = excludeInstalledDependencies(plan.devDependencies, installedPackages);
+
+  if (incompatibleDependencies.length || incompatibleDevDependencies.length) {
+    const upgrade = await handleIncompatibleDependencies(plan, [...incompatibleDependencies, ...incompatibleDevDependencies], options, cwd);
+
+    if (upgrade) {
+      plan.dependencies.push(...incompatibleDependencies.map(({ dependency }) => dependency));
+      plan.devDependencies.push(...incompatibleDevDependencies.map(({ dependency }) => dependency));
+    }
+  }
 
   if (options.dryRun) {
     printDryRun(plan, cwd);
@@ -127,6 +146,46 @@ async function getSelectedItems(options: AddOptions, context: RegistryContext) {
   });
 
   return (components as string[] | undefined) ?? [];
+}
+
+/**
+ * Warns about installed dependencies whose major version the registry items do not support, and asks whether to
+ * upgrade them. `--yes`, `--dry-run`, and non-interactive runs keep the installed versions: a major upgrade can
+ * break other code in the project, so it is never done without asking.
+ */
+async function handleIncompatibleDependencies(
+  plan: InstallPlan,
+  incompatible: IncompatibleDependency[],
+  options: AddOptions,
+  cwd: string,
+) {
+  for (const { name, required, installed } of incompatible) {
+    const items = plan.items
+      .filter(({ item }) => [...(item.dependencies ?? []), ...(item.devDependencies ?? [])].some(dependency => dependency === name || dependency.startsWith(`${name}@`)))
+      .map(({ item }) => item.name);
+    const shown = items.length > 3 ? [...items.slice(0, 3), `${items.length - 3} more`] : items;
+    const neededBy = shown.length ? shown.join(', ').replace(/, ([^,]+)$/, ' and $1') : 'the registry';
+    consola.warn(`${name} ${installed} is installed, but ${neededBy} ${items.length === 1 ? 'needs' : 'need'} ${name}@${required}.`);
+  }
+
+  if (!options.yes && !options.dryRun && process.stdout.isTTY) {
+    const { upgrade } = await prompts({
+      type: 'confirm',
+      name: 'upgrade',
+      message: `Upgrade ${incompatible.map(({ dependency }) => dependency).join(', ')}? This is a major version change.`,
+      initial: true,
+    });
+
+    if (upgrade) {
+      return true;
+    }
+  }
+
+  const packageManager = await detectPackageManager(cwd);
+  const { command, args } = getInstallCommand(packageManager.name, incompatible.map(({ dependency }) => dependency), false);
+  consola.info(`Kept the installed versions. To upgrade: ${colors.cyan([command, ...args].join(' '))}`);
+
+  return false;
 }
 
 async function getItemsToSkip(plan: InstallPlan, options: AddOptions) {

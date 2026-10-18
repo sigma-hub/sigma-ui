@@ -144,6 +144,52 @@ export function excludeInstalledDependencies(dependencies: string[], installedPa
   return dependencies.filter(dependency => !installedPackages.has(getPackageName(dependency)));
 }
 
+export interface IncompatibleDependency {
+  /** The registry dependency, such as `zod@^4.6.7`. */
+  dependency: string;
+  name: string;
+  required: string;
+  installed: string;
+}
+
+/**
+ * The part of a version or range that has to match for semver compatibility: the major version, or `0.minor`
+ * below 1.0.0. Returns undefined for ranges this check does not understand (`*`, `latest`, `workspace:`, `a || b`).
+ */
+export function getCompatibilityKey(version: string) {
+  const match = version.trim().match(/^(?:\^|~|>=|=|v)?\s*(\d+)(?:\.(\d+))?(?:\.[\dx*]+)?(?:[-+][\w.-]*)?$/);
+
+  if (!match) {
+    return undefined;
+  }
+
+  return match[1] === '0' && match[2] !== undefined ? `0.${match[2]}` : match[1];
+}
+
+/** Dependencies already installed at a major version the registry item does not support. */
+export function findIncompatibleDependencies(dependencies: string[], installedVersions: Map<string, string>) {
+  const incompatible: IncompatibleDependency[] = [];
+
+  for (const dependency of dependencies) {
+    const name = getPackageName(dependency);
+    const required = dependency.slice(name.length + 1);
+    const installed = installedVersions.get(name);
+
+    if (!required || !installed) {
+      continue;
+    }
+
+    const requiredKey = getCompatibilityKey(required);
+    const installedKey = getCompatibilityKey(installed);
+
+    if (requiredKey && installedKey && requiredKey !== installedKey) {
+      incompatible.push({ dependency, name, required, installed });
+    }
+  }
+
+  return incompatible;
+}
+
 export async function createInstallPlan(
   items: ResolvedRegistryItem[],
   config: Config,

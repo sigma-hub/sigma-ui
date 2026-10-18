@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os';
 import path from 'pathe';
 import { beforeAll, describe, expect, it } from 'vitest';
 import type { Config, RegistryItem } from '../../src/schemas';
-import { createInstallPlan, excludeInstalledDependencies, getFileTargetPath, resolveRegistryFileTarget } from '../../src/utils/install-plan';
+import { createInstallPlan, excludeInstalledDependencies, findIncompatibleDependencies, getCompatibilityKey, getFileTargetPath, resolveRegistryFileTarget } from '../../src/utils/install-plan';
 
 function createConfig(cwd: string, overrides: Partial<Config> = {}): Config {
   return {
@@ -144,5 +144,41 @@ describe('excludeInstalledDependencies', () => {
   it('drops packages that are already installed regardless of version', () => {
     expect(excludeInstalledDependencies(['reka-ui@^2.0.0', '@vueuse/core@^12.0.0', 'clsx'], new Set(['reka-ui', 'clsx'])))
       .toEqual(['@vueuse/core@^12.0.0']);
+  });
+});
+
+describe('getCompatibilityKey', () => {
+  it.each([
+    ['^4.6.7', '4'],
+    ['~3.25.76', '3'],
+    ['3.25.76', '3'],
+    ['>=2.1.0', '2'],
+    ['v1.2.3', '1'],
+    ['4.0.0-beta.1', '4'],
+    ['^0.3.1', '0.3'],
+    ['5', '5'],
+    ['*', undefined],
+    ['latest', undefined],
+    ['workspace:*', undefined],
+    ['^3.0.0 || ^4.0.0', undefined],
+  ])('%s -> %s', (range, key) => {
+    expect(getCompatibilityKey(range)).toBe(key);
+  });
+});
+
+describe('findIncompatibleDependencies', () => {
+  it('reports installed packages on a different major version', () => {
+    const installed = new Map([
+      ['zod', '3.25.76'],
+      ['reka-ui', '2.11.0'],
+      ['@vueuse/core', '^12.0.0'],
+      ['local-pkg', 'workspace:*'],
+    ]);
+
+    expect(findIncompatibleDependencies(['zod@^4.6.7', 'reka-ui@^2.0.0', '@vueuse/core@^14.0.0', 'local-pkg@^1.0.0', 'clsx', 'vee-validate@^4.15.1'], installed))
+      .toEqual([
+        { dependency: 'zod@^4.6.7', name: 'zod', required: '^4.6.7', installed: '3.25.76' },
+        { dependency: '@vueuse/core@^14.0.0', name: '@vueuse/core', required: '^14.0.0', installed: '^12.0.0' },
+      ]);
   });
 });
