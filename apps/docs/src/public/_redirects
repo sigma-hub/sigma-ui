@@ -2,3 +2,7 @@
 /blocks/settings-forms.html /blocks/settings 301
 /components/tag-group /components/tags-input 301
 /components/tag-group.html /components/tags-input 301
+/components/month-picker /components/date-picker 301
+/components/month-picker.html /components/date-picker 301
+/components/year-picker /components/date-picker 301
+/components/year-picker.html /components/date-picker 301

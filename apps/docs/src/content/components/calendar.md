@@ -39,7 +39,7 @@ const value = ref(today(getLocalTimeZone())) as Ref<DateValue>;
 ### Related
 
 - [Range Calendar](./range-calendar)
-- [Date Picker](./date-picker)
+- [Date Picker](./date-picker), including the month and year pickers built from `MonthPicker` and `YearPicker`
 
 ## Examples
 

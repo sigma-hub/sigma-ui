@@ -2,6 +2,7 @@
 import { useAttrs } from 'vue';
 
 import { MonthPickerRoot, type MonthPickerRootEmits, type MonthPickerRootProps, useForwardPropsEmits } from 'reka-ui';
+import { cn } from '@ui/utils';
 import { MonthPickerCell, MonthPickerCellTrigger, MonthPickerGrid, MonthPickerGridBody, MonthPickerGridRow, MonthPickerHeader, MonthPickerHeading, MonthPickerNextButton, MonthPickerPrevButton } from '.';
 defineOptions({
   inheritAttrs: false,
@@ -23,8 +24,7 @@ const forwarded = useForwardPropsEmits(props, emits);
     v-slot="{ grid }"
     data-slot="month-picker"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
-    class="sigma-ui-month-picker"
-    :class="[$attrs.class]"
+    :class="cn('w-fit p-3', $attrs.class ?? '')"
   >
     <MonthPickerHeader>
       <MonthPickerPrevButton />
@@ -36,7 +36,7 @@ const forwarded = useForwardPropsEmits(props, emits);
         <MonthPickerGridRow
           v-for="(row, index) in grid.rows"
           :key="index"
-          class="sigma-ui-month-picker__row"
+          class="mt-2 w-full"
         >
           <MonthPickerCell
             v-for="date in row"
@@ -50,17 +50,3 @@ const forwarded = useForwardPropsEmits(props, emits);
     </MonthPickerGrid>
   </MonthPickerRoot>
 </template>
-
-<style>
-.sigma-ui-month-picker {
-  width: fit-content;
-  padding: 0.75rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-}
-
-.sigma-ui-month-picker__row {
-  width: 100%;
-  margin-top: 0.5rem;
-}
-</style>

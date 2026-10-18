@@ -2,7 +2,6 @@
 import { useAttrs } from 'vue';
 
 import { YearPickerRoot, type YearPickerRootEmits, type YearPickerRootProps, useForwardPropsEmits } from 'reka-ui';
-import { cn } from '@ui/utils';
 import { YearPickerCell, YearPickerCellTrigger, YearPickerGrid, YearPickerGridBody, YearPickerGridRow, YearPickerHeader, YearPickerHeading, YearPickerNextButton, YearPickerPrevButton } from '.';
 defineOptions({
   inheritAttrs: false,
@@ -24,7 +23,8 @@ const forwarded = useForwardPropsEmits(props, emits);
     v-slot="{ grid }"
     data-slot="year-picker"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
-    :class="cn('w-fit rounded-md border p-3', $attrs.class ?? '')"
+    class="sigma-ui-year-picker"
+    :class="[$attrs.class]"
   >
     <YearPickerHeader>
       <YearPickerPrevButton />
@@ -36,7 +36,7 @@ const forwarded = useForwardPropsEmits(props, emits);
         <YearPickerGridRow
           v-for="(row, index) in grid.rows"
           :key="index"
-          class="mt-2 w-full"
+          class="sigma-ui-year-picker__row"
         >
           <YearPickerCell
             v-for="date in row"
@@ -50,3 +50,15 @@ const forwarded = useForwardPropsEmits(props, emits);
     </YearPickerGrid>
   </YearPickerRoot>
 </template>
+
+<style>
+.sigma-ui-year-picker {
+  width: fit-content;
+  padding: 0.75rem;
+}
+
+.sigma-ui-year-picker__row {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+</style>

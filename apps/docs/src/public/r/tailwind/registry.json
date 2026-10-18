@@ -366,6 +366,86 @@
           "type": "registry:ui"
         },
         {
+          "path": "ui/calendar/MonthPicker.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/calendar/MonthPickerCell.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/calendar/MonthPickerCellTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/calendar/MonthPickerGrid.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/calendar/MonthPickerGridBody.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/calendar/MonthPickerGridRow.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/calendar/MonthPickerHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/calendar/MonthPickerHeading.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/calendar/MonthPickerNextButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/calendar/MonthPickerPrevButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/calendar/YearPicker.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/calendar/YearPickerCell.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/calendar/YearPickerCellTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/calendar/YearPickerGrid.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/calendar/YearPickerGridBody.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/calendar/YearPickerGridRow.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/calendar/YearPickerHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/calendar/YearPickerHeading.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/calendar/YearPickerNextButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/calendar/YearPickerPrevButton.vue",
+          "type": "registry:ui"
+        },
+        {
           "path": "ui/calendar/index.ts",
           "type": "registry:ui"
         }
@@ -1651,63 +1731,6 @@
       ]
     },
     {
-      "name": "month-picker",
-      "type": "registry:ui",
-      "dependencies": [
-        "lucide-vue-next@^1.0.0",
-        "reka-ui@^2.11.0"
-      ],
-      "registryDependencies": [
-        "button"
-      ],
-      "files": [
-        {
-          "path": "ui/month-picker/MonthPicker.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "ui/month-picker/MonthPickerCell.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "ui/month-picker/MonthPickerCellTrigger.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "ui/month-picker/MonthPickerGrid.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "ui/month-picker/MonthPickerGridBody.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "ui/month-picker/MonthPickerGridRow.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "ui/month-picker/MonthPickerHeader.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "ui/month-picker/MonthPickerHeading.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "ui/month-picker/MonthPickerNextButton.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "ui/month-picker/MonthPickerPrevButton.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "ui/month-picker/index.ts",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
       "name": "native-select",
       "type": "registry:ui",
       "dependencies": [
@@ -2723,63 +2746,6 @@
         },
         {
           "path": "ui/typography/index.ts",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "year-picker",
-      "type": "registry:ui",
-      "dependencies": [
-        "lucide-vue-next@^1.0.0",
-        "reka-ui@^2.11.0"
-      ],
-      "registryDependencies": [
-        "button"
-      ],
-      "files": [
-        {
-          "path": "ui/year-picker/YearPicker.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "ui/year-picker/YearPickerCell.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "ui/year-picker/YearPickerCellTrigger.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "ui/year-picker/YearPickerGrid.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "ui/year-picker/YearPickerGridBody.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "ui/year-picker/YearPickerGridRow.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "ui/year-picker/YearPickerHeader.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "ui/year-picker/YearPickerHeading.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "ui/year-picker/YearPickerNextButton.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "ui/year-picker/YearPickerPrevButton.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "ui/year-picker/index.ts",
           "type": "registry:ui"
         }
       ]

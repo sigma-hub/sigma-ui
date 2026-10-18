@@ -933,6 +933,13 @@ export const Index = {
       dependencies: ["@internationalized/date@^3.12.4","@vee-validate/zod@^4.15.1","lucide-vue-next@^1.0.0","reka-ui@^2.11.0","vee-validate@^4.15.1","zod@^3.25.76"],
       files: ["example/DatePickerForm.vue"],
     },
+    "DatePickerMonth": {
+      name: "DatePickerMonth",
+      type: "registry:example",
+      registryDependencies: ["button","calendar","popover"],
+      dependencies: ["@internationalized/date@^3.12.4","lucide-vue-next@^1.0.0"],
+      files: ["example/DatePickerMonth.vue"],
+    },
     "DatePickerWithIndependentMonths": {
       name: "DatePickerWithIndependentMonths",
       type: "registry:example",
@@ -953,6 +960,13 @@ export const Index = {
       registryDependencies: ["button","popover","range-calendar"],
       dependencies: ["@internationalized/date@^3.12.4","lucide-vue-next@^1.0.0","reka-ui@^2.11.0"],
       files: ["example/DatePickerWithRange.vue"],
+    },
+    "DatePickerYear": {
+      name: "DatePickerYear",
+      type: "registry:example",
+      registryDependencies: ["button","calendar","popover"],
+      dependencies: ["@internationalized/date@^3.12.4","lucide-vue-next@^1.0.0"],
+      files: ["example/DatePickerYear.vue"],
     },
     "Dialog": {
       name: "Dialog",
@@ -1282,13 +1296,6 @@ export const Index = {
       registryDependencies: ["menubar"],
       dependencies: [],
       files: ["example/Menubar.vue"],
-    },
-    "MonthPicker": {
-      name: "MonthPicker",
-      type: "registry:example",
-      registryDependencies: ["month-picker"],
-      dependencies: ["@internationalized/date@^3.12.4"],
-      files: ["example/MonthPicker.vue"],
     },
     "NativeSelect": {
       name: "NativeSelect",
@@ -1905,13 +1912,6 @@ export const Index = {
       registryDependencies: [],
       dependencies: [],
       files: ["example/TypographyTable.vue"],
-    },
-    "YearPicker": {
-      name: "YearPicker",
-      type: "registry:example",
-      registryDependencies: ["year-picker"],
-      dependencies: ["@internationalized/date@^3.12.4"],
-      files: ["example/YearPicker.vue"],
     },
   },
   "css": {
@@ -2846,6 +2846,13 @@ export const Index = {
       dependencies: ["@internationalized/date@^3.12.4","@vee-validate/zod@^4.15.1","lucide-vue-next@^1.0.0","reka-ui@^2.11.0","vee-validate@^4.15.1","zod@^3.25.76"],
       files: ["example/DatePickerForm.vue"],
     },
+    "DatePickerMonth": {
+      name: "DatePickerMonth",
+      type: "registry:example",
+      registryDependencies: ["button","calendar","popover"],
+      dependencies: ["@internationalized/date@^3.12.4","lucide-vue-next@^1.0.0"],
+      files: ["example/DatePickerMonth.vue"],
+    },
     "DatePickerWithIndependentMonths": {
       name: "DatePickerWithIndependentMonths",
       type: "registry:example",
@@ -2866,6 +2873,13 @@ export const Index = {
       registryDependencies: ["button","popover","range-calendar"],
       dependencies: ["@internationalized/date@^3.12.4","lucide-vue-next@^1.0.0","reka-ui@^2.11.0"],
       files: ["example/DatePickerWithRange.vue"],
+    },
+    "DatePickerYear": {
+      name: "DatePickerYear",
+      type: "registry:example",
+      registryDependencies: ["button","calendar","popover"],
+      dependencies: ["@internationalized/date@^3.12.4","lucide-vue-next@^1.0.0"],
+      files: ["example/DatePickerYear.vue"],
     },
     "Dialog": {
       name: "Dialog",
@@ -3195,13 +3209,6 @@ export const Index = {
       registryDependencies: ["menubar"],
       dependencies: [],
       files: ["example/Menubar.vue"],
-    },
-    "MonthPicker": {
-      name: "MonthPicker",
-      type: "registry:example",
-      registryDependencies: ["month-picker"],
-      dependencies: ["@internationalized/date@^3.12.4"],
-      files: ["example/MonthPicker.vue"],
     },
     "NativeSelect": {
       name: "NativeSelect",
@@ -3818,13 +3825,6 @@ export const Index = {
       registryDependencies: [],
       dependencies: [],
       files: ["example/TypographyTable.vue"],
-    },
-    "YearPicker": {
-      name: "YearPicker",
-      type: "registry:example",
-      registryDependencies: ["year-picker"],
-      dependencies: ["@internationalized/date@^3.12.4"],
-      files: ["example/YearPicker.vue"],
     },
   },
 };
