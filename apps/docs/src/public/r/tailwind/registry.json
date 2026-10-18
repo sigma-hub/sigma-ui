@@ -651,6 +651,98 @@
       ]
     },
     {
+      "name": "code-block",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vueuse/core@^14.4.0",
+        "class-variance-authority@^0.7.1",
+        "lucide-vue-next@^1.0.0",
+        "reka-ui@^2.11.0",
+        "shiki@^4.5.0"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "ui/code-block/CodeBlock.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/code-block/CodeBlockActions.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/code-block/CodeBlockContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/code-block/CodeBlockCopyButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/code-block/CodeBlockExpandButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/code-block/CodeBlockFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/code-block/CodeBlockHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/code-block/CodeBlockLine.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/code-block/CodeBlockTabs.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/code-block/CodeBlockTabsContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/code-block/CodeBlockTabsList.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/code-block/CodeBlockTabsTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/code-block/CodeBlockTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/code-block/CodeBlockWrapButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/code-block/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/code-block/code-block-state.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/code-block/lines.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/code-block/highlighter.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/code-block/use-highlighted-code.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "collapsible",
       "type": "registry:ui",
       "dependencies": [

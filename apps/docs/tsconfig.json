@@ -14,7 +14,7 @@
     "sourceMap": true
   },
   "files": ["src/md.d.ts", ".vitepress/theme/types/global.d.ts"],
-  "include": ["src", "*/**.d.ts", ".vitepress/**/*.vue", "scripts/build-registry.ts", ".vitepress/**/*.mts", ".vitepress/**/*.ts"],
+  "include": ["src", "test", "*/**.d.ts", ".vitepress/**/*.vue", "scripts/build-registry.ts", ".vitepress/**/*.mts", ".vitepress/**/*.ts"],
   "exclude": ["src/content/meta"],
   "vueCompilerOptions": {
     "vitePressExtensions": [".md"]

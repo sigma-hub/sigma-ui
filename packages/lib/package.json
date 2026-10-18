@@ -28,6 +28,7 @@
     "magic-string": "catalog:",
     "motion-v": "catalog:",
     "reka-ui": "catalog:",
+    "shiki": "^4.5.0",
     "tw-animate-css": "catalog:",
     "vee-validate": "catalog:forms",
     "vue": "catalog:",
