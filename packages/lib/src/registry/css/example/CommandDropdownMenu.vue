@@ -124,7 +124,7 @@ const open = ref(false);
   border-radius: var(--radius);
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .example-sigma-ui-command-dropdown {
     flex-direction: row;
     align-items: center;

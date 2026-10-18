@@ -131,7 +131,7 @@
   scroll-margin-top: 5rem;
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .example-sigma-ui-typography__heading-1 {
     font-size: 3rem;
   }

@@ -71,7 +71,7 @@ import RoleSelect from './RoleSelect.vue';
   gap: 2rem;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-ai-playground__configuration {
     display: flex;
   }

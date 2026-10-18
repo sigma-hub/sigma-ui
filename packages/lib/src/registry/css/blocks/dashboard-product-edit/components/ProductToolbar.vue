@@ -68,7 +68,7 @@ button.dashboard-product-edit__back-button svg {
   margin-left: auto;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .dashboard-product-edit__product-title {
     flex-grow: 0;
   }
@@ -84,7 +84,7 @@ button.dashboard-product-edit__back-button svg {
   gap: 0.5rem;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-product-edit__toolbar-actions {
     display: flex;
     margin-left: auto;

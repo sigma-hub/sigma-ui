@@ -71,7 +71,7 @@ import { categoryOptions, subcategoryOptions } from '../data';
   gap: 1.5rem;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .dashboard-product-edit__category-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }

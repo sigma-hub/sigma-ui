@@ -130,7 +130,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
   animation-name: sigma-ui-slide-in-from-left;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .sigma-ui-sheet-content--left {
     max-width: 24rem;
   }
@@ -152,7 +152,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
   animation-name: sigma-ui-slide-in-from-right;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .sigma-ui-sheet-content--right {
     max-width: 24rem;
   }

@@ -88,7 +88,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   margin-top: 0.5rem;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .sigma-ui-range-calendar__grid-container {
     flex-direction: row;
     gap: 1rem;

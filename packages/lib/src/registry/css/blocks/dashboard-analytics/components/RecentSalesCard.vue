@@ -82,7 +82,7 @@ defineProps<{
   font-weight: 500;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .dashboard-analytics__avatar.dashboard-analytics__avatar {
     display: flex;
     width: 2.25rem;

@@ -23,7 +23,7 @@ const attrs = useAttrs();
   margin-top: 0.5rem;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .sigma-ui-alert-dialog-cancel {
     margin-top: 0;
   }

@@ -242,7 +242,7 @@ import {
   gap: 1rem;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-overview__search {
     width: 100px;
   }
@@ -253,7 +253,7 @@ import {
   }
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .dashboard-overview__nav {
     gap: 1.5rem;
   }

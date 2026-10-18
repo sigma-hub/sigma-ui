@@ -163,13 +163,13 @@ const components: { title: string; href: string; description: string }[] = [
   width: 100%;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .example-sigma-ui-nav-menu__grid--getting-started {
     width: 400px;
   }
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .example-sigma-ui-nav-menu__grid--getting-started {
     width: 500px;
     grid-template-columns: minmax(0, 0.75fr) minmax(0, 1fr);
@@ -182,14 +182,14 @@ const components: { title: string; href: string; description: string }[] = [
   gap: 0.75rem;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .example-sigma-ui-nav-menu__grid--components {
     width: 500px;
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .example-sigma-ui-nav-menu__grid--components {
     width: 600px;
   }

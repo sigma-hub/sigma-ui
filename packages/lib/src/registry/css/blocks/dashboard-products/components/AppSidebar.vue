@@ -97,7 +97,7 @@ function navLinkClass(tone: SidebarLinkTone) {
   background-color: var(--background);
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .dashboard-products__sidebar {
     display: flex;
   }
@@ -132,7 +132,7 @@ function navLinkClass(tone: SidebarLinkTone) {
   line-height: 1.75rem;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-products__brand {
     width: 2rem;
     height: 2rem;
@@ -176,7 +176,7 @@ function navLinkClass(tone: SidebarLinkTone) {
   color: var(--secondary-foreground);
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-products__nav-link {
     width: 2rem;
     height: 2rem;

@@ -145,7 +145,7 @@ defineProps<{
   gap: 1rem;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .dashboard-products__header {
     position: static;
     height: auto;
@@ -161,13 +161,13 @@ defineProps<{
   height: 1.25rem;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .dashboard-products .dashboard-products__menu-button {
     display: none;
   }
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .dashboard-products__sheet.dashboard-products__sheet {
     max-width: 20rem;
   }
@@ -197,7 +197,7 @@ defineProps<{
   line-height: 1.75rem;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-products__mobile-brand {
     font-size: 1rem;
     line-height: 1.5rem;
@@ -238,7 +238,7 @@ defineProps<{
   display: none;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-products__breadcrumb {
     display: flex;
   }
@@ -250,7 +250,7 @@ defineProps<{
   margin-left: auto;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-products__search {
     flex-grow: 0;
   }
@@ -272,13 +272,13 @@ defineProps<{
   background-color: var(--background);
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-products .dashboard-products__search-input {
     width: 200px;
   }
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .dashboard-products .dashboard-products__search-input {
     width: 320px;
   }

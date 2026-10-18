@@ -121,13 +121,13 @@ defineOptions({
   white-space: nowrap;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .sigma-ui-dialog-scroll-content {
     border-radius: var(--radius-lg);
   }
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .sigma-ui-dialog-scroll-content {
     width: 100%;
   }

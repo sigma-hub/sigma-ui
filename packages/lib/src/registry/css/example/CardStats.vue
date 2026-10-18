@@ -102,7 +102,7 @@ const lineY = (d: Data) => d.revenue;
   gap: 1rem;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .example-sigma-ui-card-stats {
     grid-template-columns: repeat(2, 1fr);
   }

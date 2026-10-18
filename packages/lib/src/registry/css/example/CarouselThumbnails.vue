@@ -87,7 +87,7 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
   width: 100%;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .example-sigma-ui-carousel-thumbnails {
     width: auto;
   }

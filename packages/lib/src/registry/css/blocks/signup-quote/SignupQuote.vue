@@ -348,14 +348,14 @@ const quoteAuthorInitials = quoteAuthor
   color: var(--primary);
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .signup-quote__login {
     top: 2rem;
     right: 2rem;
   }
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .signup-quote {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

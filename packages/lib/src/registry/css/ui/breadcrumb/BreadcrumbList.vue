@@ -34,7 +34,7 @@ const delegatedAttrs = () => {
   overflow-wrap: break-word;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .sigma-ui-breadcrumb__list {
     gap: 0.625rem;
   }

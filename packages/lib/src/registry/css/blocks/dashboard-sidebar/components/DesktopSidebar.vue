@@ -182,13 +182,13 @@ defineProps<{
   white-space: nowrap;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-sidebar__panel {
     display: block;
   }
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .dashboard-sidebar__brand-bar {
     height: 60px;
     padding: 0 1.5rem;

@@ -224,7 +224,7 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
   background-color: transparent;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .sigma-ui-sidebar {
     display: block;
   }

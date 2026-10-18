@@ -78,7 +78,7 @@ import { sidebarFooterNavItems, sidebarNavItems } from '../data';
   background-color: var(--background);
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .dashboard-product-edit__sidebar {
     display: flex;
   }
@@ -93,7 +93,7 @@ import { sidebarFooterNavItems, sidebarNavItems } from '../data';
   gap: 1rem;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .dashboard-product-edit__sidebar-nav {
     padding-top: 1.25rem;
     padding-bottom: 1.25rem;
@@ -121,7 +121,7 @@ import { sidebarFooterNavItems, sidebarNavItems } from '../data';
   text-decoration: none;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-product-edit__logo {
     width: 2rem;
     height: 2rem;
@@ -156,7 +156,7 @@ import { sidebarFooterNavItems, sidebarNavItems } from '../data';
   color: var(--foreground);
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-product-edit__nav-link {
     width: 2rem;
     height: 2rem;

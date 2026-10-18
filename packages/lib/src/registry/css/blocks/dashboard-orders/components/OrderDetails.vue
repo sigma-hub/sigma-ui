@@ -268,7 +268,7 @@ defineProps<{
   height: 0.875rem;
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .dashboard-orders__track-label {
     position: absolute;
     overflow: hidden;
@@ -282,7 +282,7 @@ defineProps<{
   }
 }
 
-@media (width >= 1280px) {
+@media (width >= 80rem) {
   .dashboard-orders__track-label {
     position: static;
     overflow: visible;

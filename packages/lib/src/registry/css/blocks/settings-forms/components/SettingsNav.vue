@@ -53,7 +53,7 @@ function selectItem(itemId: string) {
   background: var(--muted);
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .settings-forms__nav-list {
     flex-direction: column;
     gap: 0.25rem;

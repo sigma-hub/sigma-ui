@@ -75,7 +75,7 @@ import { chatActions } from '../data';
   background-color: color-mix(in oklch, var(--muted) 50%, transparent);
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .dashboard-ai-playground__chat {
     grid-column: span 2 / span 2;
   }

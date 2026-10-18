@@ -63,7 +63,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   transition-duration: 200ms;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .sigma-ui-alert-dialog-content {
     border-radius: var(--radius);
   }

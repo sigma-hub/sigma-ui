@@ -98,7 +98,7 @@ import {
   flex-direction: column;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .dashboard-orders__shell {
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -115,19 +115,19 @@ import {
   gap: 1rem;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .dashboard-orders__main {
     padding: 0 1.5rem;
   }
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-orders__main {
     gap: 2rem;
   }
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .dashboard-orders__main {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -140,13 +140,13 @@ import {
   grid-auto-rows: max-content;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-orders__primary {
     gap: 2rem;
   }
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .dashboard-orders__primary {
     grid-column: span 2 / span 2;
   }

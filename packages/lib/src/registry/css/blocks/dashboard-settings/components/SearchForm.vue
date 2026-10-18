@@ -43,7 +43,7 @@ defineProps<{
   padding-left: 2rem;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .dashboard-settings__search {
     flex: 0 1 auto;
   }
@@ -53,13 +53,13 @@ defineProps<{
   }
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-settings__search-input.dashboard-settings__search-input {
     width: 200px;
   }
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .dashboard-settings__search-input.dashboard-settings__search-input {
     width: 300px;
   }

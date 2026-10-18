@@ -64,7 +64,7 @@ A sidebar is made of these parts:
 
 - The desktop open state is saved in the `sidebar_state` cookie. Change the name with the `cookie-name` prop, or pass an empty string to disable it. In Nuxt, read the cookie with `useCookie('sidebar_state')` and pass it to `default-open` to avoid a layout shift on page load.
 
-- Below 768px the sidebar renders as a sheet. `collapsible="icon"` shrinks it to icons only on desktop; pass `tooltip` to `SidebarMenuButton` to show labels on hover while collapsed.
+- Below the `md` breakpoint (48rem, 768px at the default font size) the sidebar renders as a sheet. `collapsible="icon"` shrinks it to icons only on desktop; pass `tooltip` to `SidebarMenuButton` to show labels on hover while collapsed.
 
 - Override the width with the `--sidebar-width` and `--sidebar-width-icon` CSS variables on `SidebarProvider`.
 

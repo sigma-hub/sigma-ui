@@ -360,7 +360,7 @@ function handleEscKeydown(event: KeyboardEvent) {
   stroke: hsl(0deg 0% 100%);
 }
 
-@media only screen and (width <= 990px) {
+@media only screen and (width <= 61.875rem) {
   .card-lightbox__expanded-container {
     padding: 0;
   }

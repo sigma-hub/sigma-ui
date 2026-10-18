@@ -181,7 +181,7 @@ const formatter = useDateFormatter('en');
   margin-top: 0.5rem;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .example-sigma-ui-calendar-select__grid-container {
     flex-direction: row;
     gap: 1rem;

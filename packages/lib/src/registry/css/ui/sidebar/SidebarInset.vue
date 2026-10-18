@@ -39,7 +39,7 @@ defineSlots<{
   background-color: var(--background);
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .sigma-ui-sidebar[data-variant="inset"] ~ .sigma-ui-sidebar-inset {
     border-radius: calc(var(--radius) + 4px);
     margin: 0.5rem;

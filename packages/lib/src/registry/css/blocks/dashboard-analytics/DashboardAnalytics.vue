@@ -86,7 +86,7 @@ import {
   gap: 1rem;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-analytics__main {
     padding: 2rem;
     gap: 2rem;
@@ -102,7 +102,7 @@ import {
   }
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .dashboard-analytics__stats {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -112,7 +112,7 @@ import {
   }
 }
 
-@media (width >= 1280px) {
+@media (width >= 80rem) {
   .dashboard-analytics__panels {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }

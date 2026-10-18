@@ -35,7 +35,7 @@ const statuses: Status[] = [
 ];
 
 const [UseTemplate, StatusList] = createReusableTemplate();
-const isDesktop = useMediaQuery('(min-width: 768px)');
+const isDesktop = useMediaQuery('(width >= 48rem)');
 
 const isOpen = ref(false);
 const selectedStatus = ref<Status | null>(null);

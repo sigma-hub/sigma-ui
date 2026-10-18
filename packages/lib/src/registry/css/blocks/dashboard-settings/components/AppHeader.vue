@@ -175,7 +175,7 @@ defineProps<{
   white-space: nowrap;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-settings__header {
     padding: 0 1.5rem;
   }
@@ -204,7 +204,7 @@ defineProps<{
   }
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .dashboard-settings__desktop-nav {
     gap: 1.5rem;
   }

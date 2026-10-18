@@ -34,13 +34,13 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
   max-width: 24rem;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .example-sigma-ui-carousel-size__slide {
     flex-basis: 50%;
   }
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .example-sigma-ui-carousel-size__slide {
     flex-basis: 33%;
   }

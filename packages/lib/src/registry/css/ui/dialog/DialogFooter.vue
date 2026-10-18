@@ -29,7 +29,7 @@ const delegatedAttrs = () => {
   flex-direction: column-reverse;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .sigma-ui-dialog-footer {
     flex-direction: row;
     justify-content: flex-end;

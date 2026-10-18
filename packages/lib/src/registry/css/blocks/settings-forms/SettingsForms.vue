@@ -144,7 +144,7 @@ const formComponents: Record<FormType, Component> = {
   background: color-mix(in oklch, var(--muted) 50%, transparent);
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .settings-forms__layout {
     flex-direction: row;
     gap: 3rem;

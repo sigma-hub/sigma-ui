@@ -141,7 +141,7 @@ defineProps<{
   line-height: 1rem;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-analytics__email {
     display: inline;
   }
@@ -151,13 +151,13 @@ defineProps<{
   }
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .dashboard-analytics__date.dashboard-analytics__date {
     display: none;
   }
 }
 
-@media (width >= 1280px) {
+@media (width >= 80rem) {
   .dashboard-analytics__column--optional.dashboard-analytics__column--optional,
   .dashboard-analytics__date.dashboard-analytics__date {
     display: table-column;

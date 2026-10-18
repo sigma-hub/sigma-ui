@@ -90,7 +90,7 @@ import {
   line-height: 1.75rem;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-sidebar {
     grid-template-columns: 220px 1fr;
   }
@@ -101,7 +101,7 @@ import {
   }
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .dashboard-sidebar {
     grid-template-columns: 280px 1fr;
   }

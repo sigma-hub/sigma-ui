@@ -48,7 +48,7 @@ defineProps<{
   gap: 1rem;
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .dashboard-sidebar__header {
     height: 60px;
     padding: 0 1.5rem;

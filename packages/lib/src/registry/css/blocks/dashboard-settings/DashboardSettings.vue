@@ -108,7 +108,7 @@ import {
   gap: 1.5rem;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-settings__main {
     padding: 2.5rem;
     gap: 2rem;
@@ -119,7 +119,7 @@ import {
   }
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .dashboard-settings__layout {
     grid-template-columns: 250px 1fr;
   }

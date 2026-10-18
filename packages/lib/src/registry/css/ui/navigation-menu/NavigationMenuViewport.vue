@@ -56,7 +56,7 @@ const forwardedProps = useForwardProps(props);
   transform-origin: top center;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .sigma-ui-navigation-menu-viewport {
     width: var(--reka-navigation-menu-viewport-width);
   }

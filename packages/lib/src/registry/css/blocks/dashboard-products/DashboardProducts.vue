@@ -68,7 +68,7 @@ import {
   flex-direction: column;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .dashboard-products__shell {
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -85,13 +85,13 @@ import {
   gap: 1rem;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .dashboard-products__main {
     padding: 0 1.5rem;
   }
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-products__main {
     gap: 2rem;
   }

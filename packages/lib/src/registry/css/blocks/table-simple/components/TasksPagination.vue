@@ -188,7 +188,7 @@ function updatePageSize(pageSize: unknown) {
   white-space: nowrap;
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .table-simple__pagination-controls {
     gap: 2rem;
   }

@@ -100,7 +100,7 @@ function setTitleFilter(event: Event) {
   margin-left: 0.5rem;
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .table-simple__search {
     width: 250px;
   }

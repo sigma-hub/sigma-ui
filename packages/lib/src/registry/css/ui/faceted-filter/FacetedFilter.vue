@@ -306,7 +306,7 @@ function clearSearch() {
   padding: 0.625rem 0.625rem 0.75rem;
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .sigma-ui-faceted-filter__badges {
     display: flex;
   }

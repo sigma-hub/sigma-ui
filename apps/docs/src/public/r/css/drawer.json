@@ -29,7 +29,7 @@
     },
     {
       "path": "ui/drawer/DrawerHeader.vue",
-      "content": "<script lang=\"ts\" setup>\nimport { useAttrs } from 'vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <div\n    data-slot=\"drawer-header\"\n    v-bind=\"delegatedAttrs()\"\n    class=\"sigma-ui-drawer-header\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n.sigma-ui-drawer-header {\n  display: grid;\n  padding: 1rem;\n  gap: 0.375rem;\n  text-align: center;\n}\n\n@media (width >= 640px) {\n  .sigma-ui-drawer-header {\n    text-align: left;\n  }\n}\n</style>\n",
+      "content": "<script lang=\"ts\" setup>\nimport { useAttrs } from 'vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <div\n    data-slot=\"drawer-header\"\n    v-bind=\"delegatedAttrs()\"\n    class=\"sigma-ui-drawer-header\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n.sigma-ui-drawer-header {\n  display: grid;\n  padding: 1rem;\n  gap: 0.375rem;\n  text-align: center;\n}\n\n@media (width >= 40rem) {\n  .sigma-ui-drawer-header {\n    text-align: left;\n  }\n}\n</style>\n",
       "type": "registry:ui"
     },
     {

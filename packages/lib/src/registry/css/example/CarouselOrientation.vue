@@ -42,7 +42,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
   padding: 0.25rem;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .example-sigma-ui-carousel-orientation__slide {
     flex-basis: 50%;
   }

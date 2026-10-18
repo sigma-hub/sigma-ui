@@ -186,7 +186,7 @@ formatter.setLocale(locale.value);
   margin-top: 0.5rem;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .example-sigma-ui-calendar-localization__grid-container {
     flex-direction: row;
     gap: 1rem;

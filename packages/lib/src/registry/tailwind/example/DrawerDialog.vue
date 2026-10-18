@@ -24,7 +24,7 @@ import { Label } from '@ui/registry/tailwind/ui/label';
 import { Input } from '@ui/registry/tailwind/ui/input';
 
 const [UseTemplate, GridForm] = createReusableTemplate();
-const isDesktop = useMediaQuery('(min-width: 768px)');
+const isDesktop = useMediaQuery('(width >= 48rem)');
 
 const isOpen = ref(false);
 </script>

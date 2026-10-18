@@ -215,7 +215,7 @@ defineProps<{
   display: none;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .dashboard-products .dashboard-products__tab--desktop {
     display: flex;
   }
@@ -248,7 +248,7 @@ defineProps<{
   white-space: nowrap;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .dashboard-products__action-label {
     position: static;
     overflow: visible;
@@ -270,14 +270,14 @@ defineProps<{
   width: 100px;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .dashboard-products__image-head,
   .dashboard-products__image-cell {
     display: table-cell;
   }
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-products__detail-cell {
     display: table-cell;
   }

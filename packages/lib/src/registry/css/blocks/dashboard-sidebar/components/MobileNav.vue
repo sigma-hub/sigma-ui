@@ -164,7 +164,7 @@ defineProps<{
   white-space: nowrap;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-sidebar__menu-button.dashboard-sidebar__menu-button {
     display: none;
   }

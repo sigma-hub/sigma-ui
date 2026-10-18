@@ -55,7 +55,7 @@ import {
   grid-template-rows: auto minmax(0, 1fr) auto;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .example-sigma-ui-dialog-scroll__content {
     max-width: 425px;
   }

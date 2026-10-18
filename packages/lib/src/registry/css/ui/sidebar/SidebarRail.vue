@@ -95,7 +95,7 @@ const { toggleSidebar } = useSidebar();
   left: -0.5rem;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .sigma-ui-sidebar-rail {
     display: flex;
   }

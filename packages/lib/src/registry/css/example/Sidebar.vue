@@ -315,7 +315,7 @@ const navigation: NavigationItem[] = [
   grid-auto-rows: min-content;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .example-sidebar-frame__grid {
     grid-template-columns: repeat(3, 1fr);
   }

@@ -227,7 +227,7 @@ function clearFilters() {
   text-align: center;
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .table-simple__filter-count--compact {
     display: none;
   }

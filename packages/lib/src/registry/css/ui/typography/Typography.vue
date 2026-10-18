@@ -101,7 +101,7 @@ defineSlots<{
   scroll-margin-top: 5rem;
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .sigma-ui-typography--h1 {
     font-size: 3rem;
   }

@@ -122,7 +122,7 @@ import { breadcrumbLinks, breadcrumbPage, mobileNavItems } from '../data';
   gap: 1rem;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .dashboard-product-edit__header {
     position: static;
     height: auto;
@@ -176,7 +176,7 @@ button.dashboard-product-edit__account-button {
   text-decoration: none;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-product-edit__sheet-logo {
     font-size: 1rem;
     line-height: 1.5rem;
@@ -218,7 +218,7 @@ button.dashboard-product-edit__account-button {
   display: none;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-product-edit__breadcrumb {
     display: flex;
   }
@@ -230,7 +230,7 @@ button.dashboard-product-edit__account-button {
   margin-left: auto;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-product-edit__search {
     flex-grow: 0;
   }
@@ -252,13 +252,13 @@ input.dashboard-product-edit__search-input {
   background-color: var(--background);
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   input.dashboard-product-edit__search-input {
     width: 200px;
   }
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   input.dashboard-product-edit__search-input {
     width: 336px;
   }

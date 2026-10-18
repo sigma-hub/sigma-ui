@@ -49,13 +49,13 @@ defineProps<{
   box-shadow: none;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-sidebar__search-input.dashboard-sidebar__search-input {
     width: 66.6667%;
   }
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .dashboard-sidebar__search-input.dashboard-sidebar__search-input {
     width: 33.3333%;
   }

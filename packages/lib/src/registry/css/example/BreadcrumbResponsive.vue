@@ -28,7 +28,7 @@ import {
   DropdownMenuTrigger,
 } from '@ui/registry/css/ui/dropdown-menu';
 
-const isDesktop = useMediaQuery('(min-width: 768px)');
+const isDesktop = useMediaQuery('(width >= 48rem)');
 const isOpen = ref(false);
 const items = ref([
   { href: '#', label: 'Home' },
@@ -173,7 +173,7 @@ const remainingItems = computed(() => items.value.slice(-itemsToDisplay + 1));
   white-space: nowrap;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .example-sigma-ui-breadcrumb__truncated-link,
   .example-sigma-ui-breadcrumb__truncated-page {
     max-width: none;

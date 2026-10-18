@@ -75,7 +75,7 @@ const parameterFields = [temperatureField, ...samplingFields];
 </template>
 
 <style>
-@media (width >= 768px) {
+@media (width >= 48rem) {
   button.dashboard-ai-playground__settings-button {
     display: none;
   }

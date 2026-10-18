@@ -116,7 +116,7 @@ defineProps<{
   gap: 1rem;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .app-shell__grid {
     grid-template-columns: repeat(3, 1fr);
   }

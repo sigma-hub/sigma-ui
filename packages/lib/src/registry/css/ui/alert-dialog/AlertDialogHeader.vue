@@ -22,7 +22,7 @@ const attrs = useAttrs();
   text-align: center;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .sigma-ui-alert-dialog-header {
     text-align: left;
   }

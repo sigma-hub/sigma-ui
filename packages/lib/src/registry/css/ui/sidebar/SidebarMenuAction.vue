@@ -102,7 +102,7 @@ defineSlots<{
   display: none;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .sigma-ui-sidebar-menu-action::after {
     display: none;
   }

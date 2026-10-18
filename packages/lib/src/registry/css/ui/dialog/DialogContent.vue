@@ -163,7 +163,7 @@ const forwarded = useForwardPropsEmits(reactiveOmit(props, 'closeLabel'), emits)
   }
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .sigma-ui-dialog-content {
     border-radius: var(--radius-lg);
   }

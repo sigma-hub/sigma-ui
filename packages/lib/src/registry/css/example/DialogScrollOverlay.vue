@@ -44,7 +44,7 @@ import {
   max-width: 425px;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .example-sigma-ui-dialog__content {
     max-width: 425px;
   }

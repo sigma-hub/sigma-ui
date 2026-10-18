@@ -289,7 +289,7 @@ watch(secondMonthPlaceholder, (_secondMonthPlaceholder) => {
   gap: 1rem;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .example-sigma-ui-date-picker__months {
     flex-direction: row;
     margin-top: 0;

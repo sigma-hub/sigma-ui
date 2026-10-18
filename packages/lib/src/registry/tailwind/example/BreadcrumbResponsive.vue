@@ -28,7 +28,7 @@ import {
   DropdownMenuTrigger,
 } from '@ui/registry/tailwind/ui/dropdown-menu';
 
-const isDesktop = useMediaQuery('(min-width: 768px)');
+const isDesktop = useMediaQuery('(width >= 48rem)');
 const isOpen = ref(false);
 const items = ref([
   { href: '#', label: 'Home' },

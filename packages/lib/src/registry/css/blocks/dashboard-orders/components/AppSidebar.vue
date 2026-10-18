@@ -85,7 +85,7 @@ defineProps<{
   background-color: var(--background);
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .dashboard-orders__sidebar {
     display: flex;
   }
@@ -105,7 +105,7 @@ defineProps<{
   margin-top: auto;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .dashboard-orders__sidebar-nav,
   .dashboard-orders__sidebar-footer {
     padding-top: 1.25rem;
@@ -129,7 +129,7 @@ defineProps<{
   line-height: 1.75rem;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-orders__brand {
     width: 2rem;
     height: 2rem;
@@ -170,7 +170,7 @@ defineProps<{
   color: var(--secondary-foreground);
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-orders__nav-link {
     width: 2rem;
     height: 2rem;

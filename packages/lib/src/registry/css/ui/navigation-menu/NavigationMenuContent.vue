@@ -53,7 +53,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   animation: sigma-ui-nav-slide-out-to-left 200ms ease-in-out;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .sigma-ui-navigation-menu-content {
     position: absolute;
     width: auto;

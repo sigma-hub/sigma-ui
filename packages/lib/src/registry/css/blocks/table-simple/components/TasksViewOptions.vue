@@ -77,7 +77,7 @@ function setColumnVisibility(columnId: string, visible: boolean) {
   text-transform: capitalize;
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .table-simple__view-button {
     display: flex;
   }

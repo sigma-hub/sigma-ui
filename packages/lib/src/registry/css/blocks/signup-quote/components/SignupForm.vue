@@ -167,7 +167,7 @@ function onSubmit(event: Event) {
   white-space: nowrap;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .signup-quote__social {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

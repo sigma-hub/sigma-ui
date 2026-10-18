@@ -78,7 +78,7 @@ defineSlots<{
   inset: -0.5rem;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .sigma-ui-sidebar-group-action::after {
     display: none;
   }

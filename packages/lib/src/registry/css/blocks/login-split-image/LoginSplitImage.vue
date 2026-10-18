@@ -205,7 +205,7 @@ import { Label } from '@ui/registry/css/ui/label';
   filter: hue-rotate(180deg) invert(100%);
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .login-split-image {
     min-height: 600px;
   }
@@ -216,7 +216,7 @@ import { Label } from '@ui/registry/css/ui/label';
   }
 }
 
-@media (width >= 1280px) {
+@media (width >= 80rem) {
   .login-split-image {
     min-height: 800px;
   }

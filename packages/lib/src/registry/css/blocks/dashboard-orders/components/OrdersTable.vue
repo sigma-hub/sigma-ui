@@ -193,7 +193,7 @@ defineProps<{
   white-space: nowrap;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .dashboard-orders__action-label {
     position: static;
     overflow: visible;
@@ -229,13 +229,13 @@ defineProps<{
   display: none;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .dashboard-orders__cell--from-sm {
     display: table-cell;
   }
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-orders__cell--from-md {
     display: table-cell;
   }
@@ -256,7 +256,7 @@ defineProps<{
   line-height: 1.25rem;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-orders__email {
     display: inline;
   }

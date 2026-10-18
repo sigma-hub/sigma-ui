@@ -24,7 +24,7 @@ import { Label } from '@ui/registry/css/ui/label';
 import { Input } from '@ui/registry/css/ui/input';
 
 const [UseTemplate, GridForm] = createReusableTemplate();
-const isDesktop = useMediaQuery('(min-width: 768px)');
+const isDesktop = useMediaQuery('(width >= 48rem)');
 
 const isOpen = ref(false);
 </script>
@@ -118,7 +118,7 @@ const isOpen = ref(false);
   max-width: 425px;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .example-sigma-ui-drawer-dialog__content {
     max-width: 425px;
   }

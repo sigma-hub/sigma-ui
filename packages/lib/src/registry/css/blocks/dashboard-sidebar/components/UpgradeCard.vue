@@ -50,7 +50,7 @@ withDefaults(defineProps<{
   width: 100%;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .dashboard-sidebar__upgrade-header--compact.dashboard-sidebar__upgrade-header--compact {
     padding: 1rem;
   }

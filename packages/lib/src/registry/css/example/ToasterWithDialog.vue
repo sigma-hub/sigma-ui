@@ -67,7 +67,7 @@ import {
   padding-left: 0.75rem;
 }
 
-@media (width >= 640px) {
+@media (width >= 40rem) {
   .example-sigma-ui-toaster-dialog {
     max-width: 28rem;
   }
