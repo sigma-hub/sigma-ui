@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useAttrs } from 'vue';
 
-import { Loader2Icon } from 'lucide-vue-next';
+import { Loader2Icon } from '@lucide/vue';
 defineOptions({
   inheritAttrs: false,
 });

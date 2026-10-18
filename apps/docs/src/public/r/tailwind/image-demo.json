@@ -4,7 +4,7 @@
   "type": "registry:example",
   "title": "Image",
   "dependencies": [
-    "lucide-vue-next@^1.0.0"
+    "@lucide/vue@^1.59.0"
   ],
   "registryDependencies": [
     "image"
@@ -12,7 +12,7 @@
   "files": [
     {
       "path": "example/Image.vue",
-      "content": "<script setup lang=\"ts\">\nimport { ImageIcon } from 'lucide-vue-next';\nimport { Image } from '@/components/ui/image';\n</script>\n\n<template>\n  <div class=\"grid grid-cols-[repeat(3,minmax(120px,220px))] gap-4 items-center justify-center h-[250px]\">\n    <Image\n      src=\"/avatars/avatar-example.png\"\n      alt=\"Image\"\n    />\n\n    <Image alt=\"Image\">\n      <template #fallback>\n        <div class=\"flex flex-col gap-2 items-center justify-center text-muted-foreground\">\n          NO IMAGE\n        </div>\n      </template>\n    </Image>\n\n    <Image alt=\"Image\">\n      <template #fallback>\n        <div class=\"flex flex-col gap-1 items-center justify-center text-muted-foreground\">\n          <ImageIcon class=\"w-[50%] max-w-[50px] h-[50%] max-h-[50px]\" />\n          no photo\n        </div>\n      </template>\n    </Image>\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { ImageIcon } from '@lucide/vue';\nimport { Image } from '@/components/ui/image';\n</script>\n\n<template>\n  <div class=\"grid grid-cols-[repeat(3,minmax(120px,220px))] gap-4 items-center justify-center h-[250px]\">\n    <Image\n      src=\"/avatars/avatar-example.png\"\n      alt=\"Image\"\n    />\n\n    <Image alt=\"Image\">\n      <template #fallback>\n        <div class=\"flex flex-col gap-2 items-center justify-center text-muted-foreground\">\n          NO IMAGE\n        </div>\n      </template>\n    </Image>\n\n    <Image alt=\"Image\">\n      <template #fallback>\n        <div class=\"flex flex-col gap-1 items-center justify-center text-muted-foreground\">\n          <ImageIcon class=\"w-[50%] max-w-[50px] h-[50%] max-h-[50px]\" />\n          no photo\n        </div>\n      </template>\n    </Image>\n  </div>\n</template>\n",
       "type": "registry:example"
     }
   ]

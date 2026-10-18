@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import {
   SearchIcon,
-} from 'lucide-vue-next';
+} from '@lucide/vue';
 import { computed, ref } from 'vue';
 import { refDebounced } from '@vueuse/core';
 import type { Mail } from '../data/mails';

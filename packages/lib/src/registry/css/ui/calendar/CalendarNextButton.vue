@@ -2,7 +2,7 @@
 import { useAttrs } from 'vue';
 
 import { CalendarNext, type CalendarNextProps, useForwardProps } from 'reka-ui';
-import { ChevronRightIcon } from 'lucide-vue-next';
+import { ChevronRightIcon } from '@lucide/vue';
 import { buttonVariants } from '@ui/registry/css/ui/button';
 defineOptions({
   inheritAttrs: false,

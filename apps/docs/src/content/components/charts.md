@@ -5,7 +5,7 @@ label: Alpha
 ---
 
 <script setup>
-import { ChartAreaIcon, ChartColumnIcon, ChartLineIcon, ChartPieIcon } from 'lucide-vue-next'
+import { ChartAreaIcon, ChartColumnIcon, ChartLineIcon, ChartPieIcon } from '@lucide/vue'
 </script>
 
 ## Chart type

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { CalendarIcon, MoreHorizontalIcon, TagsIcon, TrashIcon, UserIcon } from 'lucide-vue-next';
+import { CalendarIcon, MoreHorizontalIcon, TagsIcon, TrashIcon, UserIcon } from '@lucide/vue';
 import { Button } from '@ui/registry/css/ui/button';
 import {
   Command,

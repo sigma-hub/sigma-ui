@@ -4,7 +4,7 @@
   "type": "registry:example",
   "title": "CodeBlockDestructive",
   "dependencies": [
-    "lucide-vue-next@^1.0.0"
+    "@lucide/vue@^1.59.0"
   ],
   "registryDependencies": [
     "code-block"
@@ -12,7 +12,7 @@
   "files": [
     {
       "path": "example/CodeBlockDestructive.vue",
-      "content": "<script setup lang=\"ts\">\nimport { TriangleAlertIcon } from 'lucide-vue-next';\nimport {\n  CodeBlock,\n  CodeBlockActions,\n  CodeBlockContent,\n  CodeBlockCopyButton,\n  CodeBlockHeader,\n  CodeBlockTitle,\n} from '@/components/ui/code-block';\n\nconst output = `TypeError: Cannot read properties of undefined (reading 'map')\n    at setup (src/components/OrdersTable.vue:18:31)\n    at callWithErrorHandling (runtime-core.esm-bundler.js:199:19)\n    at setupStatefulComponent (runtime-core.esm-bundler.js:7891:25)`;\n</script>\n\n<template>\n  <CodeBlock variant=\"destructive\">\n    <CodeBlockHeader>\n      <CodeBlockTitle>\n        <TriangleAlertIcon />\n        Unhandled error\n      </CodeBlockTitle>\n      <CodeBlockActions>\n        <CodeBlockCopyButton />\n      </CodeBlockActions>\n    </CodeBlockHeader>\n    <CodeBlockContent :code=\"output\" />\n  </CodeBlock>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { TriangleAlertIcon } from '@lucide/vue';\nimport {\n  CodeBlock,\n  CodeBlockActions,\n  CodeBlockContent,\n  CodeBlockCopyButton,\n  CodeBlockHeader,\n  CodeBlockTitle,\n} from '@/components/ui/code-block';\n\nconst output = `TypeError: Cannot read properties of undefined (reading 'map')\n    at setup (src/components/OrdersTable.vue:18:31)\n    at callWithErrorHandling (runtime-core.esm-bundler.js:199:19)\n    at setupStatefulComponent (runtime-core.esm-bundler.js:7891:25)`;\n</script>\n\n<template>\n  <CodeBlock variant=\"destructive\">\n    <CodeBlockHeader>\n      <CodeBlockTitle>\n        <TriangleAlertIcon />\n        Unhandled error\n      </CodeBlockTitle>\n      <CodeBlockActions>\n        <CodeBlockCopyButton />\n      </CodeBlockActions>\n    </CodeBlockHeader>\n    <CodeBlockContent :code=\"output\" />\n  </CodeBlock>\n</template>\n",
       "type": "registry:example"
     }
   ]

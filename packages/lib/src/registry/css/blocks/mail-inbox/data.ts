@@ -9,7 +9,7 @@ import {
   ShoppingCartIcon,
   Trash2Icon,
   UsersIcon,
-} from 'lucide-vue-next';
+} from '@lucide/vue';
 
 export interface FolderLink {
   title: string;

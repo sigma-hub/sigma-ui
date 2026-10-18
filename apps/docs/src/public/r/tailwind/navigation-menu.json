@@ -5,8 +5,8 @@
   "title": "Navigation Menu",
   "description": "A collection of links for navigating websites.",
   "dependencies": [
+    "@lucide/vue@^1.59.0",
     "class-variance-authority@^0.7.1",
-    "lucide-vue-next@^1.0.0",
     "reka-ui@^2.11.0"
   ],
   "registryDependencies": [],
@@ -43,7 +43,7 @@
     },
     {
       "path": "ui/navigation-menu/NavigationMenuTrigger.vue",
-      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport {\n  NavigationMenuTrigger,\n  type NavigationMenuTriggerProps,\n  useForwardProps,\n} from 'reka-ui';\nimport { ChevronDownIcon } from 'lucide-vue-next';\nimport { navigationMenuTriggerStyle } from '.';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<NavigationMenuTriggerProps>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <NavigationMenuTrigger\n    data-slot=\"navigation-menu-trigger\"\n    v-bind=\"{ ...forwardedProps, ...delegatedAttrs() }\"\n    :class=\"cn(navigationMenuTriggerStyle(), 'group', $attrs.class ?? '')\"\n  >\n    <slot />\n    <ChevronDownIcon\n      class=\"relative top-px ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180\"\n      aria-hidden=\"true\"\n    />\n  </NavigationMenuTrigger>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport {\n  NavigationMenuTrigger,\n  type NavigationMenuTriggerProps,\n  useForwardProps,\n} from 'reka-ui';\nimport { ChevronDownIcon } from '@lucide/vue';\nimport { navigationMenuTriggerStyle } from '.';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<NavigationMenuTriggerProps>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <NavigationMenuTrigger\n    data-slot=\"navigation-menu-trigger\"\n    v-bind=\"{ ...forwardedProps, ...delegatedAttrs() }\"\n    :class=\"cn(navigationMenuTriggerStyle(), 'group', $attrs.class ?? '')\"\n  >\n    <slot />\n    <ChevronDownIcon\n      class=\"relative top-px ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180\"\n      aria-hidden=\"true\"\n    />\n  </NavigationMenuTrigger>\n</template>\n",
       "type": "registry:ui"
     },
     {

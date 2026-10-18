@@ -6,7 +6,7 @@ import {
   SettingsIcon,
   SmileIcon,
   UserIcon,
-} from 'lucide-vue-next';
+} from '@lucide/vue';
 import { toast } from '@ui/registry/css/ui/toaster';
 import {
   Command,

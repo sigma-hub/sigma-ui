@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MoreHorizontalIcon } from 'lucide-vue-next';
+import { MoreHorizontalIcon } from '@lucide/vue';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@ui/registry/css/ui/dropdown-menu';
 import { Button } from '@ui/registry/css/ui/button';
 

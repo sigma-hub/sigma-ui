@@ -4,7 +4,7 @@
   "type": "registry:example",
   "title": "ButtonWithIcon",
   "dependencies": [
-    "lucide-vue-next@^1.0.0"
+    "@lucide/vue@^1.59.0"
   ],
   "registryDependencies": [
     "button"
@@ -12,7 +12,7 @@
   "files": [
     {
       "path": "example/ButtonWithIcon.vue",
-      "content": "<script setup lang=\"ts\">\nimport { MailIcon } from 'lucide-vue-next';\nimport { Button } from '@/components/ui/button';\n</script>\n\n<template>\n  <Button>\n    <MailIcon class=\"example-sigma-ui-button-with-icon\" /> Login with Email\n  </Button>\n</template>\n\n<style>\n.example-sigma-ui-button-with-icon {\n  width: calc(var(--spacing) * 4);\n  height: calc(var(--spacing) * 4);\n  margin-right: calc(var(--spacing) * 2);\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\nimport { MailIcon } from '@lucide/vue';\nimport { Button } from '@/components/ui/button';\n</script>\n\n<template>\n  <Button>\n    <MailIcon class=\"example-sigma-ui-button-with-icon\" /> Login with Email\n  </Button>\n</template>\n\n<style>\n.example-sigma-ui-button-with-icon {\n  width: calc(var(--spacing) * 4);\n  height: calc(var(--spacing) * 4);\n  margin-right: calc(var(--spacing) * 2);\n}\n</style>\n",
       "type": "registry:example"
     }
   ]

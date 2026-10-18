@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RotateCcwIcon } from 'lucide-vue-next';
+import { RotateCcwIcon } from '@lucide/vue';
 import { ConfirmButton } from '@ui/registry/tailwind/ui/button';
 </script>
 

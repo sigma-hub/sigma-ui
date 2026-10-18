@@ -5,13 +5,13 @@
   "title": "Spinner",
   "description": "An animated indicator for a loading state.",
   "dependencies": [
-    "lucide-vue-next@^1.0.0"
+    "@lucide/vue@^1.59.0"
   ],
   "registryDependencies": [],
   "files": [
     {
       "path": "ui/spinner/Spinner.vue",
-      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { Loader2Icon } from 'lucide-vue-next';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\ninterface SpinnerProps {\n  /**\n   * Accessible name announced while the spinner is visible.\n   */\n  label?: string;\n}\n\nconst props = withDefaults(defineProps<SpinnerProps>(), {\n  label: 'Loading',\n});\n</script>\n\n<template>\n  <Loader2Icon\n    data-slot=\"spinner\"\n    v-bind=\"delegatedAttrs()\"\n    role=\"status\"\n    :aria-label=\"props.label\"\n    :class=\"cn('size-4 animate-spin', $attrs.class ?? '')\"\n  />\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { Loader2Icon } from '@lucide/vue';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\ninterface SpinnerProps {\n  /**\n   * Accessible name announced while the spinner is visible.\n   */\n  label?: string;\n}\n\nconst props = withDefaults(defineProps<SpinnerProps>(), {\n  label: 'Loading',\n});\n</script>\n\n<template>\n  <Loader2Icon\n    data-slot=\"spinner\"\n    v-bind=\"delegatedAttrs()\"\n    role=\"status\"\n    :aria-label=\"props.label\"\n    :class=\"cn('size-4 animate-spin', $attrs.class ?? '')\"\n  />\n</template>\n",
       "type": "registry:ui"
     },
     {

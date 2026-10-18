@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useAttrs } from 'vue';
 
-import { MoreHorizontalIcon } from 'lucide-vue-next';
+import { MoreHorizontalIcon } from '@lucide/vue';
 defineOptions({
   inheritAttrs: false,
 });

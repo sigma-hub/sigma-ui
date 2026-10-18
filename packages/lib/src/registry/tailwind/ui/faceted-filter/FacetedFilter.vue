@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { CheckIcon, CirclePlusIcon } from 'lucide-vue-next';
+import { CheckIcon, CirclePlusIcon } from '@lucide/vue';
 import { cn } from '@ui/utils';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@ui/registry/tailwind/ui/popover';

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SearchIcon } from 'lucide-vue-next';
+import { SearchIcon } from '@lucide/vue';
 import { Button } from '@ui/registry/css/ui/button';
 import { ButtonGroup, ButtonGroupText } from '@ui/registry/css/ui/button-group';
 import { Input } from '@ui/registry/css/ui/input';

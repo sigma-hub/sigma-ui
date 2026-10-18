@@ -313,7 +313,7 @@ Let's add row actions to our table. We'll use a `<Dropdown />` component for thi
 
 ```vue:line-numbers
 <script setup lang="ts">
-import { MoreHorizontalIcon } from 'lucide-vue-next'
+import { MoreHorizontalIcon } from '@lucide/vue'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { Button } from '@/components/ui/button'
 
@@ -492,7 +492,7 @@ import type {
   SortingState,
 } from '@tanstack/vue-table'
 
-import { ArrowUpDownIcon, ChevronDownIcon } from 'lucide-vue-next'
+import { ArrowUpDownIcon, ChevronDownIcon } from '@lucide/vue'
 import { h, ref } from 'vue'
 
 import {
@@ -551,7 +551,7 @@ We can now update the `email` header cell to add sorting controls.
 import type {
   ColumnDef,
 } from '@tanstack/vue-table'
-import { ArrowUpDownIcon, ChevronDownIcon } from 'lucide-vue-next'
+import { ArrowUpDownIcon, ChevronDownIcon } from '@lucide/vue'
 import { Button } from '@/components/ui/button'
 
 export const columns: ColumnDef<Payment>[] = [
@@ -590,7 +590,7 @@ import type {
 
 import { valueUpdater } from '@ui/utils'
 
-import { ArrowUpDownIcon, ChevronDownIcon } from 'lucide-vue-next'
+import { ArrowUpDownIcon, ChevronDownIcon } from '@lucide/vue'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { h, ref } from 'vue'
@@ -683,7 +683,7 @@ import {
 
 import { valueUpdater } from '@ui/utils'
 
-import { ArrowUpDownIcon, ChevronDownIcon } from 'lucide-vue-next'
+import { ArrowUpDownIcon, ChevronDownIcon } from '@lucide/vue'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { h, ref } from 'vue'
@@ -933,7 +933,7 @@ import {
 
 import { valueUpdater } from '@ui/utils'
 
-import { ArrowUpDownIcon, ChevronDownIcon } from 'lucide-vue-next'
+import { ArrowUpDownIcon, ChevronDownIcon } from '@lucide/vue'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { h, ref } from 'vue'
@@ -1053,7 +1053,7 @@ const table = useVueTable({
 
 ```vue:line-numbers {12-14,34-36}
 <script setup lang="ts">
-import { MoreHorizontalIcon } from 'lucide-vue-next'
+import { MoreHorizontalIcon } from '@lucide/vue'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { Button } from '@/components/ui/button'
 
@@ -1134,7 +1134,7 @@ Make any column header sortable and hideable.
 <script setup lang="ts">
 import type { Column } from '@tanstack/vue-table'
 import { type Task } from '../data/schema'
-import { ArrowDownIcon, ArrowUpIcon, ChevronsUpDownIcon, EyeOffIcon } from 'lucide-vue-next'
+import { ArrowDownIcon, ArrowUpIcon, ChevronsUpDownIcon, EyeOffIcon } from '@lucide/vue'
 
 import { cn } from '@ui/utils'
 import { Button } from '@/components/ui/button'
@@ -1231,7 +1231,7 @@ Add pagination controls to your table including page size and selection count.
 <script setup lang="ts">
 import { type Table } from '@tanstack/vue-table'
 import { type Task } from '../data/schema'
-import { ChevronLeftIcon, ChevronRightIcon, ChevronsLeftIcon, ChevronsRightIcon } from 'lucide-vue-next'
+import { ChevronLeftIcon, ChevronRightIcon, ChevronsLeftIcon, ChevronsRightIcon } from '@lucide/vue'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -1334,7 +1334,7 @@ A component to toggle column visibility.
 import type { Table } from '@tanstack/vue-table'
 import { computed } from 'vue'
 import { type Task } from '../data/schema'
-import { Settings2Icon } from 'lucide-vue-next'
+import { Settings2Icon } from '@lucide/vue'
 
 import { Button } from '@/components/ui/button'
 import {

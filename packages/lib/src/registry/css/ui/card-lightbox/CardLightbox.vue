@@ -2,7 +2,7 @@
 import { onMounted, onUnmounted, ref } from 'vue';
 import { AnimatePresence, motion } from 'motion-v';
 import type { Item } from './types';
-import { XIcon } from 'lucide-vue-next';
+import { XIcon } from '@lucide/vue';
 
 type Props = {
   /** Cards to show in the grid; clicking one expands it into a lightbox. */

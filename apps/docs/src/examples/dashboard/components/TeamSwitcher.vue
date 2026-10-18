@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { CheckIcon, ChevronsUpDownIcon, CirclePlusIcon } from 'lucide-vue-next';
+import { CheckIcon, ChevronsUpDownIcon, CirclePlusIcon } from '@lucide/vue';
 import { cn } from '@ui/utils';
 import { Avatar } from '@ui/registry/tailwind/ui/avatar';
 import { Button } from '@ui/registry/tailwind/ui/button';

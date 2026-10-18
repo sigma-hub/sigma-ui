@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
-import { FileCodeIcon, RotateCcwIcon } from 'lucide-vue-next';
+import { FileCodeIcon, RotateCcwIcon } from '@lucide/vue';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import {
   CodeBlock,

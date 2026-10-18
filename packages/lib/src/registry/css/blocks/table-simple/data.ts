@@ -8,7 +8,7 @@ import {
   CircleIcon,
   CircleXIcon,
   TimerIcon,
-} from 'lucide-vue-next';
+} from '@lucide/vue';
 import { z } from 'zod';
 
 export const taskSchema = z.object({

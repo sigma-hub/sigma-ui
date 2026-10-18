@@ -18,7 +18,7 @@ label: New
 
 ```vue
 <script setup lang="ts">
-import { StarIcon } from 'lucide-vue-next';
+import { StarIcon } from '@lucide/vue';
 import { Rating, RatingItem, RatingItemIndicator } from '@/components/ui/rating';
 </script>
 

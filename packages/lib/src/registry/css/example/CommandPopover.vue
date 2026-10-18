@@ -6,7 +6,7 @@ import {
   CircleIcon,
   HelpCircleIcon,
   XCircleIcon,
-} from 'lucide-vue-next';
+} from '@lucide/vue';
 import { Button } from '@ui/registry/css/ui/button';
 import {
   Command,

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ArchiveIcon, ArrowLeftIcon, ClockIcon, MoreHorizontalIcon, TagIcon, Trash2Icon } from 'lucide-vue-next';
+import { ArchiveIcon, ArrowLeftIcon, ClockIcon, MoreHorizontalIcon, TagIcon, Trash2Icon } from '@lucide/vue';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import { ButtonGroup } from '@ui/registry/tailwind/ui/button-group';
 import {

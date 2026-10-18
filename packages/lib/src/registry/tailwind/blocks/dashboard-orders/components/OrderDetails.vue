@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CopyIcon, CreditCardIcon, MoreVerticalIcon, TruckIcon } from 'lucide-vue-next';
+import { CopyIcon, CreditCardIcon, MoreVerticalIcon, TruckIcon } from '@lucide/vue';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@ui/registry/tailwind/ui/card';
 import {

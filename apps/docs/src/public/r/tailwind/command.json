@@ -5,7 +5,7 @@
   "title": "Command",
   "description": "Composable command menu (command palette) with search.",
   "dependencies": [
-    "lucide-vue-next@^1.0.0",
+    "@lucide/vue@^1.59.0",
     "reka-ui@^2.11.0"
   ],
   "registryDependencies": [
@@ -34,7 +34,7 @@
     },
     {
       "path": "ui/command/CommandInput.vue",
-      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { SearchIcon } from 'lucide-vue-next';\nimport { ComboboxInput, type ComboboxInputProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<ComboboxInputProps>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <div\n    class=\"flex items-center border-b px-3\"\n    cmdk-input-wrapper\n    data-slot=\"command-input\"\n  >\n    <SearchIcon class=\"mr-2 h-4 w-4 shrink-0 opacity-50\" />\n    <ComboboxInput\n      v-bind=\"{ ...forwardedProps, ...delegatedAttrs() }\"\n      auto-focus\n      :class=\"cn('flex h-11 w-full rounded-md bg-transparent py-3 text-sm outline-hidden placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50', $attrs.class ?? '')\"\n    />\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { SearchIcon } from '@lucide/vue';\nimport { ComboboxInput, type ComboboxInputProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<ComboboxInputProps>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <div\n    class=\"flex items-center border-b px-3\"\n    cmdk-input-wrapper\n    data-slot=\"command-input\"\n  >\n    <SearchIcon class=\"mr-2 h-4 w-4 shrink-0 opacity-50\" />\n    <ComboboxInput\n      v-bind=\"{ ...forwardedProps, ...delegatedAttrs() }\"\n      auto-focus\n      :class=\"cn('flex h-11 w-full rounded-md bg-transparent py-3 text-sm outline-hidden placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50', $attrs.class ?? '')\"\n    />\n  </div>\n</template>\n",
       "type": "registry:ui"
     },
     {

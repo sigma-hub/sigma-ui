@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CheckIcon, PlusIcon, SendIcon } from 'lucide-vue-next';
+import { CheckIcon, PlusIcon, SendIcon } from '@lucide/vue';
 import { computed, ref } from 'vue';
 import {
   Card,

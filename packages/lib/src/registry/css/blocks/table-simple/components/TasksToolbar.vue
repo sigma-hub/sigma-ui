@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Table } from '@tanstack/vue-table';
 import { computed } from 'vue';
-import { XIcon } from 'lucide-vue-next';
+import { XIcon } from '@lucide/vue';
 import { Button } from '@ui/registry/css/ui/button';
 import { Input } from '@ui/registry/css/ui/input';
 import {

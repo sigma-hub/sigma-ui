@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MinusIcon, PlusIcon } from 'lucide-vue-next';
+import { MinusIcon, PlusIcon } from '@lucide/vue';
 import { ref } from 'vue';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import {

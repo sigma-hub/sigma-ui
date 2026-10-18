@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ShareIcon } from 'lucide-vue-next';
+import { ShareIcon } from '@lucide/vue';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import ConfigurationDrawer from './ConfigurationDrawer.vue';
 </script>

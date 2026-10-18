@@ -8,7 +8,7 @@ import {
   DialogPortal,
   useForwardPropsEmits,
 } from 'reka-ui';
-import { XIcon } from 'lucide-vue-next';
+import { XIcon } from '@lucide/vue';
 import { reactiveOmit } from '@vueuse/core';
 
 const props = withDefaults(defineProps<DialogContentProps & {

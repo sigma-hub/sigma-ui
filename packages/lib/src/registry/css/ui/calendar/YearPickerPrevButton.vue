@@ -2,7 +2,7 @@
 import { useAttrs } from 'vue';
 
 import { YearPickerPrev, type YearPickerPrevProps, useForwardProps } from 'reka-ui';
-import { ChevronLeftIcon } from 'lucide-vue-next';
+import { ChevronLeftIcon } from '@lucide/vue';
 import { buttonVariants } from '@ui/registry/css/ui/button';
 defineOptions({
   inheritAttrs: false,

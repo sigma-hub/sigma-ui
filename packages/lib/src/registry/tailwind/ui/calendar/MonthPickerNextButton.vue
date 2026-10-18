@@ -2,7 +2,7 @@
 import { useAttrs } from 'vue';
 
 import { MonthPickerNext, type MonthPickerNextProps, useForwardProps } from 'reka-ui';
-import { ChevronRightIcon } from 'lucide-vue-next';
+import { ChevronRightIcon } from '@lucide/vue';
 import { cn } from '@ui/utils';
 import { buttonVariants } from '@ui/registry/tailwind/ui/button';
 defineOptions({

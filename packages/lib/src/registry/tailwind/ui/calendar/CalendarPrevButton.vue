@@ -2,7 +2,7 @@
 import { useAttrs } from 'vue';
 
 import { CalendarPrev, type CalendarPrevProps, useForwardProps } from 'reka-ui';
-import { ChevronLeftIcon } from 'lucide-vue-next';
+import { ChevronLeftIcon } from '@lucide/vue';
 import { cn } from '@ui/utils';
 import { buttonVariants } from '@ui/registry/tailwind/ui/button';
 defineOptions({

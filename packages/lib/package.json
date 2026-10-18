@@ -12,8 +12,9 @@
     "stylelint:fix": "stylelint \"src/**/*.{css,vue}\" --fix"
   },
   "dependencies": {
-    "@formkit/auto-animate": "^0.8.4",
+    "@formkit/auto-animate": "^0.10.0",
     "@internationalized/date": "catalog:",
+    "@lucide/vue": "catalog:",
     "@tanstack/vue-table": "catalog:",
     "@unovis/ts": "^1.7.1",
     "@unovis/vue": "^1.7.1",
@@ -23,7 +24,6 @@
     "date-fns": "catalog:",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-vue": "^8.6.0",
-    "lucide-vue-next": "catalog:",
     "magic-string": "catalog:",
     "motion-v": "catalog:",
     "reka-ui": "catalog:",

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { FolderIcon, HomeIcon, InboxIcon, UsersIcon } from 'lucide-vue-next';
+import { FolderIcon, HomeIcon, InboxIcon, UsersIcon } from '@lucide/vue';
 import { Separator } from '@ui/registry/css/ui/separator';
 import {
   Sidebar,

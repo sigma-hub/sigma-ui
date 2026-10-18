@@ -4,7 +4,7 @@
   "type": "registry:example",
   "title": "ToggleGroupOutline",
   "dependencies": [
-    "lucide-vue-next@^1.0.0"
+    "@lucide/vue@^1.59.0"
   ],
   "registryDependencies": [
     "toggle-group"
@@ -12,7 +12,7 @@
   "files": [
     {
       "path": "example/ToggleGroupOutline.vue",
-      "content": "<script setup lang=\"ts\">\nimport { BoldIcon, ItalicIcon, UnderlineIcon } from 'lucide-vue-next';\nimport { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';\n</script>\n\n<template>\n  <ToggleGroup\n    type=\"multiple\"\n    variant=\"outline\"\n  >\n    <ToggleGroupItem\n      value=\"bold\"\n      aria-label=\"Toggle bold\"\n    >\n      <BoldIcon class=\"example-sigma-ui-toggle-group__icon\" />\n    </ToggleGroupItem>\n    <ToggleGroupItem\n      value=\"italic\"\n      aria-label=\"Toggle italic\"\n    >\n      <ItalicIcon class=\"example-sigma-ui-toggle-group__icon\" />\n    </ToggleGroupItem>\n    <ToggleGroupItem\n      value=\"underline\"\n      aria-label=\"Toggle underline\"\n    >\n      <UnderlineIcon class=\"example-sigma-ui-toggle-group__icon\" />\n    </ToggleGroupItem>\n  </ToggleGroup>\n</template>\n\n<style>\n.example-sigma-ui-toggle-group__icon {\n  width: calc(var(--spacing) * 4);\n  height: calc(var(--spacing) * 4);\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\nimport { BoldIcon, ItalicIcon, UnderlineIcon } from '@lucide/vue';\nimport { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';\n</script>\n\n<template>\n  <ToggleGroup\n    type=\"multiple\"\n    variant=\"outline\"\n  >\n    <ToggleGroupItem\n      value=\"bold\"\n      aria-label=\"Toggle bold\"\n    >\n      <BoldIcon class=\"example-sigma-ui-toggle-group__icon\" />\n    </ToggleGroupItem>\n    <ToggleGroupItem\n      value=\"italic\"\n      aria-label=\"Toggle italic\"\n    >\n      <ItalicIcon class=\"example-sigma-ui-toggle-group__icon\" />\n    </ToggleGroupItem>\n    <ToggleGroupItem\n      value=\"underline\"\n      aria-label=\"Toggle underline\"\n    >\n      <UnderlineIcon class=\"example-sigma-ui-toggle-group__icon\" />\n    </ToggleGroupItem>\n  </ToggleGroup>\n</template>\n\n<style>\n.example-sigma-ui-toggle-group__icon {\n  width: calc(var(--spacing) * 4);\n  height: calc(var(--spacing) * 4);\n}\n</style>\n",
       "type": "registry:example"
     }
   ]

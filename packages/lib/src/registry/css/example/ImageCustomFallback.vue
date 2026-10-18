@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ImageIcon } from 'lucide-vue-next';
+import { ImageIcon } from '@lucide/vue';
 import { Image } from '@ui/registry/css/ui/image';
 </script>
 

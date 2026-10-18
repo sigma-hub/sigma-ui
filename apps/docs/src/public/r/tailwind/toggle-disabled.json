@@ -4,7 +4,7 @@
   "type": "registry:example",
   "title": "ToggleDisabled",
   "dependencies": [
-    "lucide-vue-next@^1.0.0"
+    "@lucide/vue@^1.59.0"
   ],
   "registryDependencies": [
     "toggle"
@@ -12,7 +12,7 @@
   "files": [
     {
       "path": "example/ToggleDisabled.vue",
-      "content": "<script setup lang=\"ts\">\nimport { UnderlineIcon } from 'lucide-vue-next';\nimport { Toggle } from '@/components/ui/toggle';\n</script>\n\n<template>\n  <Toggle\n    aria-label=\"Toggle underline\"\n    disabled\n  >\n    <UnderlineIcon class=\"w-4 h-4\" />\n  </Toggle>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { UnderlineIcon } from '@lucide/vue';\nimport { Toggle } from '@/components/ui/toggle';\n</script>\n\n<template>\n  <Toggle\n    aria-label=\"Toggle underline\"\n    disabled\n  >\n    <UnderlineIcon class=\"w-4 h-4\" />\n  </Toggle>\n</template>\n",
       "type": "registry:example"
     }
   ]

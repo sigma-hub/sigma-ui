@@ -4,7 +4,7 @@ import {
   Package2Icon,
   PanelLeftIcon,
   SearchIcon,
-} from 'lucide-vue-next';
+} from '@lucide/vue';
 import { Button } from '@ui/registry/css/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@ui/registry/css/ui/dropdown-menu';
 import { Input } from '@ui/registry/css/ui/input';

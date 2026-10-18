@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@internationalized/date": "catalog:",
+    "@lucide/vue": "catalog:",
     "@stackblitz/sdk": "^1.11.1",
     "@tanstack/vue-table": "catalog:",
     "@vueuse/core": "catalog:",
@@ -27,7 +28,6 @@
     "clsx": "catalog:",
     "codesandbox": "^2.2.3",
     "date-fns": "catalog:",
-    "lucide-vue-next": "catalog:",
     "magic-string": "catalog:",
     "pinia": "^3.0.4",
     "reka-ui": "catalog:",

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { buttonVariants } from '@ui/registry/tailwind/ui/button';
 import { cn } from '@ui/utils';
-import { GithubIcon } from 'lucide-vue-next';
+import GithubIcon from '../components/GithubIcon.vue';
 import PageHeader from '../components/PageHeader.vue';
 import PageHeaderHeading from '../components/PageHeaderHeading.vue';
 import PageHeaderDescription from '../components/PageHeaderDescription.vue';

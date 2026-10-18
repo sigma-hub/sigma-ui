@@ -183,8 +183,8 @@
       "title": "Avatar",
       "description": "An image element with a fallback for representing the user.",
       "dependencies": [
-        "class-variance-authority@^0.7.1",
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0",
+        "class-variance-authority@^0.7.1"
       ],
       "registryDependencies": [
         "image"
@@ -226,7 +226,7 @@
       "title": "Breadcrumb",
       "description": "Displays the path to the current resource using a hierarchy of links.",
       "dependencies": [
-        "lucide-vue-next@^1.0.0",
+        "@lucide/vue@^1.59.0",
         "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
@@ -275,8 +275,8 @@
       "title": "Button",
       "description": "Displays a button or a component that looks like a button.",
       "dependencies": [
+        "@lucide/vue@^1.59.0",
         "class-variance-authority@^0.7.1",
-        "lucide-vue-next@^1.0.0",
         "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
@@ -332,7 +332,7 @@
       "title": "Calendar",
       "description": "A calendar that lets users view and select dates.",
       "dependencies": [
-        "lucide-vue-next@^1.0.0",
+        "@lucide/vue@^1.59.0",
         "reka-ui@^2.11.0"
       ],
       "registryDependencies": [
@@ -517,8 +517,8 @@
       "title": "Card lightbox",
       "description": "A grid of cards where each card expands into a full view on click.",
       "dependencies": [
-        "lucide-vue-next@^1.0.0",
-        "motion-v@^2.7.0"
+        "@lucide/vue@^1.59.0",
+        "motion-v@^2.8.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -542,9 +542,9 @@
       "title": "Carousel",
       "description": "A carousel with motion and swipe built using Embla.",
       "dependencies": [
+        "@lucide/vue@^1.59.0",
         "@vueuse/core@^14.4.0",
-        "embla-carousel-vue@^8.6.0",
-        "lucide-vue-next@^1.0.0"
+        "embla-carousel-vue@^8.6.0"
       ],
       "registryDependencies": [
         "button"
@@ -755,7 +755,7 @@
       "title": "Checkbox",
       "description": "Customizable checkbox input element.",
       "dependencies": [
-        "lucide-vue-next@^1.0.0",
+        "@lucide/vue@^1.59.0",
         "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
@@ -776,9 +776,9 @@
       "title": "Code Block",
       "description": "Shows code with syntax highlighting, line numbers, diffs, tabs, and a copy button.",
       "dependencies": [
+        "@lucide/vue@^1.59.0",
         "@vueuse/core@^14.4.0",
         "class-variance-authority@^0.7.1",
-        "lucide-vue-next@^1.0.0",
         "reka-ui@^2.11.0",
         "shiki@^4.5.0"
       ],
@@ -1015,7 +1015,7 @@
       "title": "Command",
       "description": "Composable command menu (command palette) with search.",
       "dependencies": [
-        "lucide-vue-next@^1.0.0",
+        "@lucide/vue@^1.59.0",
         "reka-ui@^2.11.0"
       ],
       "registryDependencies": [
@@ -1070,7 +1070,7 @@
       "title": "Context Menu",
       "description": "Displays a menu located at the pointer, triggered by a right-click or a long-press.",
       "dependencies": [
-        "lucide-vue-next@^1.0.0",
+        "@lucide/vue@^1.59.0",
         "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
@@ -1171,8 +1171,8 @@
       "title": "Dialog",
       "description": "Container for displaying content on top of other content.",
       "dependencies": [
+        "@lucide/vue@^1.59.0",
         "@vueuse/core@^14.4.0",
-        "lucide-vue-next@^1.0.0",
         "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
@@ -1289,7 +1289,7 @@
       "title": "Dropdown Menu",
       "description": "Displays a menu located at the trigger element.",
       "dependencies": [
-        "lucide-vue-next@^1.0.0",
+        "@lucide/vue@^1.59.0",
         "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
@@ -1402,7 +1402,7 @@
       "title": "Faceted Filter",
       "description": "A filter component with multi-select options, search functionality, and optional item creation.",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "button",
@@ -1570,8 +1570,8 @@
       "title": "Image",
       "description": "An image element with a fallback.",
       "dependencies": [
+        "@lucide/vue@^1.59.0",
         "class-variance-authority@^0.7.1",
-        "lucide-vue-next@^1.0.0",
         "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
@@ -1773,7 +1773,7 @@
       "title": "Menubar",
       "description": "Common in desktop applications, menu bar that provides quick access to a set of commands.",
       "dependencies": [
-        "lucide-vue-next@^1.0.0",
+        "@lucide/vue@^1.59.0",
         "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
@@ -1850,7 +1850,7 @@
       "title": "Native Select",
       "description": "A styled native select element.",
       "dependencies": [
-        "lucide-vue-next@^1.0.0",
+        "@lucide/vue@^1.59.0",
         "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
@@ -1879,8 +1879,8 @@
       "title": "Navigation Menu",
       "description": "A collection of links for navigating websites.",
       "dependencies": [
+        "@lucide/vue@^1.59.0",
         "class-variance-authority@^0.7.1",
-        "lucide-vue-next@^1.0.0",
         "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
@@ -1929,7 +1929,7 @@
       "title": "Number Field",
       "description": "A number field allows a user to enter a number and increment or decrement the value using stepper buttons.",
       "dependencies": [
-        "lucide-vue-next@^1.0.0",
+        "@lucide/vue@^1.59.0",
         "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
@@ -1966,7 +1966,7 @@
       "title": "Pagination",
       "description": "Displays data in paged format and provides navigation between pages.",
       "dependencies": [
-        "lucide-vue-next@^1.0.0",
+        "@lucide/vue@^1.59.0",
         "reka-ui@^2.11.0"
       ],
       "registryDependencies": [
@@ -2005,7 +2005,7 @@
       "title": "PIN Input",
       "description": "Allows users to input a sequence of one-character alphanumeric inputs.",
       "dependencies": [
-        "lucide-vue-next@^1.0.0",
+        "@lucide/vue@^1.59.0",
         "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
@@ -2086,7 +2086,7 @@
       "title": "Radio Group",
       "description": "A set of checkable buttons, known as radio buttons, where no more than one of the buttons can be checked at a time.",
       "dependencies": [
-        "lucide-vue-next@^1.0.0",
+        "@lucide/vue@^1.59.0",
         "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
@@ -2111,7 +2111,7 @@
       "title": "Range Calendar",
       "description": "A calendar component that allows users to select a range of dates.",
       "dependencies": [
-        "lucide-vue-next@^1.0.0",
+        "@lucide/vue@^1.59.0",
         "reka-ui@^2.11.0"
       ],
       "registryDependencies": [
@@ -2206,7 +2206,7 @@
       "title": "Resizable",
       "description": "Accessible resizable panel groups and layouts with keyboard support.",
       "dependencies": [
-        "lucide-vue-next@^1.0.0",
+        "@lucide/vue@^1.59.0",
         "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
@@ -2255,8 +2255,8 @@
       "title": "Select",
       "description": "Displays a list of options for the user to pick from, triggered by a button.",
       "dependencies": [
+        "@lucide/vue@^1.59.0",
         "@vueuse/core@^14.4.0",
-        "lucide-vue-next@^1.0.0",
         "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
@@ -2337,8 +2337,8 @@
       "title": "Sheet",
       "description": "Extends the Dialog component to display content that complements the main content of the screen.",
       "dependencies": [
+        "@lucide/vue@^1.59.0",
         "class-variance-authority@^0.7.1",
-        "lucide-vue-next@^1.0.0",
         "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
@@ -2387,9 +2387,9 @@
       "title": "Sidebar",
       "description": "A composable, themeable, and collapsible sidebar for application layouts.",
       "dependencies": [
+        "@lucide/vue@^1.59.0",
         "@vueuse/core@^14.4.0",
         "class-variance-authority@^0.7.1",
-        "lucide-vue-next@^1.0.0",
         "reka-ui@^2.11.0"
       ],
       "registryDependencies": [
@@ -2555,7 +2555,7 @@
       "title": "Spinner",
       "description": "An animated indicator for a loading state.",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [],
       "files": [
@@ -2721,7 +2721,7 @@
       "title": "Tags Input",
       "description": "Tag inputs render tags inside an input, followed by an actual text input.",
       "dependencies": [
-        "lucide-vue-next@^1.0.0",
+        "@lucide/vue@^1.59.0",
         "reka-ui@^2.11.0"
       ],
       "registryDependencies": [],
@@ -2955,7 +2955,7 @@
       "title": "Application shell",
       "description": "An application shell built with the Sidebar component. The sidebar collapses to icons and contains a workspace switcher, grouped navigation, and a user footer. The main area has a header with a sidebar trigger and an overview of stats and recent activity.",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "collapsible",
@@ -2999,7 +2999,7 @@
       "title": "AI playground",
       "description": "An AI playground with a sidebar navigation and a main content area. The playground has a header with a settings drawer and a share button. The sidebar has navigation links and a user menu. The main content area shows a form to configure the model and messages.",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "badge",
@@ -3063,7 +3063,7 @@
       "title": "Analytics dashboard",
       "description": "An application shell with a header and main content area. The header has a navbar, a search input and and a user nav dropdown. The user nav is toggled by a button with an avatar image. The main content area is divided into two rows. The first row has a grid of cards with statistics. The second row has a grid of cards with a table of recent transactions and a list of recent sales.",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "avatar",
@@ -3123,7 +3123,7 @@
       "title": "Orders dashboard",
       "description": "An orders dashboard with a sidebar navigation. The sidebar has icon navigation. The content area has a breadcrumb and search in the header. The main area has a list of recent orders with a filter and export button. The main area also has a detailed view of a single order with order details, shipping information, billing information, customer information, and payment information.",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "badge",
@@ -3186,7 +3186,7 @@
       "description": "A dashboard with a team switcher, date range, stat cards, a monthly bar chart, and a list of recent sales.",
       "dependencies": [
         "@internationalized/date@^3.12.4",
-        "lucide-vue-next@^1.0.0",
+        "@lucide/vue@^1.59.0",
         "reka-ui@^2.11.0"
       ],
       "registryDependencies": [
@@ -3253,7 +3253,7 @@
       "title": "Product edit page",
       "description": "A product edit page. The product edit page has a form to edit the product details, stock, product category, product status, and product images. The product edit page has a sidebar navigation and a main content area. The main content area has a form to edit the product details, stock, product category, product status, and product images. The sidebar navigation has links to product details, stock, product category, product status, and product images.",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "badge",
@@ -3330,7 +3330,7 @@
       "title": "Products dashboard",
       "description": "An products dashboard with a sidebar navigation. The sidebar has icon navigation. The content area has a breadcrumb and search in the header. It displays a list of products in a table with actions.",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "badge",
@@ -3380,7 +3380,7 @@
       "title": "Settings page",
       "description": "A settings page. The settings page has a sidebar navigation and a main content area. The main content area has a form to update the store name and a form to update the plugins directory. The sidebar navigation has links to general, security, integrations, support, organizations, and advanced settings.",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "button",
@@ -3439,7 +3439,7 @@
       "title": "Dashboard with sidebar",
       "description": "A products dashboard with a sidebar navigation and a main content area. The dashboard has a header with a search input and a user menu. The sidebar has a logo, navigation links, and a card with a call to action. The main content area shows an empty state with a call to action.",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "badge",
@@ -3582,9 +3582,9 @@
       "title": "Mail inbox",
       "description": "A three-pane mail client. The first pane switches accounts and lists folders. The second pane searches and lists messages, with tabs for all mail and unread mail. The third pane shows the selected message, snooze and reply actions, and a reply form.",
       "dependencies": [
+        "@lucide/vue@^1.59.0",
         "@vueuse/core@^14.4.0",
-        "date-fns@^4.4.0",
-        "lucide-vue-next@^1.0.0"
+        "date-fns@^4.4.0"
       ],
       "registryDependencies": [
         "avatar",
@@ -3645,7 +3645,7 @@
       "description": "A settings page with a section nav and forms for profile, account, appearance, notifications, and display.",
       "dependencies": [
         "@internationalized/date@^3.12.4",
-        "lucide-vue-next@^1.0.0",
+        "@lucide/vue@^1.59.0",
         "reka-ui@^2.11.0",
         "vee-validate@^4.15.1",
         "zod@^4.6.7"
@@ -3773,8 +3773,8 @@
       "title": "Simple table",
       "description": "A tasks page with a user menu and a filterable data table. Tasks can be searched, filtered by status and priority, sorted, and shown or hidden by column.",
       "dependencies": [
+        "@lucide/vue@^1.59.0",
         "@tanstack/vue-table@^8.21.3",
-        "lucide-vue-next@^1.0.0",
         "zod@^4.6.7"
       ],
       "registryDependencies": [
@@ -3914,7 +3914,7 @@
       "type": "registry:example",
       "title": "Alert",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "alert"
@@ -3946,7 +3946,7 @@
       "type": "registry:example",
       "title": "AlertDestructive",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "alert"
@@ -4277,7 +4277,7 @@
       "type": "registry:example",
       "title": "BreadcrumbDropdown",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "breadcrumb",
@@ -4341,7 +4341,7 @@
       "type": "registry:example",
       "title": "BreadcrumbGenerator",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "breadcrumb"
@@ -4393,7 +4393,7 @@
       "type": "registry:example",
       "title": "BreadcrumbSeparator",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "breadcrumb"
@@ -4440,7 +4440,7 @@
       "type": "registry:example",
       "title": "ButtonConfirm",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "button"
@@ -4487,7 +4487,7 @@
       "type": "registry:example",
       "title": "ButtonGroup",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "button",
@@ -4506,7 +4506,7 @@
       "type": "registry:example",
       "title": "ButtonGroupInput",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "button",
@@ -4526,7 +4526,7 @@
       "type": "registry:example",
       "title": "ButtonGroupOrientation",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "button",
@@ -4560,7 +4560,7 @@
       "type": "registry:example",
       "title": "ButtonIcon",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "button"
@@ -4637,7 +4637,7 @@
       "type": "registry:example",
       "title": "ButtonSizes",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "button"
@@ -4654,7 +4654,7 @@
       "type": "registry:example",
       "title": "ButtonWithIcon",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "button"
@@ -4689,7 +4689,7 @@
       "title": "CalendarForm",
       "dependencies": [
         "@internationalized/date@^3.12.4",
-        "lucide-vue-next@^1.0.0",
+        "@lucide/vue@^1.59.0",
         "reka-ui@^2.11.0",
         "vee-validate@^4.15.1",
         "zod@^4.6.7"
@@ -4768,7 +4768,7 @@
       "type": "registry:example",
       "title": "CardChat",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "avatar",
@@ -4825,7 +4825,7 @@
       "type": "registry:example",
       "title": "CardNotifications",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "button",
@@ -4881,9 +4881,9 @@
       "type": "registry:example",
       "title": "ActivityGoal",
       "dependencies": [
+        "@lucide/vue@^1.59.0",
         "@unovis/ts@^1.7.1",
-        "@unovis/vue@^1.7.1",
-        "lucide-vue-next@^1.0.0"
+        "@unovis/vue@^1.7.1"
       ],
       "registryDependencies": [
         "button",
@@ -4901,8 +4901,8 @@
       "type": "registry:example",
       "title": "DataTable",
       "dependencies": [
-        "@tanstack/vue-table@^8.21.3",
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0",
+        "@tanstack/vue-table@^8.21.3"
       ],
       "registryDependencies": [
         "button",
@@ -5159,7 +5159,7 @@
       "type": "registry:example",
       "title": "CodeBlock",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "code-block"
@@ -5176,7 +5176,7 @@
       "type": "registry:example",
       "title": "CodeBlockAnsi",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "code-block"
@@ -5208,7 +5208,7 @@
       "type": "registry:example",
       "title": "CodeBlockDestructive",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "code-block"
@@ -5225,7 +5225,7 @@
       "type": "registry:example",
       "title": "CodeBlockDiff",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "code-block"
@@ -5242,7 +5242,7 @@
       "type": "registry:example",
       "title": "CodeBlockExpand",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "code-block"
@@ -5289,7 +5289,7 @@
       "type": "registry:example",
       "title": "CodeBlockHeader",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "code-block"
@@ -5336,7 +5336,7 @@
       "type": "registry:example",
       "title": "CodeBlockLineNumbers",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "code-block"
@@ -5368,7 +5368,7 @@
       "type": "registry:example",
       "title": "CodeBlockMaxHeight",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "code-block"
@@ -5417,7 +5417,7 @@
       "type": "registry:example",
       "title": "CodeBlockSize",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "code-block"
@@ -5434,7 +5434,7 @@
       "type": "registry:example",
       "title": "CodeBlockStartLine",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "code-block"
@@ -5451,7 +5451,7 @@
       "type": "registry:example",
       "title": "CodeBlockStreaming",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "button",
@@ -5484,7 +5484,7 @@
       "type": "registry:example",
       "title": "CodeBlockThemes",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "code-block"
@@ -5501,7 +5501,7 @@
       "type": "registry:example",
       "title": "CodeBlockWrap",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "code-block"
@@ -5518,7 +5518,7 @@
       "type": "registry:example",
       "title": "Collapsible",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "button",
@@ -5551,7 +5551,7 @@
       "type": "registry:example",
       "title": "Combobox",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "combobox"
@@ -5568,7 +5568,7 @@
       "type": "registry:example",
       "title": "ComboboxTrigger",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "button",
@@ -5586,7 +5586,7 @@
       "type": "registry:example",
       "title": "Command",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "command",
@@ -5622,7 +5622,7 @@
       "type": "registry:example",
       "title": "CommandDropdownMenu",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "button",
@@ -5641,7 +5641,7 @@
       "type": "registry:example",
       "title": "CommandForm",
       "dependencies": [
-        "lucide-vue-next@^1.0.0",
+        "@lucide/vue@^1.59.0",
         "vee-validate@^4.15.1",
         "zod@^4.6.7"
       ],
@@ -5664,7 +5664,7 @@
       "type": "registry:example",
       "title": "CommandPopover",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "button",
@@ -5733,8 +5733,8 @@
       "type": "registry:example",
       "title": "DataTableColumnPinning",
       "dependencies": [
-        "@tanstack/vue-table@^8.21.3",
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0",
+        "@tanstack/vue-table@^8.21.3"
       ],
       "registryDependencies": [
         "button",
@@ -5759,8 +5759,8 @@
       "type": "registry:example",
       "title": "DataTableExample",
       "dependencies": [
-        "@tanstack/vue-table@^8.21.3",
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0",
+        "@tanstack/vue-table@^8.21.3"
       ],
       "registryDependencies": [
         "button",
@@ -5785,7 +5785,7 @@
       "type": "registry:example",
       "title": "DataTableMenu",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "button",
@@ -5932,7 +5932,7 @@
       "title": "DatePicker",
       "dependencies": [
         "@internationalized/date@^3.12.4",
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "button",
@@ -5952,7 +5952,7 @@
       "title": "DatePickerForm",
       "dependencies": [
         "@internationalized/date@^3.12.4",
-        "lucide-vue-next@^1.0.0",
+        "@lucide/vue@^1.59.0",
         "reka-ui@^2.11.0",
         "vee-validate@^4.15.1",
         "zod@^4.6.7"
@@ -5977,7 +5977,7 @@
       "title": "DatePickerMonth",
       "dependencies": [
         "@internationalized/date@^3.12.4",
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "button",
@@ -5997,7 +5997,7 @@
       "title": "DatePickerWithIndependentMonths",
       "dependencies": [
         "@internationalized/date@^3.12.4",
-        "lucide-vue-next@^1.0.0",
+        "@lucide/vue@^1.59.0",
         "reka-ui@^2.11.0"
       ],
       "registryDependencies": [
@@ -6018,7 +6018,7 @@
       "title": "DatePickerWithPresets",
       "dependencies": [
         "@internationalized/date@^3.12.4",
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "button",
@@ -6039,7 +6039,7 @@
       "title": "DatePickerWithRange",
       "dependencies": [
         "@internationalized/date@^3.12.4",
-        "lucide-vue-next@^1.0.0",
+        "@lucide/vue@^1.59.0",
         "reka-ui@^2.11.0"
       ],
       "registryDependencies": [
@@ -6060,7 +6060,7 @@
       "title": "DatePickerYear",
       "dependencies": [
         "@internationalized/date@^3.12.4",
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "button",
@@ -6097,7 +6097,7 @@
       "type": "registry:example",
       "title": "DialogCustomCloseButton",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "button",
@@ -6230,9 +6230,9 @@
       "type": "registry:example",
       "title": "Drawer",
       "dependencies": [
+        "@lucide/vue@^1.59.0",
         "@unovis/ts@^1.7.1",
-        "@unovis/vue@^1.7.1",
-        "lucide-vue-next@^1.0.0"
+        "@unovis/vue@^1.7.1"
       ],
       "registryDependencies": [
         "button",
@@ -6271,7 +6271,7 @@
       "type": "registry:example",
       "title": "DropdownMenu",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "button",
@@ -6338,7 +6338,7 @@
       "type": "registry:example",
       "title": "Empty",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "button",
@@ -6469,7 +6469,7 @@
       "type": "registry:example",
       "title": "HoverCard",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "avatar",
@@ -6488,7 +6488,7 @@
       "type": "registry:example",
       "title": "Image",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "image"
@@ -6520,7 +6520,7 @@
       "type": "registry:example",
       "title": "ImageCustomFallback",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "image"
@@ -6619,7 +6619,7 @@
       "type": "registry:example",
       "title": "InputFormAutoAnimate",
       "dependencies": [
-        "@formkit/auto-animate@^0.8.4",
+        "@formkit/auto-animate@^0.10.0",
         "vee-validate@^4.15.1",
         "zod@^4.6.7"
       ],
@@ -6641,7 +6641,7 @@
       "type": "registry:example",
       "title": "InputGroup",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "input-group"
@@ -6704,7 +6704,7 @@
       "type": "registry:example",
       "title": "InputWithIcon",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "input"
@@ -6737,7 +6737,7 @@
       "type": "registry:example",
       "title": "Item",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "button",
@@ -6755,7 +6755,7 @@
       "type": "registry:example",
       "title": "ItemGroup",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "item"
@@ -7199,7 +7199,7 @@
       "type": "registry:example",
       "title": "Rating",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "rating"
@@ -7394,7 +7394,7 @@
       "type": "registry:example",
       "title": "Sidebar",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "collapsible",
@@ -7413,7 +7413,7 @@
       "type": "registry:example",
       "title": "SidebarControlled",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "button",
@@ -7431,7 +7431,7 @@
       "type": "registry:example",
       "title": "SidebarFloating",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "sidebar"
@@ -7448,7 +7448,7 @@
       "type": "registry:example",
       "title": "SidebarInsetVariant",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "separator",
@@ -7466,7 +7466,7 @@
       "type": "registry:example",
       "title": "SidebarMenuExtras",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "dropdown-menu",
@@ -7998,7 +7998,7 @@
       "type": "registry:example",
       "title": "Toggle",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "toggle"
@@ -8015,7 +8015,7 @@
       "type": "registry:example",
       "title": "ToggleDisabled",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "toggle"
@@ -8032,7 +8032,7 @@
       "type": "registry:example",
       "title": "ToggleGroup",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "toggle-group"
@@ -8049,7 +8049,7 @@
       "type": "registry:example",
       "title": "ToggleGroupDisabled",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "toggle-group"
@@ -8066,7 +8066,7 @@
       "type": "registry:example",
       "title": "ToggleGroupLarge",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "toggle-group"
@@ -8083,7 +8083,7 @@
       "type": "registry:example",
       "title": "ToggleGroupOutline",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "toggle-group"
@@ -8100,7 +8100,7 @@
       "type": "registry:example",
       "title": "ToggleGroupSingle",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "toggle-group"
@@ -8117,7 +8117,7 @@
       "type": "registry:example",
       "title": "ToggleGroupSmall",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "toggle-group"
@@ -8134,7 +8134,7 @@
       "type": "registry:example",
       "title": "ToggleItalic",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "toggle"
@@ -8151,7 +8151,7 @@
       "type": "registry:example",
       "title": "ToggleItalicWithText",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "toggle"
@@ -8168,7 +8168,7 @@
       "type": "registry:example",
       "title": "ToggleLarge",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "toggle"
@@ -8185,7 +8185,7 @@
       "type": "registry:example",
       "title": "ToggleSmall",
       "dependencies": [
-        "lucide-vue-next@^1.0.0"
+        "@lucide/vue@^1.59.0"
       ],
       "registryDependencies": [
         "toggle"

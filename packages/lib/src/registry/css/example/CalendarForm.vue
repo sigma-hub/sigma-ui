@@ -2,7 +2,7 @@
 import { computed, h, ref } from 'vue';
 import { CalendarDate, DateFormatter, getLocalTimeZone, parseDate, today } from '@internationalized/date';
 import { toDate } from 'reka-ui/date';
-import { CalendarIcon } from 'lucide-vue-next';
+import { CalendarIcon } from '@lucide/vue';
 import { useForm } from 'vee-validate';
 import { z } from 'zod';
 import { toast } from '@ui/registry/css/ui/toaster';

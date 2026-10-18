@@ -3,7 +3,7 @@ import { useAttrs } from 'vue';
 
 import { SelectIcon, SelectTrigger, type SelectTriggerProps, useForwardProps } from 'reka-ui';
 import { reactiveOmit } from '@vueuse/core';
-import { ChevronDownIcon } from 'lucide-vue-next';
+import { ChevronDownIcon } from '@lucide/vue';
 defineOptions({
   inheritAttrs: false,
 });

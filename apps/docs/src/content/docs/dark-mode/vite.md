@@ -26,7 +26,7 @@ npm install @vueuse/core
 ```vue
 <script setup lang="ts">
 import { useColorMode } from '@vueuse/core'
-import { MoonIcon, SunIcon } from 'lucide-vue-next'
+import { MoonIcon, SunIcon } from '@lucide/vue'
 import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 

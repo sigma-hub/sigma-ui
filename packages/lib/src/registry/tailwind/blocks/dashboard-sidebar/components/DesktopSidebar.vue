@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BellIcon, Package2Icon } from 'lucide-vue-next';
+import { BellIcon, Package2Icon } from '@lucide/vue';
 import { Badge } from '@ui/registry/tailwind/ui/badge';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import type { NavLink } from '../data';

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { FileIcon, ListFilterIcon, MoreHorizontalIcon, PlusCircleIcon } from 'lucide-vue-next';
+import { FileIcon, ListFilterIcon, MoreHorizontalIcon, PlusCircleIcon } from '@lucide/vue';
 import { Badge } from '@ui/registry/css/ui/badge';
 import { Button } from '@ui/registry/css/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@ui/registry/css/ui/card';

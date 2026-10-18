@@ -111,7 +111,7 @@ describe('createInstallPlan', () => {
     const card: RegistryItem = {
       name: 'card',
       type: 'registry:ui',
-      dependencies: ['reka-ui', 'lucide-vue-next@^0.400.0'],
+      dependencies: ['reka-ui', '@lucide/vue@^0.400.0'],
       files: [{ path: 'ui/card/Card.vue', type: 'registry:ui', content: '<template />\n' }],
     };
 
@@ -129,7 +129,7 @@ describe('createInstallPlan', () => {
       ['src/components/ui/card/Card.vue', 'create'],
     ]);
     expect(plan.files[1].content).toContain('import { cn } from \'@/utils/cn\'');
-    expect(plan.dependencies).toEqual(['lucide-vue-next@^0.400.0', 'reka-ui@^2.0.0']);
+    expect(plan.dependencies).toEqual(['@lucide/vue@^0.400.0', 'reka-ui@^2.0.0']);
   });
 
   it('fails when a registry file has no content', async () => {

@@ -9,6 +9,9 @@ catalogs:
     '@internationalized/date':
       specifier: ^3.12.4
       version: 3.12.4
+    '@lucide/vue':
+      specifier: ^1.59.0
+      version: 1.59.0
     '@oxc-parser/wasm':
       specifier: ^0.49.0
       version: 0.49.0
@@ -57,15 +60,12 @@ catalogs:
     lodash-es:
       specifier: ^4.18.1
       version: 4.18.1
-    lucide-vue-next:
-      specifier: ^1.0.0
-      version: 1.0.0
     magic-string:
       specifier: ^0.30.21
       version: 0.30.21
     motion-v:
-      specifier: ^2.7.0
-      version: 2.7.0
+      specifier: ^2.8.0
+      version: 2.8.0
     nuxt:
       specifier: ^4.6.1
       version: 4.6.1
@@ -177,6 +177,9 @@ importers:
       '@internationalized/date':
         specifier: 'catalog:'
         version: 3.12.4
+      '@lucide/vue':
+        specifier: 'catalog:'
+        version: 1.59.0(vue@3.5.44(typescript@5.9.3))
       '@stackblitz/sdk':
         specifier: ^1.11.1
         version: 1.11.1
@@ -198,9 +201,6 @@ importers:
       date-fns:
         specifier: 'catalog:'
         version: 4.4.0
-      lucide-vue-next:
-        specifier: 'catalog:'
-        version: 1.0.0(vue@3.5.44(typescript@5.9.3))
       magic-string:
         specifier: 'catalog:'
         version: 0.30.21
@@ -405,11 +405,14 @@ importers:
   packages/lib:
     dependencies:
       '@formkit/auto-animate':
-        specifier: ^0.8.4
-        version: 0.8.4
+        specifier: ^0.10.0
+        version: 0.10.0
       '@internationalized/date':
         specifier: 'catalog:'
         version: 3.12.4
+      '@lucide/vue':
+        specifier: 'catalog:'
+        version: 1.59.0(vue@3.5.44(typescript@5.9.3))
       '@tanstack/vue-table':
         specifier: 'catalog:'
         version: 8.21.3(vue@3.5.44(typescript@5.9.3))
@@ -437,15 +440,12 @@ importers:
       embla-carousel-vue:
         specifier: ^8.6.0
         version: 8.6.0(vue@3.5.44(typescript@5.9.3))
-      lucide-vue-next:
-        specifier: 'catalog:'
-        version: 1.0.0(vue@3.5.44(typescript@5.9.3))
       magic-string:
         specifier: 'catalog:'
         version: 0.30.21
       motion-v:
         specifier: 'catalog:'
-        version: 2.7.0(@vueuse/core@14.4.0(vue@3.5.44(typescript@5.9.3)))(vue@3.5.44(typescript@5.9.3))
+        version: 2.8.0(@vueuse/core@14.4.0(vue@3.5.44(typescript@5.9.3)))(vue@3.5.44(typescript@5.9.3))
       reka-ui:
         specifier: 'catalog:'
         version: 2.11.0(vue@3.5.44(typescript@5.9.3))
@@ -568,15 +568,15 @@ importers:
 
   packages/nuxt-module/playground:
     dependencies:
+      '@lucide/vue':
+        specifier: 'catalog:'
+        version: 1.59.0(vue@3.5.44(typescript@5.9.3))
       class-variance-authority:
         specifier: 'catalog:'
         version: 0.7.1
       clsx:
         specifier: 'catalog:'
         version: 2.1.1
-      lucide-vue-next:
-        specifier: 'catalog:'
-        version: 1.0.0(vue@3.5.44(typescript@5.9.3))
       nuxt:
         specifier: 'catalog:'
         version: 4.6.1(@babel/plugin-proposal-decorators@7.25.9(@babel/core@7.29.7))(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7))(@oxc-project/types@0.154.0)(@types/node@24.1.0)(@vue/compiler-sfc@3.5.44)(acorn@8.19.0)(confbox@0.3.1)(db0@0.3.4)(dotenv@17.4.2)(encoding@0.1.13)(esbuild@0.28.2)(eslint@9.20.0(jiti@2.7.0))(giget@3.3.1)(ioredis@5.11.1)(lightningcss@1.33.0)(meow@13.2.0)(mlly@1.8.2)(optionator@0.9.4)(oxc-parser@0.154.0)(pinia@3.0.4(typescript@5.9.3)(vue@3.5.44(typescript@5.9.3)))(rolldown@1.2.14)(rollup-plugin-visualizer@7.1.1(rolldown@1.2.14)(rollup@4.64.7))(rollup@4.64.7)(srvx@1.0.5)(stylelint@16.26.1(typescript@5.9.3))(terser@5.38.1)(tsx@4.23.15)(typescript@5.9.3)(vite@8.3.4(@types/node@24.1.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.38.1)(tsx@4.23.15)(yaml@2.9.1))(yaml@2.9.1)
@@ -1828,8 +1828,8 @@ packages:
     peerDependencies:
       vue: '>=3.3.0'
 
-  '@formkit/auto-animate@0.8.4':
-    resolution: {integrity: sha512-DHHC01EJ1p70Q0z/ZFRBIY8NDnmfKccQoyoM84Tgb6omLMat6jivCdf272Y8k3nf4Lzdin/Y4R9q8uFtU0GbnA==}
+  '@formkit/auto-animate@0.10.0':
+    resolution: {integrity: sha512-KGomRttjUfORuPUaR/ZGQw+6xfMrTM+sxnILv7JAd9AmabU9rg9i6gF/iC0Ih+QpKCubJpCA/1DX9UHKE8cX+A==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -1938,6 +1938,11 @@ packages:
 
   '@keyv/serialize@1.1.1':
     resolution: {integrity: sha512-dXn3FZhPv0US+7dtJsIi2R+c7qWYiReoEh5zUntWCf4oSpMNib8FDhSoed6m3QyZdx5hK7iLFkYk3rNxwt8vTA==}
+
+  '@lucide/vue@1.59.0':
+    resolution: {integrity: sha512-X7O3FCwECqmVV9h6l2dPxksuiJx9/gszRTj15aOKsxsfU4jr+p7vUVFILn7K38fG8wfSmsy8jPVS9muDdTt0MA==}
+    peerDependencies:
+      vue: '>=3.0.1'
 
   '@manypkg/find-root@3.1.0':
     resolution: {integrity: sha512-BcSqCyKhBVZ5YkSzOiheMCV41kqAFptW6xGqYSTjkVTl9XQpr+pqHhwgGCOHQtjDCv7Is6EFyA14Sm5GVbVABA==}
@@ -4901,8 +4906,8 @@ packages:
   fraction.js@5.3.4:
     resolution: {integrity: sha512-1X1NTtiJphryn/uLQz3whtY6jK3fTqoE3ohKs0tT+Ujr1W59oopxmoEh7Lu5p6vBaPbgoM0bzveAW4Qi5RyWDQ==}
 
-  framer-motion@14.1.1:
-    resolution: {integrity: sha512-kPp3cepIYM8KS7Ro7+izapfcO11/qk3MCBswbEEllNRPNbq2ttekDhTJTQMuWLD8PbLi9idh5SvJbUtdxJiDzw==}
+  framer-motion@14.3.0:
+    resolution: {integrity: sha512-d8WCrU0ZQn7ukKMykCsDyIOwb/taZeDqqrDBK0du5GO0AO/ynz8fdR/LIIz9Pyy3n3tGwrneR+n0egyrrLa3fw==}
     peerDependencies:
       react: ^18.0.0 || ^19.0.0
       react-dom: ^18.0.0 || ^19.0.0
@@ -5811,12 +5816,6 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
-  lucide-vue-next@1.0.0:
-    resolution: {integrity: sha512-V6SPvx1IHTj/UY+FrIYWV5faISsPSb8BnWSFDxAtezWKvWc9ZZ40PDrdu1/Qb5vg4lHWr1hs1BAMGVGm6V1Xdg==}
-    deprecated: Package deprecated. Please use @lucide/vue instead.
-    peerDependencies:
-      vue: '>=3.0.1'
-
   lz-string@1.5.0:
     resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
     hasBin: true
@@ -6014,14 +6013,14 @@ packages:
   mocked-exports@0.1.1:
     resolution: {integrity: sha512-aF7yRQr/Q0O2/4pIXm6PZ5G+jAd7QS4Yu8m+WEeEHGnbo+7mE36CbLSDQiXYV8bVL3NfmdeqPJct0tUlnjVSnA==}
 
-  motion-dom@14.1.1:
-    resolution: {integrity: sha512-xfVexSRsNlB8kkZRK2xyMJt8xnh38Vt6iX9O3h1UScBlfhuu6cSB0sPoEwALEaRVAkcizvHYq/a1uqbrR9AuhQ==}
+  motion-dom@14.3.0:
+    resolution: {integrity: sha512-rcKO4aEJzAqDEsrH6qFzhLZxs7bNqZpiUEuEATz9LaRwt6dG7hZEbcFUSHNR8NECaKYM0Iuw6Iv6NpWEGXDI+w==}
 
   motion-utils@14.1.1:
     resolution: {integrity: sha512-3VvN5Uvf8B6qG+OfOui6Nht5EWp+vLuU3IqcAj7ItZGKqtmTjCebl5sGZF7/08gEHRnEl1AP/fIwbcEyVrcQGQ==}
 
-  motion-v@2.7.0:
-    resolution: {integrity: sha512-/14UHEVFe+ms0As46tArqhVjB4r6cFgIxmvx0qsYwhRoXWeCcvP/KKlLBC6MX0uUJqS73sDa3Jt/DbC/S+nUvg==}
+  motion-v@2.8.0:
+    resolution: {integrity: sha512-kCwxm+EUbXW/lUdhTyozTKCX2WmQ5aDrjrPtFnUKByw99cz6mQAJyqtIubGdecnDM4VvNz8JOhWy2upp3m5b3w==}
     peerDependencies:
       '@vueuse/core': '>=10.0.0'
       vue: '>=3.0.0'
@@ -9780,7 +9779,7 @@ snapshots:
       '@floating-ui/utils': 0.2.12
       vue: 3.5.44(typescript@5.9.3)
 
-  '@formkit/auto-animate@0.8.4': {}
+  '@formkit/auto-animate@0.10.0': {}
 
   '@humanfs/core@0.19.1': {}
 
@@ -9899,6 +9898,10 @@ snapshots:
       keyv: 5.6.0
 
   '@keyv/serialize@1.1.1': {}
+
+  '@lucide/vue@1.59.0(vue@3.5.44(typescript@5.9.3))':
+    dependencies:
+      vue: 3.5.44(typescript@5.9.3)
 
   '@manypkg/find-root@3.1.0':
     dependencies:
@@ -14267,9 +14270,9 @@ snapshots:
 
   fraction.js@5.3.4: {}
 
-  framer-motion@14.1.1:
+  framer-motion@14.3.0:
     dependencies:
-      motion-dom: 14.1.1
+      motion-dom: 14.3.0
       motion-utils: 14.1.1
       tslib: 2.8.1
 
@@ -15156,10 +15159,6 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
-  lucide-vue-next@1.0.0(vue@3.5.44(typescript@5.9.3)):
-    dependencies:
-      vue: 3.5.44(typescript@5.9.3)
-
   lz-string@1.5.0: {}
 
   magic-regexp@0.11.2(esbuild@0.28.2)(rolldown@1.2.14)(rollup@4.64.7)(vite@8.3.4(@types/node@22.15.21)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.38.1)(tsx@4.23.15)(yaml@2.9.1)):
@@ -15420,18 +15419,18 @@ snapshots:
 
   mocked-exports@0.1.1: {}
 
-  motion-dom@14.1.1:
+  motion-dom@14.3.0:
     dependencies:
       motion-utils: 14.1.1
 
   motion-utils@14.1.1: {}
 
-  motion-v@2.7.0(@vueuse/core@14.4.0(vue@3.5.44(typescript@5.9.3)))(vue@3.5.44(typescript@5.9.3)):
+  motion-v@2.8.0(@vueuse/core@14.4.0(vue@3.5.44(typescript@5.9.3)))(vue@3.5.44(typescript@5.9.3)):
     dependencies:
       '@vueuse/core': 14.4.0(vue@3.5.44(typescript@5.9.3))
-      framer-motion: 14.1.1
+      framer-motion: 14.3.0
       hey-listen: 1.0.8
-      motion-dom: 14.1.1
+      motion-dom: 14.3.0
       motion-utils: 14.1.1
       vue: 3.5.44(typescript@5.9.3)
     transitivePeerDependencies:

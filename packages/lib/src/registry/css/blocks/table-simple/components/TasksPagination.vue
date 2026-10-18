@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Table } from '@tanstack/vue-table';
-import { ChevronLeftIcon, ChevronRightIcon, ChevronsLeftIcon, ChevronsRightIcon } from 'lucide-vue-next';
+import { ChevronLeftIcon, ChevronRightIcon, ChevronsLeftIcon, ChevronsRightIcon } from '@lucide/vue';
 import { Button } from '@ui/registry/css/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@ui/registry/css/ui/select';
 import {

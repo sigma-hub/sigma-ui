@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useAttrs } from 'vue';
 
-import { UserIcon } from 'lucide-vue-next';
+import { UserIcon } from '@lucide/vue';
 import { avatarVariants } from '.';
 import { Image, type ImageVariants } from '@ui/registry/css/ui/image';
 defineOptions({

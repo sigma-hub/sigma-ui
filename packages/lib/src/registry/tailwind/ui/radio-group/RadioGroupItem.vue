@@ -7,7 +7,7 @@ import {
   type RadioGroupItemProps,
   useForwardProps,
 } from 'reka-ui';
-import { CircleIcon } from 'lucide-vue-next';
+import { CircleIcon } from '@lucide/vue';
 import { cn } from '@ui/utils';
 defineOptions({
   inheritAttrs: false,

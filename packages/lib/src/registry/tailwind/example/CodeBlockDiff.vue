@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { FileCodeIcon } from 'lucide-vue-next';
+import { FileCodeIcon } from '@lucide/vue';
 import {
   CodeBlock,
   CodeBlockActions,

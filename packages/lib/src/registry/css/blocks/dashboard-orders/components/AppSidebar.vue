@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Package2Icon } from 'lucide-vue-next';
+import { Package2Icon } from '@lucide/vue';
 import {
   Tooltip,
   TooltipContent,

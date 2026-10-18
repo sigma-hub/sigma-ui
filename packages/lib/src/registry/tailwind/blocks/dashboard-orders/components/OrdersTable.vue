@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { FileIcon, ListFilterIcon } from 'lucide-vue-next';
+import { FileIcon, ListFilterIcon } from '@lucide/vue';
 import { Badge } from '@ui/registry/tailwind/ui/badge';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@ui/registry/tailwind/ui/card';

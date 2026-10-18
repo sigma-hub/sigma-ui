@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { HomeIcon, MonitorIcon, PackageIcon, SquareLibrary } from 'lucide-vue-next';
+import { HomeIcon, MonitorIcon, PackageIcon, SquareLibrary } from '@lucide/vue';
 import { BreadcrumbGenerator } from '@ui/registry/css/ui/breadcrumb';
 
 const basicExampleHome = { label: 'Home', url: '/' };

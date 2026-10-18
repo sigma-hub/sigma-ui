@@ -5,8 +5,8 @@
   "title": "Tags Input",
   "description": "Tag inputs render tags inside an input, followed by an actual text input.",
   "dependencies": [
+    "@lucide/vue@^1.59.0",
     "@vueuse/core@^14.4.0",
-    "lucide-vue-next@^1.0.0",
     "reka-ui@^2.11.0"
   ],
   "registryDependencies": [],
@@ -28,7 +28,7 @@
     },
     {
       "path": "ui/tags-input/TagsInputItemDelete.vue",
-      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { TagsInputItemDelete, type TagsInputItemDeleteProps, useForwardProps } from 'reka-ui';\nimport { XIcon } from 'lucide-vue-next';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<TagsInputItemDeleteProps>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <TagsInputItemDelete\n    data-slot=\"tags-input-item-delete\"\n    v-bind=\"{ ...forwardedProps, ...delegatedAttrs() }\"\n    :class=\"cn('flex rounded bg-transparent mr-1', $attrs.class ?? '')\"\n  >\n    <slot>\n      <XIcon class=\"w-4 h-4\" />\n    </slot>\n  </TagsInputItemDelete>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { TagsInputItemDelete, type TagsInputItemDeleteProps, useForwardProps } from 'reka-ui';\nimport { XIcon } from '@lucide/vue';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<TagsInputItemDeleteProps>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <TagsInputItemDelete\n    data-slot=\"tags-input-item-delete\"\n    v-bind=\"{ ...forwardedProps, ...delegatedAttrs() }\"\n    :class=\"cn('flex rounded bg-transparent mr-1', $attrs.class ?? '')\"\n  >\n    <slot>\n      <XIcon class=\"w-4 h-4\" />\n    </slot>\n  </TagsInputItemDelete>\n</template>\n",
       "type": "registry:ui"
     },
     {

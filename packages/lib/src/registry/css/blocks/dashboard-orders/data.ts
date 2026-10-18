@@ -6,7 +6,7 @@ import {
   SettingsIcon,
   ShoppingCartIcon,
   Users2Icon,
-} from 'lucide-vue-next';
+} from '@lucide/vue';
 
 export interface NavItem {
   label: string;

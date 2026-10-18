@@ -4,7 +4,7 @@
   "type": "registry:example",
   "title": "ToggleGroup",
   "dependencies": [
-    "lucide-vue-next@^1.0.0"
+    "@lucide/vue@^1.59.0"
   ],
   "registryDependencies": [
     "toggle-group"
@@ -12,7 +12,7 @@
   "files": [
     {
       "path": "example/ToggleGroup.vue",
-      "content": "<script setup lang=\"ts\">\nimport { BoldIcon, ItalicIcon, UnderlineIcon } from 'lucide-vue-next';\nimport { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';\n</script>\n\n<template>\n  <ToggleGroup type=\"multiple\">\n    <ToggleGroupItem\n      value=\"bold\"\n      aria-label=\"Toggle bold\"\n    >\n      <BoldIcon class=\"h-4 w-4\" />\n    </ToggleGroupItem>\n    <ToggleGroupItem\n      value=\"italic\"\n      aria-label=\"Toggle italic\"\n    >\n      <ItalicIcon class=\"h-4 w-4\" />\n    </ToggleGroupItem>\n    <ToggleGroupItem\n      value=\"underline\"\n      aria-label=\"Toggle underline\"\n    >\n      <UnderlineIcon class=\"h-4 w-4\" />\n    </ToggleGroupItem>\n  </ToggleGroup>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { BoldIcon, ItalicIcon, UnderlineIcon } from '@lucide/vue';\nimport { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';\n</script>\n\n<template>\n  <ToggleGroup type=\"multiple\">\n    <ToggleGroupItem\n      value=\"bold\"\n      aria-label=\"Toggle bold\"\n    >\n      <BoldIcon class=\"h-4 w-4\" />\n    </ToggleGroupItem>\n    <ToggleGroupItem\n      value=\"italic\"\n      aria-label=\"Toggle italic\"\n    >\n      <ItalicIcon class=\"h-4 w-4\" />\n    </ToggleGroupItem>\n    <ToggleGroupItem\n      value=\"underline\"\n      aria-label=\"Toggle underline\"\n    >\n      <UnderlineIcon class=\"h-4 w-4\" />\n    </ToggleGroupItem>\n  </ToggleGroup>\n</template>\n",
       "type": "registry:example"
     }
   ]

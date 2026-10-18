@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useClipboard } from '@vueuse/core';
-import { CheckIcon, CopyIcon } from 'lucide-vue-next';
+import { CheckIcon, CopyIcon } from '@lucide/vue';
 import { INSTALL_COMMANDS, PACKAGE_MANAGERS, RUN_COMMANDS, useSelectedPackageManager } from '../utils/package-manager';
 
 const props = defineProps<{

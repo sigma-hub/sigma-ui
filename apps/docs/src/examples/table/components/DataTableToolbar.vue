@@ -3,7 +3,7 @@ import type { Table } from '@tanstack/vue-table';
 import { computed } from 'vue';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import { Input } from '@ui/registry/tailwind/ui/input';
-import { XIcon } from 'lucide-vue-next';
+import { XIcon } from '@lucide/vue';
 import type { Table as TableSchema } from '../data/schema';
 import { priorities, statuses } from '../data/data';
 import DataTableFacetedFilter from './DataTableFacetedFilter.vue';

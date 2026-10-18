@@ -2,7 +2,7 @@
 import { useAttrs } from 'vue';
 
 import { SplitterResizeHandle, type SplitterResizeHandleEmits, type SplitterResizeHandleProps, useForwardPropsEmits } from 'reka-ui';
-import { GripVerticalIcon } from 'lucide-vue-next';
+import { GripVerticalIcon } from '@lucide/vue';
 defineOptions({
   inheritAttrs: false,
 });

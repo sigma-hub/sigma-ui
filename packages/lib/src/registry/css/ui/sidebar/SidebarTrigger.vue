@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PanelLeftIcon } from 'lucide-vue-next';
+import { PanelLeftIcon } from '@lucide/vue';
 import { VisuallyHidden } from 'reka-ui';
 import { Button } from '@ui/registry/css/ui/button';
 import { useSidebar } from './utils';

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PlusCircleIcon } from 'lucide-vue-next';
+import { PlusCircleIcon } from '@lucide/vue';
 import { Button } from '@ui/registry/css/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@ui/registry/css/ui/card';
 import { Input } from '@ui/registry/css/ui/input';

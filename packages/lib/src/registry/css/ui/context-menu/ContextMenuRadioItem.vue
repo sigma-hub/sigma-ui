@@ -8,7 +8,7 @@ import {
   type ContextMenuRadioItemProps,
   useForwardPropsEmits,
 } from 'reka-ui';
-import { CircleIcon } from 'lucide-vue-next';
+import { CircleIcon } from '@lucide/vue';
 defineOptions({
   inheritAttrs: false,
 });

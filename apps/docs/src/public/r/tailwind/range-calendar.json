@@ -5,7 +5,7 @@
   "title": "Range Calendar",
   "description": "A calendar component that allows users to select a range of dates.",
   "dependencies": [
-    "lucide-vue-next@^1.0.0",
+    "@lucide/vue@^1.59.0",
     "reka-ui@^2.11.0"
   ],
   "registryDependencies": [
@@ -64,12 +64,12 @@
     },
     {
       "path": "ui/range-calendar/RangeCalendarNextButton.vue",
-      "content": "<script lang=\"ts\" setup>\nimport { useAttrs } from 'vue';\n\nimport { RangeCalendarNext, type RangeCalendarNextProps, useForwardProps } from 'reka-ui';\nimport { ChevronRightIcon } from 'lucide-vue-next';\nimport { cn } from '@/lib/utils';\nimport { buttonVariants } from '@/components/ui/button';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<RangeCalendarNextProps>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <RangeCalendarNext\n    data-slot=\"range-calendar-next-button\"\n    v-bind=\"{ ...forwardedProps, ...delegatedAttrs() }\"\n    :class=\"cn(\n      buttonVariants({ variant: 'outline' }),\n      'h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100',\n      $attrs.class ?? '',\n    )\"\n  >\n    <slot>\n      <ChevronRightIcon class=\"h-4 w-4\" />\n    </slot>\n  </RangeCalendarNext>\n</template>\n",
+      "content": "<script lang=\"ts\" setup>\nimport { useAttrs } from 'vue';\n\nimport { RangeCalendarNext, type RangeCalendarNextProps, useForwardProps } from 'reka-ui';\nimport { ChevronRightIcon } from '@lucide/vue';\nimport { cn } from '@/lib/utils';\nimport { buttonVariants } from '@/components/ui/button';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<RangeCalendarNextProps>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <RangeCalendarNext\n    data-slot=\"range-calendar-next-button\"\n    v-bind=\"{ ...forwardedProps, ...delegatedAttrs() }\"\n    :class=\"cn(\n      buttonVariants({ variant: 'outline' }),\n      'h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100',\n      $attrs.class ?? '',\n    )\"\n  >\n    <slot>\n      <ChevronRightIcon class=\"h-4 w-4\" />\n    </slot>\n  </RangeCalendarNext>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/range-calendar/RangeCalendarPrevButton.vue",
-      "content": "<script lang=\"ts\" setup>\nimport { useAttrs } from 'vue';\n\nimport { RangeCalendarPrev, type RangeCalendarPrevProps, useForwardProps } from 'reka-ui';\nimport { ChevronLeftIcon } from 'lucide-vue-next';\nimport { cn } from '@/lib/utils';\nimport { buttonVariants } from '@/components/ui/button';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<RangeCalendarPrevProps>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <RangeCalendarPrev\n    data-slot=\"range-calendar-prev-button\"\n    v-bind=\"{ ...forwardedProps, ...delegatedAttrs() }\"\n    :class=\"cn(\n      buttonVariants({ variant: 'outline' }),\n      'h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100',\n      $attrs.class ?? '',\n    )\"\n  >\n    <slot>\n      <ChevronLeftIcon class=\"h-4 w-4\" />\n    </slot>\n  </RangeCalendarPrev>\n</template>\n",
+      "content": "<script lang=\"ts\" setup>\nimport { useAttrs } from 'vue';\n\nimport { RangeCalendarPrev, type RangeCalendarPrevProps, useForwardProps } from 'reka-ui';\nimport { ChevronLeftIcon } from '@lucide/vue';\nimport { cn } from '@/lib/utils';\nimport { buttonVariants } from '@/components/ui/button';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<RangeCalendarPrevProps>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <RangeCalendarPrev\n    data-slot=\"range-calendar-prev-button\"\n    v-bind=\"{ ...forwardedProps, ...delegatedAttrs() }\"\n    :class=\"cn(\n      buttonVariants({ variant: 'outline' }),\n      'h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100',\n      $attrs.class ?? '',\n    )\"\n  >\n    <slot>\n      <ChevronLeftIcon class=\"h-4 w-4\" />\n    </slot>\n  </RangeCalendarPrev>\n</template>\n",
       "type": "registry:ui"
     },
     {

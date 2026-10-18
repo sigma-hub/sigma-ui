@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useData } from 'vitepress';
-import { CodeXmlIcon, ExternalLinkIcon, FolderGit2Icon } from 'lucide-vue-next';
+import { CodeXmlIcon, ExternalLinkIcon, FolderGit2Icon } from '@lucide/vue';
 import DocsBreadcrumb from '../components/DocsBreadcrumb.vue';
 import { useActiveStyleSystem } from '../composables/useActiveStyleSystem';
 import { SOURCE_CODE_PAGE_LINK } from '@/consts/app';

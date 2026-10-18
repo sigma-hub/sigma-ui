@@ -4,7 +4,7 @@ import { h, ref } from 'vue';
 import * as z from 'zod';
 import { toDate } from 'reka-ui/date';
 import { CalendarDate, DateFormatter, getLocalTimeZone, today } from '@internationalized/date';
-import { CalendarIcon, CheckIcon, ChevronsUpDownIcon } from 'lucide-vue-next';
+import { CalendarIcon, CheckIcon, ChevronsUpDownIcon } from '@lucide/vue';
 import { toast } from '@ui/registry/tailwind/ui/toaster';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import { Calendar } from '@ui/registry/tailwind/ui/calendar';

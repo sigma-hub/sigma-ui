@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ShieldIcon } from 'lucide-vue-next';
+import { ShieldIcon } from '@lucide/vue';
 import { Button } from '@ui/registry/css/ui/button';
 import { Item, ItemActions, ItemContent, ItemDescription, ItemMedia, ItemTitle } from '@ui/registry/css/ui/item';
 </script>

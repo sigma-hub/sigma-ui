@@ -6,7 +6,7 @@ import {
   type NavigationMenuTriggerProps,
   useForwardProps,
 } from 'reka-ui';
-import { ChevronDownIcon } from 'lucide-vue-next';
+import { ChevronDownIcon } from '@lucide/vue';
 import { navigationMenuTriggerStyle } from '.';
 import { cn } from '@ui/utils';
 defineOptions({

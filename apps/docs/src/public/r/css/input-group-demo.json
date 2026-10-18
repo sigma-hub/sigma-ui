@@ -4,7 +4,7 @@
   "type": "registry:example",
   "title": "InputGroup",
   "dependencies": [
-    "lucide-vue-next@^1.0.0"
+    "@lucide/vue@^1.59.0"
   ],
   "registryDependencies": [
     "input-group"
@@ -12,7 +12,7 @@
   "files": [
     {
       "path": "example/InputGroup.vue",
-      "content": "<script setup lang=\"ts\">\nimport { SearchIcon } from 'lucide-vue-next';\nimport { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from '@/components/ui/input-group';\n</script>\n\n<template>\n  <InputGroup class=\"example-input-group\">\n    <InputGroupAddon>\n      <SearchIcon />\n    </InputGroupAddon>\n    <InputGroupInput placeholder=\"Search docs...\" />\n    <InputGroupAddon align=\"inline-end\">\n      <InputGroupButton>Search</InputGroupButton>\n    </InputGroupAddon>\n  </InputGroup>\n</template>\n\n<style>\n.example-input-group {\n  max-width: 24rem;\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\nimport { SearchIcon } from '@lucide/vue';\nimport { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from '@/components/ui/input-group';\n</script>\n\n<template>\n  <InputGroup class=\"example-input-group\">\n    <InputGroupAddon>\n      <SearchIcon />\n    </InputGroupAddon>\n    <InputGroupInput placeholder=\"Search docs...\" />\n    <InputGroupAddon align=\"inline-end\">\n      <InputGroupButton>Search</InputGroupButton>\n    </InputGroupAddon>\n  </InputGroup>\n</template>\n\n<style>\n.example-input-group {\n  max-width: 24rem;\n}\n</style>\n",
       "type": "registry:example"
     }
   ]

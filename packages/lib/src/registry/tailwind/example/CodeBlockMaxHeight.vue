@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ScrollTextIcon } from 'lucide-vue-next';
+import { ScrollTextIcon } from '@lucide/vue';
 import {
   CodeBlock,
   CodeBlockActions,

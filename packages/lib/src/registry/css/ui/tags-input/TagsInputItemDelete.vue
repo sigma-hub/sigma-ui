@@ -2,7 +2,7 @@
 import { useAttrs } from 'vue';
 
 import { TagsInputItemDelete, type TagsInputItemDeleteProps, useForwardProps } from 'reka-ui';
-import { XIcon } from 'lucide-vue-next';
+import { XIcon } from '@lucide/vue';
 defineOptions({
   inheritAttrs: false,
 });

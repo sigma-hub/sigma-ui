@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { nextTick, ref, watch, useAttrs } from 'vue';
 import { useForwardProps } from 'reka-ui';
-import { ImageIcon, LoaderCircleIcon } from 'lucide-vue-next';
+import { ImageIcon, LoaderCircleIcon } from '@lucide/vue';
 import { type ImageVariants, imageVariants } from '.';
 defineOptions({
   inheritAttrs: false,

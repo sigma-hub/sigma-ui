@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { StarIcon } from 'lucide-vue-next';
+import { StarIcon } from '@lucide/vue';
 import { Rating, RatingItem, RatingItemIndicator } from '@ui/registry/css/ui/rating';
 
 const value = ref(3);

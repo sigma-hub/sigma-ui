@@ -2,7 +2,7 @@
 import { useAttrs } from 'vue';
 
 import { SelectScrollUpButton, type SelectScrollUpButtonProps, useForwardProps } from 'reka-ui';
-import { ChevronUpIcon } from 'lucide-vue-next';
+import { ChevronUpIcon } from '@lucide/vue';
 import { cn } from '@ui/utils';
 defineOptions({
   inheritAttrs: false,

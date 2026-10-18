@@ -1,5 +1,5 @@
 import type { Component } from 'vue';
-import { ActivityIcon, CreditCardIcon, DollarSignIcon, UsersIcon } from 'lucide-vue-next';
+import { ActivityIcon, CreditCardIcon, DollarSignIcon, UsersIcon } from '@lucide/vue';
 
 export interface NavLink {
   label: string;

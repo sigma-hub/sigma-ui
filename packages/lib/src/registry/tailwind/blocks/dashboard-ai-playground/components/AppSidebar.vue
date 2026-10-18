@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TriangleIcon } from 'lucide-vue-next';
+import { TriangleIcon } from '@lucide/vue';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@ui/registry/tailwind/ui/tooltip';
 import { primaryNavItems, secondaryNavItems } from '../data';

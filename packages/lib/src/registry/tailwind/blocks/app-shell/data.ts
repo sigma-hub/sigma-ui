@@ -4,7 +4,7 @@ import {
   LayoutDashboardIcon,
   Settings2Icon,
   SquareTerminalIcon,
-} from 'lucide-vue-next';
+} from '@lucide/vue';
 
 export interface ShellLink {
   title: string;

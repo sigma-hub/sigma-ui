@@ -15,7 +15,7 @@ import {
   getSortedRowModel,
   useVueTable,
 } from '@tanstack/vue-table';
-import { ArrowUpDownIcon, ChevronDownIcon } from 'lucide-vue-next';
+import { ArrowUpDownIcon, ChevronDownIcon } from '@lucide/vue';
 import { h, ref } from 'vue';
 import DropdownAction from './DataTableMenu.vue';
 import { Button } from '@ui/registry/css/ui/button';

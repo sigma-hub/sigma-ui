@@ -9,7 +9,7 @@ import {
   MoreHorizontalIcon,
   Settings2Icon,
   SquareTerminalIcon,
-} from 'lucide-vue-next';
+} from '@lucide/vue';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@ui/registry/tailwind/ui/collapsible';
 import { Separator } from '@ui/registry/tailwind/ui/separator';
 import {

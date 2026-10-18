@@ -6,7 +6,7 @@ import {
   type ContextMenuSubTriggerProps,
   useForwardProps,
 } from 'reka-ui';
-import { ChevronRightIcon } from 'lucide-vue-next';
+import { ChevronRightIcon } from '@lucide/vue';
 defineOptions({
   inheritAttrs: false,
 });

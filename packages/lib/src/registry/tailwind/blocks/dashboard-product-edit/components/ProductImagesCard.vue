@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { UploadIcon } from 'lucide-vue-next';
+import { UploadIcon } from '@lucide/vue';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@ui/registry/tailwind/ui/card';
 import { mainProductImage, productThumbnails } from '../data';
 </script>

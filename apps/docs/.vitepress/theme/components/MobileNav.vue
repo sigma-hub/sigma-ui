@@ -12,7 +12,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@ui/registry/tailwind/ui/tooltip';
-import { InfoIcon } from 'lucide-vue-next';
+import { InfoIcon } from '@lucide/vue';
 import StyleSwitcher from '../components/StyleSwitcher.vue';
 import CodeConfigCustomizer from '../components/CodeConfigCustomizer.vue';
 import ThemePopover from '../components/ThemePopover.vue';

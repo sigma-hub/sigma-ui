@@ -2,7 +2,7 @@
 import { h, ref } from 'vue';
 import { FieldArray, useForm } from 'vee-validate';
 import * as z from 'zod';
-import { XIcon } from 'lucide-vue-next';
+import { XIcon } from '@lucide/vue';
 import { toast } from '@ui/registry/tailwind/ui/toaster';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@ui/registry/tailwind/ui/form';

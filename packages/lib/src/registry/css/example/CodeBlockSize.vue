@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { WrenchIcon } from 'lucide-vue-next';
+import { WrenchIcon } from '@lucide/vue';
 import {
   CodeBlock,
   CodeBlockActions,

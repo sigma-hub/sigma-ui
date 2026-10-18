@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Primitive, type PrimitiveProps, useForwardProps } from 'reka-ui';
-import { DotIcon } from 'lucide-vue-next';
+import { DotIcon } from '@lucide/vue';
 
 const props = defineProps<PrimitiveProps>();
 const forwardedProps = useForwardProps(props);

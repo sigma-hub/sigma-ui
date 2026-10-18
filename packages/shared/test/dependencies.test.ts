@@ -33,11 +33,11 @@ describe('classifyImportSources', () => {
 
   it('adds npm dependencies with versions and companion packages', () => {
     const result = classifyImportSources(
-      ['reka-ui', 'lucide-vue-next', '@unovis/vue', 'vue', '@ui/utils'],
-      { packageVersions: { 'reka-ui': '^2.2.1', '@unovis/vue': '^1.5.0', '@unovis/ts': '^1.5.0', 'lucide-vue-next': 'catalog:' } },
+      ['reka-ui', '@lucide/vue', '@unovis/vue', 'vue', '@ui/utils'],
+      { packageVersions: { 'reka-ui': '^2.2.1', '@unovis/vue': '^1.5.0', '@unovis/ts': '^1.5.0', '@lucide/vue': 'catalog:' } },
     );
 
-    expect(result.dependencies).toEqual(['@unovis/ts@^1.5.0', '@unovis/vue@^1.5.0', 'lucide-vue-next', 'reka-ui@^2.2.1']);
+    expect(result.dependencies).toEqual(['@lucide/vue', '@unovis/ts@^1.5.0', '@unovis/vue@^1.5.0', 'reka-ui@^2.2.1']);
   });
 });
 

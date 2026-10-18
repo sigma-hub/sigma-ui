@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SearchIcon } from 'lucide-vue-next';
+import { SearchIcon } from '@lucide/vue';
 import { Input } from '@ui/registry/tailwind/ui/input';
 
 defineProps<{

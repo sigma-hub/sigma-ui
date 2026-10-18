@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Row } from '@tanstack/vue-table';
 import { computed } from 'vue';
-import { EllipsisIcon } from 'lucide-vue-next';
+import { EllipsisIcon } from '@lucide/vue';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import {
   DropdownMenu,

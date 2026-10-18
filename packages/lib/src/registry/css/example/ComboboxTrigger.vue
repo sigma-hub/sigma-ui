@@ -12,7 +12,7 @@ import {
   ComboboxList,
   ComboboxTrigger,
 } from '@ui/registry/css/ui/combobox';
-import { CheckIcon, ChevronsUpDownIcon, SearchIcon } from 'lucide-vue-next';
+import { CheckIcon, ChevronsUpDownIcon, SearchIcon } from '@lucide/vue';
 
 const frameworks = [
   { value: 'next.js', label: 'Next.js' },

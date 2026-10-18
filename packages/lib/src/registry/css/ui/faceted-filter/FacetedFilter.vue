@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { CheckIcon, CirclePlusIcon } from 'lucide-vue-next';
+import { CheckIcon, CirclePlusIcon } from '@lucide/vue';
 import { Button } from '@ui/registry/css/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@ui/registry/css/ui/popover';
 import { Separator } from '@ui/registry/css/ui/separator';

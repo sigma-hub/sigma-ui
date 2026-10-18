@@ -2,7 +2,7 @@
 import { useAttrs } from 'vue';
 
 import { PaginationPrev, type PaginationPrevProps } from 'reka-ui';
-import { ChevronLeftIcon } from 'lucide-vue-next';
+import { ChevronLeftIcon } from '@lucide/vue';
 import {
   Button,
 } from '@ui/registry/tailwind/ui/button';

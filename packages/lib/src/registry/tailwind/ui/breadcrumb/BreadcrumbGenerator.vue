@@ -2,7 +2,7 @@
 import { useAttrs } from 'vue';
 
 import type { Component } from 'vue';
-import { ChevronRightIcon } from 'lucide-vue-next';
+import { ChevronRightIcon } from '@lucide/vue';
 import {
   Breadcrumb,
   BreadcrumbItem as BreadcrumbItemComponent,

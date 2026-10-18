@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BellIcon, UserIcon } from 'lucide-vue-next';
+import { BellIcon, UserIcon } from '@lucide/vue';
 import { Item, ItemContent, ItemDescription, ItemGroup, ItemMedia, ItemSeparator, ItemTitle } from '@ui/registry/tailwind/ui/item';
 </script>
 

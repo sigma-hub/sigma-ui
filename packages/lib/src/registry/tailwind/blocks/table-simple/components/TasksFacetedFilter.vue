@@ -2,7 +2,7 @@
 import type { Column } from '@tanstack/vue-table';
 import type { Component } from 'vue';
 import { computed, ref } from 'vue';
-import { CheckIcon, CirclePlusIcon } from 'lucide-vue-next';
+import { CheckIcon, CirclePlusIcon } from '@lucide/vue';
 import { cn } from '@ui/utils';
 import { Badge } from '@ui/registry/tailwind/ui/badge';
 import { Button } from '@ui/registry/tailwind/ui/button';

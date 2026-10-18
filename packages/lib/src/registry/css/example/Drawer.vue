@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { MinusIcon, PlusIcon } from 'lucide-vue-next';
+import { MinusIcon, PlusIcon } from '@lucide/vue';
 import { VisStackedBar, VisXYContainer } from '@unovis/vue';
 import { Button } from '@ui/registry/css/ui/button';
 import {

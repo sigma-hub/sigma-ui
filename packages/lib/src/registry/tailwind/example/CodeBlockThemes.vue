@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PaletteIcon } from 'lucide-vue-next';
+import { PaletteIcon } from '@lucide/vue';
 import {
   type CodeBlockThemes,
   CodeBlock,

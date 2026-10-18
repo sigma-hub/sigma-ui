@@ -2,7 +2,7 @@
 import { useAttrs } from 'vue';
 
 import { PaginationNext, type PaginationNextProps } from 'reka-ui';
-import { ChevronRightIcon } from 'lucide-vue-next';
+import { ChevronRightIcon } from '@lucide/vue';
 import { Button } from '@ui/registry/css/ui/button';
 defineOptions({
   inheritAttrs: false,

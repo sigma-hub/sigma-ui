@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TerminalIcon } from 'lucide-vue-next';
+import { TerminalIcon } from '@lucide/vue';
 import { Alert, AlertDescription, AlertTitle } from '@ui/registry/css/ui/alert';
 </script>
 

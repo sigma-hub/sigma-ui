@@ -4,7 +4,7 @@ import {
   CalendarIcon,
   ChevronLeft,
   ChevronRight,
-} from 'lucide-vue-next';
+} from '@lucide/vue';
 import {
   CalendarDate,
   type DateValue,

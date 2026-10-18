@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useResizeObserver } from '@vueuse/core';
-import { ChevronDownIcon, FileCodeIcon } from 'lucide-vue-next';
+import { ChevronDownIcon, FileCodeIcon } from '@lucide/vue';
 import { useCodePathRewrite } from '../composables/useCodePathRewrite';
 
 defineProps<{

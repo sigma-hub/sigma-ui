@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, nextTick, useAttrs, useTemplateRef } from 'vue';
-import { ChevronDownIcon } from 'lucide-vue-next';
+import { ChevronDownIcon } from '@lucide/vue';
 import { Button, type ButtonVariants } from '@ui/registry/tailwind/ui/button';
 import { useCodeBlockContext } from '@ui/registry/shared/ui/code-block/code-block-state';
 import { cn } from '@ui/utils';

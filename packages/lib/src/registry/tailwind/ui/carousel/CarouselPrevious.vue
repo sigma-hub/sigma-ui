@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useAttrs } from 'vue';
 
-import { ArrowLeftIcon } from 'lucide-vue-next';
+import { ArrowLeftIcon } from '@lucide/vue';
 import { useCarousel } from './useCarousel';
 import { cn } from '@ui/utils';
 import { Button } from '@ui/registry/tailwind/ui/button';

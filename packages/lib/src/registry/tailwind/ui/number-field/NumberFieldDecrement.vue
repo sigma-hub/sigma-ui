@@ -3,7 +3,7 @@ import { useAttrs } from 'vue';
 
 import type { NumberFieldDecrementProps } from 'reka-ui';
 import { NumberFieldDecrement, useForwardProps } from 'reka-ui';
-import { MinusIcon } from 'lucide-vue-next';
+import { MinusIcon } from '@lucide/vue';
 import { cn } from '@ui/utils';
 defineOptions({
   inheritAttrs: false,

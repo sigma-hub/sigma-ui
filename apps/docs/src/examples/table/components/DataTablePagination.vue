@@ -8,7 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@ui/registry/tailwind/ui/select';
-import { ChevronLeftIcon, ChevronRightIcon, ChevronsLeftIcon, ChevronsRightIcon } from 'lucide-vue-next';
+import { ChevronLeftIcon, ChevronRightIcon, ChevronsLeftIcon, ChevronsRightIcon } from '@lucide/vue';
 import type { Task } from '../data/schema';
 
 interface DataTablePaginationProps {

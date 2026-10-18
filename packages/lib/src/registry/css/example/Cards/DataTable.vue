@@ -14,7 +14,7 @@ import {
   useVueTable,
 } from '@tanstack/vue-table';
 import { h, ref } from 'vue';
-import { ChevronDownIcon, ChevronsUpDownIcon } from 'lucide-vue-next';
+import { ChevronDownIcon, ChevronsUpDownIcon } from '@lucide/vue';
 import DropdownAction from '../DataTableMenu.vue';
 import { Button } from '@ui/registry/css/ui/button';
 import { Checkbox } from '@ui/registry/css/ui/checkbox';

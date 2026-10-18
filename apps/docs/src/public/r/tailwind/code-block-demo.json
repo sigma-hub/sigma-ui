@@ -4,7 +4,7 @@
   "type": "registry:example",
   "title": "CodeBlock",
   "dependencies": [
-    "lucide-vue-next@^1.0.0"
+    "@lucide/vue@^1.59.0"
   ],
   "registryDependencies": [
     "code-block"
@@ -12,7 +12,7 @@
   "files": [
     {
       "path": "example/CodeBlock.vue",
-      "content": "<script setup lang=\"ts\">\nimport { FileCodeIcon } from 'lucide-vue-next';\nimport {\n  CodeBlock,\n  CodeBlockActions,\n  CodeBlockContent,\n  CodeBlockCopyButton,\n  CodeBlockHeader,\n  CodeBlockTitle,\n  CodeBlockWrapButton,\n  useHighlightedCode,\n} from '@/components/ui/code-block';\n\nconst code = `<script setup lang=\"ts\">\nimport { ref } from 'vue';\n\nconst count = ref(0);\n\nfunction increment() {\n  count.value++;\n}\n<\\u002Fscript>\n\n<template>\n  <button type=\"button\" @click=\"increment\">\n    Clicked {{ count }} times\n  </button>\n</template>`;\n\nconst { lines } = useHighlightedCode(code, 'vue');\n</script>\n\n<template>\n  <CodeBlock>\n    <CodeBlockHeader>\n      <CodeBlockTitle>\n        <FileCodeIcon />\n        components/Counter.vue\n      </CodeBlockTitle>\n      <CodeBlockActions>\n        <CodeBlockWrapButton />\n        <CodeBlockCopyButton />\n      </CodeBlockActions>\n    </CodeBlockHeader>\n    <CodeBlockContent\n      :code=\"code\"\n      :lines=\"lines\"\n      language=\"vue\"\n      line-numbers\n      highlight-lines=\"4,6-8\"\n    />\n  </CodeBlock>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { FileCodeIcon } from '@lucide/vue';\nimport {\n  CodeBlock,\n  CodeBlockActions,\n  CodeBlockContent,\n  CodeBlockCopyButton,\n  CodeBlockHeader,\n  CodeBlockTitle,\n  CodeBlockWrapButton,\n  useHighlightedCode,\n} from '@/components/ui/code-block';\n\nconst code = `<script setup lang=\"ts\">\nimport { ref } from 'vue';\n\nconst count = ref(0);\n\nfunction increment() {\n  count.value++;\n}\n<\\u002Fscript>\n\n<template>\n  <button type=\"button\" @click=\"increment\">\n    Clicked {{ count }} times\n  </button>\n</template>`;\n\nconst { lines } = useHighlightedCode(code, 'vue');\n</script>\n\n<template>\n  <CodeBlock>\n    <CodeBlockHeader>\n      <CodeBlockTitle>\n        <FileCodeIcon />\n        components/Counter.vue\n      </CodeBlockTitle>\n      <CodeBlockActions>\n        <CodeBlockWrapButton />\n        <CodeBlockCopyButton />\n      </CodeBlockActions>\n    </CodeBlockHeader>\n    <CodeBlockContent\n      :code=\"code\"\n      :lines=\"lines\"\n      language=\"vue\"\n      line-numbers\n      highlight-lines=\"4,6-8\"\n    />\n  </CodeBlock>\n</template>\n",
       "type": "registry:example"
     }
   ]

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useAttrs } from 'vue';
 
-import { SearchIcon } from 'lucide-vue-next';
+import { SearchIcon } from '@lucide/vue';
 import { ComboboxInput, type ComboboxInputProps, useForwardProps } from 'reka-ui';
 defineOptions({
   inheritAttrs: false,

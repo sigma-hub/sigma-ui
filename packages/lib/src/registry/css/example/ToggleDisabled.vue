@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { UnderlineIcon } from 'lucide-vue-next';
+import { UnderlineIcon } from '@lucide/vue';
 import { Toggle } from '@ui/registry/css/ui/toggle';
 </script>
 

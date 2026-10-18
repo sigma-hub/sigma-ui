@@ -3,7 +3,7 @@ import { computed, ref } from 'vue';
 import { useClipboard } from '@vueuse/core';
 import { template } from 'lodash-es';
 import { Button } from '@ui/registry/tailwind/ui/button';
-import { CheckIcon, CopyIcon } from 'lucide-vue-next';
+import { CheckIcon, CopyIcon } from '@lucide/vue';
 import { TAILWIND_STYLES_WITH_VARS_TEMPLATE } from '@sigma-ui/shared/templates/tailwind-styles';
 import { CSS_STYLES_WITH_VARS_TEMPLATE } from '@sigma-ui/shared/templates/css-styles';
 import { useConfigStore } from '@/stores/config';

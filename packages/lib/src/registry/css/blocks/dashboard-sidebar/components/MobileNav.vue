@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MenuIcon, Package2Icon } from 'lucide-vue-next';
+import { MenuIcon, Package2Icon } from '@lucide/vue';
 import { Badge } from '@ui/registry/css/ui/badge';
 import { Button } from '@ui/registry/css/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@ui/registry/css/ui/sheet';

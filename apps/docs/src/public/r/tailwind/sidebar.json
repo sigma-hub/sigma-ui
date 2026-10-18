@@ -5,9 +5,9 @@
   "title": "Sidebar",
   "description": "A composable, themeable, and collapsible sidebar for application layouts.",
   "dependencies": [
+    "@lucide/vue@^1.59.0",
     "@vueuse/core@^14.4.0",
     "class-variance-authority@^0.7.1",
-    "lucide-vue-next@^1.0.0",
     "reka-ui@^2.11.0"
   ],
   "registryDependencies": [
@@ -136,7 +136,7 @@
     },
     {
       "path": "ui/sidebar/SidebarTrigger.vue",
-      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { PanelLeftIcon } from 'lucide-vue-next';\nimport { Button } from '@/components/ui/button';\nimport { cn } from '@/lib/utils';\nimport { useSidebar } from './utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\ndefineSlots<{\n  /**\n   * Custom trigger icon. Defaults to a panel icon.\n   */\n  default?: () => unknown;\n}>();\n\nconst { toggleSidebar } = useSidebar();\n</script>\n\n<template>\n  <Button\n    data-slot=\"sidebar-trigger\"\n    v-bind=\"delegatedAttrs()\"\n    data-sidebar=\"trigger\"\n    variant=\"ghost\"\n    size=\"icon\"\n    :class=\"cn('size-7', $attrs.class ?? '')\"\n    @click=\"toggleSidebar\"\n  >\n    <slot>\n      <PanelLeftIcon class=\"size-4\" />\n    </slot>\n    <span class=\"sr-only\">Toggle Sidebar</span>\n  </Button>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { PanelLeftIcon } from '@lucide/vue';\nimport { Button } from '@/components/ui/button';\nimport { cn } from '@/lib/utils';\nimport { useSidebar } from './utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\ndefineSlots<{\n  /**\n   * Custom trigger icon. Defaults to a panel icon.\n   */\n  default?: () => unknown;\n}>();\n\nconst { toggleSidebar } = useSidebar();\n</script>\n\n<template>\n  <Button\n    data-slot=\"sidebar-trigger\"\n    v-bind=\"delegatedAttrs()\"\n    data-sidebar=\"trigger\"\n    variant=\"ghost\"\n    size=\"icon\"\n    :class=\"cn('size-7', $attrs.class ?? '')\"\n    @click=\"toggleSidebar\"\n  >\n    <slot>\n      <PanelLeftIcon class=\"size-4\" />\n    </slot>\n    <span class=\"sr-only\">Toggle Sidebar</span>\n  </Button>\n</template>\n",
       "type": "registry:ui"
     },
     {

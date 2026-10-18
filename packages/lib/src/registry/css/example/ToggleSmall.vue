@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ItalicIcon } from 'lucide-vue-next';
+import { ItalicIcon } from '@lucide/vue';
 import { Toggle } from '@ui/registry/css/ui/toggle';
 </script>
 

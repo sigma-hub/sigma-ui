@@ -5,7 +5,7 @@ import {
   DateFormatter,
   getLocalTimeZone,
 } from '@internationalized/date';
-import { CalendarIcon } from 'lucide-vue-next';
+import { CalendarIcon } from '@lucide/vue';
 import type { DateRange } from 'reka-ui';
 import { RangeCalendar } from '@ui/registry/css/ui/range-calendar';
 import { Button } from '@ui/registry/css/ui/button';

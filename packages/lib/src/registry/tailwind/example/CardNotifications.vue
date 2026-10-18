@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useAttrs } from 'vue';
 
-import { BellRingIcon, CheckIcon } from 'lucide-vue-next';
+import { BellRingIcon, CheckIcon } from '@lucide/vue';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import {
   Card,

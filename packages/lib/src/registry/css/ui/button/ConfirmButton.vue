@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { CheckIcon } from 'lucide-vue-next';
+import { CheckIcon } from '@lucide/vue';
 import { Button } from '.';
 import { type ButtonVariants } from '.';
 

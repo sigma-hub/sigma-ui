@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { InfoIcon, MonitorIcon, SmartphoneIcon, TabletIcon } from 'lucide-vue-next';
+import { InfoIcon, MonitorIcon, SmartphoneIcon, TabletIcon } from '@lucide/vue';
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
 import { DEFAULT_COMPONENTS, DEFAULT_UTILS } from '@sigma-ui/shared/consts';
 import { Badge } from '@ui/registry/tailwind/ui/badge';

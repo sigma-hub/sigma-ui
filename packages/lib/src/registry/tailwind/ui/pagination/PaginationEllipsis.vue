@@ -2,7 +2,7 @@
 import { useAttrs } from 'vue';
 
 import { PaginationEllipsis, type PaginationEllipsisProps } from 'reka-ui';
-import { MoreHorizontalIcon } from 'lucide-vue-next';
+import { MoreHorizontalIcon } from '@lucide/vue';
 import { cn } from '@ui/utils';
 defineOptions({
   inheritAttrs: false,

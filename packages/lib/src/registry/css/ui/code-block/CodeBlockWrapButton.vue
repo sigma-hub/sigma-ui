@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, useAttrs } from 'vue';
-import { WrapTextIcon } from 'lucide-vue-next';
+import { WrapTextIcon } from '@lucide/vue';
 import { Button, type ButtonVariants } from '@ui/registry/css/ui/button';
 import { useCodeBlockContext } from '@ui/registry/shared/ui/code-block/code-block-state';
 defineOptions({

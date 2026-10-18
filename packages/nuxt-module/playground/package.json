@@ -9,9 +9,9 @@
     "components": "nuxt prepare && SIGMA_UI_REGISTRY_URL=../../../apps/docs/src/public/r node ../../cli/dist/index.js add accordion badge button card --overwrite --cwd ."
   },
   "dependencies": {
+    "@lucide/vue": "catalog:",
     "class-variance-authority": "catalog:",
     "clsx": "catalog:",
-    "lucide-vue-next": "catalog:",
     "nuxt": "catalog:",
     "reka-ui": "catalog:",
     "sigma-ui-nuxt": "workspace:*",

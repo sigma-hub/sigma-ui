@@ -4,7 +4,7 @@
   "type": "registry:example",
   "title": "InputWithIcon",
   "dependencies": [
-    "lucide-vue-next@^1.0.0"
+    "@lucide/vue@^1.59.0"
   ],
   "registryDependencies": [
     "input"
@@ -12,7 +12,7 @@
   "files": [
     {
       "path": "example/InputWithIcon.vue",
-      "content": "<script setup lang=\"ts\">\nimport { SearchIcon } from 'lucide-vue-next';\nimport { Input } from '@/components/ui/input';\n</script>\n\n<template>\n  <div class=\"relative w-full max-w-sm items-center\">\n    <Input\n      id=\"search\"\n      type=\"text\"\n      placeholder=\"Search...\"\n      class=\"pl-10\"\n    />\n    <span class=\"absolute start-0 inset-y-0 flex items-center justify-center px-2\">\n      <SearchIcon class=\"size-6 text-muted-foreground\" />\n    </span>\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { SearchIcon } from '@lucide/vue';\nimport { Input } from '@/components/ui/input';\n</script>\n\n<template>\n  <div class=\"relative w-full max-w-sm items-center\">\n    <Input\n      id=\"search\"\n      type=\"text\"\n      placeholder=\"Search...\"\n      class=\"pl-10\"\n    />\n    <span class=\"absolute start-0 inset-y-0 flex items-center justify-center px-2\">\n      <SearchIcon class=\"size-6 text-muted-foreground\" />\n    </span>\n  </div>\n</template>\n",
       "type": "registry:example"
     }
   ]

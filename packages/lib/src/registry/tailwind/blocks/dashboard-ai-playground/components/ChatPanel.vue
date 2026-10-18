@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CornerDownLeftIcon } from 'lucide-vue-next';
+import { CornerDownLeftIcon } from '@lucide/vue';
 import { Badge } from '@ui/registry/tailwind/ui/badge';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import { Label } from '@ui/registry/tailwind/ui/label';

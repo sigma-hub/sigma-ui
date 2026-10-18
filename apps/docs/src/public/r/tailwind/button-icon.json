@@ -4,7 +4,7 @@
   "type": "registry:example",
   "title": "ButtonIcon",
   "dependencies": [
-    "lucide-vue-next@^1.0.0"
+    "@lucide/vue@^1.59.0"
   ],
   "registryDependencies": [
     "button"
@@ -12,7 +12,7 @@
   "files": [
     {
       "path": "example/ButtonIcon.vue",
-      "content": "<script setup lang=\"ts\">\nimport { ChevronRightIcon } from 'lucide-vue-next';\nimport { Button } from '@/components/ui/button';\n</script>\n\n<template>\n  <Button\n    variant=\"outline\"\n    size=\"icon\"\n  >\n    <ChevronRightIcon class=\"w-4 h-4\" />\n  </Button>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { ChevronRightIcon } from '@lucide/vue';\nimport { Button } from '@/components/ui/button';\n</script>\n\n<template>\n  <Button\n    variant=\"outline\"\n    size=\"icon\"\n  >\n    <ChevronRightIcon class=\"w-4 h-4\" />\n  </Button>\n</template>\n",
       "type": "registry:example"
     }
   ]

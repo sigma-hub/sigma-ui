@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { CheckboxRootEmits, CheckboxRootProps } from 'reka-ui';
 import { CheckboxIndicator, CheckboxRoot, useForwardPropsEmits } from 'reka-ui';
-import { CheckIcon } from 'lucide-vue-next';
+import { CheckIcon } from '@lucide/vue';
 
 interface Props extends CheckboxRootProps {
   /** Text label rendered next to the checkbox. */

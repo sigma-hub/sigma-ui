@@ -5,7 +5,7 @@
   "title": "Number Field",
   "description": "A number field allows a user to enter a number and increment or decrement the value using stepper buttons.",
   "dependencies": [
-    "lucide-vue-next@^1.0.0",
+    "@lucide/vue@^1.59.0",
     "reka-ui@^2.11.0"
   ],
   "registryDependencies": [],
@@ -22,12 +22,12 @@
     },
     {
       "path": "ui/number-field/NumberFieldDecrement.vue",
-      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport type { NumberFieldDecrementProps } from 'reka-ui';\nimport { NumberFieldDecrement, useForwardProps } from 'reka-ui';\nimport { MinusIcon } from 'lucide-vue-next';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<NumberFieldDecrementProps>();\n\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <NumberFieldDecrement\n    data-slot=\"decrement\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :class=\"cn('absolute top-1/2 -translate-y-1/2 left-0 p-3 disabled:cursor-not-allowed disabled:opacity-20', $attrs.class ?? '')\"\n  >\n    <slot>\n      <MinusIcon class=\"h-4 w-4\" />\n    </slot>\n  </NumberFieldDecrement>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport type { NumberFieldDecrementProps } from 'reka-ui';\nimport { NumberFieldDecrement, useForwardProps } from 'reka-ui';\nimport { MinusIcon } from '@lucide/vue';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<NumberFieldDecrementProps>();\n\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <NumberFieldDecrement\n    data-slot=\"decrement\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :class=\"cn('absolute top-1/2 -translate-y-1/2 left-0 p-3 disabled:cursor-not-allowed disabled:opacity-20', $attrs.class ?? '')\"\n  >\n    <slot>\n      <MinusIcon class=\"h-4 w-4\" />\n    </slot>\n  </NumberFieldDecrement>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "ui/number-field/NumberFieldIncrement.vue",
-      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport type { NumberFieldIncrementProps } from 'reka-ui';\nimport { NumberFieldIncrement, useForwardProps } from 'reka-ui';\nimport { PlusIcon } from 'lucide-vue-next';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<NumberFieldIncrementProps>();\n\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <NumberFieldIncrement\n    data-slot=\"increment\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :class=\"cn('absolute top-1/2 -translate-y-1/2 right-0 disabled:cursor-not-allowed disabled:opacity-20 p-3', $attrs.class ?? '')\"\n  >\n    <slot>\n      <PlusIcon class=\"h-4 w-4\" />\n    </slot>\n  </NumberFieldIncrement>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport type { NumberFieldIncrementProps } from 'reka-ui';\nimport { NumberFieldIncrement, useForwardProps } from 'reka-ui';\nimport { PlusIcon } from '@lucide/vue';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<NumberFieldIncrementProps>();\n\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <NumberFieldIncrement\n    data-slot=\"increment\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :class=\"cn('absolute top-1/2 -translate-y-1/2 right-0 disabled:cursor-not-allowed disabled:opacity-20 p-3', $attrs.class ?? '')\"\n  >\n    <slot>\n      <PlusIcon class=\"h-4 w-4\" />\n    </slot>\n  </NumberFieldIncrement>\n</template>\n",
       "type": "registry:ui"
     },
     {

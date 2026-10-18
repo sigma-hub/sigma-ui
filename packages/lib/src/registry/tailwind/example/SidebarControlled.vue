@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { CalendarIcon, HomeIcon, InboxIcon } from 'lucide-vue-next';
+import { CalendarIcon, HomeIcon, InboxIcon } from '@lucide/vue';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import {
   Sidebar,

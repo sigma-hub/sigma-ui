@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CircleUserIcon } from 'lucide-vue-next';
+import { CircleUserIcon } from '@lucide/vue';
 import { Button } from '@ui/registry/css/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@ui/registry/css/ui/dropdown-menu';
 import type { AccountMenuEntry } from '../data';

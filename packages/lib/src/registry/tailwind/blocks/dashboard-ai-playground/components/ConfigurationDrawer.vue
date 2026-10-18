@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Settings2Icon } from 'lucide-vue-next';
+import { Settings2Icon } from '@lucide/vue';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from '@ui/registry/tailwind/ui/drawer';
 import { Input } from '@ui/registry/tailwind/ui/input';

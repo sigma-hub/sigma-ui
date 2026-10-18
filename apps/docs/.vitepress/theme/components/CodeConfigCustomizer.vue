@@ -2,7 +2,7 @@
 import { useForm } from 'vee-validate';
 import * as z from 'zod';
 import { ref, watch } from 'vue';
-import { CheckIcon, SaveIcon, Settings2Icon } from 'lucide-vue-next';
+import { CheckIcon, SaveIcon, Settings2Icon } from '@lucide/vue';
 import { useClipboard } from '@vueuse/core';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import { Input } from '@ui/registry/tailwind/ui/input';

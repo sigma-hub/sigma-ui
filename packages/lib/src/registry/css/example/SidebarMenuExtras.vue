@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { FolderIcon, InboxIcon, MoreHorizontalIcon, PlusIcon, SendIcon, StarIcon, Trash2Icon } from 'lucide-vue-next';
+import { FolderIcon, InboxIcon, MoreHorizontalIcon, PlusIcon, SendIcon, StarIcon, Trash2Icon } from '@lucide/vue';
 import {
   DropdownMenu,
   DropdownMenuContent,

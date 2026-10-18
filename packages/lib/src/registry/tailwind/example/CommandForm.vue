@@ -2,7 +2,7 @@
 import { h } from 'vue';
 import { useForm } from 'vee-validate';
 import * as z from 'zod';
-import { CheckIcon, ChevronsUpDownIcon } from 'lucide-vue-next';
+import { CheckIcon, ChevronsUpDownIcon } from '@lucide/vue';
 import { toast } from '@ui/registry/tailwind/ui/toaster';
 import { cn } from '@ui/utils';
 import { Button } from '@ui/registry/tailwind/ui/button';

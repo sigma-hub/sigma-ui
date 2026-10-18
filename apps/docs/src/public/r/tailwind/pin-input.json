@@ -5,7 +5,7 @@
   "title": "PIN Input",
   "description": "Allows users to input a sequence of one-character alphanumeric inputs.",
   "dependencies": [
-    "lucide-vue-next@^1.0.0",
+    "@lucide/vue@^1.59.0",
     "reka-ui@^2.11.0"
   ],
   "registryDependencies": [],
@@ -27,7 +27,7 @@
     },
     {
       "path": "ui/pin-input/PinInputSeparator.vue",
-      "content": "<script setup lang=\"ts\">\nimport { Primitive, type PrimitiveProps, useForwardProps } from 'reka-ui';\nimport { DotIcon } from 'lucide-vue-next';\n\nconst props = defineProps<PrimitiveProps>();\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"pin-input-separator\"\n    v-bind=\"forwardedProps\"\n  >\n    <slot>\n      <DotIcon class=\"w-4 h-4 text-muted-foreground\" />\n    </slot>\n  </Primitive>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { Primitive, type PrimitiveProps, useForwardProps } from 'reka-ui';\nimport { DotIcon } from '@lucide/vue';\n\nconst props = defineProps<PrimitiveProps>();\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"pin-input-separator\"\n    v-bind=\"forwardedProps\"\n  >\n    <slot>\n      <DotIcon class=\"w-4 h-4 text-muted-foreground\" />\n    </slot>\n  </Primitive>\n</template>\n",
       "type": "registry:ui"
     },
     {

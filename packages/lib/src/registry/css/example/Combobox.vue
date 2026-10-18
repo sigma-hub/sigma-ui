@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CheckIcon, ChevronsUpDownIcon, SearchIcon } from 'lucide-vue-next';
+import { CheckIcon, ChevronsUpDownIcon, SearchIcon } from '@lucide/vue';
 import { Combobox, ComboboxAnchor, ComboboxEmpty, ComboboxGroup, ComboboxInput, ComboboxItem, ComboboxItemIndicator, ComboboxList, ComboboxTrigger } from '@ui/registry/css/ui/combobox';
 
 const frameworks = [

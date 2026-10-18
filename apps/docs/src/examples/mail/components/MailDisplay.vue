@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ArchiveIcon, ArchiveXIcon, ClockIcon, ForwardIcon, MoreVerticalIcon, ReplyAllIcon, ReplyIcon, Trash2Icon } from 'lucide-vue-next';
+import { ArchiveIcon, ArchiveXIcon, ClockIcon, ForwardIcon, MoreVerticalIcon, ReplyAllIcon, ReplyIcon, Trash2Icon } from '@lucide/vue';
 import { addDays, addHours, format, nextSaturday } from 'date-fns';
 import type { Mail } from '../data/mails';
 import { Calendar } from '@ui/registry/tailwind/ui/calendar';

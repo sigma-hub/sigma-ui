@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { FileJsonIcon } from 'lucide-vue-next';
+import { FileJsonIcon } from '@lucide/vue';
 import {
   CodeBlock,
   CodeBlockActions,

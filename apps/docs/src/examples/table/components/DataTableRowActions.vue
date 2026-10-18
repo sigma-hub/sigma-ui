@@ -15,7 +15,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@ui/registry/tailwind/ui/dropdown-menu';
-import { EllipsisIcon } from 'lucide-vue-next';
+import { EllipsisIcon } from '@lucide/vue';
 import { labels } from '../data/data';
 import { tableSchema } from '../data/schema';
 import type { Table as TableSchema } from '../data/schema';

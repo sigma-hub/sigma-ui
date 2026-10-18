@@ -48,7 +48,7 @@ export default defineNuxtConfig({
 
 ```vue
 <script setup lang="ts">
-import { MoonIcon, SunIcon } from 'lucide-vue-next'
+import { MoonIcon, SunIcon } from '@lucide/vue'
 import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 

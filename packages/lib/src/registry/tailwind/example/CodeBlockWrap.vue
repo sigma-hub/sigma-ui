@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { CircleXIcon } from 'lucide-vue-next';
+import { CircleXIcon } from '@lucide/vue';
 import {
   CodeBlock,
   CodeBlockActions,

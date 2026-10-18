@@ -8,7 +8,7 @@ import {
   ReplyAllIcon,
   ReplyIcon,
   Trash2Icon,
-} from 'lucide-vue-next';
+} from '@lucide/vue';
 import { addDays, addHours, format, nextSaturday } from 'date-fns';
 import { Avatar } from '@ui/registry/tailwind/ui/avatar';
 import { Button } from '@ui/registry/tailwind/ui/button';

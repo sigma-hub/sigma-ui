@@ -4,7 +4,7 @@
   "type": "registry:example",
   "title": "CodeBlockMaxHeight",
   "dependencies": [
-    "lucide-vue-next@^1.0.0"
+    "@lucide/vue@^1.59.0"
   ],
   "registryDependencies": [
     "code-block"
@@ -12,7 +12,7 @@
   "files": [
     {
       "path": "example/CodeBlockMaxHeight.vue",
-      "content": "<script setup lang=\"ts\">\nimport { ScrollTextIcon } from 'lucide-vue-next';\nimport {\n  CodeBlock,\n  CodeBlockActions,\n  CodeBlockContent,\n  CodeBlockCopyButton,\n  CodeBlockHeader,\n  CodeBlockTitle,\n} from '@/components/ui/code-block';\n\nconst statuses = [200, 200, 201, 200, 304, 200, 404, 200];\nconst output = Array.from({ length: 40 }, (_, index) => {\n  const id = String(index + 1).padStart(2, '0');\n  const status = statuses[index % statuses.length];\n  return `[${id}] GET /api/orders?page=${index + 1} ${status} in ${12 + ((index * 7) % 40)}ms`;\n}).join('\\n');\n</script>\n\n<template>\n  <CodeBlock size=\"sm\">\n    <CodeBlockHeader>\n      <CodeBlockTitle>\n        <ScrollTextIcon />\n        Server logs\n      </CodeBlockTitle>\n      <CodeBlockActions>\n        <CodeBlockCopyButton />\n      </CodeBlockActions>\n    </CodeBlockHeader>\n    <CodeBlockContent\n      :code=\"output\"\n      :max-height=\"240\"\n    />\n  </CodeBlock>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { ScrollTextIcon } from '@lucide/vue';\nimport {\n  CodeBlock,\n  CodeBlockActions,\n  CodeBlockContent,\n  CodeBlockCopyButton,\n  CodeBlockHeader,\n  CodeBlockTitle,\n} from '@/components/ui/code-block';\n\nconst statuses = [200, 200, 201, 200, 304, 200, 404, 200];\nconst output = Array.from({ length: 40 }, (_, index) => {\n  const id = String(index + 1).padStart(2, '0');\n  const status = statuses[index % statuses.length];\n  return `[${id}] GET /api/orders?page=${index + 1} ${status} in ${12 + ((index * 7) % 40)}ms`;\n}).join('\\n');\n</script>\n\n<template>\n  <CodeBlock size=\"sm\">\n    <CodeBlockHeader>\n      <CodeBlockTitle>\n        <ScrollTextIcon />\n        Server logs\n      </CodeBlockTitle>\n      <CodeBlockActions>\n        <CodeBlockCopyButton />\n      </CodeBlockActions>\n    </CodeBlockHeader>\n    <CodeBlockContent\n      :code=\"output\"\n      :max-height=\"240\"\n    />\n  </CodeBlock>\n</template>\n",
       "type": "registry:example"
     }
   ]

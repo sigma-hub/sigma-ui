@@ -8,7 +8,7 @@ import {
   DropdownMenuItemIndicator,
   useForwardPropsEmits,
 } from 'reka-ui';
-import { CheckIcon } from 'lucide-vue-next';
+import { CheckIcon } from '@lucide/vue';
 defineOptions({
   inheritAttrs: false,
 });

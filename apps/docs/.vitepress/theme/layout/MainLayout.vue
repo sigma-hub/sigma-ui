@@ -2,7 +2,8 @@
 import { useMagicKeys, useToggle } from '@vueuse/core';
 import { computed, ref, watch } from 'vue';
 import { Content, useData, useRoute, useRouter } from 'vitepress';
-import { CircleIcon, FileIcon, GithubIcon, MoonIcon, SearchIcon, SunIcon } from 'lucide-vue-next';
+import { CircleIcon, FileIcon, MoonIcon, SearchIcon, SunIcon } from '@lucide/vue';
+import GithubIcon from '../components/GithubIcon.vue';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@ui/registry/tailwind/ui/command';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import { Dialog, DialogContent } from '@ui/registry/tailwind/ui/dialog';

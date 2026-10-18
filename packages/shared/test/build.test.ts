@@ -24,7 +24,7 @@ describe('crawlRegistry', async () => {
     const calendarDependencies = findItem('tailwind', 'calendar')?.dependencies ?? [];
 
     expect(calendarDependencies.some(dependency => dependency.startsWith('reka-ui@'))).toBe(true);
-    expect(calendarDependencies.some(dependency => dependency.startsWith('lucide-vue-next'))).toBe(true);
+    expect(calendarDependencies.some(dependency => dependency.startsWith('@lucide/vue'))).toBe(true);
   });
 
   it('builds blocks as multi-file registry:block items with metadata', () => {

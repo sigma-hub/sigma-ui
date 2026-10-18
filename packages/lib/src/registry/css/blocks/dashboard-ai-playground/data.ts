@@ -1,5 +1,5 @@
 import type { Component } from 'vue';
-import { BirdIcon, BookIcon, BotIcon, Code2Icon, LifeBuoyIcon, MicIcon, PaperclipIcon, RabbitIcon, Settings2Icon, SquareTerminalIcon, SquareUserIcon, TurtleIcon } from 'lucide-vue-next';
+import { BirdIcon, BookIcon, BotIcon, Code2Icon, LifeBuoyIcon, MicIcon, PaperclipIcon, RabbitIcon, Settings2Icon, SquareTerminalIcon, SquareUserIcon, TurtleIcon } from '@lucide/vue';
 
 export interface NavItem {
   label: string;

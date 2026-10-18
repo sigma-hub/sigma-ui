@@ -4,7 +4,7 @@ import {
   ChevronRightIcon,
   GalleryVerticalEndIcon,
   MoreHorizontalIcon,
-} from 'lucide-vue-next';
+} from '@lucide/vue';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@ui/registry/tailwind/ui/collapsible';
 import {
   Sidebar,

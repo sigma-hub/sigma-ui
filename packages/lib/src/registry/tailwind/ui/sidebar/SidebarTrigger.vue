@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useAttrs } from 'vue';
 
-import { PanelLeftIcon } from 'lucide-vue-next';
+import { PanelLeftIcon } from '@lucide/vue';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import { cn } from '@ui/utils';
 import { useSidebar } from './utils';

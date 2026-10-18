@@ -2,7 +2,7 @@
 import { useAttrs } from 'vue';
 
 import { Primitive, type PrimitiveProps } from 'reka-ui';
-import { Loader2Icon } from 'lucide-vue-next';
+import { Loader2Icon } from '@lucide/vue';
 import { type ButtonVariants, buttonVariants } from '.';
 defineOptions({
   inheritAttrs: false,

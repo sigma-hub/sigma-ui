@@ -5,6 +5,7 @@ packages:
 
 catalog:
   '@internationalized/date': ^3.12.4
+  '@lucide/vue': ^1.59.0
   '@oxc-parser/wasm': ^0.49.0
   '@tailwindcss/vite': ^4.3.3
   '@tanstack/vue-table': ^8.21.3
@@ -21,9 +22,8 @@ catalog:
   clsx: ^2.1.1
   date-fns: ^4.4.0
   lodash-es: ^4.18.1
-  lucide-vue-next: ^1.0.0
   magic-string: ^0.30.21
-  motion-v: ^2.7.0
+  motion-v: ^2.8.0
   nuxt: ^4.6.1
   pathe: ^2.0.3
   reka-ui: ^2.11.0

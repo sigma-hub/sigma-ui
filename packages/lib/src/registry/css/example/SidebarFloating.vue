@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CalendarIcon, HomeIcon, InboxIcon, SearchIcon, SettingsIcon } from 'lucide-vue-next';
+import { CalendarIcon, HomeIcon, InboxIcon, SearchIcon, SettingsIcon } from '@lucide/vue';
 import {
   Sidebar,
   SidebarContent,
