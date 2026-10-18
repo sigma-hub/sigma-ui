@@ -36,7 +36,7 @@ It takes away the burden of recreating the same components (like dialogs, select
 - **Supported style systems**: CSS, Tailwind 4.
 - **Is open-source**: Yes, MIT licensed.
 - **Accessibility**: Supported.
-- **Based upon**: Reka (formerly Radix-Vue) primitives.
+- **Based upon**: Reka UI primitives.
 - **Installation method**: Copy-paste components with the CLI, shadcn registry-item compatible, served from `/r/{style}/{name}.json`. `{style}` is `tailwind` or `css`. The CLI writes the files into your project.
 
 ## Comparison

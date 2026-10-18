@@ -27,7 +27,7 @@ It takes away the burden of recreating the same components from scratch for ever
 - **Supported style systems**: CSS, Tailwind 4.
 - **Is open-source**: Yes, MIT licensed.
 - **Accessibility**: Supported.
-- **Based upon**: Reka (formerly Radix-Vue) primitives.
+- **Based upon**: Reka UI primitives.
 - **Installation method**: Copy-paste components with the CLI. Each item is a shadcn registry item, served from `https://sigma-ui.dev/r/{style}/{name}.json`. The CLI writes the files into your project.
 
 ## Usage
