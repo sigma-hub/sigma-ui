@@ -142,8 +142,8 @@
 <ApiTable kind="slots" :items='[
   {
     "name": "default",
-    "scope": "{ modelValue: { start?: unknown; end?: unknown; }; segments: { start: { part: string; value: string; }[]; end: { part: string; value: string; }[]; }; isInvalid: boolean; }",
-    "description": "<p>Start and end segments. Render each segment value inside an input.</p>"
+    "scope": "{ modelValue: TimeRange | null; segments: { start: { part: SegmentPart; value: string; }[]; end: { part: SegmentPart; value: string; }[]; }; isInvalid: boolean; }",
+    "description": "<p>The start and end segments. Each one renders in a <code>TimeRangeFieldInput</code>, with a dash between the two times, unless you pass your own content.</p>"
   }
 ]' />
 

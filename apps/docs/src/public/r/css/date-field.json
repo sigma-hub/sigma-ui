@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "date-field",
+  "type": "registry:ui",
+  "dependencies": [
+    "reka-ui@^2.11.0"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/date-field/DateField.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { DateFieldRoot, type DateFieldRootEmits, type DateFieldRootProps, type SegmentPart, useForwardPropsEmits } from 'reka-ui';\nimport { DateFieldInput } from '.';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<DateFieldRootProps>();\nconst emits = defineEmits<DateFieldRootEmits>();\nconst forwarded = useForwardPropsEmits(props, emits);\n\ndefineSlots<{\n  /**\n   * The date segments. Each one renders in a `DateFieldInput` unless you pass your own content.\n   */\n  default?: (props: {\n    modelValue: DateFieldRootProps['modelValue'];\n    segments: { part: SegmentPart; value: string }[];\n    isInvalid: boolean;\n  }) => unknown;\n}>();\n</script>\n\n<template>\n  <DateFieldRoot\n    v-slot=\"slotProps\"\n    data-slot=\"date-field\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    class=\"sigma-ui-date-field\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot v-bind=\"slotProps\">\n      <DateFieldInput\n        v-for=\"(item, index) in slotProps.segments\"\n        :key=\"`${item.part}-${index}`\"\n        :part=\"item.part\"\n      >\n        {{ item.value }}\n      </DateFieldInput>\n    </slot>\n  </DateFieldRoot>\n</template>\n\n<style>\n.sigma-ui-date-field {\n  display: inline-flex;\n  height: 2.25rem;\n  align-items: center;\n  border: 1px solid var(--border);\n  border-radius: var(--radius-md);\n  background-color: var(--input);\n  font-size: 1rem;\n  padding-inline: 0.75rem;\n}\n\n@media (width >= 48rem) {\n  .sigma-ui-date-field {\n    font-size: 0.875rem;\n  }\n}\n\n.sigma-ui-date-field:focus-within {\n  outline: 2px solid var(--ring);\n  outline-offset: 2px;\n}\n\n.sigma-ui-date-field[data-invalid],\n.sigma-ui-date-field[aria-invalid=\"true\"] {\n  border-color: var(--destructive);\n}\n\n.sigma-ui-date-field[data-disabled] {\n  cursor: not-allowed;\n  opacity: 0.5;\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/date-field/DateFieldInput.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { DateFieldInput, type DateFieldInputProps, useForwardProps } from 'reka-ui';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<DateFieldInputProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <DateFieldInput\n    data-slot=\"date-field-input\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :data-part=\"props.part\"\n    class=\"sigma-ui-date-field-input\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </DateFieldInput>\n</template>\n\n<style>\n.sigma-ui-date-field-input {\n  border-radius: var(--radius-sm);\n  font-variant-numeric: tabular-nums;\n  outline: none;\n  padding-inline: 0.125rem;\n}\n\n.sigma-ui-date-field-input:focus {\n  background-color: var(--accent);\n  color: var(--accent-foreground);\n}\n\n.sigma-ui-date-field-input[data-part=\"literal\"] {\n  padding-inline: 0;\n}\n\n.sigma-ui-date-field-input[data-disabled] {\n  cursor: not-allowed;\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/date-field/index.ts",
+      "content": "export { default as DateField } from './DateField.vue';\nexport { default as DateFieldInput } from './DateFieldInput.vue';\n",
+      "type": "registry:ui"
+    }
+  ]
+}

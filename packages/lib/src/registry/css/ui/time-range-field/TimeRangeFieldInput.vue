@@ -20,8 +20,9 @@ const forwarded = useForwardProps(props);
 <template>
   <TimeRangeFieldInput
     data-slot="time-range-field-input"
-    class="sigma-ui-time-range-field-input"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
+    :data-part="props.part"
+    class="sigma-ui-time-range-field-input"
     :class="[$attrs.class]"
   >
     <slot />
@@ -39,5 +40,13 @@ const forwarded = useForwardProps(props);
 .sigma-ui-time-range-field-input:focus {
   background-color: var(--accent);
   color: var(--accent-foreground);
+}
+
+.sigma-ui-time-range-field-input[data-part="literal"] {
+  padding-inline: 0;
+}
+
+.sigma-ui-time-range-field-input[data-disabled] {
+  cursor: not-allowed;
 }
 </style>

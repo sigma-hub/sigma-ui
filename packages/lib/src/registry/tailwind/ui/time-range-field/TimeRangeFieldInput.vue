@@ -22,7 +22,8 @@ const forwarded = useForwardProps(props);
   <TimeRangeFieldInput
     data-slot="time-range-field-input"
     v-bind="{ ...forwarded, ...delegatedAttrs() }"
-    :class="cn('rounded-sm px-0.5 tabular-nums outline-none focus:bg-accent focus:text-accent-foreground', $attrs.class ?? '')"
+    :data-part="props.part"
+    :class="cn('rounded-sm px-0.5 tabular-nums outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:cursor-not-allowed data-[part=literal]:px-0', $attrs.class ?? '')"
   >
     <slot />
   </TimeRangeFieldInput>
