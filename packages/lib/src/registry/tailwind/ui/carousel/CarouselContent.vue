@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useAttrs } from 'vue';
+import { type ComponentPublicInstance, useAttrs } from 'vue';
 
 import { useCarousel } from './useCarousel';
 import { cn } from '@ui/utils';
@@ -15,11 +15,15 @@ const delegatedAttrs = () => {
 };
 
 const { carouselRef, orientation } = useCarousel();
+
+function setCarouselElement(element: Element | ComponentPublicInstance | null) {
+  carouselRef.value = element instanceof HTMLElement ? element : undefined;
+}
 </script>
 
 <template>
   <div
-    ref="carouselRef"
+    :ref="setCarouselElement"
     class="overflow-hidden"
     data-slot="carousel-content"
   >

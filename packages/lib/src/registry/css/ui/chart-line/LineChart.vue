@@ -97,7 +97,7 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
           :key="category"
         >
           <VisLine
-            :x="(d: Data, i: number) => i"
+            :x="(_: Data, i: number) => i"
             :y="(d: Data) => d[category]"
             :curve-type="curveType"
             :color="colors[i]"
