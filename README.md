@@ -54,7 +54,8 @@ Install guides: [Vite](https://sigma-ui.dev/docs/installation/vite), [Nuxt](http
 | `npx sigma-ui info` | Print the resolved project config. |
 | `npx sigma-ui migrate` | Upgrade a 1.x project to 2.0. |
 | `npx sigma-ui build` | Build a custom registry into static JSON. |
-| `npx sigma-ui mcp` | Serve the registry to an editor over MCP. |
+| `npx sigma-ui mcp init` | Add the registry MCP server to Claude Code, Cursor, VS Code, Codex, OpenCode, or Gemini CLI ([docs](https://sigma-ui.dev/docs/mcp)). |
+| `npx sigma-ui mcp` | Serve the registry to an AI assistant over MCP. |
 
 ## Registry
 

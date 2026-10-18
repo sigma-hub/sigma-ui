@@ -105,6 +105,10 @@ export const docsConfig: DocsConfig = {
           href: '/docs/cli',
         },
         {
+          title: 'MCP Server',
+          href: '/docs/mcp',
+        },
+        {
           title: 'Upgrade to 2.0',
           href: '/docs/migration',
         },

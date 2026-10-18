@@ -212,22 +212,37 @@ Options:
 
 ## `mcp`
 
-Start the registry MCP server on stdio:
+Start the registry MCP server on stdio, or add it to an MCP client's config. See [MCP Server](/docs/mcp) for client setup, tools, and example prompts.
 
 ```bash
+npx sigma-ui mcp init --client cursor
 npx sigma-ui mcp
 ```
 
 ### Options
 
 ```txt
-Usage: npx sigma-ui mcp [options]
+Usage: npx sigma-ui mcp [options] [command]
 
 start the registry MCP server on stdio
 
 Options:
   -c, --cwd <cwd>  the working directory. (default: the current directory)
   -h, --help       display help for command
+
+Commands:
+  init [options]   add the sigma-ui MCP server to an MCP client's project config
+```
+
+```txt
+Usage: npx sigma-ui mcp init [options]
+
+add the sigma-ui MCP server to an MCP client's project config
+
+Options:
+  --client <client>  the MCP client (claude, cursor, vscode, codex, opencode, gemini)
+  -c, --cwd <cwd>    the working directory. (default: the current directory)
+  -h, --help         display help for command
 ```
 
 ## `diff`
