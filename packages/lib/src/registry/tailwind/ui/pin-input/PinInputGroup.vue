@@ -25,5 +25,5 @@ const forwardedProps = useForwardProps(props);
     :class="cn('flex items-center', $attrs.class ?? '')"
   >
     <slot />
-  </primitive>
+  </Primitive>
 </template>

@@ -15,7 +15,7 @@
     },
     {
       "path": "ui/pin-input/PinInputGroup.vue",
-      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { Primitive, type PrimitiveProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<PrimitiveProps>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"pin-input-group\"\n    v-bind=\"{ ...forwardedProps, ...delegatedAttrs() }\"\n    :class=\"cn('flex items-center', $attrs.class ?? '')\"\n  >\n    <slot />\n  </primitive>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { Primitive, type PrimitiveProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<PrimitiveProps>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"pin-input-group\"\n    v-bind=\"{ ...forwardedProps, ...delegatedAttrs() }\"\n    :class=\"cn('flex items-center', $attrs.class ?? '')\"\n  >\n    <slot />\n  </Primitive>\n</template>\n",
       "type": "registry:ui"
     },
     {
@@ -25,7 +25,7 @@
     },
     {
       "path": "ui/pin-input/PinInputSeparator.vue",
-      "content": "<script setup lang=\"ts\">\nimport { Primitive, type PrimitiveProps, useForwardProps } from 'reka-ui';\nimport { DotIcon } from 'lucide-vue-next';\n\nconst props = defineProps<PrimitiveProps>();\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"pin-input-separator\"\n    v-bind=\"forwardedProps\"\n  >\n    <slot>\n      <DotIcon class=\"w-4 h-4 text-muted-foreground\" />\n    </slot>\n  </primitive>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { Primitive, type PrimitiveProps, useForwardProps } from 'reka-ui';\nimport { DotIcon } from 'lucide-vue-next';\n\nconst props = defineProps<PrimitiveProps>();\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"pin-input-separator\"\n    v-bind=\"forwardedProps\"\n  >\n    <slot>\n      <DotIcon class=\"w-4 h-4 text-muted-foreground\" />\n    </slot>\n  </Primitive>\n</template>\n",
       "type": "registry:ui"
     },
     {

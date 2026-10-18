@@ -100,5 +100,5 @@ const onSubmit = handleSubmit((values) => {
     <Button type="submit">
       Submit
     </Button>
-  </Form>
+  </form>
 </template>

@@ -14,5 +14,5 @@ const forwardedProps = useForwardProps(props);
     <slot>
       <DotIcon class="w-4 h-4 text-muted-foreground" />
     </slot>
-  </primitive>
+  </Primitive>
 </template>
