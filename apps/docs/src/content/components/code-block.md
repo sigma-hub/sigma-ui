@@ -7,7 +7,7 @@ label: New
 
 ## Preview
 
-<ComponentPreview name="CodeBlock" />
+<ComponentPreview name="CodeBlock" size="lg" />
 
 ## Installation
 
@@ -149,7 +149,7 @@ Without `lines`, the code renders as plain text.
 
 ### Line numbers
 
-<ComponentPreview name="CodeBlockLineNumbers" />
+<ComponentPreview name="CodeBlockLineNumbers" size="lg" />
 
 ### Start line
 
@@ -197,7 +197,7 @@ Lines outside `focusLines` are dimmed until the pointer is over the block or foc
 
 With `collapsedHeight`, the block starts short. `CodeBlockExpandButton` shows the rest, and it only renders when the code is taller than `collapsedHeight`.
 
-<ComponentPreview name="CodeBlockExpand" />
+<ComponentPreview name="CodeBlockExpand" size="lg" />
 
 ### Files in tabs
 
@@ -221,7 +221,7 @@ The `ansi` language reads ANSI color codes, so terminal output keeps its colors.
 
 While `code` grows, only the new lines are highlighted again. Disable the copy button until the code is complete.
 
-<ComponentPreview name="CodeBlockStreaming" />
+<ComponentPreview name="CodeBlockStreaming" size="lg" />
 
 ### Actions without a header
 
