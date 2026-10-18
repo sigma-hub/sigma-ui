@@ -10,60 +10,83 @@ import {
   emailPlaceholder,
   emailSubmitLabel,
   githubLabel,
+  googleLabel,
   loginHref,
   loginLabel,
   privacyHref,
   privacyLabel,
   quote,
   quoteAuthor,
+  quoteAuthorRole,
   termsHref,
   termsLabel,
   termsLead,
   title,
 } from './data';
+
+const quoteAuthorInitials = quoteAuthor
+  .split(' ')
+  .map(part => part.charAt(0))
+  .join('');
 </script>
 
 <template>
-  <div class="relative grid min-h-screen items-center justify-center lg:max-w-none lg:grid-cols-2 lg:px-0">
-    <Button
-      as="a"
-      variant="ghost"
-      :href="loginHref"
-      class="absolute top-4 right-4 md:top-8 md:right-8"
-    >
-      {{ loginLabel }}
-    </Button>
-    <div class="relative hidden h-full flex-col bg-muted p-10 text-white lg:flex dark:border-r">
-      <div class="absolute inset-0 bg-zinc-900" />
-      <div class="relative z-20 flex items-center text-lg font-medium">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="mr-2 size-6"
-          aria-hidden="true"
-        >
-          <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" />
-        </svg>
+  <div class="relative grid min-h-screen lg:grid-cols-2">
+    <div class="relative hidden h-full flex-col overflow-hidden border-r bg-muted p-10 text-foreground lg:flex">
+      <div
+        class="pointer-events-none absolute -top-32 -left-32 size-96 rounded-full bg-primary/10 blur-3xl"
+        aria-hidden="true"
+      />
+      <div
+        class="pointer-events-none absolute -right-24 -bottom-40 size-96 rounded-full bg-primary/5 blur-3xl"
+        aria-hidden="true"
+      />
+      <div class="relative flex items-center gap-2 text-lg font-medium">
+        <span class="flex size-8 items-center justify-center rounded-md bg-primary text-primary-foreground">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="size-4"
+            aria-hidden="true"
+          >
+            <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" />
+          </svg>
+        </span>
         {{ brandName }}
       </div>
-      <div class="relative z-20 mt-auto">
-        <blockquote class="space-y-2">
-          <p class="text-lg">
-            &ldquo;{{ quote }}&rdquo;
-          </p>
-          <footer class="text-sm">
-            {{ quoteAuthor }}
-          </footer>
+      <figure class="relative mt-auto flex max-w-md flex-col gap-6">
+        <blockquote class="text-xl leading-relaxed font-medium tracking-tight">
+          &ldquo;{{ quote }}&rdquo;
         </blockquote>
-      </div>
+        <figcaption class="flex items-center gap-3">
+          <span
+            class="flex size-10 items-center justify-center rounded-full border bg-background text-sm font-medium"
+            aria-hidden="true"
+          >
+            {{ quoteAuthorInitials }}
+          </span>
+          <span class="flex flex-col">
+            <span class="text-sm font-medium">{{ quoteAuthor }}</span>
+            <span class="text-sm text-muted-foreground">{{ quoteAuthorRole }}</span>
+          </span>
+        </figcaption>
+      </figure>
     </div>
-    <div class="p-4 lg:p-8">
-      <div class="mx-auto flex w-full flex-col justify-center gap-6 sm:w-[350px]">
+    <div class="relative flex items-center justify-center px-6 py-16 lg:px-10">
+      <Button
+        as="a"
+        variant="ghost"
+        :href="loginHref"
+        class="absolute top-4 right-4 md:top-8 md:right-8"
+      >
+        {{ loginLabel }}
+      </Button>
+      <div class="flex w-full max-w-sm flex-col gap-6">
         <div class="flex flex-col gap-2 text-center">
           <h1 class="text-2xl font-semibold tracking-tight">
             {{ title }}
@@ -77,24 +100,20 @@ import {
           :email-placeholder="emailPlaceholder"
           :email-submit-label="emailSubmitLabel"
           :divider-label="dividerLabel"
+          :google-label="googleLabel"
           :github-label="githubLabel"
         />
-        <p class="px-8 text-center text-sm text-muted-foreground">
+        <p class="px-6 text-center text-sm text-balance text-muted-foreground">
           {{ termsLead }}
           <a
             :href="termsHref"
             class="underline underline-offset-4 hover:text-primary"
-          >
-            {{ termsLabel }}
-          </a>
+          >{{ termsLabel }}</a>
           {{ conjunctionLabel }}
           <a
             :href="privacyHref"
             class="underline underline-offset-4 hover:text-primary"
-          >
-            {{ privacyLabel }}
-          </a>
-          .
+          >{{ privacyLabel }}</a>.
         </p>
       </div>
     </div>

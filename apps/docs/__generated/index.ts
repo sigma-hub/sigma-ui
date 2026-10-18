@@ -110,8 +110,8 @@ export const Index = {
     "signup-quote": {
       name: "signup-quote",
       type: "registry:block",
-      registryDependencies: ["button","input","label"],
-      dependencies: ["lucide-vue-next@^1.0.0"],
+      registryDependencies: ["button","input","label","separator"],
+      dependencies: [],
       files: ["blocks/signup-quote/SignupQuote.vue","blocks/signup-quote/components/SignupForm.vue","blocks/signup-quote/data.ts"],
     },
     "table-simple": {
@@ -1876,8 +1876,8 @@ export const Index = {
     "signup-quote": {
       name: "signup-quote",
       type: "registry:block",
-      registryDependencies: ["button","input","label"],
-      dependencies: ["lucide-vue-next@^1.0.0"],
+      registryDependencies: ["button","input","label","separator"],
+      dependencies: [],
       files: ["blocks/signup-quote/SignupQuote.vue","blocks/signup-quote/components/SignupForm.vue","blocks/signup-quote/data.ts"],
     },
     "table-simple": {
