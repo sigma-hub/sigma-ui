@@ -1,22 +1,15 @@
 <script setup lang="ts">
 import { h } from 'vue';
 import { useForm } from 'vee-validate';
-import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
 import { toast } from '@ui/registry/tailwind/ui/toaster';
 import { Button } from '@ui/registry/tailwind/ui/button';
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@ui/registry/tailwind/ui/form';
+import { FormControl, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@ui/registry/tailwind/ui/form';
 import { RadioGroup, RadioGroupItem } from '@ui/registry/tailwind/ui/radio-group';
 
 const formSchema = toTypedSchema(z.object({
   type: z.enum(['all', 'mentions', 'none'], {
-    required_error: 'You need to select a notification type.',
+    error: 'You need to select a notification type.',
   }),
 }));
 

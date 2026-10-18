@@ -97,7 +97,7 @@ export const Index = {
       name: "settings-forms",
       type: "registry:block",
       registryDependencies: ["button","calendar","card","checkbox","command","form","input","popover","radio-group","select","separator","switch","textarea","toaster"],
-      dependencies: ["@internationalized/date@^3.12.4","@vee-validate/zod@^4.15.1","lucide-vue-next@^1.0.0","reka-ui@^2.11.0","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["@internationalized/date@^3.12.4","lucide-vue-next@^1.0.0","reka-ui@^2.11.0","vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["blocks/settings-forms/SettingsForms.vue","blocks/settings-forms/components/AccountForm.vue","blocks/settings-forms/components/AppearanceForm.vue","blocks/settings-forms/components/DisplayForm.vue","blocks/settings-forms/components/NotificationsForm.vue","blocks/settings-forms/components/ProfileForm.vue","blocks/settings-forms/components/SettingsNav.vue"],
     },
     "signup-card": {
@@ -118,7 +118,7 @@ export const Index = {
       name: "table-simple",
       type: "registry:block",
       registryDependencies: ["avatar","badge","button","checkbox","command","dropdown-menu","input","popover","select","separator","table"],
-      dependencies: ["@tanstack/vue-table@^8.21.3","lucide-vue-next@^1.0.0","zod@^3.25.76"],
+      dependencies: ["@tanstack/vue-table@^8.21.3","lucide-vue-next@^1.0.0","zod@^4.6.7"],
       files: ["blocks/table-simple/TableSimple.vue","blocks/table-simple/components/SelectCell.vue","blocks/table-simple/components/TaskIdCell.vue","blocks/table-simple/components/TaskPriorityCell.vue","blocks/table-simple/components/TaskStatusCell.vue","blocks/table-simple/components/TaskTitleCell.vue","blocks/table-simple/components/TasksColumnHeader.vue","blocks/table-simple/components/TasksDataTable.vue","blocks/table-simple/components/TasksFacetedFilter.vue","blocks/table-simple/components/TasksPagination.vue","blocks/table-simple/components/TasksRowActions.vue","blocks/table-simple/components/TasksToolbar.vue","blocks/table-simple/components/TasksViewOptions.vue","blocks/table-simple/components/UserMenu.vue","blocks/table-simple/components/columns.ts","blocks/table-simple/data.ts"],
     },
     "Accordion": {
@@ -482,7 +482,7 @@ export const Index = {
       name: "CalendarForm",
       type: "registry:example",
       registryDependencies: ["button","calendar","form","popover","toaster"],
-      dependencies: ["@internationalized/date@^3.12.4","@vee-validate/zod@^4.15.1","lucide-vue-next@^1.0.0","reka-ui@^2.11.0","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["@internationalized/date@^3.12.4","lucide-vue-next@^1.0.0","reka-ui@^2.11.0","vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/CalendarForm.vue"],
     },
     "CalendarLocalization": {
@@ -643,14 +643,14 @@ export const Index = {
       name: "CheckboxFormMultiple",
       type: "registry:example",
       registryDependencies: ["button","checkbox","form","toaster"],
-      dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/CheckboxFormMultiple.vue"],
     },
     "CheckboxFormSingle": {
       name: "CheckboxFormSingle",
       type: "registry:example",
       registryDependencies: ["button","checkbox","form","toaster"],
-      dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/CheckboxFormSingle.vue"],
     },
     "CheckboxWithDescription": {
@@ -867,7 +867,7 @@ export const Index = {
       name: "CommandForm",
       type: "registry:example",
       registryDependencies: ["button","command","form","popover","toaster"],
-      dependencies: ["@vee-validate/zod@^4.15.1","lucide-vue-next@^1.0.0","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["lucide-vue-next@^1.0.0","vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/CommandForm.vue"],
     },
     "CommandPopover": {
@@ -937,7 +937,7 @@ export const Index = {
       name: "DateFieldForm",
       type: "registry:example",
       registryDependencies: ["button","date-field","form","toaster"],
-      dependencies: ["@internationalized/date@^3.12.4","@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["@internationalized/date@^3.12.4","vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/DateFieldForm.vue"],
     },
     "DateFieldGranularity": {
@@ -979,7 +979,7 @@ export const Index = {
       name: "DatePickerForm",
       type: "registry:example",
       registryDependencies: ["button","calendar","form","popover","toaster"],
-      dependencies: ["@internationalized/date@^3.12.4","@vee-validate/zod@^4.15.1","lucide-vue-next@^1.0.0","reka-ui@^2.11.0","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["@internationalized/date@^3.12.4","lucide-vue-next@^1.0.0","reka-ui@^2.11.0","vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/DatePickerForm.vue"],
     },
     "DatePickerMonth": {
@@ -1238,14 +1238,14 @@ export const Index = {
       name: "InputForm",
       type: "registry:example",
       registryDependencies: ["button","form","input","toaster"],
-      dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/InputForm.vue"],
     },
     "InputFormAutoAnimate": {
       name: "InputFormAutoAnimate",
       type: "registry:example",
       registryDependencies: ["button","form","input","toaster"],
-      dependencies: ["@formkit/auto-animate@^0.8.4","@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["@formkit/auto-animate@^0.8.4","vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/InputFormAutoAnimate.vue"],
     },
     "InputGroup": {
@@ -1399,7 +1399,7 @@ export const Index = {
       name: "NumberFieldForm",
       type: "registry:example",
       registryDependencies: ["button","form","number-field","toaster"],
-      dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/NumberFieldForm.vue"],
     },
     "NumberFieldPercentage": {
@@ -1441,7 +1441,7 @@ export const Index = {
       name: "PinInputForm",
       type: "registry:example",
       registryDependencies: ["button","form","pin-input","toaster"],
-      dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/PinInputForm.vue"],
     },
     "PinInputSeparator": {
@@ -1476,7 +1476,7 @@ export const Index = {
       name: "RadioGroupForm",
       type: "registry:example",
       registryDependencies: ["button","form","radio-group","toaster"],
-      dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/RadioGroupForm.vue"],
     },
     "RangeCalendar": {
@@ -1539,7 +1539,7 @@ export const Index = {
       name: "SelectForm",
       type: "registry:example",
       registryDependencies: ["button","form","select","toaster"],
-      dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/SelectForm.vue"],
     },
     "SelectScrollable": {
@@ -1630,7 +1630,7 @@ export const Index = {
       name: "SliderForm",
       type: "registry:example",
       registryDependencies: ["button","form","slider","toaster"],
-      dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/SliderForm.vue"],
     },
     "Spinner": {
@@ -1658,7 +1658,7 @@ export const Index = {
       name: "SwitchForm",
       type: "registry:example",
       registryDependencies: ["button","form","switch","toaster"],
-      dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/SwitchForm.vue"],
     },
     "Table": {
@@ -1707,7 +1707,7 @@ export const Index = {
       name: "TextareaForm",
       type: "registry:example",
       registryDependencies: ["button","form","textarea","toaster"],
-      dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/TextareaForm.vue"],
     },
     "TextareaWithButton": {
@@ -1749,7 +1749,7 @@ export const Index = {
       name: "TimeFieldForm",
       type: "registry:example",
       registryDependencies: ["button","form","time-field","toaster"],
-      dependencies: ["@internationalized/date@^3.12.4","@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["@internationalized/date@^3.12.4","vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/TimeFieldForm.vue"],
     },
     "TimeFieldGranularity": {
@@ -2108,7 +2108,7 @@ export const Index = {
       name: "settings-forms",
       type: "registry:block",
       registryDependencies: ["button","calendar","card","checkbox","command","form","input","popover","radio-group","select","separator","switch","textarea","toaster"],
-      dependencies: ["@internationalized/date@^3.12.4","@vee-validate/zod@^4.15.1","lucide-vue-next@^1.0.0","reka-ui@^2.11.0","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["@internationalized/date@^3.12.4","lucide-vue-next@^1.0.0","reka-ui@^2.11.0","vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["blocks/settings-forms/SettingsForms.vue","blocks/settings-forms/components/AccountForm.vue","blocks/settings-forms/components/AppearanceForm.vue","blocks/settings-forms/components/DisplayForm.vue","blocks/settings-forms/components/NotificationsForm.vue","blocks/settings-forms/components/ProfileForm.vue","blocks/settings-forms/components/SettingsNav.vue"],
     },
     "signup-card": {
@@ -2129,7 +2129,7 @@ export const Index = {
       name: "table-simple",
       type: "registry:block",
       registryDependencies: ["avatar","badge","button","checkbox","command","dropdown-menu","input","popover","select","separator","table"],
-      dependencies: ["@tanstack/vue-table@^8.21.3","lucide-vue-next@^1.0.0","zod@^3.25.76"],
+      dependencies: ["@tanstack/vue-table@^8.21.3","lucide-vue-next@^1.0.0","zod@^4.6.7"],
       files: ["blocks/table-simple/TableSimple.vue","blocks/table-simple/components/SelectCell.vue","blocks/table-simple/components/TaskIdCell.vue","blocks/table-simple/components/TaskPriorityCell.vue","blocks/table-simple/components/TaskStatusCell.vue","blocks/table-simple/components/TaskTitleCell.vue","blocks/table-simple/components/TasksColumnHeader.vue","blocks/table-simple/components/TasksDataTable.vue","blocks/table-simple/components/TasksFacetedFilter.vue","blocks/table-simple/components/TasksPagination.vue","blocks/table-simple/components/TasksRowActions.vue","blocks/table-simple/components/TasksToolbar.vue","blocks/table-simple/components/TasksViewOptions.vue","blocks/table-simple/components/UserMenu.vue","blocks/table-simple/components/columns.ts","blocks/table-simple/data.ts"],
     },
     "Accordion": {
@@ -2493,7 +2493,7 @@ export const Index = {
       name: "CalendarForm",
       type: "registry:example",
       registryDependencies: ["button","calendar","form","popover","toaster"],
-      dependencies: ["@internationalized/date@^3.12.4","@vee-validate/zod@^4.15.1","lucide-vue-next@^1.0.0","reka-ui@^2.11.0","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["@internationalized/date@^3.12.4","lucide-vue-next@^1.0.0","reka-ui@^2.11.0","vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/CalendarForm.vue"],
     },
     "CalendarLocalization": {
@@ -2654,14 +2654,14 @@ export const Index = {
       name: "CheckboxFormMultiple",
       type: "registry:example",
       registryDependencies: ["button","checkbox","form","toaster"],
-      dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/CheckboxFormMultiple.vue"],
     },
     "CheckboxFormSingle": {
       name: "CheckboxFormSingle",
       type: "registry:example",
       registryDependencies: ["button","checkbox","form","toaster"],
-      dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/CheckboxFormSingle.vue"],
     },
     "CheckboxWithDescription": {
@@ -2878,7 +2878,7 @@ export const Index = {
       name: "CommandForm",
       type: "registry:example",
       registryDependencies: ["button","command","form","popover","toaster"],
-      dependencies: ["@vee-validate/zod@^4.15.1","lucide-vue-next@^1.0.0","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["lucide-vue-next@^1.0.0","vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/CommandForm.vue"],
     },
     "CommandPopover": {
@@ -2948,7 +2948,7 @@ export const Index = {
       name: "DateFieldForm",
       type: "registry:example",
       registryDependencies: ["button","date-field","form","toaster"],
-      dependencies: ["@internationalized/date@^3.12.4","@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["@internationalized/date@^3.12.4","vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/DateFieldForm.vue"],
     },
     "DateFieldGranularity": {
@@ -2990,7 +2990,7 @@ export const Index = {
       name: "DatePickerForm",
       type: "registry:example",
       registryDependencies: ["button","calendar","form","popover","toaster"],
-      dependencies: ["@internationalized/date@^3.12.4","@vee-validate/zod@^4.15.1","lucide-vue-next@^1.0.0","reka-ui@^2.11.0","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["@internationalized/date@^3.12.4","lucide-vue-next@^1.0.0","reka-ui@^2.11.0","vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/DatePickerForm.vue"],
     },
     "DatePickerMonth": {
@@ -3249,14 +3249,14 @@ export const Index = {
       name: "InputForm",
       type: "registry:example",
       registryDependencies: ["button","form","input","toaster"],
-      dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/InputForm.vue"],
     },
     "InputFormAutoAnimate": {
       name: "InputFormAutoAnimate",
       type: "registry:example",
       registryDependencies: ["button","form","input","toaster"],
-      dependencies: ["@formkit/auto-animate@^0.8.4","@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["@formkit/auto-animate@^0.8.4","vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/InputFormAutoAnimate.vue"],
     },
     "InputGroup": {
@@ -3410,7 +3410,7 @@ export const Index = {
       name: "NumberFieldForm",
       type: "registry:example",
       registryDependencies: ["button","form","number-field","toaster"],
-      dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/NumberFieldForm.vue"],
     },
     "NumberFieldPercentage": {
@@ -3452,7 +3452,7 @@ export const Index = {
       name: "PinInputForm",
       type: "registry:example",
       registryDependencies: ["button","form","pin-input","toaster"],
-      dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/PinInputForm.vue"],
     },
     "PinInputSeparator": {
@@ -3487,7 +3487,7 @@ export const Index = {
       name: "RadioGroupForm",
       type: "registry:example",
       registryDependencies: ["button","form","radio-group","toaster"],
-      dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/RadioGroupForm.vue"],
     },
     "RangeCalendar": {
@@ -3550,7 +3550,7 @@ export const Index = {
       name: "SelectForm",
       type: "registry:example",
       registryDependencies: ["button","form","select","toaster"],
-      dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/SelectForm.vue"],
     },
     "SelectScrollable": {
@@ -3641,7 +3641,7 @@ export const Index = {
       name: "SliderForm",
       type: "registry:example",
       registryDependencies: ["button","form","slider","toaster"],
-      dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/SliderForm.vue"],
     },
     "Spinner": {
@@ -3669,7 +3669,7 @@ export const Index = {
       name: "SwitchForm",
       type: "registry:example",
       registryDependencies: ["button","form","switch","toaster"],
-      dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/SwitchForm.vue"],
     },
     "Table": {
@@ -3718,7 +3718,7 @@ export const Index = {
       name: "TextareaForm",
       type: "registry:example",
       registryDependencies: ["button","form","textarea","toaster"],
-      dependencies: ["@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/TextareaForm.vue"],
     },
     "TextareaWithButton": {
@@ -3760,7 +3760,7 @@ export const Index = {
       name: "TimeFieldForm",
       type: "registry:example",
       registryDependencies: ["button","form","time-field","toaster"],
-      dependencies: ["@internationalized/date@^3.12.4","@vee-validate/zod@^4.15.1","vee-validate@^4.15.1","zod@^3.25.76"],
+      dependencies: ["@internationalized/date@^3.12.4","vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["example/TimeFieldForm.vue"],
     },
     "TimeFieldGranularity": {

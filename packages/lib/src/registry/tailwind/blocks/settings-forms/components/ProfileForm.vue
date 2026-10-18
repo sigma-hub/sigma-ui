@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { h, ref } from 'vue';
 import { FieldArray, useForm } from 'vee-validate';
-import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
 import { XIcon } from 'lucide-vue-next';
 import { toast } from '@ui/registry/tailwind/ui/toaster';
 import { Button } from '@ui/registry/tailwind/ui/button';
-import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@ui/registry/tailwind/ui/form';
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@ui/registry/tailwind/ui/form';
 import { Input } from '@ui/registry/tailwind/ui/input';
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@ui/registry/tailwind/ui/select';
 import { Separator } from '@ui/registry/tailwind/ui/separator';
@@ -16,23 +15,19 @@ const verifiedEmails = ref(['m@example.com', 'm@google.com', 'm@support.com']);
 
 const profileFormSchema = toTypedSchema(z.object({
   username: z
-    .string()
+    .string({ error: 'Username is required.' })
     .min(2, {
-      message: 'Username must be at least 2 characters.',
+      error: 'Username must be at least 2 characters.',
     })
     .max(30, {
-      message: 'Username must not be longer than 30 characters.',
+      error: 'Username must not be longer than 30 characters.',
     }),
-  email: z
-    .string({
-      required_error: 'Please select an email to display.',
-    })
-    .email(),
-  bio: z.string().max(160, { message: 'Bio must not be longer than 160 characters.' }).min(4, { message: 'Bio must be at least 4 characters.' }),
+  email: z.email({ error: 'Please select an email to display.' }),
+  bio: z.string({ error: 'Bio is required.' }).max(160, { error: 'Bio must not be longer than 160 characters.' }).min(4, { error: 'Bio must be at least 4 characters.' }),
   urls: z
     .array(
       z.object({
-        value: z.string().url({ message: 'Please enter a valid URL.' }),
+        value: z.url({ error: 'Please enter a valid URL.' }),
       }),
     )
     .optional(),

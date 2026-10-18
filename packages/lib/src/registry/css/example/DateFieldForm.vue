@@ -2,19 +2,11 @@
 import { h } from 'vue';
 import { type DateValue, getLocalTimeZone, today } from '@internationalized/date';
 import { useForm } from 'vee-validate';
-import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
 import { toast } from '@ui/registry/css/ui/toaster';
 import { Button } from '@ui/registry/css/ui/button';
 import { DateField } from '@ui/registry/css/ui/date-field';
-import {
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@ui/registry/css/ui/form';
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@ui/registry/css/ui/form';
 
 const formSchema = toTypedSchema(z.object({
   dob: z

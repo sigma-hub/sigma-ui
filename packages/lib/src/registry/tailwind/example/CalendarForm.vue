@@ -4,19 +4,11 @@ import { CalendarDate, DateFormatter, getLocalTimeZone, parseDate, today } from 
 import { toDate } from 'reka-ui/date';
 import { CalendarIcon } from 'lucide-vue-next';
 import { useForm } from 'vee-validate';
-import { toTypedSchema } from '@vee-validate/zod';
 import { z } from 'zod';
 import { toast } from '@ui/registry/tailwind/ui/toaster';
 import { Calendar } from '@ui/registry/tailwind/ui/calendar';
 import { Button } from '@ui/registry/tailwind/ui/button';
-import {
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@ui/registry/tailwind/ui/form';
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@ui/registry/tailwind/ui/form';
 import { Popover, PopoverContent, PopoverTrigger } from '@ui/registry/tailwind/ui/popover';
 import { cn } from '@ui/utils';
 
@@ -26,8 +18,8 @@ const df = new DateFormatter('en-US', {
 
 const formSchema = toTypedSchema(z.object({
   dob: z
-    .string()
-    .refine(v => v, { message: 'A date of birth is required.' }),
+    .string({ error: 'A date of birth is required.' })
+    .refine(v => v, { error: 'A date of birth is required.' }),
 }));
 
 const placeholder = ref();

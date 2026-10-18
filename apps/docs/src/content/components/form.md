@@ -1,6 +1,6 @@
 ---
 title: Form
-description: Building forms with VeeValidate and Zod.
+description: Building forms with VeeValidate and any Standard Schema library, such as Zod, Valibot, or ArkType.
 source: form
 primitive: https://vee-validate.logaretm.com/v4/guide/overview/
 ---
@@ -15,11 +15,13 @@ primitive: https://vee-validate.logaretm.com/v4/guide/overview/
 
 ### Schema validation
 
-The examples on this page validate with Zod. Install it next to vee-validate:
+The form validates with any [Standard Schema](https://standardschema.dev) library: Zod 4, Valibot, ArkType, and others. The examples on this page use Zod. Install it next to vee-validate:
 
 ```bash
-npm install zod @vee-validate/zod
+npm install zod
 ```
+
+`toTypedSchema` ships with the form component, so no `@vee-validate/zod` adapter is needed. That adapter only supports Zod 3, and it breaks on Zod 4 schemas that use `.default()`.
 
 ## Usage
 
@@ -38,21 +40,38 @@ npm install zod @vee-validate/zod
 </FormField>
 ```
 
-`FormControl` applies the right `id`, `aria-describedby`, and `aria-invalid` for the field state. Validation can use Zod, [Yup](https://github.com/jquense/yup), or [Valibot](https://valibot.dev/).
+`FormControl` applies the right `id`, `aria-describedby`, and `aria-invalid` for the field state. Validation can use any Standard Schema library, such as [Zod](https://zod.dev), [Valibot](https://valibot.dev/), or [ArkType](https://arktype.io).
 
 ### Create a schema
 
-`toTypedSchema` types the form values from the Zod schema, including the input and output types.
+`toTypedSchema` from the form component turns a Standard Schema into a vee-validate schema. It types the form values from the schema, including the input and output types, and fills initial values from defaults such as Zod's `.default()`.
 
 ```vue
 <script setup lang="ts">
-import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
+import { toTypedSchema } from '@/components/ui/form';
 
 const formSchema = toTypedSchema(z.object({
   username: z.string().min(2).max(50),
+  newsletter: z.boolean().default(false),
 }));
 </script>
+```
+
+The same field with Valibot or ArkType:
+
+```ts
+import * as v from 'valibot';
+import { type } from 'arktype';
+import { toTypedSchema } from '@/components/ui/form';
+
+const valibotSchema = toTypedSchema(v.object({
+  username: v.pipe(v.string(), v.minLength(2), v.maxLength(50)),
+}));
+
+const arktypeSchema = toTypedSchema(type({
+  username: '2 <= string <= 50',
+}));
 ```
 
 ### Define the form
@@ -62,8 +81,8 @@ const formSchema = toTypedSchema(z.object({
 ```vue
 <script setup lang="ts">
 import { useForm } from 'vee-validate';
-import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
+import { toTypedSchema } from '@/components/ui/form';
 
 const formSchema = toTypedSchema(z.object({
   username: z.string().min(2).max(50),
@@ -102,10 +121,9 @@ Bind each input with the `componentField` slot prop. `FormMessage` renders the e
 ```vue
 <script setup lang="ts">
 import { useForm } from 'vee-validate';
-import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
 import { Button } from '@/components/ui/button';
-import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 
 const formSchema = toTypedSchema(z.object({

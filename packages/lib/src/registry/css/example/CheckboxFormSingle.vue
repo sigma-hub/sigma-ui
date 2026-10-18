@@ -1,23 +1,15 @@
 <script setup lang="ts">
 import { h } from 'vue';
 import { useForm } from 'vee-validate';
-import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
 import { toast } from '@ui/registry/css/ui/toaster';
 import { Button } from '@ui/registry/css/ui/button';
-import {
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@ui/registry/css/ui/form';
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@ui/registry/css/ui/form';
 import { Checkbox } from '@ui/registry/css/ui/checkbox';
 
 const formSchema = toTypedSchema(z.object({
   mobile: z.boolean().refine(val => val === true, {
-    message: 'You must check this checkbox to proceed',
+    error: 'You must check this checkbox to proceed',
   }),
 }));
 

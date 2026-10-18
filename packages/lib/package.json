@@ -17,7 +17,6 @@
     "@tanstack/vue-table": "catalog:",
     "@unovis/ts": "^1.7.1",
     "@unovis/vue": "^1.7.1",
-    "@vee-validate/zod": "catalog:forms",
     "@vueuse/core": "catalog:",
     "class-variance-authority": "catalog:",
     "clsx": "catalog:",
@@ -33,7 +32,7 @@
     "vee-validate": "catalog:forms",
     "vue": "catalog:",
     "vue-sonner": "catalog:",
-    "zod": "catalog:forms"
+    "zod": "catalog:"
   },
   "devDependencies": {
     "@tailwindcss/vite": "catalog:",

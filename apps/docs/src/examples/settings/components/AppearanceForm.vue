@@ -1,17 +1,16 @@
 <script setup lang="ts">
 import { h } from 'vue';
 import { useForm } from 'vee-validate';
-import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
 import { toast } from '@ui/registry/tailwind/ui/toaster';
-import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@ui/registry/tailwind/ui/form';
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@ui/registry/tailwind/ui/form';
 import { Separator } from '@ui/registry/tailwind/ui/separator';
 import { RadioGroup, RadioGroupItem } from '@ui/registry/tailwind/ui/radio-group';
 import { Button } from '@ui/registry/tailwind/ui/button';
 
 const appearanceFormSchema = toTypedSchema(z.object({
   theme: z.enum(['light', 'dark'], {
-    required_error: 'Please select a theme.',
+    error: 'Please select a theme.',
   }),
 }));
 

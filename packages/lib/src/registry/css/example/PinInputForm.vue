@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { h } from 'vue';
 import { useForm } from 'vee-validate';
-import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
 import { toast } from '@ui/registry/css/ui/toaster';
 import {
@@ -10,17 +9,10 @@ import {
   PinInputInput,
 } from '@ui/registry/css/ui/pin-input';
 import { Button } from '@ui/registry/css/ui/button';
-import {
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@ui/registry/css/ui/form';
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@ui/registry/css/ui/form';
 
 const formSchema = toTypedSchema(z.object({
-  pin: z.array(z.coerce.number()).length(5, { message: 'Invalid input' }),
+  pin: z.array(z.coerce.number()).length(5, { error: 'Invalid input' }),
 }));
 
 const { handleSubmit, setFieldValue } = useForm({

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { h } from 'vue';
 import { useForm } from 'vee-validate';
-import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
 import { CheckIcon, ChevronsUpDownIcon } from 'lucide-vue-next';
 import { toast } from '@ui/registry/css/ui/toaster';
@@ -14,14 +13,7 @@ import {
   CommandItem,
   CommandList,
 } from '@ui/registry/css/ui/command';
-import {
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@ui/registry/css/ui/form';
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@ui/registry/css/ui/form';
 import {
   Popover,
   PopoverContent,
@@ -42,7 +34,7 @@ const languages = [
 
 const formSchema = toTypedSchema(z.object({
   language: z.string({
-    required_error: 'Please select a language.',
+    error: 'Please select a language.',
   }),
 }));
 

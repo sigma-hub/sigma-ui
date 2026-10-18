@@ -1,23 +1,18 @@
 <script setup lang="ts">
 import { h } from 'vue';
 import { useForm } from 'vee-validate';
-import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
 import { vAutoAnimate } from '@formkit/auto-animate/vue';
 import { toast } from '@ui/registry/tailwind/ui/toaster';
 import { Button } from '@ui/registry/tailwind/ui/button';
-import {
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@ui/registry/tailwind/ui/form';
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@ui/registry/tailwind/ui/form';
 import { Input } from '@ui/registry/tailwind/ui/input';
 
 const formSchema = toTypedSchema(z.object({
-  username: z.string().min(2).max(50),
+  username: z
+    .string({ error: 'Username is required.' })
+    .min(2, 'Username must be at least 2 characters.')
+    .max(50, 'Username must not be longer than 50 characters.'),
 }));
 
 const { handleSubmit } = useForm({

@@ -7,7 +7,7 @@
   "dependencies": [
     "@tanstack/vue-table@^8.21.3",
     "lucide-vue-next@^1.0.0",
-    "zod@^3.25.76"
+    "zod@^4.6.7"
   ],
   "registryDependencies": [
     "avatar",

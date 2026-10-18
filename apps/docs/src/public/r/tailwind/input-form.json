@@ -4,9 +4,8 @@
   "type": "registry:example",
   "title": "InputForm",
   "dependencies": [
-    "@vee-validate/zod@^4.15.1",
     "vee-validate@^4.15.1",
-    "zod@^3.25.76"
+    "zod@^4.6.7"
   ],
   "registryDependencies": [
     "button",
@@ -17,7 +16,7 @@
   "files": [
     {
       "path": "example/InputForm.vue",
-      "content": "<script setup lang=\"ts\">\nimport { h } from 'vue';\nimport { useForm } from 'vee-validate';\nimport { toTypedSchema } from '@vee-validate/zod';\nimport * as z from 'zod';\nimport { toast } from '@/components/ui/toaster';\nimport { Button } from '@/components/ui/button';\nimport {\n  FormControl,\n  FormDescription,\n  FormField,\n  FormItem,\n  FormLabel,\n  FormMessage,\n} from '@/components/ui/form';\nimport { Input } from '@/components/ui/input';\n\nconst formSchema = toTypedSchema(z.object({\n  username: z.string().min(2).max(50),\n}));\n\nconst { handleSubmit } = useForm({\n  validationSchema: formSchema,\n});\n\nconst onSubmit = handleSubmit((values) => {\n  toast('You submitted the following values:', {\n    description: h('pre', { class: 'mt-2 rounded-md bg-muted/50 p-4' }, h('code', {}, JSON.stringify(values, null, 2))),\n  });\n});\n</script>\n\n<template>\n  <form\n    class=\"w-2/3 space-y-6\"\n    @submit=\"onSubmit\"\n  >\n    <FormField\n      v-slot=\"{ componentField }\"\n      name=\"username\"\n    >\n      <FormItem>\n        <FormLabel>Username</FormLabel>\n        <FormControl>\n          <Input\n            type=\"text\"\n            placeholder=\"sigma-ui\"\n            v-bind=\"componentField\"\n          />\n        </FormControl>\n        <FormDescription>\n          This is your public display name.\n        </FormDescription>\n        <FormMessage />\n      </FormItem>\n    </FormField>\n    <Button type=\"submit\">\n      Submit\n    </Button>\n  </form>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { h } from 'vue';\nimport { useForm } from 'vee-validate';\nimport * as z from 'zod';\nimport { toast } from '@/components/ui/toaster';\nimport { Button } from '@/components/ui/button';\nimport { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@/components/ui/form';\nimport { Input } from '@/components/ui/input';\n\nconst formSchema = toTypedSchema(z.object({\n  username: z\n    .string({ error: 'Username is required.' })\n    .min(2, 'Username must be at least 2 characters.')\n    .max(50, 'Username must not be longer than 50 characters.'),\n}));\n\nconst { handleSubmit } = useForm({\n  validationSchema: formSchema,\n});\n\nconst onSubmit = handleSubmit((values) => {\n  toast('You submitted the following values:', {\n    description: h('pre', { class: 'mt-2 rounded-md bg-muted/50 p-4' }, h('code', {}, JSON.stringify(values, null, 2))),\n  });\n});\n</script>\n\n<template>\n  <form\n    class=\"w-2/3 space-y-6\"\n    @submit=\"onSubmit\"\n  >\n    <FormField\n      v-slot=\"{ componentField }\"\n      name=\"username\"\n    >\n      <FormItem>\n        <FormLabel>Username</FormLabel>\n        <FormControl>\n          <Input\n            type=\"text\"\n            placeholder=\"sigma-ui\"\n            v-bind=\"componentField\"\n          />\n        </FormControl>\n        <FormDescription>\n          This is your public display name.\n        </FormDescription>\n        <FormMessage />\n      </FormItem>\n    </FormField>\n    <Button type=\"submit\">\n      Submit\n    </Button>\n  </form>\n</template>\n",
       "type": "registry:example"
     }
   ]

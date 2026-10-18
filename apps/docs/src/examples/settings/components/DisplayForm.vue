@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { h } from 'vue';
 import { useForm } from 'vee-validate';
-import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
 import { toast } from '@ui/registry/tailwind/ui/toaster';
-import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@ui/registry/tailwind/ui/form';
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@ui/registry/tailwind/ui/form';
 import { Separator } from '@ui/registry/tailwind/ui/separator';
 import { Checkbox } from '@ui/registry/tailwind/ui/checkbox';
 import { Button } from '@ui/registry/tailwind/ui/button';
@@ -42,7 +41,7 @@ const items = [
 
 const displayFormSchema = toTypedSchema(z.object({
   items: z.array(z.string()).refine(value => value.some(item => item), {
-    message: 'You have to select at least one item.',
+    error: 'You have to select at least one item.',
   }),
 }));
 

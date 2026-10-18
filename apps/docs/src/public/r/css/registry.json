@@ -1485,7 +1485,7 @@
       "name": "form",
       "type": "registry:ui",
       "title": "Form",
-      "description": "Building forms with VeeValidate and Zod.",
+      "description": "Building forms with VeeValidate and any Standard Schema library, such as Zod, Valibot, or ArkType.",
       "dependencies": [
         "reka-ui@^2.11.0",
         "vee-validate@^4.15.1"
@@ -1524,6 +1524,10 @@
         },
         {
           "path": "ui/form/useFormField.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "ui/form/standard-schema.ts",
           "type": "registry:ui"
         },
         {
@@ -3641,11 +3645,10 @@
       "description": "A settings page with a section nav and forms for profile, account, appearance, notifications, and display.",
       "dependencies": [
         "@internationalized/date@^3.12.4",
-        "@vee-validate/zod@^4.15.1",
         "lucide-vue-next@^1.0.0",
         "reka-ui@^2.11.0",
         "vee-validate@^4.15.1",
-        "zod@^3.25.76"
+        "zod@^4.6.7"
       ],
       "registryDependencies": [
         "button",
@@ -3772,7 +3775,7 @@
       "dependencies": [
         "@tanstack/vue-table@^8.21.3",
         "lucide-vue-next@^1.0.0",
-        "zod@^3.25.76"
+        "zod@^4.6.7"
       ],
       "registryDependencies": [
         "avatar",
@@ -4686,11 +4689,10 @@
       "title": "CalendarForm",
       "dependencies": [
         "@internationalized/date@^3.12.4",
-        "@vee-validate/zod@^4.15.1",
         "lucide-vue-next@^1.0.0",
         "reka-ui@^2.11.0",
         "vee-validate@^4.15.1",
-        "zod@^3.25.76"
+        "zod@^4.6.7"
       ],
       "registryDependencies": [
         "button",
@@ -5100,9 +5102,8 @@
       "type": "registry:example",
       "title": "CheckboxFormMultiple",
       "dependencies": [
-        "@vee-validate/zod@^4.15.1",
         "vee-validate@^4.15.1",
-        "zod@^3.25.76"
+        "zod@^4.6.7"
       ],
       "registryDependencies": [
         "button",
@@ -5122,9 +5123,8 @@
       "type": "registry:example",
       "title": "CheckboxFormSingle",
       "dependencies": [
-        "@vee-validate/zod@^4.15.1",
         "vee-validate@^4.15.1",
-        "zod@^3.25.76"
+        "zod@^4.6.7"
       ],
       "registryDependencies": [
         "button",
@@ -5641,10 +5641,9 @@
       "type": "registry:example",
       "title": "CommandForm",
       "dependencies": [
-        "@vee-validate/zod@^4.15.1",
         "lucide-vue-next@^1.0.0",
         "vee-validate@^4.15.1",
-        "zod@^3.25.76"
+        "zod@^4.6.7"
       ],
       "registryDependencies": [
         "button",
@@ -5839,9 +5838,8 @@
       "title": "DateFieldForm",
       "dependencies": [
         "@internationalized/date@^3.12.4",
-        "@vee-validate/zod@^4.15.1",
         "vee-validate@^4.15.1",
-        "zod@^3.25.76"
+        "zod@^4.6.7"
       ],
       "registryDependencies": [
         "button",
@@ -5954,11 +5952,10 @@
       "title": "DatePickerForm",
       "dependencies": [
         "@internationalized/date@^3.12.4",
-        "@vee-validate/zod@^4.15.1",
         "lucide-vue-next@^1.0.0",
         "reka-ui@^2.11.0",
         "vee-validate@^4.15.1",
-        "zod@^3.25.76"
+        "zod@^4.6.7"
       ],
       "registryDependencies": [
         "button",
@@ -6601,9 +6598,8 @@
       "type": "registry:example",
       "title": "InputForm",
       "dependencies": [
-        "@vee-validate/zod@^4.15.1",
         "vee-validate@^4.15.1",
-        "zod@^3.25.76"
+        "zod@^4.6.7"
       ],
       "registryDependencies": [
         "button",
@@ -6624,9 +6620,8 @@
       "title": "InputFormAutoAnimate",
       "dependencies": [
         "@formkit/auto-animate@^0.8.4",
-        "@vee-validate/zod@^4.15.1",
         "vee-validate@^4.15.1",
-        "zod@^3.25.76"
+        "zod@^4.6.7"
       ],
       "registryDependencies": [
         "button",
@@ -6982,9 +6977,8 @@
       "type": "registry:example",
       "title": "NumberFieldForm",
       "dependencies": [
-        "@vee-validate/zod@^4.15.1",
         "vee-validate@^4.15.1",
-        "zod@^3.25.76"
+        "zod@^4.6.7"
       ],
       "registryDependencies": [
         "button",
@@ -7081,9 +7075,8 @@
       "type": "registry:example",
       "title": "PinInputForm",
       "dependencies": [
-        "@vee-validate/zod@^4.15.1",
         "vee-validate@^4.15.1",
-        "zod@^3.25.76"
+        "zod@^4.6.7"
       ],
       "registryDependencies": [
         "button",
@@ -7167,9 +7160,8 @@
       "type": "registry:example",
       "title": "RadioGroupForm",
       "dependencies": [
-        "@vee-validate/zod@^4.15.1",
         "vee-validate@^4.15.1",
-        "zod@^3.25.76"
+        "zod@^4.6.7"
       ],
       "registryDependencies": [
         "button",
@@ -7315,9 +7307,8 @@
       "type": "registry:example",
       "title": "SelectForm",
       "dependencies": [
-        "@vee-validate/zod@^4.15.1",
         "vee-validate@^4.15.1",
-        "zod@^3.25.76"
+        "zod@^4.6.7"
       ],
       "registryDependencies": [
         "button",
@@ -7538,9 +7529,8 @@
       "type": "registry:example",
       "title": "SliderForm",
       "dependencies": [
-        "@vee-validate/zod@^4.15.1",
         "vee-validate@^4.15.1",
-        "zod@^3.25.76"
+        "zod@^4.6.7"
       ],
       "registryDependencies": [
         "button",
@@ -7606,9 +7596,8 @@
       "type": "registry:example",
       "title": "SwitchForm",
       "dependencies": [
-        "@vee-validate/zod@^4.15.1",
         "vee-validate@^4.15.1",
-        "zod@^3.25.76"
+        "zod@^4.6.7"
       ],
       "registryDependencies": [
         "button",
@@ -7725,9 +7714,8 @@
       "type": "registry:example",
       "title": "TextareaForm",
       "dependencies": [
-        "@vee-validate/zod@^4.15.1",
         "vee-validate@^4.15.1",
-        "zod@^3.25.76"
+        "zod@^4.6.7"
       ],
       "registryDependencies": [
         "button",
@@ -7831,9 +7819,8 @@
       "title": "TimeFieldForm",
       "dependencies": [
         "@internationalized/date@^3.12.4",
-        "@vee-validate/zod@^4.15.1",
         "vee-validate@^4.15.1",
-        "zod@^3.25.76"
+        "zod@^4.6.7"
       ],
       "registryDependencies": [
         "button",

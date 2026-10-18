@@ -3,14 +3,13 @@ import type { DateValue } from '@internationalized/date';
 import { h, ref } from 'vue';
 import * as z from 'zod';
 import { toDate } from 'reka-ui/date';
-import { toTypedSchema } from '@vee-validate/zod';
 import { CalendarDate, DateFormatter, getLocalTimeZone, today } from '@internationalized/date';
 import { CalendarIcon, CheckIcon, ChevronsUpDownIcon } from 'lucide-vue-next';
 import { toast } from '@ui/registry/tailwind/ui/toaster';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import { Calendar } from '@ui/registry/tailwind/ui/calendar';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@ui/registry/tailwind/ui/command';
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@ui/registry/tailwind/ui/form';
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@ui/registry/tailwind/ui/form';
 import { Input } from '@ui/registry/tailwind/ui/input';
 import { Popover, PopoverContent, PopoverTrigger } from '@ui/registry/tailwind/ui/popover';
 import { Separator } from '@ui/registry/tailwind/ui/separator';
@@ -38,16 +37,16 @@ const formatter = new DateFormatter('en-US', {
 const accountFormSchema = toTypedSchema(z.object({
   name: z
     .string({
-      required_error: 'Required.',
+      error: 'Required.',
     })
     .min(2, {
-      message: 'Name must be at least 2 characters.',
+      error: 'Name must be at least 2 characters.',
     })
     .max(30, {
-      message: 'Name must not be longer than 30 characters.',
+      error: 'Name must not be longer than 30 characters.',
     }),
-  dob: z.string().datetime().optional().refine(date => date !== undefined, 'Please select a valid date.'),
-  language: z.string().min(1, 'Please select a language.'),
+  dob: z.iso.datetime().optional().refine(date => date !== undefined, 'Please select a valid date.'),
+  language: z.string({ error: 'Please select a language.' }).min(1, 'Please select a language.'),
 }));
 
 function formatDob(date: DateValue | undefined) {
