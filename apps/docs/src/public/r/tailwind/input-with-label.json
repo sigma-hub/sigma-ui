@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "example/InputWithLabel.vue",
-      "content": "<script setup lang=\"ts\">\nimport { Input } from '@/components/ui/input';\nimport { Label } from '@/components/ui/label';\n</script>\n\n<template>\n  <div class=\"flex flex-col w-full max-w-sm gap-2\">\n    <Label for=\"email\">Email</Label>\n    <Input\n      id=\"email\"\n      type=\"email\"\n      placeholder=\"Email\"\n    />\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { Input } from '@/components/ui/input';\nimport { Label } from '@/components/ui/label';\n</script>\n\n<template>\n  <div class=\"flex flex-col w-full max-w-sm gap-2\">\n    <Label for=\"email\">Email</Label>\n    <Input\n      id=\"email\"\n      autocomplete=\"email\"\n      type=\"email\"\n      placeholder=\"Email\"\n    />\n  </div>\n</template>\n",
       "type": "registry:example"
     }
   ]

@@ -36,6 +36,7 @@ const isOpen = ref(false);
         <Label html-for="email">Email</Label>
         <Input
           id="email"
+          autocomplete="email"
           type="email"
           model-value="sigma-ui@example.com"
         />
@@ -44,6 +45,7 @@ const isOpen = ref(false);
         <Label html-for="username">Username</Label>
         <Input
           id="username"
+          autocomplete="username"
           model-value="sigma-ui"
         />
       </div>

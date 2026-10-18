@@ -20,6 +20,7 @@ import { Label } from '@ui/registry/tailwind/ui/label';
         <Label for="email">Email</Label>
         <Input
           id="email"
+          autocomplete="username"
           type="email"
           placeholder="m@example.com"
           required
@@ -29,6 +30,7 @@ import { Label } from '@ui/registry/tailwind/ui/label';
         <Label for="password">Password</Label>
         <Input
           id="password"
+          autocomplete="current-password"
           type="password"
           required
         />

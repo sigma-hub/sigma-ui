@@ -22,6 +22,7 @@ import { Label } from '@ui/registry/css/ui/label';
             <Label for="first-name">First name</Label>
             <Input
               id="first-name"
+              autocomplete="given-name"
               placeholder="Max"
               required
             />
@@ -30,6 +31,7 @@ import { Label } from '@ui/registry/css/ui/label';
             <Label for="last-name">Last name</Label>
             <Input
               id="last-name"
+              autocomplete="family-name"
               placeholder="Robinson"
               required
             />
@@ -39,6 +41,7 @@ import { Label } from '@ui/registry/css/ui/label';
           <Label for="email">Email</Label>
           <Input
             id="email"
+            autocomplete="email"
             type="email"
             placeholder="m@example.com"
             required
@@ -48,6 +51,7 @@ import { Label } from '@ui/registry/css/ui/label';
           <Label for="password">Password</Label>
           <Input
             id="password"
+            autocomplete="new-password"
             type="password"
           />
         </div>

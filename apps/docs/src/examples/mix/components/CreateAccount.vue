@@ -58,6 +58,7 @@ import { Label } from '@ui/registry/tailwind/ui/label';
         <Input
           id="email"
           type="email"
+          autocomplete="email"
           placeholder="m@example.com"
         />
       </div>
@@ -66,6 +67,7 @@ import { Label } from '@ui/registry/tailwind/ui/label';
         <Input
           id="password"
           type="password"
+          autocomplete="new-password"
         />
       </div>
     </CardContent>

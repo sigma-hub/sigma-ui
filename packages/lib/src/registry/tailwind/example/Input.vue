@@ -5,6 +5,7 @@ import { Input } from '@ui/registry/tailwind/ui/input';
 <template>
   <Input
     type="email"
+    autocomplete="email"
     placeholder="Email"
   />
 </template>

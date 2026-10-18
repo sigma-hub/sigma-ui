@@ -30,6 +30,7 @@ import { Textarea } from '@ui/registry/css/ui/textarea';
             </FieldLabel>
             <Input
               id="field-demo-name"
+              autocomplete="name"
               placeholder="Jane Doe"
             />
           </Field>
@@ -39,6 +40,7 @@ import { Textarea } from '@ui/registry/css/ui/textarea';
             </FieldLabel>
             <Input
               id="field-demo-username"
+              autocomplete="username"
               placeholder="jane"
             />
             <FieldDescription>Letters, numbers, and dashes only.</FieldDescription>

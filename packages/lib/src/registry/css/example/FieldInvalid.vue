@@ -27,6 +27,7 @@ const isInvalid = computed(() => errors.value.some(Boolean));
     <Input
       id="field-invalid-password"
       v-model="password"
+      autocomplete="new-password"
       type="password"
       :aria-invalid="isInvalid"
     />

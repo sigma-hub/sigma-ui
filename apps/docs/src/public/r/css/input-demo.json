@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "example/Input.vue",
-      "content": "<script setup lang=\"ts\">\nimport { Input } from '@/components/ui/input';\n</script>\n\n<template>\n  <Input\n    type=\"email\"\n    placeholder=\"Email\"\n  />\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { Input } from '@/components/ui/input';\n</script>\n\n<template>\n  <Input\n    type=\"email\"\n    autocomplete=\"email\"\n    placeholder=\"Email\"\n  />\n</template>\n",
       "type": "registry:example"
     }
   ]

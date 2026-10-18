@@ -14,6 +14,7 @@ import { Input } from '@ui/registry/css/ui/input';
       </FieldContent>
       <Input
         id="field-responsive-name"
+        autocomplete="name"
         placeholder="Jane Doe"
         class="example-field-responsive__input"
       />
@@ -27,6 +28,7 @@ import { Input } from '@ui/registry/css/ui/input';
       </FieldContent>
       <Input
         id="field-responsive-email"
+        autocomplete="email"
         type="email"
         placeholder="jane@example.com"
         class="example-field-responsive__input"

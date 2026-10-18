@@ -42,9 +42,9 @@ function onSubmit(event: Event) {
         id="email"
         :placeholder="emailPlaceholder"
         type="email"
-        auto-capitalize="none"
-        auto-complete="email"
-        auto-correct="off"
+        autocapitalize="none"
+        autocomplete="email"
+        autocorrect="off"
         :disabled="isLoading"
       />
       <Button

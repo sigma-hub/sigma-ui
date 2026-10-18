@@ -37,6 +37,7 @@ import { Label } from '@ui/registry/tailwind/ui/label';
           </Label>
           <Input
             id="name"
+            autocomplete="name"
             value="Pedro Duarte"
             class="col-span-3"
           />
@@ -50,6 +51,7 @@ import { Label } from '@ui/registry/tailwind/ui/label';
           </Label>
           <Input
             id="username"
+            autocomplete="username"
             value="@peduarte"
             class="col-span-3"
           />

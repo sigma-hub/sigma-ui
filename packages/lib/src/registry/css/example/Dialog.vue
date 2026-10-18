@@ -37,6 +37,7 @@ import { Label } from '@ui/registry/css/ui/label';
           </Label>
           <Input
             id="name"
+            autocomplete="name"
             value="Pedro Duarte"
             class="example-sigma-ui-dialog__input"
           />
@@ -50,6 +51,7 @@ import { Label } from '@ui/registry/css/ui/label';
           </Label>
           <Input
             id="username"
+            autocomplete="username"
             value="@peduarte"
             class="example-sigma-ui-dialog__input"
           />

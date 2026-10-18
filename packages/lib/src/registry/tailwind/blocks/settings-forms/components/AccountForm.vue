@@ -100,6 +100,7 @@ function onSubmit(values: Record<string, unknown>) {
           <Input
             type="text"
             placeholder="Your name"
+            autocomplete="name"
             v-bind="componentField"
           />
         </FormControl>

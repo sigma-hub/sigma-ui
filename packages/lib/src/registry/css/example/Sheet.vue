@@ -38,6 +38,7 @@ import {
           </Label>
           <Input
             id="name"
+            autocomplete="name"
             value="Pedro Duarte"
             class="example-sigma-ui-sheet__input"
           />
@@ -51,6 +52,7 @@ import {
           </Label>
           <Input
             id="username"
+            autocomplete="username"
             value="@peduarte"
             class="example-sigma-ui-sheet__input"
           />

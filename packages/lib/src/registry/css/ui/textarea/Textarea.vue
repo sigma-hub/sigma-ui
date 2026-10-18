@@ -28,10 +28,10 @@ defineEmits<{
   <textarea
     v-model="model"
     data-slot="textarea"
+    autocomplete="off"
     v-bind="delegatedAttrs()"
     class="sigma-ui-textarea"
     :class="[$attrs.class]"
-    autocomplete="off"
   />
 </template>
 

@@ -14,6 +14,7 @@ import { Input } from '@ui/registry/tailwind/ui/input';
       </FieldContent>
       <Input
         id="field-responsive-name"
+        autocomplete="name"
         placeholder="Jane Doe"
         class="@md/field-group:max-w-[260px]"
       />
@@ -27,6 +28,7 @@ import { Input } from '@ui/registry/tailwind/ui/input';
       </FieldContent>
       <Input
         id="field-responsive-email"
+        autocomplete="email"
         type="email"
         placeholder="jane@example.com"
         class="@md/field-group:max-w-[260px]"

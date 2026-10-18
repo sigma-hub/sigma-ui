@@ -7,6 +7,7 @@ import { Button } from '@ui/registry/css/ui/button';
   <div class="example-sigma-ui-input-with-button">
     <Input
       id="email"
+      autocomplete="email"
       type="email"
       placeholder="Email"
     />

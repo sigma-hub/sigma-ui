@@ -8,6 +8,7 @@ import { Label } from '@ui/registry/css/ui/label';
     <Label for="email">Email</Label>
     <Input
       id="email"
+      autocomplete="email"
       type="email"
       placeholder="Email"
     />
