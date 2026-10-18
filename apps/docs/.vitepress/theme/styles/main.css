@@ -4,6 +4,7 @@
 @source "../components";
 @source "../layout";
 @source "../pages";
+@source "../../../../../packages/lib/src/registry/tailwind";
 
 @custom-variant dark (&:is(.dark *));
 
