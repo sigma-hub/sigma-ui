@@ -1619,13 +1619,6 @@ export const Index = {
       dependencies: [],
       files: ["example/Tabs.vue"],
     },
-    "TagGroup": {
-      name: "TagGroup",
-      type: "registry:example",
-      registryDependencies: ["tag-group"],
-      dependencies: ["reka-ui@^2.11.0"],
-      files: ["example/TagGroup.vue"],
-    },
     "TagsInput": {
       name: "TagsInput",
       type: "registry:example",
@@ -3538,13 +3531,6 @@ export const Index = {
       registryDependencies: ["button","card","input","label","tabs"],
       dependencies: [],
       files: ["example/Tabs.vue"],
-    },
-    "TagGroup": {
-      name: "TagGroup",
-      type: "registry:example",
-      registryDependencies: ["tag-group"],
-      dependencies: ["reka-ui@^2.11.0"],
-      files: ["example/TagGroup.vue"],
     },
     "TagsInput": {
       name: "TagsInput",

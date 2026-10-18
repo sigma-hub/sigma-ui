@@ -2533,37 +2533,6 @@
       ]
     },
     {
-      "name": "tag-group",
-      "type": "registry:ui",
-      "dependencies": [
-        "lucide-vue-next@^1.0.0",
-        "reka-ui@^2.11.0"
-      ],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "ui/tag-group/TagGroup.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "ui/tag-group/TagGroupItem.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "ui/tag-group/TagGroupItemDelete.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "ui/tag-group/TagGroupItemText.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "ui/tag-group/index.ts",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
       "name": "tags-input",
       "type": "registry:ui",
       "dependencies": [

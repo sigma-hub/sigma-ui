@@ -35,11 +35,6 @@ const listedComponents: SidebarNavItem[] = [
     label: 'New',
   },
   {
-    title: 'Tag Group',
-    href: '/components/tag-group',
-    label: 'New',
-  },
-  {
     title: 'Typography',
     href: '/components/typography',
     label: 'New',
