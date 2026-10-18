@@ -6,7 +6,7 @@ import UserMenu from './components/UserMenu.vue';
 </script>
 
 <template>
-  <div class="flex h-full flex-1 flex-col gap-8 p-8">
+  <div class="flex min-h-full flex-1 flex-col gap-8 p-8">
     <div class="flex items-center justify-between gap-2">
       <div>
         <h2 class="text-2xl font-bold tracking-tight">

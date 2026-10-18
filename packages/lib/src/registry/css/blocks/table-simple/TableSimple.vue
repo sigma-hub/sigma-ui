@@ -31,7 +31,7 @@ import UserMenu from './components/UserMenu.vue';
 <style>
 .table-simple {
   display: flex;
-  height: 100%;
+  min-height: 100%;
   flex: 1;
   flex-direction: column;
   padding: 2rem;
