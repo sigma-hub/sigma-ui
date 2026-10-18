@@ -19,6 +19,7 @@ import {
   quote,
   quoteAuthor,
   quoteAuthorRole,
+  stats,
   termsHref,
   termsLabel,
   termsLead,
@@ -61,8 +62,8 @@ const quoteAuthorInitials = quoteAuthor
           </span>
           {{ brandName }}
         </div>
-        <figure class="relative mt-auto flex max-w-md flex-col gap-6">
-          <blockquote class="text-xl leading-relaxed font-medium tracking-tight">
+        <figure class="relative my-auto flex max-w-md flex-col gap-6 py-12">
+          <blockquote class="text-2xl leading-snug font-medium tracking-tight text-balance">
             &ldquo;{{ quote }}&rdquo;
           </blockquote>
           <figcaption class="flex items-center gap-3">
@@ -78,6 +79,20 @@ const quoteAuthorInitials = quoteAuthor
             </span>
           </figcaption>
         </figure>
+        <dl class="relative grid grid-cols-3 gap-6 border-t pt-6">
+          <div
+            v-for="stat in stats"
+            :key="stat.label"
+            class="flex flex-col gap-1"
+          >
+            <dt class="text-sm text-muted-foreground">
+              {{ stat.label }}
+            </dt>
+            <dd class="order-first text-2xl font-semibold tracking-tight">
+              {{ stat.value }}
+            </dd>
+          </div>
+        </dl>
       </div>
       <div class="relative flex items-center justify-center px-6 py-16 lg:px-10">
         <Button

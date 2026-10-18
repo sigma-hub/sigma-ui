@@ -18,6 +18,7 @@ import {
   quote,
   quoteAuthor,
   quoteAuthorRole,
+  stats,
   termsHref,
   termsLabel,
   termsLead,
@@ -76,6 +77,20 @@ const quoteAuthorInitials = quoteAuthor
           </span>
         </figcaption>
       </figure>
+      <dl class="signup-quote__stats">
+        <div
+          v-for="stat in stats"
+          :key="stat.label"
+          class="signup-quote__stat"
+        >
+          <dt class="signup-quote__stat-label">
+            {{ stat.label }}
+          </dt>
+          <dd class="signup-quote__stat-value">
+            {{ stat.value }}
+          </dd>
+        </div>
+      </dl>
     </div>
     <div class="signup-quote__content">
       <Button
@@ -161,16 +176,17 @@ const quoteAuthorInitials = quoteAuthor
 }
 
 .signup-quote__brand,
-.signup-quote__quote {
+.signup-quote__quote,
+.signup-quote__stats {
   position: relative;
 }
 
 .signup-quote__brand {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
   font-size: 1.125rem;
   font-weight: 500;
+  gap: 0.5rem;
 }
 
 .signup-quote__logo {
@@ -193,16 +209,48 @@ const quoteAuthorInitials = quoteAuthor
   display: flex;
   max-width: 28rem;
   flex-direction: column;
-  margin: auto 0 0;
+  padding: 3rem 0;
+  margin: auto 0;
   gap: 1.5rem;
 }
 
 .signup-quote__quote-text {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 500;
   letter-spacing: -0.025em;
-  line-height: 1.625;
+  line-height: 1.375;
+  text-wrap: balance;
+}
+
+.signup-quote__stats {
+  display: grid;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  margin: 0;
+  gap: 1.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.signup-quote__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.signup-quote__stat-label {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.signup-quote__stat-value {
+  order: -1;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 2rem;
 }
 
 .signup-quote__author {
