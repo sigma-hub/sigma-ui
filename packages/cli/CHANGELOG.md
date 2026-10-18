@@ -9,7 +9,6 @@
 - `migrate` upgrades 1.x projects: config shape, kebab-case component directories, imports, and theme CSS (HSL triplets, missing `accent` / `sidebar-*` tokens).
 - `diff` is removed. Use `add --diff`.
 - New commands: `view`, `search`, `build`, `mcp`.
-- Block names are kebab-case with no 1.x aliases. See the docs changelog for the mapping.
 
 ### Fixes
 

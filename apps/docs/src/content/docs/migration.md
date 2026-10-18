@@ -13,7 +13,6 @@ SIGMA-UI 2.0 is a new major version of the CLI and the component registry. Exist
 - **Component directories are kebab-case.** `Button/` becomes `button/`. File names still follow `componentNaming` in `sigma-ui.config.json`.
 - **Config shape.** `style` is `styleSystem`, `tailwind.css` is `cssPath`, `aliases.ui` is `aliases.components`.
 - **`diff` is removed.** Use `npx sigma-ui add --diff` (or `npx sigma-ui add button --diff`) instead.
-- **Block names changed.** There are no 1.x aliases. See the [changelog](/docs/changelog) for the mapping (`Authentication01` -> `login-simple`, and so on).
 
 ## `migrate`
 
