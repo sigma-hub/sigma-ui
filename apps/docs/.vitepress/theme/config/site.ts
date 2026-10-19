@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: 'sigma-ui',
-  version: '2.0.0',
+  version: '2.1.0',
   url: 'https://sigma-ui.dev',
   ogImage: 'https://sigma-ui.dev/og.png',
   description: 'Well designed Vue components. Built on Reka UI primitives. Minimally styled. Accessible. Fully customizable. Open Source. It\'s like shadcn/ui but for Vue',
