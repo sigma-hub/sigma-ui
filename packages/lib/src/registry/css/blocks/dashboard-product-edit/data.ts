@@ -7,6 +7,7 @@ import {
   ShoppingCartIcon,
   Users2Icon,
 } from '@lucide/vue';
+import { placeholderImage } from './placeholder';
 
 export interface NavItem {
   label: string;
@@ -100,9 +101,9 @@ export const statusOptions: SelectOption[] = [
   { value: 'archived', label: 'Archived' },
 ];
 
-export const mainProductImage: ProductImage = { alt: 'Product image', src: '/placeholder.svg', size: 300 };
+export const mainProductImage: ProductImage = { alt: 'Product image', src: placeholderImage, size: 300 };
 
 export const productThumbnails: ProductImage[] = [
-  { alt: 'Product image', src: '/placeholder.svg', size: 84 },
-  { alt: 'Product image', src: '/placeholder.svg', size: 84 },
+  { alt: 'Product image', src: placeholderImage, size: 84 },
+  { alt: 'Product image', src: placeholderImage, size: 84 },
 ];

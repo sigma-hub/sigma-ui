@@ -2,6 +2,7 @@
 import { Button } from '@ui/registry/css/ui/button';
 import { Input } from '@ui/registry/css/ui/input';
 import { Label } from '@ui/registry/css/ui/label';
+import { placeholderImage } from './placeholder';
 </script>
 
 <template>
@@ -94,7 +95,7 @@ import { Label } from '@ui/registry/css/ui/label';
     </div>
     <div class="login-split-image__image-side">
       <img
-        src="/placeholder.svg"
+        :src="placeholderImage"
         alt="Image"
         width="1920"
         height="1080"

@@ -7,6 +7,7 @@ import {
   ShoppingCartIcon,
   Users2Icon,
 } from '@lucide/vue';
+import { placeholderImage } from './placeholder';
 
 export type SidebarLinkTone = 'default' | 'muted' | 'active';
 
@@ -120,7 +121,7 @@ export const products: Product[] = [
     price: '$499.99',
     totalSales: 25,
     createdAt: '2023-07-12 10:42 AM',
-    imageUrl: '/placeholder.svg',
+    imageUrl: placeholderImage,
   },
   {
     name: 'Hypernova Headphones',
@@ -129,7 +130,7 @@ export const products: Product[] = [
     price: '$129.99',
     totalSales: 100,
     createdAt: '2023-10-18 03:21 PM',
-    imageUrl: '/placeholder.svg',
+    imageUrl: placeholderImage,
   },
   {
     name: 'AeroGlow Desk Lamp',
@@ -138,7 +139,7 @@ export const products: Product[] = [
     price: '$39.99',
     totalSales: 50,
     createdAt: '2023-11-29 08:15 AM',
-    imageUrl: '/placeholder.svg',
+    imageUrl: placeholderImage,
   },
   {
     name: 'TechTonic Energy Drink',
@@ -147,7 +148,7 @@ export const products: Product[] = [
     price: '$2.99',
     totalSales: 0,
     createdAt: '2023-12-25 11:59 PM',
-    imageUrl: '/placeholder.svg',
+    imageUrl: placeholderImage,
   },
   {
     name: 'Gamer Gear Pro Controller',
@@ -156,7 +157,7 @@ export const products: Product[] = [
     price: '$59.99',
     totalSales: 75,
     createdAt: '2024-01-01 12:00 AM',
-    imageUrl: '/placeholder.svg',
+    imageUrl: placeholderImage,
   },
   {
     name: 'Luminous VR Headset',
@@ -165,7 +166,7 @@ export const products: Product[] = [
     price: '$199.99',
     totalSales: 30,
     createdAt: '2024-02-14 02:14 PM',
-    imageUrl: '/placeholder.svg',
+    imageUrl: placeholderImage,
   },
 ];
 

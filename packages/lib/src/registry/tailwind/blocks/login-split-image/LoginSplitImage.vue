@@ -2,6 +2,7 @@
 import { Button } from '@ui/registry/tailwind/ui/button';
 import { Input } from '@ui/registry/tailwind/ui/input';
 import { Label } from '@ui/registry/tailwind/ui/label';
+import { placeholderImage } from './placeholder';
 </script>
 
 <template>
@@ -94,7 +95,7 @@ import { Label } from '@ui/registry/tailwind/ui/label';
     </div>
     <div class="hidden lg:flex lg:flex-1 bg-muted">
       <img
-        src="/placeholder.svg"
+        :src="placeholderImage"
         alt="Image"
         width="1920"
         height="1080"

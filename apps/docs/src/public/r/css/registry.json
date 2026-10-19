@@ -3377,6 +3377,10 @@
         {
           "path": "blocks/dashboard-product-edit/data.ts",
           "type": "registry:lib"
+        },
+        {
+          "path": "blocks/dashboard-product-edit/placeholder.ts",
+          "type": "registry:lib"
         }
       ],
       "meta": {
@@ -3426,6 +3430,10 @@
         },
         {
           "path": "blocks/dashboard-products/data.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "blocks/dashboard-products/placeholder.ts",
           "type": "registry:lib"
         }
       ],
@@ -3628,6 +3636,10 @@
         {
           "path": "blocks/login-split-image/LoginSplitImage.vue",
           "type": "registry:component"
+        },
+        {
+          "path": "blocks/login-split-image/placeholder.ts",
+          "type": "registry:lib"
         }
       ],
       "meta": {

@@ -8,6 +8,7 @@ import {
   registrySchema,
   type Registry,
   type RegistryItem,
+  type RegistryItemFile,
 } from '../schemas/registry';
 
 export const REGISTRY_INDEX_NAME = 'registry';
@@ -18,8 +19,10 @@ export interface WriteRegistryOptions {
   registry: Registry;
   sourceRoot: string;
   outputDirectory: string;
-  transformContent?: (content: string) => string;
+  transformContent?: RegistryContentTransform;
 }
+
+export type RegistryContentTransform = (content: string, file: RegistryItemFile, item: RegistryItem) => string;
 
 export function resolveRegistrySourceFile(sourceRoot: string, filePath: string, itemName: string) {
   const absolutePath = resolve(sourceRoot, filePath);
@@ -47,11 +50,11 @@ export function resolveRegistrySourceFile(sourceRoot: string, filePath: string, 
 export async function withFileContents(
   sourceRoot: string,
   item: RegistryItem,
-  transformContent: (content: string) => string = content => content,
+  transformContent: RegistryContentTransform = content => content,
 ): Promise<RegistryItem> {
   const files = await Promise.all((item.files ?? []).map(async (file) => {
     const content = await readFile(resolveRegistrySourceFile(sourceRoot, file.path, item.name), 'utf8');
-    return { ...file, content: transformContent(content.replace(/\r\n/g, '\n')) };
+    return { ...file, content: transformContent(content.replace(/\r\n/g, '\n'), file, item) };
   }));
 
   return { ...item, files };

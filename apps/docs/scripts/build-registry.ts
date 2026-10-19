@@ -99,6 +99,12 @@ function publicExamples(items: RegistryItem[], styleRoot: string): RegistryItem[
     collect(example, related);
     const parts = [...related];
     const baseName = kebabCase(example.name);
+    const fileNames = parts.map(part => path.posix.basename(part.files?.[0]?.path ?? ''));
+    const duplicate = fileNames.find((fileName, index) => fileNames.indexOf(fileName) !== index);
+
+    if (duplicate) {
+      throw new Error(`Example "${example.name}" has two files named ${duplicate}. The CLI installs an example into one folder.`);
+    }
 
     return {
       ...example,
@@ -109,6 +115,18 @@ function publicExamples(items: RegistryItem[], styleRoot: string): RegistryItem[
       registryDependencies: [...new Set(parts.flatMap(part => part.registryDependencies ?? []))].sort(),
     };
   });
+}
+
+const RELATIVE_SPECIFIER_PATTERN = /(\bfrom\s*|\bimport\s*\(\s*|\bimport\s+)(['"])(\.{1,2}\/[^'"]+)\2/g;
+
+/**
+ * The CLI installs an example and the files it imports into one folder, so `../DataTableMenu.vue`
+ * from `example/Cards/DataTable.vue` is published as `./DataTableMenu.vue`.
+ */
+export function flattenExampleImports(content: string) {
+  return content.replace(RELATIVE_SPECIFIER_PATTERN, (_match, prefix: string, quote: string, specifier: string) => (
+    `${prefix}${quote}./${path.posix.basename(specifier)}${quote}`
+  ));
 }
 
 function buildGeneratedIndex(registries: Record<string, RegistryItem[]>) {
@@ -162,7 +180,9 @@ async function buildPublicRegistry(registries: Record<string, RegistryItem[]>) {
       },
       sourceRoot: path.join(LIB_REGISTRY_PATH, style.name),
       outputDirectory: path.join(PUBLIC_REGISTRY_PATH, style.name),
-      transformContent: toPublicImports,
+      transformContent: (content, _file, item) => (
+        item.type === 'registry:example' ? flattenExampleImports(toPublicImports(content)) : toPublicImports(content)
+      ),
     });
   }
 }

@@ -49,14 +49,14 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["badge","breadcrumb","button","card","dropdown-menu","input","label","select","sheet","table","textarea","toggle-group","tooltip"],
       dependencies: ["@lucide/vue@^1.59.0"],
-      files: ["blocks/dashboard-product-edit/DashboardProductEdit.vue","blocks/dashboard-product-edit/components/AppHeader.vue","blocks/dashboard-product-edit/components/AppSidebar.vue","blocks/dashboard-product-edit/components/ArchiveProductCard.vue","blocks/dashboard-product-edit/components/ProductCategoryCard.vue","blocks/dashboard-product-edit/components/ProductDetailsCard.vue","blocks/dashboard-product-edit/components/ProductImagesCard.vue","blocks/dashboard-product-edit/components/ProductStatusCard.vue","blocks/dashboard-product-edit/components/ProductStockCard.vue","blocks/dashboard-product-edit/components/ProductToolbar.vue","blocks/dashboard-product-edit/data.ts"],
+      files: ["blocks/dashboard-product-edit/DashboardProductEdit.vue","blocks/dashboard-product-edit/components/AppHeader.vue","blocks/dashboard-product-edit/components/AppSidebar.vue","blocks/dashboard-product-edit/components/ArchiveProductCard.vue","blocks/dashboard-product-edit/components/ProductCategoryCard.vue","blocks/dashboard-product-edit/components/ProductDetailsCard.vue","blocks/dashboard-product-edit/components/ProductImagesCard.vue","blocks/dashboard-product-edit/components/ProductStatusCard.vue","blocks/dashboard-product-edit/components/ProductStockCard.vue","blocks/dashboard-product-edit/components/ProductToolbar.vue","blocks/dashboard-product-edit/data.ts","blocks/dashboard-product-edit/placeholder.ts"],
     },
     "dashboard-products": {
       name: "dashboard-products",
       type: "registry:block",
       registryDependencies: ["badge","breadcrumb","button","card","dropdown-menu","input","sheet","table","tabs","tooltip"],
       dependencies: ["@lucide/vue@^1.59.0"],
-      files: ["blocks/dashboard-products/DashboardProducts.vue","blocks/dashboard-products/components/AppHeader.vue","blocks/dashboard-products/components/AppSidebar.vue","blocks/dashboard-products/components/ProductsPanel.vue","blocks/dashboard-products/data.ts"],
+      files: ["blocks/dashboard-products/DashboardProducts.vue","blocks/dashboard-products/components/AppHeader.vue","blocks/dashboard-products/components/AppSidebar.vue","blocks/dashboard-products/components/ProductsPanel.vue","blocks/dashboard-products/data.ts","blocks/dashboard-products/placeholder.ts"],
     },
     "dashboard-settings": {
       name: "dashboard-settings",
@@ -91,7 +91,7 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["button","input","label"],
       dependencies: [],
-      files: ["blocks/login-split-image/LoginSplitImage.vue"],
+      files: ["blocks/login-split-image/LoginSplitImage.vue","blocks/login-split-image/placeholder.ts"],
     },
     "settings-forms": {
       name: "settings-forms",
@@ -2060,14 +2060,14 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["badge","breadcrumb","button","card","dropdown-menu","input","label","select","sheet","table","textarea","toggle-group","tooltip"],
       dependencies: ["@lucide/vue@^1.59.0"],
-      files: ["blocks/dashboard-product-edit/DashboardProductEdit.vue","blocks/dashboard-product-edit/components/AppHeader.vue","blocks/dashboard-product-edit/components/AppSidebar.vue","blocks/dashboard-product-edit/components/ArchiveProductCard.vue","blocks/dashboard-product-edit/components/ProductCategoryCard.vue","blocks/dashboard-product-edit/components/ProductDetailsCard.vue","blocks/dashboard-product-edit/components/ProductImagesCard.vue","blocks/dashboard-product-edit/components/ProductStatusCard.vue","blocks/dashboard-product-edit/components/ProductStockCard.vue","blocks/dashboard-product-edit/components/ProductToolbar.vue","blocks/dashboard-product-edit/data.ts"],
+      files: ["blocks/dashboard-product-edit/DashboardProductEdit.vue","blocks/dashboard-product-edit/components/AppHeader.vue","blocks/dashboard-product-edit/components/AppSidebar.vue","blocks/dashboard-product-edit/components/ArchiveProductCard.vue","blocks/dashboard-product-edit/components/ProductCategoryCard.vue","blocks/dashboard-product-edit/components/ProductDetailsCard.vue","blocks/dashboard-product-edit/components/ProductImagesCard.vue","blocks/dashboard-product-edit/components/ProductStatusCard.vue","blocks/dashboard-product-edit/components/ProductStockCard.vue","blocks/dashboard-product-edit/components/ProductToolbar.vue","blocks/dashboard-product-edit/data.ts","blocks/dashboard-product-edit/placeholder.ts"],
     },
     "dashboard-products": {
       name: "dashboard-products",
       type: "registry:block",
       registryDependencies: ["badge","breadcrumb","button","card","dropdown-menu","input","sheet","table","tabs","tooltip"],
       dependencies: ["@lucide/vue@^1.59.0"],
-      files: ["blocks/dashboard-products/DashboardProducts.vue","blocks/dashboard-products/components/AppHeader.vue","blocks/dashboard-products/components/AppSidebar.vue","blocks/dashboard-products/components/ProductsPanel.vue","blocks/dashboard-products/data.ts"],
+      files: ["blocks/dashboard-products/DashboardProducts.vue","blocks/dashboard-products/components/AppHeader.vue","blocks/dashboard-products/components/AppSidebar.vue","blocks/dashboard-products/components/ProductsPanel.vue","blocks/dashboard-products/data.ts","blocks/dashboard-products/placeholder.ts"],
     },
     "dashboard-settings": {
       name: "dashboard-settings",
@@ -2102,7 +2102,7 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["button","input","label"],
       dependencies: [],
-      files: ["blocks/login-split-image/LoginSplitImage.vue"],
+      files: ["blocks/login-split-image/LoginSplitImage.vue","blocks/login-split-image/placeholder.ts"],
     },
     "settings-forms": {
       name: "settings-forms",
