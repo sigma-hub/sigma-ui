@@ -66,52 +66,54 @@ defineProps<{
 </template>
 
 <style>
-.table-simple__user-button {
-  position: relative;
-  width: calc(var(--spacing) * 8);
-  height: calc(var(--spacing) * 8);
-  border-radius: 9999px;
-}
+@layer components {
+  .table-simple__user-button {
+    position: relative;
+    width: calc(var(--spacing) * 8);
+    height: calc(var(--spacing) * 8);
+    border-radius: 9999px;
+  }
 
-.table-simple__user-menu {
-  width: calc(var(--spacing) * 56);
-}
+  .table-simple__user-menu {
+    width: calc(var(--spacing) * 56);
+  }
 
-.table-simple__user-label {
-  font-weight: 400;
-}
+  .table-simple__user-label {
+    font-weight: 400;
+  }
 
-.table-simple__user-identity {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 1);
-}
+  .table-simple__user-identity {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 1);
+  }
 
-.table-simple__user-name,
-.table-simple__user-email {
-  margin: 0;
-  line-height: 1;
-}
+  .table-simple__user-name,
+  .table-simple__user-email {
+    margin: 0;
+    line-height: 1;
+  }
 
-.table-simple__user-name {
-  font-size: 0.875rem;
-  font-weight: 500;
-}
+  .table-simple__user-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
 
-.table-simple__user-email {
-  color: var(--muted-foreground);
-  font-size: 0.75rem;
-}
+  .table-simple__user-email {
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+  }
 
-.table-simple__sr-only {
-  position: absolute;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  border-width: 0;
-  margin: -1px;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
+  .table-simple__sr-only {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border-width: 0;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
 }
 </style>

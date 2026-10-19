@@ -32,31 +32,33 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-dropdown-menu-item {
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
-  border-radius: var(--radius-sm);
-  cursor: default;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  outline: none;
-  transition: background-color 150ms ease, color 150ms ease;
-  user-select: none;
-}
+@layer components {
+  .sigma-ui-dropdown-menu-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
+    border-radius: var(--radius-sm);
+    cursor: default;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    outline: none;
+    transition: background-color 150ms ease, color 150ms ease;
+    user-select: none;
+  }
 
-.sigma-ui-dropdown-menu-item--inset {
-  padding-left: calc(var(--spacing) * 8);
-}
+  .sigma-ui-dropdown-menu-item--inset {
+    padding-left: calc(var(--spacing) * 8);
+  }
 
-.sigma-ui-dropdown-menu-item:focus {
-  background-color: var(--secondary);
-  color: var(--secondary-foreground);
-}
+  .sigma-ui-dropdown-menu-item:focus {
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+  }
 
-.sigma-ui-dropdown-menu-item[data-disabled] {
-  opacity: 0.5;
-  pointer-events: none;
+  .sigma-ui-dropdown-menu-item[data-disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 }
 </style>

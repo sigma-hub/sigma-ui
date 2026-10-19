@@ -30,18 +30,20 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-empty-description {
-  color: var(--muted-foreground);
-  font-size: 0.875rem;
-  line-height: 1.625;
-}
+@layer components {
+  .sigma-ui-empty-description {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+    line-height: 1.625;
+  }
 
-.sigma-ui-empty-description a {
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
+  .sigma-ui-empty-description a {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
 
-.sigma-ui-empty-description a:hover {
-  color: var(--primary);
+  .sigma-ui-empty-description a:hover {
+    color: var(--primary);
+  }
 }
 </style>

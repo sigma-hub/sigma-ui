@@ -39,52 +39,54 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-sidebar-group-action {
-  position: absolute;
-  top: calc(var(--spacing) * 3.5);
-  right: calc(var(--spacing) * 3);
-  display: flex;
-  width: calc(var(--spacing) * 5);
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  border: none;
-  border-radius: var(--radius-md);
-  aspect-ratio: 1 / 1;
-  background-color: transparent;
-  color: var(--foreground);
-  outline: none;
-  transition: transform 150ms;
-}
+@layer components {
+  .sigma-ui-sidebar-group-action {
+    position: absolute;
+    top: calc(var(--spacing) * 3.5);
+    right: calc(var(--spacing) * 3);
+    display: flex;
+    width: calc(var(--spacing) * 5);
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    border-radius: var(--radius-md);
+    aspect-ratio: 1 / 1;
+    background-color: transparent;
+    color: var(--foreground);
+    outline: none;
+    transition: transform 150ms;
+  }
 
-.sigma-ui-sidebar-group-action:hover {
-  background-color: var(--sidebar-accent);
-  color: var(--sidebar-accent-foreground);
-}
+  .sigma-ui-sidebar-group-action:hover {
+    background-color: var(--sidebar-accent);
+    color: var(--sidebar-accent-foreground);
+  }
 
-.sigma-ui-sidebar-group-action:focus-visible {
-  box-shadow: 0 0 0 2px var(--sidebar-ring);
-}
+  .sigma-ui-sidebar-group-action:focus-visible {
+    box-shadow: 0 0 0 2px var(--sidebar-ring);
+  }
 
-.sigma-ui-sidebar-group-action > svg {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  flex-shrink: 0;
-}
+  .sigma-ui-sidebar-group-action > svg {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    flex-shrink: 0;
+  }
 
-.sigma-ui-sidebar-group-action::after {
-  position: absolute;
-  content: "";
-  inset: calc(var(--spacing) * -2);
-}
-
-@media (width >= 48rem) {
   .sigma-ui-sidebar-group-action::after {
+    position: absolute;
+    content: "";
+    inset: calc(var(--spacing) * -2);
+  }
+
+  @media (width >= 48rem) {
+    .sigma-ui-sidebar-group-action::after {
+      display: none;
+    }
+  }
+
+  .sigma-ui-sidebar[data-collapsible="icon"] .sigma-ui-sidebar-group-action {
     display: none;
   }
-}
-
-.sigma-ui-sidebar[data-collapsible="icon"] .sigma-ui-sidebar-group-action {
-  display: none;
 }
 </style>

@@ -30,11 +30,13 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-field-content {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 1.5);
-  line-height: 1.375;
+@layer components {
+  .sigma-ui-field-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 1.5);
+    line-height: 1.375;
+  }
 }
 </style>

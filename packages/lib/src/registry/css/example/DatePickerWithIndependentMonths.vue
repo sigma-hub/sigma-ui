@@ -256,92 +256,94 @@ watch(secondMonthPlaceholder, (_secondMonthPlaceholder) => {
 </template>
 
 <style>
-.example-sigma-ui-date-picker__button {
-  width: 280px;
-  justify-content: flex-start;
-  font-weight: normal;
-  text-align: left;
-}
+@layer components {
+  .example-sigma-ui-date-picker__button {
+    width: 280px;
+    justify-content: flex-start;
+    font-weight: normal;
+    text-align: left;
+  }
 
-.example-sigma-ui-date-picker__button--placeholder {
-  color: var(--muted-foreground);
-}
+  .example-sigma-ui-date-picker__button--placeholder {
+    color: var(--muted-foreground);
+  }
 
-.example-sigma-ui-date-picker__button-icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  margin-right: calc(var(--spacing) * 2);
-}
+  .example-sigma-ui-date-picker__button-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-right: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-date-picker__content {
-  width: auto;
-  padding: 0;
-}
+  .example-sigma-ui-date-picker__content {
+    width: auto;
+    padding: 0;
+  }
 
-.example-sigma-ui-date-picker__calendar {
-  padding: calc(var(--spacing) * 3);
-}
+  .example-sigma-ui-date-picker__calendar {
+    padding: calc(var(--spacing) * 3);
+  }
 
-.example-sigma-ui-date-picker__months {
-  display: flex;
-  flex-direction: column;
-  margin-top: calc(var(--spacing) * 4);
-  gap: calc(var(--spacing) * 4);
-}
-
-@media (width >= 40rem) {
   .example-sigma-ui-date-picker__months {
-    flex-direction: row;
-    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    margin-top: calc(var(--spacing) * 4);
     gap: calc(var(--spacing) * 4);
   }
-}
 
-.example-sigma-ui-date-picker__month {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 4);
-}
+  @media (width >= 40rem) {
+    .example-sigma-ui-date-picker__months {
+      flex-direction: row;
+      margin-top: 0;
+      gap: calc(var(--spacing) * 4);
+    }
+  }
 
-.example-sigma-ui-date-picker__month-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+  .example-sigma-ui-date-picker__month {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 4);
+  }
 
-.example-sigma-ui-date-picker__month-button {
-  display: flex;
-  width: calc(var(--spacing) * 7);
-  height: calc(var(--spacing) * 7);
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background-color: transparent;
-  opacity: 0.5;
-}
+  .example-sigma-ui-date-picker__month-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-.example-sigma-ui-date-picker__month-button:hover {
-  opacity: 1;
-}
+  .example-sigma-ui-date-picker__month-button {
+    display: flex;
+    width: calc(var(--spacing) * 7);
+    height: calc(var(--spacing) * 7);
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background-color: transparent;
+    opacity: 0.5;
+  }
 
-.example-sigma-ui-date-picker__month-button-icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-}
+  .example-sigma-ui-date-picker__month-button:hover {
+    opacity: 1;
+  }
 
-.example-sigma-ui-date-picker__month-label {
-  font-size: 0.875rem;
-  font-weight: 500;
-}
+  .example-sigma-ui-date-picker__month-button-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 
-.example-sigma-ui-date-picker__weekday {
-  width: 100%;
-}
+  .example-sigma-ui-date-picker__month-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
 
-.example-sigma-ui-date-picker__week {
-  width: 100%;
-  margin-top: calc(var(--spacing) * 2);
+  .example-sigma-ui-date-picker__weekday {
+    width: 100%;
+  }
+
+  .example-sigma-ui-date-picker__week {
+    width: 100%;
+    margin-top: calc(var(--spacing) * 2);
+  }
 }
 </style>

@@ -72,26 +72,28 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
-.sigma-ui-calendar {
-  padding: calc(var(--spacing) * 3);
-}
+@layer components {
+  .sigma-ui-calendar {
+    padding: calc(var(--spacing) * 3);
+  }
 
-.sigma-ui-calendar__grid-container {
-  display: flex;
-  flex-direction: column;
-  margin-top: calc(var(--spacing) * 4);
-  gap: calc(var(--spacing) * 4);
-}
-
-.sigma-ui-calendar__week-row {
-  width: 100%;
-  margin-top: calc(var(--spacing) * 2);
-}
-
-@media (width >= 40rem) {
   .sigma-ui-calendar__grid-container {
-    flex-direction: row;
+    display: flex;
+    flex-direction: column;
+    margin-top: calc(var(--spacing) * 4);
     gap: calc(var(--spacing) * 4);
+  }
+
+  .sigma-ui-calendar__week-row {
+    width: 100%;
+    margin-top: calc(var(--spacing) * 2);
+  }
+
+  @media (width >= 40rem) {
+    .sigma-ui-calendar__grid-container {
+      flex-direction: row;
+      gap: calc(var(--spacing) * 4);
+    }
   }
 }
 </style>

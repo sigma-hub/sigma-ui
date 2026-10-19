@@ -93,74 +93,76 @@ defineProps<{
 </template>
 
 <style>
-.dashboard-analytics__transactions-header.dashboard-analytics__transactions-header {
-  flex-direction: row;
-  align-items: center;
-}
+@layer components {
+  .dashboard-analytics__transactions-header.dashboard-analytics__transactions-header {
+    flex-direction: row;
+    align-items: center;
+  }
 
-.dashboard-analytics__transactions-heading {
-  display: grid;
-  gap: calc(var(--spacing) * 2);
-}
+  .dashboard-analytics__transactions-heading {
+    display: grid;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.dashboard-analytics__view-all.dashboard-analytics__view-all {
-  margin-left: auto;
-  gap: calc(var(--spacing) * 1);
-}
+  .dashboard-analytics__view-all.dashboard-analytics__view-all {
+    margin-left: auto;
+    gap: calc(var(--spacing) * 1);
+  }
 
-.dashboard-analytics__icon-sm {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-}
+  .dashboard-analytics__icon-sm {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 
-.dashboard-analytics__customer {
-  font-weight: 500;
-}
+  .dashboard-analytics__customer {
+    font-weight: 500;
+  }
 
-.dashboard-analytics__email {
-  display: none;
-  color: var(--muted-foreground);
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.dashboard-analytics__column--optional {
-  display: none;
-}
-
-.dashboard-analytics__date {
-  display: none;
-}
-
-.dashboard-analytics__amount.dashboard-analytics__amount {
-  text-align: right;
-}
-
-.dashboard-analytics__status.dashboard-analytics__status {
-  font-size: 0.75rem;
-  line-height: 1rem;
-}
-
-@media (width >= 48rem) {
   .dashboard-analytics__email {
-    display: inline;
+    display: none;
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 
-  .dashboard-analytics__date.dashboard-analytics__date {
-    display: table-cell;
-  }
-}
-
-@media (width >= 64rem) {
-  .dashboard-analytics__date.dashboard-analytics__date {
+  .dashboard-analytics__column--optional {
     display: none;
   }
-}
 
-@media (width >= 80rem) {
-  .dashboard-analytics__column--optional.dashboard-analytics__column--optional,
-  .dashboard-analytics__date.dashboard-analytics__date {
-    display: table-column;
+  .dashboard-analytics__date {
+    display: none;
+  }
+
+  .dashboard-analytics__amount.dashboard-analytics__amount {
+    text-align: right;
+  }
+
+  .dashboard-analytics__status.dashboard-analytics__status {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+  @media (width >= 48rem) {
+    .dashboard-analytics__email {
+      display: inline;
+    }
+
+    .dashboard-analytics__date.dashboard-analytics__date {
+      display: table-cell;
+    }
+  }
+
+  @media (width >= 64rem) {
+    .dashboard-analytics__date.dashboard-analytics__date {
+      display: none;
+    }
+  }
+
+  @media (width >= 80rem) {
+    .dashboard-analytics__column--optional.dashboard-analytics__column--optional,
+    .dashboard-analytics__date.dashboard-analytics__date {
+      display: table-column;
+    }
   }
 }
 </style>

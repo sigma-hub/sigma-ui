@@ -66,19 +66,21 @@ import { categoryOptions, subcategoryOptions } from '../data';
 </template>
 
 <style>
-.dashboard-product-edit__category-grid {
-  display: grid;
-  gap: calc(var(--spacing) * 6);
-}
-
-@media (width >= 40rem) {
+@layer components {
   .dashboard-product-edit__category-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    display: grid;
+    gap: calc(var(--spacing) * 6);
   }
-}
 
-.dashboard-product-edit__field {
-  display: grid;
-  gap: calc(var(--spacing) * 3);
+  @media (width >= 40rem) {
+    .dashboard-product-edit__category-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .dashboard-product-edit__field {
+    display: grid;
+    gap: calc(var(--spacing) * 3);
+  }
 }
 </style>

@@ -24,16 +24,18 @@ const delegatedAttrs = () => {
 </template>
 
 <style>
-.sigma-ui-drawer-header {
-  display: grid;
-  padding: calc(var(--spacing) * 4);
-  gap: calc(var(--spacing) * 1.5);
-  text-align: center;
-}
-
-@media (width >= 40rem) {
+@layer components {
   .sigma-ui-drawer-header {
-    text-align: left;
+    display: grid;
+    padding: calc(var(--spacing) * 4);
+    gap: calc(var(--spacing) * 1.5);
+    text-align: center;
+  }
+
+  @media (width >= 40rem) {
+    .sigma-ui-drawer-header {
+      text-align: left;
+    }
   }
 }
 </style>

@@ -14,8 +14,10 @@ import { Alert, AlertDescription, AlertTitle } from '@ui/registry/css/ui/alert';
 </template>
 
 <style>
-.example-sigma-ui-alert__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
+@layer components {
+  .example-sigma-ui-alert__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 }
 </style>

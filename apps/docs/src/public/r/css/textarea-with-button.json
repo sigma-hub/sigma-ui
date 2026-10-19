@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "example/TextareaWithButton.vue",
-      "content": "<script setup lang=\"ts\">\nimport { Textarea } from '@/components/ui/textarea';\nimport { Button } from '@/components/ui/button';\n</script>\n\n<template>\n  <div class=\"example-sigma-ui-textarea-with-button\">\n    <Textarea placeholder=\"Type your message here.\" />\n    <Button>Send message</Button>\n  </div>\n</template>\n\n<style>\n.example-sigma-ui-textarea-with-button {\n  display: grid;\n  width: 100%;\n  gap: calc(var(--spacing) * 2);\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\nimport { Textarea } from '@/components/ui/textarea';\nimport { Button } from '@/components/ui/button';\n</script>\n\n<template>\n  <div class=\"example-sigma-ui-textarea-with-button\">\n    <Textarea placeholder=\"Type your message here.\" />\n    <Button>Send message</Button>\n  </div>\n</template>\n\n<style>\n@layer components {\n  .example-sigma-ui-textarea-with-button {\n    display: grid;\n    width: 100%;\n    gap: calc(var(--spacing) * 2);\n  }\n}\n</style>\n",
       "type": "registry:example"
     }
   ]

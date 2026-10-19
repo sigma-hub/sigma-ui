@@ -29,15 +29,17 @@ const forwarded = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-rating-indicator {
-  color: var(--muted-foreground);
-}
+@layer components {
+  .sigma-ui-rating-indicator {
+    color: var(--muted-foreground);
+  }
 
-.sigma-ui-rating-indicator[data-state="active"] {
-  color: var(--accent);
-}
+  .sigma-ui-rating-indicator[data-state="active"] {
+    color: var(--accent);
+  }
 
-.sigma-ui-rating-indicator[data-state="active"] svg {
-  fill: var(--accent);
+  .sigma-ui-rating-indicator[data-state="active"] svg {
+    fill: var(--accent);
+  }
 }
 </style>

@@ -29,7 +29,9 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-calendar-grid-row {
-  display: flex;
+@layer components {
+  .sigma-ui-calendar-grid-row {
+    display: flex;
+  }
 }
 </style>

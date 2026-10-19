@@ -29,53 +29,55 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-navigation-menu-indicator {
-  position: relative;
-  z-index: 1;
-  top: 100%;
-  display: flex;
-  overflow: hidden;
-  height: calc(var(--spacing) * 1.5);
-  align-items: flex-end;
-  justify-content: center;
-}
-
-.sigma-ui-navigation-menu-indicator[data-state="visible"] {
-  animation: sigma-ui-nav-indicator-in 0.2s ease;
-}
-
-.sigma-ui-navigation-menu-indicator[data-state="hidden"] {
-  animation: sigma-ui-nav-indicator-out 0.2s ease;
-}
-
-.sigma-ui-navigation-menu-indicator__pointer {
-  position: relative;
-  top: 60%;
-  width: calc(var(--spacing) * 2);
-  height: calc(var(--spacing) * 2);
-  background-color: var(--border);
-  border-top-left-radius: 0.125rem;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%);
-  transform: rotate(45deg);
-}
-
-@keyframes sigma-ui-nav-indicator-in {
-  from {
-    opacity: 0;
+@layer components {
+  .sigma-ui-navigation-menu-indicator {
+    position: relative;
+    z-index: 1;
+    top: 100%;
+    display: flex;
+    overflow: hidden;
+    height: calc(var(--spacing) * 1.5);
+    align-items: flex-end;
+    justify-content: center;
   }
 
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes sigma-ui-nav-indicator-out {
-  from {
-    opacity: 1;
+  .sigma-ui-navigation-menu-indicator[data-state="visible"] {
+    animation: sigma-ui-nav-indicator-in 0.2s ease;
   }
 
-  to {
-    opacity: 0;
+  .sigma-ui-navigation-menu-indicator[data-state="hidden"] {
+    animation: sigma-ui-nav-indicator-out 0.2s ease;
+  }
+
+  .sigma-ui-navigation-menu-indicator__pointer {
+    position: relative;
+    top: 60%;
+    width: calc(var(--spacing) * 2);
+    height: calc(var(--spacing) * 2);
+    background-color: var(--border);
+    border-top-left-radius: 0.125rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%);
+    transform: rotate(45deg);
+  }
+
+  @keyframes sigma-ui-nav-indicator-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes sigma-ui-nav-indicator-out {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
   }
 }
 </style>

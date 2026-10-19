@@ -35,30 +35,32 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-label.sigma-ui-field-label {
-  display: flex;
-  width: fit-content;
-  gap: calc(var(--spacing) * 2);
-  line-height: 1.375;
-}
+@layer components {
+  .sigma-ui-label.sigma-ui-field-label {
+    display: flex;
+    width: fit-content;
+    gap: calc(var(--spacing) * 2);
+    line-height: 1.375;
+  }
 
-.sigma-ui-field[data-disabled="true"] .sigma-ui-field-label {
-  opacity: 0.5;
-}
+  .sigma-ui-field[data-disabled="true"] .sigma-ui-field-label {
+    opacity: 0.5;
+  }
 
-.sigma-ui-label.sigma-ui-field-label:has(> [data-slot="field"]) {
-  width: 100%;
-  flex-direction: column;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-}
+  .sigma-ui-label.sigma-ui-field-label:has(> [data-slot="field"]) {
+    width: 100%;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+  }
 
-.sigma-ui-field-label > [data-slot="field"] {
-  padding: calc(var(--spacing) * 4);
-}
+  .sigma-ui-field-label > [data-slot="field"] {
+    padding: calc(var(--spacing) * 4);
+  }
 
-.sigma-ui-label.sigma-ui-field-label:has([data-state="checked"]) {
-  border-color: var(--primary);
-  background-color: color-mix(in oklch, var(--primary) 5%, transparent);
+  .sigma-ui-label.sigma-ui-field-label:has([data-state="checked"]) {
+    border-color: var(--primary);
+    background-color: color-mix(in oklch, var(--primary) 5%, transparent);
+  }
 }
 </style>

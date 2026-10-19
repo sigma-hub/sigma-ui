@@ -202,117 +202,119 @@ function clearSearch() {
 </template>
 
 <style>
-.sigma-ui-faceted-filter__trigger {
-  border-style: dashed;
-  gap: calc(var(--spacing) * 2);
-}
+@layer components {
+  .sigma-ui-faceted-filter__trigger {
+    border-style: dashed;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.sigma-ui-faceted-filter__trigger-icon {
-  width: calc(var(--spacing) * 3.5);
-  height: calc(var(--spacing) * 3.5);
-}
+  .sigma-ui-faceted-filter__trigger-icon {
+    width: calc(var(--spacing) * 3.5);
+    height: calc(var(--spacing) * 3.5);
+  }
 
-.sigma-ui-faceted-filter__separator {
-  height: calc(var(--spacing) * 3.5);
-  margin: 0 calc(var(--spacing) * 1.5);
-}
-
-.sigma-ui-faceted-filter__count {
-  display: inline-flex;
-  height: calc(var(--spacing) * 4);
-  align-items: center;
-  justify-content: center;
-  padding: 0 calc(var(--spacing) * 1.5);
-  border-radius: 0.375rem;
-  background-color: var(--secondary);
-  color: var(--secondary-foreground);
-  font-size: 0.6875rem;
-}
-
-.sigma-ui-faceted-filter__badges {
-  display: none;
-  gap: calc(var(--spacing) * 1.5);
-}
-
-.sigma-ui-faceted-filter__badge {
-  display: inline-flex;
-  height: calc(var(--spacing) * 4);
-  align-items: center;
-  justify-content: center;
-  padding: 0 calc(var(--spacing) * 1.5);
-  border-radius: 0.375rem;
-  background-color: var(--secondary);
-  color: var(--secondary-foreground);
-  font-size: 0.6875rem;
-}
-
-.sigma-ui-faceted-filter__content {
-  width: calc(var(--spacing) * 80);
-  padding: 0;
-}
-
-.sigma-ui-faceted-filter__empty-create {
-  padding: calc(var(--spacing) * 2.5);
-}
-
-.sigma-ui-faceted-filter__empty-create-button {
-  width: 100%;
-  justify-content: flex-start;
-  gap: calc(var(--spacing) * 2);
-}
-
-.sigma-ui-faceted-filter__empty-create-icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-}
-
-.sigma-ui-faceted-filter__checkbox {
-  display: flex;
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--border);
-  border-radius: 0.25rem;
-  margin-right: calc(var(--spacing) * 2.5);
-  opacity: 0.6;
-}
-
-.sigma-ui-faceted-filter__checkbox:not([data-selected]) .sigma-ui-faceted-filter__check {
-  visibility: hidden;
-}
-
-.sigma-ui-faceted-filter__checkbox[data-selected] {
-  border-color: color-mix(in oklch, var(--primary) 60%, transparent);
-  background: color-mix(in oklch, var(--primary) 15%, transparent);
-  opacity: 1;
-}
-
-.sigma-ui-faceted-filter__check {
-  width: calc(var(--spacing) * 3.5);
-  height: calc(var(--spacing) * 3.5);
-  color: var(--primary);
-}
-
-.sigma-ui-faceted-filter__option-text {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  user-select: text;
-  white-space: nowrap;
-}
-
-.sigma-ui-faceted-filter__footer {
-  padding: calc(var(--spacing) * 2.5) calc(var(--spacing) * 2.5) calc(var(--spacing) * 3);
-}
-
-@media (width >= 64rem) {
-  .sigma-ui-faceted-filter__badges {
-    display: flex;
+  .sigma-ui-faceted-filter__separator {
+    height: calc(var(--spacing) * 3.5);
+    margin: 0 calc(var(--spacing) * 1.5);
   }
 
   .sigma-ui-faceted-filter__count {
+    display: inline-flex;
+    height: calc(var(--spacing) * 4);
+    align-items: center;
+    justify-content: center;
+    padding: 0 calc(var(--spacing) * 1.5);
+    border-radius: 0.375rem;
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+    font-size: 0.6875rem;
+  }
+
+  .sigma-ui-faceted-filter__badges {
     display: none;
+    gap: calc(var(--spacing) * 1.5);
+  }
+
+  .sigma-ui-faceted-filter__badge {
+    display: inline-flex;
+    height: calc(var(--spacing) * 4);
+    align-items: center;
+    justify-content: center;
+    padding: 0 calc(var(--spacing) * 1.5);
+    border-radius: 0.375rem;
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+    font-size: 0.6875rem;
+  }
+
+  .sigma-ui-faceted-filter__content {
+    width: calc(var(--spacing) * 80);
+    padding: 0;
+  }
+
+  .sigma-ui-faceted-filter__empty-create {
+    padding: calc(var(--spacing) * 2.5);
+  }
+
+  .sigma-ui-faceted-filter__empty-create-button {
+    width: 100%;
+    justify-content: flex-start;
+    gap: calc(var(--spacing) * 2);
+  }
+
+  .sigma-ui-faceted-filter__empty-create-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
+
+  .sigma-ui-faceted-filter__checkbox {
+    display: flex;
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    border-radius: 0.25rem;
+    margin-right: calc(var(--spacing) * 2.5);
+    opacity: 0.6;
+  }
+
+  .sigma-ui-faceted-filter__checkbox:not([data-selected]) .sigma-ui-faceted-filter__check {
+    visibility: hidden;
+  }
+
+  .sigma-ui-faceted-filter__checkbox[data-selected] {
+    border-color: color-mix(in oklch, var(--primary) 60%, transparent);
+    background: color-mix(in oklch, var(--primary) 15%, transparent);
+    opacity: 1;
+  }
+
+  .sigma-ui-faceted-filter__check {
+    width: calc(var(--spacing) * 3.5);
+    height: calc(var(--spacing) * 3.5);
+    color: var(--primary);
+  }
+
+  .sigma-ui-faceted-filter__option-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    user-select: text;
+    white-space: nowrap;
+  }
+
+  .sigma-ui-faceted-filter__footer {
+    padding: calc(var(--spacing) * 2.5) calc(var(--spacing) * 2.5) calc(var(--spacing) * 3);
+  }
+
+  @media (width >= 64rem) {
+    .sigma-ui-faceted-filter__badges {
+      display: flex;
+    }
+
+    .sigma-ui-faceted-filter__count {
+      display: none;
+    }
   }
 }
 </style>

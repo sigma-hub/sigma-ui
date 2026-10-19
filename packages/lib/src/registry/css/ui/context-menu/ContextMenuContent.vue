@@ -39,24 +39,26 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
-.sigma-ui-context-menu-content {
-  z-index: 50;
-  min-width: calc(var(--spacing) * 32);
-  padding: calc(var(--spacing) * 1);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  backdrop-filter: blur(var(--backdrop-filter-blur));
-  background-color: var(--popover);
-  box-shadow: var(--shadow-md);
-  color: var(--popover-foreground);
-  transform-origin: var(--reka-context-menu-content-transform-origin);
-}
+@layer components {
+  .sigma-ui-context-menu-content {
+    z-index: 50;
+    min-width: calc(var(--spacing) * 32);
+    padding: calc(var(--spacing) * 1);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    backdrop-filter: blur(var(--backdrop-filter-blur));
+    background-color: var(--popover);
+    box-shadow: var(--shadow-md);
+    color: var(--popover-foreground);
+    transform-origin: var(--reka-context-menu-content-transform-origin);
+  }
 
-.sigma-ui-context-menu-content[data-state="open"] {
-  animation: sigma-ui-fade-in-scale 200ms ease-out;
-}
+  .sigma-ui-context-menu-content[data-state="open"] {
+    animation: sigma-ui-fade-in-scale 200ms ease-out;
+  }
 
-.sigma-ui-context-menu-content[data-state="closed"] {
-  animation: sigma-ui-fade-out-scale 100ms ease-in forwards;
+  .sigma-ui-context-menu-content[data-state="closed"] {
+    animation: sigma-ui-fade-out-scale 100ms ease-in forwards;
+  }
 }
 </style>

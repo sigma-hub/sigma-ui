@@ -77,55 +77,57 @@ async function handleClick(event: MouseEvent) {
 </template>
 
 <style>
-.sigma-ui-confirm-button {
-  position: relative;
-  overflow: hidden;
-  gap: calc(var(--spacing) * 2);
-}
+@layer components {
+  .sigma-ui-confirm-button {
+    position: relative;
+    overflow: hidden;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.sigma-ui-confirm-button__content {
-  display: inline-flex;
-  align-items: center;
-  gap: calc(var(--spacing) * 2);
-  transition: opacity 0.15s ease;
-}
+  .sigma-ui-confirm-button__content {
+    display: inline-flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+    transition: opacity 0.15s ease;
+  }
 
-.sigma-ui-confirm-button__content--hidden {
-  opacity: 0;
-}
+  .sigma-ui-confirm-button__content--hidden {
+    opacity: 0;
+  }
 
-.sigma-ui-confirm-button__check-wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transform: translate(-50%, -50%);
-}
+  .sigma-ui-confirm-button__check-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+  }
 
-.sigma-ui-confirm-button__check {
-  color: var(--success, oklch(62.3% 0.169 149.178deg));
-}
+  .sigma-ui-confirm-button__check {
+    color: var(--success, oklch(62.3% 0.169 149.178deg));
+  }
 
-.sigma-ui-confirm-button--confirmed {
-  border-color: color-mix(in oklch, var(--success, oklch(62.3% 0.169 149.178deg)) 50%, transparent);
-}
+  .sigma-ui-confirm-button--confirmed {
+    border-color: color-mix(in oklch, var(--success, oklch(62.3% 0.169 149.178deg)) 50%, transparent);
+  }
 
-.sigma-ui-confirm-button-check-enter-active,
-.sigma-ui-confirm-button-check-leave-active {
-  transition:
-    opacity 0.15s ease,
-    transform 0.15s ease;
-}
+  .sigma-ui-confirm-button-check-enter-active,
+  .sigma-ui-confirm-button-check-leave-active {
+    transition:
+      opacity 0.15s ease,
+      transform 0.15s ease;
+  }
 
-.sigma-ui-confirm-button-check-enter-from {
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(0.5);
-}
+  .sigma-ui-confirm-button-check-enter-from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
 
-.sigma-ui-confirm-button-check-leave-to {
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(0.5);
+  .sigma-ui-confirm-button-check-leave-to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
 }
 </style>

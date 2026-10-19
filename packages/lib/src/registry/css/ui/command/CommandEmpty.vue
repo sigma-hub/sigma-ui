@@ -28,10 +28,12 @@ const props = defineProps<ComboboxEmptyProps>();
 </template>
 
 <style>
-.sigma-ui-command-empty {
-  padding-top: calc(var(--spacing) * 6);
-  padding-bottom: calc(var(--spacing) * 6);
-  font-size: var(--text-sm);
-  text-align: center;
+@layer components {
+  .sigma-ui-command-empty {
+    padding-top: calc(var(--spacing) * 6);
+    padding-bottom: calc(var(--spacing) * 6);
+    font-size: var(--text-sm);
+    text-align: center;
+  }
 }
 </style>

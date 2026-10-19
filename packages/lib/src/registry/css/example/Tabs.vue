@@ -97,25 +97,27 @@ import {
 </template>
 
 <style>
-.example-sigma-ui-tabs {
-  width: 400px;
-}
+@layer components {
+  .example-sigma-ui-tabs {
+    width: 400px;
+  }
 
-.example-sigma-ui-tabs__list {
-  display: grid;
-  width: 100%;
-  grid-template-columns: repeat(2, 1fr);
-}
+  .example-sigma-ui-tabs__list {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-.example-sigma-ui-tabs__content {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 3);
-}
+  .example-sigma-ui-tabs__content {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 3);
+  }
 
-.example-sigma-ui-tabs__field {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 2);
+  .example-sigma-ui-tabs__field {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2);
+  }
 }
 </style>

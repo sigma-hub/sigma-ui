@@ -26,30 +26,32 @@ const props = defineProps<DrawerOverlayProps>();
 </template>
 
 <style>
-.sigma-ui-drawer-overlay {
-  position: fixed;
-  z-index: 50;
-  background-color: rgb(0 0 0 / 80%);
-  inset: 0;
-}
-
-.sigma-ui-drawer-overlay[data-state="open"] {
-  animation: sigma-ui-drawer-fade-in 500ms ease;
-}
-
-.sigma-ui-drawer-overlay[data-state="closed"] {
-  animation: sigma-ui-drawer-fade-out 500ms ease;
-}
-
-@keyframes sigma-ui-drawer-fade-in {
-  from {
-    opacity: 0;
+@layer components {
+  .sigma-ui-drawer-overlay {
+    position: fixed;
+    z-index: 50;
+    background-color: rgb(0 0 0 / 80%);
+    inset: 0;
   }
-}
 
-@keyframes sigma-ui-drawer-fade-out {
-  to {
-    opacity: 0;
+  .sigma-ui-drawer-overlay[data-state="open"] {
+    animation: sigma-ui-drawer-fade-in 500ms ease;
+  }
+
+  .sigma-ui-drawer-overlay[data-state="closed"] {
+    animation: sigma-ui-drawer-fade-out 500ms ease;
+  }
+
+  @keyframes sigma-ui-drawer-fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+
+  @keyframes sigma-ui-drawer-fade-out {
+    to {
+      opacity: 0;
+    }
   }
 }
 </style>

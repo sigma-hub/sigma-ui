@@ -32,24 +32,26 @@ const forwarded = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-month-picker-next {
-  width: calc(var(--spacing) * 7);
-  height: calc(var(--spacing) * 7);
-  padding: 0;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  background-color: transparent;
-  opacity: 0.5;
-}
+@layer components {
+  .sigma-ui-month-picker-next {
+    width: calc(var(--spacing) * 7);
+    height: calc(var(--spacing) * 7);
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background-color: transparent;
+    opacity: 0.5;
+  }
 
-.sigma-ui-month-picker-next:hover {
-  background-color: var(--accent);
-  color: var(--accent-foreground);
-  opacity: 1;
-}
+  .sigma-ui-month-picker-next:hover {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+    opacity: 1;
+  }
 
-.sigma-ui-month-picker-next__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
+  .sigma-ui-month-picker-next__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 }
 </style>

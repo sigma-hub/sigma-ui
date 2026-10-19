@@ -28,7 +28,9 @@ const forwarded = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-accordion-item {
-  border-bottom: 1px solid var(--border);
+@layer components {
+  .sigma-ui-accordion-item {
+    border-bottom: 1px solid var(--border);
+  }
 }
 </style>

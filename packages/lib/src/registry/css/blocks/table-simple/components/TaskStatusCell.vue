@@ -19,16 +19,18 @@ defineProps<{
 </template>
 
 <style>
-.table-simple__status {
-  display: flex;
-  width: 100px;
-  align-items: center;
-}
+@layer components {
+  .table-simple__status {
+    display: flex;
+    width: 100px;
+    align-items: center;
+  }
 
-.table-simple__status-icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  margin-right: calc(var(--spacing) * 2);
-  color: var(--muted-foreground);
+  .table-simple__status-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-right: calc(var(--spacing) * 2);
+    color: var(--muted-foreground);
+  }
 }
 </style>

@@ -13,12 +13,14 @@ import { Image } from '@ui/registry/css/ui/image';
 </template>
 
 <style scoped>
-.example-image-container {
-  display: flex;
-  width: 250px;
-  height: 300px;
-  align-items: center;
-  justify-content: center;
-  gap: calc(var(--spacing) * 4);
+@layer components {
+  .example-image-container {
+    display: flex;
+    width: 250px;
+    height: 300px;
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--spacing) * 4);
+  }
 }
 </style>

@@ -24,9 +24,11 @@ const delegatedAttrs = () => {
 </template>
 
 <style>
-.sigma-ui-table-caption {
-  margin-top: calc(var(--spacing) * 4);
-  color: var(--muted-foreground);
-  font-size: 0.875rem;
+@layer components {
+  .sigma-ui-table-caption {
+    margin-top: calc(var(--spacing) * 4);
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+  }
 }
 </style>

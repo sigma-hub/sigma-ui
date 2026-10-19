@@ -28,8 +28,10 @@ import { Item, ItemActions, ItemContent, ItemDescription, ItemMedia, ItemTitle }
 </template>
 
 <style>
-.example-item {
-  width: 100%;
-  max-width: 28rem;
+@layer components {
+  .example-item {
+    width: 100%;
+    max-width: 28rem;
+  }
 }
 </style>

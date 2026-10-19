@@ -143,97 +143,99 @@ function clearFilters() {
 </template>
 
 <style>
-.table-simple__filter-button {
-  height: calc(var(--spacing) * 8);
-  border-style: dashed;
-}
+@layer components {
+  .table-simple__filter-button {
+    height: calc(var(--spacing) * 8);
+    border-style: dashed;
+  }
 
-.table-simple__filter-icon,
-.table-simple__option-icon,
-.table-simple__check-icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-}
+  .table-simple__filter-icon,
+  .table-simple__option-icon,
+  .table-simple__check-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 
-.table-simple__filter-icon,
-.table-simple__option-icon {
-  margin-right: calc(var(--spacing) * 2);
-}
+  .table-simple__filter-icon,
+  .table-simple__option-icon {
+    margin-right: calc(var(--spacing) * 2);
+  }
 
-.table-simple__option-icon {
-  color: var(--muted-foreground);
-}
+  .table-simple__option-icon {
+    color: var(--muted-foreground);
+  }
 
-.table-simple__filter-separator {
-  height: calc(var(--spacing) * 4);
-  margin: 0 calc(var(--spacing) * 2);
-}
+  .table-simple__filter-separator {
+    height: calc(var(--spacing) * 4);
+    margin: 0 calc(var(--spacing) * 2);
+  }
 
-.table-simple__filter-count {
-  padding: 0 calc(var(--spacing) * 1);
-  border-radius: calc(var(--radius) - 4px);
-  font-weight: 400;
-}
-
-.table-simple__filter-badges {
-  display: none;
-  gap: calc(var(--spacing) * 1);
-}
-
-.table-simple__filter-popover {
-  width: 200px;
-  padding: 0;
-}
-
-.table-simple__check {
-  display: flex;
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--primary);
-  border-radius: calc(var(--radius) - 4px);
-  margin-right: calc(var(--spacing) * 2);
-  opacity: 0.5;
-}
-
-.table-simple__check .table-simple__check-icon {
-  visibility: hidden;
-}
-
-.table-simple__check--selected {
-  background: var(--primary);
-  color: var(--primary-foreground);
-  opacity: 1;
-}
-
-.table-simple__check--selected .table-simple__check-icon {
-  visibility: visible;
-}
-
-.table-simple__facet-count {
-  display: flex;
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  align-items: center;
-  justify-content: center;
-  margin-left: auto;
-  font-family: ui-monospace, monospace;
-  font-size: 0.75rem;
-}
-
-.table-simple__clear {
-  justify-content: center;
-  text-align: center;
-}
-
-@media (width >= 64rem) {
-  .table-simple__filter-count--compact {
-    display: none;
+  .table-simple__filter-count {
+    padding: 0 calc(var(--spacing) * 1);
+    border-radius: calc(var(--radius) - 4px);
+    font-weight: 400;
   }
 
   .table-simple__filter-badges {
+    display: none;
+    gap: calc(var(--spacing) * 1);
+  }
+
+  .table-simple__filter-popover {
+    width: 200px;
+    padding: 0;
+  }
+
+  .table-simple__check {
     display: flex;
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--primary);
+    border-radius: calc(var(--radius) - 4px);
+    margin-right: calc(var(--spacing) * 2);
+    opacity: 0.5;
+  }
+
+  .table-simple__check .table-simple__check-icon {
+    visibility: hidden;
+  }
+
+  .table-simple__check--selected {
+    background: var(--primary);
+    color: var(--primary-foreground);
+    opacity: 1;
+  }
+
+  .table-simple__check--selected .table-simple__check-icon {
+    visibility: visible;
+  }
+
+  .table-simple__facet-count {
+    display: flex;
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    font-family: ui-monospace, monospace;
+    font-size: 0.75rem;
+  }
+
+  .table-simple__clear {
+    justify-content: center;
+    text-align: center;
+  }
+
+  @media (width >= 64rem) {
+    .table-simple__filter-count--compact {
+      display: none;
+    }
+
+    .table-simple__filter-badges {
+      display: flex;
+    }
   }
 }
 </style>

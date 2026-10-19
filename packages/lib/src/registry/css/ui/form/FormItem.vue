@@ -27,9 +27,11 @@ provide(FORM_ITEM_INJECTION_KEY, id);
 </template>
 
 <style>
-.form-item {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 2);
+@layer components {
+  .form-item {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2);
+  }
 }
 </style>

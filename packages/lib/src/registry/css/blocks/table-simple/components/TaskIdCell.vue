@@ -11,7 +11,9 @@ defineProps<{
 </template>
 
 <style>
-.table-simple__id {
-  width: calc(var(--spacing) * 20);
+@layer components {
+  .table-simple__id {
+    width: calc(var(--spacing) * 20);
+  }
 }
 </style>

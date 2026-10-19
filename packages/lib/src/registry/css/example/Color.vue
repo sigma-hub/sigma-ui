@@ -54,16 +54,18 @@ const presets = ['#ef4444', '#f59e0b', '#22c55e', '#3b82f6', '#a855f7'];
 </template>
 
 <style>
-.sigma-ui-color-example {
-  display: flex;
-  width: calc(var(--spacing) * 64);
-  flex-direction: column;
-  gap: calc(var(--spacing) * 3);
-}
+@layer components {
+  .sigma-ui-color-example {
+    display: flex;
+    width: calc(var(--spacing) * 64);
+    flex-direction: column;
+    gap: calc(var(--spacing) * 3);
+  }
 
-.sigma-ui-color-example__row {
-  display: flex;
-  align-items: center;
-  gap: calc(var(--spacing) * 2);
+  .sigma-ui-color-example__row {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+  }
 }
 </style>

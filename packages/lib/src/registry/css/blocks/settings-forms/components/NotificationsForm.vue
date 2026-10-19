@@ -229,82 +229,84 @@ const onSubmit = handleSubmit((values) => {
 </template>
 
 <style>
-.settings-forms__notify {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 3);
-}
+@layer components {
+  .settings-forms__notify {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 3);
+  }
 
-.settings-forms__radio-list,
-.settings-forms__email-list {
-  display: flex;
-  flex-direction: column;
-}
+  .settings-forms__radio-list,
+  .settings-forms__email-list {
+    display: flex;
+    flex-direction: column;
+  }
 
-.settings-forms__radio-list {
-  gap: calc(var(--spacing) * 1);
-}
+  .settings-forms__radio-list {
+    gap: calc(var(--spacing) * 1);
+  }
 
-.settings-forms__radio-row,
-.settings-forms__checkbox-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: calc(var(--spacing) * 3);
-}
+  .settings-forms__radio-row,
+  .settings-forms__checkbox-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: calc(var(--spacing) * 3);
+  }
 
-.settings-forms__choice.settings-forms__choice {
-  font-weight: 400;
-}
+  .settings-forms__choice.settings-forms__choice {
+    font-weight: 400;
+  }
 
-.settings-forms__email-title {
-  margin: 0 0 calc(var(--spacing) * 4);
-  font-size: 1.125rem;
-  font-weight: 500;
-  line-height: 1.75rem;
-}
+  .settings-forms__email-title {
+    margin: 0 0 calc(var(--spacing) * 4);
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.75rem;
+  }
 
-.settings-forms__email-list {
-  gap: calc(var(--spacing) * 4);
-}
+  .settings-forms__email-list {
+    gap: calc(var(--spacing) * 4);
+  }
 
-.settings-forms__switch-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: calc(var(--spacing) * 4);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-}
+  .settings-forms__switch-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: calc(var(--spacing) * 4);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
 
-.settings-forms__switch-copy,
-.settings-forms__checkbox-copy {
-  display: flex;
-  flex-direction: column;
-}
+  .settings-forms__switch-copy,
+  .settings-forms__checkbox-copy {
+    display: flex;
+    flex-direction: column;
+  }
 
-.settings-forms__switch-copy {
-  gap: calc(var(--spacing) * 0.5);
-}
+  .settings-forms__switch-copy {
+    gap: calc(var(--spacing) * 0.5);
+  }
 
-.settings-forms__checkbox-copy {
-  gap: calc(var(--spacing) * 1);
-  line-height: 1;
-}
+  .settings-forms__checkbox-copy {
+    gap: calc(var(--spacing) * 1);
+    line-height: 1;
+  }
 
-.settings-forms__switch-label.settings-forms__switch-label {
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
+  .settings-forms__switch-label.settings-forms__switch-label {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 
-.settings-forms__checkbox-row {
-  align-items: flex-start;
-}
+  .settings-forms__checkbox-row {
+    align-items: flex-start;
+  }
 
-.settings-forms__link {
-  color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  .settings-forms__link {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
 }
 </style>

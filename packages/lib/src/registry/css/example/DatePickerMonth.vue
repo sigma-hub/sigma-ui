@@ -38,25 +38,27 @@ const value = ref<DateValue>();
 </template>
 
 <style>
-.example-sigma-ui-date-picker-month__button {
-  width: 240px;
-  justify-content: flex-start;
-  font-weight: normal;
-  text-align: left;
-}
+@layer components {
+  .example-sigma-ui-date-picker-month__button {
+    width: 240px;
+    justify-content: flex-start;
+    font-weight: normal;
+    text-align: left;
+  }
 
-.example-sigma-ui-date-picker-month__button--placeholder {
-  color: var(--muted-foreground);
-}
+  .example-sigma-ui-date-picker-month__button--placeholder {
+    color: var(--muted-foreground);
+  }
 
-.example-sigma-ui-date-picker-month__button-icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  margin-right: calc(var(--spacing) * 2);
-}
+  .example-sigma-ui-date-picker-month__button-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-right: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-date-picker-month__content {
-  width: auto;
-  padding: 0;
+  .example-sigma-ui-date-picker-month__content {
+    width: auto;
+    padding: 0;
+  }
 }
 </style>

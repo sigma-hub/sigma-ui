@@ -131,17 +131,19 @@ import {
 </template>
 
 <style>
-.example-sigma-ui-dropdown__content {
-  width: calc(var(--spacing) * 56);
-}
+@layer components {
+  .example-sigma-ui-dropdown__content {
+    width: calc(var(--spacing) * 56);
+  }
 
-.example-sigma-ui-dropdown__subcontent {
-  width: calc(var(--spacing) * 48);
-}
+  .example-sigma-ui-dropdown__subcontent {
+    width: calc(var(--spacing) * 48);
+  }
 
-.example-sigma-ui-dropdown__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  margin-right: calc(var(--spacing) * 2);
+  .example-sigma-ui-dropdown__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-right: calc(var(--spacing) * 2);
+  }
 }
 </style>

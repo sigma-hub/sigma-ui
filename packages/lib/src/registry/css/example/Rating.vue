@@ -28,8 +28,10 @@ const value = ref(3);
 </template>
 
 <style>
-.sigma-ui-rating-indicator__icon {
-  width: calc(var(--spacing) * 5);
-  height: calc(var(--spacing) * 5);
+@layer components {
+  .sigma-ui-rating-indicator__icon {
+    width: calc(var(--spacing) * 5);
+    height: calc(var(--spacing) * 5);
+  }
 }
 </style>

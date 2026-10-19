@@ -37,13 +37,15 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
-.sigma-ui-navigation-menu {
-  position: relative;
-  z-index: 10;
-  display: flex;
-  max-width: max-content;
-  flex: 1;
-  align-items: center;
-  justify-content: center;
+@layer components {
+  .sigma-ui-navigation-menu {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    max-width: max-content;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+  }
 }
 </style>

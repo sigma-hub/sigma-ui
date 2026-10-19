@@ -96,48 +96,50 @@ const onSubmit = handleSubmit((values) => {
 </template>
 
 <style>
-.example-sigma-ui-calendar-form {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 8);
-}
+@layer components {
+  .example-sigma-ui-calendar-form {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 8);
+  }
 
-.example-sigma-ui-calendar-form__item {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 2);
-}
+  .example-sigma-ui-calendar-form__item {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-calendar-form__button {
-  width: 240px;
-  padding-left: calc(var(--spacing) * 3);
-  font-weight: normal;
-  text-align: start;
-}
+  .example-sigma-ui-calendar-form__button {
+    width: 240px;
+    padding-left: calc(var(--spacing) * 3);
+    font-weight: normal;
+    text-align: start;
+  }
 
-.example-sigma-ui-calendar-form__button--placeholder {
-  color: var(--muted-foreground);
-}
+  .example-sigma-ui-calendar-form__button--placeholder {
+    color: var(--muted-foreground);
+  }
 
-.example-sigma-ui-calendar-form__button-icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  margin-left: auto;
-  opacity: 0.5;
-}
+  .example-sigma-ui-calendar-form__button-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-left: auto;
+    opacity: 0.5;
+  }
 
-.example-sigma-ui-calendar-form__submit-button {
-  width: fit-content;
-}
+  .example-sigma-ui-calendar-form__submit-button {
+    width: fit-content;
+  }
 
-.example-sigma-ui-calendar-form__popover {
-  padding: 0;
-}
+  .example-sigma-ui-calendar-form__popover {
+    padding: 0;
+  }
 
-.example-sigma-ui-calendar-form__toast-pre {
-  padding: calc(var(--spacing) * 4);
-  border-radius: var(--radius);
-  margin-top: calc(var(--spacing) * 2);
-  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  .example-sigma-ui-calendar-form__toast-pre {
+    padding: calc(var(--spacing) * 4);
+    border-radius: var(--radius);
+    margin-top: calc(var(--spacing) * 2);
+    background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  }
 }
 </style>

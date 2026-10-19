@@ -123,19 +123,21 @@ const table = useVueTable({
 </template>
 
 <style>
-.table-simple__data {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 4);
-}
+@layer components {
+  .table-simple__data {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 4);
+  }
 
-.table-simple__frame {
-  border: 1px solid var(--border);
-  border-radius: calc(var(--radius) - 2px);
-}
+  .table-simple__frame {
+    border: 1px solid var(--border);
+    border-radius: calc(var(--radius) - 2px);
+  }
 
-.table-simple__empty {
-  height: calc(var(--spacing) * 24);
-  text-align: center;
+  .table-simple__empty {
+    height: calc(var(--spacing) * 24);
+    text-align: center;
+  }
 }
 </style>

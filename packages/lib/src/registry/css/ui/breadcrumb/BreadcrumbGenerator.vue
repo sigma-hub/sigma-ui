@@ -183,32 +183,34 @@ function getActionProps(item: BreadcrumbItem, isLast: boolean): ActionProps {
 </template>
 
 <style>
-.sigma-ui-breadcrumb__action {
-  display: flex;
-  align-items: center;
-  color: var(--muted-foreground);
-  cursor: pointer;
-}
+@layer components {
+  .sigma-ui-breadcrumb__action {
+    display: flex;
+    align-items: center;
+    color: var(--muted-foreground);
+    cursor: pointer;
+  }
 
-.sigma-ui-breadcrumb__action--active {
-  color: var(--foreground);
-  font-weight: 500;
-}
+  .sigma-ui-breadcrumb__action--active {
+    color: var(--foreground);
+    font-weight: 500;
+  }
 
-.sigma-ui-breadcrumb__link {
-  display: flex;
-  align-items: center;
-  gap: calc(var(--spacing) * 2);
-}
+  .sigma-ui-breadcrumb__link {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.sigma-ui-breadcrumb__content {
-  display: flex;
-  align-items: center;
-  gap: calc(var(--spacing) * 2);
-}
+  .sigma-ui-breadcrumb__content {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.sigma-ui-breadcrumb__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
+  .sigma-ui-breadcrumb__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 }
 </style>

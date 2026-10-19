@@ -68,55 +68,57 @@ const items = [
 </template>
 
 <style>
-.example-sidebar-inset {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 420px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  transform: translateZ(0);
-}
+@layer components {
+  .example-sidebar-inset {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 420px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transform: translateZ(0);
+  }
 
-.example-sidebar-inset .example-sidebar-inset__provider {
-  height: 100%;
-  min-height: 100%;
-}
+  .example-sidebar-inset .example-sidebar-inset__provider {
+    height: 100%;
+    min-height: 100%;
+  }
 
-.example-sidebar-inset .example-sidebar-inset__sidebar {
-  height: 100%;
-}
+  .example-sidebar-inset .example-sidebar-inset__sidebar {
+    height: 100%;
+  }
 
-.example-sidebar-inset__header {
-  display: flex;
-  height: calc(var(--spacing) * 12);
-  flex-shrink: 0;
-  align-items: center;
-  padding: 0 calc(var(--spacing) * 4);
-  border-bottom: 1px solid var(--border);
-  gap: calc(var(--spacing) * 2);
-}
+  .example-sidebar-inset__header {
+    display: flex;
+    height: calc(var(--spacing) * 12);
+    flex-shrink: 0;
+    align-items: center;
+    padding: 0 calc(var(--spacing) * 4);
+    border-bottom: 1px solid var(--border);
+    gap: calc(var(--spacing) * 2);
+  }
 
-.example-sidebar-inset .example-sidebar-inset__separator {
-  height: calc(var(--spacing) * 4);
-  margin-right: calc(var(--spacing) * 2);
-}
+  .example-sidebar-inset .example-sidebar-inset__separator {
+    height: calc(var(--spacing) * 4);
+    margin-right: calc(var(--spacing) * 2);
+  }
 
-.example-sidebar-inset__title {
-  font-size: 0.875rem;
-  font-weight: 500;
-}
+  .example-sidebar-inset__title {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
 
-.example-sidebar-inset__body {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  padding: calc(var(--spacing) * 4);
-}
+  .example-sidebar-inset__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: calc(var(--spacing) * 4);
+  }
 
-.example-sidebar-inset__panel {
-  flex: 1;
-  border-radius: calc(var(--radius) + 4px);
-  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  .example-sidebar-inset__panel {
+    flex: 1;
+    border-radius: calc(var(--radius) + 4px);
+    background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  }
 }
 </style>

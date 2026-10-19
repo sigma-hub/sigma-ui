@@ -37,13 +37,15 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-stepper-item {
-  display: flex;
-  align-items: center;
-  gap: calc(var(--spacing) * 2);
-}
+@layer components {
+  .sigma-ui-stepper-item {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.sigma-ui-stepper-item[data-disabled] {
-  pointer-events: none;
+  .sigma-ui-stepper-item[data-disabled] {
+    pointer-events: none;
+  }
 }
 </style>

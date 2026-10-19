@@ -32,8 +32,10 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-range-calendar-heading {
-  font-size: 0.875rem;
-  font-weight: 500;
+@layer components {
+  .sigma-ui-range-calendar-heading {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
 }
 </style>

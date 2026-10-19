@@ -29,8 +29,10 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-pin-input-group {
-  display: flex;
-  align-items: center;
+@layer components {
+  .sigma-ui-pin-input-group {
+    display: flex;
+    align-items: center;
+  }
 }
 </style>

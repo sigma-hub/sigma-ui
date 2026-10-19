@@ -29,7 +29,9 @@ const forwarded = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-combobox-anchor {
-  width: 200px;
+@layer components {
+  .sigma-ui-combobox-anchor {
+    width: 200px;
+  }
 }
 </style>

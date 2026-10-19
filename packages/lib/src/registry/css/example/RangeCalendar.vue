@@ -21,8 +21,10 @@ const value = ref({
 </template>
 
 <style>
-.example-sigma-ui-range-calendar {
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+@layer components {
+  .example-sigma-ui-range-calendar {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
 }
 </style>

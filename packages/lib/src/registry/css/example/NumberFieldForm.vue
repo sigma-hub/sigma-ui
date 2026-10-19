@@ -84,25 +84,27 @@ const onSubmit = handleSubmit((values) => {
 </template>
 
 <style>
-.example-sigma-ui-number-field-form {
-  display: flex;
-  width: 66%;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 6);
-}
+@layer components {
+  .example-sigma-ui-number-field-form {
+    display: flex;
+    width: 66%;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 6);
+  }
 
-.example-sigma-ui-number-field-form__field {
-  gap: calc(var(--spacing) * 2);
-}
+  .example-sigma-ui-number-field-form__field {
+    gap: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-number-field-form__button {
-  width: fit-content;
-}
+  .example-sigma-ui-number-field-form__button {
+    width: fit-content;
+  }
 
-.example-sigma-ui-number-field-form__toast-pre {
-  padding: calc(var(--spacing) * 4);
-  border-radius: var(--radius);
-  margin-top: calc(var(--spacing) * 2);
-  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  .example-sigma-ui-number-field-form__toast-pre {
+    padding: calc(var(--spacing) * 4);
+    border-radius: var(--radius);
+    margin-top: calc(var(--spacing) * 2);
+    background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  }
 }
 </style>

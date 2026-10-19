@@ -28,8 +28,10 @@ const props = defineProps<DrawerDescriptionProps>();
 </template>
 
 <style>
-.sigma-ui-drawer-description {
-  color: var(--muted-foreground);
-  font-size: 0.875rem;
+@layer components {
+  .sigma-ui-drawer-description {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+  }
 }
 </style>

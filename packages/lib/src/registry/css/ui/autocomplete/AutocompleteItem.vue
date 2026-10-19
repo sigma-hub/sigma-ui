@@ -30,24 +30,26 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
-.sigma-ui-autocomplete-item {
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
-  border-radius: var(--radius-sm);
-  font-size: 0.875rem;
-  outline: none;
-  user-select: none;
-}
+@layer components {
+  .sigma-ui-autocomplete-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    outline: none;
+    user-select: none;
+  }
 
-.sigma-ui-autocomplete-item[data-highlighted] {
-  background-color: var(--accent);
-  color: var(--accent-foreground);
-}
+  .sigma-ui-autocomplete-item[data-highlighted] {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+  }
 
-.sigma-ui-autocomplete-item[data-disabled] {
-  opacity: 0.5;
-  pointer-events: none;
+  .sigma-ui-autocomplete-item[data-disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 }
 </style>

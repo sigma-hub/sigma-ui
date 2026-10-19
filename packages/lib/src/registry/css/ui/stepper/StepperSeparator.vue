@@ -27,24 +27,26 @@ const forwarded = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-stepper-separator {
-  flex: 1;
-  background-color: var(--muted);
-}
+@layer components {
+  .sigma-ui-stepper-separator {
+    flex: 1;
+    background-color: var(--muted);
+  }
 
-.sigma-ui-stepper-separator[data-orientation="horizontal"] {
-  height: 1px;
-}
+  .sigma-ui-stepper-separator[data-orientation="horizontal"] {
+    height: 1px;
+  }
 
-.sigma-ui-stepper-separator[data-orientation="vertical"] {
-  width: 1px;
-}
+  .sigma-ui-stepper-separator[data-orientation="vertical"] {
+    width: 1px;
+  }
 
-.sigma-ui-stepper-item[data-disabled] .sigma-ui-stepper-separator {
-  opacity: 0.5;
-}
+  .sigma-ui-stepper-item[data-disabled] .sigma-ui-stepper-separator {
+    opacity: 0.5;
+  }
 
-.sigma-ui-stepper-separator[data-state="completed"] {
-  background-color: var(--accent);
+  .sigma-ui-stepper-separator[data-state="completed"] {
+    background-color: var(--accent);
+  }
 }
 </style>

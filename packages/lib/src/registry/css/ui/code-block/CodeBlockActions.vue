@@ -28,48 +28,50 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-code-block__actions {
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  margin-left: auto;
-  gap: calc(var(--spacing) * 0.5);
-}
+@layer components {
+  .sigma-ui-code-block__actions {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    margin-left: auto;
+    gap: calc(var(--spacing) * 0.5);
+  }
 
-[data-slot='code-block'] > .sigma-ui-code-block__actions {
-  position: absolute;
-  z-index: 1;
-  top: calc(var(--spacing) * 1.5);
-  right: calc(var(--spacing) * 1.5);
-  opacity: 0;
-  transition: opacity 150ms ease;
-}
-
-[data-slot='code-block'][data-size='sm'] > .sigma-ui-code-block__actions {
-  top: calc(var(--spacing) * 1);
-  right: calc(var(--spacing) * 1);
-}
-
-[data-slot='code-block']:hover > .sigma-ui-code-block__actions,
-[data-slot='code-block']:focus-within > .sigma-ui-code-block__actions {
-  opacity: 1;
-}
-
-[data-slot='code-block'] > .sigma-ui-code-block__actions .sigma-ui-button {
-  border: 1px solid var(--code-block-border);
-  backdrop-filter: blur(6px);
-  background-color: color-mix(in oklch, var(--background) 85%, transparent);
-}
-
-@media (pointer: coarse) {
   [data-slot='code-block'] > .sigma-ui-code-block__actions {
+    position: absolute;
+    z-index: 1;
+    top: calc(var(--spacing) * 1.5);
+    right: calc(var(--spacing) * 1.5);
+    opacity: 0;
+    transition: opacity 150ms ease;
+  }
+
+  [data-slot='code-block'][data-size='sm'] > .sigma-ui-code-block__actions {
+    top: calc(var(--spacing) * 1);
+    right: calc(var(--spacing) * 1);
+  }
+
+  [data-slot='code-block']:hover > .sigma-ui-code-block__actions,
+  [data-slot='code-block']:focus-within > .sigma-ui-code-block__actions {
     opacity: 1;
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  [data-slot='code-block'] > .sigma-ui-code-block__actions {
-    transition: none;
+  [data-slot='code-block'] > .sigma-ui-code-block__actions .sigma-ui-button {
+    border: 1px solid var(--code-block-border);
+    backdrop-filter: blur(6px);
+    background-color: color-mix(in oklch, var(--background) 85%, transparent);
+  }
+
+  @media (pointer: coarse) {
+    [data-slot='code-block'] > .sigma-ui-code-block__actions {
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot='code-block'] > .sigma-ui-code-block__actions {
+      transition: none;
+    }
   }
 }
 </style>

@@ -36,8 +36,10 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-stepper-description {
-  color: var(--muted-foreground);
-  font-size: 0.75rem;
+@layer components {
+  .sigma-ui-stepper-description {
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+  }
 }
 </style>

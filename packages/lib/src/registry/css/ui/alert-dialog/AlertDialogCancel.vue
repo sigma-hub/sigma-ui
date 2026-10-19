@@ -19,13 +19,15 @@ const attrs = useAttrs();
 </template>
 
 <style>
-.sigma-ui-alert-dialog-cancel {
-  margin-top: calc(var(--spacing) * 2);
-}
-
-@media (width >= 40rem) {
+@layer components {
   .sigma-ui-alert-dialog-cancel {
-    margin-top: 0;
+    margin-top: calc(var(--spacing) * 2);
+  }
+
+  @media (width >= 40rem) {
+    .sigma-ui-alert-dialog-cancel {
+      margin-top: 0;
+    }
   }
 }
 </style>

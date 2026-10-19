@@ -29,26 +29,28 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-calendar-cell {
-  position: relative;
-  width: calc(var(--spacing) * 9);
-  height: calc(var(--spacing) * 9);
-  padding: 0;
-  font-size: 0.875rem;
-  text-align: center;
-}
+@layer components {
+  .sigma-ui-calendar-cell {
+    position: relative;
+    width: calc(var(--spacing) * 9);
+    height: calc(var(--spacing) * 9);
+    padding: 0;
+    font-size: 0.875rem;
+    text-align: center;
+  }
 
-.sigma-ui-calendar-cell:focus-within {
-  position: relative;
-  z-index: 20;
-}
+  .sigma-ui-calendar-cell:focus-within {
+    position: relative;
+    z-index: 20;
+  }
 
-.sigma-ui-calendar-cell:has([data-selected]) {
-  border-radius: var(--radius-md);
-  background-color: var(--secondary);
-}
+  .sigma-ui-calendar-cell:has([data-selected]) {
+    border-radius: var(--radius-md);
+    background-color: var(--secondary);
+  }
 
-.sigma-ui-calendar-cell:has([data-selected][data-outside-month]) {
-  background-color: color-mix(in oklch, var(--secondary) 50%, transparent);
+  .sigma-ui-calendar-cell:has([data-selected][data-outside-month]) {
+    background-color: color-mix(in oklch, var(--secondary) 50%, transparent);
+  }
 }
 </style>

@@ -1,5 +1,6 @@
 import { existsSync } from 'node:fs';
 import { readFile, writeFile } from 'node:fs/promises';
+import { withCssLayerOrder } from '@sigma-ui/shared/templates/css-styles';
 import { themeColorKeys } from '@sigma-ui/shared/themes';
 
 const HSL_TRIPLET_PATTERN = /--([\w-]+):\s*(\d+(?:\.\d+)?)\s+(\d+(?:\.\d+)?)%\s+(\d+(?:\.\d+)?)%\s*;/g;
@@ -159,6 +160,11 @@ export function migrateThemeCss(
 
   if (rootPatched.added.length || darkPatched.added.length) {
     changes.push(`added missing theme tokens: ${[...new Set([...rootPatched.added, ...darkPatched.added])].join(', ')}`);
+  }
+
+  if (options.styleSystem === 'css' && withCssLayerOrder(next) !== next) {
+    next = withCssLayerOrder(next);
+    changes.push('declared the @layer base, components order used by CSS style components');
   }
 
   if (options.styleSystem === 'css' && !cssDefinesSpacing(next)) {

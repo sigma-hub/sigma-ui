@@ -38,12 +38,14 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-stepper {
-  display: flex;
-  gap: calc(var(--spacing) * 2);
-}
+@layer components {
+  .sigma-ui-stepper {
+    display: flex;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.sigma-ui-stepper[data-orientation="vertical"] {
-  flex-direction: column;
+  .sigma-ui-stepper[data-orientation="vertical"] {
+    flex-direction: column;
+  }
 }
 </style>

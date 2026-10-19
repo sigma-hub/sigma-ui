@@ -41,20 +41,22 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-hover-card-content {
-  z-index: 50;
-  padding: calc(var(--spacing) * 4);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  animation: sigma-ui-fade-out-scale 100ms ease-in forwards;
-  background-color: var(--popover);
-  box-shadow: var(--shadow-md);
-  color: var(--popover-foreground);
-  outline: none;
-  transform-origin: var(--reka-popper-transform-origin);
-}
+@layer components {
+  .sigma-ui-hover-card-content {
+    z-index: 50;
+    padding: calc(var(--spacing) * 4);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    animation: sigma-ui-fade-out-scale 100ms ease-in forwards;
+    background-color: var(--popover);
+    box-shadow: var(--shadow-md);
+    color: var(--popover-foreground);
+    outline: none;
+    transform-origin: var(--reka-popper-transform-origin);
+  }
 
-.sigma-ui-hover-card-content[data-state="open"] {
-  animation: sigma-ui-fade-in-scale 200ms ease-out;
+  .sigma-ui-hover-card-content[data-state="open"] {
+    animation: sigma-ui-fade-in-scale 200ms ease-out;
+  }
 }
 </style>

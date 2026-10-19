@@ -31,56 +31,58 @@ defineEmits<{
 </template>
 
 <style>
-.sigma-ui-input {
-  display: flex;
-  width: 100%;
-  min-width: 0;
-  height: calc(var(--spacing) * 9);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  background-color: var(--input);
-  font-size: 1rem;
-  padding-block: calc(var(--spacing) * 1);
-  padding-inline: calc(var(--spacing) * 3);
-}
-
-@media (width >= 48rem) {
+@layer components {
   .sigma-ui-input {
-    font-size: 0.875rem;
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    height: calc(var(--spacing) * 9);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background-color: var(--input);
+    font-size: 1rem;
+    padding-block: calc(var(--spacing) * 1);
+    padding-inline: calc(var(--spacing) * 3);
   }
-}
 
-.sigma-ui-input::file-selector-button {
-  display: inline-flex;
-  height: calc(var(--spacing) * 7);
-  border: 0;
-  background-color: transparent;
-  color: var(--foreground);
-  font-size: 0.875rem;
-  font-weight: 500;
-}
+  @media (width >= 48rem) {
+    .sigma-ui-input {
+      font-size: 0.875rem;
+    }
+  }
 
-.sigma-ui-input::selection {
-  background-color: var(--primary);
-  color: var(--primary-foreground);
-}
+  .sigma-ui-input::file-selector-button {
+    display: inline-flex;
+    height: calc(var(--spacing) * 7);
+    border: 0;
+    background-color: transparent;
+    color: var(--foreground);
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
 
-.sigma-ui-input[aria-invalid="true"] {
-  border-color: var(--destructive);
-}
+  .sigma-ui-input::selection {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+  }
 
-.sigma-ui-input::placeholder {
-  color: var(--muted-foreground);
-}
+  .sigma-ui-input[aria-invalid="true"] {
+    border-color: var(--destructive);
+  }
 
-.sigma-ui-input:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
-}
+  .sigma-ui-input::placeholder {
+    color: var(--muted-foreground);
+  }
 
-.sigma-ui-input:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-  pointer-events: none;
+  .sigma-ui-input:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  .sigma-ui-input:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    pointer-events: none;
+  }
 }
 </style>

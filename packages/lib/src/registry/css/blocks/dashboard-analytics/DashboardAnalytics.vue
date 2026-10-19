@@ -65,60 +65,62 @@ import {
 </template>
 
 <style>
-.dashboard-analytics {
-  display: flex;
-  width: 100%;
-  min-height: 100vh;
-  flex-direction: column;
-}
+@layer components {
+  .dashboard-analytics {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    flex-direction: column;
+  }
 
-.dashboard-analytics__main {
-  display: flex;
-  flex: 1 1 0%;
-  flex-direction: column;
-  padding: calc(var(--spacing) * 4);
-  gap: calc(var(--spacing) * 4);
-}
-
-.dashboard-analytics__stats,
-.dashboard-analytics__panels {
-  display: grid;
-  gap: calc(var(--spacing) * 4);
-}
-
-@media (width >= 48rem) {
   .dashboard-analytics__main {
-    padding: calc(var(--spacing) * 8);
-    gap: calc(var(--spacing) * 8);
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+    padding: calc(var(--spacing) * 4);
+    gap: calc(var(--spacing) * 4);
   }
 
-  .dashboard-analytics__stats {
-    gap: calc(var(--spacing) * 8);
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
+  .dashboard-analytics__stats,
   .dashboard-analytics__panels {
-    gap: calc(var(--spacing) * 8);
-  }
-}
-
-@media (width >= 64rem) {
-  .dashboard-analytics__stats {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    display: grid;
+    gap: calc(var(--spacing) * 4);
   }
 
-  .dashboard-analytics__panels {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
+  @media (width >= 48rem) {
+    .dashboard-analytics__main {
+      padding: calc(var(--spacing) * 8);
+      gap: calc(var(--spacing) * 8);
+    }
 
-@media (width >= 80rem) {
-  .dashboard-analytics__panels {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    .dashboard-analytics__stats {
+      gap: calc(var(--spacing) * 8);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dashboard-analytics__panels {
+      gap: calc(var(--spacing) * 8);
+    }
   }
 
-  .dashboard-analytics__transactions {
-    grid-column: span 2 / span 2;
+  @media (width >= 64rem) {
+    .dashboard-analytics__stats {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .dashboard-analytics__panels {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (width >= 80rem) {
+    .dashboard-analytics__panels {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .dashboard-analytics__transactions {
+      grid-column: span 2 / span 2;
+    }
   }
 }
 </style>

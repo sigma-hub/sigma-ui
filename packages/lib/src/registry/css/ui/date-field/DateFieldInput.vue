@@ -30,23 +30,25 @@ const forwarded = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-date-field-input {
-  border-radius: var(--radius-sm);
-  font-variant-numeric: tabular-nums;
-  outline: none;
-  padding-inline: calc(var(--spacing) * 0.5);
-}
+@layer components {
+  .sigma-ui-date-field-input {
+    border-radius: var(--radius-sm);
+    font-variant-numeric: tabular-nums;
+    outline: none;
+    padding-inline: calc(var(--spacing) * 0.5);
+  }
 
-.sigma-ui-date-field-input:focus {
-  background-color: var(--accent);
-  color: var(--accent-foreground);
-}
+  .sigma-ui-date-field-input:focus {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+  }
 
-.sigma-ui-date-field-input[data-part="literal"] {
-  padding-inline: 0;
-}
+  .sigma-ui-date-field-input[data-part="literal"] {
+    padding-inline: 0;
+  }
 
-.sigma-ui-date-field-input[data-disabled] {
-  cursor: not-allowed;
+  .sigma-ui-date-field-input[data-disabled] {
+    cursor: not-allowed;
+  }
 }
 </style>

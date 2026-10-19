@@ -40,21 +40,23 @@ const props = withDefaults(
 </template>
 
 <style>
-.sigma-ui-progress {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  min-width: 50px;
-  height: calc(var(--spacing) * 4);
-  border-radius: var(--radius-full);
-  background-color: var(--secondary);
-}
+@layer components {
+  .sigma-ui-progress {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    min-width: 50px;
+    height: calc(var(--spacing) * 4);
+    border-radius: var(--radius-full);
+    background-color: var(--secondary);
+  }
 
-.sigma-ui-progress__indicator {
-  width: 100%;
-  height: 100%;
-  flex: 1;
-  background-color: var(--primary);
-  transition: all 0.2s ease;
+  .sigma-ui-progress__indicator {
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    background-color: var(--primary);
+    transition: all 0.2s ease;
+  }
 }
 </style>

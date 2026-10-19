@@ -37,18 +37,20 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-color-slider-thumb {
-  display: block;
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  border: 2px solid white;
-  border-radius: var(--radius-full);
-  background-color: var(--background);
-  box-shadow: var(--shadow-sm);
-}
+@layer components {
+  .sigma-ui-color-slider-thumb {
+    display: block;
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    border: 2px solid white;
+    border-radius: var(--radius-full);
+    background-color: var(--background);
+    box-shadow: var(--shadow-sm);
+  }
 
-.sigma-ui-color-slider-thumb:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
+  .sigma-ui-color-slider-thumb:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
 }
 </style>

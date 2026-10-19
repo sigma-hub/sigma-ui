@@ -11,9 +11,11 @@ import { Button } from '@ui/registry/css/ui/button';
 </template>
 
 <style>
-.example-sigma-ui-textarea-with-button {
-  display: grid;
-  width: 100%;
-  gap: calc(var(--spacing) * 2);
+@layer components {
+  .example-sigma-ui-textarea-with-button {
+    display: grid;
+    width: 100%;
+    gap: calc(var(--spacing) * 2);
+  }
 }
 </style>

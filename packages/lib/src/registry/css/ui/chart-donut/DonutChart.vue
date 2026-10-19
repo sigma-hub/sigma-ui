@@ -119,11 +119,13 @@ const totalValue = computed(() => props.data.reduce((prev, curr) => {
 </template>
 
 <style>
-.sigma-ui-donut-chart {
-  display: flex;
-  width: 100%;
-  height: calc(var(--spacing) * 48);
-  flex-direction: column;
-  align-items: flex-end;
+@layer components {
+  .sigma-ui-donut-chart {
+    display: flex;
+    width: 100%;
+    height: calc(var(--spacing) * 48);
+    flex-direction: column;
+    align-items: flex-end;
+  }
 }
 </style>

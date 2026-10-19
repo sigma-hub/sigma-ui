@@ -36,26 +36,28 @@ const props = withDefaults(defineProps<{
 </template>
 
 <style>
-.sigma-ui-breadcrumb__ellipsis {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+@layer components {
+  .sigma-ui-breadcrumb__ellipsis {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-.sigma-ui-breadcrumb__ellipsis-icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-}
+  .sigma-ui-breadcrumb__ellipsis-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 
-.sigma-ui-sr-only {
-  position: absolute;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  border-width: 0;
-  margin: -1px;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
+  .sigma-ui-sr-only {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border-width: 0;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
 }
 </style>

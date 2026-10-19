@@ -55,45 +55,47 @@ import {
 </template>
 
 <style>
-.dashboard-products {
-  display: flex;
-  width: 100%;
-  min-height: 100vh;
-  flex-direction: column;
-  background-color: color-mix(in oklch, var(--muted) 40%, transparent);
-}
+@layer components {
+  .dashboard-products {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: color-mix(in oklch, var(--muted) 40%, transparent);
+  }
 
-.dashboard-products__shell {
-  display: flex;
-  flex-direction: column;
-}
-
-@media (width >= 40rem) {
   .dashboard-products__shell {
-    padding-top: calc(var(--spacing) * 4);
-    padding-bottom: calc(var(--spacing) * 4);
-    padding-left: calc(var(--spacing) * 14);
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (width >= 40rem) {
+    .dashboard-products__shell {
+      padding-top: calc(var(--spacing) * 4);
+      padding-bottom: calc(var(--spacing) * 4);
+      padding-left: calc(var(--spacing) * 14);
+      gap: calc(var(--spacing) * 4);
+    }
+  }
+
+  .dashboard-products__main {
+    display: grid;
+    flex: 1 1 0%;
+    align-items: flex-start;
+    padding: calc(var(--spacing) * 4);
     gap: calc(var(--spacing) * 4);
   }
-}
 
-.dashboard-products__main {
-  display: grid;
-  flex: 1 1 0%;
-  align-items: flex-start;
-  padding: calc(var(--spacing) * 4);
-  gap: calc(var(--spacing) * 4);
-}
-
-@media (width >= 40rem) {
-  .dashboard-products__main {
-    padding: 0 calc(var(--spacing) * 6);
+  @media (width >= 40rem) {
+    .dashboard-products__main {
+      padding: 0 calc(var(--spacing) * 6);
+    }
   }
-}
 
-@media (width >= 48rem) {
-  .dashboard-products__main {
-    gap: calc(var(--spacing) * 8);
+  @media (width >= 48rem) {
+    .dashboard-products__main {
+      gap: calc(var(--spacing) * 8);
+    }
   }
 }
 </style>

@@ -27,8 +27,10 @@ const delegatedAttrs = () => {
 </template>
 
 <style>
-.sigma-ui-breadcrumb__page {
-  color: var(--foreground);
-  font-weight: normal;
+@layer components {
+  .sigma-ui-breadcrumb__page {
+    color: var(--foreground);
+    font-weight: normal;
+  }
 }
 </style>

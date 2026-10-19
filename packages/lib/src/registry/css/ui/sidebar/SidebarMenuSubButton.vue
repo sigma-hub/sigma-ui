@@ -54,57 +54,59 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-sidebar-menu-sub-button {
-  display: flex;
-  overflow: hidden;
-  min-width: 0;
-  height: calc(var(--spacing) * 7);
-  align-items: center;
-  padding: 0 calc(var(--spacing) * 2);
-  border-radius: var(--radius-md);
-  color: var(--foreground);
-  font-size: 0.875rem;
-  gap: calc(var(--spacing) * 2);
-  outline: none;
-  text-decoration: none;
-  transform: translateX(-1px);
-}
+@layer components {
+  .sigma-ui-sidebar-menu-sub-button {
+    display: flex;
+    overflow: hidden;
+    min-width: 0;
+    height: calc(var(--spacing) * 7);
+    align-items: center;
+    padding: 0 calc(var(--spacing) * 2);
+    border-radius: var(--radius-md);
+    color: var(--foreground);
+    font-size: 0.875rem;
+    gap: calc(var(--spacing) * 2);
+    outline: none;
+    text-decoration: none;
+    transform: translateX(-1px);
+  }
 
-.sigma-ui-sidebar-menu-sub-button[data-size="sm"] {
-  font-size: 0.75rem;
-}
+  .sigma-ui-sidebar-menu-sub-button[data-size="sm"] {
+    font-size: 0.75rem;
+  }
 
-.sigma-ui-sidebar-menu-sub-button:hover,
-.sigma-ui-sidebar-menu-sub-button:active,
-.sigma-ui-sidebar-menu-sub-button[data-active="true"] {
-  background-color: var(--sidebar-accent);
-  color: var(--sidebar-accent-foreground);
-}
+  .sigma-ui-sidebar-menu-sub-button:hover,
+  .sigma-ui-sidebar-menu-sub-button:active,
+  .sigma-ui-sidebar-menu-sub-button[data-active="true"] {
+    background-color: var(--sidebar-accent);
+    color: var(--sidebar-accent-foreground);
+  }
 
-.sigma-ui-sidebar-menu-sub-button:focus-visible {
-  box-shadow: 0 0 0 2px var(--sidebar-ring);
-}
+  .sigma-ui-sidebar-menu-sub-button:focus-visible {
+    box-shadow: 0 0 0 2px var(--sidebar-ring);
+  }
 
-.sigma-ui-sidebar-menu-sub-button:disabled,
-.sigma-ui-sidebar-menu-sub-button[aria-disabled="true"] {
-  opacity: 0.5;
-  pointer-events: none;
-}
+  .sigma-ui-sidebar-menu-sub-button:disabled,
+  .sigma-ui-sidebar-menu-sub-button[aria-disabled="true"] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 
-.sigma-ui-sidebar-menu-sub-button > svg {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  flex-shrink: 0;
-  color: var(--sidebar-accent-foreground);
-}
+  .sigma-ui-sidebar-menu-sub-button > svg {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    flex-shrink: 0;
+    color: var(--sidebar-accent-foreground);
+  }
 
-.sigma-ui-sidebar-menu-sub-button > span:last-child {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+  .sigma-ui-sidebar-menu-sub-button > span:last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
-.sigma-ui-sidebar[data-collapsible="icon"] .sigma-ui-sidebar-menu-sub-button {
-  display: none;
+  .sigma-ui-sidebar[data-collapsible="icon"] .sigma-ui-sidebar-menu-sub-button {
+    display: none;
+  }
 }
 </style>

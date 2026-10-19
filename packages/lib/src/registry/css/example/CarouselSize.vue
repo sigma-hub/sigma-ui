@@ -28,38 +28,40 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 </template>
 
 <style>
-.example-sigma-ui-carousel-size {
-  position: relative;
-  width: 100%;
-  max-width: 24rem;
-}
-
-@media (width >= 48rem) {
-  .example-sigma-ui-carousel-size__slide {
-    flex-basis: 50%;
+@layer components {
+  .example-sigma-ui-carousel-size {
+    position: relative;
+    width: 100%;
+    max-width: 24rem;
   }
-}
 
-@media (width >= 64rem) {
-  .example-sigma-ui-carousel-size__slide {
-    flex-basis: 33%;
+  @media (width >= 48rem) {
+    .example-sigma-ui-carousel-size__slide {
+      flex-basis: 50%;
+    }
   }
-}
 
-.example-sigma-ui-carousel-size__wrapper {
-  padding: calc(var(--spacing) * 1);
-}
+  @media (width >= 64rem) {
+    .example-sigma-ui-carousel-size__slide {
+      flex-basis: 33%;
+    }
+  }
 
-.example-sigma-ui-carousel-size__item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: calc(var(--spacing) * 6);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  aspect-ratio: 1;
-  font-size: 2.25rem;
-  font-weight: 600;
-  user-select: none;
+  .example-sigma-ui-carousel-size__wrapper {
+    padding: calc(var(--spacing) * 1);
+  }
+
+  .example-sigma-ui-carousel-size__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(var(--spacing) * 6);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    aspect-ratio: 1;
+    font-size: 2.25rem;
+    font-weight: 600;
+    user-select: none;
+  }
 }
 </style>

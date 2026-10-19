@@ -27,9 +27,11 @@ const props = defineProps<DialogTitleProps>();
 </template>
 
 <style>
-.sigma-ui-sheet-title {
-  color: var(--foreground);
-  font-size: 1.125rem;
-  font-weight: 600;
+@layer components {
+  .sigma-ui-sheet-title {
+    color: var(--foreground);
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
 }
 </style>

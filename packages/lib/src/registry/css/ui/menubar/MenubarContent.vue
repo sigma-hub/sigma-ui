@@ -43,47 +43,49 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-menubar-content {
-  z-index: 50;
-  overflow: hidden;
-  min-width: calc(var(--spacing) * 48);
-  padding: calc(var(--spacing) * 1);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  backdrop-filter: blur(var(--backdrop-filter-blur));
-  background-color: var(--popover);
-  box-shadow: var(--shadow-md);
-  color: var(--popover-foreground);
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(0.96) translateY(-2px);
-  transform-origin: var(--reka-menubar-content-transform-origin);
-  transition: transform 150ms ease-out, opacity 150ms ease-out;
-}
-
-.sigma-ui-menubar-content[data-state="open"] {
-  animation: sigma-ui-menubar-show 150ms ease-out;
-  opacity: 1;
-  pointer-events: auto;
-  transform: scale(1) translateY(0);
-}
-
-.sigma-ui-menubar-content[data-state="closed"] {
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(0.96) translateY(-2px);
-  transition: transform 100ms ease-in, opacity 100ms ease-in;
-}
-
-@keyframes sigma-ui-menubar-show {
-  0% {
+@layer components {
+  .sigma-ui-menubar-content {
+    z-index: 50;
+    overflow: hidden;
+    min-width: calc(var(--spacing) * 48);
+    padding: calc(var(--spacing) * 1);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    backdrop-filter: blur(var(--backdrop-filter-blur));
+    background-color: var(--popover);
+    box-shadow: var(--shadow-md);
+    color: var(--popover-foreground);
     opacity: 0;
+    pointer-events: none;
     transform: scale(0.96) translateY(-2px);
+    transform-origin: var(--reka-menubar-content-transform-origin);
+    transition: transform 150ms ease-out, opacity 150ms ease-out;
   }
 
-  100% {
+  .sigma-ui-menubar-content[data-state="open"] {
+    animation: sigma-ui-menubar-show 150ms ease-out;
     opacity: 1;
+    pointer-events: auto;
     transform: scale(1) translateY(0);
+  }
+
+  .sigma-ui-menubar-content[data-state="closed"] {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.96) translateY(-2px);
+    transition: transform 100ms ease-in, opacity 100ms ease-in;
+  }
+
+  @keyframes sigma-ui-menubar-show {
+    0% {
+      opacity: 0;
+      transform: scale(0.96) translateY(-2px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
   }
 }
 </style>

@@ -92,13 +92,15 @@ function toggleItem(handleChange: (next: string[]) => void, value: string[], ite
 </template>
 
 <style>
-.settings-forms__display-intro {
-  margin-bottom: calc(var(--spacing) * 4);
-}
+@layer components {
+  .settings-forms__display-intro {
+    margin-bottom: calc(var(--spacing) * 4);
+  }
 
-.settings-forms__display-actions {
-  display: flex;
-  justify-content: flex-start;
-  margin-top: calc(var(--spacing) * 4);
+  .settings-forms__display-actions {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: calc(var(--spacing) * 4);
+  }
 }
 </style>

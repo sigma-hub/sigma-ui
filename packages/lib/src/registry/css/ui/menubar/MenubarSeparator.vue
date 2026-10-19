@@ -27,10 +27,12 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-menubar-separator {
-  height: 1px;
-  background-color: var(--muted);
-  margin-block: calc(var(--spacing) * 1);
-  margin-inline: calc(var(--spacing) * -1);
+@layer components {
+  .sigma-ui-menubar-separator {
+    height: 1px;
+    background-color: var(--muted);
+    margin-block: calc(var(--spacing) * 1);
+    margin-inline: calc(var(--spacing) * -1);
+  }
 }
 </style>

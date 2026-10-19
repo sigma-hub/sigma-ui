@@ -28,9 +28,11 @@ const props = defineProps<DropdownMenuSeparatorProps>();
 </template>
 
 <style>
-.sigma-ui-dropdown-menu-separator {
-  height: 1px;
-  margin: calc(var(--spacing) * 1) calc(var(--spacing) * -1);
-  background-color: var(--border);
+@layer components {
+  .sigma-ui-dropdown-menu-separator {
+    height: 1px;
+    margin: calc(var(--spacing) * 1) calc(var(--spacing) * -1);
+    background-color: var(--border);
+  }
 }
 </style>

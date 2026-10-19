@@ -19,38 +19,40 @@ import PlaygroundHeader from './components/PlaygroundHeader.vue';
 </template>
 
 <style>
-.dashboard-ai-playground {
-  display: grid;
-  width: 100%;
-  height: 100vh;
-  padding-left: 56px;
-}
-
-.dashboard-ai-playground__column {
-  display: flex;
-  min-width: 0;
-  min-height: 0;
-  flex-direction: column;
-}
-
-.dashboard-ai-playground__main {
-  display: grid;
-  overflow: auto;
-  min-height: 0;
-  flex: 1 1 0%;
-  padding: calc(var(--spacing) * 4);
-  gap: calc(var(--spacing) * 4);
-}
-
-@media (width >= 48rem) {
-  .dashboard-ai-playground__main {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+@layer components {
+  .dashboard-ai-playground {
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    padding-left: 56px;
   }
-}
 
-@media (width >= 64rem) {
+  .dashboard-ai-playground__column {
+    display: flex;
+    min-width: 0;
+    min-height: 0;
+    flex-direction: column;
+  }
+
   .dashboard-ai-playground__main {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    display: grid;
+    overflow: auto;
+    min-height: 0;
+    flex: 1 1 0%;
+    padding: calc(var(--spacing) * 4);
+    gap: calc(var(--spacing) * 4);
+  }
+
+  @media (width >= 48rem) {
+    .dashboard-ai-playground__main {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (width >= 64rem) {
+    .dashboard-ai-playground__main {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
   }
 }
 </style>

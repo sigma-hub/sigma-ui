@@ -175,67 +175,69 @@ function closeCreateTeam() {
 </template>
 
 <style>
-.dashboard-overview__team-button,
-.dashboard-overview__team-popover {
-  width: 200px;
-}
+@layer components {
+  .dashboard-overview__team-button,
+  .dashboard-overview__team-popover {
+    width: 200px;
+  }
 
-.dashboard-overview__team-button {
-  justify-content: space-between;
-}
+  .dashboard-overview__team-button {
+    justify-content: space-between;
+  }
 
-.dashboard-overview__team-popover {
-  padding: 0;
-}
+  .dashboard-overview__team-popover {
+    padding: 0;
+  }
 
-.dashboard-overview__team-avatar {
-  margin-right: calc(var(--spacing) * 2);
-}
+  .dashboard-overview__team-avatar {
+    margin-right: calc(var(--spacing) * 2);
+  }
 
-.dashboard-overview__team-chevron,
-.dashboard-overview__team-check,
-.dashboard-overview__create-icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-}
+  .dashboard-overview__team-chevron,
+  .dashboard-overview__team-check,
+  .dashboard-overview__create-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 
-.dashboard-overview__team-chevron {
-  flex-shrink: 0;
-  margin-left: auto;
-  opacity: 0.5;
-}
+  .dashboard-overview__team-chevron {
+    flex-shrink: 0;
+    margin-left: auto;
+    opacity: 0.5;
+  }
 
-.dashboard-overview__team-check {
-  margin-left: auto;
-  opacity: 0;
-}
+  .dashboard-overview__team-check {
+    margin-left: auto;
+    opacity: 0;
+  }
 
-.dashboard-overview__team-check--active {
-  opacity: 1;
-}
+  .dashboard-overview__team-check--active {
+    opacity: 1;
+  }
 
-.dashboard-overview__create-icon {
-  width: calc(var(--spacing) * 5);
-  height: calc(var(--spacing) * 5);
-  margin-right: calc(var(--spacing) * 2);
-}
+  .dashboard-overview__create-icon {
+    width: calc(var(--spacing) * 5);
+    height: calc(var(--spacing) * 5);
+    margin-right: calc(var(--spacing) * 2);
+  }
 
-.dashboard-overview__team-fields {
-  display: grid;
-  padding: calc(var(--spacing) * 2) 0;
-  gap: calc(var(--spacing) * 4);
-}
+  .dashboard-overview__team-fields {
+    display: grid;
+    padding: calc(var(--spacing) * 2) 0;
+    gap: calc(var(--spacing) * 4);
+  }
 
-.dashboard-overview__team-field {
-  display: grid;
-  gap: calc(var(--spacing) * 2);
-}
+  .dashboard-overview__team-field {
+    display: grid;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.dashboard-overview__plan-label {
-  font-weight: 500;
-}
+  .dashboard-overview__plan-label {
+    font-weight: 500;
+  }
 
-.dashboard-overview__plan-detail {
-  color: var(--muted-foreground);
+  .dashboard-overview__plan-detail {
+    color: var(--muted-foreground);
+  }
 }
 </style>

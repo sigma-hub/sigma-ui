@@ -17,10 +17,12 @@ const { name, formMessageId } = useFormField();
 </template>
 
 <style>
-.sigma-ui-form-message {
-  color: var(--destructive);
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1.25rem;
+@layer components {
+  .sigma-ui-form-message {
+    color: var(--destructive);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+  }
 }
 </style>

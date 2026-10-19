@@ -447,12 +447,19 @@ html.dark {
 div[class^="language-"] {
 	@apply max-h-[650px] overflow-x-auto md:rounded-lg border !bg-secondary-foreground dark:!bg-secondary
 }
-pre {
-	@apply py-4;
-}
+/* Element rules sit in the base layer so the CSS style components (in @layer components) keep their own pre and code styles. */
+@layer base {
+	pre {
+		@apply py-4;
+	}
 
-pre code {
-	@apply relative font-mono text-sm ;
+	pre code {
+		@apply relative font-mono text-sm;
+	}
+
+	pre code .line {
+		@apply px-4 min-h-4 !py-0.5 w-full inline-block leading-(--vp-code-line-height);
+	}
 }
 
 .line-numbers-wrapper, code {
@@ -463,9 +470,6 @@ pre code {
 	@apply font-mono;
 }
 
-pre code .line {
-	@apply px-4 min-h-4 !py-0.5 w-full inline-block leading-(--vp-code-line-height);
-} 
 
 .line-number {
 	@apply !text-[.75rem] !inline-block text-muted-foreground leading-(--vp-code-line-height);

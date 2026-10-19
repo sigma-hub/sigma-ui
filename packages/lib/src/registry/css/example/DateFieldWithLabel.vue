@@ -23,7 +23,9 @@ const value = ref<DateValue>();
 </template>
 
 <style>
-.example-sigma-ui-date-field-with-label {
-  max-width: 20rem;
+@layer components {
+  .example-sigma-ui-date-field-with-label {
+    max-width: 20rem;
+  }
 }
 </style>

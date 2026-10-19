@@ -30,16 +30,18 @@ const props = defineProps<PaginationEllipsisProps>();
 </template>
 
 <style>
-.sigma-ui-pagination-ellipsis {
-  display: flex;
-  width: calc(var(--spacing) * 9);
-  height: calc(var(--spacing) * 9);
-  align-items: center;
-  justify-content: center;
-}
+@layer components {
+  .sigma-ui-pagination-ellipsis {
+    display: flex;
+    width: calc(var(--spacing) * 9);
+    height: calc(var(--spacing) * 9);
+    align-items: center;
+    justify-content: center;
+  }
 
-.sigma-ui-pagination-ellipsis__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
+  .sigma-ui-pagination-ellipsis__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 }
 </style>

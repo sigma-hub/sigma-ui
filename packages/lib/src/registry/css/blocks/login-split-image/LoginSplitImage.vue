@@ -105,122 +105,124 @@ import { Label } from '@ui/registry/css/ui/label';
 </template>
 
 <style>
-.login-split-image {
-  display: flex;
-  width: 100%;
-  height: 100vh;
-}
-
-.login-split-image__form-side {
-  display: flex;
-  flex: 1 1 0%;
-  align-items: center;
-  justify-content: center;
-  padding: calc(var(--spacing) * 12) 0;
-}
-
-.login-split-image__form-container {
-  width: 350px;
-  max-width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.login-split-image__header {
-  display: grid;
-  gap: calc(var(--spacing) * 2);
-  text-align: center;
-}
-
-.login-split-image__title {
-  margin: 0;
-  font-size: 1.875rem;
-  font-weight: 700;
-  line-height: 2.25rem;
-}
-
-.login-split-image__description {
-  margin: 0 0 calc(var(--spacing) * 8);
-  color: var(--muted-foreground);
-  text-wrap: pretty;
-}
-
-.login-split-image__form {
-  display: grid;
-  gap: calc(var(--spacing) * 4);
-}
-
-.login-split-image__field {
-  display: grid;
-  gap: calc(var(--spacing) * 2);
-}
-
-.login-split-image__label-row {
-  display: flex;
-  align-items: center;
-}
-
-.login-split-image__forgot-link {
-  display: inline-block;
-  margin-left: auto;
-  color: inherit;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  text-decoration: underline;
-}
-
-.login-split-image__button {
-  width: 100%;
-}
-
-.login-split-image__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-}
-
-.login-split-image__footer {
-  margin-top: calc(var(--spacing) * 4);
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  text-align: center;
-}
-
-.login-split-image__link {
-  color: inherit;
-  text-decoration: underline;
-}
-
-.login-split-image__image-side {
-  display: none;
-  background-color: var(--muted);
-}
-
-.login-split-image__image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  user-select: none;
-}
-
-.dark .login-split-image__image {
-  filter: hue-rotate(180deg) invert(100%);
-}
-
-@media (width >= 64rem) {
+@layer components {
   .login-split-image {
-    min-height: 600px;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .login-split-image__form-side {
+    display: flex;
+    flex: 1 1 0%;
+    align-items: center;
+    justify-content: center;
+    padding: calc(var(--spacing) * 12) 0;
+  }
+
+  .login-split-image__form-container {
+    width: 350px;
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .login-split-image__header {
+    display: grid;
+    gap: calc(var(--spacing) * 2);
+    text-align: center;
+  }
+
+  .login-split-image__title {
+    margin: 0;
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 2.25rem;
+  }
+
+  .login-split-image__description {
+    margin: 0 0 calc(var(--spacing) * 8);
+    color: var(--muted-foreground);
+    text-wrap: pretty;
+  }
+
+  .login-split-image__form {
+    display: grid;
+    gap: calc(var(--spacing) * 4);
+  }
+
+  .login-split-image__field {
+    display: grid;
+    gap: calc(var(--spacing) * 2);
+  }
+
+  .login-split-image__label-row {
+    display: flex;
+    align-items: center;
+  }
+
+  .login-split-image__forgot-link {
+    display: inline-block;
+    margin-left: auto;
+    color: inherit;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-decoration: underline;
+  }
+
+  .login-split-image__button {
+    width: 100%;
+  }
+
+  .login-split-image__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
+
+  .login-split-image__footer {
+    margin-top: calc(var(--spacing) * 4);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-align: center;
+  }
+
+  .login-split-image__link {
+    color: inherit;
+    text-decoration: underline;
   }
 
   .login-split-image__image-side {
-    display: flex;
-    flex: 1 1 0%;
+    display: none;
+    background-color: var(--muted);
   }
-}
 
-@media (width >= 80rem) {
-  .login-split-image {
-    min-height: 800px;
+  .login-split-image__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+  }
+
+  .dark .login-split-image__image {
+    filter: hue-rotate(180deg) invert(100%);
+  }
+
+  @media (width >= 64rem) {
+    .login-split-image {
+      min-height: 600px;
+    }
+
+    .login-split-image__image-side {
+      display: flex;
+      flex: 1 1 0%;
+    }
+  }
+
+  @media (width >= 80rem) {
+    .login-split-image {
+      min-height: 800px;
+    }
   }
 }
 </style>

@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "ui/label/Label.vue",
-      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { Label, type LabelProps } from 'reka-ui';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<LabelProps>();\n</script>\n\n<template>\n  <Label\n    data-slot=\"label\"\n    v-bind=\"{ ...props, ...delegatedAttrs() }\"\n    class=\"sigma-ui-label\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </Label>\n</template>\n\n<style>\n.sigma-ui-label {\n  font-size: 0.875rem;\n  font-weight: 500;\n  line-height: 1;\n}\n\n:where(:disabled) ~ .sigma-ui-label {\n  cursor: not-allowed;\n  opacity: 0.7;\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { Label, type LabelProps } from 'reka-ui';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<LabelProps>();\n</script>\n\n<template>\n  <Label\n    data-slot=\"label\"\n    v-bind=\"{ ...props, ...delegatedAttrs() }\"\n    class=\"sigma-ui-label\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </Label>\n</template>\n\n<style>\n@layer components {\n  .sigma-ui-label {\n    font-size: 0.875rem;\n    font-weight: 500;\n    line-height: 1;\n  }\n\n  :where(:disabled) ~ .sigma-ui-label {\n    cursor: not-allowed;\n    opacity: 0.7;\n  }\n}\n</style>\n",
       "type": "registry:ui"
     },
     {

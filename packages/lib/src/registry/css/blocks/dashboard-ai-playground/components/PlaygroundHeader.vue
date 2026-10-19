@@ -22,35 +22,37 @@ import ConfigurationDrawer from './ConfigurationDrawer.vue';
 </template>
 
 <style>
-.dashboard-ai-playground__header {
-  position: sticky;
-  z-index: 10;
-  top: 0;
-  display: flex;
-  height: 57px;
-  align-items: center;
-  padding-right: calc(var(--spacing) * 4);
-  padding-left: calc(var(--spacing) * 4);
-  border-bottom: 1px solid var(--border);
-  background-color: var(--background);
-  gap: calc(var(--spacing) * 1);
-}
+@layer components {
+  .dashboard-ai-playground__header {
+    position: sticky;
+    z-index: 10;
+    top: 0;
+    display: flex;
+    height: 57px;
+    align-items: center;
+    padding-right: calc(var(--spacing) * 4);
+    padding-left: calc(var(--spacing) * 4);
+    border-bottom: 1px solid var(--border);
+    background-color: var(--background);
+    gap: calc(var(--spacing) * 1);
+  }
 
-.dashboard-ai-playground__title {
-  margin: 0;
-  font-size: 1.25rem;
-  font-weight: 600;
-  line-height: 1.75rem;
-}
+  .dashboard-ai-playground__title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.75rem;
+  }
 
-button.dashboard-ai-playground__share-button {
-  margin-left: auto;
-  font-size: 0.875rem;
-  gap: calc(var(--spacing) * 1.5);
-}
+  button.dashboard-ai-playground__share-button {
+    margin-left: auto;
+    font-size: 0.875rem;
+    gap: calc(var(--spacing) * 1.5);
+  }
 
-button.dashboard-ai-playground__share-button svg {
-  width: calc(var(--spacing) * 3.5);
-  height: calc(var(--spacing) * 3.5);
+  button.dashboard-ai-playground__share-button svg {
+    width: calc(var(--spacing) * 3.5);
+    height: calc(var(--spacing) * 3.5);
+  }
 }
 </style>

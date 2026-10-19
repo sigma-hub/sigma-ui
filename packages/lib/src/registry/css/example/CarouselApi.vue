@@ -55,43 +55,45 @@ watchOnce(api, (api) => {
 </template>
 
 <style>
-.example-sigma-ui-carousel-api {
-  width: 100%;
-}
-
-@media (width >= 40rem) {
+@layer components {
   .example-sigma-ui-carousel-api {
-    width: auto;
+    width: 100%;
   }
-}
 
-.example-sigma-ui-carousel-api__carousel {
-  position: relative;
-  width: 100%;
-  max-width: 20rem;
-}
+  @media (width >= 40rem) {
+    .example-sigma-ui-carousel-api {
+      width: auto;
+    }
+  }
 
-.example-sigma-ui-carousel-api__slide {
-  padding: calc(var(--spacing) * 1);
-}
+  .example-sigma-ui-carousel-api__carousel {
+    position: relative;
+    width: 100%;
+    max-width: 20rem;
+  }
 
-.example-sigma-ui-carousel-api__item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: calc(var(--spacing) * 6);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  aspect-ratio: 1;
-  font-size: 2.25rem;
-  font-weight: 600;
-  user-select: none;
-}
+  .example-sigma-ui-carousel-api__slide {
+    padding: calc(var(--spacing) * 1);
+  }
 
-.example-sigma-ui-carousel-api__counter {
-  padding-top: calc(var(--spacing) * 2);
-  color: var(--muted-foreground);
-  font-size: 0.875rem;
-  text-align: center;
+  .example-sigma-ui-carousel-api__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(var(--spacing) * 6);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    aspect-ratio: 1;
+    font-size: 2.25rem;
+    font-weight: 600;
+    user-select: none;
+  }
+
+  .example-sigma-ui-carousel-api__counter {
+    padding-top: calc(var(--spacing) * 2);
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+    text-align: center;
+  }
 }
 </style>

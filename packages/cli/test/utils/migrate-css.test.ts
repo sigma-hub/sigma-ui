@@ -94,6 +94,19 @@ describe('migrateThemeCss', () => {
     expect(isLegacyThemeCss(css, 'css')).toBe(false);
   });
 
+  it('declares the cascade layer order for the CSS style system', () => {
+    const source = '@import "./preflight.css";\n\n:root { --spacing: 4px; --primary: oklch(0.2 0 0); --sidebar: oklch(1 0 0); }';
+    const { css, changes } = migrateThemeCss(source, { styleSystem: 'css', hasJsConfig: false });
+
+    expect(css).toMatch(/^@layer base, components;\n\n@import "\.\/preflight\.css" layer\(base\);/);
+    expect(changes).toContain('declared the @layer base, components order used by CSS style components');
+    expect(migrateThemeCss(css, { styleSystem: 'css', hasJsConfig: false }).changes).toEqual([]);
+  });
+
+  it('does not declare the CSS layer order for the Tailwind style system', () => {
+    expect(migrateThemeCss(LEGACY_TAILWIND_CSS, { styleSystem: 'tailwind', hasJsConfig: false }).css).not.toContain('@layer base, components;');
+  });
+
   it('keeps an existing spacing token', () => {
     const source = ':root { --spacing: 4px; --primary: oklch(0.2 0 0); --sidebar: oklch(1 0 0); }';
     const { css, changes } = migrateThemeCss(source, { styleSystem: 'css', hasJsConfig: false });

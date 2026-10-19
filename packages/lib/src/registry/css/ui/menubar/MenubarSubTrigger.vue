@@ -34,34 +34,36 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-menubar-subtrigger {
-  display: flex;
-  align-items: center;
-  padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
-  border-radius: var(--radius-sm);
-  cursor: default;
-  font-size: 0.875rem;
-  outline: none;
-  user-select: none;
-}
+@layer components {
+  .sigma-ui-menubar-subtrigger {
+    display: flex;
+    align-items: center;
+    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
+    border-radius: var(--radius-sm);
+    cursor: default;
+    font-size: 0.875rem;
+    outline: none;
+    user-select: none;
+  }
 
-.sigma-ui-menubar-subtrigger:focus {
-  background-color: var(--secondary);
-  color: var(--secondary-foreground);
-}
+  .sigma-ui-menubar-subtrigger:focus {
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+  }
 
-.sigma-ui-menubar-subtrigger[data-state="open"] {
-  background-color: var(--secondary);
-  color: var(--secondary-foreground);
-}
+  .sigma-ui-menubar-subtrigger[data-state="open"] {
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+  }
 
-.sigma-ui-menubar-subtrigger--inset {
-  padding-left: calc(var(--spacing) * 8);
-}
+  .sigma-ui-menubar-subtrigger--inset {
+    padding-left: calc(var(--spacing) * 8);
+  }
 
-.sigma-ui-menubar-subtrigger__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  margin-left: auto;
+  .sigma-ui-menubar-subtrigger__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-left: auto;
+  }
 }
 </style>

@@ -24,16 +24,18 @@ const delegatedAttrs = () => {
 </template>
 
 <style>
-.sigma-ui-sheet-footer {
-  display: flex;
-  flex-direction: column-reverse;
-}
-
-@media (width >= 40rem) {
+@layer components {
   .sigma-ui-sheet-footer {
-    flex-direction: row;
-    justify-content: flex-end;
-    gap: calc(var(--spacing) * 2);
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  @media (width >= 40rem) {
+    .sigma-ui-sheet-footer {
+      flex-direction: row;
+      justify-content: flex-end;
+      gap: calc(var(--spacing) * 2);
+    }
   }
 }
 </style>

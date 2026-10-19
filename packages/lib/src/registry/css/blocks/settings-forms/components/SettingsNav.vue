@@ -37,26 +37,28 @@ function selectItem(itemId: string) {
 </template>
 
 <style>
-.settings-forms__nav-list {
-  display: flex;
-  gap: calc(var(--spacing) * 2);
-}
-
-.settings-forms__nav-button.settings-forms__nav-button {
-  width: 100%;
-  justify-content: flex-start;
-  text-align: left;
-}
-
-.settings-forms__nav-button--active.settings-forms__nav-button--active,
-.settings-forms__nav-button--active.settings-forms__nav-button--active:hover {
-  background: var(--muted);
-}
-
-@media (width >= 64rem) {
+@layer components {
   .settings-forms__nav-list {
-    flex-direction: column;
-    gap: calc(var(--spacing) * 1);
+    display: flex;
+    gap: calc(var(--spacing) * 2);
+  }
+
+  .settings-forms__nav-button.settings-forms__nav-button {
+    width: 100%;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .settings-forms__nav-button--active.settings-forms__nav-button--active,
+  .settings-forms__nav-button--active.settings-forms__nav-button--active:hover {
+    background: var(--muted);
+  }
+
+  @media (width >= 64rem) {
+    .settings-forms__nav-list {
+      flex-direction: column;
+      gap: calc(var(--spacing) * 1);
+    }
   }
 }
 </style>

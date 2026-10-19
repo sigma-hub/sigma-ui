@@ -28,10 +28,12 @@ const props = defineProps<DrawerTitleProps>();
 </template>
 
 <style>
-.sigma-ui-drawer-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  letter-spacing: -0.025em;
-  line-height: 1;
+@layer components {
+  .sigma-ui-drawer-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1;
+  }
 }
 </style>

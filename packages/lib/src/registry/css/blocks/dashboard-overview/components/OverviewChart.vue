@@ -26,11 +26,13 @@ defineProps<{
 </template>
 
 <style>
-.dashboard-overview__chart {
-  grid-column: span 4;
-}
+@layer components {
+  .dashboard-overview__chart {
+    grid-column: span 4;
+  }
 
-.dashboard-overview__chart-content {
-  padding-left: calc(var(--spacing) * 2);
+  .dashboard-overview__chart-content {
+    padding-left: calc(var(--spacing) * 2);
+  }
 }
 </style>

@@ -48,13 +48,15 @@ const style = computed(() => {
 </template>
 
 <style>
-.sigma-ui-chart {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-}
+@layer components {
+  .sigma-ui-chart {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
 
-.sigma-ui-chart[data-passthrough='true'] {
-  display: contents;
+  .sigma-ui-chart[data-passthrough='true'] {
+    display: contents;
+  }
 }
 </style>

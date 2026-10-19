@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "example/TypographySmall.vue",
-      "content": "<template>\n  <small class=\"example-sigma-ui-typography__small\">\n    Email address\n  </small>\n</template>\n\n<style>\n.example-sigma-ui-typography__small {\n  font-size: 0.875rem;\n  font-weight: 500;\n  line-height: 1;\n}\n</style>\n",
+      "content": "<template>\n  <small class=\"example-sigma-ui-typography__small\">\n    Email address\n  </small>\n</template>\n\n<style>\n@layer components {\n  .example-sigma-ui-typography__small {\n    font-size: 0.875rem;\n    font-weight: 500;\n    line-height: 1;\n  }\n}\n</style>\n",
       "type": "registry:example"
     }
   ]

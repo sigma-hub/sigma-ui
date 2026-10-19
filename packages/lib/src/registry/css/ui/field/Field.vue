@@ -56,63 +56,65 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-field {
-  display: flex;
-  width: 100%;
-  gap: calc(var(--spacing) * 3);
-}
+@layer components {
+  .sigma-ui-field {
+    display: flex;
+    width: 100%;
+    gap: calc(var(--spacing) * 3);
+  }
 
-.sigma-ui-field[data-invalid="true"] {
-  color: var(--destructive);
-}
+  .sigma-ui-field[data-invalid="true"] {
+    color: var(--destructive);
+  }
 
-.sigma-ui-field--vertical,
-.sigma-ui-field--responsive {
-  flex-direction: column;
-}
+  .sigma-ui-field--vertical,
+  .sigma-ui-field--responsive {
+    flex-direction: column;
+  }
 
-.sigma-ui-field--vertical > *,
-.sigma-ui-field--responsive > * {
-  width: 100%;
-}
+  .sigma-ui-field--vertical > *,
+  .sigma-ui-field--responsive > * {
+    width: 100%;
+  }
 
-.sigma-ui-field--horizontal {
-  flex-direction: row;
-  align-items: center;
-}
-
-.sigma-ui-field--horizontal > [data-slot="field-label"] {
-  flex: auto;
-}
-
-.sigma-ui-field--horizontal:has(> [data-slot="field-content"]) {
-  align-items: flex-start;
-}
-
-.sigma-ui-field--horizontal:has(> [data-slot="field-content"]) > :is([role="checkbox"], [role="radio"], .sigma-ui-checkbox-wrapper) {
-  margin-top: 1px;
-}
-
-@container field-group (width >= 28rem) {
-  .sigma-ui-field.sigma-ui-field--responsive {
+  .sigma-ui-field--horizontal {
     flex-direction: row;
     align-items: center;
   }
 
-  .sigma-ui-field.sigma-ui-field--responsive > * {
-    width: auto;
-  }
-
-  .sigma-ui-field.sigma-ui-field--responsive > [data-slot="field-label"] {
+  .sigma-ui-field--horizontal > [data-slot="field-label"] {
     flex: auto;
   }
 
-  .sigma-ui-field.sigma-ui-field--responsive:has(> [data-slot="field-content"]) {
+  .sigma-ui-field--horizontal:has(> [data-slot="field-content"]) {
     align-items: flex-start;
   }
 
-  .sigma-ui-field.sigma-ui-field--responsive:has(> [data-slot="field-content"]) > :is([role="checkbox"], [role="radio"], .sigma-ui-checkbox-wrapper) {
+  .sigma-ui-field--horizontal:has(> [data-slot="field-content"]) > :is([role="checkbox"], [role="radio"], .sigma-ui-checkbox-wrapper) {
     margin-top: 1px;
+  }
+
+  @container field-group (width >= 28rem) {
+    .sigma-ui-field.sigma-ui-field--responsive {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .sigma-ui-field.sigma-ui-field--responsive > * {
+      width: auto;
+    }
+
+    .sigma-ui-field.sigma-ui-field--responsive > [data-slot="field-label"] {
+      flex: auto;
+    }
+
+    .sigma-ui-field.sigma-ui-field--responsive:has(> [data-slot="field-content"]) {
+      align-items: flex-start;
+    }
+
+    .sigma-ui-field.sigma-ui-field--responsive:has(> [data-slot="field-content"]) > :is([role="checkbox"], [role="radio"], .sigma-ui-checkbox-wrapper) {
+      margin-top: 1px;
+    }
   }
 }
 </style>

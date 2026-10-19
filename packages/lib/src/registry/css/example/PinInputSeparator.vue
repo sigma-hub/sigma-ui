@@ -38,12 +38,14 @@ const handleComplete = (e: string[]) => alert(e.join(''));
 </template>
 
 <style>
-.example-sigma-ui-pin-input-separator__group {
-  gap: calc(var(--spacing) * 1);
-}
+@layer components {
+  .example-sigma-ui-pin-input-separator__group {
+    gap: calc(var(--spacing) * 1);
+  }
 
-.example-sigma-ui-pin-input-separator__input {
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  .example-sigma-ui-pin-input-separator__input {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
 }
 </style>

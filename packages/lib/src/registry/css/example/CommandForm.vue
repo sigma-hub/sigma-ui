@@ -112,56 +112,58 @@ const onSubmit = handleSubmit((values) => {
 </template>
 
 <style>
-.example-sigma-ui-command-form {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 6);
-}
+@layer components {
+  .example-sigma-ui-command-form {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 6);
+  }
 
-.example-sigma-ui-command-form__item {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 2);
-}
+  .example-sigma-ui-command-form__item {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-command-form__trigger {
-  display: flex;
-  width: 200px;
-  justify-content: space-between;
-}
+  .example-sigma-ui-command-form__trigger {
+    display: flex;
+    width: 200px;
+    justify-content: space-between;
+  }
 
-.example-sigma-ui-command-form__trigger--placeholder {
-  color: var(--muted-foreground);
-}
+  .example-sigma-ui-command-form__trigger--placeholder {
+    color: var(--muted-foreground);
+  }
 
-.example-sigma-ui-command-form__chevron {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  flex-shrink: 0;
-  margin-left: calc(var(--spacing) * 2);
-  opacity: 0.5;
-}
+  .example-sigma-ui-command-form__chevron {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    flex-shrink: 0;
+    margin-left: calc(var(--spacing) * 2);
+    opacity: 0.5;
+  }
 
-.example-sigma-ui-command-form__content {
-  width: 200px;
-  padding: 0;
-}
+  .example-sigma-ui-command-form__content {
+    width: 200px;
+    padding: 0;
+  }
 
-.example-sigma-ui-command-form__check {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  margin-right: calc(var(--spacing) * 2);
-  opacity: 0;
-}
+  .example-sigma-ui-command-form__check {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-right: calc(var(--spacing) * 2);
+    opacity: 0;
+  }
 
-.example-sigma-ui-command-form__check--selected {
-  opacity: 1;
-}
+  .example-sigma-ui-command-form__check--selected {
+    opacity: 1;
+  }
 
-.example-sigma-ui-command-form__toast-pre {
-  padding: calc(var(--spacing) * 4);
-  border-radius: var(--radius);
-  margin-top: calc(var(--spacing) * 2);
-  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  .example-sigma-ui-command-form__toast-pre {
+    padding: calc(var(--spacing) * 4);
+    border-radius: var(--radius);
+    margin-top: calc(var(--spacing) * 2);
+    background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  }
 }
 </style>

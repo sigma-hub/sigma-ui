@@ -36,9 +36,11 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-stepper-title {
-  font-size: 0.875rem;
-  font-weight: 600;
-  white-space: nowrap;
+@layer components {
+  .sigma-ui-stepper-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
 }
 </style>

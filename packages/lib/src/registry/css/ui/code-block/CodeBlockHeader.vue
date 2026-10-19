@@ -35,39 +35,41 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-code-block__header {
-  display: flex;
-  min-width: 0;
-  min-height: calc(var(--spacing) * 10);
-  flex-shrink: 0;
-  align-items: center;
-  padding: calc(var(--spacing) * 1) calc(var(--spacing) * 1.5) calc(var(--spacing) * 1) calc(var(--spacing) * 3.5);
-  border-bottom: 1px solid var(--code-block-border);
-  background-color: var(--code-block-header);
-  color: var(--muted-foreground);
-  font-family: inherit;
-  font-size: 0.8125rem;
-  gap: calc(var(--spacing) * 2);
-  line-height: 1.25rem;
-}
+@layer components {
+  .sigma-ui-code-block__header {
+    display: flex;
+    min-width: 0;
+    min-height: calc(var(--spacing) * 10);
+    flex-shrink: 0;
+    align-items: center;
+    padding: calc(var(--spacing) * 1) calc(var(--spacing) * 1.5) calc(var(--spacing) * 1) calc(var(--spacing) * 3.5);
+    border-bottom: 1px solid var(--code-block-border);
+    background-color: var(--code-block-header);
+    color: var(--muted-foreground);
+    font-family: inherit;
+    font-size: 0.8125rem;
+    gap: calc(var(--spacing) * 2);
+    line-height: 1.25rem;
+  }
 
-.sigma-ui-code-block__header:has(> [data-slot='code-block-tabs-list']) {
-  padding-left: calc(var(--spacing) * 1.5);
-}
+  .sigma-ui-code-block__header:has(> [data-slot='code-block-tabs-list']) {
+    padding-left: calc(var(--spacing) * 1.5);
+  }
 
-[data-size='sm'] .sigma-ui-code-block__header {
-  min-height: calc(var(--spacing) * 8);
-  padding: calc(var(--spacing) * 0.5) calc(var(--spacing) * 1) calc(var(--spacing) * 0.5) calc(var(--spacing) * 2.5);
-  font-size: 0.75rem;
-}
+  [data-size='sm'] .sigma-ui-code-block__header {
+    min-height: calc(var(--spacing) * 8);
+    padding: calc(var(--spacing) * 0.5) calc(var(--spacing) * 1) calc(var(--spacing) * 0.5) calc(var(--spacing) * 2.5);
+    font-size: 0.75rem;
+  }
 
-[data-size='sm'] .sigma-ui-code-block__header:has(> [data-slot='code-block-tabs-list']) {
-  padding-left: calc(var(--spacing) * 1);
-}
+  [data-size='sm'] .sigma-ui-code-block__header:has(> [data-slot='code-block-tabs-list']) {
+    padding-left: calc(var(--spacing) * 1);
+  }
 
-[data-variant='destructive'] > .sigma-ui-code-block__header {
-  border-color: color-mix(in oklch, var(--destructive) 30%, var(--border));
-  background-color: color-mix(in oklch, var(--destructive) 8%, var(--code-block-header));
-  color: var(--code-block-destructive-foreground);
+  [data-variant='destructive'] > .sigma-ui-code-block__header {
+    border-color: color-mix(in oklch, var(--destructive) 30%, var(--border));
+    background-color: color-mix(in oklch, var(--destructive) 8%, var(--code-block-header));
+    color: var(--code-block-destructive-foreground);
+  }
 }
 </style>

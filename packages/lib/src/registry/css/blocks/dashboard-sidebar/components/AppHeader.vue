@@ -38,20 +38,22 @@ defineProps<{
 </template>
 
 <style>
-.dashboard-sidebar__header {
-  display: flex;
-  height: calc(var(--spacing) * 14);
-  align-items: center;
-  padding: 0 calc(var(--spacing) * 4);
-  border-bottom: 1px solid var(--border);
-  background-color: color-mix(in oklch, var(--muted) 40%, transparent);
-  gap: calc(var(--spacing) * 4);
-}
-
-@media (width >= 64rem) {
+@layer components {
   .dashboard-sidebar__header {
-    height: 60px;
-    padding: 0 calc(var(--spacing) * 6);
+    display: flex;
+    height: calc(var(--spacing) * 14);
+    align-items: center;
+    padding: 0 calc(var(--spacing) * 4);
+    border-bottom: 1px solid var(--border);
+    background-color: color-mix(in oklch, var(--muted) 40%, transparent);
+    gap: calc(var(--spacing) * 4);
+  }
+
+  @media (width >= 64rem) {
+    .dashboard-sidebar__header {
+      height: 60px;
+      padding: 0 calc(var(--spacing) * 6);
+    }
   }
 }
 </style>

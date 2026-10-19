@@ -19,15 +19,17 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-pin-input-separator {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+@layer components {
+  .sigma-ui-pin-input-separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-.sigma-ui-pin-input-separator__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  color: var(--muted-foreground);
+  .sigma-ui-pin-input-separator__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    color: var(--muted-foreground);
+  }
 }
 </style>

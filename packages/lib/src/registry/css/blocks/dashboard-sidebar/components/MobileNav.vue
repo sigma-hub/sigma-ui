@@ -73,100 +73,102 @@ defineProps<{
 </template>
 
 <style>
-.dashboard-sidebar__menu-button {
-  flex-shrink: 0;
-}
+@layer components {
+  .dashboard-sidebar__menu-button {
+    flex-shrink: 0;
+  }
 
-.dashboard-sidebar__sheet.dashboard-sidebar__sheet {
-  display: flex;
-  flex-direction: column;
-}
+  .dashboard-sidebar__sheet.dashboard-sidebar__sheet {
+    display: flex;
+    flex-direction: column;
+  }
 
-.dashboard-sidebar__mobile-nav {
-  display: grid;
-  font-size: 1.125rem;
-  font-weight: 500;
-  gap: calc(var(--spacing) * 2);
-  line-height: 1.75rem;
-}
+  .dashboard-sidebar__mobile-nav {
+    display: grid;
+    font-size: 1.125rem;
+    font-weight: 500;
+    gap: calc(var(--spacing) * 2);
+    line-height: 1.75rem;
+  }
 
-.dashboard-sidebar__mobile-brand {
-  display: flex;
-  align-items: center;
-  color: inherit;
-  font-size: 1.125rem;
-  font-weight: 600;
-  gap: calc(var(--spacing) * 2);
-  line-height: 1.75rem;
-  text-decoration: none;
-}
+  .dashboard-sidebar__mobile-brand {
+    display: flex;
+    align-items: center;
+    color: inherit;
+    font-size: 1.125rem;
+    font-weight: 600;
+    gap: calc(var(--spacing) * 2);
+    line-height: 1.75rem;
+    text-decoration: none;
+  }
 
-.dashboard-sidebar__mobile-link {
-  display: flex;
-  align-items: center;
-  padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
-  border-radius: calc(var(--radius) + 4px);
-  margin-right: -0.65rem;
-  margin-left: -0.65rem;
-  color: var(--muted-foreground);
-  gap: calc(var(--spacing) * 4);
-  text-decoration: none;
-}
+  .dashboard-sidebar__mobile-link {
+    display: flex;
+    align-items: center;
+    padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
+    border-radius: calc(var(--radius) + 4px);
+    margin-right: -0.65rem;
+    margin-left: -0.65rem;
+    color: var(--muted-foreground);
+    gap: calc(var(--spacing) * 4);
+    text-decoration: none;
+  }
 
-.dashboard-sidebar__mobile-link:hover {
-  color: var(--foreground);
-}
+  .dashboard-sidebar__mobile-link:hover {
+    color: var(--foreground);
+  }
 
-.dashboard-sidebar__mobile-link--active {
-  background-color: var(--muted);
-  color: var(--foreground);
-}
+  .dashboard-sidebar__mobile-link--active {
+    background-color: var(--muted);
+    color: var(--foreground);
+  }
 
-.dashboard-sidebar__mobile-link--active:hover {
-  color: var(--foreground);
-}
+  .dashboard-sidebar__mobile-link--active:hover {
+    color: var(--foreground);
+  }
 
-.dashboard-sidebar__badge.dashboard-sidebar__badge {
-  display: flex;
-  width: calc(var(--spacing) * 6);
-  height: calc(var(--spacing) * 6);
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  border-radius: 9999px;
-  margin-left: auto;
-}
+  .dashboard-sidebar__badge.dashboard-sidebar__badge {
+    display: flex;
+    width: calc(var(--spacing) * 6);
+    height: calc(var(--spacing) * 6);
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 9999px;
+    margin-left: auto;
+  }
 
-.dashboard-sidebar__sheet-upgrade {
-  margin-top: auto;
-}
+  .dashboard-sidebar__sheet-upgrade {
+    margin-top: auto;
+  }
 
-.dashboard-sidebar__icon-lg {
-  width: calc(var(--spacing) * 6);
-  height: calc(var(--spacing) * 6);
-}
+  .dashboard-sidebar__icon-lg {
+    width: calc(var(--spacing) * 6);
+    height: calc(var(--spacing) * 6);
+  }
 
-.dashboard-sidebar__icon-md {
-  width: calc(var(--spacing) * 5);
-  height: calc(var(--spacing) * 5);
-}
+  .dashboard-sidebar__icon-md {
+    width: calc(var(--spacing) * 5);
+    height: calc(var(--spacing) * 5);
+  }
 
-.dashboard-sidebar__sr-only {
-  position: absolute;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  border-width: 0;
-  margin: -1px;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-}
+  .dashboard-sidebar__sr-only {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border-width: 0;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
 
-@media (width >= 48rem) {
-  .dashboard-sidebar__menu-button.dashboard-sidebar__menu-button {
-    display: none;
+  @media (width >= 48rem) {
+    .dashboard-sidebar__menu-button.dashboard-sidebar__menu-button {
+      display: none;
+    }
   }
 }
 </style>

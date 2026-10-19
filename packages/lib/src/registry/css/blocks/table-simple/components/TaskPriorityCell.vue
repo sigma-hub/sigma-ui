@@ -19,15 +19,17 @@ defineProps<{
 </template>
 
 <style>
-.table-simple__priority {
-  display: flex;
-  align-items: center;
-}
+@layer components {
+  .table-simple__priority {
+    display: flex;
+    align-items: center;
+  }
 
-.table-simple__priority-icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  margin-right: calc(var(--spacing) * 2);
-  color: var(--muted-foreground);
+  .table-simple__priority-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-right: calc(var(--spacing) * 2);
+    color: var(--muted-foreground);
+  }
 }
 </style>

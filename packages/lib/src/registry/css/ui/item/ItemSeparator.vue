@@ -28,7 +28,9 @@ const props = withDefaults(defineProps<SeparatorProps>(), {
 </template>
 
 <style>
-.sigma-ui-separator.sigma-ui-item-separator {
-  margin-block: 0;
+@layer components {
+  .sigma-ui-separator.sigma-ui-item-separator {
+    margin-block: 0;
+  }
 }
 </style>

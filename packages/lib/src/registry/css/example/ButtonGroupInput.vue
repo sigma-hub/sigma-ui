@@ -31,20 +31,22 @@ import { Label } from '@ui/registry/css/ui/label';
 </template>
 
 <style>
-.example-button-group-input {
-  display: flex;
-  width: 100%;
-  max-width: 24rem;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 4);
-}
+@layer components {
+  .example-button-group-input {
+    display: flex;
+    width: 100%;
+    max-width: 24rem;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 4);
+  }
 
-.example-button-group-input .example-button-group-input__group {
-  width: 100%;
-}
+  .example-button-group-input .example-button-group-input__group {
+    width: 100%;
+  }
 
-.example-button-group-input__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
+  .example-button-group-input__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 }
 </style>

@@ -10,8 +10,10 @@ import { Toggle } from '@ui/registry/css/ui/toggle';
 </template>
 
 <style>
-.example-sigma-ui-toggle__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
+@layer components {
+  .example-sigma-ui-toggle__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 }
 </style>

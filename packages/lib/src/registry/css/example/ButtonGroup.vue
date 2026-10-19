@@ -69,16 +69,18 @@ import {
 </template>
 
 <style>
-.example-button-group__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-}
+@layer components {
+  .example-button-group__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 
-.example-button-group__icon--menu {
-  margin-right: calc(var(--spacing) * 2);
-}
+  .example-button-group__icon--menu {
+    margin-right: calc(var(--spacing) * 2);
+  }
 
-.example-button-group__destructive-item {
-  color: var(--destructive);
+  .example-button-group__destructive-item {
+    color: var(--destructive);
+  }
 }
 </style>

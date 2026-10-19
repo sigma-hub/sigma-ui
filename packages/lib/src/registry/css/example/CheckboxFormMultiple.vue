@@ -101,41 +101,43 @@ const onSubmit = handleSubmit((values) => {
 </template>
 
 <style>
-.example-sigma-ui-checkbox-multiple__header-item {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
+@layer components {
+  .example-sigma-ui-checkbox-multiple__header-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
 
-.example-sigma-ui-checkbox-multiple__header {
-  margin-bottom: calc(var(--spacing) * 2);
-}
+  .example-sigma-ui-checkbox-multiple__header {
+    margin-bottom: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-checkbox-multiple__title {
-  font-size: 1rem;
-}
+  .example-sigma-ui-checkbox-multiple__title {
+    font-size: 1rem;
+  }
 
-.example-sigma-ui-checkbox-multiple__item {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: calc(var(--spacing) * 3);
-}
+  .example-sigma-ui-checkbox-multiple__item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: calc(var(--spacing) * 3);
+  }
 
-.example-sigma-ui-checkbox-multiple__label {
-  font-weight: 400;
-}
+  .example-sigma-ui-checkbox-multiple__label {
+    font-weight: 400;
+  }
 
-.example-sigma-ui-checkbox-multiple__footer {
-  display: flex;
-  justify-content: flex-start;
-  margin-top: calc(var(--spacing) * 4);
-}
+  .example-sigma-ui-checkbox-multiple__footer {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: calc(var(--spacing) * 4);
+  }
 
-.example-sigma-ui-checkbox-multiple__toast-pre {
-  padding: calc(var(--spacing) * 4);
-  border-radius: var(--radius);
-  margin-top: calc(var(--spacing) * 2);
-  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  .example-sigma-ui-checkbox-multiple__toast-pre {
+    padding: calc(var(--spacing) * 4);
+    border-radius: var(--radius);
+    margin-top: calc(var(--spacing) * 2);
+    background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  }
 }
 </style>

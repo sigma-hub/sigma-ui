@@ -44,8 +44,10 @@ const plans = [
 </template>
 
 <style>
-.example-field-choice-card {
-  width: 100%;
-  max-width: 28rem;
+@layer components {
+  .example-field-choice-card {
+    width: 100%;
+    max-width: 28rem;
+  }
 }
 </style>

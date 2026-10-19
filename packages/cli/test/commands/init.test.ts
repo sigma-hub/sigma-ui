@@ -122,7 +122,7 @@ describe('init', () => {
     expect(config.cssPath).toBe('app/assets/css/tailwind.css');
     expect(config.aliases.utils).toBe('');
     expect(config.resolvedPaths.components).toBe(path.join(cwd, 'app/components/ui'));
-    expect(read(cwd, 'app/assets/css/tailwind.css')).toContain('@import "./preflight.css";');
+    expect(read(cwd, 'app/assets/css/tailwind.css')).toMatch(/^@layer base, components;\n\n@import "\.\/preflight\.css" layer\(base\);/);
     expect(existsSync(path.join(cwd, 'app/assets/css/preflight.css'))).toBe(true);
     expect(read(cwd, 'nuxt.config.ts')).toMatch(/css: \[['"]~\/assets\/css\/tailwind\.css['"]\]/);
     expect(read(cwd, 'nuxt.config.ts')).not.toContain('@tailwindcss/vite');

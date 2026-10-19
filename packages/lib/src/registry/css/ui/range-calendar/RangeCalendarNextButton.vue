@@ -33,25 +33,27 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-range-calendar-next {
-  width: calc(var(--spacing) * 7);
-  height: calc(var(--spacing) * 7);
-  padding: 0;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  background-color: transparent;
-  opacity: 0.5;
-  transition-duration: 150ms;
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
+@layer components {
+  .sigma-ui-range-calendar-next {
+    width: calc(var(--spacing) * 7);
+    height: calc(var(--spacing) * 7);
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background-color: transparent;
+    opacity: 0.5;
+    transition-duration: 150ms;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
-.sigma-ui-range-calendar-next:hover {
-  opacity: 1;
-}
+  .sigma-ui-range-calendar-next:hover {
+    opacity: 1;
+  }
 
-.sigma-ui-range-calendar-next__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
+  .sigma-ui-range-calendar-next__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 }
 </style>

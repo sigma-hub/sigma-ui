@@ -31,19 +31,21 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-sidebar-menu-sub {
-  display: flex;
-  min-width: 0;
-  flex-direction: column;
-  padding: calc(var(--spacing) * 0.5) calc(var(--spacing) * 2.5);
-  border-left: 1px solid var(--border);
-  margin: 0 calc(var(--spacing) * 3.5);
-  gap: calc(var(--spacing) * 1);
-  list-style: none;
-  transform: translateX(1px);
-}
+@layer components {
+  .sigma-ui-sidebar-menu-sub {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    padding: calc(var(--spacing) * 0.5) calc(var(--spacing) * 2.5);
+    border-left: 1px solid var(--border);
+    margin: 0 calc(var(--spacing) * 3.5);
+    gap: calc(var(--spacing) * 1);
+    list-style: none;
+    transform: translateX(1px);
+  }
 
-.sigma-ui-sidebar[data-collapsible="icon"] .sigma-ui-sidebar-menu-sub {
-  display: none;
+  .sigma-ui-sidebar[data-collapsible="icon"] .sigma-ui-sidebar-menu-sub {
+    display: none;
+  }
 }
 </style>

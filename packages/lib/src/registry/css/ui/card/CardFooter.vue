@@ -24,9 +24,11 @@ const delegatedAttrs = () => {
 </template>
 
 <style>
-.sigma-ui-card__footer {
-  display: flex;
-  padding: 0 calc(var(--spacing) * 6) calc(var(--spacing) * 6);
-  gap: calc(var(--spacing) * 2);
+@layer components {
+  .sigma-ui-card__footer {
+    display: flex;
+    padding: 0 calc(var(--spacing) * 6) calc(var(--spacing) * 6);
+    gap: calc(var(--spacing) * 2);
+  }
 }
 </style>

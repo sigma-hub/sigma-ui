@@ -51,14 +51,16 @@ import {
 </template>
 
 <style>
-.example-sigma-ui-breadcrumb__trigger {
-  display: flex;
-  align-items: center;
-  gap: calc(var(--spacing) * 1);
-}
+@layer components {
+  .example-sigma-ui-breadcrumb__trigger {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 1);
+  }
 
-.example-sigma-ui-breadcrumb__trigger-icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
+  .example-sigma-ui-breadcrumb__trigger-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 }
 </style>

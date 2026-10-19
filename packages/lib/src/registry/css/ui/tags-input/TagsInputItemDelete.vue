@@ -32,20 +32,22 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-tags-input-item-delete {
-  display: flex;
-  border-radius: var(--radius-sm);
-  margin-right: calc(var(--spacing) * 1);
-  background-color: transparent;
-  cursor: pointer;
-}
+@layer components {
+  .sigma-ui-tags-input-item-delete {
+    display: flex;
+    border-radius: var(--radius-sm);
+    margin-right: calc(var(--spacing) * 1);
+    background-color: transparent;
+    cursor: pointer;
+  }
 
-.sigma-ui-tags-input-item-delete:hover {
-  background-color: var(--muted);
-}
+  .sigma-ui-tags-input-item-delete:hover {
+    background-color: var(--muted);
+  }
 
-.sigma-ui-tags-input-item-delete__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
+  .sigma-ui-tags-input-item-delete__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 }
 </style>

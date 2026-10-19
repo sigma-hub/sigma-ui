@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "example/Spinner.vue",
-      "content": "<script setup lang=\"ts\">\nimport { Spinner } from '@/components/ui/spinner';\n</script>\n\n<template>\n  <div class=\"example-spinner\">\n    <Spinner />\n    <Spinner class=\"example-spinner__md\" />\n    <Spinner class=\"example-spinner__lg\" />\n  </div>\n</template>\n\n<style>\n.example-spinner {\n  display: flex;\n  align-items: center;\n  color: var(--muted-foreground);\n  gap: calc(var(--spacing) * 6);\n}\n\n.example-spinner .example-spinner__md {\n  width: calc(var(--spacing) * 6);\n  height: calc(var(--spacing) * 6);\n}\n\n.example-spinner .example-spinner__lg {\n  width: calc(var(--spacing) * 8);\n  height: calc(var(--spacing) * 8);\n  color: var(--primary);\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\nimport { Spinner } from '@/components/ui/spinner';\n</script>\n\n<template>\n  <div class=\"example-spinner\">\n    <Spinner />\n    <Spinner class=\"example-spinner__md\" />\n    <Spinner class=\"example-spinner__lg\" />\n  </div>\n</template>\n\n<style>\n@layer components {\n  .example-spinner {\n    display: flex;\n    align-items: center;\n    color: var(--muted-foreground);\n    gap: calc(var(--spacing) * 6);\n  }\n\n  .example-spinner .example-spinner__md {\n    width: calc(var(--spacing) * 6);\n    height: calc(var(--spacing) * 6);\n  }\n\n  .example-spinner .example-spinner__lg {\n    width: calc(var(--spacing) * 8);\n    height: calc(var(--spacing) * 8);\n    color: var(--primary);\n  }\n}\n</style>\n",
       "type": "registry:example"
     }
   ]

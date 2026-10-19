@@ -18,9 +18,11 @@ const airplaneMode = ref(false);
 </template>
 
 <style>
-.example-sigma-ui-switch {
-  display: flex;
-  align-items: center;
-  gap: calc(var(--spacing) * 2);
+@layer components {
+  .example-sigma-ui-switch {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+  }
 }
 </style>

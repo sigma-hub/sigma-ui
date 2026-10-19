@@ -155,13 +155,15 @@ provideSidebarContext({
 </template>
 
 <style>
-.sigma-ui-sidebar-wrapper {
-  display: flex;
-  width: 100%;
-  min-height: 100svh;
-}
+@layer components {
+  .sigma-ui-sidebar-wrapper {
+    display: flex;
+    width: 100%;
+    min-height: 100svh;
+  }
 
-.sigma-ui-sidebar-wrapper:has(.sigma-ui-sidebar[data-variant="inset"]) {
-  background-color: var(--sidebar);
+  .sigma-ui-sidebar-wrapper:has(.sigma-ui-sidebar[data-variant="inset"]) {
+    background-color: var(--sidebar);
+  }
 }
 </style>

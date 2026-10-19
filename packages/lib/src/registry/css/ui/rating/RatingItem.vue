@@ -37,8 +37,10 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-rating-item {
-  position: relative;
-  display: inline-flex;
+@layer components {
+  .sigma-ui-rating-item {
+    position: relative;
+    display: inline-flex;
+  }
 }
 </style>

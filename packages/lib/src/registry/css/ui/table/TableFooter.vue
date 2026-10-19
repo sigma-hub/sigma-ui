@@ -24,13 +24,15 @@ const delegatedAttrs = () => {
 </template>
 
 <style>
-.sigma-ui-table-footer {
-  border-top: 1px solid var(--border);
-  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
-  font-weight: 500;
-}
+@layer components {
+  .sigma-ui-table-footer {
+    border-top: 1px solid var(--border);
+    background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+    font-weight: 500;
+  }
 
-.sigma-ui-table-footer > tr:last-child {
-  border-bottom: 0;
+  .sigma-ui-table-footer > tr:last-child {
+    border-bottom: 0;
+  }
 }
 </style>

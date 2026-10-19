@@ -42,46 +42,48 @@ import {
 </template>
 
 <style>
-.example-sigma-ui-hover__content {
-  width: calc(var(--spacing) * 80);
-}
+@layer components {
+  .example-sigma-ui-hover__content {
+    width: calc(var(--spacing) * 80);
+  }
 
-.example-sigma-ui-hover__container {
-  display: flex;
-  justify-content: space-between;
-  gap: calc(var(--spacing) * 4);
-}
+  .example-sigma-ui-hover__container {
+    display: flex;
+    justify-content: space-between;
+    gap: calc(var(--spacing) * 4);
+  }
 
-.example-sigma-ui-hover__info {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 1);
-}
+  .example-sigma-ui-hover__info {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 1);
+  }
 
-.example-sigma-ui-hover__title {
-  font-size: 0.875rem;
-  font-weight: 600;
-}
+  .example-sigma-ui-hover__title {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
 
-.example-sigma-ui-hover__description {
-  font-size: 0.875rem;
-}
+  .example-sigma-ui-hover__description {
+    font-size: 0.875rem;
+  }
 
-.example-sigma-ui-hover__footer {
-  display: flex;
-  align-items: center;
-  padding-top: calc(var(--spacing) * 2);
-}
+  .example-sigma-ui-hover__footer {
+    display: flex;
+    align-items: center;
+    padding-top: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-hover__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  margin-right: calc(var(--spacing) * 2);
-  opacity: 0.7;
-}
+  .example-sigma-ui-hover__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-right: calc(var(--spacing) * 2);
+    opacity: 0.7;
+  }
 
-.example-sigma-ui-hover__date {
-  color: var(--muted-foreground);
-  font-size: 0.75rem;
+  .example-sigma-ui-hover__date {
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+  }
 }
 </style>

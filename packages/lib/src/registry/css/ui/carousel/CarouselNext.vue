@@ -44,41 +44,43 @@ const { orientation, canScrollNext, scrollNext } = useCarousel();
 </template>
 
 <style>
-.sigma-ui-carousel-next {
-  position: absolute;
-  width: calc(var(--spacing) * 8);
-  height: calc(var(--spacing) * 8);
-  padding: 0;
-  border-radius: var(--radius);
-  touch-action: manipulation;
-}
+@layer components {
+  .sigma-ui-carousel-next {
+    position: absolute;
+    width: calc(var(--spacing) * 8);
+    height: calc(var(--spacing) * 8);
+    padding: 0;
+    border-radius: var(--radius);
+    touch-action: manipulation;
+  }
 
-.sigma-ui-carousel-next--horizontal {
-  top: 50%;
-  right: calc(var(--spacing) * -12);
-  transform: translateY(-50%);
-}
+  .sigma-ui-carousel-next--horizontal {
+    top: 50%;
+    right: calc(var(--spacing) * -12);
+    transform: translateY(-50%);
+  }
 
-.sigma-ui-carousel-next--vertical {
-  bottom: calc(var(--spacing) * -12);
-  left: 50%;
-  transform: translateX(-50%) rotate(90deg);
-}
+  .sigma-ui-carousel-next--vertical {
+    bottom: calc(var(--spacing) * -12);
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+  }
 
-.sigma-ui-carousel-next__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-}
+  .sigma-ui-carousel-next__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 
-.sigma-ui-sr-only {
-  position: absolute;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  border-width: 0;
-  margin: -1px;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
+  .sigma-ui-sr-only {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border-width: 0;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
 }
 </style>

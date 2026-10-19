@@ -30,12 +30,14 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
-.sigma-ui-color-slider {
-  position: relative;
-  display: flex;
-  width: 100%;
-  align-items: center;
-  touch-action: none;
-  user-select: none;
+@layer components {
+  .sigma-ui-color-slider {
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    touch-action: none;
+    user-select: none;
+  }
 }
 </style>

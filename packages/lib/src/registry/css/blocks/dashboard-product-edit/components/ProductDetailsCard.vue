@@ -39,21 +39,23 @@ import { productDescription, productName } from '../data';
 </template>
 
 <style>
-.dashboard-product-edit__stack {
-  display: grid;
-  gap: calc(var(--spacing) * 6);
-}
+@layer components {
+  .dashboard-product-edit__stack {
+    display: grid;
+    gap: calc(var(--spacing) * 6);
+  }
 
-.dashboard-product-edit__field {
-  display: grid;
-  gap: calc(var(--spacing) * 3);
-}
+  .dashboard-product-edit__field {
+    display: grid;
+    gap: calc(var(--spacing) * 3);
+  }
 
-input.dashboard-product-edit__full-input {
-  width: 100%;
-}
+  input.dashboard-product-edit__full-input {
+    width: 100%;
+  }
 
-textarea.dashboard-product-edit__description {
-  min-height: calc(var(--spacing) * 32);
+  textarea.dashboard-product-edit__description {
+    min-height: calc(var(--spacing) * 32);
+  }
 }
 </style>

@@ -40,20 +40,22 @@ function setCarouselElement(element: Element | ComponentPublicInstance | null) {
 </template>
 
 <style>
-.sigma-ui-carousel-content {
-  overflow: hidden;
-}
+@layer components {
+  .sigma-ui-carousel-content {
+    overflow: hidden;
+  }
 
-.sigma-ui-carousel-content__wrapper {
-  display: flex;
-}
+  .sigma-ui-carousel-content__wrapper {
+    display: flex;
+  }
 
-.sigma-ui-carousel-content__wrapper--horizontal {
-  margin-left: calc(var(--spacing) * -4);
-}
+  .sigma-ui-carousel-content__wrapper--horizontal {
+    margin-left: calc(var(--spacing) * -4);
+  }
 
-.sigma-ui-carousel-content__wrapper--vertical {
-  flex-direction: column;
-  margin-top: calc(var(--spacing) * -4);
+  .sigma-ui-carousel-content__wrapper--vertical {
+    flex-direction: column;
+    margin-top: calc(var(--spacing) * -4);
+  }
 }
 </style>

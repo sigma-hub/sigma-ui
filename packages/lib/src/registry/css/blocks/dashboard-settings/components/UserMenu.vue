@@ -40,24 +40,26 @@ defineProps<{
 </template>
 
 <style>
-.dashboard-settings__user-button.dashboard-settings__user-button {
-  border-radius: 9999px;
-}
+@layer components {
+  .dashboard-settings__user-button.dashboard-settings__user-button {
+    border-radius: 9999px;
+  }
 
-.dashboard-settings__icon-md {
-  width: calc(var(--spacing) * 5);
-  height: calc(var(--spacing) * 5);
-}
+  .dashboard-settings__icon-md {
+    width: calc(var(--spacing) * 5);
+    height: calc(var(--spacing) * 5);
+  }
 
-.dashboard-settings__sr-only {
-  position: absolute;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  border-width: 0;
-  margin: -1px;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
+  .dashboard-settings__sr-only {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border-width: 0;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
 }
 </style>

@@ -63,32 +63,34 @@ const onSubmit = handleSubmit((values) => {
 </template>
 
 <style>
-.example-sigma-ui-textarea-form {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 6);
-}
+@layer components {
+  .example-sigma-ui-textarea-form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 6);
+  }
 
-.example-sigma-ui-textarea-form__item {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 2);
-}
+  .example-sigma-ui-textarea-form__item {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-textarea-form__input {
-  resize: none;
-}
+  .example-sigma-ui-textarea-form__input {
+    resize: none;
+  }
 
-.example-sigma-ui-textarea-form__button {
-  width: fit-content;
-}
+  .example-sigma-ui-textarea-form__button {
+    width: fit-content;
+  }
 
-.example-sigma-ui-textarea-form__toast-pre {
-  padding: calc(var(--spacing) * 4);
-  border-radius: var(--radius);
-  margin-top: calc(var(--spacing) * 2);
-  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
-  color: var(--foreground);
+  .example-sigma-ui-textarea-form__toast-pre {
+    padding: calc(var(--spacing) * 4);
+    border-radius: var(--radius);
+    margin-top: calc(var(--spacing) * 2);
+    background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+    color: var(--foreground);
+  }
 }
 </style>

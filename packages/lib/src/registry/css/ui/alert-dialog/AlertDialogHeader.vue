@@ -15,16 +15,18 @@ const attrs = useAttrs();
 </template>
 
 <style>
-.sigma-ui-alert-dialog-header {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 2);
-  text-align: center;
-}
-
-@media (width >= 40rem) {
+@layer components {
   .sigma-ui-alert-dialog-header {
-    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2);
+    text-align: center;
+  }
+
+  @media (width >= 40rem) {
+    .sigma-ui-alert-dialog-header {
+      text-align: left;
+    }
   }
 }
 </style>

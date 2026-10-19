@@ -30,8 +30,10 @@ const delegatedAttrs = () => {
 </template>
 
 <style>
-.sigma-ui-breadcrumb__separator > svg {
-  width: calc(var(--spacing) * 3.5);
-  height: calc(var(--spacing) * 3.5);
+@layer components {
+  .sigma-ui-breadcrumb__separator > svg {
+    width: calc(var(--spacing) * 3.5);
+    height: calc(var(--spacing) * 3.5);
+  }
 }
 </style>

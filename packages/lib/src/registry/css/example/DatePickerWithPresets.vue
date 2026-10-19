@@ -68,31 +68,33 @@ const value = ref<DateValue>();
 </template>
 
 <style>
-.example-sigma-ui-date-picker__button {
-  width: 280px;
-  justify-content: flex-start;
-  font-weight: normal;
-  text-align: left;
-}
+@layer components {
+  .example-sigma-ui-date-picker__button {
+    width: 280px;
+    justify-content: flex-start;
+    font-weight: normal;
+    text-align: left;
+  }
 
-.example-sigma-ui-date-picker__button--placeholder {
-  color: var(--muted-foreground);
-}
+  .example-sigma-ui-date-picker__button--placeholder {
+    color: var(--muted-foreground);
+  }
 
-.example-sigma-ui-date-picker__button-icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  margin-right: calc(var(--spacing) * 2);
-}
+  .example-sigma-ui-date-picker__button-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-right: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-date-picker__content {
-  width: auto;
-}
+  .example-sigma-ui-date-picker__content {
+    width: auto;
+  }
 
-.example-sigma-ui-date-picker__presets {
-  display: flex;
-  flex-direction: column;
-  padding: calc(var(--spacing) * 2);
-  gap: calc(var(--spacing) * 2);
+  .example-sigma-ui-date-picker__presets {
+    display: flex;
+    flex-direction: column;
+    padding: calc(var(--spacing) * 2);
+    gap: calc(var(--spacing) * 2);
+  }
 }
 </style>

@@ -43,26 +43,28 @@ defineProps<PluginsDirectoryCardData>();
 </template>
 
 <style>
-.dashboard-settings__plugin-form {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 4);
-}
+@layer components {
+  .dashboard-settings__plugin-form {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 4);
+  }
 
-.dashboard-settings__checkbox-row {
-  display: flex;
-  align-items: center;
-  gap: calc(var(--spacing) * 2);
-}
+  .dashboard-settings__checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.dashboard-settings__checkbox-label {
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1;
-}
+  .dashboard-settings__checkbox-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1;
+  }
 
-.dashboard-settings__card-footer.dashboard-settings__card-footer {
-  padding: calc(var(--spacing) * 4) calc(var(--spacing) * 6);
-  border-top: 1px solid var(--border);
+  .dashboard-settings__card-footer.dashboard-settings__card-footer {
+    padding: calc(var(--spacing) * 4) calc(var(--spacing) * 6);
+    border-top: 1px solid var(--border);
+  }
 }
 </style>

@@ -79,35 +79,37 @@ const task = computed(() => taskSchema.parse(props.row.original));
 </template>
 
 <style>
-.table-simple__row-trigger {
-  display: flex;
-  width: calc(var(--spacing) * 8);
-  height: calc(var(--spacing) * 8);
-  padding: 0;
-}
+@layer components {
+  .table-simple__row-trigger {
+    display: flex;
+    width: calc(var(--spacing) * 8);
+    height: calc(var(--spacing) * 8);
+    padding: 0;
+  }
 
-.table-simple__row-trigger[data-state='open'] {
-  background: var(--muted);
-}
+  .table-simple__row-trigger[data-state='open'] {
+    background: var(--muted);
+  }
 
-.table-simple__row-icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-}
+  .table-simple__row-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 
-.table-simple__row-menu {
-  width: calc(var(--spacing) * 40);
-}
+  .table-simple__row-menu {
+    width: calc(var(--spacing) * 40);
+  }
 
-.table-simple__sr-only {
-  position: absolute;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  border-width: 0;
-  margin: -1px;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
+  .table-simple__sr-only {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border-width: 0;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
 }
 </style>

@@ -28,37 +28,39 @@ defineProps<StatCardData>();
 </template>
 
 <style>
-.dashboard-analytics__stat-header.dashboard-analytics__stat-header {
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: calc(var(--spacing) * 2);
-  gap: 0;
-}
+@layer components {
+  .dashboard-analytics__stat-header.dashboard-analytics__stat-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: calc(var(--spacing) * 2);
+    gap: 0;
+  }
 
-.dashboard-analytics__stat-title.dashboard-analytics__stat-title {
-  font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: normal;
-  line-height: 1.25rem;
-}
+  .dashboard-analytics__stat-title.dashboard-analytics__stat-title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: normal;
+    line-height: 1.25rem;
+  }
 
-.dashboard-analytics__stat-icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  color: var(--muted-foreground);
-}
+  .dashboard-analytics__stat-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    color: var(--muted-foreground);
+  }
 
-.dashboard-analytics__stat-value {
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 2rem;
-}
+  .dashboard-analytics__stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2rem;
+  }
 
-.dashboard-analytics__stat-change {
-  margin: 0;
-  color: var(--muted-foreground);
-  font-size: 0.75rem;
-  line-height: 1rem;
+  .dashboard-analytics__stat-change {
+    margin: 0;
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
 }
 </style>

@@ -89,19 +89,21 @@ const invoices = [
 </template>
 
 <style>
-.example-sigma-ui-table__head-invoice {
-  width: calc(var(--spacing) * 25);
-}
+@layer components {
+  .example-sigma-ui-table__head-invoice {
+    width: calc(var(--spacing) * 25);
+  }
 
-.example-sigma-ui-table__head-amount {
-  text-align: right;
-}
+  .example-sigma-ui-table__head-amount {
+    text-align: right;
+  }
 
-.example-sigma-ui-table__cell-invoice {
-  font-weight: 500;
-}
+  .example-sigma-ui-table__cell-invoice {
+    font-weight: 500;
+  }
 
-.example-sigma-ui-table__cell-amount {
-  text-align: right;
+  .example-sigma-ui-table__cell-amount {
+    text-align: right;
+  }
 }
 </style>

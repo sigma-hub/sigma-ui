@@ -31,8 +31,10 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-sidebar-group-content {
-  width: 100%;
-  font-size: 0.875rem;
+@layer components {
+  .sigma-ui-sidebar-group-content {
+    width: 100%;
+    font-size: 0.875rem;
+  }
 }
 </style>

@@ -71,49 +71,51 @@ import { primaryNavItems, secondaryNavItems } from '../data';
 </template>
 
 <style>
-.dashboard-ai-playground__sidebar {
-  position: fixed;
-  z-index: 20;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  border-right: 1px solid var(--border);
-}
+@layer components {
+  .dashboard-ai-playground__sidebar {
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    border-right: 1px solid var(--border);
+  }
 
-.dashboard-ai-playground__brand {
-  padding: calc(var(--spacing) * 2);
-  border-bottom: 1px solid var(--border);
-}
+  .dashboard-ai-playground__brand {
+    padding: calc(var(--spacing) * 2);
+    border-bottom: 1px solid var(--border);
+  }
 
-.dashboard-ai-playground__brand svg {
-  width: calc(var(--spacing) * 5);
-  height: calc(var(--spacing) * 5);
-  fill: var(--foreground);
-}
+  .dashboard-ai-playground__brand svg {
+    width: calc(var(--spacing) * 5);
+    height: calc(var(--spacing) * 5);
+    fill: var(--foreground);
+  }
 
-.dashboard-ai-playground__nav {
-  display: grid;
-  padding: calc(var(--spacing) * 2);
-  gap: calc(var(--spacing) * 1);
-}
+  .dashboard-ai-playground__nav {
+    display: grid;
+    padding: calc(var(--spacing) * 2);
+    gap: calc(var(--spacing) * 1);
+  }
 
-.dashboard-ai-playground__nav--end {
-  margin-top: auto;
-}
+  .dashboard-ai-playground__nav--end {
+    margin-top: auto;
+  }
 
-button.dashboard-ai-playground__nav-button--pinned {
-  margin-top: auto;
-}
+  button.dashboard-ai-playground__nav-button--pinned {
+    margin-top: auto;
+  }
 
-button.dashboard-ai-playground__nav-button svg {
-  width: calc(var(--spacing) * 5);
-  height: calc(var(--spacing) * 5);
-}
+  button.dashboard-ai-playground__nav-button svg {
+    width: calc(var(--spacing) * 5);
+    height: calc(var(--spacing) * 5);
+  }
 
-button.dashboard-ai-playground__nav-button--active {
-  background-color: var(--muted);
+  button.dashboard-ai-playground__nav-button--active {
+    background-color: var(--muted);
+  }
 }
 </style>

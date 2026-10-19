@@ -53,41 +53,43 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-item {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  border: 1px solid transparent;
-  border-radius: var(--radius-md);
-  font-size: 0.875rem;
-  outline: none;
-  transition: background-color 0.1s, color 0.1s;
-}
+@layer components {
+  .sigma-ui-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    outline: none;
+    transition: background-color 0.1s, color 0.1s;
+  }
 
-.sigma-ui-item:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
-}
+  .sigma-ui-item:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
 
-.sigma-ui-item a:hover {
-  background-color: color-mix(in oklch, var(--accent) 50%, transparent);
-}
+  .sigma-ui-item a:hover {
+    background-color: color-mix(in oklch, var(--accent) 50%, transparent);
+  }
 
-.sigma-ui-item--outline {
-  border-color: var(--border);
-}
+  .sigma-ui-item--outline {
+    border-color: var(--border);
+  }
 
-.sigma-ui-item--muted {
-  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
-}
+  .sigma-ui-item--muted {
+    background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  }
 
-.sigma-ui-item--size-default {
-  padding: calc(var(--spacing) * 4);
-  gap: calc(var(--spacing) * 4);
-}
+  .sigma-ui-item--size-default {
+    padding: calc(var(--spacing) * 4);
+    gap: calc(var(--spacing) * 4);
+  }
 
-.sigma-ui-item--size-sm {
-  padding: calc(var(--spacing) * 3) calc(var(--spacing) * 4);
-  gap: calc(var(--spacing) * 2.5);
+  .sigma-ui-item--size-sm {
+    padding: calc(var(--spacing) * 3) calc(var(--spacing) * 4);
+    gap: calc(var(--spacing) * 2.5);
+  }
 }
 </style>

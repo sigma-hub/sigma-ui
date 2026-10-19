@@ -27,14 +27,16 @@ const props = defineProps<LabelProps>();
 </template>
 
 <style>
-.sigma-ui-label {
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1;
-}
+@layer components {
+  .sigma-ui-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1;
+  }
 
-:where(:disabled) ~ .sigma-ui-label {
-  cursor: not-allowed;
-  opacity: 0.7;
+  :where(:disabled) ~ .sigma-ui-label {
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
 }
 </style>

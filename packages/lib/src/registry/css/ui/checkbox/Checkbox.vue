@@ -57,73 +57,75 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
-.sigma-ui-checkbox-wrapper {
-  display: flex;
-  align-items: center;
-  gap: calc(var(--spacing) * 2);
-}
+@layer components {
+  .sigma-ui-checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.sigma-ui-checkbox-wrapper--flex-start {
-  align-items: flex-start;
-}
+  .sigma-ui-checkbox-wrapper--flex-start {
+    align-items: flex-start;
+  }
 
-.sigma-ui-checkbox {
-  overflow: hidden;
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  flex-shrink: 0;
-  border: 1px solid var(--primary);
-  border-radius: var(--radius-xs);
-  background-color: var(--background);
-}
+  .sigma-ui-checkbox {
+    overflow: hidden;
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    flex-shrink: 0;
+    border: 1px solid var(--primary);
+    border-radius: var(--radius-xs);
+    background-color: var(--background);
+  }
 
-.sigma-ui-checkbox:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
-}
+  .sigma-ui-checkbox:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
 
-.sigma-ui-checkbox:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-}
+  .sigma-ui-checkbox:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 
-.sigma-ui-checkbox[data-state="checked"] {
-  background-color: var(--primary);
-  color: var(--primary-foreground);
-}
+  .sigma-ui-checkbox[data-state="checked"] {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+  }
 
-.sigma-ui-checkbox__indicator {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-  color: currentcolor;
-}
+  .sigma-ui-checkbox__indicator {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    color: currentcolor;
+  }
 
-.sigma-ui-checkbox__content {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 1.5);
-  line-height: 1;
-}
+  .sigma-ui-checkbox__content {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 1.5);
+    line-height: 1;
+  }
 
-.sigma-ui-checkbox__label {
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1;
-  user-select: none;
-}
+  .sigma-ui-checkbox__label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1;
+    user-select: none;
+  }
 
-.sigma-ui-checkbox:disabled + .sigma-ui-checkbox__content .sigma-ui-checkbox__label,
-.sigma-ui-checkbox:disabled + .sigma-ui-checkbox__content .sigma-ui-checkbox__description {
-  opacity: 0.7;
-}
+  .sigma-ui-checkbox:disabled + .sigma-ui-checkbox__content .sigma-ui-checkbox__label,
+  .sigma-ui-checkbox:disabled + .sigma-ui-checkbox__content .sigma-ui-checkbox__description {
+    opacity: 0.7;
+  }
 
-.sigma-ui-checkbox__description {
-  color: var(--muted-foreground);
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  user-select: none;
+  .sigma-ui-checkbox__description {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    user-select: none;
+  }
 }
 </style>

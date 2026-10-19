@@ -61,16 +61,18 @@ function toggle() {
 </template>
 
 <style>
-.sigma-ui-code-block__wrap-button {
-  color: var(--muted-foreground);
-}
+@layer components {
+  .sigma-ui-code-block__wrap-button {
+    color: var(--muted-foreground);
+  }
 
-.sigma-ui-code-block__wrap-button:hover,
-.sigma-ui-code-block__wrap-button[data-state='on'] {
-  color: var(--foreground);
-}
+  .sigma-ui-code-block__wrap-button:hover,
+  .sigma-ui-code-block__wrap-button[data-state='on'] {
+    color: var(--foreground);
+  }
 
-.sigma-ui-code-block__wrap-button[data-state='on'] {
-  background-color: var(--accent);
+  .sigma-ui-code-block__wrap-button[data-state='on'] {
+    background-color: var(--accent);
+  }
 }
 </style>

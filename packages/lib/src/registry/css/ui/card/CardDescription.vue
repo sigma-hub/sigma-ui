@@ -24,9 +24,11 @@ const delegatedAttrs = () => {
 </template>
 
 <style>
-.sigma-ui-card__description {
-  color: var(--muted-foreground);
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+@layer components {
+  .sigma-ui-card__description {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
 }
 </style>

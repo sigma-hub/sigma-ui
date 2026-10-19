@@ -24,11 +24,13 @@ const delegatedAttrs = () => {
 </template>
 
 <style>
-.sigma-ui-dropdown-menu-shortcut {
-  margin-left: auto;
-  color: var(--muted-foreground);
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  line-height: 1rem;
+@layer components {
+  .sigma-ui-dropdown-menu-shortcut {
+    margin-left: auto;
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    line-height: 1rem;
+  }
 }
 </style>

@@ -22,19 +22,21 @@ const delegatedAttrs = () => {
 </template>
 
 <style>
-.sigma-ui-skeleton {
-  border-radius: var(--radius-md);
-  animation: sigma-ui-skeleton-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  background-color: var(--muted);
-}
-
-@keyframes sigma-ui-skeleton-pulse {
-  0%, 100% {
-    opacity: 1;
+@layer components {
+  .sigma-ui-skeleton {
+    border-radius: var(--radius-md);
+    animation: sigma-ui-skeleton-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    background-color: var(--muted);
   }
 
-  50% {
-    opacity: 0.5;
+  @keyframes sigma-ui-skeleton-pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.5;
+    }
   }
 }
 </style>

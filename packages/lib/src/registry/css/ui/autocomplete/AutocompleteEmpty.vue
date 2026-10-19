@@ -28,9 +28,11 @@ const props = defineProps<ComboboxEmptyProps>();
 </template>
 
 <style>
-.sigma-ui-autocomplete-empty {
-  font-size: 0.875rem;
-  padding-block: calc(var(--spacing) * 6);
-  text-align: center;
+@layer components {
+  .sigma-ui-autocomplete-empty {
+    font-size: 0.875rem;
+    padding-block: calc(var(--spacing) * 6);
+    text-align: center;
+  }
 }
 </style>

@@ -27,9 +27,11 @@ defineProps<SelectLabelProps>();
 </template>
 
 <style>
-.sigma-ui-select-label {
-  padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
-  color: var(--muted-foreground);
-  font-size: 0.75rem;
+@layer components {
+  .sigma-ui-select-label {
+    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+  }
 }
 </style>

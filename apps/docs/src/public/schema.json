@@ -12,7 +12,7 @@
         "tailwind",
         "css"
       ],
-      "description": "Install components styled with Tailwind utilities or with plain scoped CSS."
+      "description": "Install components styled with Tailwind utilities or with plain CSS. Plain CSS components put their styles in the `components` cascade layer, so unlayered app CSS overrides them."
     },
     "framework": {
       "default": "vite",

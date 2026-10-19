@@ -196,141 +196,143 @@ const navigation: NavigationItem[] = [
 </template>
 
 <style>
-.example-sidebar-frame {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 520px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  transform: translateZ(0);
-}
-
-.example-sidebar-frame .example-sidebar-frame__provider {
-  height: 100%;
-  min-height: 100%;
-}
-
-.example-sidebar-frame .example-sidebar-frame__sidebar {
-  height: 100%;
-}
-
-.example-sidebar-frame__logo {
-  display: flex;
-  width: calc(var(--spacing) * 8);
-  height: calc(var(--spacing) * 8);
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius);
-  background-color: var(--primary);
-  color: var(--primary-foreground);
-}
-
-.example-sidebar-frame__avatar {
-  display: flex;
-  width: calc(var(--spacing) * 8);
-  height: calc(var(--spacing) * 8);
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius);
-  background-color: var(--secondary);
-  font-size: 0.75rem;
-  font-weight: 500;
-}
-
-.example-sidebar-frame__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-}
-
-.example-sidebar-frame__label {
-  display: grid;
-  flex: 1;
-  font-size: 0.875rem;
-  line-height: 1.25;
-  text-align: left;
-}
-
-.example-sidebar-frame__title {
-  overflow: hidden;
-  font-weight: 500;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.example-sidebar-frame__subtitle {
-  overflow: hidden;
-  color: var(--muted-foreground);
-  font-size: 0.75rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.example-sidebar-frame__end-icon {
-  margin-left: auto;
-}
-
-.example-sidebar-frame__chevron {
-  margin-left: auto;
-  transition: transform 200ms;
-}
-
-.sigma-ui-sidebar-menu-item[data-state="open"] .example-sidebar-frame__chevron {
-  transform: rotate(90deg);
-}
-
-.example-sidebar-frame__header {
-  display: flex;
-  height: calc(var(--spacing) * 14);
-  flex-shrink: 0;
-  align-items: center;
-  padding: 0 calc(var(--spacing) * 4);
-  border-bottom: 1px solid var(--border);
-  gap: calc(var(--spacing) * 2);
-}
-
-.example-sidebar-frame .example-sidebar-frame__separator {
-  height: calc(var(--spacing) * 4);
-  margin-right: calc(var(--spacing) * 2);
-}
-
-.example-sidebar-frame__page-title {
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-
-.example-sidebar-frame__body {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  padding: calc(var(--spacing) * 4);
-  gap: calc(var(--spacing) * 4);
-}
-
-.example-sidebar-frame__grid {
-  display: grid;
-  gap: calc(var(--spacing) * 4);
-  grid-auto-rows: min-content;
-}
-
-@media (width >= 48rem) {
-  .example-sidebar-frame__grid {
-    grid-template-columns: repeat(3, 1fr);
+@layer components {
+  .example-sidebar-frame {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 520px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transform: translateZ(0);
   }
-}
 
-.example-sidebar-frame__card {
-  border-radius: calc(var(--radius) + 4px);
-  aspect-ratio: 16 / 9;
-  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
-}
+  .example-sidebar-frame .example-sidebar-frame__provider {
+    height: 100%;
+    min-height: 100%;
+  }
 
-.example-sidebar-frame__panel {
-  min-height: calc(var(--spacing) * 24);
-  flex: 1;
-  border-radius: calc(var(--radius) + 4px);
-  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  .example-sidebar-frame .example-sidebar-frame__sidebar {
+    height: 100%;
+  }
+
+  .example-sidebar-frame__logo {
+    display: flex;
+    width: calc(var(--spacing) * 8);
+    height: calc(var(--spacing) * 8);
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius);
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+  }
+
+  .example-sidebar-frame__avatar {
+    display: flex;
+    width: calc(var(--spacing) * 8);
+    height: calc(var(--spacing) * 8);
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius);
+    background-color: var(--secondary);
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  .example-sidebar-frame__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
+
+  .example-sidebar-frame__label {
+    display: grid;
+    flex: 1;
+    font-size: 0.875rem;
+    line-height: 1.25;
+    text-align: left;
+  }
+
+  .example-sidebar-frame__title {
+    overflow: hidden;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .example-sidebar-frame__subtitle {
+    overflow: hidden;
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .example-sidebar-frame__end-icon {
+    margin-left: auto;
+  }
+
+  .example-sidebar-frame__chevron {
+    margin-left: auto;
+    transition: transform 200ms;
+  }
+
+  .sigma-ui-sidebar-menu-item[data-state="open"] .example-sidebar-frame__chevron {
+    transform: rotate(90deg);
+  }
+
+  .example-sidebar-frame__header {
+    display: flex;
+    height: calc(var(--spacing) * 14);
+    flex-shrink: 0;
+    align-items: center;
+    padding: 0 calc(var(--spacing) * 4);
+    border-bottom: 1px solid var(--border);
+    gap: calc(var(--spacing) * 2);
+  }
+
+  .example-sidebar-frame .example-sidebar-frame__separator {
+    height: calc(var(--spacing) * 4);
+    margin-right: calc(var(--spacing) * 2);
+  }
+
+  .example-sidebar-frame__page-title {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .example-sidebar-frame__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: calc(var(--spacing) * 4);
+    gap: calc(var(--spacing) * 4);
+  }
+
+  .example-sidebar-frame__grid {
+    display: grid;
+    gap: calc(var(--spacing) * 4);
+    grid-auto-rows: min-content;
+  }
+
+  @media (width >= 48rem) {
+    .example-sidebar-frame__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .example-sidebar-frame__card {
+    border-radius: calc(var(--radius) + 4px);
+    aspect-ratio: 16 / 9;
+    background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  }
+
+  .example-sidebar-frame__panel {
+    min-height: calc(var(--spacing) * 24);
+    flex: 1;
+    border-radius: calc(var(--radius) + 4px);
+    background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  }
 }
 </style>

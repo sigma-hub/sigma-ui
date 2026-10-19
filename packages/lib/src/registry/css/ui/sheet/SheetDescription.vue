@@ -27,8 +27,10 @@ const props = defineProps<DialogDescriptionProps>();
 </template>
 
 <style>
-.sigma-ui-sheet-description {
-  color: var(--muted-foreground);
-  font-size: 0.875rem;
+@layer components {
+  .sigma-ui-sheet-description {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+  }
 }
 </style>

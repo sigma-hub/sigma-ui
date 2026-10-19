@@ -69,44 +69,46 @@ function setTitleFilter(event: Event) {
 </template>
 
 <style>
-.table-simple__toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: calc(var(--spacing) * 2);
-}
+@layer components {
+  .table-simple__toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.table-simple__filters {
-  display: flex;
-  flex: 1;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: calc(var(--spacing) * 2);
-}
+  .table-simple__filters {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.table-simple__search {
-  width: 150px;
-  height: calc(var(--spacing) * 8);
-}
-
-.table-simple__reset {
-  height: calc(var(--spacing) * 8);
-  padding: 0 calc(var(--spacing) * 2);
-}
-
-.table-simple__reset-icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  margin-left: calc(var(--spacing) * 2);
-}
-
-@media (width >= 64rem) {
   .table-simple__search {
-    width: 250px;
+    width: 150px;
+    height: calc(var(--spacing) * 8);
   }
 
   .table-simple__reset {
-    padding: 0 calc(var(--spacing) * 3);
+    height: calc(var(--spacing) * 8);
+    padding: 0 calc(var(--spacing) * 2);
+  }
+
+  .table-simple__reset-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-left: calc(var(--spacing) * 2);
+  }
+
+  @media (width >= 64rem) {
+    .table-simple__search {
+      width: 250px;
+    }
+
+    .table-simple__reset {
+      padding: 0 calc(var(--spacing) * 3);
+    }
   }
 }
 </style>

@@ -124,84 +124,86 @@ defineProps<{
 </template>
 
 <style>
-.app-shell__logo {
-  display: flex;
-  width: calc(var(--spacing) * 8);
-  height: calc(var(--spacing) * 8);
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius);
-  background-color: var(--primary);
-  color: var(--primary-foreground);
-}
+@layer components {
+  .app-shell__logo {
+    display: flex;
+    width: calc(var(--spacing) * 8);
+    height: calc(var(--spacing) * 8);
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius);
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+  }
 
-.app-shell__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  margin-left: auto;
-}
+  .app-shell__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-left: auto;
+  }
 
-.app-shell__logo .app-shell__icon {
-  margin-left: 0;
-}
+  .app-shell__logo .app-shell__icon {
+    margin-left: 0;
+  }
 
-.app-shell__label {
-  display: grid;
-  flex: 1;
-  font-size: 0.875rem;
-  line-height: 1.25;
-  text-align: left;
-}
+  .app-shell__label {
+    display: grid;
+    flex: 1;
+    font-size: 0.875rem;
+    line-height: 1.25;
+    text-align: left;
+  }
 
-.app-shell__title {
-  overflow: hidden;
-  font-weight: 500;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+  .app-shell__title {
+    overflow: hidden;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
-.app-shell__subtitle {
-  overflow: hidden;
-  color: var(--muted-foreground);
-  font-size: 0.75rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+  .app-shell__subtitle {
+    overflow: hidden;
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
-.app-shell__chevron {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  margin-left: auto;
-  transition: transform 200ms;
-}
+  .app-shell__chevron {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-left: auto;
+    transition: transform 200ms;
+  }
 
-.sigma-ui-sidebar-menu-item[data-state="open"] .app-shell__chevron {
-  transform: rotate(90deg);
-}
+  .sigma-ui-sidebar-menu-item[data-state="open"] .app-shell__chevron {
+    transform: rotate(90deg);
+  }
 
-.app-shell__avatar {
-  display: flex;
-  width: calc(var(--spacing) * 8);
-  height: calc(var(--spacing) * 8);
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius);
-  background-color: var(--secondary);
-  font-size: 0.75rem;
-  font-weight: 500;
-}
+  .app-shell__avatar {
+    display: flex;
+    width: calc(var(--spacing) * 8);
+    height: calc(var(--spacing) * 8);
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius);
+    background-color: var(--secondary);
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
 
-.app-shell__sr-only {
-  position: absolute;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  border-width: 0;
-  margin: -1px;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
+  .app-shell__sr-only {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border-width: 0;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
 }
 </style>

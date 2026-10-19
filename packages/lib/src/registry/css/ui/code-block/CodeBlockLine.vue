@@ -92,104 +92,106 @@ const isEmpty = computed(() => segments.value !== null && segments.value.length 
 </template>
 
 <style>
-.sigma-ui-code-block__line {
-  position: relative;
-  display: flex;
-  min-height: 1lh;
-  padding: 0 var(--code-block-padding-x);
-}
-
-[data-diff] > code > .sigma-ui-code-block__line {
-  padding-left: calc(var(--code-block-padding-x) + 1ch);
-}
-
-[data-numbered] > code > .sigma-ui-code-block__line::before {
-  width: var(--code-block-gutter, 2ch);
-  flex: none;
-  margin-right: calc(var(--spacing) * 5);
-  color: var(--code-block-line-number);
-  content: counter(code-block-line);
-  content: counter(code-block-line) / '';
-  counter-increment: code-block-line;
-  text-align: right;
-  user-select: none;
-}
-
-.sigma-ui-code-block__line[data-variant='highlighted'] {
-  background-color: var(--code-block-highlighted);
-  box-shadow: inset 2px 0 0 var(--code-block-highlighted-border);
-}
-
-.sigma-ui-code-block__line[data-variant='added'] {
-  background-color: var(--code-block-added);
-  box-shadow: inset 2px 0 0 var(--code-block-added-border);
-}
-
-.sigma-ui-code-block__line[data-variant='removed'] {
-  background-color: var(--code-block-removed);
-  box-shadow: inset 2px 0 0 var(--code-block-removed-border);
-}
-
-.sigma-ui-code-block__line[data-variant='added']::after,
-.sigma-ui-code-block__line[data-variant='removed']::after {
-  position: absolute;
-  top: 0;
-  left: calc(var(--code-block-padding-x) / 2 - 0.25ch);
-  user-select: none;
-}
-
-.sigma-ui-code-block__line[data-variant='added']::after {
-  color: var(--code-block-added-marker);
-  content: '+';
-  content: '+' / '';
-}
-
-.sigma-ui-code-block__line[data-variant='removed']::after {
-  color: var(--code-block-removed-marker);
-  content: '−';
-  content: '−' / '';
-}
-
-.sigma-ui-code-block__line-label {
-  user-select: none;
-}
-
-.sigma-ui-code-block__line-content {
-  min-width: 0;
-  flex: 1;
-}
-
-.sigma-ui-code-block__word {
-  border-radius: 0.1875rem;
-  background-color: var(--code-block-word);
-  box-shadow: 0 0 0 1px var(--code-block-word-border), 0 0 0 2px var(--code-block-word);
-  color: inherit;
-}
-
-[data-focus] > code > .sigma-ui-code-block__line:not([data-focused]) {
-  filter: blur(0.5px);
-  opacity: 0.45;
-  transition: opacity 200ms ease, filter 200ms ease;
-}
-
-[data-focus]:hover > code > .sigma-ui-code-block__line,
-[data-focus]:focus-within > code > .sigma-ui-code-block__line {
-  filter: none;
-  opacity: 1;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  [data-focus] > code > .sigma-ui-code-block__line {
-    transition: none;
+@layer components {
+  .sigma-ui-code-block__line {
+    position: relative;
+    display: flex;
+    min-height: 1lh;
+    padding: 0 var(--code-block-padding-x);
   }
-}
 
-@media (forced-colors: active) {
-  .sigma-ui-code-block__line[data-variant='highlighted'],
-  .sigma-ui-code-block__line[data-variant='added'],
+  [data-diff] > code > .sigma-ui-code-block__line {
+    padding-left: calc(var(--code-block-padding-x) + 1ch);
+  }
+
+  [data-numbered] > code > .sigma-ui-code-block__line::before {
+    width: var(--code-block-gutter, 2ch);
+    flex: none;
+    margin-right: calc(var(--spacing) * 5);
+    color: var(--code-block-line-number);
+    content: counter(code-block-line);
+    content: counter(code-block-line) / '';
+    counter-increment: code-block-line;
+    text-align: right;
+    user-select: none;
+  }
+
+  .sigma-ui-code-block__line[data-variant='highlighted'] {
+    background-color: var(--code-block-highlighted);
+    box-shadow: inset 2px 0 0 var(--code-block-highlighted-border);
+  }
+
+  .sigma-ui-code-block__line[data-variant='added'] {
+    background-color: var(--code-block-added);
+    box-shadow: inset 2px 0 0 var(--code-block-added-border);
+  }
+
   .sigma-ui-code-block__line[data-variant='removed'] {
-    outline: 1px solid CanvasText;
-    outline-offset: -1px;
+    background-color: var(--code-block-removed);
+    box-shadow: inset 2px 0 0 var(--code-block-removed-border);
+  }
+
+  .sigma-ui-code-block__line[data-variant='added']::after,
+  .sigma-ui-code-block__line[data-variant='removed']::after {
+    position: absolute;
+    top: 0;
+    left: calc(var(--code-block-padding-x) / 2 - 0.25ch);
+    user-select: none;
+  }
+
+  .sigma-ui-code-block__line[data-variant='added']::after {
+    color: var(--code-block-added-marker);
+    content: '+';
+    content: '+' / '';
+  }
+
+  .sigma-ui-code-block__line[data-variant='removed']::after {
+    color: var(--code-block-removed-marker);
+    content: '−';
+    content: '−' / '';
+  }
+
+  .sigma-ui-code-block__line-label {
+    user-select: none;
+  }
+
+  .sigma-ui-code-block__line-content {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .sigma-ui-code-block__word {
+    border-radius: 0.1875rem;
+    background-color: var(--code-block-word);
+    box-shadow: 0 0 0 1px var(--code-block-word-border), 0 0 0 2px var(--code-block-word);
+    color: inherit;
+  }
+
+  [data-focus] > code > .sigma-ui-code-block__line:not([data-focused]) {
+    filter: blur(0.5px);
+    opacity: 0.45;
+    transition: opacity 200ms ease, filter 200ms ease;
+  }
+
+  [data-focus]:hover > code > .sigma-ui-code-block__line,
+  [data-focus]:focus-within > code > .sigma-ui-code-block__line {
+    filter: none;
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-focus] > code > .sigma-ui-code-block__line {
+      transition: none;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .sigma-ui-code-block__line[data-variant='highlighted'],
+    .sigma-ui-code-block__line[data-variant='added'],
+    .sigma-ui-code-block__line[data-variant='removed'] {
+      outline: 1px solid CanvasText;
+      outline-offset: -1px;
+    }
   }
 }
 </style>

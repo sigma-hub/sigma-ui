@@ -85,70 +85,72 @@ import {
 </template>
 
 <style>
-.dashboard-orders {
-  display: flex;
-  width: 100%;
-  min-height: 100vh;
-  flex-direction: column;
-  background-color: color-mix(in oklch, var(--muted) 40%, transparent);
-}
+@layer components {
+  .dashboard-orders {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: color-mix(in oklch, var(--muted) 40%, transparent);
+  }
 
-.dashboard-orders__shell {
-  display: flex;
-  flex-direction: column;
-}
-
-@media (width >= 40rem) {
   .dashboard-orders__shell {
-    padding-top: calc(var(--spacing) * 4);
-    padding-bottom: calc(var(--spacing) * 4);
-    padding-left: calc(var(--spacing) * 14);
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (width >= 40rem) {
+    .dashboard-orders__shell {
+      padding-top: calc(var(--spacing) * 4);
+      padding-bottom: calc(var(--spacing) * 4);
+      padding-left: calc(var(--spacing) * 14);
+      gap: calc(var(--spacing) * 4);
+    }
+  }
+
+  .dashboard-orders__main {
+    display: grid;
+    flex: 1 1 0%;
+    align-items: flex-start;
+    padding: calc(var(--spacing) * 4);
     gap: calc(var(--spacing) * 4);
   }
-}
 
-.dashboard-orders__main {
-  display: grid;
-  flex: 1 1 0%;
-  align-items: flex-start;
-  padding: calc(var(--spacing) * 4);
-  gap: calc(var(--spacing) * 4);
-}
-
-@media (width >= 40rem) {
-  .dashboard-orders__main {
-    padding: 0 calc(var(--spacing) * 6);
+  @media (width >= 40rem) {
+    .dashboard-orders__main {
+      padding: 0 calc(var(--spacing) * 6);
+    }
   }
-}
 
-@media (width >= 48rem) {
-  .dashboard-orders__main {
-    gap: calc(var(--spacing) * 8);
+  @media (width >= 48rem) {
+    .dashboard-orders__main {
+      gap: calc(var(--spacing) * 8);
+    }
   }
-}
 
-@media (width >= 64rem) {
-  .dashboard-orders__main {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  @media (width >= 64rem) {
+    .dashboard-orders__main {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
   }
-}
 
-.dashboard-orders__primary {
-  display: grid;
-  align-items: flex-start;
-  gap: calc(var(--spacing) * 4);
-  grid-auto-rows: max-content;
-}
-
-@media (width >= 48rem) {
   .dashboard-orders__primary {
-    gap: calc(var(--spacing) * 8);
+    display: grid;
+    align-items: flex-start;
+    gap: calc(var(--spacing) * 4);
+    grid-auto-rows: max-content;
   }
-}
 
-@media (width >= 64rem) {
-  .dashboard-orders__primary {
-    grid-column: span 2 / span 2;
+  @media (width >= 48rem) {
+    .dashboard-orders__primary {
+      gap: calc(var(--spacing) * 8);
+    }
+  }
+
+  @media (width >= 64rem) {
+    .dashboard-orders__primary {
+      grid-column: span 2 / span 2;
+    }
   }
 }
 </style>

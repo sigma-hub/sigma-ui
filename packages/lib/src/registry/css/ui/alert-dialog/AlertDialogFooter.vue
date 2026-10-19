@@ -15,16 +15,18 @@ const attrs = useAttrs();
 </template>
 
 <style>
-.sigma-ui-alert-dialog-footer {
-  display: flex;
-  flex-direction: column-reverse;
-}
-
-@media (width >= 40rem) {
+@layer components {
   .sigma-ui-alert-dialog-footer {
-    flex-direction: row;
-    justify-content: flex-end;
-    gap: calc(var(--spacing) * 2);
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  @media (width >= 40rem) {
+    .sigma-ui-alert-dialog-footer {
+      flex-direction: row;
+      justify-content: flex-end;
+      gap: calc(var(--spacing) * 2);
+    }
   }
 }
 </style>

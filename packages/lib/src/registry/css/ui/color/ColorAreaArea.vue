@@ -29,10 +29,12 @@ const forwarded = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-color-area-surface {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: var(--radius-md);
+@layer components {
+  .sigma-ui-color-area-surface {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-md);
+  }
 }
 </style>

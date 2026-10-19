@@ -113,58 +113,60 @@ const open = ref(false);
 </template>
 
 <style>
-.example-sigma-ui-command-dropdown {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding: calc(var(--spacing) * 3) calc(var(--spacing) * 4);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-}
-
-@media (width >= 40rem) {
+@layer components {
   .example-sigma-ui-command-dropdown {
-    flex-direction: row;
-    align-items: center;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: calc(var(--spacing) * 3) calc(var(--spacing) * 4);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
   }
-}
 
-.example-sigma-ui-command-dropdown__text {
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1;
-}
+  @media (width >= 40rem) {
+    .example-sigma-ui-command-dropdown {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
 
-.example-sigma-ui-command-dropdown__label {
-  padding: calc(var(--spacing) * 1) calc(var(--spacing) * 2);
-  border-radius: var(--radius-lg);
-  margin-right: calc(var(--spacing) * 2);
-  background-color: var(--primary);
-  color: var(--primary-foreground);
-  font-size: 0.75rem;
-}
+  .example-sigma-ui-command-dropdown__text {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1;
+  }
 
-.example-sigma-ui-command-dropdown__description {
-  color: var(--muted-foreground);
-}
+  .example-sigma-ui-command-dropdown__label {
+    padding: calc(var(--spacing) * 1) calc(var(--spacing) * 2);
+    border-radius: var(--radius-lg);
+    margin-right: calc(var(--spacing) * 2);
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    font-size: 0.75rem;
+  }
 
-.example-sigma-ui-command-dropdown__content {
-  width: 200px;
-}
+  .example-sigma-ui-command-dropdown__description {
+    color: var(--muted-foreground);
+  }
 
-.example-sigma-ui-command-dropdown__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  margin-right: calc(var(--spacing) * 2);
-}
+  .example-sigma-ui-command-dropdown__content {
+    width: 200px;
+  }
 
-.example-sigma-ui-command-dropdown__sub-content {
-  padding: 0;
-}
+  .example-sigma-ui-command-dropdown__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-right: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-command-dropdown__delete {
-  color: var(--destructive);
+  .example-sigma-ui-command-dropdown__sub-content {
+    padding: 0;
+  }
+
+  .example-sigma-ui-command-dropdown__delete {
+    color: var(--destructive);
+  }
 }
 </style>

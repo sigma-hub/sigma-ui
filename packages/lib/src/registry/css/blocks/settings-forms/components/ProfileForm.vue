@@ -202,29 +202,31 @@ const onSubmit = handleSubmit((values) => {
 </template>
 
 <style>
-.settings-forms__url-row {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
+@layer components {
+  .settings-forms__url-row {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
 
-.settings-forms__url-remove {
-  position: absolute;
-  right: 0;
-  padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
-  border: 0;
-  background: transparent;
-  color: var(--muted-foreground);
-}
+  .settings-forms__url-remove {
+    position: absolute;
+    right: 0;
+    padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
+    border: 0;
+    background: transparent;
+    color: var(--muted-foreground);
+  }
 
-.settings-forms__url-icon {
-  width: calc(var(--spacing) * 3);
-  height: calc(var(--spacing) * 3);
-}
+  .settings-forms__url-icon {
+    width: calc(var(--spacing) * 3);
+    height: calc(var(--spacing) * 3);
+  }
 
-.settings-forms__add-url.settings-forms__add-url {
-  width: calc(var(--spacing) * 20);
-  margin-top: calc(var(--spacing) * 2);
-  font-size: 0.75rem;
+  .settings-forms__add-url.settings-forms__add-url {
+    width: calc(var(--spacing) * 20);
+    margin-top: calc(var(--spacing) * 2);
+    font-size: 0.75rem;
+  }
 }
 </style>

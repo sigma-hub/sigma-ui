@@ -29,32 +29,34 @@ import UserMenu from './components/UserMenu.vue';
 </template>
 
 <style>
-.table-simple {
-  display: flex;
-  min-height: 100%;
-  flex: 1;
-  flex-direction: column;
-  padding: calc(var(--spacing) * 8);
-  gap: calc(var(--spacing) * 8);
-}
+@layer components {
+  .table-simple {
+    display: flex;
+    min-height: 100%;
+    flex: 1;
+    flex-direction: column;
+    padding: calc(var(--spacing) * 8);
+    gap: calc(var(--spacing) * 8);
+  }
 
-.table-simple__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: calc(var(--spacing) * 2);
-}
+  .table-simple__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.table-simple__title {
-  margin: 0;
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 2rem;
-}
+  .table-simple__title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 2rem;
+  }
 
-.table-simple__description {
-  margin: 0;
-  color: var(--muted-foreground);
+  .table-simple__description {
+    margin: 0;
+    color: var(--muted-foreground);
+  }
 }
 </style>

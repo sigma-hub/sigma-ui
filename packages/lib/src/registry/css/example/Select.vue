@@ -39,7 +39,9 @@ import {
 </template>
 
 <style>
-.example-sigma-ui-select__trigger {
-  width: calc(var(--spacing) * 45);
+@layer components {
+  .example-sigma-ui-select__trigger {
+    width: calc(var(--spacing) * 45);
+  }
 }
 </style>

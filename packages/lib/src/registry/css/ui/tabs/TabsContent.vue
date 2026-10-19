@@ -27,12 +27,14 @@ const props = defineProps<TabsContentProps>();
 </template>
 
 <style>
-.sigma-ui-tabs-content {
-  margin-top: calc(var(--spacing) * 2);
-}
+@layer components {
+  .sigma-ui-tabs-content {
+    margin-top: calc(var(--spacing) * 2);
+  }
 
-.sigma-ui-tabs-content:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
+  .sigma-ui-tabs-content:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
 }
 </style>

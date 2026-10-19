@@ -32,17 +32,19 @@ const { orientation } = useCarousel();
 </template>
 
 <style>
-.sigma-ui-carousel-item {
-  min-width: 0;
-  flex-basis: 100%;
-  flex-shrink: 0;
-}
+@layer components {
+  .sigma-ui-carousel-item {
+    min-width: 0;
+    flex-basis: 100%;
+    flex-shrink: 0;
+  }
 
-.sigma-ui-carousel-item--horizontal {
-  padding-left: calc(var(--spacing) * 4);
-}
+  .sigma-ui-carousel-item--horizontal {
+    padding-left: calc(var(--spacing) * 4);
+  }
 
-.sigma-ui-carousel-item--vertical {
-  padding-top: calc(var(--spacing) * 4);
+  .sigma-ui-carousel-item--vertical {
+    padding-top: calc(var(--spacing) * 4);
+  }
 }
 </style>

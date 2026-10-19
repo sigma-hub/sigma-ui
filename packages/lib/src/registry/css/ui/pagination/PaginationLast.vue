@@ -38,14 +38,16 @@ const props = withDefaults(defineProps<PaginationLastProps>(), {
 </template>
 
 <style>
-.sigma-ui-pagination-last {
-  width: calc(var(--spacing) * 10);
-  height: calc(var(--spacing) * 10);
-  padding: 0;
-}
+@layer components {
+  .sigma-ui-pagination-last {
+    width: calc(var(--spacing) * 10);
+    height: calc(var(--spacing) * 10);
+    padding: 0;
+  }
 
-.sigma-ui-pagination-last__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
+  .sigma-ui-pagination-last__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 }
 </style>

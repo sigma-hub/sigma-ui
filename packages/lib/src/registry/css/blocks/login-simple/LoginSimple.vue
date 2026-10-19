@@ -45,27 +45,29 @@ import { Label } from '@ui/registry/css/ui/label';
 </template>
 
 <style>
-.login-simple__card {
-  width: 100%;
-  max-width: 24rem;
-}
+@layer components {
+  .login-simple__card {
+    width: 100%;
+    max-width: 24rem;
+  }
 
-.login-simple__title {
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
+  .login-simple__title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
 
-.login-simple__content {
-  display: grid;
-  gap: calc(var(--spacing) * 4);
-}
+  .login-simple__content {
+    display: grid;
+    gap: calc(var(--spacing) * 4);
+  }
 
-.login-simple__field {
-  display: grid;
-  gap: calc(var(--spacing) * 2);
-}
+  .login-simple__field {
+    display: grid;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.login-simple__submit {
-  width: 100%;
+  .login-simple__submit {
+    width: 100%;
+  }
 }
 </style>

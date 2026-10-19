@@ -63,57 +63,59 @@ import RoleSelect from './RoleSelect.vue';
 </template>
 
 <style>
-.dashboard-ai-playground__configuration {
-  position: relative;
-  display: none;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: calc(var(--spacing) * 8);
-}
-
-@media (width >= 48rem) {
+@layer components {
   .dashboard-ai-playground__configuration {
-    display: flex;
+    position: relative;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: calc(var(--spacing) * 8);
   }
-}
 
-.dashboard-ai-playground__form {
-  display: grid;
-  width: 100%;
-  align-items: start;
-  gap: calc(var(--spacing) * 6);
-}
+  @media (width >= 48rem) {
+    .dashboard-ai-playground__configuration {
+      display: flex;
+    }
+  }
 
-.dashboard-ai-playground__fieldset {
-  display: grid;
-  min-width: 0;
-  padding: calc(var(--spacing) * 4);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  gap: calc(var(--spacing) * 6);
-}
+  .dashboard-ai-playground__form {
+    display: grid;
+    width: 100%;
+    align-items: start;
+    gap: calc(var(--spacing) * 6);
+  }
 
-.dashboard-ai-playground__legend {
-  padding-right: calc(var(--spacing) * 1);
-  padding-left: calc(var(--spacing) * 1);
-  margin-left: calc(var(--spacing) * -1);
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1.25rem;
-}
+  .dashboard-ai-playground__fieldset {
+    display: grid;
+    min-width: 0;
+    padding: calc(var(--spacing) * 4);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    gap: calc(var(--spacing) * 6);
+  }
 
-.dashboard-ai-playground__field {
-  display: grid;
-  gap: calc(var(--spacing) * 3);
-}
+  .dashboard-ai-playground__legend {
+    padding-right: calc(var(--spacing) * 1);
+    padding-left: calc(var(--spacing) * 1);
+    margin-left: calc(var(--spacing) * -1);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+  }
 
-.dashboard-ai-playground__sampling {
-  display: grid;
-  gap: calc(var(--spacing) * 4);
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
+  .dashboard-ai-playground__field {
+    display: grid;
+    gap: calc(var(--spacing) * 3);
+  }
 
-textarea.dashboard-ai-playground__content-input {
-  min-height: calc(var(--spacing) * 38);
+  .dashboard-ai-playground__sampling {
+    display: grid;
+    gap: calc(var(--spacing) * 4);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  textarea.dashboard-ai-playground__content-input {
+    min-height: calc(var(--spacing) * 38);
+  }
 }
 </style>

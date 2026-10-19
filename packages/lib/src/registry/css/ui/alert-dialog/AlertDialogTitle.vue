@@ -18,9 +18,11 @@ const attrs = useAttrs();
 </template>
 
 <style>
-.sigma-ui-alert-dialog-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  line-height: 1.75rem;
+@layer components {
+  .sigma-ui-alert-dialog-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.75rem;
+  }
 }
 </style>

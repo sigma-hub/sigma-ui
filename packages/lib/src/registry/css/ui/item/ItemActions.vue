@@ -30,9 +30,11 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-item-actions {
-  display: flex;
-  align-items: center;
-  gap: calc(var(--spacing) * 2);
+@layer components {
+  .sigma-ui-item-actions {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+  }
 }
 </style>

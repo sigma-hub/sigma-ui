@@ -105,39 +105,41 @@ import { sizeOptions, stockVariants } from '../data';
 </template>
 
 <style>
-.dashboard-product-edit__column-sku,
-.dashboard-product-edit__column-size {
-  width: 100px;
-}
+@layer components {
+  .dashboard-product-edit__column-sku,
+  .dashboard-product-edit__column-size {
+    width: 100px;
+  }
 
-.dashboard-product-edit__sku {
-  font-weight: 600;
-}
+  .dashboard-product-edit__sku {
+    font-weight: 600;
+  }
 
-.sigma-ui-card__footer.dashboard-product-edit__stock-footer {
-  justify-content: center;
-  padding: calc(var(--spacing) * 4);
-  border-top: 1px solid var(--border);
-}
+  .sigma-ui-card__footer.dashboard-product-edit__stock-footer {
+    justify-content: center;
+    padding: calc(var(--spacing) * 4);
+    border-top: 1px solid var(--border);
+  }
 
-button.dashboard-product-edit__add-variant {
-  gap: calc(var(--spacing) * 1);
-}
+  button.dashboard-product-edit__add-variant {
+    gap: calc(var(--spacing) * 1);
+  }
 
-button.dashboard-product-edit__add-variant svg {
-  width: calc(var(--spacing) * 3.5);
-  height: calc(var(--spacing) * 3.5);
-}
+  button.dashboard-product-edit__add-variant svg {
+    width: calc(var(--spacing) * 3.5);
+    height: calc(var(--spacing) * 3.5);
+  }
 
-.dashboard-product-edit__visually-hidden {
-  position: absolute;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  border-width: 0;
-  margin: -1px;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
+  .dashboard-product-edit__visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border-width: 0;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
 }
 </style>

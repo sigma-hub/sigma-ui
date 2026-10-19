@@ -28,19 +28,21 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-code-block__footer {
-  display: flex;
-  min-width: 0;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  padding: calc(var(--spacing) * 1);
-  border-top: 1px solid var(--code-block-border);
-  color: var(--muted-foreground);
-  gap: calc(var(--spacing) * 2);
-}
+@layer components {
+  .sigma-ui-code-block__footer {
+    display: flex;
+    min-width: 0;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    padding: calc(var(--spacing) * 1);
+    border-top: 1px solid var(--code-block-border);
+    color: var(--muted-foreground);
+    gap: calc(var(--spacing) * 2);
+  }
 
-.sigma-ui-code-block__footer:empty {
-  display: none;
+  .sigma-ui-code-block__footer:empty {
+    display: none;
+  }
 }
 </style>

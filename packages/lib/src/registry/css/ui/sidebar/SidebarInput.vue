@@ -33,10 +33,12 @@ defineEmits<{
 </template>
 
 <style>
-.sigma-ui-input.sigma-ui-sidebar-input {
-  width: 100%;
-  height: calc(var(--spacing) * 8);
-  background-color: var(--background);
-  box-shadow: none;
+@layer components {
+  .sigma-ui-input.sigma-ui-sidebar-input {
+    width: 100%;
+    height: calc(var(--spacing) * 8);
+    background-color: var(--background);
+    box-shadow: none;
+  }
 }
 </style>

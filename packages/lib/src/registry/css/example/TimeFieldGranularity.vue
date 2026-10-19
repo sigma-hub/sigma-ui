@@ -26,7 +26,9 @@ const value = ref(new Time(14, 30, 15)) as Ref<TimeValue>;
 </template>
 
 <style>
-.example-sigma-ui-time-field-granularity {
-  max-width: 20rem;
+@layer components {
+  .example-sigma-ui-time-field-granularity {
+    max-width: 20rem;
+  }
 }
 </style>

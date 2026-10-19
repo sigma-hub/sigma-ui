@@ -97,38 +97,40 @@ const lineY = (d: Data) => d.revenue;
 </template>
 
 <style>
-.example-sigma-ui-card-stats {
-  display: grid;
-  gap: calc(var(--spacing) * 4);
-}
-
-@media (width >= 40rem) {
+@layer components {
   .example-sigma-ui-card-stats {
-    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    gap: calc(var(--spacing) * 4);
   }
-}
 
-.example-sigma-ui-card-stats__header {
-  padding-bottom: calc(var(--spacing) * 2);
-}
+  @media (width >= 40rem) {
+    .example-sigma-ui-card-stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 
-.example-sigma-ui-card-stats__title {
-  font-size: 0.875rem;
-  font-weight: 400;
-}
+  .example-sigma-ui-card-stats__header {
+    padding-bottom: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-card-stats__value {
-  font-size: 1.5rem;
-  font-weight: 700;
-}
+  .example-sigma-ui-card-stats__title {
+    font-size: 0.875rem;
+    font-weight: 400;
+  }
 
-.example-sigma-ui-card-stats__change {
-  color: var(--muted-foreground);
-  font-size: 0.75rem;
-}
+  .example-sigma-ui-card-stats__value {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
 
-.example-sigma-ui-card-stats__chart {
-  height: calc(var(--spacing) * 20);
-  margin-top: calc(var(--spacing) * 4);
+  .example-sigma-ui-card-stats__change {
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+  }
+
+  .example-sigma-ui-card-stats__chart {
+    height: calc(var(--spacing) * 20);
+    margin-top: calc(var(--spacing) * 4);
+  }
 }
 </style>

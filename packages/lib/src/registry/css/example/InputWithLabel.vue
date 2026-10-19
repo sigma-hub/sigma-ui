@@ -16,10 +16,12 @@ import { Label } from '@ui/registry/css/ui/label';
 </template>
 
 <style>
-.example-sigma-ui-input-with-label {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 2);
+@layer components {
+  .example-sigma-ui-input-with-label {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2);
+  }
 }
 </style>

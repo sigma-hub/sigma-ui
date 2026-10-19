@@ -28,9 +28,11 @@ const props = defineProps<ContextMenuSeparatorProps>();
 </template>
 
 <style>
-.sigma-ui-context-menu-separator {
-  height: 1px;
-  margin: calc(var(--spacing) * 1) calc(var(--spacing) * -1);
-  background-color: var(--border);
+@layer components {
+  .sigma-ui-context-menu-separator {
+    height: 1px;
+    margin: calc(var(--spacing) * 1) calc(var(--spacing) * -1);
+    background-color: var(--border);
+  }
 }
 </style>

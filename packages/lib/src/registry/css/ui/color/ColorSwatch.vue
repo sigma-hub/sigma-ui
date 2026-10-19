@@ -37,15 +37,17 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-color-swatch {
-  width: calc(var(--spacing) * 9);
-  height: calc(var(--spacing) * 9);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  background-color: var(--reka-color-swatch-color);
-  background-image:
-    linear-gradient(var(--reka-color-swatch-color), var(--reka-color-swatch-color)),
-    repeating-conic-gradient(var(--muted) 0% 25%, var(--background) 0% 50%);
-  background-size: auto, 0.5rem 0.5rem;
+@layer components {
+  .sigma-ui-color-swatch {
+    width: calc(var(--spacing) * 9);
+    height: calc(var(--spacing) * 9);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background-color: var(--reka-color-swatch-color);
+    background-image:
+      linear-gradient(var(--reka-color-swatch-color), var(--reka-color-swatch-color)),
+      repeating-conic-gradient(var(--muted) 0% 25%, var(--background) 0% 50%);
+    background-size: auto, 0.5rem 0.5rem;
+  }
 }
 </style>

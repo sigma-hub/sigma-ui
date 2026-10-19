@@ -53,37 +53,39 @@ onBeforeUnmount(() => {
 </template>
 
 <style>
-.sigma-ui-code-block__title {
-  overflow: hidden;
-  min-width: 0;
-  color: var(--foreground);
-  font-weight: 500;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+@layer components {
+  .sigma-ui-code-block__title {
+    overflow: hidden;
+    min-width: 0;
+    color: var(--foreground);
+    font-weight: 500;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
-.sigma-ui-code-block__title svg {
-  display: inline-block;
-  width: calc(var(--spacing) * 3.5);
-  height: calc(var(--spacing) * 3.5);
-  margin-right: calc(var(--spacing) * 1.5);
-  color: var(--muted-foreground);
-  pointer-events: none;
-  vertical-align: -0.125rem;
-}
+  .sigma-ui-code-block__title svg {
+    display: inline-block;
+    width: calc(var(--spacing) * 3.5);
+    height: calc(var(--spacing) * 3.5);
+    margin-right: calc(var(--spacing) * 1.5);
+    color: var(--muted-foreground);
+    pointer-events: none;
+    vertical-align: -0.125rem;
+  }
 
-.sigma-ui-code-block__title a {
-  color: inherit;
-  text-decoration: none;
-}
+  .sigma-ui-code-block__title a {
+    color: inherit;
+    text-decoration: none;
+  }
 
-.sigma-ui-code-block__title a:hover {
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
+  .sigma-ui-code-block__title a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
 
-[data-variant='destructive'] .sigma-ui-code-block__title,
-[data-variant='destructive'] .sigma-ui-code-block__title svg {
-  color: var(--code-block-destructive-foreground);
+  [data-variant='destructive'] .sigma-ui-code-block__title,
+  [data-variant='destructive'] .sigma-ui-code-block__title svg {
+    color: var(--code-block-destructive-foreground);
+  }
 }
 </style>

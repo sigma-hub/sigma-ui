@@ -37,10 +37,12 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
-.sigma-ui-code-block__tabs {
-  display: flex;
-  min-width: 0;
-  min-height: 0;
-  flex-direction: column;
+@layer components {
+  .sigma-ui-code-block__tabs {
+    display: flex;
+    min-width: 0;
+    min-height: 0;
+    flex-direction: column;
+  }
 }
 </style>

@@ -32,11 +32,13 @@ const { error, formItemId } = useFormField();
 </template>
 
 <style>
-.sigma-ui-form-label {
-  color: var(--foreground);
-}
+@layer components {
+  .sigma-ui-form-label {
+    color: var(--foreground);
+  }
 
-.sigma-ui-form-label--error {
-  color: var(--destructive);
+  .sigma-ui-form-label--error {
+    color: var(--destructive);
+  }
 }
 </style>

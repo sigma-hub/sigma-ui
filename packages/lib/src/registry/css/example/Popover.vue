@@ -70,45 +70,47 @@ import { Input } from '@ui/registry/css/ui/input';
 </template>
 
 <style>
-.example-sigma-ui-popover__content {
-  width: calc(var(--spacing) * 80);
-}
+@layer components {
+  .example-sigma-ui-popover__content {
+    width: calc(var(--spacing) * 80);
+  }
 
-.example-sigma-ui-popover__container {
-  display: grid;
-  gap: calc(var(--spacing) * 4);
-}
+  .example-sigma-ui-popover__container {
+    display: grid;
+    gap: calc(var(--spacing) * 4);
+  }
 
-.example-sigma-ui-popover__header {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 2);
-}
+  .example-sigma-ui-popover__header {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-popover__title {
-  font-weight: 500;
-  line-height: 1;
-}
+  .example-sigma-ui-popover__title {
+    font-weight: 500;
+    line-height: 1;
+  }
 
-.example-sigma-ui-popover__description {
-  color: var(--muted-foreground);
-  font-size: 0.875rem;
-}
+  .example-sigma-ui-popover__description {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+  }
 
-.example-sigma-ui-popover__form {
-  display: grid;
-  gap: calc(var(--spacing) * 2);
-}
+  .example-sigma-ui-popover__form {
+    display: grid;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-popover__form-row {
-  display: grid;
-  align-items: center;
-  gap: calc(var(--spacing) * 4);
-  grid-template-columns: repeat(3, 1fr);
-}
+  .example-sigma-ui-popover__form-row {
+    display: grid;
+    align-items: center;
+    gap: calc(var(--spacing) * 4);
+    grid-template-columns: repeat(3, 1fr);
+  }
 
-.example-sigma-ui-popover__input {
-  height: calc(var(--spacing) * 8);
-  grid-column: span 2;
+  .example-sigma-ui-popover__input {
+    height: calc(var(--spacing) * 8);
+    grid-column: span 2;
+  }
 }
 </style>

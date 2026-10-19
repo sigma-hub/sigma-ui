@@ -35,14 +35,16 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
-.sigma-ui-menubar {
-  display: flex;
-  height: calc(var(--spacing) * 10);
-  align-items: center;
-  padding: calc(var(--spacing) * 1);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  background-color: var(--background);
-  gap: calc(var(--spacing) * 1);
+@layer components {
+  .sigma-ui-menubar {
+    display: flex;
+    height: calc(var(--spacing) * 10);
+    align-items: center;
+    padding: calc(var(--spacing) * 1);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background-color: var(--background);
+    gap: calc(var(--spacing) * 1);
+  }
 }
 </style>

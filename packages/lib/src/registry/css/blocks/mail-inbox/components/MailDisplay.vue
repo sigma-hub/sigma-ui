@@ -258,161 +258,163 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
 </template>
 
 <style>
-.mail-inbox__display,
-.mail-inbox__thread {
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-}
+@layer components {
+  .mail-inbox__display,
+  .mail-inbox__thread {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+  }
 
-.mail-inbox__actions,
-.mail-inbox__action-group,
-.mail-inbox__thread-header,
-.mail-inbox__reply-footer,
-.mail-inbox__snooze-layout {
-  display: flex;
-  align-items: center;
-}
+  .mail-inbox__actions,
+  .mail-inbox__action-group,
+  .mail-inbox__thread-header,
+  .mail-inbox__reply-footer,
+  .mail-inbox__snooze-layout {
+    display: flex;
+    align-items: center;
+  }
 
-.mail-inbox__actions {
-  padding: calc(var(--spacing) * 2);
-}
+  .mail-inbox__actions {
+    padding: calc(var(--spacing) * 2);
+  }
 
-.mail-inbox__action-group {
-  gap: calc(var(--spacing) * 2);
-}
+  .mail-inbox__action-group {
+    gap: calc(var(--spacing) * 2);
+  }
 
-.mail-inbox__action-group--end {
-  margin-left: auto;
-}
+  .mail-inbox__action-group--end {
+    margin-left: auto;
+  }
 
-.mail-inbox__separator.mail-inbox__separator {
-  height: calc(var(--spacing) * 6);
-  margin: 0 calc(var(--spacing) * 2);
-}
+  .mail-inbox__separator.mail-inbox__separator {
+    height: calc(var(--spacing) * 6);
+    margin: 0 calc(var(--spacing) * 2);
+  }
 
-.mail-inbox__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-}
+  .mail-inbox__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 
-.mail-inbox__sr-only {
-  position: absolute;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  border-width: 0;
-  margin: -1px;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-}
+  .mail-inbox__sr-only {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border-width: 0;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
 
-.mail-inbox__snooze.mail-inbox__snooze {
-  width: auto;
-  padding: 0;
-}
+  .mail-inbox__snooze.mail-inbox__snooze {
+    width: auto;
+    padding: 0;
+  }
 
-.mail-inbox__snooze-options {
-  display: flex;
-  min-width: calc(var(--spacing) * 60);
-  flex-direction: column;
-  padding: calc(var(--spacing) * 4) calc(var(--spacing) * 2);
-  border-right: 1px solid var(--border);
-  gap: calc(var(--spacing) * 1);
-}
+  .mail-inbox__snooze-options {
+    display: flex;
+    min-width: calc(var(--spacing) * 60);
+    flex-direction: column;
+    padding: calc(var(--spacing) * 4) calc(var(--spacing) * 2);
+    border-right: 1px solid var(--border);
+    gap: calc(var(--spacing) * 1);
+  }
 
-.mail-inbox__snooze-title {
-  padding: 0 calc(var(--spacing) * 4);
-  font-size: 0.875rem;
-  font-weight: 500;
-}
+  .mail-inbox__snooze-title {
+    padding: 0 calc(var(--spacing) * 4);
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
 
-.mail-inbox__snooze-option.mail-inbox__snooze-option {
-  justify-content: flex-start;
-  font-weight: 400;
-}
+  .mail-inbox__snooze-option.mail-inbox__snooze-option {
+    justify-content: flex-start;
+    font-weight: 400;
+  }
 
-.mail-inbox__snooze-detail {
-  margin-left: auto;
-  color: var(--muted-foreground);
-}
+  .mail-inbox__snooze-detail {
+    margin-left: auto;
+    color: var(--muted-foreground);
+  }
 
-.mail-inbox__calendar {
-  padding: calc(var(--spacing) * 2);
-}
+  .mail-inbox__calendar {
+    padding: calc(var(--spacing) * 2);
+  }
 
-.mail-inbox__thread-header {
-  align-items: flex-start;
-  padding: calc(var(--spacing) * 4);
-  font-size: 0.875rem;
-  gap: calc(var(--spacing) * 4);
-}
+  .mail-inbox__thread-header {
+    align-items: flex-start;
+    padding: calc(var(--spacing) * 4);
+    font-size: 0.875rem;
+    gap: calc(var(--spacing) * 4);
+  }
 
-.mail-inbox__thread-meta {
-  display: grid;
-  min-width: 0;
-  flex: 1;
-  gap: calc(var(--spacing) * 1);
-}
+  .mail-inbox__thread-meta {
+    display: grid;
+    min-width: 0;
+    flex: 1;
+    gap: calc(var(--spacing) * 1);
+  }
 
-.mail-inbox__thread-name {
-  font-weight: 600;
-}
+  .mail-inbox__thread-name {
+    font-weight: 600;
+  }
 
-.mail-inbox__thread-line,
-.mail-inbox__thread-date {
-  overflow: hidden;
-  font-size: 0.75rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+  .mail-inbox__thread-line,
+  .mail-inbox__thread-date {
+    overflow: hidden;
+    font-size: 0.75rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
-.mail-inbox__reply-to {
-  font-weight: 500;
-}
+  .mail-inbox__reply-to {
+    font-weight: 500;
+  }
 
-.mail-inbox__thread-date {
-  margin-left: auto;
-  color: var(--muted-foreground);
-}
+  .mail-inbox__thread-date {
+    margin-left: auto;
+    color: var(--muted-foreground);
+  }
 
-.mail-inbox__body {
-  flex: 1;
-  padding: calc(var(--spacing) * 4);
-  font-size: 0.875rem;
-  white-space: pre-wrap;
-}
+  .mail-inbox__body {
+    flex: 1;
+    padding: calc(var(--spacing) * 4);
+    font-size: 0.875rem;
+    white-space: pre-wrap;
+  }
 
-.mail-inbox__reply-separator {
-  margin-top: auto;
-}
+  .mail-inbox__reply-separator {
+    margin-top: auto;
+  }
 
-.mail-inbox__reply {
-  display: grid;
-  padding: calc(var(--spacing) * 4);
-  gap: calc(var(--spacing) * 4);
-}
+  .mail-inbox__reply {
+    display: grid;
+    padding: calc(var(--spacing) * 4);
+    gap: calc(var(--spacing) * 4);
+  }
 
-.mail-inbox__reply-input {
-  padding: calc(var(--spacing) * 4);
-}
+  .mail-inbox__reply-input {
+    padding: calc(var(--spacing) * 4);
+  }
 
-.mail-inbox__mute {
-  display: flex;
-  align-items: center;
-  font-size: 0.75rem;
-  font-weight: 400;
-  gap: calc(var(--spacing) * 2);
-}
+  .mail-inbox__mute {
+    display: flex;
+    align-items: center;
+    font-size: 0.75rem;
+    font-weight: 400;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.mail-inbox__send {
-  margin-left: auto;
-}
+  .mail-inbox__send {
+    margin-left: auto;
+  }
 
-.mail-inbox__empty {
-  padding: calc(var(--spacing) * 8);
-  color: var(--muted-foreground);
-  text-align: center;
+  .mail-inbox__empty {
+    padding: calc(var(--spacing) * 8);
+    color: var(--muted-foreground);
+    text-align: center;
+  }
 }
 </style>

@@ -24,19 +24,21 @@ const delegatedAttrs = () => {
 </template>
 
 <style>
-.sigma-ui-breadcrumb__list {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  color: var(--muted-foreground);
-  font-size: 0.875rem;
-  gap: calc(var(--spacing) * 1.5);
-  overflow-wrap: break-word;
-}
-
-@media (width >= 40rem) {
+@layer components {
   .sigma-ui-breadcrumb__list {
-    gap: calc(var(--spacing) * 2.5);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+    gap: calc(var(--spacing) * 1.5);
+    overflow-wrap: break-word;
+  }
+
+  @media (width >= 40rem) {
+    .sigma-ui-breadcrumb__list {
+      gap: calc(var(--spacing) * 2.5);
+    }
   }
 }
 </style>

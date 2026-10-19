@@ -30,28 +30,30 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
-.sigma-ui-autocomplete-input {
-  display: flex;
-  width: 100%;
-  height: calc(var(--spacing) * 9);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  background-color: var(--input);
-  font-size: 0.875rem;
-  padding-block: calc(var(--spacing) * 1);
-  padding-inline: calc(var(--spacing) * 3);
-}
+@layer components {
+  .sigma-ui-autocomplete-input {
+    display: flex;
+    width: 100%;
+    height: calc(var(--spacing) * 9);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background-color: var(--input);
+    font-size: 0.875rem;
+    padding-block: calc(var(--spacing) * 1);
+    padding-inline: calc(var(--spacing) * 3);
+  }
 
-.sigma-ui-autocomplete-input::placeholder {
-  color: var(--muted-foreground);
-}
+  .sigma-ui-autocomplete-input::placeholder {
+    color: var(--muted-foreground);
+  }
 
-.sigma-ui-autocomplete-input:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
-}
+  .sigma-ui-autocomplete-input:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
 
-.sigma-ui-autocomplete-input:disabled {
-  opacity: 0.5;
+  .sigma-ui-autocomplete-input:disabled {
+    opacity: 0.5;
+  }
 }
 </style>

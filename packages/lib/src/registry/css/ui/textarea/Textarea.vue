@@ -36,28 +36,30 @@ defineEmits<{
 </template>
 
 <style>
-.sigma-ui-textarea {
-  display: flex;
-  width: 100%;
-  min-height: calc(var(--spacing) * 20);
-  padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  background-color: var(--input);
-  font-size: 0.875rem;
-}
+@layer components {
+  .sigma-ui-textarea {
+    display: flex;
+    width: 100%;
+    min-height: calc(var(--spacing) * 20);
+    padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background-color: var(--input);
+    font-size: 0.875rem;
+  }
 
-.sigma-ui-textarea::placeholder {
-  color: var(--muted-foreground);
-}
+  .sigma-ui-textarea::placeholder {
+    color: var(--muted-foreground);
+  }
 
-.sigma-ui-textarea:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
-}
+  .sigma-ui-textarea:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
 
-.sigma-ui-textarea:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
+  .sigma-ui-textarea:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 }
 </style>

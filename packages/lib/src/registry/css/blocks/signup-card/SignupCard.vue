@@ -82,46 +82,48 @@ import { Label } from '@ui/registry/css/ui/label';
 </template>
 
 <style>
-.signup-card__card {
-  max-width: 24rem;
-  margin-right: auto;
-  margin-left: auto;
-}
+@layer components {
+  .signup-card__card {
+    max-width: 24rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
 
-.signup-card__title {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
+  .signup-card__title {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
 
-.signup-card__form {
-  display: grid;
-  gap: calc(var(--spacing) * 4);
-}
+  .signup-card__form {
+    display: grid;
+    gap: calc(var(--spacing) * 4);
+  }
 
-.signup-card__name-row {
-  display: grid;
-  gap: calc(var(--spacing) * 4);
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
+  .signup-card__name-row {
+    display: grid;
+    gap: calc(var(--spacing) * 4);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 
-.signup-card__field {
-  display: grid;
-  gap: calc(var(--spacing) * 2);
-}
+  .signup-card__field {
+    display: grid;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.signup-card__button {
-  width: 100%;
-}
+  .signup-card__button {
+    width: 100%;
+  }
 
-.signup-card__footer {
-  margin-top: calc(var(--spacing) * 4);
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  text-align: center;
-}
+  .signup-card__footer {
+    margin-top: calc(var(--spacing) * 4);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-align: center;
+  }
 
-.signup-card__link {
-  color: inherit;
-  text-decoration: underline;
+  .signup-card__link {
+    color: inherit;
+    text-decoration: underline;
+  }
 }
 </style>

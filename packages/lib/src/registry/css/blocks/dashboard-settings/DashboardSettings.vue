@@ -61,67 +61,69 @@ import {
 </template>
 
 <style>
-.dashboard-settings {
-  display: flex;
-  width: 100%;
-  min-height: 100vh;
-  flex-direction: column;
-}
+@layer components {
+  .dashboard-settings {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    flex-direction: column;
+  }
 
-.dashboard-settings__main {
-  display: flex;
-  min-height: calc(100vh - 4rem);
-  flex: 1 1 0%;
-  flex-direction: column;
-  padding: calc(var(--spacing) * 4);
-  background-color: color-mix(in oklch, var(--muted) 40%, transparent);
-  gap: calc(var(--spacing) * 4);
-}
-
-.dashboard-settings__intro,
-.dashboard-settings__layout {
-  display: grid;
-  width: 100%;
-  max-width: 72rem;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.dashboard-settings__intro {
-  gap: calc(var(--spacing) * 2);
-}
-
-.dashboard-settings__layout {
-  align-items: start;
-  gap: calc(var(--spacing) * 6);
-}
-
-.dashboard-settings__title {
-  margin: 0;
-  font-size: 1.875rem;
-  font-weight: 600;
-  line-height: 2.25rem;
-}
-
-.dashboard-settings__cards {
-  display: grid;
-  gap: calc(var(--spacing) * 6);
-}
-
-@media (width >= 48rem) {
   .dashboard-settings__main {
-    padding: calc(var(--spacing) * 10);
-    gap: calc(var(--spacing) * 8);
+    display: flex;
+    min-height: calc(100vh - 4rem);
+    flex: 1 1 0%;
+    flex-direction: column;
+    padding: calc(var(--spacing) * 4);
+    background-color: color-mix(in oklch, var(--muted) 40%, transparent);
+    gap: calc(var(--spacing) * 4);
+  }
+
+  .dashboard-settings__intro,
+  .dashboard-settings__layout {
+    display: grid;
+    width: 100%;
+    max-width: 72rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .dashboard-settings__intro {
+    gap: calc(var(--spacing) * 2);
   }
 
   .dashboard-settings__layout {
-    grid-template-columns: 180px 1fr;
+    align-items: start;
+    gap: calc(var(--spacing) * 6);
   }
-}
 
-@media (width >= 64rem) {
-  .dashboard-settings__layout {
-    grid-template-columns: 250px 1fr;
+  .dashboard-settings__title {
+    margin: 0;
+    font-size: 1.875rem;
+    font-weight: 600;
+    line-height: 2.25rem;
+  }
+
+  .dashboard-settings__cards {
+    display: grid;
+    gap: calc(var(--spacing) * 6);
+  }
+
+  @media (width >= 48rem) {
+    .dashboard-settings__main {
+      padding: calc(var(--spacing) * 10);
+      gap: calc(var(--spacing) * 8);
+    }
+
+    .dashboard-settings__layout {
+      grid-template-columns: 180px 1fr;
+    }
+  }
+
+  @media (width >= 64rem) {
+    .dashboard-settings__layout {
+      grid-template-columns: 250px 1fr;
+    }
   }
 }
 </style>

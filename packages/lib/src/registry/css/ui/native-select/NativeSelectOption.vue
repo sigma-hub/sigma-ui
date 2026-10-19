@@ -30,8 +30,10 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-native-select-option {
-  background-color: var(--popover);
-  color: var(--popover-foreground);
+@layer components {
+  .sigma-ui-native-select-option {
+    background-color: var(--popover);
+    color: var(--popover-foreground);
+  }
 }
 </style>

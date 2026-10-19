@@ -55,43 +55,45 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-avatar {
-  display: inline-flex;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  color: var(--foreground);
-  font-weight: normal;
-  user-select: none;
-}
+@layer components {
+  .sigma-ui-avatar {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    color: var(--foreground);
+    font-weight: normal;
+    user-select: none;
+  }
 
-.sigma-ui-avatar__fallback-icon {
-  width: 40%;
-  height: 40%;
-  color: color-mix(in oklch, var(--primary) 50%, transparent);
-}
+  .sigma-ui-avatar__fallback-icon {
+    width: 40%;
+    height: 40%;
+    color: color-mix(in oklch, var(--primary) 50%, transparent);
+  }
 
-.sigma-ui-avatar--xs {
-  width: calc(var(--spacing) * 6);
-  height: calc(var(--spacing) * 6);
-  font-size: 0.75rem;
-}
+  .sigma-ui-avatar--xs {
+    width: calc(var(--spacing) * 6);
+    height: calc(var(--spacing) * 6);
+    font-size: 0.75rem;
+  }
 
-.sigma-ui-avatar--sm {
-  width: calc(var(--spacing) * 10);
-  height: calc(var(--spacing) * 10);
-  font-size: 0.75rem;
-}
+  .sigma-ui-avatar--sm {
+    width: calc(var(--spacing) * 10);
+    height: calc(var(--spacing) * 10);
+    font-size: 0.75rem;
+  }
 
-.sigma-ui-avatar--base {
-  width: calc(var(--spacing) * 16);
-  height: calc(var(--spacing) * 16);
-  font-size: 1.5rem;
-}
+  .sigma-ui-avatar--base {
+    width: calc(var(--spacing) * 16);
+    height: calc(var(--spacing) * 16);
+    font-size: 1.5rem;
+  }
 
-.sigma-ui-avatar--lg {
-  width: calc(var(--spacing) * 32);
-  height: calc(var(--spacing) * 32);
-  font-size: 3rem;
+  .sigma-ui-avatar--lg {
+    width: calc(var(--spacing) * 32);
+    height: calc(var(--spacing) * 32);
+    font-size: 3rem;
+  }
 }
 </style>

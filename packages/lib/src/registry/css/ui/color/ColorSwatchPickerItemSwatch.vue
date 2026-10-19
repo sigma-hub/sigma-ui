@@ -27,12 +27,14 @@ const forwarded = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-color-swatch-picker-swatch {
-  display: block;
-  width: calc(var(--spacing) * 6);
-  height: calc(var(--spacing) * 6);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  background-color: var(--reka-color-swatch-color);
+@layer components {
+  .sigma-ui-color-swatch-picker-swatch {
+    display: block;
+    width: calc(var(--spacing) * 6);
+    height: calc(var(--spacing) * 6);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background-color: var(--reka-color-swatch-color);
+  }
 }
 </style>

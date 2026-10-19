@@ -38,35 +38,37 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-context-menu-sub-trigger {
-  display: flex;
-  align-items: center;
-  padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
-  border-radius: var(--radius-sm);
-  cursor: default;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  outline: none;
-  user-select: none;
-}
+@layer components {
+  .sigma-ui-context-menu-sub-trigger {
+    display: flex;
+    align-items: center;
+    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
+    border-radius: var(--radius-sm);
+    cursor: default;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    outline: none;
+    user-select: none;
+  }
 
-.sigma-ui-context-menu-sub-trigger:focus {
-  background-color: var(--secondary);
-  color: var(--secondary-foreground);
-}
+  .sigma-ui-context-menu-sub-trigger:focus {
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+  }
 
-.sigma-ui-context-menu-sub-trigger[data-state="open"] {
-  background-color: var(--secondary);
-  color: var(--secondary-foreground);
-}
+  .sigma-ui-context-menu-sub-trigger[data-state="open"] {
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+  }
 
-.sigma-ui-context-menu-sub-trigger--inset {
-  padding-left: calc(var(--spacing) * 8);
-}
+  .sigma-ui-context-menu-sub-trigger--inset {
+    padding-left: calc(var(--spacing) * 8);
+  }
 
-.sigma-ui-context-menu-sub-trigger__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  margin-left: auto;
+  .sigma-ui-context-menu-sub-trigger__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-left: auto;
+  }
 }
 </style>

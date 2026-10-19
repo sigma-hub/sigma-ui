@@ -70,18 +70,20 @@ const messages = computed(() => {
 </template>
 
 <style>
-.sigma-ui-field-error {
-  color: var(--destructive);
-  font-size: 0.875rem;
-  font-weight: 400;
-}
+@layer components {
+  .sigma-ui-field-error {
+    color: var(--destructive);
+    font-size: 0.875rem;
+    font-weight: 400;
+  }
 
-.sigma-ui-field-error__list {
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  margin: 0 0 0 calc(var(--spacing) * 4);
-  gap: calc(var(--spacing) * 1);
-  list-style: disc;
+  .sigma-ui-field-error__list {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0 0 0 calc(var(--spacing) * 4);
+    gap: calc(var(--spacing) * 1);
+    list-style: disc;
+  }
 }
 </style>

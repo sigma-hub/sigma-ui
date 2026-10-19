@@ -138,53 +138,55 @@ const formatter = useDateFormatter('en');
 </template>
 
 <style>
-.example-sigma-ui-calendar-select {
-  padding: calc(var(--spacing) * 3);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-}
+@layer components {
+  .example-sigma-ui-calendar-select {
+    padding: calc(var(--spacing) * 3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+  }
 
-.example-sigma-ui-calendar-select__heading {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-  gap: calc(var(--spacing) * 2);
-}
+  .example-sigma-ui-calendar-select__heading {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-calendar-select__month-trigger {
-  width: 60%;
-}
+  .example-sigma-ui-calendar-select__month-trigger {
+    width: 60%;
+  }
 
-.example-sigma-ui-calendar-select__year-trigger {
-  width: 40%;
-}
+  .example-sigma-ui-calendar-select__year-trigger {
+    width: 40%;
+  }
 
-.example-sigma-ui-calendar-select__month-content,
-.example-sigma-ui-calendar-select__year-content {
-  max-height: 200px;
-}
+  .example-sigma-ui-calendar-select__month-content,
+  .example-sigma-ui-calendar-select__year-content {
+    max-height: 200px;
+  }
 
-.example-sigma-ui-calendar-select__grid-container {
-  display: flex;
-  flex-direction: column;
-  padding-top: calc(var(--spacing) * 4);
-  gap: calc(var(--spacing) * 4);
-}
-
-.example-sigma-ui-calendar-select__grid {
-  display: grid;
-}
-
-.example-sigma-ui-calendar-select__week-row {
-  width: 100%;
-  margin-top: calc(var(--spacing) * 2);
-}
-
-@media (width >= 40rem) {
   .example-sigma-ui-calendar-select__grid-container {
-    flex-direction: row;
+    display: flex;
+    flex-direction: column;
+    padding-top: calc(var(--spacing) * 4);
     gap: calc(var(--spacing) * 4);
+  }
+
+  .example-sigma-ui-calendar-select__grid {
+    display: grid;
+  }
+
+  .example-sigma-ui-calendar-select__week-row {
+    width: 100%;
+    margin-top: calc(var(--spacing) * 2);
+  }
+
+  @media (width >= 40rem) {
+    .example-sigma-ui-calendar-select__grid-container {
+      flex-direction: row;
+      gap: calc(var(--spacing) * 4);
+    }
   }
 }
 </style>

@@ -31,13 +31,15 @@ withDefaults(defineProps<PrimitiveProps>(), {
 </template>
 
 <style>
-.sigma-ui-breadcrumb__link {
-  transition-duration: 150ms;
-  transition-property: color;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
+@layer components {
+  .sigma-ui-breadcrumb__link {
+    transition-duration: 150ms;
+    transition-property: color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
-.sigma-ui-breadcrumb__link:hover {
-  color: var(--foreground);
+  .sigma-ui-breadcrumb__link:hover {
+    color: var(--foreground);
+  }
 }
 </style>

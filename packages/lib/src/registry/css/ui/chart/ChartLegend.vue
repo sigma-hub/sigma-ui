@@ -59,12 +59,14 @@ function onLegendItemClick(d: BulletLegendItemInterface, i: number) {
 </template>
 
 <style>
-.sigma-ui-chart-legend {
-  width: max-content;
-}
+@layer components {
+  .sigma-ui-chart-legend {
+    width: max-content;
+  }
 
-.sigma-ui-chart-legend__item {
-  display: inline-flex !important;
-  margin-right: calc(var(--spacing) * 2);
+  .sigma-ui-chart-legend__item {
+    display: inline-flex !important;
+    margin-right: calc(var(--spacing) * 2);
+  }
 }
 </style>

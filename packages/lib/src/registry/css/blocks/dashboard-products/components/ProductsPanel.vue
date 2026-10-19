@@ -199,115 +199,117 @@ defineProps<{
 </template>
 
 <style>
-.dashboard-products__toolbar {
-  display: flex;
-  align-items: center;
-}
-
-.dashboard-products__toolbar-actions {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  gap: calc(var(--spacing) * 2);
-}
-
-.dashboard-products .dashboard-products__tab--desktop {
-  display: none;
-}
-
-@media (width >= 40rem) {
-  .dashboard-products .dashboard-products__tab--desktop {
+@layer components {
+  .dashboard-products__toolbar {
     display: flex;
+    align-items: center;
   }
-}
 
-.dashboard-products .dashboard-products__toolbar-button {
-  height: calc(var(--spacing) * 7);
-  gap: calc(var(--spacing) * 1);
-}
+  .dashboard-products__toolbar-actions {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.dashboard-products .dashboard-products__toolbar-button svg {
-  width: calc(var(--spacing) * 3.5);
-  height: calc(var(--spacing) * 3.5);
-}
+  .dashboard-products .dashboard-products__tab--desktop {
+    display: none;
+  }
 
-.dashboard-products .dashboard-products__row-button svg {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-}
+  @media (width >= 40rem) {
+    .dashboard-products .dashboard-products__tab--desktop {
+      display: flex;
+    }
+  }
 
-.dashboard-products__action-label {
-  position: absolute;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  border-width: 0;
-  margin: -1px;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-}
+  .dashboard-products .dashboard-products__toolbar-button {
+    height: calc(var(--spacing) * 7);
+    gap: calc(var(--spacing) * 1);
+  }
 
-@media (width >= 40rem) {
+  .dashboard-products .dashboard-products__toolbar-button svg {
+    width: calc(var(--spacing) * 3.5);
+    height: calc(var(--spacing) * 3.5);
+  }
+
+  .dashboard-products .dashboard-products__row-button svg {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
+
   .dashboard-products__action-label {
-    position: static;
-    overflow: visible;
-    width: auto;
-    height: auto;
-    margin: 0;
-    clip: auto;
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border-width: 0;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
     white-space: nowrap;
   }
-}
 
-.dashboard-products__image-head,
-.dashboard-products__image-cell,
-.dashboard-products__detail-cell {
-  display: none;
-}
+  @media (width >= 40rem) {
+    .dashboard-products__action-label {
+      position: static;
+      overflow: visible;
+      width: auto;
+      height: auto;
+      margin: 0;
+      clip: auto;
+      white-space: nowrap;
+    }
+  }
 
-.dashboard-products__image-head {
-  width: 100px;
-}
-
-@media (width >= 40rem) {
   .dashboard-products__image-head,
-  .dashboard-products__image-cell {
-    display: table-cell;
-  }
-}
-
-@media (width >= 48rem) {
+  .dashboard-products__image-cell,
   .dashboard-products__detail-cell {
-    display: table-cell;
+    display: none;
   }
-}
 
-.dashboard-products__image {
-  border-radius: calc(var(--radius) - 2px);
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-}
+  .dashboard-products__image-head {
+    width: 100px;
+  }
 
-.dashboard-products__name {
-  font-weight: 500;
-}
+  @media (width >= 40rem) {
+    .dashboard-products__image-head,
+    .dashboard-products__image-cell {
+      display: table-cell;
+    }
+  }
 
-.dashboard-products__summary {
-  color: var(--muted-foreground);
-  font-size: 0.75rem;
-  line-height: 1rem;
-}
+  @media (width >= 48rem) {
+    .dashboard-products__detail-cell {
+      display: table-cell;
+    }
+  }
 
-.dashboard-products__sr-only {
-  position: absolute;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  border-width: 0;
-  margin: -1px;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
+  .dashboard-products__image {
+    border-radius: calc(var(--radius) - 2px);
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+
+  .dashboard-products__name {
+    font-weight: 500;
+  }
+
+  .dashboard-products__summary {
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+  .dashboard-products__sr-only {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border-width: 0;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
 }
 </style>

@@ -47,10 +47,12 @@ import { Button } from '@ui/registry/css/ui/button';
 </template>
 
 <style>
-.example-button-sizes {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: calc(var(--spacing) * 3);
+@layer components {
+  .example-button-sizes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: calc(var(--spacing) * 3);
+  }
 }
 </style>

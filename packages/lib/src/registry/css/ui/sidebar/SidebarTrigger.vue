@@ -31,13 +31,15 @@ const { toggleSidebar } = useSidebar();
 </template>
 
 <style>
-.sigma-ui-button.sigma-ui-sidebar-trigger {
-  width: calc(var(--spacing) * 7);
-  height: calc(var(--spacing) * 7);
-}
+@layer components {
+  .sigma-ui-button.sigma-ui-sidebar-trigger {
+    width: calc(var(--spacing) * 7);
+    height: calc(var(--spacing) * 7);
+  }
 
-.sigma-ui-sidebar-trigger__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
+  .sigma-ui-sidebar-trigger__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 }
 </style>

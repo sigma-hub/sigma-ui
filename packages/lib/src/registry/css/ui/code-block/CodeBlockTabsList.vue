@@ -32,14 +32,16 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-code-block__tabs-list {
-  display: flex;
-  min-width: 0;
-  align-items: center;
-  padding: calc(var(--spacing) * 0.5);
-  margin: calc(var(--spacing) * -0.5) 0;
-  gap: calc(var(--spacing) * 0.5);
-  overflow-x: auto;
-  scrollbar-width: none;
+@layer components {
+  .sigma-ui-code-block__tabs-list {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    padding: calc(var(--spacing) * 0.5);
+    margin: calc(var(--spacing) * -0.5) 0;
+    gap: calc(var(--spacing) * 0.5);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
 }
 </style>

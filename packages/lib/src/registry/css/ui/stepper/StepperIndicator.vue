@@ -37,27 +37,29 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-stepper-indicator {
-  display: inline-flex;
-  width: calc(var(--spacing) * 8);
-  height: calc(var(--spacing) * 8);
-  align-items: center;
-  justify-content: center;
-  border-radius: 9999px;
-  color: color-mix(in oklch, var(--muted-foreground) 50%, transparent);
-}
+@layer components {
+  .sigma-ui-stepper-indicator {
+    display: inline-flex;
+    width: calc(var(--spacing) * 8);
+    height: calc(var(--spacing) * 8);
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    color: color-mix(in oklch, var(--muted-foreground) 50%, transparent);
+  }
 
-.sigma-ui-stepper-item[data-disabled] .sigma-ui-stepper-indicator {
-  opacity: 0.5;
-}
+  .sigma-ui-stepper-item[data-disabled] .sigma-ui-stepper-indicator {
+    opacity: 0.5;
+  }
 
-.sigma-ui-stepper-item[data-state="active"] .sigma-ui-stepper-indicator {
-  background-color: var(--primary);
-  color: var(--primary-foreground);
-}
+  .sigma-ui-stepper-item[data-state="active"] .sigma-ui-stepper-indicator {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+  }
 
-.sigma-ui-stepper-item[data-state="completed"] .sigma-ui-stepper-indicator {
-  background-color: var(--accent);
-  color: var(--accent-foreground);
+  .sigma-ui-stepper-item[data-state="completed"] .sigma-ui-stepper-indicator {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+  }
 }
 </style>

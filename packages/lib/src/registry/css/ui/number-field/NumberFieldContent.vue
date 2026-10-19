@@ -24,15 +24,17 @@ const delegatedAttrs = () => {
 </template>
 
 <style>
-.sigma-ui-number-field-content {
-  position: relative;
-}
+@layer components {
+  .sigma-ui-number-field-content {
+    position: relative;
+  }
 
-.sigma-ui-number-field-content > [data-slot="input"]:has([data-slot="increment"]) {
-  padding-right: calc(var(--spacing) * 5);
-}
+  .sigma-ui-number-field-content > [data-slot="input"]:has([data-slot="increment"]) {
+    padding-right: calc(var(--spacing) * 5);
+  }
 
-.sigma-ui-number-field-content > [data-slot="input"]:has([data-slot="decrement"]) {
-  padding-left: calc(var(--spacing) * 5);
+  .sigma-ui-number-field-content > [data-slot="input"]:has([data-slot="decrement"]) {
+    padding-left: calc(var(--spacing) * 5);
+  }
 }
 </style>

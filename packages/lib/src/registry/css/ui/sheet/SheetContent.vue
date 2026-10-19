@@ -52,221 +52,223 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 </template>
 
 <style>
-.sigma-ui-sheet-overlay {
-  position: fixed;
-  z-index: 50;
-  background-color: rgb(0 0 0 / 80%);
-  inset: 0;
-}
+@layer components {
+  .sigma-ui-sheet-overlay {
+    position: fixed;
+    z-index: 50;
+    background-color: rgb(0 0 0 / 80%);
+    inset: 0;
+  }
 
-.sigma-ui-sheet-overlay[data-state="open"] {
-  animation: sigma-ui-fade-in 150ms ease-out;
-}
+  .sigma-ui-sheet-overlay[data-state="open"] {
+    animation: sigma-ui-fade-in 150ms ease-out;
+  }
 
-.sigma-ui-sheet-overlay[data-state="closed"] {
-  animation: sigma-ui-fade-out 150ms ease-in forwards;
-}
+  .sigma-ui-sheet-overlay[data-state="closed"] {
+    animation: sigma-ui-fade-out 150ms ease-in forwards;
+  }
 
-.sigma-ui-sheet-content__base {
-  position: fixed;
-  z-index: 50;
-  padding: calc(var(--spacing) * 6);
-  background-color: var(--background);
-  box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
-  transition: all 0.3s ease-in-out;
-}
+  .sigma-ui-sheet-content__base {
+    position: fixed;
+    z-index: 50;
+    padding: calc(var(--spacing) * 6);
+    background-color: var(--background);
+    box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+    transition: all 0.3s ease-in-out;
+  }
 
-.sigma-ui-sheet-content__base[data-state="open"] {
-  animation-duration: 500ms;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
+  .sigma-ui-sheet-content__base[data-state="open"] {
+    animation-duration: 500ms;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
-.sigma-ui-sheet-content__base[data-state="closed"] {
-  animation-duration: 300ms;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
+  .sigma-ui-sheet-content__base[data-state="closed"] {
+    animation-duration: 300ms;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
-.sigma-ui-sheet-content--top {
-  top: 0;
-  border-bottom: 1px solid var(--border);
-  inset-inline: 0;
-}
+  .sigma-ui-sheet-content--top {
+    top: 0;
+    border-bottom: 1px solid var(--border);
+    inset-inline: 0;
+  }
 
-.sigma-ui-sheet-content--top[data-state="closed"] {
-  animation-name: sigma-ui-slide-out-to-top;
-}
+  .sigma-ui-sheet-content--top[data-state="closed"] {
+    animation-name: sigma-ui-slide-out-to-top;
+  }
 
-.sigma-ui-sheet-content--top[data-state="open"] {
-  animation-name: sigma-ui-slide-in-from-top;
-}
+  .sigma-ui-sheet-content--top[data-state="open"] {
+    animation-name: sigma-ui-slide-in-from-top;
+  }
 
-.sigma-ui-sheet-content--bottom {
-  bottom: 0;
-  border-top: 1px solid var(--border);
-  inset-inline: 0;
-}
+  .sigma-ui-sheet-content--bottom {
+    bottom: 0;
+    border-top: 1px solid var(--border);
+    inset-inline: 0;
+  }
 
-.sigma-ui-sheet-content--bottom[data-state="closed"] {
-  animation-name: sigma-ui-slide-out-to-bottom;
-}
+  .sigma-ui-sheet-content--bottom[data-state="closed"] {
+    animation-name: sigma-ui-slide-out-to-bottom;
+  }
 
-.sigma-ui-sheet-content--bottom[data-state="open"] {
-  animation-name: sigma-ui-slide-in-from-bottom;
-}
+  .sigma-ui-sheet-content--bottom[data-state="open"] {
+    animation-name: sigma-ui-slide-in-from-bottom;
+  }
 
-.sigma-ui-sheet-content--left {
-  left: 0;
-  width: 75%;
-  height: 100%;
-  border-right: 1px solid var(--border);
-  inset-block: 0;
-}
-
-.sigma-ui-sheet-content--left[data-state="closed"] {
-  animation-name: sigma-ui-slide-out-to-left;
-}
-
-.sigma-ui-sheet-content--left[data-state="open"] {
-  animation-name: sigma-ui-slide-in-from-left;
-}
-
-@media (width >= 40rem) {
   .sigma-ui-sheet-content--left {
-    max-width: 24rem;
+    left: 0;
+    width: 75%;
+    height: 100%;
+    border-right: 1px solid var(--border);
+    inset-block: 0;
   }
-}
 
-.sigma-ui-sheet-content--right {
-  right: 0;
-  width: 75%;
-  height: 100%;
-  border-left: 1px solid var(--border);
-  inset-block: 0;
-}
+  .sigma-ui-sheet-content--left[data-state="closed"] {
+    animation-name: sigma-ui-slide-out-to-left;
+  }
 
-.sigma-ui-sheet-content--right[data-state="closed"] {
-  animation-name: sigma-ui-slide-out-to-right;
-}
+  .sigma-ui-sheet-content--left[data-state="open"] {
+    animation-name: sigma-ui-slide-in-from-left;
+  }
 
-.sigma-ui-sheet-content--right[data-state="open"] {
-  animation-name: sigma-ui-slide-in-from-right;
-}
+  @media (width >= 40rem) {
+    .sigma-ui-sheet-content--left {
+      max-width: 24rem;
+    }
+  }
 
-@media (width >= 40rem) {
   .sigma-ui-sheet-content--right {
-    max-width: 24rem;
-  }
-}
-
-.sigma-ui-sheet-close {
-  position: absolute;
-  top: calc(var(--spacing) * 4);
-  right: calc(var(--spacing) * 4);
-  border-radius: var(--radius-sm);
-  opacity: 0.7;
-  transition: opacity 0.2s;
-}
-
-.sigma-ui-sheet-close:hover {
-  opacity: 1;
-}
-
-.sigma-ui-sheet-close:focus {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
-}
-
-.sigma-ui-sheet-close:disabled {
-  pointer-events: none;
-}
-
-.sigma-ui-sheet-close[data-state="open"] {
-  background-color: var(--secondary);
-}
-
-.sigma-ui-sheet-close__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  color: var(--muted-foreground);
-}
-
-@keyframes sigma-ui-slide-in-from-top {
-  from {
-    transform: translateY(-100%);
+    right: 0;
+    width: 75%;
+    height: 100%;
+    border-left: 1px solid var(--border);
+    inset-block: 0;
   }
 
-  to {
-    transform: translateY(0);
-  }
-}
-
-@keyframes sigma-ui-slide-out-to-top {
-  from {
-    transform: translateY(0);
+  .sigma-ui-sheet-content--right[data-state="closed"] {
+    animation-name: sigma-ui-slide-out-to-right;
   }
 
-  to {
-    transform: translateY(-100%);
-  }
-}
-
-@keyframes sigma-ui-slide-in-from-bottom {
-  from {
-    transform: translateY(100%);
+  .sigma-ui-sheet-content--right[data-state="open"] {
+    animation-name: sigma-ui-slide-in-from-right;
   }
 
-  to {
-    transform: translateY(0);
-  }
-}
-
-@keyframes sigma-ui-slide-out-to-bottom {
-  from {
-    transform: translateY(0);
+  @media (width >= 40rem) {
+    .sigma-ui-sheet-content--right {
+      max-width: 24rem;
+    }
   }
 
-  to {
-    transform: translateY(100%);
-  }
-}
-
-@keyframes sigma-ui-slide-in-from-left {
-  from {
-    transform: translateX(-100%);
-  }
-
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes sigma-ui-slide-out-to-left {
-  from {
-    transform: translateX(0);
+  .sigma-ui-sheet-close {
+    position: absolute;
+    top: calc(var(--spacing) * 4);
+    right: calc(var(--spacing) * 4);
+    border-radius: var(--radius-sm);
+    opacity: 0.7;
+    transition: opacity 0.2s;
   }
 
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes sigma-ui-slide-in-from-right {
-  from {
-    transform: translateX(100%);
+  .sigma-ui-sheet-close:hover {
+    opacity: 1;
   }
 
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes sigma-ui-slide-out-to-right {
-  from {
-    transform: translateX(0);
+  .sigma-ui-sheet-close:focus {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
   }
 
-  to {
-    transform: translateX(100%);
+  .sigma-ui-sheet-close:disabled {
+    pointer-events: none;
+  }
+
+  .sigma-ui-sheet-close[data-state="open"] {
+    background-color: var(--secondary);
+  }
+
+  .sigma-ui-sheet-close__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    color: var(--muted-foreground);
+  }
+
+  @keyframes sigma-ui-slide-in-from-top {
+    from {
+      transform: translateY(-100%);
+    }
+
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes sigma-ui-slide-out-to-top {
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(-100%);
+    }
+  }
+
+  @keyframes sigma-ui-slide-in-from-bottom {
+    from {
+      transform: translateY(100%);
+    }
+
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes sigma-ui-slide-out-to-bottom {
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(100%);
+    }
+  }
+
+  @keyframes sigma-ui-slide-in-from-left {
+    from {
+      transform: translateX(-100%);
+    }
+
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes sigma-ui-slide-out-to-left {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes sigma-ui-slide-in-from-right {
+    from {
+      transform: translateX(100%);
+    }
+
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes sigma-ui-slide-out-to-right {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(100%);
+    }
   }
 }
 </style>

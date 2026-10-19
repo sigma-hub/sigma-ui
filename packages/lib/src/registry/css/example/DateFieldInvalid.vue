@@ -30,7 +30,9 @@ const isInvalid = computed(() => !!value.value && value.value.compare(today(getL
 </template>
 
 <style>
-.example-sigma-ui-date-field-invalid {
-  max-width: 20rem;
+@layer components {
+  .example-sigma-ui-date-field-invalid {
+    max-width: 20rem;
+  }
 }
 </style>

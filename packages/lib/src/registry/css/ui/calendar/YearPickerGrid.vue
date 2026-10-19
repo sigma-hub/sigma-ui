@@ -28,12 +28,12 @@ const forwarded = useForwardProps(props);
 </template>
 
 <style>
-
-.sigma-ui-year-picker-grid {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  border-collapse: collapse;
+@layer components {
+  .sigma-ui-year-picker-grid {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    border-collapse: collapse;
+  }
 }
-
 </style>

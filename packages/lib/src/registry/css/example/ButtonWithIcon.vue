@@ -10,9 +10,11 @@ import { Button } from '@ui/registry/css/ui/button';
 </template>
 
 <style>
-.example-sigma-ui-button-with-icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  margin-right: calc(var(--spacing) * 2);
+@layer components {
+  .example-sigma-ui-button-with-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-right: calc(var(--spacing) * 2);
+  }
 }
 </style>

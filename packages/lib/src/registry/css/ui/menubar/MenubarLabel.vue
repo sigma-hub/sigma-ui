@@ -30,13 +30,15 @@ defineProps<MenubarLabelProps & {
 </template>
 
 <style>
-.sigma-ui-menubar-label {
-  padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
-  font-size: 0.875rem;
-  font-weight: 600;
-}
+@layer components {
+  .sigma-ui-menubar-label {
+    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
 
-.sigma-ui-menubar-label--inset {
-  padding-left: calc(var(--spacing) * 8);
+  .sigma-ui-menubar-label--inset {
+    padding-left: calc(var(--spacing) * 8);
+  }
 }
 </style>

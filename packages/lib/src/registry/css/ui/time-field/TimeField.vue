@@ -51,35 +51,37 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-time-field {
-  display: inline-flex;
-  height: calc(var(--spacing) * 9);
-  align-items: center;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  background-color: var(--input);
-  font-size: 1rem;
-  padding-inline: calc(var(--spacing) * 3);
-}
-
-@media (width >= 48rem) {
+@layer components {
   .sigma-ui-time-field {
-    font-size: 0.875rem;
+    display: inline-flex;
+    height: calc(var(--spacing) * 9);
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background-color: var(--input);
+    font-size: 1rem;
+    padding-inline: calc(var(--spacing) * 3);
   }
-}
 
-.sigma-ui-time-field:focus-within {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
-}
+  @media (width >= 48rem) {
+    .sigma-ui-time-field {
+      font-size: 0.875rem;
+    }
+  }
 
-.sigma-ui-time-field[data-invalid],
-.sigma-ui-time-field[aria-invalid="true"] {
-  border-color: var(--destructive);
-}
+  .sigma-ui-time-field:focus-within {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
 
-.sigma-ui-time-field[data-disabled] {
-  cursor: not-allowed;
-  opacity: 0.5;
+  .sigma-ui-time-field[data-invalid],
+  .sigma-ui-time-field[aria-invalid="true"] {
+    border-color: var(--destructive);
+  }
+
+  .sigma-ui-time-field[data-disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 }
 </style>

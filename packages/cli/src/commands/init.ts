@@ -14,6 +14,7 @@ import {
   TAILWIND_V4_CSS_TEMPLATE,
   UTILS_TEMPLATE,
 } from '@sigma-ui/shared/templates/tailwind-config';
+import { withCssLayerOrder } from '@sigma-ui/shared/templates/css-styles';
 import { PREFLIGHT_CSS_TEMPLATE } from '@sigma-ui/shared/templates/preflight';
 import {
   initOptionsSchema,
@@ -268,9 +269,9 @@ export function getCssFileContent(config: Config) {
     }
 
     case 'css':
-      return config.generatePreflight
+      return withCssLayerOrder(config.generatePreflight
         ? `@import "./preflight.css";\n\n${theme.cssStylesWithVariables}`
-        : theme.cssStylesWithVariables;
+        : theme.cssStylesWithVariables);
 
     default: {
       const unsupportedStyleSystem: never = config.styleSystem;

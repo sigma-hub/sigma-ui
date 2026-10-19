@@ -116,60 +116,62 @@ function onSubmit(event: Event) {
 </template>
 
 <style>
-.signup-quote__form {
-  display: grid;
-  gap: calc(var(--spacing) * 6);
-}
+@layer components {
+  .signup-quote__form {
+    display: grid;
+    gap: calc(var(--spacing) * 6);
+  }
 
-.signup-quote__fields,
-.signup-quote__social {
-  display: grid;
-  gap: calc(var(--spacing) * 3);
-}
-
-.sigma-ui-button.signup-quote__button {
-  width: 100%;
-}
-
-.signup-quote__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-}
-
-.signup-quote__divider {
-  display: flex;
-  align-items: center;
-  gap: calc(var(--spacing) * 3);
-}
-
-.sigma-ui-separator.signup-quote__divider-line {
-  width: auto;
-  flex: 1;
-}
-
-.signup-quote__divider-label {
-  color: var(--muted-foreground);
-  font-size: 0.75rem;
-  letter-spacing: 0.025em;
-  line-height: 1rem;
-  text-transform: uppercase;
-}
-
-.signup-quote__sr-only {
-  position: absolute;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  border-width: 0;
-  margin: -1px;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-}
-
-@media (width >= 40rem) {
+  .signup-quote__fields,
   .signup-quote__social {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: grid;
+    gap: calc(var(--spacing) * 3);
+  }
+
+  .sigma-ui-button.signup-quote__button {
+    width: 100%;
+  }
+
+  .signup-quote__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
+
+  .signup-quote__divider {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 3);
+  }
+
+  .sigma-ui-separator.signup-quote__divider-line {
+    width: auto;
+    flex: 1;
+  }
+
+  .signup-quote__divider-label {
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+    letter-spacing: 0.025em;
+    line-height: 1rem;
+    text-transform: uppercase;
+  }
+
+  .signup-quote__sr-only {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border-width: 0;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
+  @media (width >= 40rem) {
+    .signup-quote__social {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
   }
 }
 </style>

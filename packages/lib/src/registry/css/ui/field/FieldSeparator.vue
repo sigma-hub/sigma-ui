@@ -40,26 +40,28 @@ const slots = defineSlots<{
 </template>
 
 <style>
-.sigma-ui-field-separator {
-  position: relative;
-  height: calc(var(--spacing) * 5);
-  margin: calc(var(--spacing) * -2) 0;
-  font-size: 0.875rem;
-}
+@layer components {
+  .sigma-ui-field-separator {
+    position: relative;
+    height: calc(var(--spacing) * 5);
+    margin: calc(var(--spacing) * -2) 0;
+    font-size: 0.875rem;
+  }
 
-.sigma-ui-separator.sigma-ui-field-separator__line {
-  position: absolute;
-  top: 50%;
-  inset-inline: 0;
-}
+  .sigma-ui-separator.sigma-ui-field-separator__line {
+    position: absolute;
+    top: 50%;
+    inset-inline: 0;
+  }
 
-.sigma-ui-field-separator__content {
-  position: relative;
-  display: block;
-  width: fit-content;
-  padding: 0 calc(var(--spacing) * 2);
-  margin: 0 auto;
-  background-color: var(--background);
-  color: var(--muted-foreground);
+  .sigma-ui-field-separator__content {
+    position: relative;
+    display: block;
+    width: fit-content;
+    padding: 0 calc(var(--spacing) * 2);
+    margin: 0 auto;
+    background-color: var(--background);
+    color: var(--muted-foreground);
+  }
 }
 </style>

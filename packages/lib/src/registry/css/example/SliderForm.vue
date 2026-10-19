@@ -69,32 +69,34 @@ const onSubmit = handleSubmit((values) => {
 </template>
 
 <style>
-.example-sigma-ui-slider-form {
-  display: flex;
-  width: 66%;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 6);
-}
+@layer components {
+  .example-sigma-ui-slider-form {
+    display: flex;
+    width: 66%;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 6);
+  }
 
-.example-sigma-ui-slider-form__field-item {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 2);
-}
+  .example-sigma-ui-slider-form__field-item {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-slider-form__description {
-  display: flex;
-  justify-content: space-between;
-}
+  .example-sigma-ui-slider-form__description {
+    display: flex;
+    justify-content: space-between;
+  }
 
-.example-sigma-ui-slider-form__submit {
-  width: fit-content;
-}
+  .example-sigma-ui-slider-form__submit {
+    width: fit-content;
+  }
 
-.example-sigma-ui-slider-form__toast-pre {
-  padding: calc(var(--spacing) * 4);
-  border-radius: var(--radius);
-  margin-top: calc(var(--spacing) * 2);
-  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  .example-sigma-ui-slider-form__toast-pre {
+    padding: calc(var(--spacing) * 4);
+    border-radius: var(--radius);
+    margin-top: calc(var(--spacing) * 2);
+    background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  }
 }
 </style>

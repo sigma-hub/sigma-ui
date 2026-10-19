@@ -162,3 +162,22 @@ export const CSS_STYLES_WITH_VARS_TEMPLATE = `@layer base {
     transform: translateY(8px);
   }
 }`;
+
+/**
+ * Cascade layer order for the CSS style system. The theme and preflight live in `base`, component styles in
+ * `components`. Unlayered CSS in the app beats both, so a plain class overrides a component style without
+ * `!important`. The names match Tailwind v4's layers, so a project that also uses Tailwind keeps utilities on top.
+ */
+export const CSS_LAYER_ORDER = '@layer base, components;';
+
+/** Puts the layer order statement first, and imports the preflight into the `base` layer. */
+export function withCssLayerOrder(css: string) {
+  const preflightImport = /@import\s+(["'])\.\/preflight\.css\1\s*;/;
+  let next = css.replace(preflightImport, '@import "./preflight.css" layer(base);');
+
+  if (!/@layer\s+base\s*,\s*components\s*;/.test(next)) {
+    next = `${CSS_LAYER_ORDER}\n\n${next.replace(/^\s+/, '')}`;
+  }
+
+  return next;
+}

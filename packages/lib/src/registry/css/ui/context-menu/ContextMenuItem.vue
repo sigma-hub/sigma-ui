@@ -38,30 +38,32 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
-.sigma-ui-context-menu-item {
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
-  border-radius: var(--radius-sm);
-  cursor: default;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  outline: none;
-  user-select: none;
-}
+@layer components {
+  .sigma-ui-context-menu-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
+    border-radius: var(--radius-sm);
+    cursor: default;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    outline: none;
+    user-select: none;
+  }
 
-.sigma-ui-context-menu-item--inset {
-  padding-left: calc(var(--spacing) * 8);
-}
+  .sigma-ui-context-menu-item--inset {
+    padding-left: calc(var(--spacing) * 8);
+  }
 
-.sigma-ui-context-menu-item:focus {
-  background-color: var(--secondary);
-  color: var(--secondary-foreground);
-}
+  .sigma-ui-context-menu-item:focus {
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+  }
 
-.sigma-ui-context-menu-item[data-disabled] {
-  opacity: 0.5;
-  pointer-events: none;
+  .sigma-ui-context-menu-item[data-disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 }
 </style>

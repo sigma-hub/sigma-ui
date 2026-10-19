@@ -120,41 +120,43 @@ const selectedStatus = ref<Status>();
 </template>
 
 <style>
-.example-sigma-ui-command-popover {
-  display: flex;
-  align-items: center;
-  gap: calc(var(--spacing) * 4);
-}
+@layer components {
+  .example-sigma-ui-command-popover {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 4);
+  }
 
-.example-sigma-ui-command-popover__label {
-  color: var(--muted-foreground);
-  font-size: 0.875rem;
-}
+  .example-sigma-ui-command-popover__label {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+  }
 
-.example-sigma-ui-command-popover__trigger {
-  width: 150px;
-  justify-content: flex-start;
-}
+  .example-sigma-ui-command-popover__trigger {
+    width: 150px;
+    justify-content: flex-start;
+  }
 
-.example-sigma-ui-command-popover__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  flex-shrink: 0;
-  margin-right: calc(var(--spacing) * 2);
-}
+  .example-sigma-ui-command-popover__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    flex-shrink: 0;
+    margin-right: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-command-popover__content {
-  padding: 0;
-}
+  .example-sigma-ui-command-popover__content {
+    padding: 0;
+  }
 
-.example-sigma-ui-command-popover__status-icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  margin-right: calc(var(--spacing) * 2);
-  opacity: 0.4;
-}
+  .example-sigma-ui-command-popover__status-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-right: calc(var(--spacing) * 2);
+    opacity: 0.4;
+  }
 
-.example-sigma-ui-command-popover__status-icon--selected {
-  opacity: 1;
+  .example-sigma-ui-command-popover__status-icon--selected {
+    opacity: 1;
+  }
 }
 </style>

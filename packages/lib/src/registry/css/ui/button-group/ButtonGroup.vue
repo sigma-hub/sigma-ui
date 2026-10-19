@@ -44,48 +44,50 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-button-group {
-  display: flex;
-  width: fit-content;
-  align-items: stretch;
-}
+@layer components {
+  .sigma-ui-button-group {
+    display: flex;
+    width: fit-content;
+    align-items: stretch;
+  }
 
-.sigma-ui-button-group > :focus-visible {
-  position: relative;
-  z-index: 10;
-}
+  .sigma-ui-button-group > :focus-visible {
+    position: relative;
+    z-index: 10;
+  }
 
-.sigma-ui-button-group > input {
-  flex: 1;
-}
+  .sigma-ui-button-group > input {
+    flex: 1;
+  }
 
-.sigma-ui-button-group:has(> .sigma-ui-button-group) {
-  gap: calc(var(--spacing) * 2);
-}
+  .sigma-ui-button-group:has(> .sigma-ui-button-group) {
+    gap: calc(var(--spacing) * 2);
+  }
 
-.sigma-ui-button-group--horizontal > :not(:first-child) {
-  border-left-width: 0;
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-}
+  .sigma-ui-button-group--horizontal > :not(:first-child) {
+    border-left-width: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
 
-.sigma-ui-button-group--horizontal > :not(:last-child) {
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
-}
+  .sigma-ui-button-group--horizontal > :not(:last-child) {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
 
-.sigma-ui-button-group--vertical {
-  flex-direction: column;
-}
+  .sigma-ui-button-group--vertical {
+    flex-direction: column;
+  }
 
-.sigma-ui-button-group--vertical > :not(:first-child) {
-  border-top-width: 0;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
+  .sigma-ui-button-group--vertical > :not(:first-child) {
+    border-top-width: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
 
-.sigma-ui-button-group--vertical > :not(:last-child) {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+  .sigma-ui-button-group--vertical > :not(:last-child) {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 }
 </style>

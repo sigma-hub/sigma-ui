@@ -24,11 +24,13 @@ const delegatedAttrs = () => {
 </template>
 
 <style>
-.sigma-ui-drawer-footer {
-  display: flex;
-  flex-direction: column;
-  padding: calc(var(--spacing) * 4);
-  margin-top: auto;
-  gap: calc(var(--spacing) * 2);
+@layer components {
+  .sigma-ui-drawer-footer {
+    display: flex;
+    flex-direction: column;
+    padding: calc(var(--spacing) * 4);
+    margin-top: auto;
+    gap: calc(var(--spacing) * 2);
+  }
 }
 </style>

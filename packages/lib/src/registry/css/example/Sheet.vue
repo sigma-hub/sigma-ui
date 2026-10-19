@@ -70,28 +70,30 @@ import {
 </template>
 
 <style>
-.example-sigma-ui-sheet {
-  padding: calc(var(--spacing) * 6);
-}
+@layer components {
+  .example-sigma-ui-sheet {
+    padding: calc(var(--spacing) * 6);
+  }
 
-.example-sigma-ui-sheet__form {
-  display: grid;
-  padding: calc(var(--spacing) * 4) 0;
-  gap: calc(var(--spacing) * 4);
-}
+  .example-sigma-ui-sheet__form {
+    display: grid;
+    padding: calc(var(--spacing) * 4) 0;
+    gap: calc(var(--spacing) * 4);
+  }
 
-.example-sigma-ui-sheet__form-row {
-  display: grid;
-  align-items: center;
-  gap: calc(var(--spacing) * 4);
-  grid-template-columns: repeat(4, 1fr);
-}
+  .example-sigma-ui-sheet__form-row {
+    display: grid;
+    align-items: center;
+    gap: calc(var(--spacing) * 4);
+    grid-template-columns: repeat(4, 1fr);
+  }
 
-.example-sigma-ui-sheet__label {
-  text-align: right;
-}
+  .example-sigma-ui-sheet__label {
+    text-align: right;
+  }
 
-.example-sigma-ui-sheet__input {
-  grid-column: span 3;
+  .example-sigma-ui-sheet__input {
+    grid-column: span 3;
+  }
 }
 </style>

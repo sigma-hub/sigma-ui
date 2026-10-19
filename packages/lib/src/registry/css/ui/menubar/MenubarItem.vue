@@ -38,29 +38,31 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
-.sigma-ui-menubar-item {
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
-  border-radius: var(--radius-sm);
-  cursor: default;
-  font-size: 0.875rem;
-  outline: none;
-  user-select: none;
-}
+@layer components {
+  .sigma-ui-menubar-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
+    border-radius: var(--radius-sm);
+    cursor: default;
+    font-size: 0.875rem;
+    outline: none;
+    user-select: none;
+  }
 
-.sigma-ui-menubar-item:focus {
-  background-color: var(--secondary);
-  color: var(--secondary-foreground);
-}
+  .sigma-ui-menubar-item:focus {
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+  }
 
-.sigma-ui-menubar-item[data-disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-}
+  .sigma-ui-menubar-item[data-disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 
-.sigma-ui-menubar-item--inset {
-  padding-left: calc(var(--spacing) * 8);
+  .sigma-ui-menubar-item--inset {
+    padding-left: calc(var(--spacing) * 8);
+  }
 }
 </style>

@@ -15,11 +15,13 @@ const attrs = useAttrs();
 </template>
 
 <style>
-.sigma-ui-alert-description {
-  font-size: 0.875rem;
-}
+@layer components {
+  .sigma-ui-alert-description {
+    font-size: 0.875rem;
+  }
 
-.sigma-ui-alert-description p {
-  line-height: 1.65;
+  .sigma-ui-alert-description p {
+    line-height: 1.65;
+  }
 }
 </style>

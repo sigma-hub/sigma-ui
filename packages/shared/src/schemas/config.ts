@@ -30,7 +30,7 @@ export type RegistryConfigEntry = z.infer<typeof registryConfigEntrySchema>;
 
 export const rawConfigSchema = z.object({
   $schema: z.string().optional(),
-  styleSystem: styleSystemSchema.describe('Install components styled with Tailwind utilities or with plain scoped CSS.'),
+  styleSystem: styleSystemSchema.describe('Install components styled with Tailwind utilities or with plain CSS. Plain CSS components put their styles in the `components` cascade layer, so unlayered app CSS overrides them.'),
   framework: frameworkSchema.default('vite'),
   tsConfigPath: z.string().default(DEFAULT_TYPESCRIPT_CONFIG).describe('tsconfig used to resolve path aliases.'),
   setupTailwind: z.boolean().default(false).describe('Whether init set up Tailwind CSS for this project.'),

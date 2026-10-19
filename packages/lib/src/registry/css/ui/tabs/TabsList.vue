@@ -27,14 +27,16 @@ const props = defineProps<TabsListProps>();
 </template>
 
 <style>
-.sigma-ui-tabs-list {
-  display: inline-flex;
-  height: calc(var(--spacing) * 10);
-  align-items: center;
-  justify-content: center;
-  padding: 2px;
-  border-radius: var(--radius-md);
-  background-color: var(--muted);
-  color: var(--muted-foreground);
+@layer components {
+  .sigma-ui-tabs-list {
+    display: inline-flex;
+    height: calc(var(--spacing) * 10);
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    border-radius: var(--radius-md);
+    background-color: var(--muted);
+    color: var(--muted-foreground);
+  }
 }
 </style>

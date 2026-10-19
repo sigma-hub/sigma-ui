@@ -56,44 +56,46 @@ const works: Artwork[] = [
 </template>
 
 <style>
-.example-sigma-ui-scroll-area-horizontal {
-  width: calc(var(--spacing) * 96);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  white-space: nowrap;
-}
+@layer components {
+  .example-sigma-ui-scroll-area-horizontal {
+    width: calc(var(--spacing) * 96);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    white-space: nowrap;
+  }
 
-.example-sigma-ui-scroll-area-horizontal__content {
-  display: flex;
-  width: max-content;
-  padding: calc(var(--spacing) * 4);
-  gap: calc(var(--spacing) * 4);
-}
+  .example-sigma-ui-scroll-area-horizontal__content {
+    display: flex;
+    width: max-content;
+    padding: calc(var(--spacing) * 4);
+    gap: calc(var(--spacing) * 4);
+  }
 
-.example-sigma-ui-scroll-area-horizontal__figure {
-  flex-shrink: 0;
-}
+  .example-sigma-ui-scroll-area-horizontal__figure {
+    flex-shrink: 0;
+  }
 
-.example-sigma-ui-scroll-area-horizontal__image-container {
-  overflow: hidden;
-  border-radius: var(--radius);
-}
+  .example-sigma-ui-scroll-area-horizontal__image-container {
+    overflow: hidden;
+    border-radius: var(--radius);
+  }
 
-.example-sigma-ui-scroll-area-horizontal__image {
-  width: calc(var(--spacing) * 36);
-  height: calc(var(--spacing) * 56);
-  aspect-ratio: 3/4;
-  object-fit: cover;
-}
+  .example-sigma-ui-scroll-area-horizontal__image {
+    width: calc(var(--spacing) * 36);
+    height: calc(var(--spacing) * 56);
+    aspect-ratio: 3/4;
+    object-fit: cover;
+  }
 
-.example-sigma-ui-scroll-area-horizontal__caption {
-  padding-top: calc(var(--spacing) * 2);
-  color: var(--muted-foreground);
-  font-size: 0.75rem;
-}
+  .example-sigma-ui-scroll-area-horizontal__caption {
+    padding-top: calc(var(--spacing) * 2);
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+  }
 
-.example-sigma-ui-scroll-area-horizontal__artist {
-  color: var(--foreground);
-  font-weight: 600;
+  .example-sigma-ui-scroll-area-horizontal__artist {
+    color: var(--foreground);
+    font-weight: 600;
+  }
 }
 </style>

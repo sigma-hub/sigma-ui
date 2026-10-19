@@ -35,41 +35,43 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-command-input {
-  display: flex;
-  align-items: center;
-  padding-right: calc(var(--spacing) * 3);
-  padding-left: calc(var(--spacing) * 3);
-  border-bottom: 1px solid var(--border);
-}
+@layer components {
+  .sigma-ui-command-input {
+    display: flex;
+    align-items: center;
+    padding-right: calc(var(--spacing) * 3);
+    padding-left: calc(var(--spacing) * 3);
+    border-bottom: 1px solid var(--border);
+  }
 
-.sigma-ui-command-input__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  flex-shrink: 0;
-  margin-right: calc(var(--spacing) * 2);
-  opacity: 0.5;
-}
+  .sigma-ui-command-input__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    flex-shrink: 0;
+    margin-right: calc(var(--spacing) * 2);
+    opacity: 0.5;
+  }
 
-.sigma-ui-command-input__field {
-  display: flex;
-  width: 100%;
-  height: calc(var(--spacing) * 11);
-  padding-top: calc(var(--spacing) * 3);
-  padding-bottom: calc(var(--spacing) * 3);
-  border-radius: var(--radius-md);
-  background-color: transparent;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  outline: none;
-}
+  .sigma-ui-command-input__field {
+    display: flex;
+    width: 100%;
+    height: calc(var(--spacing) * 11);
+    padding-top: calc(var(--spacing) * 3);
+    padding-bottom: calc(var(--spacing) * 3);
+    border-radius: var(--radius-md);
+    background-color: transparent;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    outline: none;
+  }
 
-.sigma-ui-command-input__field::placeholder {
-  color: var(--muted-foreground);
-}
+  .sigma-ui-command-input__field::placeholder {
+    color: var(--muted-foreground);
+  }
 
-.sigma-ui-command-input__field:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
+  .sigma-ui-command-input__field:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 }
 </style>

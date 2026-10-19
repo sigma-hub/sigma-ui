@@ -146,11 +146,13 @@ const selectorsBar = computed(() => props.type === 'grouped' ? GroupedBar.select
 </template>
 
 <style>
-.sigma-ui-bar-chart {
-  display: flex;
-  width: 100%;
-  height: 400px;
-  flex-direction: column;
-  align-items: flex-end;
+@layer components {
+  .sigma-ui-bar-chart {
+    display: flex;
+    width: 100%;
+    height: 400px;
+    flex-direction: column;
+    align-items: flex-end;
+  }
 }
 </style>

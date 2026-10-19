@@ -103,20 +103,22 @@ const routerExampleItems = [
 </template>
 
 <style>
-.example-sigma-ui-breadcrumb__container {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 12);
-}
+@layer components {
+  .example-sigma-ui-breadcrumb__container {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 12);
+  }
 
-.example-sigma-ui-breadcrumb__link {
-  display: flex;
-  align-items: center;
-  gap: calc(var(--spacing) * 2);
-}
+  .example-sigma-ui-breadcrumb__link {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-breadcrumb__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
+  .example-sigma-ui-breadcrumb__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 }
 </style>

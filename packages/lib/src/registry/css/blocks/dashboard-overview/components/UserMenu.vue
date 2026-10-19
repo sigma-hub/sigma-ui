@@ -66,52 +66,54 @@ defineProps<{
 </template>
 
 <style>
-.dashboard-overview__user-button {
-  position: relative;
-  width: calc(var(--spacing) * 8);
-  height: calc(var(--spacing) * 8);
-  border-radius: 9999px;
-}
+@layer components {
+  .dashboard-overview__user-button {
+    position: relative;
+    width: calc(var(--spacing) * 8);
+    height: calc(var(--spacing) * 8);
+    border-radius: 9999px;
+  }
 
-.dashboard-overview__user-menu {
-  width: calc(var(--spacing) * 56);
-}
+  .dashboard-overview__user-menu {
+    width: calc(var(--spacing) * 56);
+  }
 
-.dashboard-overview__user-label {
-  font-weight: 400;
-}
+  .dashboard-overview__user-label {
+    font-weight: 400;
+  }
 
-.dashboard-overview__user-identity {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 1);
-}
+  .dashboard-overview__user-identity {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 1);
+  }
 
-.dashboard-overview__user-name,
-.dashboard-overview__user-email {
-  margin: 0;
-  line-height: 1;
-}
+  .dashboard-overview__user-name,
+  .dashboard-overview__user-email {
+    margin: 0;
+    line-height: 1;
+  }
 
-.dashboard-overview__user-name {
-  font-size: 0.875rem;
-  font-weight: 500;
-}
+  .dashboard-overview__user-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
 
-.dashboard-overview__user-email {
-  color: var(--muted-foreground);
-  font-size: 0.75rem;
-}
+  .dashboard-overview__user-email {
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+  }
 
-.dashboard-overview__sr-only {
-  position: absolute;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  border-width: 0;
-  margin: -1px;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
+  .dashboard-overview__sr-only {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border-width: 0;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
 }
 </style>

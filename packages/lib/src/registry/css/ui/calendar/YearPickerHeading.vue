@@ -31,10 +31,10 @@ const forwarded = useForwardProps(props);
 </template>
 
 <style>
-
-.sigma-ui-year-picker-heading {
-  font-size: 0.875rem;
-  font-weight: 500;
+@layer components {
+  .sigma-ui-year-picker-heading {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
 }
-
 </style>

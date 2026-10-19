@@ -47,39 +47,41 @@ const selectedAccount = computed(() => props.accounts.find(account => account.em
 </template>
 
 <style>
-.mail-inbox__account {
-  width: 100%;
-}
+@layer components {
+  .mail-inbox__account {
+    width: 100%;
+  }
 
-.mail-inbox__account--collapsed.mail-inbox__account--collapsed {
-  width: calc(var(--spacing) * 9);
-  height: calc(var(--spacing) * 9);
-  flex-shrink: 0;
-  justify-content: center;
-  padding: 0;
-}
+  .mail-inbox__account--collapsed.mail-inbox__account--collapsed {
+    width: calc(var(--spacing) * 9);
+    height: calc(var(--spacing) * 9);
+    flex-shrink: 0;
+    justify-content: center;
+    padding: 0;
+  }
 
-.mail-inbox__account-value {
-  display: flex;
-  min-width: 0;
-  align-items: center;
-  gap: calc(var(--spacing) * 2);
-}
+  .mail-inbox__account-value {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.mail-inbox__mark {
-  display: flex;
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.75rem;
-  font-weight: 500;
-}
+  .mail-inbox__mark {
+    display: flex;
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
 
-.mail-inbox__account-label {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  .mail-inbox__account-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 </style>

@@ -21,20 +21,22 @@ defineProps<{
 </template>
 
 <style>
-.dashboard-settings__side-nav {
-  display: grid;
-  gap: calc(var(--spacing) * 4);
-}
+@layer components {
+  .dashboard-settings__side-nav {
+    display: grid;
+    gap: calc(var(--spacing) * 4);
+  }
 
-.dashboard-settings__side-link {
-  color: var(--muted-foreground);
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  text-decoration: none;
-}
+  .dashboard-settings__side-link {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-decoration: none;
+  }
 
-.dashboard-settings__side-link--active {
-  color: var(--primary);
-  font-weight: 600;
+  .dashboard-settings__side-link--active {
+    color: var(--primary);
+    font-weight: 600;
+  }
 }
 </style>

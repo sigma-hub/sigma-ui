@@ -29,16 +29,18 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-tags-input-item {
-  display: flex;
-  height: calc(var(--spacing) * 6);
-  align-items: center;
-  border-radius: var(--radius-sm);
-  background-color: var(--secondary);
-}
+@layer components {
+  .sigma-ui-tags-input-item {
+    display: flex;
+    height: calc(var(--spacing) * 6);
+    align-items: center;
+    border-radius: var(--radius-sm);
+    background-color: var(--secondary);
+  }
 
-.sigma-ui-tags-input-item[data-state="active"] {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
+  .sigma-ui-tags-input-item[data-state="active"] {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
 }
 </style>

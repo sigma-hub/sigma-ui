@@ -6,8 +6,10 @@
 </template>
 
 <style>
-.example-sigma-ui-typography__lead {
-  color: var(--muted-foreground);
-  font-size: 1.25rem;
+@layer components {
+  .example-sigma-ui-typography__lead {
+    color: var(--muted-foreground);
+    font-size: 1.25rem;
+  }
 }
 </style>

@@ -79,30 +79,32 @@ const handleComplete = (digits: (number | undefined)[]) => console.log(digits.jo
 </template>
 
 <style>
-.example-sigma-ui-pin-input-form {
-  display: flex;
-  width: 66%;
-  flex-direction: column;
-  margin-right: auto;
-  margin-left: auto;
-  gap: calc(var(--spacing) * 6);
-}
+@layer components {
+  .example-sigma-ui-pin-input-form {
+    display: flex;
+    width: 66%;
+    flex-direction: column;
+    margin-right: auto;
+    margin-left: auto;
+    gap: calc(var(--spacing) * 6);
+  }
 
-.example-sigma-ui-pin-input-form__input {
-  display: flex;
-  align-items: center;
-  margin-top: calc(var(--spacing) * 1);
-  gap: calc(var(--spacing) * 2);
-}
+  .example-sigma-ui-pin-input-form__input {
+    display: flex;
+    align-items: center;
+    margin-top: calc(var(--spacing) * 1);
+    gap: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-pin-input-form__button {
-  width: fit-content;
-}
+  .example-sigma-ui-pin-input-form__button {
+    width: fit-content;
+  }
 
-.example-sigma-ui-pin-input-form__toast-pre {
-  padding: calc(var(--spacing) * 4);
-  border-radius: var(--radius);
-  margin-top: calc(var(--spacing) * 2);
-  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  .example-sigma-ui-pin-input-form__toast-pre {
+    padding: calc(var(--spacing) * 4);
+    border-radius: var(--radius);
+    margin-top: calc(var(--spacing) * 2);
+    background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  }
 }
 </style>

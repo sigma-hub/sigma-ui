@@ -81,25 +81,27 @@ async function toggle() {
 </template>
 
 <style>
-.sigma-ui-code-block__expand-button {
-  color: var(--muted-foreground);
-}
+@layer components {
+  .sigma-ui-code-block__expand-button {
+    color: var(--muted-foreground);
+  }
 
-.sigma-ui-code-block__expand-button:hover {
-  color: var(--foreground);
-}
+  .sigma-ui-code-block__expand-button:hover {
+    color: var(--foreground);
+  }
 
-.sigma-ui-code-block__expand-icon {
-  transition: transform 150ms ease;
-}
-
-.sigma-ui-code-block__expand-button[data-state='open'] .sigma-ui-code-block__expand-icon {
-  transform: rotate(180deg);
-}
-
-@media (prefers-reduced-motion: reduce) {
   .sigma-ui-code-block__expand-icon {
-    transition: none;
+    transition: transform 150ms ease;
+  }
+
+  .sigma-ui-code-block__expand-button[data-state='open'] .sigma-ui-code-block__expand-icon {
+    transform: rotate(180deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sigma-ui-code-block__expand-icon {
+      transition: none;
+    }
   }
 }
 </style>

@@ -30,24 +30,26 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-empty {
-  display: flex;
-  min-width: 0;
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: calc(var(--spacing) * 6);
-  border: 1px dashed var(--border);
-  border-radius: var(--radius-lg);
-  gap: calc(var(--spacing) * 6);
-  text-align: center;
-  text-wrap: balance;
-}
-
-@media (width >= 48rem) {
+@layer components {
   .sigma-ui-empty {
-    padding: calc(var(--spacing) * 12);
+    display: flex;
+    min-width: 0;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: calc(var(--spacing) * 6);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-lg);
+    gap: calc(var(--spacing) * 6);
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  @media (width >= 48rem) {
+    .sigma-ui-empty {
+      padding: calc(var(--spacing) * 12);
+    }
   }
 }
 </style>

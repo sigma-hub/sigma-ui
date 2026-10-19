@@ -77,34 +77,36 @@ const username = ref('');
 </template>
 
 <style>
-.example-sigma-ui-sheet-side {
-  display: grid;
-  gap: calc(var(--spacing) * 2);
-  grid-template-columns: repeat(2, 1fr);
-}
+@layer components {
+  .example-sigma-ui-sheet-side {
+    display: grid;
+    gap: calc(var(--spacing) * 2);
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-.example-sigma-ui-sheet-side__content {
-  padding: calc(var(--spacing) * 6);
-}
+  .example-sigma-ui-sheet-side__content {
+    padding: calc(var(--spacing) * 6);
+  }
 
-.example-sigma-ui-sheet-side__form {
-  display: grid;
-  padding: calc(var(--spacing) * 4) 0;
-  gap: calc(var(--spacing) * 4);
-}
+  .example-sigma-ui-sheet-side__form {
+    display: grid;
+    padding: calc(var(--spacing) * 4) 0;
+    gap: calc(var(--spacing) * 4);
+  }
 
-.example-sigma-ui-sheet-side__form-row {
-  display: grid;
-  align-items: center;
-  gap: calc(var(--spacing) * 4);
-  grid-template-columns: repeat(4, 1fr);
-}
+  .example-sigma-ui-sheet-side__form-row {
+    display: grid;
+    align-items: center;
+    gap: calc(var(--spacing) * 4);
+    grid-template-columns: repeat(4, 1fr);
+  }
 
-.example-sigma-ui-sheet-side__label {
-  text-align: right;
-}
+  .example-sigma-ui-sheet-side__label {
+    text-align: right;
+  }
 
-.example-sigma-ui-sheet-side__input {
-  grid-column: span 3;
+  .example-sigma-ui-sheet-side__input {
+    grid-column: span 3;
+  }
 }
 </style>

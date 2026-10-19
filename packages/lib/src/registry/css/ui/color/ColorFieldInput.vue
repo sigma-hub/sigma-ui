@@ -27,27 +27,29 @@ const forwarded = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-color-field-input {
-  display: flex;
-  width: 100%;
-  min-width: 0;
-  height: calc(var(--spacing) * 9);
-  border: 1px solid var(--input);
-  border-radius: var(--radius-md);
-  background-color: transparent;
-  font-size: 1rem;
-  padding-block: calc(var(--spacing) * 1);
-  padding-inline: calc(var(--spacing) * 3);
-}
-
-.sigma-ui-color-field-input:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
-}
-
-@media (width >= 48rem) {
+@layer components {
   .sigma-ui-color-field-input {
-    font-size: 0.875rem;
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    height: calc(var(--spacing) * 9);
+    border: 1px solid var(--input);
+    border-radius: var(--radius-md);
+    background-color: transparent;
+    font-size: 1rem;
+    padding-block: calc(var(--spacing) * 1);
+    padding-inline: calc(var(--spacing) * 3);
+  }
+
+  .sigma-ui-color-field-input:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  @media (width >= 48rem) {
+    .sigma-ui-color-field-input {
+      font-size: 0.875rem;
+    }
   }
 }
 </style>

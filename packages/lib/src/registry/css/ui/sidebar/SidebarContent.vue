@@ -31,16 +31,18 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-sidebar-content {
-  display: flex;
-  overflow: auto;
-  min-height: 0;
-  flex: 1;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 2);
-}
+@layer components {
+  .sigma-ui-sidebar-content {
+    display: flex;
+    overflow: auto;
+    min-height: 0;
+    flex: 1;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.sigma-ui-sidebar[data-collapsible="icon"] .sigma-ui-sidebar-content {
-  overflow: hidden;
+  .sigma-ui-sidebar[data-collapsible="icon"] .sigma-ui-sidebar-content {
+    overflow: hidden;
+  }
 }
 </style>

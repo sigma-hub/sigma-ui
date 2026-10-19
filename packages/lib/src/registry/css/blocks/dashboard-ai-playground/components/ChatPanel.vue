@@ -64,87 +64,89 @@ import { chatActions } from '../data';
 </template>
 
 <style>
-.dashboard-ai-playground__chat {
-  position: relative;
-  display: flex;
-  height: 100%;
-  min-height: 50vh;
-  flex-direction: column;
-  padding: calc(var(--spacing) * 4);
-  border-radius: var(--radius-xl);
-  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
-}
-
-@media (width >= 64rem) {
+@layer components {
   .dashboard-ai-playground__chat {
-    grid-column: span 2 / span 2;
+    position: relative;
+    display: flex;
+    height: 100%;
+    min-height: 50vh;
+    flex-direction: column;
+    padding: calc(var(--spacing) * 4);
+    border-radius: var(--radius-xl);
+    background-color: color-mix(in oklch, var(--muted) 50%, transparent);
   }
-}
 
-.dashboard-ai-playground__output-badge {
-  position: absolute;
-  top: calc(var(--spacing) * 3);
-  right: calc(var(--spacing) * 3);
-}
+  @media (width >= 64rem) {
+    .dashboard-ai-playground__chat {
+      grid-column: span 2 / span 2;
+    }
+  }
 
-.dashboard-ai-playground__chat-spacer {
-  flex: 1 1 0%;
-}
+  .dashboard-ai-playground__output-badge {
+    position: absolute;
+    top: calc(var(--spacing) * 3);
+    right: calc(var(--spacing) * 3);
+  }
 
-.dashboard-ai-playground__composer {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  background-color: var(--background);
-}
+  .dashboard-ai-playground__chat-spacer {
+    flex: 1 1 0%;
+  }
 
-.dashboard-ai-playground__composer:focus-within {
-  box-shadow: 0 0 0 1px var(--ring);
-}
+  .dashboard-ai-playground__composer {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background-color: var(--background);
+  }
 
-textarea.dashboard-ai-playground__message-input {
-  min-height: calc(var(--spacing) * 12);
-  padding: calc(var(--spacing) * 3);
-  border-width: 0;
-  box-shadow: none;
-  resize: none;
-}
+  .dashboard-ai-playground__composer:focus-within {
+    box-shadow: 0 0 0 1px var(--ring);
+  }
 
-textarea.dashboard-ai-playground__message-input:focus-visible {
-  outline: none;
-}
+  textarea.dashboard-ai-playground__message-input {
+    min-height: calc(var(--spacing) * 12);
+    padding: calc(var(--spacing) * 3);
+    border-width: 0;
+    box-shadow: none;
+    resize: none;
+  }
 
-.dashboard-ai-playground__composer-actions {
-  display: flex;
-  align-items: center;
-  padding: 0 calc(var(--spacing) * 3) calc(var(--spacing) * 3);
-}
+  textarea.dashboard-ai-playground__message-input:focus-visible {
+    outline: none;
+  }
 
-button.dashboard-ai-playground__action-button svg {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-}
+  .dashboard-ai-playground__composer-actions {
+    display: flex;
+    align-items: center;
+    padding: 0 calc(var(--spacing) * 3) calc(var(--spacing) * 3);
+  }
 
-button.dashboard-ai-playground__send-button {
-  margin-left: auto;
-  gap: calc(var(--spacing) * 1.5);
-}
+  button.dashboard-ai-playground__action-button svg {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 
-button.dashboard-ai-playground__send-button svg {
-  width: calc(var(--spacing) * 3.5);
-  height: calc(var(--spacing) * 3.5);
-}
+  button.dashboard-ai-playground__send-button {
+    margin-left: auto;
+    gap: calc(var(--spacing) * 1.5);
+  }
 
-.dashboard-ai-playground__visually-hidden {
-  position: absolute;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  border-width: 0;
-  margin: -1px;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
+  button.dashboard-ai-playground__send-button svg {
+    width: calc(var(--spacing) * 3.5);
+    height: calc(var(--spacing) * 3.5);
+  }
+
+  .dashboard-ai-playground__visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border-width: 0;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
 }
 </style>

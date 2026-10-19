@@ -30,7 +30,9 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
-.sigma-ui-color-field {
-  display: flex;
+@layer components {
+  .sigma-ui-color-field {
+    display: flex;
+  }
 }
 </style>

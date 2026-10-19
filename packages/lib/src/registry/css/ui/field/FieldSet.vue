@@ -30,18 +30,20 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-field-set {
-  display: flex;
-  min-width: 0;
-  flex-direction: column;
-  padding: 0;
-  border: none;
-  margin: 0;
-  gap: calc(var(--spacing) * 6);
-}
+@layer components {
+  .sigma-ui-field-set {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    padding: 0;
+    border: none;
+    margin: 0;
+    gap: calc(var(--spacing) * 6);
+  }
 
-.sigma-ui-field-set:has(> [data-slot="checkbox-group"]),
-.sigma-ui-field-set:has(> [data-slot="radio-group"]) {
-  gap: calc(var(--spacing) * 3);
+  .sigma-ui-field-set:has(> [data-slot="checkbox-group"]),
+  .sigma-ui-field-set:has(> [data-slot="radio-group"]) {
+    gap: calc(var(--spacing) * 3);
+  }
 }
 </style>

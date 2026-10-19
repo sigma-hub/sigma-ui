@@ -37,14 +37,16 @@ const props = defineProps<ScrollAreaRootProps>();
 </template>
 
 <style>
-.sigma-ui-scroll-area {
-  position: relative;
-  overflow: hidden;
-}
+@layer components {
+  .sigma-ui-scroll-area {
+    position: relative;
+    overflow: hidden;
+  }
 
-.sigma-ui-scroll-area__viewport {
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
+  .sigma-ui-scroll-area__viewport {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+  }
 }
 </style>

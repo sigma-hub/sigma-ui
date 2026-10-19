@@ -33,27 +33,29 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-calendar-prev {
-  width: calc(var(--spacing) * 7);
-  height: calc(var(--spacing) * 7);
-  padding: 0;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  background-color: transparent;
-  opacity: 0.5;
-  transition-duration: 150ms;
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
+@layer components {
+  .sigma-ui-calendar-prev {
+    width: calc(var(--spacing) * 7);
+    height: calc(var(--spacing) * 7);
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background-color: transparent;
+    opacity: 0.5;
+    transition-duration: 150ms;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
-.sigma-ui-calendar-prev:hover {
-  background-color: var(--secondary);
-  color: var(--secondary-foreground);
-  opacity: 1;
-}
+  .sigma-ui-calendar-prev:hover {
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+    opacity: 1;
+  }
 
-.sigma-ui-calendar-prev__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
+  .sigma-ui-calendar-prev__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 }
 </style>

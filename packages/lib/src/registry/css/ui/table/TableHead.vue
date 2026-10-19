@@ -24,17 +24,19 @@ const delegatedAttrs = () => {
 </template>
 
 <style>
-.sigma-ui-table-head {
-  height: calc(var(--spacing) * 12);
-  padding-right: calc(var(--spacing) * 4);
-  padding-left: calc(var(--spacing) * 4);
-  color: var(--muted-foreground);
-  font-weight: 500;
-  text-align: left;
-  vertical-align: middle;
-}
+@layer components {
+  .sigma-ui-table-head {
+    height: calc(var(--spacing) * 12);
+    padding-right: calc(var(--spacing) * 4);
+    padding-left: calc(var(--spacing) * 4);
+    color: var(--muted-foreground);
+    font-weight: 500;
+    text-align: left;
+    vertical-align: middle;
+  }
 
-.sigma-ui-table-head:has([role="checkbox"]) {
-  padding-right: 0;
+  .sigma-ui-table-head:has([role="checkbox"]) {
+    padding-right: 0;
+  }
 }
 </style>

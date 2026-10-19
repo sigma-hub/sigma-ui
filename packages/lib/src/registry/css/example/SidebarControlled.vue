@@ -70,37 +70,39 @@ const items = [
 </template>
 
 <style>
-.example-sidebar-controlled {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 360px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  transform: translateZ(0);
-}
+@layer components {
+  .example-sidebar-controlled {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 360px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transform: translateZ(0);
+  }
 
-.example-sidebar-controlled .example-sidebar-controlled__provider {
-  height: 100%;
-  min-height: 100%;
-}
+  .example-sidebar-controlled .example-sidebar-controlled__provider {
+    height: 100%;
+    min-height: 100%;
+  }
 
-.example-sidebar-controlled .example-sidebar-controlled__sidebar {
-  height: 100%;
-}
+  .example-sidebar-controlled .example-sidebar-controlled__sidebar {
+    height: 100%;
+  }
 
-.example-sidebar-controlled__main {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: calc(var(--spacing) * 4);
-  gap: calc(var(--spacing) * 4);
-}
+  .example-sidebar-controlled__main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: calc(var(--spacing) * 4);
+    gap: calc(var(--spacing) * 4);
+  }
 
-.example-sidebar-controlled__text {
-  margin: 0;
-  color: var(--muted-foreground);
-  font-size: 0.875rem;
+  .example-sidebar-controlled__text {
+    margin: 0;
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+  }
 }
 </style>

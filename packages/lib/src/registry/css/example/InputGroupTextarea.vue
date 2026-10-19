@@ -23,11 +23,13 @@ import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupTextarea } fro
 </template>
 
 <style>
-.example-input-group-textarea {
-  max-width: 24rem;
-}
+@layer components {
+  .example-input-group-textarea {
+    max-width: 24rem;
+  }
 
-.example-input-group-textarea .example-input-group-textarea__send {
-  margin-left: auto;
+  .example-input-group-textarea .example-input-group-textarea__send {
+    margin-left: auto;
+  }
 }
 </style>

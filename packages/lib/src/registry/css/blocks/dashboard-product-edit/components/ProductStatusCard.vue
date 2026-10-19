@@ -44,13 +44,15 @@ import { statusOptions } from '../data';
 </template>
 
 <style>
-.dashboard-product-edit__stack {
-  display: grid;
-  gap: calc(var(--spacing) * 6);
-}
+@layer components {
+  .dashboard-product-edit__stack {
+    display: grid;
+    gap: calc(var(--spacing) * 6);
+  }
 
-.dashboard-product-edit__field {
-  display: grid;
-  gap: calc(var(--spacing) * 3);
+  .dashboard-product-edit__field {
+    display: grid;
+    gap: calc(var(--spacing) * 3);
+  }
 }
 </style>

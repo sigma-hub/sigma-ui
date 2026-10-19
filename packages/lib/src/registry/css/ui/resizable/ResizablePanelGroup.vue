@@ -30,13 +30,15 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
-.sigma-ui-resizable-panel-group {
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
+@layer components {
+  .sigma-ui-resizable-panel-group {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
 
-.sigma-ui-resizable-panel-group[data-panel-group-direction="vertical"] {
-  flex-direction: column;
+  .sigma-ui-resizable-panel-group[data-panel-group-direction="vertical"] {
+    flex-direction: column;
+  }
 }
 </style>

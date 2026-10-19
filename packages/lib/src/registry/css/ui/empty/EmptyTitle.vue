@@ -30,9 +30,11 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-empty-title {
-  font-size: 1.125rem;
-  font-weight: 500;
-  letter-spacing: -0.025em;
+@layer components {
+  .sigma-ui-empty-title {
+    font-size: 1.125rem;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+  }
 }
 </style>

@@ -128,106 +128,108 @@ function onLoad() {
 </template>
 
 <style>
-.sigma-ui-image__container {
-  position: relative;
-}
-
-.sigma-ui-image {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  background-color: color-mix(in oklch, var(--secondary) 90%, transparent);
-  color: var(--foreground);
-  font-weight: normal;
-  user-select: none;
-}
-
-.dark .sigma-ui-image {
-  background-color: color-mix(in oklch, var(--secondary) 30%, transparent);
-}
-
-.sigma-ui-image--no-overflow {
-  overflow: hidden;
-}
-
-.sigma-ui-image__error,
-.sigma-ui-image__loader {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-}
-
-.sigma-ui-image__fallback-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: color-mix(in oklch, var(--foreground) 50%, transparent);
-  gap: calc(var(--spacing) * 1);
-}
-
-.sigma-ui-image__fallback-icon {
-  width: 50%;
-  max-width: 50px;
-  height: 50%;
-  max-height: 50px;
-}
-
-.sigma-ui-image__spinner {
-  width: 20px;
-  height: 20px;
-  animation: sigma-ui-spin 1s linear infinite;
-}
-
-@keyframes sigma-ui-spin {
-  from {
-    transform: rotate(0deg);
+@layer components {
+  .sigma-ui-image__container {
+    position: relative;
   }
 
-  to {
-    transform: rotate(360deg);
+  .sigma-ui-image {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    background-color: color-mix(in oklch, var(--secondary) 90%, transparent);
+    color: var(--foreground);
+    font-weight: normal;
+    user-select: none;
   }
-}
 
-.sigma-ui-image__img-glow {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  width: 110%;
-  height: 110%;
-  filter: blur(16px) brightness(200%) saturate(200%);
-  object-fit: cover;
-}
+  .dark .sigma-ui-image {
+    background-color: color-mix(in oklch, var(--secondary) 30%, transparent);
+  }
 
-.sigma-ui-image__img {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+  .sigma-ui-image--no-overflow {
+    overflow: hidden;
+  }
 
-@media (prefers-color-scheme: dark) {
+  .sigma-ui-image__error,
+  .sigma-ui-image__loader {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sigma-ui-image__fallback-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: color-mix(in oklch, var(--foreground) 50%, transparent);
+    gap: calc(var(--spacing) * 1);
+  }
+
+  .sigma-ui-image__fallback-icon {
+    width: 50%;
+    max-width: 50px;
+    height: 50%;
+    max-height: 50px;
+  }
+
+  .sigma-ui-image__spinner {
+    width: 20px;
+    height: 20px;
+    animation: sigma-ui-spin 1s linear infinite;
+  }
+
+  @keyframes sigma-ui-spin {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
   .sigma-ui-image__img-glow {
-    filter: blur(16px) brightness(100%) saturate(200%);
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 110%;
+    height: 110%;
+    filter: blur(16px) brightness(200%) saturate(200%);
+    object-fit: cover;
   }
-}
 
-.sigma-ui-image-rounded,
-.sigma-ui-image-rounded .sigma-ui-image__img,
-.sigma-ui-image-rounded .sigma-ui-image__img-glow {
-  border-radius: var(--radius);
-}
+  .sigma-ui-image__img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-.sigma-ui-image-circle,
-.sigma-ui-image-circle .sigma-ui-image__img,
-.sigma-ui-image-circle .sigma-ui-image__img-glow {
-  border-radius: 50%;
+  @media (prefers-color-scheme: dark) {
+    .sigma-ui-image__img-glow {
+      filter: blur(16px) brightness(100%) saturate(200%);
+    }
+  }
+
+  .sigma-ui-image-rounded,
+  .sigma-ui-image-rounded .sigma-ui-image__img,
+  .sigma-ui-image-rounded .sigma-ui-image__img-glow {
+    border-radius: var(--radius);
+  }
+
+  .sigma-ui-image-circle,
+  .sigma-ui-image-circle .sigma-ui-image__img,
+  .sigma-ui-image-circle .sigma-ui-image__img-glow {
+    border-radius: 50%;
+  }
 }
 </style>

@@ -47,51 +47,53 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-native-select {
-  position: relative;
-  width: fit-content;
-}
+@layer components {
+  .sigma-ui-native-select {
+    position: relative;
+    width: fit-content;
+  }
 
-.sigma-ui-native-select:has(select:disabled) {
-  opacity: 0.5;
-}
+  .sigma-ui-native-select:has(select:disabled) {
+    opacity: 0.5;
+  }
 
-.sigma-ui-native-select__control {
-  display: flex;
-  width: 100%;
-  min-width: 0;
-  height: calc(var(--spacing) * 9);
-  padding: calc(var(--spacing) * 2) calc(var(--spacing) * 9) calc(var(--spacing) * 2) calc(var(--spacing) * 3);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  appearance: none;
-  background-color: var(--input);
-  font-size: 0.875rem;
-  outline: none;
-}
+  .sigma-ui-native-select__control {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    height: calc(var(--spacing) * 9);
+    padding: calc(var(--spacing) * 2) calc(var(--spacing) * 9) calc(var(--spacing) * 2) calc(var(--spacing) * 3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    appearance: none;
+    background-color: var(--input);
+    font-size: 0.875rem;
+    outline: none;
+  }
 
-.sigma-ui-native-select__control:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
-}
+  .sigma-ui-native-select__control:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
 
-.sigma-ui-native-select__control:disabled {
-  cursor: not-allowed;
-}
+  .sigma-ui-native-select__control:disabled {
+    cursor: not-allowed;
+  }
 
-.sigma-ui-native-select__control[aria-invalid="true"] {
-  border-color: var(--destructive);
-}
+  .sigma-ui-native-select__control[aria-invalid="true"] {
+    border-color: var(--destructive);
+  }
 
-.sigma-ui-native-select__icon {
-  position: absolute;
-  top: 50%;
-  right: calc(var(--spacing) * 3);
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  color: var(--muted-foreground);
-  opacity: 0.5;
-  pointer-events: none;
-  transform: translateY(-50%);
+  .sigma-ui-native-select__icon {
+    position: absolute;
+    top: 50%;
+    right: calc(var(--spacing) * 3);
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    color: var(--muted-foreground);
+    opacity: 0.5;
+    pointer-events: none;
+    transform: translateY(-50%);
+  }
 }
 </style>

@@ -58,55 +58,57 @@ const emit = defineEmits<Emits>();
 </template>
 
 <style>
-.sigma-ui-toaster-progress {
-  display: flex;
-  width: 100%;
-  align-items: flex-end;
-  justify-content: space-between;
-  padding: calc(var(--spacing) * 4);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background-color: var(--background);
-  box-shadow: var(--shadow-md);
-  gap: calc(var(--spacing) * 6);
-}
+@layer components {
+  .sigma-ui-toaster-progress {
+    display: flex;
+    width: 100%;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: calc(var(--spacing) * 4);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background-color: var(--background);
+    box-shadow: var(--shadow-md);
+    gap: calc(var(--spacing) * 6);
+  }
 
-.sigma-ui-toaster-progress__content {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-}
+  .sigma-ui-toaster-progress__content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
 
-.sigma-ui-toaster-progress__header {
-  display: flex;
-  align-items: center;
-  font-size: 0.875rem;
-  font-weight: 600;
-  gap: calc(var(--spacing) * 2);
-}
+  .sigma-ui-toaster-progress__header {
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 600;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.sigma-ui-toaster-progress__percentage {
-  color: var(--muted-foreground);
-  font-size: 0.75rem;
-}
+  .sigma-ui-toaster-progress__percentage {
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+  }
 
-.sigma-ui-toaster-progress__description {
-  color: var(--muted-foreground);
-  font-size: 0.875rem;
-}
+  .sigma-ui-toaster-progress__description {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+  }
 
-.sigma-ui-toaster-progress__bar {
-  width: 100%;
-  height: 2px;
-  border-radius: var(--rounded-full);
-  margin-top: calc(var(--spacing) * 2);
-  background-color: color-mix(in oklch, var(--primary) 10%, transparent);
-  font-size: 0.875rem;
-}
+  .sigma-ui-toaster-progress__bar {
+    width: 100%;
+    height: 2px;
+    border-radius: var(--rounded-full);
+    margin-top: calc(var(--spacing) * 2);
+    background-color: color-mix(in oklch, var(--primary) 10%, transparent);
+    font-size: 0.875rem;
+  }
 
-.sigma-ui-toaster-progress__bar-fill {
-  height: 2px;
-  border-radius: var(--rounded-full);
-  background-color: var(--primary);
+  .sigma-ui-toaster-progress__bar-fill {
+    height: 2px;
+    border-radius: var(--rounded-full);
+    background-color: var(--primary);
+  }
 }
 </style>

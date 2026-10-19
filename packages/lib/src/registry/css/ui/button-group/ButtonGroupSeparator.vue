@@ -28,14 +28,16 @@ const props = withDefaults(defineProps<SeparatorProps>(), {
 </template>
 
 <style>
-.sigma-ui-separator.sigma-ui-button-group-separator {
-  position: relative;
-  align-self: stretch;
-  margin: 0;
-  background-color: var(--border);
-}
+@layer components {
+  .sigma-ui-separator.sigma-ui-button-group-separator {
+    position: relative;
+    align-self: stretch;
+    margin: 0;
+    background-color: var(--border);
+  }
 
-.sigma-ui-separator.sigma-ui-button-group-separator[data-orientation="vertical"] {
-  height: auto;
+  .sigma-ui-separator.sigma-ui-button-group-separator[data-orientation="vertical"] {
+    height: auto;
+  }
 }
 </style>

@@ -33,21 +33,23 @@ const forwarded = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-number-field-increment {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  padding: calc(var(--spacing) * 3);
-  transform: translateY(-50%);
-}
+@layer components {
+  .sigma-ui-number-field-increment {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    padding: calc(var(--spacing) * 3);
+    transform: translateY(-50%);
+  }
 
-.sigma-ui-number-field-increment:disabled {
-  cursor: not-allowed;
-  opacity: 0.2;
-}
+  .sigma-ui-number-field-increment:disabled {
+    cursor: not-allowed;
+    opacity: 0.2;
+  }
 
-.sigma-ui-number-field-increment__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
+  .sigma-ui-number-field-increment__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 }
 </style>

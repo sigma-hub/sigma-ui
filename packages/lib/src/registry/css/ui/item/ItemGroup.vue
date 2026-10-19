@@ -31,8 +31,10 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-item-group {
-  display: flex;
-  flex-direction: column;
+@layer components {
+  .sigma-ui-item-group {
+    display: flex;
+    flex-direction: column;
+  }
 }
 </style>

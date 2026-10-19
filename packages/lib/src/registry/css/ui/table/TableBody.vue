@@ -24,7 +24,9 @@ const delegatedAttrs = () => {
 </template>
 
 <style>
-.sigma-ui-table-body tr:last-child {
-  border: 0;
+@layer components {
+  .sigma-ui-table-body tr:last-child {
+    border: 0;
+  }
 }
 </style>

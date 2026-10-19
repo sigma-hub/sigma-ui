@@ -48,23 +48,25 @@ const width = `${Math.floor(Math.random() * 40) + 50}%`;
 </template>
 
 <style>
-.sigma-ui-sidebar-menu-skeleton {
-  display: flex;
-  height: calc(var(--spacing) * 8);
-  align-items: center;
-  padding: 0 calc(var(--spacing) * 2);
-  border-radius: var(--radius-md);
-  gap: calc(var(--spacing) * 2);
-}
+@layer components {
+  .sigma-ui-sidebar-menu-skeleton {
+    display: flex;
+    height: calc(var(--spacing) * 8);
+    align-items: center;
+    padding: 0 calc(var(--spacing) * 2);
+    border-radius: var(--radius-md);
+    gap: calc(var(--spacing) * 2);
+  }
 
-.sigma-ui-sidebar-menu-skeleton__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-}
+  .sigma-ui-sidebar-menu-skeleton__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 
-.sigma-ui-sidebar-menu-skeleton__text {
-  max-width: var(--skeleton-width);
-  height: calc(var(--spacing) * 4);
-  flex: 1;
+  .sigma-ui-sidebar-menu-skeleton__text {
+    max-width: var(--skeleton-width);
+    height: calc(var(--spacing) * 4);
+    flex: 1;
+  }
 }
 </style>

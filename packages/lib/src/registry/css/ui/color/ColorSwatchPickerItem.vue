@@ -30,13 +30,15 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
-.sigma-ui-color-swatch-picker-item {
-  border-radius: var(--radius-md);
-  outline: none;
-}
+@layer components {
+  .sigma-ui-color-swatch-picker-item {
+    border-radius: var(--radius-md);
+    outline: none;
+  }
 
-.sigma-ui-color-swatch-picker-item:focus-visible,
-.sigma-ui-color-swatch-picker-item[data-highlighted] {
-  outline: 2px solid var(--ring);
+  .sigma-ui-color-swatch-picker-item:focus-visible,
+  .sigma-ui-color-swatch-picker-item[data-highlighted] {
+    outline: 2px solid var(--ring);
+  }
 }
 </style>

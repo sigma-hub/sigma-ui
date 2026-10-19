@@ -70,24 +70,26 @@ import {
 </template>
 
 <style>
-.example-sigma-ui-card-form {
-  width: 350px;
-}
+@layer components {
+  .example-sigma-ui-card-form {
+    width: 350px;
+  }
 
-.example-sigma-ui-card-form__grid {
-  display: grid;
-  width: 100%;
-  gap: calc(var(--spacing) * 4);
-}
+  .example-sigma-ui-card-form__grid {
+    display: grid;
+    width: 100%;
+    gap: calc(var(--spacing) * 4);
+  }
 
-.example-sigma-ui-card-form__field {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 1.5);
-}
+  .example-sigma-ui-card-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 1.5);
+  }
 
-.example-sigma-ui-card-form__footer {
-  display: flex;
-  justify-content: space-between;
+  .example-sigma-ui-card-form__footer {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 </style>

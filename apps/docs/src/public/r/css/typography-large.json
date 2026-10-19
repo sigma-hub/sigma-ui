@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "example/TypographyLarge.vue",
-      "content": "<template>\n  <div class=\"example-sigma-ui-typography__large\">\n    Are you absolutely sure?\n  </div>\n</template>\n\n<style>\n.example-sigma-ui-typography__large {\n  font-size: 1.125rem;\n  font-weight: 600;\n}\n</style>\n",
+      "content": "<template>\n  <div class=\"example-sigma-ui-typography__large\">\n    Are you absolutely sure?\n  </div>\n</template>\n\n<style>\n@layer components {\n  .example-sigma-ui-typography__large {\n    font-size: 1.125rem;\n    font-weight: 600;\n  }\n}\n</style>\n",
       "type": "registry:example"
     }
   ]

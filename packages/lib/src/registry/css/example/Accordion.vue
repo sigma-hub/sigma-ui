@@ -31,7 +31,9 @@ const accordionItems = [
 </template>
 
 <style>
-.example-sigma-ui-accordion {
-  width: 100%;
+@layer components {
+  .example-sigma-ui-accordion {
+    width: 100%;
+  }
 }
 </style>

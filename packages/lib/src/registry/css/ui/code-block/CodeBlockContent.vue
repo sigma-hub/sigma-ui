@@ -242,77 +242,79 @@ onBeforeUnmount(() => {
 </template>
 
 <style>
-.sigma-ui-code-block__content {
-  --code-block-padding-x: 0.875rem;
+@layer components {
+  .sigma-ui-code-block__content {
+    --code-block-padding-x: 0.875rem;
 
-  overflow: auto;
-  min-width: 0;
-  min-height: 0;
-  padding: calc(var(--spacing) * 3) 0;
-  margin: 0;
-  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace);
-  font-size: inherit;
-  line-height: 1.7;
-  outline: none;
-  scrollbar-color: color-mix(in oklch, var(--muted-foreground) 40%, transparent) transparent;
-  scrollbar-width: thin;
-  tab-size: 2;
-  text-align: left;
-  white-space: pre;
-}
+    overflow: auto;
+    min-width: 0;
+    min-height: 0;
+    padding: calc(var(--spacing) * 3) 0;
+    margin: 0;
+    font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace);
+    font-size: inherit;
+    line-height: 1.7;
+    outline: none;
+    scrollbar-color: color-mix(in oklch, var(--muted-foreground) 40%, transparent) transparent;
+    scrollbar-width: thin;
+    tab-size: 2;
+    text-align: left;
+    white-space: pre;
+  }
 
-[data-size='sm'] .sigma-ui-code-block__content {
-  --code-block-padding-x: 0.625rem;
+  [data-size='sm'] .sigma-ui-code-block__content {
+    --code-block-padding-x: 0.625rem;
 
-  padding: calc(var(--spacing) * 2) 0;
-  line-height: 1.6;
-}
+    padding: calc(var(--spacing) * 2) 0;
+    line-height: 1.6;
+  }
 
-.sigma-ui-code-block__content[data-wrap] {
-  overflow-wrap: anywhere;
-  white-space: pre-wrap;
-}
+  .sigma-ui-code-block__content[data-wrap] {
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+  }
 
-.sigma-ui-code-block__content[data-collapsed] {
-  overflow: hidden;
-  mask-image: linear-gradient(to bottom, #000000 calc(100% - 3rem), transparent);
-}
+  .sigma-ui-code-block__content[data-collapsed] {
+    overflow: hidden;
+    mask-image: linear-gradient(to bottom, #000000 calc(100% - 3rem), transparent);
+  }
 
-.sigma-ui-code-block__code {
-  display: block;
-  width: max-content;
-  min-width: 100%;
-  padding: 0;
-  border-radius: 0;
-  background: none;
-  color: inherit;
-  font: inherit;
-}
+  .sigma-ui-code-block__code {
+    display: block;
+    width: max-content;
+    min-width: 100%;
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+  }
 
-.sigma-ui-code-block__code[data-plain] {
-  padding: 0 var(--code-block-padding-x);
-}
+  .sigma-ui-code-block__code[data-plain] {
+    padding: 0 var(--code-block-padding-x);
+  }
 
-[data-wrap] > .sigma-ui-code-block__code {
-  width: auto;
-}
+  [data-wrap] > .sigma-ui-code-block__code {
+    width: auto;
+  }
 
-[data-variant='destructive'] .sigma-ui-code-block__content {
-  color: var(--code-block-destructive-foreground);
-}
+  [data-variant='destructive'] .sigma-ui-code-block__content {
+    color: var(--code-block-destructive-foreground);
+  }
 
-/* Tokens from a pair of shiki themes carry both colors; the `.dark` class picks one. */
-[data-slot='code-block-content'] [style*='--shiki-light'] {
-  color: var(--shiki-light);
-  font-style: var(--shiki-light-font-style, inherit);
-  font-weight: var(--shiki-light-font-weight, inherit);
-  text-decoration: var(--shiki-light-text-decoration, inherit);
-}
+  /* Tokens from a pair of shiki themes carry both colors; the `.dark` class picks one. */
+  [data-slot='code-block-content'] [style*='--shiki-light'] {
+    color: var(--shiki-light);
+    font-style: var(--shiki-light-font-style, inherit);
+    font-weight: var(--shiki-light-font-weight, inherit);
+    text-decoration: var(--shiki-light-text-decoration, inherit);
+  }
 
-.dark [data-slot='code-block-content'] [style*='--shiki-dark'] {
-  color: var(--shiki-dark);
-  font-style: var(--shiki-dark-font-style, inherit);
-  font-weight: var(--shiki-dark-font-weight, inherit);
-  text-decoration: var(--shiki-dark-text-decoration, inherit);
+  .dark [data-slot='code-block-content'] [style*='--shiki-dark'] {
+    color: var(--shiki-dark);
+    font-style: var(--shiki-dark-font-style, inherit);
+    font-weight: var(--shiki-dark-font-weight, inherit);
+    text-decoration: var(--shiki-dark-text-decoration, inherit);
+  }
 }
 </style>

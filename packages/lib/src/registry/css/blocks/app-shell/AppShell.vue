@@ -46,7 +46,9 @@ import {
 </template>
 
 <style>
-.app-shell.app-shell {
-  width: 100%;
+@layer components {
+  .app-shell.app-shell {
+    width: 100%;
+  }
 }
 </style>

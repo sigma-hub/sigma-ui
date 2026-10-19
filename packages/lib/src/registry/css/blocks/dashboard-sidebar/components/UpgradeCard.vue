@@ -38,25 +38,27 @@ withDefaults(defineProps<{
 </template>
 
 <style>
-.dashboard-sidebar__upgrade-header--compact.dashboard-sidebar__upgrade-header--compact {
-  padding: 0 calc(var(--spacing) * 2) calc(var(--spacing) * 2);
-}
-
-.dashboard-sidebar__upgrade-content--compact.dashboard-sidebar__upgrade-content--compact {
-  padding: 0 calc(var(--spacing) * 2) calc(var(--spacing) * 2);
-}
-
-.dashboard-sidebar__upgrade-button.dashboard-sidebar__upgrade-button {
-  width: 100%;
-}
-
-@media (width >= 48rem) {
+@layer components {
   .dashboard-sidebar__upgrade-header--compact.dashboard-sidebar__upgrade-header--compact {
-    padding: calc(var(--spacing) * 4);
+    padding: 0 calc(var(--spacing) * 2) calc(var(--spacing) * 2);
   }
 
   .dashboard-sidebar__upgrade-content--compact.dashboard-sidebar__upgrade-content--compact {
-    padding: 0 calc(var(--spacing) * 4) calc(var(--spacing) * 4);
+    padding: 0 calc(var(--spacing) * 2) calc(var(--spacing) * 2);
+  }
+
+  .dashboard-sidebar__upgrade-button.dashboard-sidebar__upgrade-button {
+    width: 100%;
+  }
+
+  @media (width >= 48rem) {
+    .dashboard-sidebar__upgrade-header--compact.dashboard-sidebar__upgrade-header--compact {
+      padding: calc(var(--spacing) * 4);
+    }
+
+    .dashboard-sidebar__upgrade-content--compact.dashboard-sidebar__upgrade-content--compact {
+      padding: 0 calc(var(--spacing) * 4) calc(var(--spacing) * 4);
+    }
   }
 }
 </style>

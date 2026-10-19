@@ -15,8 +15,10 @@ const value = ref(today(getLocalTimeZone())) as Ref<DateValue>;
 </template>
 
 <style>
-.example-sigma-ui-calendar {
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+@layer components {
+  .example-sigma-ui-calendar {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+  }
 }
 </style>

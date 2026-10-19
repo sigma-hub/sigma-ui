@@ -68,21 +68,23 @@ function formatDate(date: DateRange['start']) {
 </template>
 
 <style>
-.dashboard-overview__date-button {
-  width: 300px;
-  justify-content: flex-start;
-  font-weight: 400;
-  text-align: left;
-}
+@layer components {
+  .dashboard-overview__date-button {
+    width: 300px;
+    justify-content: flex-start;
+    font-weight: 400;
+    text-align: left;
+  }
 
-.dashboard-overview__date-icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  margin-right: calc(var(--spacing) * 2);
-}
+  .dashboard-overview__date-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-right: calc(var(--spacing) * 2);
+  }
 
-.dashboard-overview__date-popover {
-  width: auto;
-  padding: 0;
+  .dashboard-overview__date-popover {
+    width: auto;
+    padding: 0;
+  }
 }
 </style>

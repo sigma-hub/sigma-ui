@@ -29,10 +29,12 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-dialog-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  letter-spacing: -0.025em;
-  line-height: 1;
+@layer components {
+  .sigma-ui-dialog-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1;
+  }
 }
 </style>

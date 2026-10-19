@@ -156,113 +156,115 @@ defineProps<{
 </template>
 
 <style>
-.dashboard-orders__toolbar {
-  display: flex;
-  align-items: center;
-}
+@layer components {
+  .dashboard-orders__toolbar {
+    display: flex;
+    align-items: center;
+  }
 
-.dashboard-orders__toolbar-actions {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  gap: calc(var(--spacing) * 2);
-}
+  .dashboard-orders__toolbar-actions {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.dashboard-orders .dashboard-orders__toolbar-button {
-  height: calc(var(--spacing) * 7);
-  padding-right: calc(var(--spacing) * 3);
-  padding-left: calc(var(--spacing) * 3);
-  border-radius: calc(var(--radius) - 2px);
-  gap: calc(var(--spacing) * 1);
-}
+  .dashboard-orders .dashboard-orders__toolbar-button {
+    height: calc(var(--spacing) * 7);
+    padding-right: calc(var(--spacing) * 3);
+    padding-left: calc(var(--spacing) * 3);
+    border-radius: calc(var(--radius) - 2px);
+    gap: calc(var(--spacing) * 1);
+  }
 
-.dashboard-orders .dashboard-orders__toolbar-button svg {
-  width: calc(var(--spacing) * 3.5);
-  height: calc(var(--spacing) * 3.5);
-}
+  .dashboard-orders .dashboard-orders__toolbar-button svg {
+    width: calc(var(--spacing) * 3.5);
+    height: calc(var(--spacing) * 3.5);
+  }
 
-.dashboard-orders__action-label {
-  position: absolute;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  border-width: 0;
-  margin: -1px;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-}
-
-@media (width >= 40rem) {
   .dashboard-orders__action-label {
-    position: static;
-    overflow: visible;
-    width: auto;
-    height: auto;
-    margin: 0;
-    clip: auto;
-    white-space: normal;
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border-width: 0;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
   }
-}
 
-.dashboard-orders__filter-option {
-  display: flex;
-}
-
-.dashboard-orders__filter-option > * + * {
-  margin-left: calc(var(--spacing) * 2);
-}
-
-.dashboard-orders__filter-label {
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1;
-}
-
-.dashboard-orders .dashboard-orders__table-header {
-  padding-right: calc(var(--spacing) * 7);
-  padding-left: calc(var(--spacing) * 7);
-}
-
-.dashboard-orders__cell--from-sm,
-.dashboard-orders__cell--from-md {
-  display: none;
-}
-
-@media (width >= 40rem) {
-  .dashboard-orders__cell--from-sm {
-    display: table-cell;
+  @media (width >= 40rem) {
+    .dashboard-orders__action-label {
+      position: static;
+      overflow: visible;
+      width: auto;
+      height: auto;
+      margin: 0;
+      clip: auto;
+      white-space: normal;
+    }
   }
-}
 
-@media (width >= 48rem) {
+  .dashboard-orders__filter-option {
+    display: flex;
+  }
+
+  .dashboard-orders__filter-option > * + * {
+    margin-left: calc(var(--spacing) * 2);
+  }
+
+  .dashboard-orders__filter-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .dashboard-orders .dashboard-orders__table-header {
+    padding-right: calc(var(--spacing) * 7);
+    padding-left: calc(var(--spacing) * 7);
+  }
+
+  .dashboard-orders__cell--from-sm,
   .dashboard-orders__cell--from-md {
-    display: table-cell;
+    display: none;
   }
-}
 
-.dashboard-orders .dashboard-orders__cell--end {
-  text-align: right;
-}
+  @media (width >= 40rem) {
+    .dashboard-orders__cell--from-sm {
+      display: table-cell;
+    }
+  }
 
-.dashboard-orders__customer-name {
-  font-weight: 500;
-}
+  @media (width >= 48rem) {
+    .dashboard-orders__cell--from-md {
+      display: table-cell;
+    }
+  }
 
-.dashboard-orders__email {
-  display: none;
-  color: var(--muted-foreground);
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
+  .dashboard-orders .dashboard-orders__cell--end {
+    text-align: right;
+  }
 
-@media (width >= 48rem) {
+  .dashboard-orders__customer-name {
+    font-weight: 500;
+  }
+
   .dashboard-orders__email {
-    display: inline;
+    display: none;
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
-}
 
-.dashboard-orders__row--selected {
-  background-color: var(--secondary);
+  @media (width >= 48rem) {
+    .dashboard-orders__email {
+      display: inline;
+    }
+  }
+
+  .dashboard-orders__row--selected {
+    background-color: var(--secondary);
+  }
 }
 </style>

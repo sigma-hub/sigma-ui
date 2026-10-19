@@ -36,25 +36,27 @@ const props = defineProps<ComboboxGroupProps & {
 </template>
 
 <style>
-.sigma-ui-combobox-group {
-  overflow: hidden;
-  padding: calc(var(--spacing) * 1);
-  color: var(--foreground);
-}
+@layer components {
+  .sigma-ui-combobox-group {
+    overflow: hidden;
+    padding: calc(var(--spacing) * 1);
+    color: var(--foreground);
+  }
 
-.sigma-ui-combobox-group [cmdk-group-heading] {
-  padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
-  color: var(--muted-foreground);
-  font-size: 0.75rem;
-  font-weight: 500;
-  line-height: 1rem;
-}
+  .sigma-ui-combobox-group [cmdk-group-heading] {
+    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1rem;
+  }
 
-.sigma-ui-combobox-group__heading {
-  padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
-  color: var(--muted-foreground);
-  font-size: 0.75rem;
-  font-weight: 500;
-  line-height: 1rem;
+  .sigma-ui-combobox-group__heading {
+    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1rem;
+  }
 }
 </style>

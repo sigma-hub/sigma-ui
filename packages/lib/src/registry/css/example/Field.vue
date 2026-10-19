@@ -82,12 +82,14 @@ import { Textarea } from '@ui/registry/css/ui/textarea';
 </template>
 
 <style>
-.example-field-form {
-  width: 100%;
-  max-width: 28rem;
-}
+@layer components {
+  .example-field-form {
+    width: 100%;
+    max-width: 28rem;
+  }
 
-.example-field-form .example-field-form__label {
-  font-weight: 400;
+  .example-field-form .example-field-form__label {
+    font-weight: 400;
+  }
 }
 </style>

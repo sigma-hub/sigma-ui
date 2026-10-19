@@ -6,10 +6,12 @@
 </template>
 
 <style>
-.example-sigma-ui-typography__blockquote {
-  padding-left: calc(var(--spacing) * 6);
-  border-left: 2px solid var(--border);
-  margin-top: calc(var(--spacing) * 6);
-  font-style: italic;
+@layer components {
+  .example-sigma-ui-typography__blockquote {
+    padding-left: calc(var(--spacing) * 6);
+    border-left: 2px solid var(--border);
+    margin-top: calc(var(--spacing) * 6);
+    font-style: italic;
+  }
 }
 </style>

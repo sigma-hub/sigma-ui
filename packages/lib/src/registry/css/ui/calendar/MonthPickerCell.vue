@@ -28,10 +28,12 @@ const forwarded = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-month-picker-cell {
-  position: relative;
-  padding: 0;
-  font-size: 0.875rem;
-  text-align: center;
+@layer components {
+  .sigma-ui-month-picker-cell {
+    position: relative;
+    padding: 0;
+    font-size: 0.875rem;
+    text-align: center;
+  }
 }
 </style>

@@ -38,14 +38,16 @@ const props = withDefaults(defineProps<PaginationNextProps>(), {
 </template>
 
 <style>
-.sigma-ui-pagination-next {
-  width: calc(var(--spacing) * 10);
-  height: calc(var(--spacing) * 10);
-  padding: 0;
-}
+@layer components {
+  .sigma-ui-pagination-next {
+    width: calc(var(--spacing) * 10);
+    height: calc(var(--spacing) * 10);
+    padding: 0;
+  }
 
-.sigma-ui-pagination-next__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
+  .sigma-ui-pagination-next__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 }
 </style>

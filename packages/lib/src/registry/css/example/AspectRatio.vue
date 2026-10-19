@@ -13,20 +13,22 @@ import { AspectRatio } from '@ui/registry/css/ui/aspect-ratio';
 </template>
 
 <style>
-.example-aspect-ratio {
-  width: 100%;
-  max-width: 24rem;
-}
+@layer components {
+  .example-aspect-ratio {
+    width: 100%;
+    max-width: 24rem;
+  }
 
-.example-aspect-ratio__fill {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-md);
-  background-color: var(--muted);
-  color: var(--muted-foreground);
-  font-size: 0.875rem;
+  .example-aspect-ratio__fill {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    background-color: var(--muted);
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+  }
 }
 </style>

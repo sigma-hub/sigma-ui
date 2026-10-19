@@ -32,16 +32,18 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-select-scroll-down {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: calc(var(--spacing) * 1) 0;
-  cursor: default;
-}
+@layer components {
+  .sigma-ui-select-scroll-down {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(var(--spacing) * 1) 0;
+    cursor: default;
+  }
 
-.sigma-ui-select-scroll-down__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
+  .sigma-ui-select-scroll-down__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 }
 </style>

@@ -41,52 +41,54 @@ defineProps<{
 </template>
 
 <style>
-.dashboard-analytics__sales.dashboard-analytics__sales {
-  display: grid;
-  gap: calc(var(--spacing) * 8);
-}
+@layer components {
+  .dashboard-analytics__sales.dashboard-analytics__sales {
+    display: grid;
+    gap: calc(var(--spacing) * 8);
+  }
 
-.dashboard-analytics__sale {
-  display: flex;
-  align-items: center;
-  gap: calc(var(--spacing) * 4);
-}
-
-.dashboard-analytics__avatar.dashboard-analytics__avatar {
-  display: none;
-}
-
-.dashboard-analytics__sale-body {
-  display: grid;
-  gap: calc(var(--spacing) * 1);
-}
-
-.dashboard-analytics__sale-name,
-.dashboard-analytics__sale-email {
-  margin: 0;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.dashboard-analytics__sale-name {
-  font-weight: 500;
-  line-height: 1;
-}
-
-.dashboard-analytics__sale-email {
-  color: var(--muted-foreground);
-}
-
-.dashboard-analytics__sale-amount {
-  margin-left: auto;
-  font-weight: 500;
-}
-
-@media (width >= 40rem) {
-  .dashboard-analytics__avatar.dashboard-analytics__avatar {
+  .dashboard-analytics__sale {
     display: flex;
-    width: calc(var(--spacing) * 9);
-    height: calc(var(--spacing) * 9);
+    align-items: center;
+    gap: calc(var(--spacing) * 4);
+  }
+
+  .dashboard-analytics__avatar.dashboard-analytics__avatar {
+    display: none;
+  }
+
+  .dashboard-analytics__sale-body {
+    display: grid;
+    gap: calc(var(--spacing) * 1);
+  }
+
+  .dashboard-analytics__sale-name,
+  .dashboard-analytics__sale-email {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .dashboard-analytics__sale-name {
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .dashboard-analytics__sale-email {
+    color: var(--muted-foreground);
+  }
+
+  .dashboard-analytics__sale-amount {
+    margin-left: auto;
+    font-weight: 500;
+  }
+
+  @media (width >= 40rem) {
+    .dashboard-analytics__avatar.dashboard-analytics__avatar {
+      display: flex;
+      width: calc(var(--spacing) * 9);
+      height: calc(var(--spacing) * 9);
+    }
   }
 }
 </style>

@@ -76,13 +76,15 @@ import { Typography } from '@ui/registry/css/ui/typography';
 </template>
 
 <style>
-.example-typography {
-  max-width: 65ch;
-}
+@layer components {
+  .example-typography {
+    max-width: 65ch;
+  }
 
-.example-typography__table {
-  width: 100%;
-  margin: calc(var(--spacing) * 6) 0;
-  overflow-y: auto;
+  .example-typography__table {
+    width: 100%;
+    margin: calc(var(--spacing) * 6) 0;
+    overflow-y: auto;
+  }
 }
 </style>

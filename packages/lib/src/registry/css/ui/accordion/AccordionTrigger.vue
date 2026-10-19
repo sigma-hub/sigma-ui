@@ -52,28 +52,30 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-accordion-header {
-  display: flex;
-}
+@layer components {
+  .sigma-ui-accordion-header {
+    display: flex;
+  }
 
-.sigma-ui-accordion-trigger {
-  display: flex;
-  flex: 1;
-  align-items: center;
-  justify-content: space-between;
-  padding: calc(var(--spacing) * 4) 0;
-  font-weight: 500;
-  transition: all 0.2s;
-}
+  .sigma-ui-accordion-trigger {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    padding: calc(var(--spacing) * 4) 0;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
 
-.sigma-ui-accordion-trigger-icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  flex-shrink: 0;
-  transition: transform 0.2s;
-}
+  .sigma-ui-accordion-trigger-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
 
-.sigma-ui-accordion-trigger[data-state="open"] .sigma-ui-accordion-trigger-icon {
-  transform: rotate(180deg);
+  .sigma-ui-accordion-trigger[data-state="open"] .sigma-ui-accordion-trigger-icon {
+    transform: rotate(180deg);
+  }
 }
 </style>

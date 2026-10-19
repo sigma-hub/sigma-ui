@@ -24,10 +24,12 @@ const delegatedAttrs = () => {
 </template>
 
 <style>
-.sigma-ui-card__header {
-  display: flex;
-  flex-direction: column;
-  padding: calc(var(--spacing) * 6);
-  gap: calc(var(--spacing) * 1.5);
+@layer components {
+  .sigma-ui-card__header {
+    display: flex;
+    flex-direction: column;
+    padding: calc(var(--spacing) * 6);
+    gap: calc(var(--spacing) * 1.5);
+  }
 }
 </style>

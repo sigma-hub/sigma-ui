@@ -62,33 +62,35 @@ const onSubmit = handleSubmit((values) => {
 </template>
 
 <style>
-.example-sigma-ui-checkbox-form {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 6);
-}
+@layer components {
+  .example-sigma-ui-checkbox-form {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 6);
+  }
 
-.example-sigma-ui-checkbox-form__item {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: calc(var(--spacing) * 4);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  gap: calc(var(--spacing) * 3);
-}
+  .example-sigma-ui-checkbox-form__item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: calc(var(--spacing) * 4);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    gap: calc(var(--spacing) * 3);
+  }
 
-.example-sigma-ui-checkbox-form__content {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--spacing) * 1);
-  line-height: 1;
-}
+  .example-sigma-ui-checkbox-form__content {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 1);
+    line-height: 1;
+  }
 
-.example-sigma-ui-checkbox-form__toast-pre {
-  padding: calc(var(--spacing) * 2);
-  border-radius: var(--radius-md);
-  margin-top: calc(var(--spacing) * 2);
-  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  .example-sigma-ui-checkbox-form__toast-pre {
+    padding: calc(var(--spacing) * 2);
+    border-radius: var(--radius-md);
+    margin-top: calc(var(--spacing) * 2);
+    background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  }
 }
 </style>

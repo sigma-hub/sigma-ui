@@ -16,10 +16,12 @@ import { Kbd, KbdGroup } from '@ui/registry/css/ui/kbd';
 </template>
 
 <style>
-.example-kbd {
-  display: flex;
-  align-items: center;
-  font-size: 0.875rem;
-  gap: calc(var(--spacing) * 4);
+@layer components {
+  .example-kbd {
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    gap: calc(var(--spacing) * 4);
+  }
 }
 </style>

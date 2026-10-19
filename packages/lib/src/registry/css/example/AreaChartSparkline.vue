@@ -33,8 +33,10 @@ const data = [
 </template>
 
 <style>
-.example-sigma-ui-area-chart-sparkline {
-  width: 400px;
-  height: 100px;
+@layer components {
+  .example-sigma-ui-area-chart-sparkline {
+    width: 400px;
+    height: 100px;
+  }
 }
 </style>

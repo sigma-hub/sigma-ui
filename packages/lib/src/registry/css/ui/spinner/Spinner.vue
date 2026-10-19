@@ -36,19 +36,21 @@ const props = withDefaults(defineProps<SpinnerProps>(), {
 </template>
 
 <style>
-.sigma-ui-spinner {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  animation: sigma-ui-spin 1s linear infinite;
-}
-
-@keyframes sigma-ui-spin {
-  from {
-    transform: rotate(0deg);
+@layer components {
+  .sigma-ui-spinner {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    animation: sigma-ui-spin 1s linear infinite;
   }
 
-  to {
-    transform: rotate(360deg);
+  @keyframes sigma-ui-spin {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
   }
 }
 </style>

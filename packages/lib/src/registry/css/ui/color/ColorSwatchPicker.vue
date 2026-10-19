@@ -30,9 +30,11 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
-.sigma-ui-color-swatch-picker {
-  display: flex;
-  flex-wrap: wrap;
-  gap: calc(var(--spacing) * 2);
+@layer components {
+  .sigma-ui-color-swatch-picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--spacing) * 2);
+  }
 }
 </style>

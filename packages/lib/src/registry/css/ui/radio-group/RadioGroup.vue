@@ -30,8 +30,10 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
-.sigma-ui-radio-group {
-  display: grid;
-  gap: calc(var(--spacing) * 2);
+@layer components {
+  .sigma-ui-radio-group {
+    display: grid;
+    gap: calc(var(--spacing) * 2);
+  }
 }
 </style>

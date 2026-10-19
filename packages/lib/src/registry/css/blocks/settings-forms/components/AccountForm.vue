@@ -213,61 +213,63 @@ function onSubmit(values: Record<string, unknown>) {
 </template>
 
 <style>
-.settings-forms__stack {
-  display: flex;
-  flex-direction: column;
-}
+@layer components {
+  .settings-forms__stack {
+    display: flex;
+    flex-direction: column;
+  }
 
-.settings-forms__date-button.settings-forms__date-button {
-  width: 240px;
-  justify-content: flex-start;
-  font-weight: 400;
-  text-align: left;
-}
+  .settings-forms__date-button.settings-forms__date-button {
+    width: 240px;
+    justify-content: flex-start;
+    font-weight: 400;
+    text-align: left;
+  }
 
-.settings-forms__date-button--empty,
-.settings-forms__language-button--empty {
-  color: var(--muted-foreground);
-}
+  .settings-forms__date-button--empty,
+  .settings-forms__language-button--empty {
+    color: var(--muted-foreground);
+  }
 
-.settings-forms__field-icon,
-.settings-forms__check {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  margin-right: calc(var(--spacing) * 2);
-}
+  .settings-forms__field-icon,
+  .settings-forms__check {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-right: calc(var(--spacing) * 2);
+  }
 
-.settings-forms__field-icon {
-  opacity: 0.5;
-}
+  .settings-forms__field-icon {
+    opacity: 0.5;
+  }
 
-.settings-forms__date-popover,
-.settings-forms__language-popover {
-  padding: 0;
-}
+  .settings-forms__date-popover,
+  .settings-forms__language-popover {
+    padding: 0;
+  }
 
-.settings-forms__language-button.settings-forms__language-button,
-.settings-forms__language-popover {
-  width: 200px;
-}
+  .settings-forms__language-button.settings-forms__language-button,
+  .settings-forms__language-popover {
+    width: 200px;
+  }
 
-.settings-forms__language-button.settings-forms__language-button {
-  justify-content: space-between;
-}
+  .settings-forms__language-button.settings-forms__language-button {
+    justify-content: space-between;
+  }
 
-.settings-forms__language-icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  flex-shrink: 0;
-  margin-left: calc(var(--spacing) * 2);
-  opacity: 0.5;
-}
+  .settings-forms__language-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    flex-shrink: 0;
+    margin-left: calc(var(--spacing) * 2);
+    opacity: 0.5;
+  }
 
-.settings-forms__check {
-  opacity: 0;
-}
+  .settings-forms__check {
+    opacity: 0;
+  }
 
-.settings-forms__check--active {
-  opacity: 1;
+  .settings-forms__check--active {
+    opacity: 1;
+  }
 }
 </style>

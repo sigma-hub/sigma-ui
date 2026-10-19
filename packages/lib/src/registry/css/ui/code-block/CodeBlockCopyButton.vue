@@ -115,12 +115,14 @@ async function onClick() {
 </template>
 
 <style>
-.sigma-ui-code-block__copy-button {
-  color: var(--muted-foreground);
-}
+@layer components {
+  .sigma-ui-code-block__copy-button {
+    color: var(--muted-foreground);
+  }
 
-.sigma-ui-code-block__copy-button:hover,
-.sigma-ui-code-block__copy-button[data-copied] {
-  color: var(--foreground);
+  .sigma-ui-code-block__copy-button:hover,
+  .sigma-ui-code-block__copy-button[data-copied] {
+    color: var(--foreground);
+  }
 }
 </style>

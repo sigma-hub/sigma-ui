@@ -32,15 +32,17 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-code-block__tabs-content {
-  display: flex;
-  min-width: 0;
-  min-height: 0;
-  flex-direction: column;
-  outline: none;
-}
+@layer components {
+  .sigma-ui-code-block__tabs-content {
+    display: flex;
+    min-width: 0;
+    min-height: 0;
+    flex-direction: column;
+    outline: none;
+  }
 
-.sigma-ui-code-block__tabs-content[hidden] {
-  display: none;
+  .sigma-ui-code-block__tabs-content[hidden] {
+    display: none;
+  }
 }
 </style>

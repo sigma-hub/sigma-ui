@@ -38,19 +38,21 @@ const props = withDefaults(defineProps<{
 </template>
 
 <style>
-.sigma-ui-table-empty {
-  padding: calc(var(--spacing) * 4);
-  color: var(--foreground);
-  font-size: 0.875rem;
-  vertical-align: middle;
-  white-space: nowrap;
-}
+@layer components {
+  .sigma-ui-table-empty {
+    padding: calc(var(--spacing) * 4);
+    color: var(--foreground);
+    font-size: 0.875rem;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
 
-.sigma-ui-table-empty__content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: calc(var(--spacing) * 10);
-  padding-bottom: calc(var(--spacing) * 10);
+  .sigma-ui-table-empty__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: calc(var(--spacing) * 10);
+    padding-bottom: calc(var(--spacing) * 10);
+  }
 }
 </style>

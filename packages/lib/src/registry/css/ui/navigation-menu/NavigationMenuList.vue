@@ -29,12 +29,14 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-navigation-menu-list {
-  display: flex;
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-  gap: calc(var(--spacing) * 1);
-  list-style: none;
+@layer components {
+  .sigma-ui-navigation-menu-list {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--spacing) * 1);
+    list-style: none;
+  }
 }
 </style>

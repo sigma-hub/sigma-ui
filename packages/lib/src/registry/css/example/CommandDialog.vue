@@ -103,28 +103,30 @@ function handleSelect(event: any) {
 </template>
 
 <style>
-.example-sigma-ui-command-dialog__text {
-  color: var(--muted-foreground);
-  font-size: 0.875rem;
-}
+@layer components {
+  .example-sigma-ui-command-dialog__text {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+  }
 
-.example-sigma-ui-command-dialog__kbd {
-  display: inline-flex;
-  align-items: center;
-  padding: calc(var(--spacing) * 1) calc(var(--spacing) * 2);
-  border-radius: var(--radius-sm);
-  background-color: var(--muted);
-  color: var(--muted-foreground);
-  font-family: var(--font-mono);
-  gap: calc(var(--spacing) * 1);
-  pointer-events: none;
-}
+  .example-sigma-ui-command-dialog__kbd {
+    display: inline-flex;
+    align-items: center;
+    padding: calc(var(--spacing) * 1) calc(var(--spacing) * 2);
+    border-radius: var(--radius-sm);
+    background-color: var(--muted);
+    color: var(--muted-foreground);
+    font-family: var(--font-mono);
+    gap: calc(var(--spacing) * 1);
+    pointer-events: none;
+  }
 
-.example-sigma-ui-command-dialog__kbd-meta {
-  font-size: 0.75rem;
-}
+  .example-sigma-ui-command-dialog__kbd-meta {
+    font-size: 0.75rem;
+  }
 
-.example-sigma-ui-command-dialog__kbd-key {
-  font-size: 0.875rem;
+  .example-sigma-ui-command-dialog__kbd-key {
+    font-size: 0.875rem;
+  }
 }
 </style>

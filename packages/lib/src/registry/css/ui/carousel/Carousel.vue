@@ -57,7 +57,9 @@ function onKeyDown(event: KeyboardEvent) {
 </template>
 
 <style>
-.sigma-ui-carousel {
-  position: relative;
+@layer components {
+  .sigma-ui-carousel {
+    position: relative;
+  }
 }
 </style>

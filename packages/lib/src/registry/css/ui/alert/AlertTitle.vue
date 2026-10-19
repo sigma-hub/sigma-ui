@@ -15,10 +15,12 @@ const attrs = useAttrs();
 </template>
 
 <style>
-.sigma-ui-alert-title {
-  margin-bottom: calc(var(--spacing) * 1);
-  font-weight: 500;
-  letter-spacing: -0.025em;
-  line-height: 1;
+@layer components {
+  .sigma-ui-alert-title {
+    margin-bottom: calc(var(--spacing) * 1);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 1;
+  }
 }
 </style>

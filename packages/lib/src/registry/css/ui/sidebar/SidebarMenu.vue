@@ -31,14 +31,16 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-sidebar-menu {
-  display: flex;
-  width: 100%;
-  min-width: 0;
-  flex-direction: column;
-  padding: 0;
-  margin: 0;
-  gap: calc(var(--spacing) * 1);
-  list-style: none;
+@layer components {
+  .sigma-ui-sidebar-menu {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    gap: calc(var(--spacing) * 1);
+    list-style: none;
+  }
 }
 </style>

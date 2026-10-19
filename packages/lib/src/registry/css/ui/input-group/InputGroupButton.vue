@@ -53,38 +53,40 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-input-group .sigma-ui-button.sigma-ui-input-group-button {
-  display: flex;
-  align-items: center;
-  box-shadow: none;
-  font-size: 0.875rem;
-  gap: calc(var(--spacing) * 2);
-}
+@layer components {
+  .sigma-ui-input-group .sigma-ui-button.sigma-ui-input-group-button {
+    display: flex;
+    align-items: center;
+    box-shadow: none;
+    font-size: 0.875rem;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.sigma-ui-input-group .sigma-ui-button.sigma-ui-input-group-button--xs {
-  height: calc(var(--spacing) * 6);
-  padding: 0 calc(var(--spacing) * 2);
-  border-radius: calc(var(--radius) - 5px);
-  gap: calc(var(--spacing) * 1);
-}
+  .sigma-ui-input-group .sigma-ui-button.sigma-ui-input-group-button--xs {
+    height: calc(var(--spacing) * 6);
+    padding: 0 calc(var(--spacing) * 2);
+    border-radius: calc(var(--radius) - 5px);
+    gap: calc(var(--spacing) * 1);
+  }
 
-.sigma-ui-input-group .sigma-ui-button.sigma-ui-input-group-button--sm {
-  height: calc(var(--spacing) * 8);
-  padding: 0 calc(var(--spacing) * 2.5);
-  border-radius: var(--radius-md);
-  gap: calc(var(--spacing) * 1.5);
-}
+  .sigma-ui-input-group .sigma-ui-button.sigma-ui-input-group-button--sm {
+    height: calc(var(--spacing) * 8);
+    padding: 0 calc(var(--spacing) * 2.5);
+    border-radius: var(--radius-md);
+    gap: calc(var(--spacing) * 1.5);
+  }
 
-.sigma-ui-input-group .sigma-ui-button.sigma-ui-input-group-button--icon-xs {
-  width: calc(var(--spacing) * 6);
-  height: calc(var(--spacing) * 6);
-  padding: 0;
-  border-radius: calc(var(--radius) - 5px);
-}
+  .sigma-ui-input-group .sigma-ui-button.sigma-ui-input-group-button--icon-xs {
+    width: calc(var(--spacing) * 6);
+    height: calc(var(--spacing) * 6);
+    padding: 0;
+    border-radius: calc(var(--radius) - 5px);
+  }
 
-.sigma-ui-input-group .sigma-ui-button.sigma-ui-input-group-button--icon-sm {
-  width: calc(var(--spacing) * 8);
-  height: calc(var(--spacing) * 8);
-  padding: 0;
+  .sigma-ui-input-group .sigma-ui-button.sigma-ui-input-group-button--icon-sm {
+    width: calc(var(--spacing) * 8);
+    height: calc(var(--spacing) * 8);
+    padding: 0;
+  }
 }
 </style>

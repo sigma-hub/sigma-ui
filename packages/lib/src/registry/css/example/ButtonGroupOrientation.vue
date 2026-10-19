@@ -27,8 +27,10 @@ import { ButtonGroup } from '@ui/registry/css/ui/button-group';
 </template>
 
 <style>
-.example-button-group-orientation__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
+@layer components {
+  .example-button-group-orientation__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 }
 </style>

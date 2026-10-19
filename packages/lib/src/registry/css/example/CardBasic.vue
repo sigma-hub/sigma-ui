@@ -25,7 +25,9 @@ import {
 </template>
 
 <style>
-.example-sigma-ui-card-basic {
-  width: 380px;
+@layer components {
+  .example-sigma-ui-card-basic {
+    width: 380px;
+  }
 }
 </style>

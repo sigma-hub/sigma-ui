@@ -29,12 +29,14 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-range-calendar-header {
-  position: relative;
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: calc(var(--spacing) * 1);
+@layer components {
+  .sigma-ui-range-calendar-header {
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: calc(var(--spacing) * 1);
+  }
 }
 </style>

@@ -32,15 +32,17 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-dropdown-menu-label {
-  padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
-  color: var(--foreground);
-  font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1.25rem;
-}
+@layer components {
+  .sigma-ui-dropdown-menu-label {
+    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
+    color: var(--foreground);
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+  }
 
-.sigma-ui-dropdown-menu-label--inset {
-  padding-left: calc(var(--spacing) * 8);
+  .sigma-ui-dropdown-menu-label--inset {
+    padding-left: calc(var(--spacing) * 8);
+  }
 }
 </style>

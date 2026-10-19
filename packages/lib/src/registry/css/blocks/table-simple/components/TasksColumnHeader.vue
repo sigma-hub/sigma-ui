@@ -67,33 +67,35 @@ defineProps<{
 </template>
 
 <style>
-.table-simple__column-header {
-  display: flex;
-  align-items: center;
-  gap: calc(var(--spacing) * 2);
-}
+@layer components {
+  .table-simple__column-header {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.table-simple__column-button {
-  height: calc(var(--spacing) * 8);
-  margin-left: calc(var(--spacing) * -3);
-}
+  .table-simple__column-button {
+    height: calc(var(--spacing) * 8);
+    margin-left: calc(var(--spacing) * -3);
+  }
 
-.table-simple__column-button[data-state='open'] {
-  background: var(--secondary);
-}
+  .table-simple__column-button[data-state='open'] {
+    background: var(--secondary);
+  }
 
-.table-simple__column-icon,
-.table-simple__menu-icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  margin-left: calc(var(--spacing) * 2);
-}
+  .table-simple__column-icon,
+  .table-simple__menu-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-left: calc(var(--spacing) * 2);
+  }
 
-.table-simple__menu-icon {
-  width: calc(var(--spacing) * 3.5);
-  height: calc(var(--spacing) * 3.5);
-  margin-right: calc(var(--spacing) * 2);
-  margin-left: 0;
-  color: color-mix(in srgb, var(--muted-foreground) 70%, transparent);
+  .table-simple__menu-icon {
+    width: calc(var(--spacing) * 3.5);
+    height: calc(var(--spacing) * 3.5);
+    margin-right: calc(var(--spacing) * 2);
+    margin-left: 0;
+    color: color-mix(in srgb, var(--muted-foreground) 70%, transparent);
+  }
 }
 </style>

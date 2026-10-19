@@ -168,66 +168,68 @@ const selectedMailData = computed(() => mails.find(mail => mail.id === selectedM
 </template>
 
 <style>
-.mail-inbox {
-  height: 100svh;
-  align-items: stretch;
-}
+@layer components {
+  .mail-inbox {
+    height: 100svh;
+    align-items: stretch;
+  }
 
-.mail-inbox__account-bar {
-  display: flex;
-  height: calc(var(--spacing) * 13);
-  align-items: center;
-  padding: 0 calc(var(--spacing) * 2);
-}
+  .mail-inbox__account-bar {
+    display: flex;
+    height: calc(var(--spacing) * 13);
+    align-items: center;
+    padding: 0 calc(var(--spacing) * 2);
+  }
 
-.mail-inbox__account-bar--collapsed {
-  justify-content: center;
-  padding: 0;
-}
+  .mail-inbox__account-bar--collapsed {
+    justify-content: center;
+    padding: 0;
+  }
 
-.mail-inbox__list-pane {
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-}
+  .mail-inbox__list-pane {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+  }
 
-.mail-inbox__list-header {
-  display: flex;
-  align-items: center;
-  padding: calc(var(--spacing) * 2) calc(var(--spacing) * 4);
-}
+  .mail-inbox__list-header {
+    display: flex;
+    align-items: center;
+    padding: calc(var(--spacing) * 2) calc(var(--spacing) * 4);
+  }
 
-.mail-inbox__title {
-  margin: 0;
-  font-size: 1.25rem;
-  font-weight: 700;
-}
+  .mail-inbox__title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
 
-.mail-inbox__tabs {
-  margin-left: auto;
-}
+  .mail-inbox__tabs {
+    margin-left: auto;
+  }
 
-.mail-inbox__search {
-  position: relative;
-  padding: calc(var(--spacing) * 4);
-}
+  .mail-inbox__search {
+    position: relative;
+    padding: calc(var(--spacing) * 4);
+  }
 
-.mail-inbox__search-icon {
-  position: absolute;
-  top: 1.65rem;
-  left: calc(var(--spacing) * 6);
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  color: var(--muted-foreground);
-}
+  .mail-inbox__search-icon {
+    position: absolute;
+    top: 1.65rem;
+    left: calc(var(--spacing) * 6);
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    color: var(--muted-foreground);
+  }
 
-.mail-inbox__search-input {
-  padding-left: calc(var(--spacing) * 8);
-}
+  .mail-inbox__search-input {
+    padding-left: calc(var(--spacing) * 8);
+  }
 
-.mail-inbox__tab {
-  min-height: 0;
-  flex: 1;
-  margin: 0;
+  .mail-inbox__tab {
+    min-height: 0;
+    flex: 1;
+    margin: 0;
+  }
 }
 </style>

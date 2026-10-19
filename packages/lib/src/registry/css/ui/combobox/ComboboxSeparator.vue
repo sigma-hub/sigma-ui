@@ -27,10 +27,12 @@ const props = defineProps<ComboboxSeparatorProps>();
 </template>
 
 <style>
-.sigma-ui-combobox-separator {
-  height: 1px;
-  margin-right: calc(var(--spacing) * -1);
-  margin-left: calc(var(--spacing) * -1);
-  background-color: var(--border);
+@layer components {
+  .sigma-ui-combobox-separator {
+    height: 1px;
+    margin-right: calc(var(--spacing) * -1);
+    margin-left: calc(var(--spacing) * -1);
+    background-color: var(--border);
+  }
 }
 </style>

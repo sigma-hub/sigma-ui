@@ -123,61 +123,63 @@ const containerClass = computed(() => [
 </template>
 
 <style scoped>
-.infusion-container {
-  position: fixed;
-  z-index: var(--infusion-z-index);
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-}
+@layer components {
+  .infusion-container {
+    position: fixed;
+    z-index: var(--infusion-z-index);
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+  }
 
-.infusion-container--relative {
-  position: absolute;
-  z-index: var(--infusion-z-index);
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
+  .infusion-container--relative {
+    position: absolute;
+    z-index: var(--infusion-z-index);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 
-.infusion-image {
-  width: 100%;
-  height: 100%;
-  filter: blur(var(--infusion-blur));
-  object-fit: cover;
-  opacity: var(--infusion-opacity);
-  transform: scale(1.1)
-}
+  .infusion-image {
+    width: 100%;
+    height: 100%;
+    filter: blur(var(--infusion-blur));
+    object-fit: cover;
+    opacity: var(--infusion-opacity);
+    transform: scale(1.1)
+  }
 
-.dark .infusion-image {
-  opacity: var(--infusion-opacity-dark);
-}
+  .dark .infusion-image {
+    opacity: var(--infusion-opacity-dark);
+  }
 
-.infusion-video {
-  width: 100%;
-  height: 100%;
-  filter: blur(var(--infusion-blur));
-  object-fit: cover;
-  opacity: var(--infusion-opacity);
-  transform: scale(1.1)
-}
+  .infusion-video {
+    width: 100%;
+    height: 100%;
+    filter: blur(var(--infusion-blur));
+    object-fit: cover;
+    opacity: var(--infusion-opacity);
+    transform: scale(1.1)
+  }
 
-.dark .infusion-video {
-  opacity: var(--infusion-opacity-dark);
-}
+  .dark .infusion-video {
+    opacity: var(--infusion-opacity-dark);
+  }
 
-.infusion-noise {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-repeat: repeat;
-  background-size: calc(256px * var(--infusion-noise-scale));
-  mix-blend-mode: overlay;
-  opacity: var(--infusion-noise-opacity);
+  .infusion-noise {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: repeat;
+    background-size: calc(256px * var(--infusion-noise-scale));
+    mix-blend-mode: overlay;
+    opacity: var(--infusion-noise-opacity);
+  }
 }
 </style>

@@ -39,9 +39,11 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-color-area {
-  position: relative;
-  width: 100%;
-  height: calc(var(--spacing) * 40);
+@layer components {
+  .sigma-ui-color-area {
+    position: relative;
+    width: 100%;
+    height: calc(var(--spacing) * 40);
+  }
 }
 </style>

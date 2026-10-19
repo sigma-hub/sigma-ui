@@ -104,33 +104,35 @@ const isOpen = ref(false);
 </template>
 
 <style>
-.example-sigma-ui-drawer-dialog__form {
-  display: grid;
-  align-items: start;
-  padding: 0 calc(var(--spacing) * 4);
-  gap: calc(var(--spacing) * 4);
-}
+@layer components {
+  .example-sigma-ui-drawer-dialog__form {
+    display: grid;
+    align-items: start;
+    padding: 0 calc(var(--spacing) * 4);
+    gap: calc(var(--spacing) * 4);
+  }
 
-.example-sigma-ui-drawer-dialog__field {
-  display: grid;
-  gap: calc(var(--spacing) * 2);
-}
+  .example-sigma-ui-drawer-dialog__field {
+    display: grid;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-drawer-dialog__content {
-  max-width: 425px;
-}
-
-@media (width >= 40rem) {
   .example-sigma-ui-drawer-dialog__content {
     max-width: 425px;
   }
-}
 
-.example-sigma-ui-drawer-dialog__header {
-  text-align: left;
-}
+  @media (width >= 40rem) {
+    .example-sigma-ui-drawer-dialog__content {
+      max-width: 425px;
+    }
+  }
 
-.example-sigma-ui-drawer-dialog__footer {
-  padding-top: calc(var(--spacing) * 2);
+  .example-sigma-ui-drawer-dialog__header {
+    text-align: left;
+  }
+
+  .example-sigma-ui-drawer-dialog__footer {
+    padding-top: calc(var(--spacing) * 2);
+  }
 }
 </style>

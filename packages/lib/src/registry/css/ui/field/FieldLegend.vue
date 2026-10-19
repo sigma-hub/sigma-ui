@@ -42,14 +42,16 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-field-legend {
-  padding: 0;
-  margin-bottom: calc(var(--spacing) * 3);
-  font-size: 1rem;
-  font-weight: 500;
-}
+@layer components {
+  .sigma-ui-field-legend {
+    padding: 0;
+    margin-bottom: calc(var(--spacing) * 3);
+    font-size: 1rem;
+    font-weight: 500;
+  }
 
-.sigma-ui-field-legend[data-variant="label"] {
-  font-size: 0.875rem;
+  .sigma-ui-field-legend[data-variant="label"] {
+    font-size: 0.875rem;
+  }
 }
 </style>

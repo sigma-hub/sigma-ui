@@ -41,46 +41,48 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-item-media {
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  gap: calc(var(--spacing) * 2);
-}
+@layer components {
+  .sigma-ui-item-media {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.sigma-ui-item-media svg {
-  pointer-events: none;
-}
+  .sigma-ui-item-media svg {
+    pointer-events: none;
+  }
 
-.sigma-ui-item:has([data-slot="item-description"]) .sigma-ui-item-media {
-  align-self: flex-start;
-  transform: translateY(0.125rem);
-}
+  .sigma-ui-item:has([data-slot="item-description"]) .sigma-ui-item-media {
+    align-self: flex-start;
+    transform: translateY(0.125rem);
+  }
 
-.sigma-ui-item-media--icon {
-  width: calc(var(--spacing) * 8);
-  height: calc(var(--spacing) * 8);
-  border: 1px solid var(--border);
-  border-radius: calc(var(--radius) - 4px);
-  background-color: var(--muted);
-}
+  .sigma-ui-item-media--icon {
+    width: calc(var(--spacing) * 8);
+    height: calc(var(--spacing) * 8);
+    border: 1px solid var(--border);
+    border-radius: calc(var(--radius) - 4px);
+    background-color: var(--muted);
+  }
 
-.sigma-ui-item-media--icon svg {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-}
+  .sigma-ui-item-media--icon svg {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 
-.sigma-ui-item-media--image {
-  overflow: hidden;
-  width: calc(var(--spacing) * 10);
-  height: calc(var(--spacing) * 10);
-  border-radius: calc(var(--radius) - 4px);
-}
+  .sigma-ui-item-media--image {
+    overflow: hidden;
+    width: calc(var(--spacing) * 10);
+    height: calc(var(--spacing) * 10);
+    border-radius: calc(var(--radius) - 4px);
+  }
 
-.sigma-ui-item-media--image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  .sigma-ui-item-media--image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 </style>

@@ -27,8 +27,10 @@ const props = defineProps<SelectGroupProps>();
 </template>
 
 <style>
-.sigma-ui-select-group {
-  width: 100%;
-  padding: calc(var(--spacing) * 1);
+@layer components {
+  .sigma-ui-select-group {
+    width: 100%;
+    padding: calc(var(--spacing) * 1);
+  }
 }
 </style>

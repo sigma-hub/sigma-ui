@@ -57,29 +57,31 @@ function setColumnVisibility(columnId: string, visible: boolean) {
 </template>
 
 <style>
-.table-simple__view-button {
-  display: none;
-  height: calc(var(--spacing) * 8);
-  margin-left: auto;
-}
-
-.table-simple__view-icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  margin-right: calc(var(--spacing) * 2);
-}
-
-.table-simple__view-menu {
-  width: 150px;
-}
-
-.table-simple__view-item {
-  text-transform: capitalize;
-}
-
-@media (width >= 64rem) {
+@layer components {
   .table-simple__view-button {
-    display: flex;
+    display: none;
+    height: calc(var(--spacing) * 8);
+    margin-left: auto;
+  }
+
+  .table-simple__view-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-right: calc(var(--spacing) * 2);
+  }
+
+  .table-simple__view-menu {
+    width: 150px;
+  }
+
+  .table-simple__view-item {
+    text-transform: capitalize;
+  }
+
+  @media (width >= 64rem) {
+    .table-simple__view-button {
+      display: flex;
+    }
   }
 }
 </style>

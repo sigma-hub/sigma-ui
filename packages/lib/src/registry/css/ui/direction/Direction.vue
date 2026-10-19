@@ -55,7 +55,9 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-direction {
-  display: contents;
+@layer components {
+  .sigma-ui-direction {
+    display: contents;
+  }
 }
 </style>

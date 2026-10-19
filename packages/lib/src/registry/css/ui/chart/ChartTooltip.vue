@@ -56,41 +56,43 @@ defineProps<{
 </template>
 
 <style>
-.sigma-ui-chart-tooltip {
-  font-size: 0.875rem;
-}
+@layer components {
+  .sigma-ui-chart-tooltip {
+    font-size: 0.875rem;
+  }
 
-.sigma-ui-chart-tooltip__header {
-  padding: calc(var(--spacing) * 3);
-  border-bottom: 1px solid var(--border);
-}
+  .sigma-ui-chart-tooltip__header {
+    padding: calc(var(--spacing) * 3);
+    border-bottom: 1px solid var(--border);
+  }
 
-.sigma-ui-chart-tooltip__content {
-  display: flex;
-  min-width: 180px;
-  flex-direction: column;
-  padding: calc(var(--spacing) * 3);
-  gap: calc(var(--spacing) * 1);
-}
+  .sigma-ui-chart-tooltip__content {
+    display: flex;
+    min-width: 180px;
+    flex-direction: column;
+    padding: calc(var(--spacing) * 3);
+    gap: calc(var(--spacing) * 1);
+  }
 
-.sigma-ui-chart-tooltip__item {
-  display: flex;
-  justify-content: space-between;
-}
+  .sigma-ui-chart-tooltip__item {
+    display: flex;
+    justify-content: space-between;
+  }
 
-.sigma-ui-chart-tooltip__item-label {
-  display: flex;
-  align-items: center;
-}
+  .sigma-ui-chart-tooltip__item-label {
+    display: flex;
+    align-items: center;
+  }
 
-.sigma-ui-chart-tooltip__item-dot {
-  width: calc(var(--spacing) * 2.5);
-  height: calc(var(--spacing) * 2.5);
-  margin-right: calc(var(--spacing) * 2);
-}
+  .sigma-ui-chart-tooltip__item-dot {
+    width: calc(var(--spacing) * 2.5);
+    height: calc(var(--spacing) * 2.5);
+    margin-right: calc(var(--spacing) * 2);
+  }
 
-.sigma-ui-chart-tooltip__item-value {
-  margin-left: calc(var(--spacing) * 4);
-  font-weight: 600;
+  .sigma-ui-chart-tooltip__item-value {
+    margin-left: calc(var(--spacing) * 4);
+    font-weight: 600;
+  }
 }
 </style>

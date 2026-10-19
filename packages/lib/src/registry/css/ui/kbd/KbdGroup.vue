@@ -30,9 +30,11 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-kbd-group {
-  display: inline-flex;
-  align-items: center;
-  gap: calc(var(--spacing) * 1);
+@layer components {
+  .sigma-ui-kbd-group {
+    display: inline-flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 1);
+  }
 }
 </style>

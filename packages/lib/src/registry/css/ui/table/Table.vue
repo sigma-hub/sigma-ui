@@ -28,15 +28,17 @@ const delegatedAttrs = () => {
 </template>
 
 <style>
-.sigma-ui-table-wrapper {
-  position: relative;
-  overflow: auto;
-  width: 100%;
-}
+@layer components {
+  .sigma-ui-table-wrapper {
+    position: relative;
+    overflow: auto;
+    width: 100%;
+  }
 
-.sigma-ui-table {
-  width: 100%;
-  caption-side: bottom;
-  font-size: 0.875rem;
+  .sigma-ui-table {
+    width: 100%;
+    caption-side: bottom;
+    font-size: 0.875rem;
+  }
 }
 </style>

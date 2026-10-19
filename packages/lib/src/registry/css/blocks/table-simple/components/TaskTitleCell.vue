@@ -20,17 +20,19 @@ defineProps<{
 </template>
 
 <style>
-.table-simple__task-title {
-  display: flex;
-  align-items: center;
-  gap: calc(var(--spacing) * 2);
-}
+@layer components {
+  .table-simple__task-title {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.table-simple__task-title-text {
-  overflow: hidden;
-  max-width: 500px;
-  font-weight: 500;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  .table-simple__task-title-text {
+    overflow: hidden;
+    max-width: 500px;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 </style>

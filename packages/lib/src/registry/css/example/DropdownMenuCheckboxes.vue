@@ -49,7 +49,9 @@ const showPanel = ref<Checked>(false);
 </template>
 
 <style>
-.example-sigma-ui-dropdown__content {
-  width: calc(var(--spacing) * 56);
+@layer components {
+  .example-sigma-ui-dropdown__content {
+    width: calc(var(--spacing) * 56);
+  }
 }
 </style>

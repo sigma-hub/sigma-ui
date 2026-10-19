@@ -64,37 +64,39 @@ const items = [
 </template>
 
 <style>
-.example-sidebar-floating {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 420px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background-color: color-mix(in oklch, var(--secondary) 50%, transparent);
-  transform: translateZ(0);
-}
+@layer components {
+  .example-sidebar-floating {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 420px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background-color: color-mix(in oklch, var(--secondary) 50%, transparent);
+    transform: translateZ(0);
+  }
 
-.example-sidebar-floating .example-sidebar-floating__provider {
-  height: 100%;
-  min-height: 100%;
-}
+  .example-sidebar-floating .example-sidebar-floating__provider {
+    height: 100%;
+    min-height: 100%;
+  }
 
-.example-sidebar-floating .example-sidebar-floating__sidebar {
-  height: 100%;
-}
+  .example-sidebar-floating .example-sidebar-floating__sidebar {
+    height: 100%;
+  }
 
-.example-sidebar-floating__main {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  padding: calc(var(--spacing) * 4);
-  gap: calc(var(--spacing) * 4);
-}
+  .example-sidebar-floating__main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: calc(var(--spacing) * 4);
+    gap: calc(var(--spacing) * 4);
+  }
 
-.example-sidebar-floating__placeholder {
-  flex: 1;
-  border: 1px dashed var(--border);
-  border-radius: calc(var(--radius) + 4px);
+  .example-sidebar-floating__placeholder {
+    flex: 1;
+    border: 1px dashed var(--border);
+    border-radius: calc(var(--radius) + 4px);
+  }
 }
 </style>

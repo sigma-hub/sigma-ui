@@ -41,29 +41,31 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-empty-media {
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: calc(var(--spacing) * 2);
-}
+@layer components {
+  .sigma-ui-empty-media {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: calc(var(--spacing) * 2);
+  }
 
-.sigma-ui-empty-media svg {
-  flex-shrink: 0;
-  pointer-events: none;
-}
+  .sigma-ui-empty-media svg {
+    flex-shrink: 0;
+    pointer-events: none;
+  }
 
-.sigma-ui-empty-media--icon {
-  width: calc(var(--spacing) * 10);
-  height: calc(var(--spacing) * 10);
-  border-radius: var(--radius-lg);
-  background-color: var(--muted);
-  color: var(--foreground);
-}
+  .sigma-ui-empty-media--icon {
+    width: calc(var(--spacing) * 10);
+    height: calc(var(--spacing) * 10);
+    border-radius: var(--radius-lg);
+    background-color: var(--muted);
+    color: var(--foreground);
+  }
 
-.sigma-ui-empty-media--icon svg {
-  width: calc(var(--spacing) * 6);
-  height: calc(var(--spacing) * 6);
+  .sigma-ui-empty-media--icon svg {
+    width: calc(var(--spacing) * 6);
+    height: calc(var(--spacing) * 6);
+  }
 }
 </style>

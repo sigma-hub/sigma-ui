@@ -44,65 +44,67 @@ const forwardedProps = useForwardProps(reactiveOmit(props, 'size'));
 </template>
 
 <style>
-.sigma-ui-select-trigger {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-  padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  background-color: var(--input);
-  font-size: 0.875rem;
-  gap: calc(var(--spacing) * 2);
-  line-height: 1.25rem;
-  outline: none;
-  white-space: nowrap;
-}
+@layer components {
+  .sigma-ui-select-trigger {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background-color: var(--input);
+    font-size: 0.875rem;
+    gap: calc(var(--spacing) * 2);
+    line-height: 1.25rem;
+    outline: none;
+    white-space: nowrap;
+  }
 
-.sigma-ui-select-trigger[data-size="default"] {
-  height: calc(var(--spacing) * 9);
-}
+  .sigma-ui-select-trigger[data-size="default"] {
+    height: calc(var(--spacing) * 9);
+  }
 
-.sigma-ui-select-trigger[data-size="sm"] {
-  height: calc(var(--spacing) * 8);
-}
+  .sigma-ui-select-trigger[data-size="sm"] {
+    height: calc(var(--spacing) * 8);
+  }
 
-.sigma-ui-select-trigger[data-placeholder] {
-  color: var(--muted-foreground);
-}
+  .sigma-ui-select-trigger[data-placeholder] {
+    color: var(--muted-foreground);
+  }
 
-.sigma-ui-select-trigger:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
-}
+  .sigma-ui-select-trigger:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
 
-.sigma-ui-select-trigger:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-}
+  .sigma-ui-select-trigger:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 
-.sigma-ui-select-trigger[aria-invalid="true"] {
-  border-color: var(--destructive);
-}
+  .sigma-ui-select-trigger[aria-invalid="true"] {
+    border-color: var(--destructive);
+  }
 
-.sigma-ui-select-trigger [data-slot="select-value"] {
-  display: -webkit-box;
-  overflow: hidden;
-  align-items: center;
-  -webkit-box-orient: vertical;
-  gap: calc(var(--spacing) * 2);
-  -webkit-line-clamp: 1;
-}
+  .sigma-ui-select-trigger [data-slot="select-value"] {
+    display: -webkit-box;
+    overflow: hidden;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    gap: calc(var(--spacing) * 2);
+    -webkit-line-clamp: 1;
+  }
 
-.sigma-ui-select-trigger svg {
-  flex-shrink: 0;
-  pointer-events: none;
-}
+  .sigma-ui-select-trigger svg {
+    flex-shrink: 0;
+    pointer-events: none;
+  }
 
-.sigma-ui-select-trigger__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  opacity: 0.5;
+  .sigma-ui-select-trigger__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    opacity: 0.5;
+  }
 }
 </style>

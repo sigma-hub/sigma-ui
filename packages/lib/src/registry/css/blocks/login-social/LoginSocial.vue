@@ -95,59 +95,61 @@ import { Label } from '@ui/registry/css/ui/label';
 </template>
 
 <style>
-.login-social__card {
-  max-width: 24rem;
-  margin-right: auto;
-  margin-left: auto;
-}
+@layer components {
+  .login-social__card {
+    max-width: 24rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
 
-.login-social__title {
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
+  .login-social__title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
 
-.login-social__form {
-  display: grid;
-  gap: calc(var(--spacing) * 4);
-}
+  .login-social__form {
+    display: grid;
+    gap: calc(var(--spacing) * 4);
+  }
 
-.login-social__field {
-  display: grid;
-  gap: calc(var(--spacing) * 2);
-}
+  .login-social__field {
+    display: grid;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.login-social__label-row {
-  display: flex;
-  align-items: center;
-}
+  .login-social__label-row {
+    display: flex;
+    align-items: center;
+  }
 
-.login-social__forgot-link {
-  display: inline-block;
-  margin-left: auto;
-  color: inherit;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  text-decoration: underline;
-}
+  .login-social__forgot-link {
+    display: inline-block;
+    margin-left: auto;
+    color: inherit;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-decoration: underline;
+  }
 
-.login-social__button {
-  width: 100%;
-}
+  .login-social__button {
+    width: 100%;
+  }
 
-.login-social__icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-}
+  .login-social__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 
-.login-social__footer {
-  margin-top: calc(var(--spacing) * 4);
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  text-align: center;
-}
+  .login-social__footer {
+    margin-top: calc(var(--spacing) * 4);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-align: center;
+  }
 
-.login-social__link {
-  color: inherit;
-  text-decoration: underline;
+  .login-social__link {
+    color: inherit;
+    text-decoration: underline;
+  }
 }
 </style>

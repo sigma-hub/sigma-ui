@@ -51,35 +51,37 @@ defineSlots<{
 </template>
 
 <style>
-.sigma-ui-date-field {
-  display: inline-flex;
-  height: calc(var(--spacing) * 9);
-  align-items: center;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  background-color: var(--input);
-  font-size: 1rem;
-  padding-inline: calc(var(--spacing) * 3);
-}
-
-@media (width >= 48rem) {
+@layer components {
   .sigma-ui-date-field {
-    font-size: 0.875rem;
+    display: inline-flex;
+    height: calc(var(--spacing) * 9);
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background-color: var(--input);
+    font-size: 1rem;
+    padding-inline: calc(var(--spacing) * 3);
   }
-}
 
-.sigma-ui-date-field:focus-within {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
-}
+  @media (width >= 48rem) {
+    .sigma-ui-date-field {
+      font-size: 0.875rem;
+    }
+  }
 
-.sigma-ui-date-field[data-invalid],
-.sigma-ui-date-field[aria-invalid="true"] {
-  border-color: var(--destructive);
-}
+  .sigma-ui-date-field:focus-within {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
 
-.sigma-ui-date-field[data-disabled] {
-  cursor: not-allowed;
-  opacity: 0.5;
+  .sigma-ui-date-field[data-invalid],
+  .sigma-ui-date-field[aria-invalid="true"] {
+    border-color: var(--destructive);
+  }
+
+  .sigma-ui-date-field[data-disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 }
 </style>

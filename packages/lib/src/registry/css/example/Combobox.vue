@@ -52,56 +52,58 @@ const frameworks = [
 </template>
 
 <style>
-.example-sigma-ui-combobox {
-  position: relative;
-  display: flex;
-  width: 100%;
-  max-width: 24rem;
-  align-items: center;
-}
+@layer components {
+  .example-sigma-ui-combobox {
+    position: relative;
+    display: flex;
+    width: 100%;
+    max-width: 24rem;
+    align-items: center;
+  }
 
-.example-sigma-ui-combobox__input {
-  padding-left: calc(var(--spacing) * 9);
-}
+  .example-sigma-ui-combobox__input {
+    padding-left: calc(var(--spacing) * 9);
+  }
 
-.example-sigma-ui-combobox__icon {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 calc(var(--spacing) * 3);
-}
+  .example-sigma-ui-combobox__icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 calc(var(--spacing) * 3);
+  }
 
-.example-sigma-ui-combobox__search-icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  color: var(--muted-foreground);
-}
+  .example-sigma-ui-combobox__search-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    color: var(--muted-foreground);
+  }
 
-.example-sigma-ui-combobox__check-icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  margin-left: auto;
-}
+  .example-sigma-ui-combobox__check-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-left: auto;
+  }
 
-.example-sigma-ui-combobox__trigger {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 calc(var(--spacing) * 3);
-}
+  .example-sigma-ui-combobox__trigger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 calc(var(--spacing) * 3);
+  }
 
-.example-sigma-ui-combobox__chevron {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
-  color: var(--muted-foreground);
-  opacity: 0.5;
+  .example-sigma-ui-combobox__chevron {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    color: var(--muted-foreground);
+    opacity: 0.5;
+  }
 }
 </style>

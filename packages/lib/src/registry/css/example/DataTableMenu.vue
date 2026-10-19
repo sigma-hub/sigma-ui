@@ -48,26 +48,28 @@ function copy(id: string) {
 </template>
 
 <style>
-.example-sigma-ui-data-table-menu__button {
-  width: calc(var(--spacing) * 8);
-  height: calc(var(--spacing) * 8);
-  padding: 0;
-}
+@layer components {
+  .example-sigma-ui-data-table-menu__button {
+    width: calc(var(--spacing) * 8);
+    height: calc(var(--spacing) * 8);
+    padding: 0;
+  }
 
-.example-sigma-ui-data-table-menu__button-label {
-  position: absolute;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  border: 0;
-  margin: -1px;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-}
+  .example-sigma-ui-data-table-menu__button-label {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
 
-.example-sigma-ui-data-table-menu__button-icon {
-  width: calc(var(--spacing) * 4);
-  height: calc(var(--spacing) * 4);
+  .example-sigma-ui-data-table-menu__button-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 }
 </style>

@@ -30,21 +30,23 @@ const steps = [
 </template>
 
 <style>
-.example-stepper {
-  width: 100%;
-  max-width: 36rem;
-}
+@layer components {
+  .example-stepper {
+    width: 100%;
+    max-width: 36rem;
+  }
 
-.example-stepper .example-stepper__item {
-  position: relative;
-  flex: 1;
-}
+  .example-stepper .example-stepper__item {
+    position: relative;
+    flex: 1;
+  }
 
-.example-stepper .example-stepper__separator {
-  position: absolute;
-  top: calc(var(--spacing) * 5);
-  right: 0;
-  left: calc(50% + 1.25rem);
-  flex: none;
+  .example-stepper .example-stepper__separator {
+    position: absolute;
+    top: calc(var(--spacing) * 5);
+    right: 0;
+    left: calc(50% + 1.25rem);
+    flex: none;
+  }
 }
 </style>

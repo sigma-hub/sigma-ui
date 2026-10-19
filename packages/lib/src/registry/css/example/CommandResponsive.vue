@@ -110,18 +110,20 @@ function onStatusSelect(status: Status) {
 </template>
 
 <style>
-.example-sigma-ui-command-responsive__trigger {
-  width: 150px;
-  justify-content: flex-start;
-}
+@layer components {
+  .example-sigma-ui-command-responsive__trigger {
+    width: 150px;
+    justify-content: flex-start;
+  }
 
-.example-sigma-ui-command-responsive__content {
-  width: 200px;
-  padding: 0;
-}
+  .example-sigma-ui-command-responsive__content {
+    width: 200px;
+    padding: 0;
+  }
 
-.example-sigma-ui-command-responsive__drawer-content {
-  border-top: 1px solid var(--border);
-  margin-top: calc(var(--spacing) * 4);
+  .example-sigma-ui-command-responsive__drawer-content {
+    border-top: 1px solid var(--border);
+    margin-top: calc(var(--spacing) * 4);
+  }
 }
 </style>

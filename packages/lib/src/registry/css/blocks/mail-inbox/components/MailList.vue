@@ -74,89 +74,91 @@ function badgeVariant(label: string) {
 </template>
 
 <style>
-.mail-inbox__scroll {
-  height: 100%;
-}
+@layer components {
+  .mail-inbox__scroll {
+    height: 100%;
+  }
 
-.mail-inbox__messages {
-  display: flex;
-  flex-direction: column;
-  padding: 0 calc(var(--spacing) * 4) calc(var(--spacing) * 4);
-  gap: calc(var(--spacing) * 2);
-}
+  .mail-inbox__messages {
+    display: flex;
+    flex-direction: column;
+    padding: 0 calc(var(--spacing) * 4) calc(var(--spacing) * 4);
+    gap: calc(var(--spacing) * 2);
+  }
 
-.mail-inbox__message {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: calc(var(--spacing) * 3);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background-color: transparent;
-  color: inherit;
-  cursor: pointer;
-  font-size: 0.875rem;
-  gap: calc(var(--spacing) * 2);
-  text-align: left;
-}
+  .mail-inbox__message {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: calc(var(--spacing) * 3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background-color: transparent;
+    color: inherit;
+    cursor: pointer;
+    font-size: 0.875rem;
+    gap: calc(var(--spacing) * 2);
+    text-align: left;
+  }
 
-.mail-inbox__message:hover,
-.mail-inbox__message--selected {
-  background-color: var(--muted);
-}
+  .mail-inbox__message:hover,
+  .mail-inbox__message--selected {
+    background-color: var(--muted);
+  }
 
-.mail-inbox__message-header,
-.mail-inbox__sender {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  gap: calc(var(--spacing) * 2);
-}
+  .mail-inbox__message-header,
+  .mail-inbox__sender {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.mail-inbox__message-header {
-  flex-direction: column;
-  align-items: stretch;
-  gap: calc(var(--spacing) * 1);
-}
+  .mail-inbox__message-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: calc(var(--spacing) * 1);
+  }
 
-.mail-inbox__name,
-.mail-inbox__subject {
-  font-weight: 600;
-}
+  .mail-inbox__name,
+  .mail-inbox__subject {
+    font-weight: 600;
+  }
 
-.mail-inbox__subject,
-.mail-inbox__preview,
-.mail-inbox__date {
-  font-size: 0.75rem;
-}
+  .mail-inbox__subject,
+  .mail-inbox__preview,
+  .mail-inbox__date {
+    font-size: 0.75rem;
+  }
 
-.mail-inbox__unread {
-  width: calc(var(--spacing) * 2);
-  height: calc(var(--spacing) * 2);
-  border-radius: 9999px;
-  background-color: var(--primary);
-}
+  .mail-inbox__unread {
+    width: calc(var(--spacing) * 2);
+    height: calc(var(--spacing) * 2);
+    border-radius: 9999px;
+    background-color: var(--primary);
+  }
 
-.mail-inbox__date {
-  margin-left: auto;
-  color: var(--muted-foreground);
-}
+  .mail-inbox__date {
+    margin-left: auto;
+    color: var(--muted-foreground);
+  }
 
-.mail-inbox__date--selected {
-  color: var(--foreground);
-}
+  .mail-inbox__date--selected {
+    color: var(--foreground);
+  }
 
-.mail-inbox__preview {
-  display: -webkit-box;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  color: var(--muted-foreground);
-  -webkit-line-clamp: 2;
-}
+  .mail-inbox__preview {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    color: var(--muted-foreground);
+    -webkit-line-clamp: 2;
+  }
 
-.mail-inbox__labels {
-  display: flex;
-  align-items: center;
-  gap: calc(var(--spacing) * 2);
+  .mail-inbox__labels {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+  }
 }
 </style>

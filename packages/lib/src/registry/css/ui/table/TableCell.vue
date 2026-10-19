@@ -24,12 +24,14 @@ const delegatedAttrs = () => {
 </template>
 
 <style>
-.sigma-ui-table-cell {
-  padding: calc(var(--spacing) * 4);
-  vertical-align: middle;
-}
+@layer components {
+  .sigma-ui-table-cell {
+    padding: calc(var(--spacing) * 4);
+    vertical-align: middle;
+  }
 
-.sigma-ui-table-cell:has([role="checkbox"]) {
-  padding-right: 0;
+  .sigma-ui-table-cell:has([role="checkbox"]) {
+    padding-right: 0;
+  }
 }
 </style>

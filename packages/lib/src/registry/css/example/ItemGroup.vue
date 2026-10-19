@@ -34,8 +34,10 @@ import { Item, ItemContent, ItemDescription, ItemGroup, ItemMedia, ItemSeparator
 </template>
 
 <style>
-.example-item-group {
-  width: 100%;
-  max-width: 28rem;
+@layer components {
+  .example-item-group {
+    width: 100%;
+    max-width: 28rem;
+  }
 }
 </style>

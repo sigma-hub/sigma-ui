@@ -58,15 +58,17 @@ import {
 </template>
 
 <style>
-.example-sigma-ui-pagination__list {
-  display: flex;
-  align-items: center;
-  gap: calc(var(--spacing) * 1);
-}
+@layer components {
+  .example-sigma-ui-pagination__list {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 1);
+  }
 
-.example-sigma-ui-pagination__button {
-  width: calc(var(--spacing) * 10);
-  height: calc(var(--spacing) * 10);
-  padding: 0;
+  .example-sigma-ui-pagination__button {
+    width: calc(var(--spacing) * 10);
+    height: calc(var(--spacing) * 10);
+    padding: 0;
+  }
 }
 </style>
