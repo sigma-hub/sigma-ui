@@ -25,7 +25,7 @@ import {
 describe('block frame hash', () => {
   it('round-trips the iframe hash params', () => {
     const params = {
-      name: 'mail-inbox',
+      name: 'dashboard-mail',
       styleSystem: 'tailwind',
       containerClass: 'w-full h-full p-4 lg:p-0',
     };

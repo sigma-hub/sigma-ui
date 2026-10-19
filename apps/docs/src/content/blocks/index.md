@@ -19,7 +19,7 @@ Login and signup layouts.
 
 ## Dashboard
 
-Application shells, sidebars, and data-heavy screens.
+Application shells, sidebars, a mail client, and data-heavy screens.
 
 - [Dashboard](/blocks/dashboard)
 

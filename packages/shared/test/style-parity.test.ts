@@ -8,7 +8,7 @@ const registryRoot = resolve(__dirname, '../../lib/src/registry');
 const scriptAllowlist = [
   'blocks/dashboard-orders/components/OrdersSummary.vue',
   'blocks/dashboard-products/components/AppSidebar.vue',
-  'blocks/mail-inbox/components/FolderNav.vue',
+  'blocks/dashboard-mail/components/FolderNav.vue',
   'example/CalendarForm.vue',
   'example/CalendarLocalization.vue',
   'example/CalendarWithSelect.vue',

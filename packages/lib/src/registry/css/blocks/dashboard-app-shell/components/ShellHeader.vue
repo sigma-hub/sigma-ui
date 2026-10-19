@@ -8,13 +8,13 @@ defineProps<{
 </script>
 
 <template>
-  <header class="app-shell__header">
+  <header class="dashboard-app-shell__header">
     <SidebarTrigger />
     <Separator
       orientation="vertical"
-      class="app-shell__separator"
+      class="dashboard-app-shell__separator"
     />
-    <span class="app-shell__page-title">{{ title }}</span>
+    <span class="dashboard-app-shell__page-title">{{ title }}</span>
   </header>
 </template>
 
@@ -22,7 +22,7 @@ defineProps<{
 @layer base, components;
 
 @layer components {
-  .app-shell__header {
+  .dashboard-app-shell__header {
     display: flex;
     height: calc(var(--spacing) * 14);
     flex-shrink: 0;
@@ -32,11 +32,11 @@ defineProps<{
     gap: calc(var(--spacing) * 2);
   }
 
-  .app-shell__separator.app-shell__separator {
+  .dashboard-app-shell__separator.dashboard-app-shell__separator {
     height: calc(var(--spacing) * 4);
   }
 
-  .app-shell__page-title {
+  .dashboard-app-shell__page-title {
     font-size: 0.875rem;
     font-weight: 500;
   }

@@ -22,7 +22,7 @@ import {
 <template>
   <SidebarProvider
     cookie-name="sidebar_app_shell"
-    class="app-shell"
+    class="dashboard-app-shell"
   >
     <ShellSidebar
       :workspace-name="workspaceName"
@@ -49,7 +49,7 @@ import {
 @layer base, components;
 
 @layer components {
-  .app-shell.app-shell {
+  .dashboard-app-shell.dashboard-app-shell {
     width: 100%;
   }
 }

@@ -16,15 +16,15 @@ const selectedAccount = computed(() => props.accounts.find(account => account.em
   <Select v-model="selectedEmail">
     <SelectTrigger
       aria-label="Select account"
-      class="mail-inbox__account"
-      :class="{ 'mail-inbox__account--collapsed': collapsed }"
+      class="dashboard-mail__account"
+      :class="{ 'dashboard-mail__account--collapsed': collapsed }"
     >
       <SelectValue placeholder="Select an account">
-        <span class="mail-inbox__account-value">
-          <span class="mail-inbox__mark">{{ selectedAccount?.mark }}</span>
+        <span class="dashboard-mail__account-value">
+          <span class="dashboard-mail__mark">{{ selectedAccount?.mark }}</span>
           <span
             v-if="!collapsed"
-            class="mail-inbox__account-label"
+            class="dashboard-mail__account-label"
           >
             {{ selectedAccount?.label }}
           </span>
@@ -37,8 +37,8 @@ const selectedAccount = computed(() => props.accounts.find(account => account.em
         :key="account.email"
         :value="account.email"
       >
-        <span class="mail-inbox__account-value">
-          <span class="mail-inbox__mark">{{ account.mark }}</span>
+        <span class="dashboard-mail__account-value">
+          <span class="dashboard-mail__mark">{{ account.mark }}</span>
           {{ account.email }}
         </span>
       </SelectItem>
@@ -50,11 +50,11 @@ const selectedAccount = computed(() => props.accounts.find(account => account.em
 @layer base, components;
 
 @layer components {
-  .mail-inbox__account {
+  .dashboard-mail__account {
     width: 100%;
   }
 
-  .mail-inbox__account--collapsed.mail-inbox__account--collapsed {
+  .dashboard-mail__account--collapsed.dashboard-mail__account--collapsed {
     width: calc(var(--spacing) * 9);
     height: calc(var(--spacing) * 9);
     flex-shrink: 0;
@@ -62,14 +62,14 @@ const selectedAccount = computed(() => props.accounts.find(account => account.em
     padding: 0;
   }
 
-  .mail-inbox__account-value {
+  .dashboard-mail__account-value {
     display: flex;
     min-width: 0;
     align-items: center;
     gap: calc(var(--spacing) * 2);
   }
 
-  .mail-inbox__mark {
+  .dashboard-mail__mark {
     display: flex;
     width: calc(var(--spacing) * 4);
     height: calc(var(--spacing) * 4);
@@ -80,7 +80,7 @@ const selectedAccount = computed(() => props.accounts.find(account => account.em
     font-weight: 500;
   }
 
-  .mail-inbox__account-label {
+  .dashboard-mail__account-label {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

@@ -10,8 +10,8 @@ defineProps<{
 
 <template>
   <nav
-    class="mail-inbox__nav"
-    :class="{ 'mail-inbox__nav--collapsed': collapsed }"
+    class="dashboard-mail__nav"
+    :class="{ 'dashboard-mail__nav--collapsed': collapsed }"
   >
     <template
       v-for="link in links"
@@ -21,25 +21,25 @@ defineProps<{
         <TooltipTrigger as-child>
           <a
             href="#"
-            class="mail-inbox__nav-link mail-inbox__nav-link--icon"
-            :class="{ 'mail-inbox__nav-link--active': link.isActive }"
+            class="dashboard-mail__nav-link dashboard-mail__nav-link--icon"
+            :class="{ 'dashboard-mail__nav-link--active': link.isActive }"
             @click.prevent
           >
             <component
               :is="link.icon"
-              class="mail-inbox__icon"
+              class="dashboard-mail__icon"
             />
-            <span class="mail-inbox__sr-only">{{ link.title }}</span>
+            <span class="dashboard-mail__sr-only">{{ link.title }}</span>
           </a>
         </TooltipTrigger>
         <TooltipContent
           side="right"
-          class="mail-inbox__tooltip"
+          class="dashboard-mail__tooltip"
         >
           {{ link.title }}
           <span
             v-if="link.label"
-            class="mail-inbox__tooltip-count"
+            class="dashboard-mail__tooltip-count"
           >
             {{ link.label }}
           </span>
@@ -48,19 +48,19 @@ defineProps<{
       <a
         v-else
         href="#"
-        class="mail-inbox__nav-link"
-        :class="{ 'mail-inbox__nav-link--active': link.isActive }"
+        class="dashboard-mail__nav-link"
+        :class="{ 'dashboard-mail__nav-link--active': link.isActive }"
         @click.prevent
       >
         <component
           :is="link.icon"
-          class="mail-inbox__icon"
+          class="dashboard-mail__icon"
         />
         {{ link.title }}
         <span
           v-if="link.label"
-          class="mail-inbox__nav-count"
-          :class="{ 'mail-inbox__nav-count--active': link.isActive }"
+          class="dashboard-mail__nav-count"
+          :class="{ 'dashboard-mail__nav-count--active': link.isActive }"
         >
           {{ link.label }}
         </span>
@@ -73,17 +73,17 @@ defineProps<{
 @layer base, components;
 
 @layer components {
-  .mail-inbox__nav {
+  .dashboard-mail__nav {
     display: grid;
     padding: calc(var(--spacing) * 2);
     gap: calc(var(--spacing) * 1);
   }
 
-  .mail-inbox__nav--collapsed {
+  .dashboard-mail__nav--collapsed {
     justify-items: center;
   }
 
-  .mail-inbox__nav-link {
+  .dashboard-mail__nav-link {
     display: flex;
     width: 100%;
     align-items: center;
@@ -96,50 +96,50 @@ defineProps<{
     text-decoration: none;
   }
 
-  .mail-inbox__nav-link:hover {
+  .dashboard-mail__nav-link:hover {
     background-color: var(--accent);
     color: var(--accent-foreground);
   }
 
-  .mail-inbox__nav-link--icon {
+  .dashboard-mail__nav-link--icon {
     width: calc(var(--spacing) * 9);
     height: calc(var(--spacing) * 9);
     justify-content: center;
     padding: 0;
   }
 
-  .mail-inbox__nav-link--active,
-  .mail-inbox__nav-link--active:hover {
+  .dashboard-mail__nav-link--active,
+  .dashboard-mail__nav-link--active:hover {
     background-color: var(--primary);
     color: var(--primary-foreground);
   }
 
-  .mail-inbox__icon {
+  .dashboard-mail__icon {
     width: calc(var(--spacing) * 4);
     height: calc(var(--spacing) * 4);
     flex-shrink: 0;
   }
 
-  .mail-inbox__nav-count {
+  .dashboard-mail__nav-count {
     margin-left: auto;
     color: var(--muted-foreground);
   }
 
-  .mail-inbox__nav-count--active {
+  .dashboard-mail__nav-count--active {
     color: var(--primary-foreground);
   }
 
-  .mail-inbox__tooltip {
+  .dashboard-mail__tooltip {
     display: flex;
     align-items: center;
     gap: calc(var(--spacing) * 4);
   }
 
-  .mail-inbox__tooltip-count {
+  .dashboard-mail__tooltip-count {
     color: var(--muted-foreground);
   }
 
-  .mail-inbox__sr-only {
+  .dashboard-mail__sr-only {
     position: absolute;
     overflow: hidden;
     width: 1px;

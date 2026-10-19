@@ -50,9 +50,9 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
 </script>
 
 <template>
-  <div class="mail-inbox__display">
-    <div class="mail-inbox__actions">
-      <div class="mail-inbox__action-group">
+  <div class="dashboard-mail__display">
+    <div class="dashboard-mail__actions">
+      <div class="dashboard-mail__action-group">
         <Tooltip>
           <TooltipTrigger as-child>
             <Button
@@ -60,8 +60,8 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
               size="icon"
               :disabled="!mail"
             >
-              <ArchiveIcon class="mail-inbox__icon" />
-              <span class="mail-inbox__sr-only">{{ archiveLabel }}</span>
+              <ArchiveIcon class="dashboard-mail__icon" />
+              <span class="dashboard-mail__sr-only">{{ archiveLabel }}</span>
             </Button>
           </TooltipTrigger>
           <TooltipContent>{{ archiveLabel }}</TooltipContent>
@@ -73,8 +73,8 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
               size="icon"
               :disabled="!mail"
             >
-              <ArchiveXIcon class="mail-inbox__icon" />
-              <span class="mail-inbox__sr-only">{{ junkLabel }}</span>
+              <ArchiveXIcon class="dashboard-mail__icon" />
+              <span class="dashboard-mail__sr-only">{{ junkLabel }}</span>
             </Button>
           </TooltipTrigger>
           <TooltipContent>{{ junkLabel }}</TooltipContent>
@@ -86,15 +86,15 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
               size="icon"
               :disabled="!mail"
             >
-              <Trash2Icon class="mail-inbox__icon" />
-              <span class="mail-inbox__sr-only">{{ trashLabel }}</span>
+              <Trash2Icon class="dashboard-mail__icon" />
+              <span class="dashboard-mail__sr-only">{{ trashLabel }}</span>
             </Button>
           </TooltipTrigger>
           <TooltipContent>{{ trashLabel }}</TooltipContent>
         </Tooltip>
         <Separator
           orientation="vertical"
-          class="mail-inbox__separator"
+          class="dashboard-mail__separator"
         />
         <Tooltip>
           <Popover>
@@ -105,28 +105,28 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
                   size="icon"
                   :disabled="!mail"
                 >
-                  <ClockIcon class="mail-inbox__icon" />
-                  <span class="mail-inbox__sr-only">{{ snoozeLabel }}</span>
+                  <ClockIcon class="dashboard-mail__icon" />
+                  <span class="dashboard-mail__sr-only">{{ snoozeLabel }}</span>
                 </Button>
               </TooltipTrigger>
             </PopoverTrigger>
-            <PopoverContent class="mail-inbox__snooze">
-              <div class="mail-inbox__snooze-layout">
-                <div class="mail-inbox__snooze-options">
-                  <div class="mail-inbox__snooze-title">
+            <PopoverContent class="dashboard-mail__snooze">
+              <div class="dashboard-mail__snooze-layout">
+                <div class="dashboard-mail__snooze-options">
+                  <div class="dashboard-mail__snooze-title">
                     {{ snoozeTitle }}
                   </div>
                   <Button
                     v-for="option in snoozeOptions"
                     :key="option.title"
                     variant="ghost"
-                    class="mail-inbox__snooze-option"
+                    class="dashboard-mail__snooze-option"
                   >
                     {{ option.title }}
-                    <span class="mail-inbox__snooze-detail">{{ option.detail }}</span>
+                    <span class="dashboard-mail__snooze-detail">{{ option.detail }}</span>
                   </Button>
                 </div>
-                <div class="mail-inbox__calendar">
+                <div class="dashboard-mail__calendar">
                   <Calendar />
                 </div>
               </div>
@@ -135,7 +135,7 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
           <TooltipContent>{{ snoozeLabel }}</TooltipContent>
         </Tooltip>
       </div>
-      <div class="mail-inbox__action-group mail-inbox__action-group--end">
+      <div class="dashboard-mail__action-group dashboard-mail__action-group--end">
         <Tooltip>
           <TooltipTrigger as-child>
             <Button
@@ -143,8 +143,8 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
               size="icon"
               :disabled="!mail"
             >
-              <ReplyIcon class="mail-inbox__icon" />
-              <span class="mail-inbox__sr-only">{{ replyLabel }}</span>
+              <ReplyIcon class="dashboard-mail__icon" />
+              <span class="dashboard-mail__sr-only">{{ replyLabel }}</span>
             </Button>
           </TooltipTrigger>
           <TooltipContent>{{ replyLabel }}</TooltipContent>
@@ -156,8 +156,8 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
               size="icon"
               :disabled="!mail"
             >
-              <ReplyAllIcon class="mail-inbox__icon" />
-              <span class="mail-inbox__sr-only">{{ replyAllLabel }}</span>
+              <ReplyAllIcon class="dashboard-mail__icon" />
+              <span class="dashboard-mail__sr-only">{{ replyAllLabel }}</span>
             </Button>
           </TooltipTrigger>
           <TooltipContent>{{ replyAllLabel }}</TooltipContent>
@@ -169,8 +169,8 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
               size="icon"
               :disabled="!mail"
             >
-              <ForwardIcon class="mail-inbox__icon" />
-              <span class="mail-inbox__sr-only">{{ forwardLabel }}</span>
+              <ForwardIcon class="dashboard-mail__icon" />
+              <span class="dashboard-mail__sr-only">{{ forwardLabel }}</span>
             </Button>
           </TooltipTrigger>
           <TooltipContent>{{ forwardLabel }}</TooltipContent>
@@ -178,7 +178,7 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
       </div>
       <Separator
         orientation="vertical"
-        class="mail-inbox__separator"
+        class="dashboard-mail__separator"
       />
       <DropdownMenu>
         <DropdownMenuTrigger as-child>
@@ -187,8 +187,8 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
             size="icon"
             :disabled="!mail"
           >
-            <MoreVerticalIcon class="mail-inbox__icon" />
-            <span class="mail-inbox__sr-only">{{ moreLabel }}</span>
+            <MoreVerticalIcon class="dashboard-mail__icon" />
+            <span class="dashboard-mail__sr-only">{{ moreLabel }}</span>
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
@@ -204,44 +204,44 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
     <Separator />
     <div
       v-if="mail"
-      class="mail-inbox__thread"
+      class="dashboard-mail__thread"
     >
-      <div class="mail-inbox__thread-header">
+      <div class="dashboard-mail__thread-header">
         <Avatar size="sm" />
-        <div class="mail-inbox__thread-meta">
-          <div class="mail-inbox__thread-name">
+        <div class="dashboard-mail__thread-meta">
+          <div class="dashboard-mail__thread-name">
             {{ mail.name }}
           </div>
-          <div class="mail-inbox__thread-line">
+          <div class="dashboard-mail__thread-line">
             {{ mail.subject }}
           </div>
-          <div class="mail-inbox__thread-line">
-            <span class="mail-inbox__reply-to">{{ replyToLabel }}</span> {{ mail.email }}
+          <div class="dashboard-mail__thread-line">
+            <span class="dashboard-mail__reply-to">{{ replyToLabel }}</span> {{ mail.email }}
           </div>
         </div>
-        <div class="mail-inbox__thread-date">
+        <div class="dashboard-mail__thread-date">
           {{ format(new Date(mail.date), 'PPpp') }}
         </div>
       </div>
       <Separator />
-      <div class="mail-inbox__body">
+      <div class="dashboard-mail__body">
         {{ mail.text }}
       </div>
-      <Separator class="mail-inbox__reply-separator" />
-      <form class="mail-inbox__reply">
+      <Separator class="dashboard-mail__reply-separator" />
+      <form class="dashboard-mail__reply">
         <Textarea
-          class="mail-inbox__reply-input"
+          class="dashboard-mail__reply-input"
           :placeholder="`Reply ${mail.name}...`"
         />
-        <div class="mail-inbox__reply-footer">
-          <Label class="mail-inbox__mute">
+        <div class="dashboard-mail__reply-footer">
+          <Label class="dashboard-mail__mute">
             <Switch aria-label="Mute thread" />
             {{ muteLabel }}
           </Label>
           <Button
             type="button"
             size="sm"
-            class="mail-inbox__send"
+            class="dashboard-mail__send"
           >
             {{ sendLabel }}
           </Button>
@@ -250,7 +250,7 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
     </div>
     <div
       v-else
-      class="mail-inbox__empty"
+      class="dashboard-mail__empty"
     >
       {{ emptySelectionLabel }}
     </div>
@@ -261,45 +261,45 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
 @layer base, components;
 
 @layer components {
-  .mail-inbox__display,
-  .mail-inbox__thread {
+  .dashboard-mail__display,
+  .dashboard-mail__thread {
     display: flex;
     height: 100%;
     flex-direction: column;
   }
 
-  .mail-inbox__actions,
-  .mail-inbox__action-group,
-  .mail-inbox__thread-header,
-  .mail-inbox__reply-footer,
-  .mail-inbox__snooze-layout {
+  .dashboard-mail__actions,
+  .dashboard-mail__action-group,
+  .dashboard-mail__thread-header,
+  .dashboard-mail__reply-footer,
+  .dashboard-mail__snooze-layout {
     display: flex;
     align-items: center;
   }
 
-  .mail-inbox__actions {
+  .dashboard-mail__actions {
     padding: calc(var(--spacing) * 2);
   }
 
-  .mail-inbox__action-group {
+  .dashboard-mail__action-group {
     gap: calc(var(--spacing) * 2);
   }
 
-  .mail-inbox__action-group--end {
+  .dashboard-mail__action-group--end {
     margin-left: auto;
   }
 
-  .mail-inbox__separator.mail-inbox__separator {
+  .dashboard-mail__separator.dashboard-mail__separator {
     height: calc(var(--spacing) * 6);
     margin: 0 calc(var(--spacing) * 2);
   }
 
-  .mail-inbox__icon {
+  .dashboard-mail__icon {
     width: calc(var(--spacing) * 4);
     height: calc(var(--spacing) * 4);
   }
 
-  .mail-inbox__sr-only {
+  .dashboard-mail__sr-only {
     position: absolute;
     overflow: hidden;
     width: 1px;
@@ -311,12 +311,12 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
     white-space: nowrap;
   }
 
-  .mail-inbox__snooze.mail-inbox__snooze {
+  .dashboard-mail__snooze.dashboard-mail__snooze {
     width: auto;
     padding: 0;
   }
 
-  .mail-inbox__snooze-options {
+  .dashboard-mail__snooze-options {
     display: flex;
     min-width: calc(var(--spacing) * 60);
     flex-direction: column;
@@ -325,83 +325,83 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
     gap: calc(var(--spacing) * 1);
   }
 
-  .mail-inbox__snooze-title {
+  .dashboard-mail__snooze-title {
     padding: 0 calc(var(--spacing) * 4);
     font-size: 0.875rem;
     font-weight: 500;
   }
 
-  .mail-inbox__snooze-option.mail-inbox__snooze-option {
+  .dashboard-mail__snooze-option.dashboard-mail__snooze-option {
     justify-content: flex-start;
     font-weight: 400;
   }
 
-  .mail-inbox__snooze-detail {
+  .dashboard-mail__snooze-detail {
     margin-left: auto;
     color: var(--muted-foreground);
   }
 
-  .mail-inbox__calendar {
+  .dashboard-mail__calendar {
     padding: calc(var(--spacing) * 2);
   }
 
-  .mail-inbox__thread-header {
+  .dashboard-mail__thread-header {
     align-items: flex-start;
     padding: calc(var(--spacing) * 4);
     font-size: 0.875rem;
     gap: calc(var(--spacing) * 4);
   }
 
-  .mail-inbox__thread-meta {
+  .dashboard-mail__thread-meta {
     display: grid;
     min-width: 0;
     flex: 1;
     gap: calc(var(--spacing) * 1);
   }
 
-  .mail-inbox__thread-name {
+  .dashboard-mail__thread-name {
     font-weight: 600;
   }
 
-  .mail-inbox__thread-line,
-  .mail-inbox__thread-date {
+  .dashboard-mail__thread-line,
+  .dashboard-mail__thread-date {
     overflow: hidden;
     font-size: 0.75rem;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 
-  .mail-inbox__reply-to {
+  .dashboard-mail__reply-to {
     font-weight: 500;
   }
 
-  .mail-inbox__thread-date {
+  .dashboard-mail__thread-date {
     margin-left: auto;
     color: var(--muted-foreground);
   }
 
-  .mail-inbox__body {
+  .dashboard-mail__body {
     flex: 1;
     padding: calc(var(--spacing) * 4);
     font-size: 0.875rem;
     white-space: pre-wrap;
   }
 
-  .mail-inbox__reply-separator {
+  .dashboard-mail__reply-separator {
     margin-top: auto;
   }
 
-  .mail-inbox__reply {
+  .dashboard-mail__reply {
     display: grid;
     padding: calc(var(--spacing) * 4);
     gap: calc(var(--spacing) * 4);
   }
 
-  .mail-inbox__reply-input {
+  .dashboard-mail__reply-input {
     padding: calc(var(--spacing) * 4);
   }
 
-  .mail-inbox__mute {
+  .dashboard-mail__mute {
     display: flex;
     align-items: center;
     font-size: 0.75rem;
@@ -409,11 +409,11 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
     gap: calc(var(--spacing) * 2);
   }
 
-  .mail-inbox__send {
+  .dashboard-mail__send {
     margin-left: auto;
   }
 
-  .mail-inbox__empty {
+  .dashboard-mail__empty {
     padding: calc(var(--spacing) * 8);
     color: var(--muted-foreground);
     text-align: center;

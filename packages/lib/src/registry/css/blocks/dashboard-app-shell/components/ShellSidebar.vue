@@ -45,14 +45,14 @@ defineProps<{
             size="lg"
             :tooltip="workspaceName"
           >
-            <div class="app-shell__logo">
-              <GalleryVerticalEndIcon class="app-shell__icon" />
+            <div class="dashboard-app-shell__logo">
+              <GalleryVerticalEndIcon class="dashboard-app-shell__icon" />
             </div>
-            <div class="app-shell__label">
-              <span class="app-shell__title">{{ workspaceName }}</span>
-              <span class="app-shell__subtitle">{{ workspacePlan }}</span>
+            <div class="dashboard-app-shell__label">
+              <span class="dashboard-app-shell__title">{{ workspaceName }}</span>
+              <span class="dashboard-app-shell__subtitle">{{ workspacePlan }}</span>
             </div>
-            <ChevronsUpDownIcon class="app-shell__icon" />
+            <ChevronsUpDownIcon class="dashboard-app-shell__icon" />
           </SidebarMenuButton>
         </SidebarMenuItem>
       </SidebarMenu>
@@ -66,14 +66,14 @@ defineProps<{
             :key="section.title"
             as-child
             :default-open="section.isActive"
-            class="app-shell__section"
+            class="dashboard-app-shell__section"
           >
             <SidebarMenuItem>
               <CollapsibleTrigger as-child>
                 <SidebarMenuButton :tooltip="section.title">
                   <component :is="section.icon" />
                   <span>{{ section.title }}</span>
-                  <ChevronRightIcon class="app-shell__chevron" />
+                  <ChevronRightIcon class="dashboard-app-shell__chevron" />
                 </SidebarMenuButton>
               </CollapsibleTrigger>
               <CollapsibleContent>
@@ -104,17 +104,17 @@ defineProps<{
             size="lg"
             :tooltip="userName"
           >
-            <div class="app-shell__avatar">
+            <div class="dashboard-app-shell__avatar">
               {{ userInitials }}
             </div>
-            <div class="app-shell__label">
-              <span class="app-shell__title">{{ userName }}</span>
-              <span class="app-shell__subtitle">{{ userEmail }}</span>
+            <div class="dashboard-app-shell__label">
+              <span class="dashboard-app-shell__title">{{ userName }}</span>
+              <span class="dashboard-app-shell__subtitle">{{ userEmail }}</span>
             </div>
           </SidebarMenuButton>
           <SidebarMenuAction show-on-hover>
             <MoreHorizontalIcon />
-            <span class="app-shell__sr-only">{{ moreLabel }}</span>
+            <span class="dashboard-app-shell__sr-only">{{ moreLabel }}</span>
           </SidebarMenuAction>
         </SidebarMenuItem>
       </SidebarMenu>
@@ -127,7 +127,7 @@ defineProps<{
 @layer base, components;
 
 @layer components {
-  .app-shell__logo {
+  .dashboard-app-shell__logo {
     display: flex;
     width: calc(var(--spacing) * 8);
     height: calc(var(--spacing) * 8);
@@ -139,17 +139,17 @@ defineProps<{
     color: var(--primary-foreground);
   }
 
-  .app-shell__icon {
+  .dashboard-app-shell__icon {
     width: calc(var(--spacing) * 4);
     height: calc(var(--spacing) * 4);
     margin-left: auto;
   }
 
-  .app-shell__logo .app-shell__icon {
+  .dashboard-app-shell__logo .dashboard-app-shell__icon {
     margin-left: 0;
   }
 
-  .app-shell__label {
+  .dashboard-app-shell__label {
     display: grid;
     flex: 1;
     font-size: 0.875rem;
@@ -157,14 +157,14 @@ defineProps<{
     text-align: left;
   }
 
-  .app-shell__title {
+  .dashboard-app-shell__title {
     overflow: hidden;
     font-weight: 500;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 
-  .app-shell__subtitle {
+  .dashboard-app-shell__subtitle {
     overflow: hidden;
     color: var(--muted-foreground);
     font-size: 0.75rem;
@@ -172,18 +172,18 @@ defineProps<{
     white-space: nowrap;
   }
 
-  .app-shell__chevron {
+  .dashboard-app-shell__chevron {
     width: calc(var(--spacing) * 4);
     height: calc(var(--spacing) * 4);
     margin-left: auto;
     transition: transform 200ms;
   }
 
-  .sigma-ui-sidebar-menu-item[data-state="open"] .app-shell__chevron {
+  .sigma-ui-sidebar-menu-item[data-state="open"] .dashboard-app-shell__chevron {
     transform: rotate(90deg);
   }
 
-  .app-shell__avatar {
+  .dashboard-app-shell__avatar {
     display: flex;
     width: calc(var(--spacing) * 8);
     height: calc(var(--spacing) * 8);
@@ -196,7 +196,7 @@ defineProps<{
     font-weight: 500;
   }
 
-  .app-shell__sr-only {
+  .dashboard-app-shell__sr-only {
     position: absolute;
     overflow: hidden;
     width: 1px;

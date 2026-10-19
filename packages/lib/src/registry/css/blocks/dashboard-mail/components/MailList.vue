@@ -26,40 +26,40 @@ function badgeVariant(label: string) {
 </script>
 
 <template>
-  <ScrollArea class="mail-inbox__scroll">
-    <div class="mail-inbox__messages">
+  <ScrollArea class="dashboard-mail__scroll">
+    <div class="dashboard-mail__messages">
       <button
         v-for="item in items"
         :key="item.id"
         type="button"
-        class="mail-inbox__message"
-        :class="{ 'mail-inbox__message--selected': selectedMail === item.id }"
+        class="dashboard-mail__message"
+        :class="{ 'dashboard-mail__message--selected': selectedMail === item.id }"
         @click="selectedMail = item.id"
       >
-        <div class="mail-inbox__message-header">
-          <div class="mail-inbox__sender">
-            <div class="mail-inbox__name">
+        <div class="dashboard-mail__message-header">
+          <div class="dashboard-mail__sender">
+            <div class="dashboard-mail__name">
               {{ item.name }}
             </div>
             <span
               v-if="!item.read"
-              class="mail-inbox__unread"
+              class="dashboard-mail__unread"
             />
             <div
-              class="mail-inbox__date"
-              :class="{ 'mail-inbox__date--selected': selectedMail === item.id }"
+              class="dashboard-mail__date"
+              :class="{ 'dashboard-mail__date--selected': selectedMail === item.id }"
             >
               {{ formatDistanceToNow(new Date(item.date), { addSuffix: true }) }}
             </div>
           </div>
-          <div class="mail-inbox__subject">
+          <div class="dashboard-mail__subject">
             {{ item.subject }}
           </div>
         </div>
-        <div class="mail-inbox__preview">
+        <div class="dashboard-mail__preview">
           {{ item.text }}
         </div>
-        <div class="mail-inbox__labels">
+        <div class="dashboard-mail__labels">
           <Badge
             v-for="label in item.labels"
             :key="label"
@@ -77,18 +77,18 @@ function badgeVariant(label: string) {
 @layer base, components;
 
 @layer components {
-  .mail-inbox__scroll {
+  .dashboard-mail__scroll {
     height: 100%;
   }
 
-  .mail-inbox__messages {
+  .dashboard-mail__messages {
     display: flex;
     flex-direction: column;
     padding: 0 calc(var(--spacing) * 4) calc(var(--spacing) * 4);
     gap: calc(var(--spacing) * 2);
   }
 
-  .mail-inbox__message {
+  .dashboard-mail__message {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -103,53 +103,53 @@ function badgeVariant(label: string) {
     text-align: left;
   }
 
-  .mail-inbox__message:hover,
-  .mail-inbox__message--selected {
+  .dashboard-mail__message:hover,
+  .dashboard-mail__message--selected {
     background-color: var(--muted);
   }
 
-  .mail-inbox__message-header,
-  .mail-inbox__sender {
+  .dashboard-mail__message-header,
+  .dashboard-mail__sender {
     display: flex;
     width: 100%;
     align-items: center;
     gap: calc(var(--spacing) * 2);
   }
 
-  .mail-inbox__message-header {
+  .dashboard-mail__message-header {
     flex-direction: column;
     align-items: stretch;
     gap: calc(var(--spacing) * 1);
   }
 
-  .mail-inbox__name,
-  .mail-inbox__subject {
+  .dashboard-mail__name,
+  .dashboard-mail__subject {
     font-weight: 600;
   }
 
-  .mail-inbox__subject,
-  .mail-inbox__preview,
-  .mail-inbox__date {
+  .dashboard-mail__subject,
+  .dashboard-mail__preview,
+  .dashboard-mail__date {
     font-size: 0.75rem;
   }
 
-  .mail-inbox__unread {
+  .dashboard-mail__unread {
     width: calc(var(--spacing) * 2);
     height: calc(var(--spacing) * 2);
     border-radius: 9999px;
     background-color: var(--primary);
   }
 
-  .mail-inbox__date {
+  .dashboard-mail__date {
     margin-left: auto;
     color: var(--muted-foreground);
   }
 
-  .mail-inbox__date--selected {
+  .dashboard-mail__date--selected {
     color: var(--foreground);
   }
 
-  .mail-inbox__preview {
+  .dashboard-mail__preview {
     display: -webkit-box;
     overflow: hidden;
     -webkit-box-orient: vertical;
@@ -157,7 +157,7 @@ function badgeVariant(label: string) {
     -webkit-line-clamp: 2;
   }
 
-  .mail-inbox__labels {
+  .dashboard-mail__labels {
     display: flex;
     align-items: center;
     gap: calc(var(--spacing) * 2);

@@ -126,10 +126,11 @@
     }
   },
   {
-    "name": "mail-inbox",
+    "name": "dashboard-mail",
     "title": "Mail inbox",
     "description": "A three-pane mail client. The first pane switches accounts and lists folders. The second pane searches and lists messages, with tabs for all mail and unread mail. The third pane shows the selected message, snooze and reply actions, and a reply form.",
     "categories": [
+      "dashboard",
       "mail"
     ],
     "meta": {
@@ -138,7 +139,7 @@
     }
   },
   {
-    "name": "app-shell",
+    "name": "dashboard-app-shell",
     "title": "Application shell",
     "description": "An application shell built with the Sidebar component. The sidebar collapses to icons and contains a workspace switcher, grouped navigation, and a user footer. The main area has a header with a sidebar trigger and an overview of stats and recent activity.",
     "categories": [

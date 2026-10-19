@@ -61,7 +61,7 @@ const selectedMailData = computed(() => mails.find(mail => mail.id === selectedM
   <TooltipProvider :delay-duration="0">
     <ResizablePanelGroup
       direction="horizontal"
-      class="mail-inbox"
+      class="dashboard-mail"
     >
       <ResizablePanel
         :default-size="20"
@@ -69,13 +69,13 @@ const selectedMailData = computed(() => mails.find(mail => mail.id === selectedM
         collapsible
         :min-size="15"
         :max-size="24"
-        class="mail-inbox__folders"
+        class="dashboard-mail__folders"
         @expand="collapsed = false"
         @collapse="collapsed = true"
       >
         <div
-          class="mail-inbox__account-bar"
-          :class="{ 'mail-inbox__account-bar--collapsed': collapsed }"
+          class="dashboard-mail__account-bar"
+          :class="{ 'dashboard-mail__account-bar--collapsed': collapsed }"
         >
           <AccountSwitcher
             :collapsed="collapsed"
@@ -100,13 +100,13 @@ const selectedMailData = computed(() => mails.find(mail => mail.id === selectedM
       >
         <Tabs
           default-value="all"
-          class="mail-inbox__list-pane"
+          class="dashboard-mail__list-pane"
         >
-          <div class="mail-inbox__list-header">
-            <h1 class="mail-inbox__title">
+          <div class="dashboard-mail__list-header">
+            <h1 class="dashboard-mail__title">
               {{ inboxTitle }}
             </h1>
-            <TabsList class="mail-inbox__tabs">
+            <TabsList class="dashboard-mail__tabs">
               <TabsTrigger value="all">
                 {{ allMailLabel }}
               </TabsTrigger>
@@ -116,17 +116,17 @@ const selectedMailData = computed(() => mails.find(mail => mail.id === selectedM
             </TabsList>
           </div>
           <Separator />
-          <form class="mail-inbox__search">
-            <SearchIcon class="mail-inbox__search-icon" />
+          <form class="dashboard-mail__search">
+            <SearchIcon class="dashboard-mail__search-icon" />
             <Input
               v-model="searchValue"
               :placeholder="searchPlaceholder"
-              class="mail-inbox__search-input"
+              class="dashboard-mail__search-input"
             />
           </form>
           <TabsContent
             value="all"
-            class="mail-inbox__tab"
+            class="dashboard-mail__tab"
           >
             <MailList
               v-model:selected-mail="selectedMail"
@@ -135,7 +135,7 @@ const selectedMailData = computed(() => mails.find(mail => mail.id === selectedM
           </TabsContent>
           <TabsContent
             value="unread"
-            class="mail-inbox__tab"
+            class="dashboard-mail__tab"
           >
             <MailList
               v-model:selected-mail="selectedMail"
@@ -171,51 +171,51 @@ const selectedMailData = computed(() => mails.find(mail => mail.id === selectedM
 @layer base, components;
 
 @layer components {
-  .mail-inbox {
+  .dashboard-mail {
     height: 100svh;
     align-items: stretch;
   }
 
-  .mail-inbox__account-bar {
+  .dashboard-mail__account-bar {
     display: flex;
     height: calc(var(--spacing) * 13);
     align-items: center;
     padding: 0 calc(var(--spacing) * 2);
   }
 
-  .mail-inbox__account-bar--collapsed {
+  .dashboard-mail__account-bar--collapsed {
     justify-content: center;
     padding: 0;
   }
 
-  .mail-inbox__list-pane {
+  .dashboard-mail__list-pane {
     display: flex;
     height: 100%;
     flex-direction: column;
   }
 
-  .mail-inbox__list-header {
+  .dashboard-mail__list-header {
     display: flex;
     align-items: center;
     padding: calc(var(--spacing) * 2) calc(var(--spacing) * 4);
   }
 
-  .mail-inbox__title {
+  .dashboard-mail__title {
     margin: 0;
     font-size: 1.25rem;
     font-weight: 700;
   }
 
-  .mail-inbox__tabs {
+  .dashboard-mail__tabs {
     margin-left: auto;
   }
 
-  .mail-inbox__search {
+  .dashboard-mail__search {
     position: relative;
     padding: calc(var(--spacing) * 4);
   }
 
-  .mail-inbox__search-icon {
+  .dashboard-mail__search-icon {
     position: absolute;
     top: 1.65rem;
     left: calc(var(--spacing) * 6);
@@ -224,11 +224,11 @@ const selectedMailData = computed(() => mails.find(mail => mail.id === selectedM
     color: var(--muted-foreground);
   }
 
-  .mail-inbox__search-input {
+  .dashboard-mail__search-input {
     padding-left: calc(var(--spacing) * 8);
   }
 
-  .mail-inbox__tab {
+  .dashboard-mail__tab {
     min-height: 0;
     flex: 1;
     margin: 0;
