@@ -72,7 +72,9 @@ withDefaults(defineProps<Props>(), {
     font-size: 0.875rem;
     font-weight: 500;
     gap: calc(var(--spacing) * 2);
-    transition: background-color 0.1s ease, colors 0.2s;
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
     user-select: none;
     white-space: nowrap;
   }

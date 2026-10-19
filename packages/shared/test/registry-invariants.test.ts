@@ -37,6 +37,17 @@ describe('installed registry sources', () => {
     expect(offenders).toEqual([]);
   });
 
+  it('only names real CSS properties in CSS style transitions', () => {
+    // Tailwind utility names such as `colors` or `shadow` are not CSS properties, and the browser drops them.
+    const offenders = files
+      .filter(entry => entry.style === 'css' && entry.file.endsWith('.vue'))
+      .flatMap(entry => [...entry.source.matchAll(/\btransition(?:-property)?\s*:([^;]+);/g)]
+        .filter(([, value]) => /(?:^|[\s,])(?:colors|shadow)(?=[\s,]|$)/.test(value))
+        .map(([declaration]) => `${entry.relativePath}: ${declaration.trim()}`));
+
+    expect(offenders).toEqual([]);
+  });
+
   it('puts every CSS style component style in the components cascade layer and declares the layer order first', () => {
     const offenders = files
       .filter(entry => entry.style === 'css' && entry.file.endsWith('.vue'))
