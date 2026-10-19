@@ -25,7 +25,16 @@ jobs:
           fetch-depth: 0
       - uses: ./.github/actions/setup
         with:
-          registry-url: https://registry.npmjs.org
+          # npm recommends not restoring caches in release builds.
+          cache: ''
+      # Trusted publishing (OIDC) needs npm 11.5.1 or later, and Node 22 ships npm 10.
+      # pnpm 10 publishes by running the npm that sits next to the node binary, so npm 11
+      # has to replace the bundled npm in the Node install. Running the install with npm 11
+      # from npx keeps npm 10 from upgrading itself in place.
+      - name: Install npm 11
+        run: npx --yes npm@11 install --global npm@11
+      - name: Check the npm that pnpm publishes with
+        run: node scripts/check-trusted-publishing.mjs
       - uses: changesets/action@v2.1.2
         with:
           version-script: pnpm version-packages
@@ -35,5 +44,6 @@ jobs:
           create-github-releases: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          # npm authenticates with trusted publishing (OIDC, needs id-token: write), so there is no npm token.
+          # Provenance is on by default with trusted publishing; this keeps it on for a package's first publish too.
           NPM_CONFIG_PROVENANCE: true
