@@ -29,6 +29,8 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-range-calendar-head-cell {
     width: calc(var(--spacing) * 8);

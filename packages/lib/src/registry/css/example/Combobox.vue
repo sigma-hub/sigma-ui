@@ -52,6 +52,8 @@ const frameworks = [
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-combobox {
     position: relative;

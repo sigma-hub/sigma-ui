@@ -30,6 +30,8 @@ const props = defineProps<PaginationEllipsisProps>();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-pagination-ellipsis {
     display: flex;

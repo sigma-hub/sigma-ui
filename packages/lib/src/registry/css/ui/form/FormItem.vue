@@ -27,6 +27,8 @@ provide(FORM_ITEM_INJECTION_KEY, id);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .form-item {
     display: flex;

@@ -103,6 +103,8 @@ const routerExampleItems = [
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-breadcrumb__container {
     display: flex;

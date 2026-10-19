@@ -31,6 +31,8 @@ const forwarded = useForwardProps(props);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-month-picker-heading {
     font-size: 0.875rem;

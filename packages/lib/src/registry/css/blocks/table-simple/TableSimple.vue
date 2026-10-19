@@ -29,6 +29,8 @@ import UserMenu from './components/UserMenu.vue';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .table-simple {
     display: flex;

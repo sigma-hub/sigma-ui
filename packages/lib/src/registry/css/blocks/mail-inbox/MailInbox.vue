@@ -168,6 +168,8 @@ const selectedMailData = computed(() => mails.find(mail => mail.id === selectedM
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .mail-inbox {
     height: 100svh;

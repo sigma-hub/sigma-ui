@@ -18,6 +18,8 @@ const attrs = useAttrs();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-alert-dialog-title {
     font-size: 1.125rem;

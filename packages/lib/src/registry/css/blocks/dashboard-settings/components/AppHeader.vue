@@ -80,6 +80,8 @@ defineProps<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-settings__header {
     position: sticky;

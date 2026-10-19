@@ -88,6 +88,8 @@ function handleSelect(event: any) {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-command {
     max-width: 450px;

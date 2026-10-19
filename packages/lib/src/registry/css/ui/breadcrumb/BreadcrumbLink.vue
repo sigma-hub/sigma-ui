@@ -31,6 +31,8 @@ withDefaults(defineProps<PrimitiveProps>(), {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-breadcrumb__link {
     transition-duration: 150ms;

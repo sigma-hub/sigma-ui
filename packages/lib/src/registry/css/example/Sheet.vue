@@ -70,6 +70,8 @@ import {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-sheet {
     padding: calc(var(--spacing) * 6);

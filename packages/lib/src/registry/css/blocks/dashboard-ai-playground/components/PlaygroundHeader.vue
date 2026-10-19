@@ -22,6 +22,8 @@ import ConfigurationDrawer from './ConfigurationDrawer.vue';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-ai-playground__header {
     position: sticky;

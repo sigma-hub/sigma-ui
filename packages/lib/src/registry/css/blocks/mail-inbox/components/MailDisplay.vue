@@ -258,6 +258,8 @@ const menuActions = ['Mark as unread', 'Star thread', 'Add label', 'Mute thread'
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .mail-inbox__display,
   .mail-inbox__thread {

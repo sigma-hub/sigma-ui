@@ -36,6 +36,8 @@ defineSlots<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-stepper-trigger {
     display: flex;

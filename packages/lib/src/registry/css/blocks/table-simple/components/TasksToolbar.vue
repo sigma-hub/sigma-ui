@@ -69,6 +69,8 @@ function setTitleFilter(event: Event) {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .table-simple__toolbar {
     display: flex;

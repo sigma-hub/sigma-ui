@@ -37,6 +37,8 @@ defineSlots<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-rating-item {
     position: relative;

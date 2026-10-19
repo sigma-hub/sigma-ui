@@ -24,6 +24,8 @@ const delegatedAttrs = () => {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-card {
     border: 1px solid var(--border);

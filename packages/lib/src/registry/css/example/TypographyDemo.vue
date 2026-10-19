@@ -76,6 +76,8 @@ import { Typography } from '@ui/registry/css/ui/typography';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-typography {
     max-width: 65ch;

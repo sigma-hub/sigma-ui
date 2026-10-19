@@ -116,6 +116,8 @@ function onSubmit(event: Event) {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .signup-quote__form {
     display: grid;

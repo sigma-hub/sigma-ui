@@ -64,6 +64,8 @@ const items = [
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sidebar-floating {
     position: relative;

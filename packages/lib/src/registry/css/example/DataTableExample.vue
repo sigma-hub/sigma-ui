@@ -297,6 +297,8 @@ const table = useVueTable({
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-data-table {
     width: 100%;

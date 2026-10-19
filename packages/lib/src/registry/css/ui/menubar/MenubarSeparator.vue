@@ -27,6 +27,8 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-menubar-separator {
     height: 1px;

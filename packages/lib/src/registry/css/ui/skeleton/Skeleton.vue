@@ -22,6 +22,8 @@ const delegatedAttrs = () => {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-skeleton {
     border-radius: var(--radius-md);

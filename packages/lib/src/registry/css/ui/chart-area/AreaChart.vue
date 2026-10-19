@@ -202,6 +202,8 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-area-chart {
     display: flex;

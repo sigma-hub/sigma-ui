@@ -44,6 +44,8 @@ const { orientation, canScrollNext, scrollNext } = useCarousel();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-carousel-next {
     position: absolute;

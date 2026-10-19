@@ -27,6 +27,8 @@ const maxValue = new CalendarDate(2026, 12, 31);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-date-field-min-max {
     max-width: 20rem;

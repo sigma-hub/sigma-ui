@@ -113,6 +113,8 @@ const open = ref(false);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-command-dropdown {
     display: flex;

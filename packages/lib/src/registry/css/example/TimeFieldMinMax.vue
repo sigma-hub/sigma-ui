@@ -28,6 +28,8 @@ const maxValue = new Time(17);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-time-field-min-max {
     max-width: 20rem;

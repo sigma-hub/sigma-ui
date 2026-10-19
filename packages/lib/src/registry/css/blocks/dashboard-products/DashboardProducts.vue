@@ -55,6 +55,8 @@ import {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-products {
     display: flex;

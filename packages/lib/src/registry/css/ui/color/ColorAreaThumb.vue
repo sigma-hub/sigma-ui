@@ -29,6 +29,8 @@ const forwarded = useForwardProps(props);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-color-thumb {
     width: calc(var(--spacing) * 4);

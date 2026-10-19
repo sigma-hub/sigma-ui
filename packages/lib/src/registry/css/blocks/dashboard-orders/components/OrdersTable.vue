@@ -156,6 +156,8 @@ defineProps<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-orders__toolbar {
     display: flex;

@@ -83,6 +83,8 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-carousel-thumbnails {
     width: 100%;

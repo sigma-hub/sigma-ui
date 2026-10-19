@@ -18,6 +18,8 @@ import { Input } from '@ui/registry/css/ui/input';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-input-with-icon {
     position: relative;

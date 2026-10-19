@@ -23,6 +23,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-navigation-menu-content {
     top: 0;

@@ -26,6 +26,8 @@ defineProps<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-overview__chart {
     grid-column: span 4;

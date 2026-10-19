@@ -1,10 +1,12 @@
 import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'pathe';
+import { consola } from 'consola';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { runMigrate } from '../../src/commands/migrate';
 import { migrateConfig } from '../../src/utils/migrate/config';
 import { rewriteComponentImports, rewriteRelativeImports } from '../../src/utils/migrate/components';
+import { findUnlayeredPreflightImports, hasUnlayeredPreflightImport } from '../../src/utils/migrate/css';
 import { installPackages } from '../../src/utils/package-manager';
 
 vi.mock('../../src/utils/package-manager', async (importOriginal) => {
@@ -236,6 +238,43 @@ describe('runMigrate', () => {
 
   it('fails without a config file', async () => {
     await expect(runMigrate(createProject({ 'package.json': '{}' }), { yes: true, dryRun: false })).rejects.toThrow(/No sigma-ui.config.json/);
+  });
+
+  it('points at preflight imports outside a layer and a missing stylesheet in CSS projects', async () => {
+    const cwd = createProject({
+      'package.json': JSON.stringify({ dependencies: { vue: '^3.5.0' } }),
+      'tsconfig.json': JSON.stringify({ compilerOptions: { paths: { '@/*': ['./src/*'] } } }),
+      'sigma-ui.config.json': JSON.stringify({
+        styleSystem: 'css',
+        framework: 'vite',
+        cssPath: 'src/assets/index.css',
+        aliases: { components: '@/components/ui', utils: '@/lib/utils' },
+        componentNaming: 'kebab-case',
+      }),
+      'src/styles/index.css': '@import "./main.css";\n',
+      'src/styles/main.css': '@import "./preflight.css";\n\nbody { margin: 0; }\n',
+      'src/styles/layered.css': '@import url("./preflight.css") layer(base);\n',
+      'node_modules/pkg/preflight-user.css': '@import "./preflight.css";\n',
+    });
+    vi.mocked(consola.info).mockClear();
+
+    await runMigrate(cwd, { yes: true, dryRun: true });
+
+    const messages = vi.mocked(consola.info).mock.calls.map(([message]) => String(message));
+    expect(messages).toContainEqual(expect.stringMatching(/^No stylesheet at src\/assets\/index\.css/));
+    expect(messages).toContainEqual(expect.stringMatching(/^src\/styles\/main\.css imports preflight\.css outside a cascade layer/));
+    expect(messages.filter(message => message.includes('outside a cascade layer'))).toHaveLength(1);
+  });
+
+  it('finds preflight imports that are not in a layer', async () => {
+    expect(hasUnlayeredPreflightImport('@import "./preflight.css";')).toBe(true);
+    expect(hasUnlayeredPreflightImport('@import \'./styles/preflight.css\' screen;')).toBe(true);
+    expect(hasUnlayeredPreflightImport('@import "./preflight.css" layer(base);')).toBe(false);
+    expect(hasUnlayeredPreflightImport('@import url(./preflight.css) layer(base);')).toBe(false);
+    expect(hasUnlayeredPreflightImport('@import "./theme.css";')).toBe(false);
+
+    const cwd = createProject({ 'src/a.css': '@import "./preflight.css";\n', 'src/b.css': '@import "./preflight.css";\n' });
+    expect(await findUnlayeredPreflightImports(path.join(cwd, 'src'), [path.join(cwd, 'src/b.css')])).toEqual([path.join(cwd, 'src/a.css')]);
   });
 
   it('patches a 1.x Tailwind stylesheet and leaves the project addable', async () => {

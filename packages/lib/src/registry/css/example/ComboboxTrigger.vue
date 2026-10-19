@@ -78,6 +78,8 @@ const value = ref<typeof frameworks[0]>();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-combobox-trigger__trigger {
     display: flex;

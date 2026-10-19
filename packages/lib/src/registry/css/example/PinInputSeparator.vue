@@ -38,6 +38,8 @@ const handleComplete = (e: string[]) => alert(e.join(''));
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-pin-input-separator__group {
     gap: calc(var(--spacing) * 1);

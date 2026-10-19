@@ -24,6 +24,8 @@ const delegatedAttrs = () => {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-breadcrumb__list {
     display: flex;

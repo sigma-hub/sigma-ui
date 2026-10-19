@@ -13,6 +13,8 @@ import { Skeleton } from '@ui/registry/css/ui/skeleton';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-skeleton-card {
     display: flex;

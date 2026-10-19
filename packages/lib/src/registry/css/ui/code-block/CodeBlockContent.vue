@@ -242,6 +242,8 @@ onBeforeUnmount(() => {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-code-block__content {
     --code-block-padding-x: 0.875rem;

@@ -128,6 +128,8 @@ const onSubmit = handleSubmit((values) => {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .settings-forms__theme {
     display: flex;

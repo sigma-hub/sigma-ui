@@ -81,6 +81,8 @@ const onSubmit = handleSubmit((values) => {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-radio-group-form {
     display: flex;

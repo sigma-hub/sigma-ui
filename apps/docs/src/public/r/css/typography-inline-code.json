@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "example/TypographyInlineCode.vue",
-      "content": "<template>\n  <code class=\"example-sigma-ui-typography__inline-code\">\n    reka-ui\n  </code>\n</template>\n\n<style>\n@layer components {\n  .example-sigma-ui-typography__inline-code {\n    position: relative;\n    padding: 0.2rem 0.3rem;\n    border-radius: 0.25rem;\n    background-color: var(--muted);\n    font-family: var(--font-mono);\n    font-size: 0.875rem;\n    font-weight: 600;\n  }\n}\n</style>\n",
+      "content": "<template>\n  <code class=\"example-sigma-ui-typography__inline-code\">\n    reka-ui\n  </code>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .example-sigma-ui-typography__inline-code {\n    position: relative;\n    padding: 0.2rem 0.3rem;\n    border-radius: 0.25rem;\n    background-color: var(--muted);\n    font-family: var(--font-mono);\n    font-size: 0.875rem;\n    font-weight: 600;\n  }\n}\n</style>\n",
       "type": "registry:example"
     }
   ]

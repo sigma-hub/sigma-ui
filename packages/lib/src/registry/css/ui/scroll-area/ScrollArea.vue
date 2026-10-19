@@ -37,6 +37,8 @@ const props = defineProps<ScrollAreaRootProps>();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-scroll-area {
     position: relative;

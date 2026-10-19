@@ -17,6 +17,8 @@ import { Avatar } from '@ui/registry/css/ui/avatar';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-avatar-group {
     display: flex;

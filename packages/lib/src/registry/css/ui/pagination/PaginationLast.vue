@@ -38,6 +38,8 @@ const props = withDefaults(defineProps<PaginationLastProps>(), {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-pagination-last {
     width: calc(var(--spacing) * 10);

@@ -30,6 +30,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-combobox-item {
     position: relative;

@@ -24,6 +24,8 @@ const delegatedAttrs = () => {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-card__title {
     font-size: 1.5rem;

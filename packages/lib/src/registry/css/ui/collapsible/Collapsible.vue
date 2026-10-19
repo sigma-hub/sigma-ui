@@ -20,6 +20,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-collapsible [hidden] {
     display: none;

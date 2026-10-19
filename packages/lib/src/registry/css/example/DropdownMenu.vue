@@ -131,6 +131,8 @@ import {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-dropdown__content {
     width: calc(var(--spacing) * 56);

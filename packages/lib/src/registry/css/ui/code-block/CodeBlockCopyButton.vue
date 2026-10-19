@@ -115,6 +115,8 @@ async function onClick() {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-code-block__copy-button {
     color: var(--muted-foreground);

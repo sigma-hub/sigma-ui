@@ -25,6 +25,8 @@ const props = defineProps<SelectSeparatorProps>();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-select-separator {
     height: 1px;

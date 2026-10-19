@@ -59,6 +59,8 @@ withDefaults(defineProps<Props>(), {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-button {
     display: inline-flex;

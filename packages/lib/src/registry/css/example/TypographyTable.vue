@@ -42,6 +42,8 @@
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-typography__table-container {
     width: 100%;

@@ -66,6 +66,8 @@ import { categoryOptions, subcategoryOptions } from '../data';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-product-edit__category-grid {
     display: grid;

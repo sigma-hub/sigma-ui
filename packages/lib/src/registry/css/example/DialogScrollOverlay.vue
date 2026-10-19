@@ -40,6 +40,8 @@ import {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-dialog__content {
     max-width: 425px;

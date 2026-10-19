@@ -50,6 +50,8 @@ const disabledTerms = ref<boolean | 'indeterminate'>(false);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-checkbox-custom__container {
     display: flex;

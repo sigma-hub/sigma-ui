@@ -104,6 +104,8 @@ const isOpen = ref(false);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-drawer-dialog__form {
     display: grid;

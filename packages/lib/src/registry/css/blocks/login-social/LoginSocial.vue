@@ -95,6 +95,8 @@ import { Label } from '@ui/registry/css/ui/label';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .login-social__card {
     max-width: 24rem;

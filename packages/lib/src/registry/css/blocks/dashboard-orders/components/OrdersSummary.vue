@@ -57,6 +57,8 @@ function statValueClass(valueSize: StatCard['valueSize']) {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-orders__stats {
     display: grid;

@@ -16,6 +16,8 @@ import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from '
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-input-group {
     max-width: 24rem;

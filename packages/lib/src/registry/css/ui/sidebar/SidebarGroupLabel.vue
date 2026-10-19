@@ -39,6 +39,8 @@ defineSlots<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-sidebar-group-label {
     display: flex;

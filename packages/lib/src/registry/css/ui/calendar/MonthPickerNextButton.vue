@@ -32,6 +32,8 @@ const forwarded = useForwardProps(props);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-month-picker-next {
     width: calc(var(--spacing) * 7);

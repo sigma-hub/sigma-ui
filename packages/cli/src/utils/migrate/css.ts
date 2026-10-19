@@ -1,5 +1,6 @@
 import { existsSync } from 'node:fs';
-import { readFile, writeFile } from 'node:fs/promises';
+import { readdir, readFile, writeFile } from 'node:fs/promises';
+import path from 'pathe';
 import { withCssLayerOrder } from '@sigma-ui/shared/templates/css-styles';
 import { themeColorKeys } from '@sigma-ui/shared/themes';
 
@@ -228,4 +229,38 @@ export async function readCssFile(filePath: string) {
 
 export async function writeCssFile(filePath: string, content: string) {
   await writeFile(filePath, content, 'utf8');
+}
+
+const PREFLIGHT_IMPORT_PATTERN = /@import\s+(?:url\(\s*)?["'][^"']*preflight\.css["']\s*\)?([^;]*);/g;
+const SKIPPED_DIRECTORIES = new Set(['node_modules', 'dist', 'build', 'coverage', '.git', '.nuxt', '.output', '.vitepress']);
+
+export function hasUnlayeredPreflightImport(css: string) {
+  return [...css.matchAll(PREFLIGHT_IMPORT_PATTERN)].some(([, rest]) => !/\blayer\b/.test(rest));
+}
+
+export async function findUnlayeredPreflightImports(root: string, ignore: string[] = []) {
+  const found: string[] = [];
+  const ignored = new Set(ignore.map(file => path.resolve(file)));
+
+  async function walk(directory: string) {
+    const entries = await readdir(directory, { withFileTypes: true }).catch(() => []);
+
+    for (const entry of entries) {
+      const fullPath = path.join(directory, entry.name);
+
+      if (entry.isDirectory()) {
+        if (!SKIPPED_DIRECTORIES.has(entry.name)) {
+          await walk(fullPath);
+        }
+      } else if (entry.name.endsWith('.css') && !ignored.has(path.resolve(fullPath))) {
+        if (hasUnlayeredPreflightImport(await readFile(fullPath, 'utf8'))) {
+          found.push(fullPath);
+        }
+      }
+    }
+  }
+
+  await walk(root);
+
+  return found.sort();
 }

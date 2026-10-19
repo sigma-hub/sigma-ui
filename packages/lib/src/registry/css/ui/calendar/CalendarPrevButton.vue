@@ -33,6 +33,8 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-calendar-prev {
     width: calc(var(--spacing) * 7);

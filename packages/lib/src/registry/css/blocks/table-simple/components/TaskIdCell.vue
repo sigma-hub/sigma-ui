@@ -11,6 +11,8 @@ defineProps<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .table-simple__id {
     width: calc(var(--spacing) * 20);

@@ -15,6 +15,8 @@ const props = defineProps<CollapsibleContentProps>();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-collapsible__content {
     overflow: hidden;

@@ -34,6 +34,8 @@ const modelValue = ref(['item-1', 'item-2']);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-accordion {
     width: 100%;

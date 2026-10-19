@@ -55,6 +55,8 @@ watchOnce(api, (api) => {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-carousel-api {
     width: 100%;

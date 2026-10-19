@@ -136,6 +136,8 @@ const quoteAuthorInitials = quoteAuthor
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .signup-quote {
     position: relative;

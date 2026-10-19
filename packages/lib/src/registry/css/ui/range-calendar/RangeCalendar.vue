@@ -72,6 +72,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-range-calendar {
     padding: calc(var(--spacing) * 3);

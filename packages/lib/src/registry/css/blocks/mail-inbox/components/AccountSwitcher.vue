@@ -47,6 +47,8 @@ const selectedAccount = computed(() => props.accounts.find(account => account.em
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .mail-inbox__account {
     width: 100%;

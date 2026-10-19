@@ -28,6 +28,8 @@ const props = defineProps<ComboboxEmptyProps>();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-autocomplete-empty {
     font-size: 0.875rem;

@@ -65,6 +65,8 @@ import { sidebarFooterNavItems, sidebarNavItems } from '../data';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-product-edit__sidebar {
     position: fixed;

@@ -52,6 +52,8 @@ defineSlots<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-accordion-header {
     display: flex;

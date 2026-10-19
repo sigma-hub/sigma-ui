@@ -41,6 +41,8 @@ defineProps<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-analytics__sales.dashboard-analytics__sales {
     display: grid;

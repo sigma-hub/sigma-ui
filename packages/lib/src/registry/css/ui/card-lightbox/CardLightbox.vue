@@ -156,6 +156,8 @@ function handleEscKeydown(event: KeyboardEvent) {
 </template>
 
 <style scoped>
+@layer base, components;
+
 @layer components {
   .card-lightbox {
     display: flex;

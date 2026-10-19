@@ -38,6 +38,8 @@ const props = withDefaults(defineProps<PaginationNextProps>(), {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-pagination-next {
     width: calc(var(--spacing) * 10);

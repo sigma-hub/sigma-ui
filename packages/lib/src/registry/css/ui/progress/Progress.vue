@@ -40,6 +40,8 @@ const props = withDefaults(
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-progress {
     position: relative;

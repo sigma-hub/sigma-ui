@@ -70,6 +70,8 @@ const messages = computed(() => {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-field-error {
     color: var(--destructive);

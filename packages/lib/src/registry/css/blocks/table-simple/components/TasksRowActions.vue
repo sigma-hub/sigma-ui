@@ -79,6 +79,8 @@ const task = computed(() => taskSchema.parse(props.row.original));
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .table-simple__row-trigger {
     display: flex;

@@ -81,6 +81,8 @@ async function toggle() {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-code-block__expand-button {
     color: var(--muted-foreground);

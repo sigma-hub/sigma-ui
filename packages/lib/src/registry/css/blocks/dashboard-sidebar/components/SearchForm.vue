@@ -23,6 +23,8 @@ defineProps<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-sidebar__search {
     width: 100%;

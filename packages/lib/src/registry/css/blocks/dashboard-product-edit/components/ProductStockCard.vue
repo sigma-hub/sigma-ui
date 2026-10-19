@@ -105,6 +105,8 @@ import { sizeOptions, stockVariants } from '../data';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-product-edit__column-sku,
   .dashboard-product-edit__column-size {

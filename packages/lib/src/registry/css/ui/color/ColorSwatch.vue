@@ -37,6 +37,8 @@ defineSlots<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-color-swatch {
     width: calc(var(--spacing) * 9);

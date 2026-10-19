@@ -28,6 +28,8 @@ const { formDescriptionId } = useFormField();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-form-description {
     color: var(--muted-foreground);

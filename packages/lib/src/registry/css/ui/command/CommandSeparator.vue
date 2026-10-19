@@ -28,6 +28,8 @@ const props = defineProps<ComboboxSeparatorProps>();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-command-separator {
     height: 1px;

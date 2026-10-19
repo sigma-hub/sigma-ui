@@ -68,6 +68,8 @@ defineSlots<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-time-range-field {
     display: inline-flex;

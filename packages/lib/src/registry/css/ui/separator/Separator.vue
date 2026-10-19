@@ -36,6 +36,8 @@ const props = defineProps<
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-separator {
     position: relative;

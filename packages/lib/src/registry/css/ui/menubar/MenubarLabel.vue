@@ -30,6 +30,8 @@ defineProps<MenubarLabelProps & {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-menubar-label {
     padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);

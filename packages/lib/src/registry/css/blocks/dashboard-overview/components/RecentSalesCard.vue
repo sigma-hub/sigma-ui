@@ -46,6 +46,8 @@ defineProps<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-overview__sales {
     grid-column: span 3;

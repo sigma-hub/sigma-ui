@@ -62,6 +62,8 @@ const onSubmit = handleSubmit((values) => {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-form-animate {
     display: flex;

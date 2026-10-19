@@ -30,6 +30,8 @@ defineProps<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-badge {
     display: inline-flex;

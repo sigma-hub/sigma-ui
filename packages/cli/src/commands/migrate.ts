@@ -18,7 +18,7 @@ import {
   planImportRewrites,
   renameComponentDirectories,
 } from '@/src/utils/migrate/components';
-import { migrateThemeCss, readCssFile, writeCssFile } from '@/src/utils/migrate/css';
+import { findUnlayeredPreflightImports, migrateThemeCss, readCssFile, writeCssFile } from '@/src/utils/migrate/css';
 import { registerTailwindVitePlugin } from '@/src/utils/framework-config';
 import { excludeInstalledDependencies } from '@/src/utils/install-plan';
 import { getInstalledPackages, installPackages } from '@/src/utils/package-manager';
@@ -56,6 +56,10 @@ export async function runMigrate(cwd: string, options: { yes: boolean; dryRun: b
         hasJsConfig: Boolean(config.tailwind.config),
       })
     : { css: '', changes: [], instructions: [] };
+
+  if (config.styleSystem === 'css') {
+    cssMigration.instructions.push(...await cssLayerInstructions(cwd, resolvedPaths.tailwindCss, Boolean(currentCss)));
+  }
 
   for (const conflict of conflicts) {
     consola.warn(`Skipping a component directory: ${conflict}. Merge them by hand.`);
@@ -152,4 +156,20 @@ function printPlan(
     consola.info(`Stylesheet ${path.relative(cwd, cssPath) || '.'}:`);
     cssChanges.forEach(change => consola.log(`  ${change}`));
   }
+}
+
+async function cssLayerInstructions(cwd: string, cssPath: string, hasCssFile: boolean) {
+  const instructions: string[] = [];
+
+  if (!hasCssFile) {
+    instructions.push(`No stylesheet at ${path.relative(cwd, cssPath)} (cssPath in ${CONFIG_FILE_PATH}). Add \`@layer base, components;\` to the top of your main stylesheet so CSS style components keep their styles.`);
+  }
+
+  const unlayered = await findUnlayeredPreflightImports(path.join(cwd, 'src'), hasCssFile ? [cssPath] : []);
+
+  for (const file of unlayered) {
+    instructions.push(`${path.relative(cwd, file)} imports preflight.css outside a cascade layer, so its resets beat the component styles. Change it to \`@import "./preflight.css" layer(base);\`.`);
+  }
+
+  return instructions;
 }

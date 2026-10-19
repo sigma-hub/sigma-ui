@@ -15,6 +15,8 @@ const attrs = useAttrs();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-alert-title {
     margin-bottom: calc(var(--spacing) * 1);

@@ -138,6 +138,8 @@ const formatter = useDateFormatter('en');
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-calendar-select {
     padding: calc(var(--spacing) * 3);

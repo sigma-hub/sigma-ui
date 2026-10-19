@@ -28,6 +28,8 @@ defineProps<StatCardData>();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-analytics__stat-header.dashboard-analytics__stat-header {
     flex-direction: row;

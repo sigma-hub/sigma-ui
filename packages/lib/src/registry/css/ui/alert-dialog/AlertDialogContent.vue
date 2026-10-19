@@ -31,6 +31,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-alert-dialog-overlay {
     position: fixed;

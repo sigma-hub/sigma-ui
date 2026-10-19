@@ -27,6 +27,8 @@ import { ToggleGroup, ToggleGroupItem } from '@ui/registry/css/ui/toggle-group';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-toggle-group__icon {
     width: calc(var(--spacing) * 4);

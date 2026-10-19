@@ -44,6 +44,8 @@ const forwardedProps = useForwardProps(reactiveOmit(props, 'size'));
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-select-trigger {
     display: flex;

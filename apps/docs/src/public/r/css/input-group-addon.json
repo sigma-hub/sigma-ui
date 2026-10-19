@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "example/InputGroupAddon.vue",
-      "content": "<script setup lang=\"ts\">\nimport { InputGroup, InputGroupAddon, InputGroupInput, InputGroupText } from '@/components/ui/input-group';\n</script>\n\n<template>\n  <InputGroup class=\"example-input-group-addon\">\n    <InputGroupAddon>\n      <InputGroupText>https://</InputGroupText>\n    </InputGroupAddon>\n    <InputGroupInput\n      placeholder=\"sigma-ui.dev\"\n      aria-invalid=\"true\"\n    />\n  </InputGroup>\n</template>\n\n<style>\n@layer components {\n  .example-input-group-addon {\n    max-width: 24rem;\n  }\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\nimport { InputGroup, InputGroupAddon, InputGroupInput, InputGroupText } from '@/components/ui/input-group';\n</script>\n\n<template>\n  <InputGroup class=\"example-input-group-addon\">\n    <InputGroupAddon>\n      <InputGroupText>https://</InputGroupText>\n    </InputGroupAddon>\n    <InputGroupInput\n      placeholder=\"sigma-ui.dev\"\n      aria-invalid=\"true\"\n    />\n  </InputGroup>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .example-input-group-addon {\n    max-width: 24rem;\n  }\n}\n</style>\n",
       "type": "registry:example"
     }
   ]

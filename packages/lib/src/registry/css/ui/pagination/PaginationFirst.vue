@@ -38,6 +38,8 @@ const props = withDefaults(defineProps<PaginationFirstProps>(), {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-pagination-first {
     width: calc(var(--spacing) * 10);

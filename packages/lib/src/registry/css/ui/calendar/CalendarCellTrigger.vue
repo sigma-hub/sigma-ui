@@ -30,6 +30,8 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-calendar-cell-trigger {
     width: calc(var(--spacing) * 9);

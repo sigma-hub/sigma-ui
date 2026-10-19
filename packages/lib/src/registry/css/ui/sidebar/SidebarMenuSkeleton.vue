@@ -48,6 +48,8 @@ const width = `${Math.floor(Math.random() * 40) + 50}%`;
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-sidebar-menu-skeleton {
     display: flex;

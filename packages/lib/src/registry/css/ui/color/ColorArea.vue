@@ -39,6 +39,8 @@ defineSlots<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-color-area {
     position: relative;

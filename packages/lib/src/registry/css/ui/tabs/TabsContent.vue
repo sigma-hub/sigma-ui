@@ -27,6 +27,8 @@ const props = defineProps<TabsContentProps>();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-tabs-content {
     margin-top: calc(var(--spacing) * 2);

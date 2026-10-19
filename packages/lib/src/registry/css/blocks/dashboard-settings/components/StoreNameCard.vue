@@ -27,6 +27,8 @@ defineProps<StoreNameCardData>();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-settings__card-footer.dashboard-settings__card-footer {
     padding: calc(var(--spacing) * 4) calc(var(--spacing) * 6);

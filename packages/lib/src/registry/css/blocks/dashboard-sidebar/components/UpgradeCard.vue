@@ -38,6 +38,8 @@ withDefaults(defineProps<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-sidebar__upgrade-header--compact.dashboard-sidebar__upgrade-header--compact {
     padding: 0 calc(var(--spacing) * 2) calc(var(--spacing) * 2);

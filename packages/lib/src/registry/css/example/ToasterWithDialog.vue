@@ -53,6 +53,8 @@ import {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-toaster-dialog {
     max-width: 28rem;

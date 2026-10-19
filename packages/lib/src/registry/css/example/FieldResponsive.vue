@@ -38,6 +38,8 @@ import { Input } from '@ui/registry/css/ui/input';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-field-responsive {
     max-width: 36rem;

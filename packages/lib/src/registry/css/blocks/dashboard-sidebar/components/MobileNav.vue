@@ -73,6 +73,8 @@ defineProps<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-sidebar__menu-button {
     flex-shrink: 0;

@@ -18,6 +18,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@u
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-accordion {
     width: 100%;

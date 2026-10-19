@@ -98,6 +98,8 @@ const data = [
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-sr-only {
     position: absolute;

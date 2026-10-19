@@ -56,6 +56,8 @@ defineProps<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-chart-tooltip {
     font-size: 0.875rem;

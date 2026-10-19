@@ -11,6 +11,8 @@ import { Spinner } from '@ui/registry/css/ui/spinner';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-spinner {
     display: flex;

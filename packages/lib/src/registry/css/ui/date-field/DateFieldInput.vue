@@ -30,6 +30,8 @@ const forwarded = useForwardProps(props);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-date-field-input {
     border-radius: var(--radius-sm);

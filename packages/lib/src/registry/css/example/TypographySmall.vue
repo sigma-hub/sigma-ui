@@ -5,6 +5,8 @@
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-typography__small {
     font-size: 0.875rem;

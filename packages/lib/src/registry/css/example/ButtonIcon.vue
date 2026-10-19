@@ -13,6 +13,8 @@ import { Button } from '@ui/registry/css/ui/button';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-button-icon {
     width: calc(var(--spacing) * 4);

@@ -50,6 +50,8 @@ const formComponents: Record<FormType, Component> = {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .settings-forms__body {
     display: flex;

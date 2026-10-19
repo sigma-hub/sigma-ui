@@ -23,6 +23,8 @@ const value = ref<TimeValue>();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-time-field-with-label {
     max-width: 20rem;

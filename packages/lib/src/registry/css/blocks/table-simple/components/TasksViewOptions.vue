@@ -57,6 +57,8 @@ function setColumnVisibility(columnId: string, visible: boolean) {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .table-simple__view-button {
     display: none;

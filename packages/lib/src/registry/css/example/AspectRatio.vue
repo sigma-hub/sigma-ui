@@ -13,6 +13,8 @@ import { AspectRatio } from '@ui/registry/css/ui/aspect-ratio';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-aspect-ratio {
     width: 100%;

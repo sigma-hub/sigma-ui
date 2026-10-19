@@ -36,6 +36,8 @@ const props = withDefaults(defineProps<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-breadcrumb__ellipsis {
     display: flex;

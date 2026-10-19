@@ -175,6 +175,8 @@ function closeCreateTeam() {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-overview__team-button,
   .dashboard-overview__team-popover {

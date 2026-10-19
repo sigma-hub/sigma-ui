@@ -27,6 +27,8 @@ const props = defineProps<DialogTitleProps>();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-sheet-title {
     color: var(--foreground);

@@ -23,6 +23,8 @@ import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupTextarea } fro
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-input-group-textarea {
     max-width: 24rem;

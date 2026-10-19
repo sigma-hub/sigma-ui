@@ -64,6 +64,8 @@ import { chatActions } from '../data';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-ai-playground__chat {
     position: relative;

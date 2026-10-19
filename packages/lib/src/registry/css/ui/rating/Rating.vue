@@ -38,6 +38,8 @@ defineSlots<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-rating {
     display: inline-flex;

@@ -29,6 +29,8 @@ const tags = Array.from({ length: 50 }).map(
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-scroll-area {
     width: calc(var(--spacing) * 48);

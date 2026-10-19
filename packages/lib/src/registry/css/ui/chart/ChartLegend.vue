@@ -59,6 +59,8 @@ function onLegendItemClick(d: BulletLegendItemInterface, i: number) {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-chart-legend {
     width: max-content;

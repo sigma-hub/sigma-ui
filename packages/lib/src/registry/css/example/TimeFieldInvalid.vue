@@ -32,6 +32,8 @@ const isInvalid = computed(() => !!value.value && (value.value as Time).compare(
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-time-field-invalid {
     max-width: 20rem;

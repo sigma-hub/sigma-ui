@@ -5,6 +5,8 @@
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-typography__heading-2 {
     padding-bottom: calc(var(--spacing) * 2);

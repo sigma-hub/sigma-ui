@@ -103,6 +103,8 @@ function handleSelect(event: any) {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-command-dialog__text {
     color: var(--muted-foreground);

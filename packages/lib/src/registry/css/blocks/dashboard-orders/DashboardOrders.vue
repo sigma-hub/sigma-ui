@@ -85,6 +85,8 @@ import {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-orders {
     display: flex;

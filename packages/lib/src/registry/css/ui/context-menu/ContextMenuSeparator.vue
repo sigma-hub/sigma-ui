@@ -28,6 +28,8 @@ const props = defineProps<ContextMenuSeparatorProps>();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-context-menu-separator {
     height: 1px;

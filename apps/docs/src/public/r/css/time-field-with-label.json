@@ -13,7 +13,7 @@
   "files": [
     {
       "path": "example/TimeFieldWithLabel.vue",
-      "content": "<script setup lang=\"ts\">\nimport { type TimeValue } from 'reka-ui';\nimport { ref } from 'vue';\nimport { TimeField } from '@/components/ui/time-field';\nimport { Field, FieldDescription, FieldLabel } from '@/components/ui/field';\n\nconst value = ref<TimeValue>();\n</script>\n\n<template>\n  <Field class=\"example-sigma-ui-time-field-with-label\">\n    <FieldLabel for=\"time-field-alarm\">\n      Alarm\n    </FieldLabel>\n    <TimeField\n      id=\"time-field-alarm\"\n      v-model=\"value\"\n    />\n    <FieldDescription>\n      Type the hour and minute.\n    </FieldDescription>\n  </Field>\n</template>\n\n<style>\n@layer components {\n  .example-sigma-ui-time-field-with-label {\n    max-width: 20rem;\n  }\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\nimport { type TimeValue } from 'reka-ui';\nimport { ref } from 'vue';\nimport { TimeField } from '@/components/ui/time-field';\nimport { Field, FieldDescription, FieldLabel } from '@/components/ui/field';\n\nconst value = ref<TimeValue>();\n</script>\n\n<template>\n  <Field class=\"example-sigma-ui-time-field-with-label\">\n    <FieldLabel for=\"time-field-alarm\">\n      Alarm\n    </FieldLabel>\n    <TimeField\n      id=\"time-field-alarm\"\n      v-model=\"value\"\n    />\n    <FieldDescription>\n      Type the hour and minute.\n    </FieldDescription>\n  </Field>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .example-sigma-ui-time-field-with-label {\n    max-width: 20rem;\n  }\n}\n</style>\n",
       "type": "registry:example"
     }
   ]

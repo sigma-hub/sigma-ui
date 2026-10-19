@@ -34,6 +34,8 @@ const plugin = Autoplay({
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-carousel-plugin {
     position: relative;

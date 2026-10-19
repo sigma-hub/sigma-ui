@@ -27,6 +27,8 @@ const props = defineProps<LabelProps>();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-label {
     font-size: 0.875rem;

@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "example/AccordionBasic.vue",
-      "content": "<script setup lang=\"ts\">\nimport { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';\n</script>\n\n<template>\n  <Accordion\n    class=\"example-sigma-ui-accordion\"\n    type=\"single\"\n    collapsible\n  >\n    <AccordionItem value=\"item-1\">\n      <AccordionTrigger>Is it accessible?</AccordionTrigger>\n      <AccordionContent>\n        Yes. It adheres to the WAI-ARIA design pattern.\n      </AccordionContent>\n    </AccordionItem>\n  </Accordion>\n</template>\n\n<style>\n@layer components {\n  .example-sigma-ui-accordion {\n    width: 100%;\n  }\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\nimport { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';\n</script>\n\n<template>\n  <Accordion\n    class=\"example-sigma-ui-accordion\"\n    type=\"single\"\n    collapsible\n  >\n    <AccordionItem value=\"item-1\">\n      <AccordionTrigger>Is it accessible?</AccordionTrigger>\n      <AccordionContent>\n        Yes. It adheres to the WAI-ARIA design pattern.\n      </AccordionContent>\n    </AccordionItem>\n  </Accordion>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .example-sigma-ui-accordion {\n    width: 100%;\n  }\n}\n</style>\n",
       "type": "registry:example"
     }
   ]

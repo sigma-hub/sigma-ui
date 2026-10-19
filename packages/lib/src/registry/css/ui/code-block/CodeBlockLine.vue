@@ -92,6 +92,8 @@ const isEmpty = computed(() => segments.value !== null && segments.value.length 
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-code-block__line {
     position: relative;

@@ -69,6 +69,8 @@ import {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-button-group__icon {
     width: calc(var(--spacing) * 4);

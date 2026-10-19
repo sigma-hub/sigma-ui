@@ -29,6 +29,8 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-dialog-description {
     color: var(--muted-foreground);

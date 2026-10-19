@@ -74,6 +74,8 @@ function badgeVariant(label: string) {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .mail-inbox__scroll {
     height: 100%;

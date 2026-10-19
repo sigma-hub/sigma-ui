@@ -28,6 +28,8 @@ const props = defineProps<DrawerDescriptionProps>();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-drawer-description {
     color: var(--muted-foreground);

@@ -31,6 +31,8 @@ defineSlots<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-sidebar-menu-sub-item {
     position: relative;

@@ -24,6 +24,8 @@ const props = defineProps<ToasterProps>();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-toaster {
     position: fixed;

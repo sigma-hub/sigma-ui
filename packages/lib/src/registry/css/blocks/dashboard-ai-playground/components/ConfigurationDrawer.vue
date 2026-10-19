@@ -75,6 +75,8 @@ const parameterFields = [temperatureField, ...samplingFields];
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   @media (width >= 48rem) {
     button.dashboard-ai-playground__settings-button {

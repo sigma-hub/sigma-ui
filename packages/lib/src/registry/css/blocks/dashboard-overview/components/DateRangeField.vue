@@ -68,6 +68,8 @@ function formatDate(date: DateRange['start']) {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-overview__date-button {
     width: 300px;

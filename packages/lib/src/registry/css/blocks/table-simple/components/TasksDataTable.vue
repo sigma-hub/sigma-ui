@@ -123,6 +123,8 @@ const table = useVueTable({
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .table-simple__data {
     display: flex;

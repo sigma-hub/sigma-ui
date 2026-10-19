@@ -58,6 +58,8 @@ const onSubmit = handleSubmit((values) => {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-date-field-form {
     display: flex;

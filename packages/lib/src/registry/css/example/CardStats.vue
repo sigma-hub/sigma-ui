@@ -97,6 +97,8 @@ const lineY = (d: Data) => d.revenue;
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-card-stats {
     display: grid;

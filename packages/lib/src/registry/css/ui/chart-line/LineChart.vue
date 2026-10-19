@@ -139,6 +139,8 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-line-chart {
     display: flex;

@@ -37,6 +37,8 @@ function clearFilters() {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-faceted-filter-footer__button {
     width: 100%;

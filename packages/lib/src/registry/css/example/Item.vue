@@ -28,6 +28,8 @@ import { Item, ItemActions, ItemContent, ItemDescription, ItemMedia, ItemTitle }
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-item {
     width: 100%;

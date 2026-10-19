@@ -108,6 +108,8 @@ import { breadcrumbLinks, breadcrumbPage, mobileNavItems } from '../data';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-product-edit__header {
     position: sticky;

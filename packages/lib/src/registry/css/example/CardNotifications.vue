@@ -88,6 +88,8 @@ const notifications = [
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-card-notifications {
     width: 380px;

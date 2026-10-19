@@ -13,7 +13,7 @@
   "files": [
     {
       "path": "example/RangeCalendar.vue",
-      "content": "<script setup lang=\"ts\">\nimport { type Ref, ref } from 'vue';\nimport type { DateRange } from 'reka-ui';\nimport { getLocalTimeZone, today } from '@internationalized/date';\nimport { RangeCalendar } from '@/components/ui/range-calendar';\n\nconst start = today(getLocalTimeZone());\nconst end = start.add({ days: 7 });\n\nconst value = ref({\n  start,\n  end,\n}) as Ref<DateRange>;\n</script>\n\n<template>\n  <RangeCalendar\n    v-model=\"value\"\n    class=\"example-sigma-ui-range-calendar\"\n  />\n</template>\n\n<style>\n@layer components {\n  .example-sigma-ui-range-calendar {\n    border: 1px solid var(--border);\n    border-radius: var(--radius);\n  }\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\nimport { type Ref, ref } from 'vue';\nimport type { DateRange } from 'reka-ui';\nimport { getLocalTimeZone, today } from '@internationalized/date';\nimport { RangeCalendar } from '@/components/ui/range-calendar';\n\nconst start = today(getLocalTimeZone());\nconst end = start.add({ days: 7 });\n\nconst value = ref({\n  start,\n  end,\n}) as Ref<DateRange>;\n</script>\n\n<template>\n  <RangeCalendar\n    v-model=\"value\"\n    class=\"example-sigma-ui-range-calendar\"\n  />\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .example-sigma-ui-range-calendar {\n    border: 1px solid var(--border);\n    border-radius: var(--radius);\n  }\n}\n</style>\n",
       "type": "registry:example"
     }
   ]

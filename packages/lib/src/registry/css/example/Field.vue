@@ -82,6 +82,8 @@ import { Textarea } from '@ui/registry/css/ui/textarea';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-field-form {
     width: 100%;

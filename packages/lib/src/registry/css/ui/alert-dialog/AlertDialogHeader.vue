@@ -15,6 +15,8 @@ const attrs = useAttrs();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-alert-dialog-header {
     display: flex;

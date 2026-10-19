@@ -42,6 +42,8 @@ const emit = defineEmits<Emits>();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-toaster-default {
     display: flex;

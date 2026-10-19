@@ -30,6 +30,8 @@ import { Image } from '@ui/registry/css/ui/image';
 </template>
 
 <style scoped>
+@layer base, components;
+
 @layer components {
   .example-image-container {
     display: grid;

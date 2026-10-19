@@ -119,6 +119,8 @@ const totalValue = computed(() => props.data.reduce((prev, curr) => {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-donut-chart {
     display: flex;

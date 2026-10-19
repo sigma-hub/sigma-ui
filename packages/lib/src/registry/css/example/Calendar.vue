@@ -15,6 +15,8 @@ const value = ref(today(getLocalTimeZone())) as Ref<DateValue>;
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-calendar {
     border: 1px solid var(--border);

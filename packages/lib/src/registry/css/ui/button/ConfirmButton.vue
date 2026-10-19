@@ -77,6 +77,8 @@ async function handleClick(event: MouseEvent) {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-confirm-button {
     position: relative;

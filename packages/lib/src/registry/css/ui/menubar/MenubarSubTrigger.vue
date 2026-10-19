@@ -34,6 +34,8 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-menubar-subtrigger {
     display: flex;

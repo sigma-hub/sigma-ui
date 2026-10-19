@@ -183,6 +183,8 @@ function getActionProps(item: BreadcrumbItem, isLast: boolean): ActionProps {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-breadcrumb__action {
     display: flex;

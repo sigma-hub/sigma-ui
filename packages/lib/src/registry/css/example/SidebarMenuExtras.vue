@@ -122,6 +122,8 @@ const projects = ['Design system', 'Marketing site'];
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sidebar-extras {
     position: relative;

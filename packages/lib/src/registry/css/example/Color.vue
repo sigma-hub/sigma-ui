@@ -54,6 +54,8 @@ const presets = ['#ef4444', '#f59e0b', '#22c55e', '#3b82f6', '#a855f7'];
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-color-example {
     display: flex;

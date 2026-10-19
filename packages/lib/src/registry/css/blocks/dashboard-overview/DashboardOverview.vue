@@ -154,6 +154,8 @@ import {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-overview {
     display: flex;

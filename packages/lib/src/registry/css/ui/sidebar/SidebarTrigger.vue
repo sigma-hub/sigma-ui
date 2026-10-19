@@ -31,6 +31,8 @@ const { toggleSidebar } = useSidebar();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-button.sigma-ui-sidebar-trigger {
     width: calc(var(--spacing) * 7);

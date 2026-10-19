@@ -61,6 +61,8 @@ function focusControl(event: MouseEvent) {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-input-group-addon {
     display: flex;

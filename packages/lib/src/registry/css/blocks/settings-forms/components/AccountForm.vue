@@ -213,6 +213,8 @@ function onSubmit(values: Record<string, unknown>) {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .settings-forms__stack {
     display: flex;

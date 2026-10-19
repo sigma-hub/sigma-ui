@@ -38,6 +38,8 @@ defineProps<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-sidebar__header {
     display: flex;

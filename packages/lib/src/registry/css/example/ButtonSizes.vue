@@ -47,6 +47,8 @@ import { Button } from '@ui/registry/css/ui/button';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-button-sizes {
     display: flex;

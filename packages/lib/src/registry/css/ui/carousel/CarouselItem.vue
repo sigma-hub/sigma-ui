@@ -32,6 +32,8 @@ const { orientation } = useCarousel();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-carousel-item {
     min-width: 0;

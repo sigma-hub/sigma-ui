@@ -84,6 +84,8 @@ function navLinkClass(tone: SidebarLinkTone) {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-products__sidebar {
     position: fixed;

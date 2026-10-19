@@ -31,6 +31,8 @@ defineSlots<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-sidebar-content {
     display: flex;

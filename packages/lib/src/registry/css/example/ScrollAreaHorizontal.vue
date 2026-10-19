@@ -56,6 +56,8 @@ const works: Artwork[] = [
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-scroll-area-horizontal {
     width: calc(var(--spacing) * 96);

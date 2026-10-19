@@ -26,6 +26,8 @@ const props = defineProps<DrawerOverlayProps>();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-drawer-overlay {
     position: fixed;

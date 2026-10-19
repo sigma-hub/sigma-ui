@@ -118,6 +118,8 @@ const showEllipsis = computed(() => items.value.length > maxVisibleItems.value);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-breadcrumb__trigger {
     display: flex;

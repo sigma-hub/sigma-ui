@@ -70,6 +70,8 @@ import { Input } from '@ui/registry/css/ui/input';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-popover__content {
     width: calc(var(--spacing) * 80);

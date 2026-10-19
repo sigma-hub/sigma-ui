@@ -38,6 +38,8 @@ import { Button } from '@ui/registry/css/ui/button';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-product-edit__toolbar {
     display: flex;

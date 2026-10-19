@@ -21,6 +21,8 @@ defineProps<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-analytics__search {
     flex: 1 1 0%;

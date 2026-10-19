@@ -140,6 +140,8 @@ const remainingItems = computed(() => items.value.slice(-itemsToDisplay + 1));
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-breadcrumb__trigger {
     display: flex;

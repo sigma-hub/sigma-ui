@@ -10,6 +10,8 @@ import { NumberFieldInput } from 'reka-ui';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-number-field-input {
     display: flex;

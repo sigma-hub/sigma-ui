@@ -27,6 +27,8 @@ const props = defineProps<ComboboxEmptyProps>();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-combobox-empty {
     padding-top: calc(var(--spacing) * 6);

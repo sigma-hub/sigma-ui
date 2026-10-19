@@ -18,6 +18,8 @@ const airplaneMode = ref(false);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-switch {
     display: flex;

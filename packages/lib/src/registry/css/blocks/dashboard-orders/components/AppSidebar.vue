@@ -72,6 +72,8 @@ defineProps<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-orders__sidebar {
     position: fixed;

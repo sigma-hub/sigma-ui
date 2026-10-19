@@ -49,6 +49,8 @@ import ProductToolbar from './components/ProductToolbar.vue';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-product-edit {
     display: flex;

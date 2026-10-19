@@ -43,6 +43,8 @@ defineProps<PluginsDirectoryCardData>();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-settings__plugin-form {
     display: flex;

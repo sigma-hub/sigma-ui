@@ -32,6 +32,8 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-dropdown-menu-label {
     padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);

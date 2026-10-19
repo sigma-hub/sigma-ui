@@ -22,6 +22,8 @@ defineProps<EmptyStateData>();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-sidebar__empty {
     display: flex;

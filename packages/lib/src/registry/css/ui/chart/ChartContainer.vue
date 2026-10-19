@@ -48,6 +48,8 @@ const style = computed(() => {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-chart {
     display: flex;

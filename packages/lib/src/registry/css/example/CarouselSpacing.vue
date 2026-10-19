@@ -28,6 +28,8 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-carousel-spacing {
     position: relative;

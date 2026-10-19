@@ -124,6 +124,8 @@ defineProps<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .app-shell__logo {
     display: flex;

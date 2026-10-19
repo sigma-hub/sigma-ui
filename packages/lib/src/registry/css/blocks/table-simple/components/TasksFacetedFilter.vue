@@ -143,6 +143,8 @@ function clearFilters() {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .table-simple__filter-button {
     height: calc(var(--spacing) * 8);

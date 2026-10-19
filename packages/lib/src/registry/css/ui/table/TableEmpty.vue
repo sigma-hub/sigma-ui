@@ -38,6 +38,8 @@ const props = withDefaults(defineProps<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-table-empty {
     padding: calc(var(--spacing) * 4);

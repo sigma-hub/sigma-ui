@@ -82,6 +82,8 @@ import { Label } from '@ui/registry/css/ui/label';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .signup-card__card {
     max-width: 24rem;

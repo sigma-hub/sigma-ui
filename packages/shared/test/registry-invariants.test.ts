@@ -37,11 +37,11 @@ describe('installed registry sources', () => {
     expect(offenders).toEqual([]);
   });
 
-  it('puts every CSS style component style in the components cascade layer', () => {
+  it('puts every CSS style component style in the components cascade layer and declares the layer order first', () => {
     const offenders = files
       .filter(entry => entry.style === 'css' && entry.file.endsWith('.vue'))
       .flatMap(entry => [...entry.source.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)]
-        .filter(([, body]) => !/^\s*@layer components \{[\s\S]*\}\s*$/.test(body))
+        .filter(([, body]) => !/^\s*@layer base, components;\s*@layer components \{[\s\S]*\}\s*$/.test(body))
         .map(() => entry.relativePath));
 
     expect(offenders).toEqual([]);

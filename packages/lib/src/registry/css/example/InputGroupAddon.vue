@@ -15,6 +15,8 @@ import { InputGroup, InputGroupAddon, InputGroupInput, InputGroupText } from '@u
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-input-group-addon {
     max-width: 24rem;

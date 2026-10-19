@@ -53,6 +53,8 @@ defineSlots<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-input-group .sigma-ui-button.sigma-ui-input-group-button {
     display: flex;

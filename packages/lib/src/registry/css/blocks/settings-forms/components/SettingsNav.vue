@@ -37,6 +37,8 @@ function selectItem(itemId: string) {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .settings-forms__nav-list {
     display: flex;

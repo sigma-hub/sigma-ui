@@ -108,6 +108,8 @@ function updatePageSize(pageSize: unknown) {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .table-simple__pagination {
     display: flex;

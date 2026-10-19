@@ -29,6 +29,8 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-tabs-trigger {
     display: inline-flex;

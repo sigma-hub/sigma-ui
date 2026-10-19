@@ -32,6 +32,8 @@ const { toggleSidebar } = useSidebar();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-sidebar-rail {
     position: absolute;

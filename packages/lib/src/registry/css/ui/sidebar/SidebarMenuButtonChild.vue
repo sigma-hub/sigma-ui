@@ -52,6 +52,8 @@ const props = withDefaults(defineProps<SidebarMenuButtonProps>(), {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-sidebar-menu-button {
     display: flex;

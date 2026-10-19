@@ -16,6 +16,8 @@ import { Kbd, KbdGroup } from '@ui/registry/css/ui/kbd';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-kbd {
     display: flex;

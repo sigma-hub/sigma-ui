@@ -40,6 +40,8 @@ defineProps<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-settings__user-button.dashboard-settings__user-button {
     border-radius: 9999px;

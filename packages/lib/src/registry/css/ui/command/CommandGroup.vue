@@ -37,6 +37,8 @@ const props = defineProps<ComboboxGroupProps & {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-command-group {
     overflow: hidden;

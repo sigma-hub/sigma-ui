@@ -86,6 +86,8 @@ const filteredFrameworks = computed(() => {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-tags-input-combobox {
     display: flex;

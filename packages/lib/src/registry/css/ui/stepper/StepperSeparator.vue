@@ -27,6 +27,8 @@ const forwarded = useForwardProps(props);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-stepper-separator {
     flex: 1;

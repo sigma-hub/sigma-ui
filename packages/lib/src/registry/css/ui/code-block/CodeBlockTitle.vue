@@ -53,6 +53,8 @@ onBeforeUnmount(() => {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-code-block__title {
     overflow: hidden;

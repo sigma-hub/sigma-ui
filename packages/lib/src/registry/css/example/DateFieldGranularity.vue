@@ -25,6 +25,8 @@ const value = ref(new CalendarDateTime(2026, 10, 18, 14, 30)) as Ref<DateValue>;
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-date-field-granularity {
     max-width: 20rem;

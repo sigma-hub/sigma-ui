@@ -70,6 +70,8 @@ import {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-card-form {
     width: 350px;

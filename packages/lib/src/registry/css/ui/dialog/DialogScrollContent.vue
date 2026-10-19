@@ -55,6 +55,8 @@ defineOptions({
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-dialog-scroll-overlay {
     position: fixed;

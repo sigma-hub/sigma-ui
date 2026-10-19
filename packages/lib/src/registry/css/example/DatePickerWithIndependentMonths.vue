@@ -256,6 +256,8 @@ watch(secondMonthPlaceholder, (_secondMonthPlaceholder) => {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-date-picker__button {
     width: 280px;

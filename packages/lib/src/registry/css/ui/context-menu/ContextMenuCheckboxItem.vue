@@ -42,6 +42,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-context-menu-checkbox-item {
     position: relative;

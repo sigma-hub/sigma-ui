@@ -110,6 +110,8 @@ function onStatusSelect(status: Status) {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-command-responsive__trigger {
     width: 150px;

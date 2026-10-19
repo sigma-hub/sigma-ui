@@ -59,6 +59,8 @@ import {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-sidebar {
     display: grid;

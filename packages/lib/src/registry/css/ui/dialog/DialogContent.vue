@@ -52,6 +52,8 @@ const forwarded = useForwardPropsEmits(reactiveOmit(props, 'closeLabel'), emits)
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-dialog-overlay {
     position: fixed;

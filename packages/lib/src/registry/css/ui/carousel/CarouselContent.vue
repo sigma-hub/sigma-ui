@@ -40,6 +40,8 @@ function setCarouselElement(element: Element | ComponentPublicInstance | null) {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-carousel-content {
     overflow: hidden;

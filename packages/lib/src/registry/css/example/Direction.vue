@@ -30,6 +30,8 @@ function toggleDirection() {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-direction {
     width: 100%;

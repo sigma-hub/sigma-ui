@@ -40,6 +40,8 @@ import { modelOptions } from '../data';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-select-trigger.dashboard-ai-playground__model-trigger {
     align-items: flex-start;

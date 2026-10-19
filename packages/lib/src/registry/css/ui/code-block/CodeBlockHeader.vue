@@ -35,6 +35,8 @@ defineSlots<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-code-block__header {
     display: flex;

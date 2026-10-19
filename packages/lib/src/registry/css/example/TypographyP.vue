@@ -6,6 +6,8 @@
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-typography__paragraph {
     line-height: 1.75;

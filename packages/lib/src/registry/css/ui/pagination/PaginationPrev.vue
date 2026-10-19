@@ -38,6 +38,8 @@ const props = withDefaults(defineProps<PaginationPrevProps>(), {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-pagination-prev {
     width: calc(var(--spacing) * 10);

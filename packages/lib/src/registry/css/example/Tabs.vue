@@ -97,6 +97,8 @@ import {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-tabs {
     width: 400px;

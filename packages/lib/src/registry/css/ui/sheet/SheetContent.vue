@@ -52,6 +52,8 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-sheet-overlay {
     position: fixed;

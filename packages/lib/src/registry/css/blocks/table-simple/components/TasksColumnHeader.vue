@@ -67,6 +67,8 @@ defineProps<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .table-simple__column-header {
     display: flex;

@@ -15,6 +15,8 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-tags-input-input {
     min-height: calc(var(--spacing) * 6);

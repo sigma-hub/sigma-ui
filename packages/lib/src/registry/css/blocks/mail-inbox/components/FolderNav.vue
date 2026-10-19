@@ -70,6 +70,8 @@ defineProps<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .mail-inbox__nav {
     display: grid;

@@ -28,6 +28,8 @@ const props = defineProps<DropdownMenuSeparatorProps>();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-dropdown-menu-separator {
     height: 1px;

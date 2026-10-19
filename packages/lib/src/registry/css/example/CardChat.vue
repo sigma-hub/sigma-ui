@@ -212,6 +212,8 @@ const filteredUsers = computed(() => users.value.filter(user => user.name.toLowe
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-card-chat__header {
     display: flex;

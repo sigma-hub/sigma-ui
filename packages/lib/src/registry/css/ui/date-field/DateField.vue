@@ -51,6 +51,8 @@ defineSlots<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-date-field {
     display: inline-flex;

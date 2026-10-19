@@ -153,6 +153,8 @@ const components: { title: string; href: string; description: string }[] = [
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-nav-menu__grid {
     display: grid;

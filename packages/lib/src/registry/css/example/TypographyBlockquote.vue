@@ -6,6 +6,8 @@
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-typography__blockquote {
     padding-left: calc(var(--spacing) * 6);

@@ -19,6 +19,8 @@ defineProps<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .app-shell__header {
     display: flex;

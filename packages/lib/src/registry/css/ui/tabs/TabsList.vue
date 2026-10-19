@@ -27,6 +27,8 @@ const props = defineProps<TabsListProps>();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-tabs-list {
     display: inline-flex;

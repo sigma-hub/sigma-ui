@@ -44,6 +44,8 @@ const { orientation, canScrollPrev, scrollPrev } = useCarousel();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-carousel-previous {
     position: absolute;

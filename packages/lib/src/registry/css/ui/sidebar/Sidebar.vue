@@ -104,6 +104,8 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-sidebar--static {
     display: flex;

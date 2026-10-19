@@ -21,6 +21,8 @@ defineProps<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-settings__side-nav {
     display: grid;

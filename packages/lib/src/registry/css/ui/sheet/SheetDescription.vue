@@ -27,6 +27,8 @@ const props = defineProps<DialogDescriptionProps>();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-sheet-description {
     color: var(--muted-foreground);

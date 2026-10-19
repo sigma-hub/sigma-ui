@@ -14,6 +14,8 @@ import { Label } from '@ui/registry/css/ui/label';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-textarea-with-label {
     display: grid;

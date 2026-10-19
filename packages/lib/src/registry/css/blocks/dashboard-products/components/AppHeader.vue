@@ -131,6 +131,8 @@ defineProps<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-products__header {
     position: sticky;

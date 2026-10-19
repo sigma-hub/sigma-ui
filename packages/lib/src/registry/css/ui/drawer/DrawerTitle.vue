@@ -28,6 +28,8 @@ const props = defineProps<DrawerTitleProps>();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-drawer-title {
     font-size: 1.125rem;

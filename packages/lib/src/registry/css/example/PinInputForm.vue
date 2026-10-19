@@ -79,6 +79,8 @@ const handleComplete = (digits: (number | undefined)[]) => console.log(digits.jo
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-pin-input-form {
     display: flex;

@@ -143,6 +143,8 @@ formatter.setLocale(locale.value);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-calendar-localization {
     padding: calc(var(--spacing) * 3);

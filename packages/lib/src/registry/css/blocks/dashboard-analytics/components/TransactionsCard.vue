@@ -93,6 +93,8 @@ defineProps<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-analytics__transactions-header.dashboard-analytics__transactions-header {
     flex-direction: row;

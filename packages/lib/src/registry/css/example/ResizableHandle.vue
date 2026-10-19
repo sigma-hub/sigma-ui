@@ -36,6 +36,8 @@ import {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-resizable-handle {
     max-width: 28rem;

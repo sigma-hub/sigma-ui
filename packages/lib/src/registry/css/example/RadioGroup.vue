@@ -30,6 +30,8 @@ import { RadioGroup, RadioGroupItem } from '@ui/registry/css/ui/radio-group';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-radio-group__item {
     display: flex;

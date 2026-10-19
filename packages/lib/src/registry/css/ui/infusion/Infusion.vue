@@ -123,6 +123,8 @@ const containerClass = computed(() => [
 </template>
 
 <style scoped>
+@layer base, components;
+
 @layer components {
   .infusion-container {
     position: fixed;

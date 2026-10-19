@@ -111,6 +111,8 @@ const data = [
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-drawer__container {
     width: 100%;

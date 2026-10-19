@@ -28,6 +28,8 @@ const delegatedAttrs = () => {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-table-wrapper {
     position: relative;

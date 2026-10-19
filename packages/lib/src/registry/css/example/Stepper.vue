@@ -30,6 +30,8 @@ const steps = [
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-stepper {
     width: 100%;

@@ -35,6 +35,8 @@ defineSlots<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-label.sigma-ui-field-label {
     display: flex;

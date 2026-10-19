@@ -39,6 +39,8 @@ const isInvalid = computed(() => errors.value.some(Boolean));
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-field-invalid {
     max-width: 24rem;

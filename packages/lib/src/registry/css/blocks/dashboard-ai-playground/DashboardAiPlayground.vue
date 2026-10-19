@@ -19,6 +19,8 @@ import PlaygroundHeader from './components/PlaygroundHeader.vue';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-ai-playground {
     display: grid;

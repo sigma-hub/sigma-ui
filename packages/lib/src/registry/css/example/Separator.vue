@@ -27,6 +27,8 @@ import { Separator } from '@ui/registry/css/ui/separator';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-separator__header {
     display: flex;

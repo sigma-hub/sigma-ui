@@ -30,6 +30,8 @@ const props = defineProps<ContextMenuLabelProps & {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-context-menu-label {
     padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);

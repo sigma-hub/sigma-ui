@@ -6,6 +6,8 @@
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-typography__lead {
     color: var(--muted-foreground);

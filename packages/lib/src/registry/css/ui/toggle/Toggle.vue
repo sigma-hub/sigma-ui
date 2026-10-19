@@ -41,6 +41,8 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-toggle {
     display: inline-flex;

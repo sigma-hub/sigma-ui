@@ -117,6 +117,8 @@ import {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-select-scrollable__trigger {
     width: calc(var(--spacing) * 70);

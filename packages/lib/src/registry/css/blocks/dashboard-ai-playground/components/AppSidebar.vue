@@ -71,6 +71,8 @@ import { primaryNavItems, secondaryNavItems } from '../data';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-ai-playground__sidebar {
     position: fixed;

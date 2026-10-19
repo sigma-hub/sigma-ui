@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "example/TypographyList.vue",
-      "content": "<template>\n  <ul class=\"example-sigma-ui-typography__list\">\n    <li class=\"example-sigma-ui-typography__list-item\">\n      1st level of puns: 5 gold coins\n    </li>\n    <li class=\"example-sigma-ui-typography__list-item\">\n      2nd level of jokes: 10 gold coins\n    </li>\n    <li class=\"example-sigma-ui-typography__list-item\">\n      3rd level of one-liners : 20 gold coins\n    </li>\n  </ul>\n</template>\n\n<style>\n@layer components {\n  .example-sigma-ui-typography__list {\n    margin: calc(var(--spacing) * 6) 0 calc(var(--spacing) * 6) calc(var(--spacing) * 6);\n    list-style-type: disc;\n  }\n\n  .example-sigma-ui-typography__list-item {\n    margin-top: calc(var(--spacing) * 2);\n  }\n}\n</style>\n",
+      "content": "<template>\n  <ul class=\"example-sigma-ui-typography__list\">\n    <li class=\"example-sigma-ui-typography__list-item\">\n      1st level of puns: 5 gold coins\n    </li>\n    <li class=\"example-sigma-ui-typography__list-item\">\n      2nd level of jokes: 10 gold coins\n    </li>\n    <li class=\"example-sigma-ui-typography__list-item\">\n      3rd level of one-liners : 20 gold coins\n    </li>\n  </ul>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .example-sigma-ui-typography__list {\n    margin: calc(var(--spacing) * 6) 0 calc(var(--spacing) * 6) calc(var(--spacing) * 6);\n    list-style-type: disc;\n  }\n\n  .example-sigma-ui-typography__list-item {\n    margin-top: calc(var(--spacing) * 2);\n  }\n}\n</style>\n",
       "type": "registry:example"
     }
   ]

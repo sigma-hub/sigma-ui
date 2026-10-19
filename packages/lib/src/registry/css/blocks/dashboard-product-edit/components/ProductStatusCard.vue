@@ -44,6 +44,8 @@ import { statusOptions } from '../data';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-product-edit__stack {
     display: grid;

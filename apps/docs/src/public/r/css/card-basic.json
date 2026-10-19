@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "example/CardBasic.vue",
-      "content": "<script setup lang=\"ts\">\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card';\n</script>\n\n<template>\n  <Card class=\"example-sigma-ui-card-basic\">\n    <CardHeader>\n      <CardTitle>Card Title</CardTitle>\n      <CardDescription>Card Description</CardDescription>\n    </CardHeader>\n    <CardContent>\n      Card Content\n    </CardContent>\n    <CardFooter>\n      Card Footer\n    </CardFooter>\n  </Card>\n</template>\n\n<style>\n@layer components {\n  .example-sigma-ui-card-basic {\n    width: 380px;\n  }\n}\n</style>\n",
+      "content": "<script setup lang=\"ts\">\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card';\n</script>\n\n<template>\n  <Card class=\"example-sigma-ui-card-basic\">\n    <CardHeader>\n      <CardTitle>Card Title</CardTitle>\n      <CardDescription>Card Description</CardDescription>\n    </CardHeader>\n    <CardContent>\n      Card Content\n    </CardContent>\n    <CardFooter>\n      Card Footer\n    </CardFooter>\n  </Card>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .example-sigma-ui-card-basic {\n    width: 380px;\n  }\n}\n</style>\n",
       "type": "registry:example"
     }
   ]

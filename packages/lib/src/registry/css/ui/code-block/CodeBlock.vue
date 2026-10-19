@@ -75,6 +75,8 @@ provideCodeBlockContext({
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   [data-slot='code-block'] {
     --code-block-background: color-mix(in oklch, var(--muted) 40%, var(--background));

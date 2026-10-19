@@ -92,6 +92,8 @@ function toggleItem(handleChange: (next: string[]) => void, value: string[], ite
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .settings-forms__display-intro {
     margin-bottom: calc(var(--spacing) * 4);

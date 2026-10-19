@@ -63,6 +63,8 @@ import RoleSelect from './RoleSelect.vue';
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .dashboard-ai-playground__configuration {
     position: relative;

@@ -40,6 +40,8 @@ const slots = defineSlots<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-field-separator {
     position: relative;

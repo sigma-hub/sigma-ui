@@ -48,6 +48,8 @@ function copy(id: string) {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-data-table-menu__button {
     width: calc(var(--spacing) * 8);

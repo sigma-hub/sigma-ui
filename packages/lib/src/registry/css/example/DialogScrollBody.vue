@@ -44,6 +44,8 @@ import {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-dialog-scroll__content {
     max-width: 425px;

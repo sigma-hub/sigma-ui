@@ -32,6 +32,8 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-tags-input-item-delete {
     display: flex;

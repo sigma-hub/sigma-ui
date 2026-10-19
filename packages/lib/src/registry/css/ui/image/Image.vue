@@ -128,6 +128,8 @@ function onLoad() {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-image__container {
     position: relative;

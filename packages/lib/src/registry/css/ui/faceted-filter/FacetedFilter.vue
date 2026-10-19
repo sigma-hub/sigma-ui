@@ -202,6 +202,8 @@ function clearSearch() {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-faceted-filter__trigger {
     border-style: dashed;

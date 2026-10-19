@@ -33,6 +33,8 @@ defineEmits<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-input.sigma-ui-sidebar-input {
     width: 100%;

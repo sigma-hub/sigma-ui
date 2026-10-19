@@ -42,6 +42,8 @@ defineSlots<{
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-field-legend {
     padding: 0;

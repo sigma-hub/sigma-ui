@@ -5,6 +5,8 @@
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-typography__inline-code {
     position: relative;

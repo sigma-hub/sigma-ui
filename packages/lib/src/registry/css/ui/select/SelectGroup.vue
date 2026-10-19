@@ -27,6 +27,8 @@ const props = defineProps<SelectGroupProps>();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-select-group {
     width: 100%;

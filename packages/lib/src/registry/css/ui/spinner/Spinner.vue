@@ -36,6 +36,8 @@ const props = withDefaults(defineProps<SpinnerProps>(), {
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-spinner {
     width: calc(var(--spacing) * 4);

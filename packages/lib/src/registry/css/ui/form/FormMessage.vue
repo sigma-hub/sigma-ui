@@ -17,6 +17,8 @@ const { name, formMessageId } = useFormField();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-form-message {
     color: var(--destructive);

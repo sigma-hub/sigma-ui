@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "example/TypographyH3.vue",
-      "content": "<template>\n  <h3 class=\"example-sigma-ui-typography__heading-3\">\n    The Joke Tax\n  </h3>\n</template>\n\n<style>\n@layer components {\n  .example-sigma-ui-typography__heading-3 {\n    font-size: 1.5rem;\n    font-weight: 600;\n    letter-spacing: -0.025em;\n    scroll-margin-top: calc(var(--spacing) * 20);\n  }\n}\n</style>\n",
+      "content": "<template>\n  <h3 class=\"example-sigma-ui-typography__heading-3\">\n    The Joke Tax\n  </h3>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .example-sigma-ui-typography__heading-3 {\n    font-size: 1.5rem;\n    font-weight: 600;\n    letter-spacing: -0.025em;\n    scroll-margin-top: calc(var(--spacing) * 20);\n  }\n}\n</style>\n",
       "type": "registry:example"
     }
   ]

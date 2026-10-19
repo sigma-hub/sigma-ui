@@ -89,6 +89,8 @@ const invoices = [
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-table__head-invoice {
     width: calc(var(--spacing) * 25);

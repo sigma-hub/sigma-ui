@@ -21,6 +21,8 @@ const attrs = useAttrs();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .sigma-ui-alert-dialog-description {
     color: var(--muted-foreground);

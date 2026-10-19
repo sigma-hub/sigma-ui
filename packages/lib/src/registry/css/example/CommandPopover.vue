@@ -120,6 +120,8 @@ const selectedStatus = ref<Status>();
 </template>
 
 <style>
+@layer base, components;
+
 @layer components {
   .example-sigma-ui-command-popover {
     display: flex;
