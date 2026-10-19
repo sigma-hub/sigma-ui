@@ -7,7 +7,7 @@ Every CLI release is listed in the [sigma-ui changelog](https://github.com/sigma
 
 ## October 2026
 
-`v2.0.0`:
+`v2.1.0`:
 
 - Registry-driven CLI: components are fetched from `https://sigma-ui.dev/r/{style}/{name}.json`.
 - Tailwind CSS v4 only (`@theme`, `@tailwindcss/vite`, `tw-animate-css`). Tailwind 3 and `tailwindcss-animate` are not supported for new installs.

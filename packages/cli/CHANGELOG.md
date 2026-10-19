@@ -1,6 +1,8 @@
 # sigma-ui
 
-## 2.0.0
+## 2.1.0
+
+npm keeps 2.0.0 and 2.0.1 reserved for earlier versions that were unpublished, so the first release of v2 is 2.1.0.
 
 ### Major Changes
 
