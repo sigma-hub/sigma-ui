@@ -63,6 +63,8 @@ npx sigma-ui add button
 
 CSS-style 2.0 components read colors as `var(--primary)`. If `migrate` finds HSL triplets, it wraps them as `hsl(240 5.9% 10%)`. There is no `utils` file unless you add Tailwind; blocks that used `valueUpdater` from `@/lib/utils` now define that helper locally.
 
+`migrate` also adds `@layer base, components;` to the top of the stylesheet and imports `preflight.css` into the `base` layer. 2.0 component styles live in `@layer components`, so your unlayered CSS overrides them. Unset borders now use `var(--border)` from the theme instead of the text color. Global element rules in your own CSS (`code`, `h1`, `a`) now win over component styles too; move them into `@layer base` if a component looks off. If another stylesheet imports `preflight.css` without `layer(base)`, its resets beat the component styles (buttons lose their padding and borders); `migrate` lists those files. See [Overriding component styles](/docs/theming#overriding-component-styles).
+
 ## Nuxt
 
 Install `sigma-ui-nuxt` and point `sigmaUi.componentDir` at `aliases.components`. See [Nuxt installation](/docs/installation/nuxt).

@@ -103,6 +103,51 @@ All spacing and sizing (padding, margin, gap, width, height, icon sizes) switche
 
 The tradeoff: buttons, inputs and other controls no longer grow with the user's default font size, while their text still does, so large text can get cramped or clipped in fixed-height controls. Browser zoom still scales everything.
 
+### Overriding component styles
+
+The CSS style system puts every component style in a [cascade layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer). `init` writes the layer order at the top of your stylesheet:
+
+```css
+@layer base, components;
+
+@import "./preflight.css" layer(base);
+
+@layer base {
+  /* theme variables, body, border color */
+}
+```
+
+- `base` holds the preflight and the theme.
+- `components` holds the styles inside the component files (`@layer components { .sigma-ui-button { ... } }`).
+- CSS that is not in a layer beats both, whatever its specificity or load order.
+
+Each component style also starts with `@layer base, components;`. The first place a layer is named fixes its position, and a bundler can load a component's CSS before your stylesheet, so repeating the order keeps `base` below `components` whichever file loads first.
+
+So a plain class overrides a component style without `!important` or extra specificity:
+
+```css
+.brand-button {
+  background-color: oklch(0.55 0.22 27);
+  border-radius: 0;
+}
+```
+
+```vue
+<Button class="brand-button">Save</Button>
+```
+
+That also means global element rules in your own CSS, such as `code { padding: 4px }` or `h1 { margin: 0 }`, apply inside components. Put resets like that in `@layer base` so the components keep their own styles:
+
+```css
+@layer base {
+  code {
+    font-family: var(--font-mono);
+  }
+}
+```
+
+To keep your own layered styles above the components, declare your layer after them: `@layer base, components, app;`. The layer names match Tailwind v4, so in a project that also uses Tailwind the component styles join its `components` layer and utilities still win. With the Tailwind style system there are no component stylesheets: pass utility classes, and `cn` merges them over the defaults.
+
 ### Color format
 
 Theme colors are OKLCH values in the stylesheet. Tailwind utilities read them through `@theme inline`, so `bg-foreground/50` still sets the alpha:
