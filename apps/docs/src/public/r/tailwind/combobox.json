@@ -5,7 +5,7 @@
   "title": "Combobox",
   "description": "Autocomplete input with a list of suggestions.",
   "dependencies": [
-    "@vueuse/core@^14.4.0",
+    "@vueuse/core@^15.0.0",
     "reka-ui@^2.11.0"
   ],
   "registryDependencies": [],

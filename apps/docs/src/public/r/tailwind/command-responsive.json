@@ -4,7 +4,7 @@
   "type": "registry:example",
   "title": "CommandResponsive",
   "dependencies": [
-    "@vueuse/core@^14.4.0"
+    "@vueuse/core@^15.0.0"
   ],
   "registryDependencies": [
     "button",

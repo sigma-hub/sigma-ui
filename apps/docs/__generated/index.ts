@@ -27,7 +27,7 @@ export const Index = {
       name: "dashboard-mail",
       type: "registry:block",
       registryDependencies: ["avatar","badge","button","calendar","dropdown-menu","input","label","popover","resizable","scroll-area","select","separator","switch","tabs","textarea","tooltip"],
-      dependencies: ["@lucide/vue@^1.59.0","@vueuse/core@^14.4.0","date-fns@^4.4.0"],
+      dependencies: ["@lucide/vue@^1.59.0","@vueuse/core@^15.0.0","date-fns@^4.4.0"],
       files: ["blocks/dashboard-mail/DashboardMail.vue","blocks/dashboard-mail/components/AccountSwitcher.vue","blocks/dashboard-mail/components/FolderNav.vue","blocks/dashboard-mail/components/MailDisplay.vue","blocks/dashboard-mail/components/MailList.vue","blocks/dashboard-mail/data.ts"],
     },
     "dashboard-orders": {
@@ -349,7 +349,7 @@ export const Index = {
       name: "BreadcrumbResponsive",
       type: "registry:example",
       registryDependencies: ["breadcrumb","button","drawer","dropdown-menu"],
-      dependencies: ["@vueuse/core@^14.4.0"],
+      dependencies: ["@vueuse/core@^15.0.0"],
       files: ["example/BreadcrumbResponsive.vue"],
     },
     "BreadcrumbSeparator": {
@@ -489,14 +489,14 @@ export const Index = {
       name: "CalendarLocalization",
       type: "registry:example",
       registryDependencies: ["calendar","select"],
-      dependencies: ["@internationalized/date@^3.12.4","@vueuse/core@^14.4.0","reka-ui@^2.11.0"],
+      dependencies: ["@internationalized/date@^3.12.4","@vueuse/core@^15.0.0","reka-ui@^2.11.0"],
       files: ["example/CalendarLocalization.vue"],
     },
     "CalendarWithSelect": {
       name: "CalendarWithSelect",
       type: "registry:example",
       registryDependencies: ["calendar","select"],
-      dependencies: ["@internationalized/date@^3.12.4","@vueuse/core@^14.4.0","reka-ui@^2.11.0"],
+      dependencies: ["@internationalized/date@^3.12.4","@vueuse/core@^15.0.0","reka-ui@^2.11.0"],
       files: ["example/CalendarWithSelect.vue"],
     },
     "CardBasic": {
@@ -573,7 +573,7 @@ export const Index = {
       name: "CarouselApi",
       type: "registry:example",
       registryDependencies: ["carousel"],
-      dependencies: ["@vueuse/core@^14.4.0"],
+      dependencies: ["@vueuse/core@^15.0.0"],
       files: ["example/CarouselApi.vue"],
     },
     "CarouselBasic": {
@@ -615,7 +615,7 @@ export const Index = {
       name: "CarouselThumbnails",
       type: "registry:example",
       registryDependencies: ["carousel"],
-      dependencies: ["@vueuse/core@^14.4.0"],
+      dependencies: ["@vueuse/core@^15.0.0"],
       files: ["example/CarouselThumbnails.vue"],
     },
     "Checkbox": {
@@ -769,7 +769,7 @@ export const Index = {
       name: "CodeBlockPackageManagers",
       type: "registry:example",
       registryDependencies: ["code-block"],
-      dependencies: ["@vueuse/core@^14.4.0"],
+      dependencies: ["@vueuse/core@^15.0.0"],
       files: ["example/CodeBlockPackageManagers.vue"],
     },
     "CodeBlockSize": {
@@ -853,7 +853,7 @@ export const Index = {
       name: "CommandDialog",
       type: "registry:example",
       registryDependencies: ["command","toaster"],
-      dependencies: ["@vueuse/core@^14.4.0"],
+      dependencies: ["@vueuse/core@^15.0.0"],
       files: ["example/CommandDialog.vue"],
     },
     "CommandDropdownMenu": {
@@ -881,7 +881,7 @@ export const Index = {
       name: "CommandResponsive",
       type: "registry:example",
       registryDependencies: ["button","command","drawer","popover"],
-      dependencies: ["@vueuse/core@^14.4.0"],
+      dependencies: ["@vueuse/core@^15.0.0"],
       files: ["example/CommandResponsive.vue"],
     },
     "ContextMenu": {
@@ -1091,7 +1091,7 @@ export const Index = {
       name: "DrawerDialog",
       type: "registry:example",
       registryDependencies: ["button","dialog","drawer","input","label"],
-      dependencies: ["@vueuse/core@^14.4.0"],
+      dependencies: ["@vueuse/core@^15.0.0"],
       files: ["example/DrawerDialog.vue"],
     },
     "DropdownMenu": {
@@ -2038,7 +2038,7 @@ export const Index = {
       name: "dashboard-mail",
       type: "registry:block",
       registryDependencies: ["avatar","badge","button","calendar","dropdown-menu","input","label","popover","resizable","scroll-area","select","separator","switch","tabs","textarea","tooltip"],
-      dependencies: ["@lucide/vue@^1.59.0","@vueuse/core@^14.4.0","date-fns@^4.4.0"],
+      dependencies: ["@lucide/vue@^1.59.0","@vueuse/core@^15.0.0","date-fns@^4.4.0"],
       files: ["blocks/dashboard-mail/DashboardMail.vue","blocks/dashboard-mail/components/AccountSwitcher.vue","blocks/dashboard-mail/components/FolderNav.vue","blocks/dashboard-mail/components/MailDisplay.vue","blocks/dashboard-mail/components/MailList.vue","blocks/dashboard-mail/data.ts"],
     },
     "dashboard-orders": {
@@ -2360,7 +2360,7 @@ export const Index = {
       name: "BreadcrumbResponsive",
       type: "registry:example",
       registryDependencies: ["breadcrumb","button","drawer","dropdown-menu"],
-      dependencies: ["@vueuse/core@^14.4.0"],
+      dependencies: ["@vueuse/core@^15.0.0"],
       files: ["example/BreadcrumbResponsive.vue"],
     },
     "BreadcrumbSeparator": {
@@ -2500,14 +2500,14 @@ export const Index = {
       name: "CalendarLocalization",
       type: "registry:example",
       registryDependencies: ["calendar","select"],
-      dependencies: ["@internationalized/date@^3.12.4","@vueuse/core@^14.4.0","reka-ui@^2.11.0"],
+      dependencies: ["@internationalized/date@^3.12.4","@vueuse/core@^15.0.0","reka-ui@^2.11.0"],
       files: ["example/CalendarLocalization.vue"],
     },
     "CalendarWithSelect": {
       name: "CalendarWithSelect",
       type: "registry:example",
       registryDependencies: ["calendar","select"],
-      dependencies: ["@internationalized/date@^3.12.4","@vueuse/core@^14.4.0","reka-ui@^2.11.0"],
+      dependencies: ["@internationalized/date@^3.12.4","@vueuse/core@^15.0.0","reka-ui@^2.11.0"],
       files: ["example/CalendarWithSelect.vue"],
     },
     "CardBasic": {
@@ -2584,7 +2584,7 @@ export const Index = {
       name: "CarouselApi",
       type: "registry:example",
       registryDependencies: ["carousel"],
-      dependencies: ["@vueuse/core@^14.4.0"],
+      dependencies: ["@vueuse/core@^15.0.0"],
       files: ["example/CarouselApi.vue"],
     },
     "CarouselBasic": {
@@ -2626,7 +2626,7 @@ export const Index = {
       name: "CarouselThumbnails",
       type: "registry:example",
       registryDependencies: ["carousel"],
-      dependencies: ["@vueuse/core@^14.4.0"],
+      dependencies: ["@vueuse/core@^15.0.0"],
       files: ["example/CarouselThumbnails.vue"],
     },
     "Checkbox": {
@@ -2780,7 +2780,7 @@ export const Index = {
       name: "CodeBlockPackageManagers",
       type: "registry:example",
       registryDependencies: ["code-block"],
-      dependencies: ["@vueuse/core@^14.4.0"],
+      dependencies: ["@vueuse/core@^15.0.0"],
       files: ["example/CodeBlockPackageManagers.vue"],
     },
     "CodeBlockSize": {
@@ -2864,7 +2864,7 @@ export const Index = {
       name: "CommandDialog",
       type: "registry:example",
       registryDependencies: ["command","toaster"],
-      dependencies: ["@vueuse/core@^14.4.0"],
+      dependencies: ["@vueuse/core@^15.0.0"],
       files: ["example/CommandDialog.vue"],
     },
     "CommandDropdownMenu": {
@@ -2892,7 +2892,7 @@ export const Index = {
       name: "CommandResponsive",
       type: "registry:example",
       registryDependencies: ["button","command","drawer","popover"],
-      dependencies: ["@vueuse/core@^14.4.0"],
+      dependencies: ["@vueuse/core@^15.0.0"],
       files: ["example/CommandResponsive.vue"],
     },
     "ContextMenu": {
@@ -3102,7 +3102,7 @@ export const Index = {
       name: "DrawerDialog",
       type: "registry:example",
       registryDependencies: ["button","dialog","drawer","input","label"],
-      dependencies: ["@vueuse/core@^14.4.0"],
+      dependencies: ["@vueuse/core@^15.0.0"],
       files: ["example/DrawerDialog.vue"],
     },
     "DropdownMenu": {

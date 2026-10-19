@@ -17,7 +17,7 @@ catalog:
   '@vue/compiler-dom': ^3.5.44
   '@vue/compiler-sfc': ^3.5.44
   '@vue/tsconfig': ^0.7.0
-  '@vueuse/core': ^14.4.0
+  '@vueuse/core': ^15.0.0
   class-variance-authority: ^0.7.1
   clsx: ^2.1.1
   date-fns: ^4.4.0

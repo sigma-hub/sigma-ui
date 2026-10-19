@@ -6,7 +6,7 @@
   "description": "A composable, themeable, and collapsible sidebar for application layouts.",
   "dependencies": [
     "@lucide/vue@^1.59.0",
-    "@vueuse/core@^14.4.0",
+    "@vueuse/core@^15.0.0",
     "class-variance-authority@^0.7.1",
     "reka-ui@^2.11.0"
   ],

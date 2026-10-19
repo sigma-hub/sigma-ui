@@ -6,7 +6,7 @@
   "description": "Container for displaying content on top of other content.",
   "dependencies": [
     "@lucide/vue@^1.59.0",
-    "@vueuse/core@^14.4.0",
+    "@vueuse/core@^15.0.0",
     "reka-ui@^2.11.0"
   ],
   "registryDependencies": [],

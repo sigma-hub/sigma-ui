@@ -3,9 +3,9 @@ description: Installs pnpm from the packageManager field, Node.js, and the works
 
 inputs:
   node-version:
-    description: Node.js version to install.
+    description: Node.js version to install. Defaults to the version in .nvmrc.
     required: false
-    default: lts/*
+    default: ''
   registry-url:
     description: npm registry to authenticate against, needed for publishing.
     required: false
@@ -22,6 +22,7 @@ runs:
       uses: actions/setup-node@v7
       with:
         node-version: ${{ inputs.node-version }}
+        node-version-file: ${{ inputs.node-version == '' && '.nvmrc' || '' }}
         registry-url: ${{ inputs.registry-url }}
         cache: pnpm
 

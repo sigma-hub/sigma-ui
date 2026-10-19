@@ -6,7 +6,7 @@
   "description": "Displays a list of options for the user to pick from, triggered by a button.",
   "dependencies": [
     "@lucide/vue@^1.59.0",
-    "@vueuse/core@^14.4.0",
+    "@vueuse/core@^15.0.0",
     "reka-ui@^2.11.0"
   ],
   "registryDependencies": [],

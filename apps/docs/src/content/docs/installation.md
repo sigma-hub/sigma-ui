@@ -3,6 +3,11 @@ title: Installation
 description: Initialize SIGMA-UI
 ---
 
+## Requirements
+
+- Node.js 22 or newer. The components use `@vueuse/core` 15, which no longer supports Node.js 20.
+- Vue 3.5 or newer.
+
 ## Choose your framework
 
 <div class="grid gap-4 mt-8 sm:grid-cols-2 sm:gap-6 not-docs">

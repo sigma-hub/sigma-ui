@@ -6,7 +6,7 @@
   "description": "A three-pane mail client. The first pane switches accounts and lists folders. The second pane searches and lists messages, with tabs for all mail and unread mail. The third pane shows the selected message, snooze and reply actions, and a reply form.",
   "dependencies": [
     "@lucide/vue@^1.59.0",
-    "@vueuse/core@^14.4.0",
+    "@vueuse/core@^15.0.0",
     "date-fns@^4.4.0"
   ],
   "registryDependencies": [

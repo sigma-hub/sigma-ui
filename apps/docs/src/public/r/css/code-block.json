@@ -6,7 +6,7 @@
   "description": "Shows code with syntax highlighting, line numbers, diffs, tabs, and a copy button.",
   "dependencies": [
     "@lucide/vue@^1.59.0",
-    "@vueuse/core@^14.4.0",
+    "@vueuse/core@^15.0.0",
     "class-variance-authority@^0.7.1",
     "reka-ui@^2.11.0",
     "shiki@^4.5.0"

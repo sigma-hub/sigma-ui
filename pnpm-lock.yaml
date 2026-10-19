@@ -46,8 +46,8 @@ catalogs:
       specifier: ^0.7.0
       version: 0.7.0
     '@vueuse/core':
-      specifier: ^14.4.0
-      version: 14.4.0
+      specifier: ^15.0.0
+      version: 15.0.0
     class-variance-authority:
       specifier: ^0.7.1
       version: 0.7.1
@@ -188,7 +188,7 @@ importers:
         version: 8.21.3(vue@3.5.44(typescript@5.9.3))
       '@vueuse/core':
         specifier: 'catalog:'
-        version: 14.4.0(vue@3.5.44(typescript@5.9.3))
+        version: 15.0.0(vue@3.5.44(typescript@5.9.3))
       class-variance-authority:
         specifier: 'catalog:'
         version: 0.7.1
@@ -424,7 +424,7 @@ importers:
         version: 1.7.1(@unovis/ts@1.7.1)(vue@3.5.44(typescript@5.9.3))
       '@vueuse/core':
         specifier: 'catalog:'
-        version: 14.4.0(vue@3.5.44(typescript@5.9.3))
+        version: 15.0.0(vue@3.5.44(typescript@5.9.3))
       class-variance-authority:
         specifier: 'catalog:'
         version: 0.7.1
@@ -445,7 +445,7 @@ importers:
         version: 0.30.21
       motion-v:
         specifier: 'catalog:'
-        version: 2.8.0(@vueuse/core@14.4.0(vue@3.5.44(typescript@5.9.3)))(vue@3.5.44(typescript@5.9.3))
+        version: 2.8.0(@vueuse/core@15.0.0(vue@3.5.44(typescript@5.9.3)))(vue@3.5.44(typescript@5.9.3))
       reka-ui:
         specifier: 'catalog:'
         version: 2.11.0(vue@3.5.44(typescript@5.9.3))
@@ -3416,6 +3416,12 @@ packages:
     peerDependencies:
       vue: ^3.5.0
 
+  '@vueuse/core@15.0.0':
+    resolution: {integrity: sha512-Zv67h5mrk7YHDJsRObx+DXaCBz6RKBUpxqLesJ+3xZNPG6yuQs7ja7kg3veFrrouYLWAqydQ7CwGEbLVxB43Ng==}
+    engines: {node: '>=22'}
+    peerDependencies:
+      vue: ^3.5.0
+
   '@vueuse/integrations@12.5.0':
     resolution: {integrity: sha512-HYLt8M6mjUfcoUOzyBcX2RjpfapIwHPBmQJtTmXOQW845Y/Osu9VuTJ5kPvnmWJ6IUa05WpblfOwZ+P0G4iZsQ==}
     peerDependencies:
@@ -3463,11 +3469,21 @@ packages:
   '@vueuse/metadata@14.4.0':
     resolution: {integrity: sha512-swx/255R6JyHZFJhx845iz5CRWDZdCfvkZOpACWc5+c5WHcG24mv8gUT1WIdFQaHt6dq79rvILd9QnCWiyVm9g==}
 
+  '@vueuse/metadata@15.0.0':
+    resolution: {integrity: sha512-sfWE5LADAKJ0KnjtGliMdSN8Ij/L7uP6rXIZlgPloAI4zvvefbw6H5Lt7KJA6RqQOYgVqWF5Guj50HHMIzygBg==}
+    engines: {node: '>=22'}
+
   '@vueuse/shared@12.5.0':
     resolution: {integrity: sha512-vMpcL1lStUU6O+kdj6YdHDixh0odjPAUM15uJ9f7MY781jcYkIwFA4iv2EfoIPO6vBmvutI1HxxAwmf0cx5ISQ==}
 
   '@vueuse/shared@14.4.0':
     resolution: {integrity: sha512-JRgY90Sz8DDtPMsaDflvPMp9xYk69JZAmbuDvAquUVXKr2gEjqtzGNTTthLfckH0BzBqvnu31gb4a8TGLRe79g==}
+    peerDependencies:
+      vue: ^3.5.0
+
+  '@vueuse/shared@15.0.0':
+    resolution: {integrity: sha512-vbNXhGrbV53xPOMSyOzMHQRvhMgZf7oNDw2RChUetVxwTIEkInQ1joZ9JbT0G3z2n2AJNjvmCWeM9ySYrnvogA==}
+    engines: {node: '>=22'}
     peerDependencies:
       vue: ^3.5.0
 
@@ -12663,6 +12679,13 @@ snapshots:
       '@vueuse/shared': 14.4.0(vue@3.5.44(typescript@5.9.3))
       vue: 3.5.44(typescript@5.9.3)
 
+  '@vueuse/core@15.0.0(vue@3.5.44(typescript@5.9.3))':
+    dependencies:
+      '@types/web-bluetooth': 0.0.21
+      '@vueuse/metadata': 15.0.0
+      '@vueuse/shared': 15.0.0(vue@3.5.44(typescript@5.9.3))
+      vue: 3.5.44(typescript@5.9.3)
+
   '@vueuse/integrations@12.5.0(change-case@5.4.4)(focus-trap@7.6.4)(fuse.js@7.1.0)(typescript@5.9.3)':
     dependencies:
       '@vueuse/core': 12.5.0(typescript@5.9.3)
@@ -12679,6 +12702,8 @@ snapshots:
 
   '@vueuse/metadata@14.4.0': {}
 
+  '@vueuse/metadata@15.0.0': {}
+
   '@vueuse/shared@12.5.0(typescript@5.9.3)':
     dependencies:
       vue: 3.5.44(typescript@5.9.3)
@@ -12686,6 +12711,10 @@ snapshots:
       - typescript
 
   '@vueuse/shared@14.4.0(vue@3.5.44(typescript@5.9.3))':
+    dependencies:
+      vue: 3.5.44(typescript@5.9.3)
+
+  '@vueuse/shared@15.0.0(vue@3.5.44(typescript@5.9.3))':
     dependencies:
       vue: 3.5.44(typescript@5.9.3)
 
@@ -15425,9 +15454,9 @@ snapshots:
 
   motion-utils@14.1.1: {}
 
-  motion-v@2.8.0(@vueuse/core@14.4.0(vue@3.5.44(typescript@5.9.3)))(vue@3.5.44(typescript@5.9.3)):
+  motion-v@2.8.0(@vueuse/core@15.0.0(vue@3.5.44(typescript@5.9.3)))(vue@3.5.44(typescript@5.9.3)):
     dependencies:
-      '@vueuse/core': 14.4.0(vue@3.5.44(typescript@5.9.3))
+      '@vueuse/core': 15.0.0(vue@3.5.44(typescript@5.9.3))
       framer-motion: 14.3.0
       hey-listen: 1.0.8
       motion-dom: 14.3.0

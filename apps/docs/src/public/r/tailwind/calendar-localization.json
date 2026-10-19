@@ -5,7 +5,7 @@
   "title": "CalendarLocalization",
   "dependencies": [
     "@internationalized/date@^3.12.4",
-    "@vueuse/core@^14.4.0",
+    "@vueuse/core@^15.0.0",
     "reka-ui@^2.11.0"
   ],
   "registryDependencies": [
