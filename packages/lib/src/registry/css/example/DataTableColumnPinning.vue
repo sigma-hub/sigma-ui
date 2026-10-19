@@ -1,22 +1,26 @@
 <script setup lang="ts">
-import type {
-  ColumnFiltersState,
-  ExpandedState,
-  SortingState,
-  VisibilityState,
-} from '@tanstack/vue-table';
 import {
-  FlexRender,
+  columnFilteringFeature,
+  columnPinningFeature,
+  columnVisibilityFeature,
   createColumnHelper,
-  getCoreRowModel,
-  getExpandedRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  useVueTable,
+  createExpandedRowModel,
+  createFilteredRowModel,
+  createPaginatedRowModel,
+  createSortedRowModel,
+  filterFn_includesString,
+  FlexRender,
+  rowExpandingFeature,
+  rowPaginationFeature,
+  rowSelectionFeature,
+  rowSortingFeature,
+  sortFn_alphanumeric,
+  sortFn_text,
+  tableFeatures,
+  useTable,
 } from '@tanstack/vue-table';
 import { ArrowUpDownIcon, ChevronDownIcon } from '@lucide/vue';
-import { h, ref } from 'vue';
+import { h } from 'vue';
 import DropdownAction from './DataTableMenu.vue';
 import { Button } from '@ui/registry/css/ui/button';
 import { Checkbox } from '@ui/registry/css/ui/checkbox';
@@ -35,12 +39,6 @@ import {
   TableHeader,
   TableRow,
 } from '@ui/registry/css/ui/table';
-
-function valueUpdater<T>(updaterOrValue: T | ((value: T) => T), reference: { value: T }) {
-  reference.value = typeof updaterOrValue === 'function'
-    ? (updaterOrValue as (value: T) => T)(reference.value)
-    : updaterOrValue;
-}
 
 export interface Payment {
   id: string;
@@ -82,9 +80,25 @@ const data: Payment[] = [
   },
 ];
 
-const columnHelper = createColumnHelper<Payment>();
+const features = tableFeatures({
+  columnFilteringFeature,
+  columnVisibilityFeature,
+  columnPinningFeature,
+  rowPaginationFeature,
+  rowSelectionFeature,
+  rowSortingFeature,
+  rowExpandingFeature,
+  expandedRowModel: createExpandedRowModel(),
+  filteredRowModel: createFilteredRowModel(),
+  paginatedRowModel: createPaginatedRowModel(),
+  sortedRowModel: createSortedRowModel(),
+  filterFns: { includesString: filterFn_includesString },
+  sortFns: { alphanumeric: sortFn_alphanumeric, text: sortFn_text },
+});
 
-const columns = [
+const columnHelper = createColumnHelper<typeof features, Payment>();
+
+const columns = columnHelper.columns([
   columnHelper.display({
     id: 'select',
     header: ({ table }) => h(Checkbox, {
@@ -137,49 +151,22 @@ const columns = [
 
       return h('div', { class: 'example-sigma-ui-data-table__cell-content--relative' }, h(DropdownAction, {
         payment,
-        onExpand: row.toggleExpanded,
+        onExpand: () => row.toggleExpanded(),
       }));
     },
   }),
-];
+]);
 
-const sorting = ref<SortingState>([]);
-const columnFilters = ref<ColumnFiltersState>([]);
-const columnVisibility = ref<VisibilityState>({});
-const rowSelection = ref({});
-const expanded = ref<ExpandedState>({});
-
-const table = useVueTable({
+const table = useTable({
+  features,
   data,
   columns,
-  getCoreRowModel: getCoreRowModel(),
-  getPaginationRowModel: getPaginationRowModel(),
-  getSortedRowModel: getSortedRowModel(),
-  getFilteredRowModel: getFilteredRowModel(),
-  getExpandedRowModel: getExpandedRowModel(),
-  onSortingChange: updaterOrValue => valueUpdater(updaterOrValue, sorting),
-  onColumnFiltersChange: updaterOrValue => valueUpdater(updaterOrValue, columnFilters),
-  onColumnVisibilityChange: updaterOrValue => valueUpdater(updaterOrValue, columnVisibility),
-  onRowSelectionChange: updaterOrValue => valueUpdater(updaterOrValue, rowSelection),
-  onExpandedChange: updaterOrValue => valueUpdater(updaterOrValue, expanded),
+  // v9 only expands rows with sub-rows by default. These rows open a details row instead.
+  getRowCanExpand: () => true,
   state: {
-    get sorting() {
-      return sorting.value;
-    },
-    get columnFilters() {
-      return columnFilters.value;
-    },
-    get columnVisibility() {
-      return columnVisibility.value;
-    },
-    get rowSelection() {
-      return rowSelection.value;
-    },
-    get expanded() {
-      return expanded.value;
-    },
     columnPinning: {
-      left: ['status'],
+      start: ['status'],
+      end: [],
     },
   },
 });
@@ -231,14 +218,13 @@ const table = useVueTable({
               :data-pinned="header.column.getIsPinned()"
               :class="[
                 header.column.getIsPinned() && 'example-sigma-ui-data-table__cell--pinned',
-                header.column.getIsPinned() === 'left' && 'example-sigma-ui-data-table__cell--pinned-left',
-                header.column.getIsPinned() === 'right' && 'example-sigma-ui-data-table__cell--pinned-right',
+                header.column.getIsPinned() === 'start' && 'example-sigma-ui-data-table__cell--pinned-left',
+                header.column.getIsPinned() === 'end' && 'example-sigma-ui-data-table__cell--pinned-right',
               ]"
             >
               <FlexRender
                 v-if="!header.isPlaceholder"
-                :render="header.column.columnDef.header"
-                :props="header.getContext()"
+                :header="header"
               />
             </TableHead>
           </TableRow>
@@ -256,14 +242,11 @@ const table = useVueTable({
                   :data-pinned="cell.column.getIsPinned()"
                   :class="[
                     cell.column.getIsPinned() && 'example-sigma-ui-data-table__cell--pinned',
-                    cell.column.getIsPinned() === 'left' && 'example-sigma-ui-data-table__cell--pinned-left',
-                    cell.column.getIsPinned() === 'right' && 'example-sigma-ui-data-table__cell--pinned-right',
+                    cell.column.getIsPinned() === 'start' && 'example-sigma-ui-data-table__cell--pinned-left',
+                    cell.column.getIsPinned() === 'end' && 'example-sigma-ui-data-table__cell--pinned-right',
                   ]"
                 >
-                  <FlexRender
-                    :render="cell.column.columnDef.cell"
-                    :props="cell.getContext()"
-                  />
+                  <FlexRender :cell="cell" />
                 </TableCell>
               </TableRow>
               <TableRow v-if="row.getIsExpanded()">

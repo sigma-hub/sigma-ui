@@ -10,9 +10,10 @@ import {
   DropdownMenuTrigger,
 } from '@ui/registry/tailwind/ui/dropdown-menu';
 import { ascLabel, descLabel, hideColumnLabel, type Task } from '../data';
+import type { TasksTableFeatures } from './features';
 
 defineProps<{
-  column: Column<Task, unknown>;
+  column: Column<TasksTableFeatures, Task, unknown>;
   title: string;
 }>();
 </script>

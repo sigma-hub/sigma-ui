@@ -9,9 +9,10 @@ import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, Command
 import { Popover, PopoverContent, PopoverTrigger } from '@ui/registry/css/ui/popover';
 import { Separator } from '@ui/registry/css/ui/separator';
 import { clearFiltersLabel, noFilterResultsLabel, selectedCountLabel, type Task } from '../data';
+import type { TasksTableFeatures } from './features';
 
 const props = defineProps<{
-  column?: Column<Task, unknown>;
+  column?: Column<TasksTableFeatures, Task, unknown>;
   title: string;
   options: {
     label: string;

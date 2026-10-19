@@ -118,8 +118,8 @@ export const Index = {
       name: "table-simple",
       type: "registry:block",
       registryDependencies: ["avatar","badge","button","checkbox","command","dropdown-menu","input","popover","select","separator","table"],
-      dependencies: ["@lucide/vue@^1.59.0","@tanstack/vue-table@^8.21.3","zod@^4.6.7"],
-      files: ["blocks/table-simple/TableSimple.vue","blocks/table-simple/components/SelectCell.vue","blocks/table-simple/components/TaskIdCell.vue","blocks/table-simple/components/TaskPriorityCell.vue","blocks/table-simple/components/TaskStatusCell.vue","blocks/table-simple/components/TaskTitleCell.vue","blocks/table-simple/components/TasksColumnHeader.vue","blocks/table-simple/components/TasksDataTable.vue","blocks/table-simple/components/TasksFacetedFilter.vue","blocks/table-simple/components/TasksPagination.vue","blocks/table-simple/components/TasksRowActions.vue","blocks/table-simple/components/TasksToolbar.vue","blocks/table-simple/components/TasksViewOptions.vue","blocks/table-simple/components/UserMenu.vue","blocks/table-simple/components/columns.ts","blocks/table-simple/data.ts"],
+      dependencies: ["@lucide/vue@^1.59.0","@tanstack/vue-table@^9.3.1","zod@^4.6.7"],
+      files: ["blocks/table-simple/TableSimple.vue","blocks/table-simple/components/SelectCell.vue","blocks/table-simple/components/TaskIdCell.vue","blocks/table-simple/components/TaskPriorityCell.vue","blocks/table-simple/components/TaskStatusCell.vue","blocks/table-simple/components/TaskTitleCell.vue","blocks/table-simple/components/TasksColumnHeader.vue","blocks/table-simple/components/TasksDataTable.vue","blocks/table-simple/components/TasksFacetedFilter.vue","blocks/table-simple/components/TasksPagination.vue","blocks/table-simple/components/TasksRowActions.vue","blocks/table-simple/components/TasksToolbar.vue","blocks/table-simple/components/TasksViewOptions.vue","blocks/table-simple/components/UserMenu.vue","blocks/table-simple/components/columns.ts","blocks/table-simple/components/features.ts","blocks/table-simple/data.ts"],
     },
     "Accordion": {
       name: "Accordion",
@@ -559,7 +559,7 @@ export const Index = {
       name: "DataTable",
       type: "registry:example",
       registryDependencies: ["button","card","checkbox","dropdown-menu","input","table"],
-      dependencies: ["@lucide/vue@^1.59.0","@tanstack/vue-table@^8.21.3"],
+      dependencies: ["@lucide/vue@^1.59.0","@tanstack/vue-table@^9.3.1"],
       files: ["example/Cards/DataTable.vue"],
     },
     "Metric": {
@@ -902,14 +902,14 @@ export const Index = {
       name: "DataTableColumnPinning",
       type: "registry:example",
       registryDependencies: ["button","checkbox","dropdown-menu","input","table"],
-      dependencies: ["@lucide/vue@^1.59.0","@tanstack/vue-table@^8.21.3"],
+      dependencies: ["@lucide/vue@^1.59.0","@tanstack/vue-table@^9.3.1"],
       files: ["example/DataTableColumnPinning.vue"],
     },
     "DataTableExample": {
       name: "DataTableExample",
       type: "registry:example",
       registryDependencies: ["button","checkbox","dropdown-menu","input","table"],
-      dependencies: ["@lucide/vue@^1.59.0","@tanstack/vue-table@^8.21.3"],
+      dependencies: ["@lucide/vue@^1.59.0","@tanstack/vue-table@^9.3.1"],
       files: ["example/DataTableExample.vue"],
     },
     "DataTableMenu": {
@@ -2129,8 +2129,8 @@ export const Index = {
       name: "table-simple",
       type: "registry:block",
       registryDependencies: ["avatar","badge","button","checkbox","command","dropdown-menu","input","popover","select","separator","table"],
-      dependencies: ["@lucide/vue@^1.59.0","@tanstack/vue-table@^8.21.3","zod@^4.6.7"],
-      files: ["blocks/table-simple/TableSimple.vue","blocks/table-simple/components/SelectCell.vue","blocks/table-simple/components/TaskIdCell.vue","blocks/table-simple/components/TaskPriorityCell.vue","blocks/table-simple/components/TaskStatusCell.vue","blocks/table-simple/components/TaskTitleCell.vue","blocks/table-simple/components/TasksColumnHeader.vue","blocks/table-simple/components/TasksDataTable.vue","blocks/table-simple/components/TasksFacetedFilter.vue","blocks/table-simple/components/TasksPagination.vue","blocks/table-simple/components/TasksRowActions.vue","blocks/table-simple/components/TasksToolbar.vue","blocks/table-simple/components/TasksViewOptions.vue","blocks/table-simple/components/UserMenu.vue","blocks/table-simple/components/columns.ts","blocks/table-simple/data.ts"],
+      dependencies: ["@lucide/vue@^1.59.0","@tanstack/vue-table@^9.3.1","zod@^4.6.7"],
+      files: ["blocks/table-simple/TableSimple.vue","blocks/table-simple/components/SelectCell.vue","blocks/table-simple/components/TaskIdCell.vue","blocks/table-simple/components/TaskPriorityCell.vue","blocks/table-simple/components/TaskStatusCell.vue","blocks/table-simple/components/TaskTitleCell.vue","blocks/table-simple/components/TasksColumnHeader.vue","blocks/table-simple/components/TasksDataTable.vue","blocks/table-simple/components/TasksFacetedFilter.vue","blocks/table-simple/components/TasksPagination.vue","blocks/table-simple/components/TasksRowActions.vue","blocks/table-simple/components/TasksToolbar.vue","blocks/table-simple/components/TasksViewOptions.vue","blocks/table-simple/components/UserMenu.vue","blocks/table-simple/components/columns.ts","blocks/table-simple/components/features.ts","blocks/table-simple/data.ts"],
     },
     "Accordion": {
       name: "Accordion",
@@ -2570,7 +2570,7 @@ export const Index = {
       name: "DataTable",
       type: "registry:example",
       registryDependencies: ["button","card","checkbox","dropdown-menu","input","table"],
-      dependencies: ["@lucide/vue@^1.59.0","@tanstack/vue-table@^8.21.3"],
+      dependencies: ["@lucide/vue@^1.59.0","@tanstack/vue-table@^9.3.1"],
       files: ["example/Cards/DataTable.vue"],
     },
     "Metric": {
@@ -2913,14 +2913,14 @@ export const Index = {
       name: "DataTableColumnPinning",
       type: "registry:example",
       registryDependencies: ["button","checkbox","dropdown-menu","input","table"],
-      dependencies: ["@lucide/vue@^1.59.0","@tanstack/vue-table@^8.21.3"],
+      dependencies: ["@lucide/vue@^1.59.0","@tanstack/vue-table@^9.3.1"],
       files: ["example/DataTableColumnPinning.vue"],
     },
     "DataTableExample": {
       name: "DataTableExample",
       type: "registry:example",
       registryDependencies: ["button","checkbox","dropdown-menu","input","table"],
-      dependencies: ["@lucide/vue@^1.59.0","@tanstack/vue-table@^8.21.3"],
+      dependencies: ["@lucide/vue@^1.59.0","@tanstack/vue-table@^9.3.1"],
       files: ["example/DataTableExample.vue"],
     },
     "DataTableMenu": {

@@ -11,9 +11,10 @@ import {
 } from '@ui/registry/tailwind/ui/dropdown-menu';
 import { ArrowDownIcon, ArrowUpIcon, ChevronsUpDownIcon, EyeOffIcon } from '@lucide/vue';
 import type { Task } from '../data/schema';
+import type { DataTableFeatures } from './features';
 
 interface DataTableColumnHeaderProps {
-  column: Column<Task, any>;
+  column: Column<DataTableFeatures, Task, any>;
   title: string;
 }
 

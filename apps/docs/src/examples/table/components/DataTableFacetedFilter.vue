@@ -14,9 +14,10 @@ import {
 import { Separator } from '@ui/registry/tailwind/ui/separator';
 import { cn } from '@ui/utils';
 import type { Task } from '../data/schema';
+import type { DataTableFeatures } from './features';
 
 interface DataTableFacetedFilter {
-  column?: Column<Task, any>;
+  column?: Column<DataTableFeatures, Task, any>;
   title?: string;
   options: {
     label: string;

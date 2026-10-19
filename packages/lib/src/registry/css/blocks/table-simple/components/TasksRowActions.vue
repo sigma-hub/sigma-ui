@@ -28,9 +28,10 @@ import {
   taskSchema,
   type Task,
 } from '../data';
+import type { TasksTableFeatures } from './features';
 
 const props = defineProps<{
-  row: Row<Task>;
+  row: Row<TasksTableFeatures, Task>;
 }>();
 
 const task = computed(() => taskSchema.parse(props.row.original));

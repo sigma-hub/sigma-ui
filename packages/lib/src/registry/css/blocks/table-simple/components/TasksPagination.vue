@@ -14,9 +14,10 @@ import {
   selectedRowsLabel,
   type Task,
 } from '../data';
+import type { TasksTableFeatures } from './features';
 
 const props = defineProps<{
-  table: Table<Task>;
+  table: Table<TasksTableFeatures, Task>;
 }>();
 
 const pageSizes = [10, 20, 30, 40, 50];
@@ -44,11 +45,11 @@ function updatePageSize(pageSize: unknown) {
           {{ rowsPerPageLabel }}
         </p>
         <Select
-          :model-value="`${table.getState().pagination.pageSize}`"
+          :model-value="`${table.atoms.pagination.get().pageSize}`"
           @update:model-value="updatePageSize"
         >
           <SelectTrigger class="table-simple__page-size-trigger">
-            <SelectValue :placeholder="`${table.getState().pagination.pageSize}`" />
+            <SelectValue :placeholder="`${table.atoms.pagination.get().pageSize}`" />
           </SelectTrigger>
           <SelectContent side="top">
             <SelectItem
@@ -62,7 +63,7 @@ function updatePageSize(pageSize: unknown) {
         </Select>
       </div>
       <div class="table-simple__page-count">
-        {{ pageLabel }} {{ table.getState().pagination.pageIndex + 1 }} {{ ofLabel }}
+        {{ pageLabel }} {{ table.atoms.pagination.get().pageIndex + 1 }} {{ ofLabel }}
         {{ table.getPageCount() }}
       </div>
       <div class="table-simple__page-buttons">

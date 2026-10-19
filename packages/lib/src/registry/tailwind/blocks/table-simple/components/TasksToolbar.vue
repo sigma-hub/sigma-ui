@@ -13,14 +13,15 @@ import {
   statuses,
   type Task,
 } from '../data';
+import type { TasksTableFeatures } from './features';
 import TasksFacetedFilter from './TasksFacetedFilter.vue';
 import TasksViewOptions from './TasksViewOptions.vue';
 
 const props = defineProps<{
-  table: Table<Task>;
+  table: Table<TasksTableFeatures, Task>;
 }>();
 
-const isFiltered = computed(() => props.table.getState().columnFilters.length > 0);
+const isFiltered = computed(() => props.table.atoms.columnFilters.get().length > 0);
 
 function setTitleFilter(event: Event) {
   const target = event.target;

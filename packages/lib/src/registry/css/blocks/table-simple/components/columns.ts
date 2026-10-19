@@ -10,6 +10,7 @@ import {
   titleColumnLabel,
   type Task,
 } from '../data';
+import type { TasksTableFeatures } from './features';
 import SelectCell from './SelectCell.vue';
 import TaskIdCell from './TaskIdCell.vue';
 import TaskPriorityCell from './TaskPriorityCell.vue';
@@ -18,7 +19,7 @@ import TaskStatusCell from './TaskStatusCell.vue';
 import TasksRowActions from './TasksRowActions.vue';
 import TaskTitleCell from './TaskTitleCell.vue';
 
-export const columns: ColumnDef<Task>[] = [
+export const columns: ColumnDef<TasksTableFeatures, Task>[] = [
   {
     id: 'select',
     header: ({ table }) => h(SelectCell, {

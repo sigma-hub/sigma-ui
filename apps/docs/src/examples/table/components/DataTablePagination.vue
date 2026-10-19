@@ -10,9 +10,10 @@ import {
 } from '@ui/registry/tailwind/ui/select';
 import { ChevronLeftIcon, ChevronRightIcon, ChevronsLeftIcon, ChevronsRightIcon } from '@lucide/vue';
 import type { Task } from '../data/schema';
+import type { DataTableFeatures } from './features';
 
 interface DataTablePaginationProps {
-  table: Table<Task>;
+  table: Table<DataTableFeatures, Task>;
 }
 
 defineProps<DataTablePaginationProps>();
@@ -30,11 +31,11 @@ defineProps<DataTablePaginationProps>();
           Rows per page
         </p>
         <Select
-          :model-value="`${table.getState().pagination.pageSize}`"
+          :model-value="`${table.atoms.pagination.get().pageSize}`"
           @update:model-value="(pageSize) => table.setPageSize(Number(pageSize))"
         >
           <SelectTrigger class="h-8 w-[70px]">
-            <SelectValue :placeholder="`${table.getState().pagination.pageSize}`" />
+            <SelectValue :placeholder="`${table.atoms.pagination.get().pageSize}`" />
           </SelectTrigger>
           <SelectContent side="top">
             <SelectItem
@@ -48,7 +49,7 @@ defineProps<DataTablePaginationProps>();
         </Select>
       </div>
       <div class="flex w-[100px] items-center justify-center text-sm font-medium">
-        Page {{ table.getState().pagination.pageIndex + 1 }} of
+        Page {{ table.atoms.pagination.get().pageIndex + 1 }} of
         {{ table.getPageCount() }}
       </div>
       <div class="flex items-center space-x-2">

@@ -1,7 +1,7 @@
 ---
 title: Data Table
 description: Customizable tables and datagrids with TanStack Table.
-primitive: https://tanstack.com/table/v8/docs/guide/introduction
+primitive: https://tanstack.com/table/latest/docs/overview
 ---
 
 ## Preview
@@ -14,12 +14,17 @@ primitive: https://tanstack.com/table/v8/docs/guide/introduction
 
 ### TanStack Table
 
-The table built in this guide also depends on TanStack Table. Install it in your project:
+The table built in this guide also depends on TanStack Table v9. Install it in your project:
 
 ```bash
-npm install @tanstack/vue-table
+npm install @tanstack/vue-table@^9
 ```
 
+<Callout class="mt-4">
+
+**Coming from TanStack Table v8?** v9 replaces `useVueTable` with `useTable`, and a table now lists the features, row models, and filter and sort functions it uses in `tableFeatures()`. The table keeps its own state, so the `ref` + `on*Change` + `valueUpdater` wiring is no longer needed, and you read state with `table.atoms.<slice>.get()` instead of `table.getState()`. Types take the features as their first generic: `ColumnDef<typeof features, TData>`. Column pinning uses `start` and `end` instead of `left` and `right`. See the [Vue migration guide](https://tanstack.com/table/latest/docs/framework/vue/guide/migrating).
+
+</Callout>
 ### File structure
 
 Create a folder for the table, for example:
@@ -30,12 +35,14 @@ components
           ├── columns.ts
           ├── data-table.vue
           ├── data-table-dropdown.vue
+          ├── features.ts
 └── app.vue
 ```
 
 - `columns.ts` It will contain our column definitions.
 - `data-table.vue` It will contain our `<DataTable />` component.
 - `data-table-dropdown.vue` It will contain our `<DropdownAction />` component.
+- `features.ts` It will list the TanStack Table features our table uses.
 - `app.vue` This is where we'll fetch data and render our table.
 
 ## Usage
@@ -56,7 +63,7 @@ Follow the guide below to learn how to build it
 
 ### Table of Contents
 
-This guide will show you how to build your own custom data table with [TanStack Table](https://tanstack.com/table/v8) and the `Table` component.
+This guide will show you how to build your own custom data table with [TanStack Table v9](https://tanstack.com/table/latest) and the `Table` component.
 
 - [Basic table](#basic-table)
 - [Row actions](#row-actions)
@@ -100,14 +107,28 @@ export const payments: Payment[] = [
 
 <Steps>
 
-#### Column Definitions
+#### Table features
 
-First, we'll define our columns in the `columns.ts` file.
+TanStack Table v9 only includes the features you register, which keeps unused code out of your bundle. Start with no extra features in `features.ts`. Each section below adds the ones it needs.
 
 ```ts:line-numbers
+import { tableFeatures } from '@tanstack/vue-table'
+
+export const features = tableFeatures({})
+
+export type DataTableFeatures = typeof features
+```
+
+#### Column Definitions
+
+Next, we'll define our columns in the `columns.ts` file.
+
+```ts:line-numbers
+import type { ColumnDef } from '@tanstack/vue-table'
+import type { DataTableFeatures } from './features'
 import { h } from 'vue'
 
-export const columns: ColumnDef<Payment>[] = [
+export const columns: ColumnDef<DataTableFeatures, Payment>[] = [
   {
     accessorKey: 'amount',
     header: () => h('div', { class: 'text-right' }, 'Amount'),
@@ -137,14 +158,9 @@ formatted, sorted and filtered.
 Next, we'll create a `<DataTable />` component to render our table.
 
 ```vue
-<script setup lang="ts" generic="TData, TValue">
-import type { ColumnDef } from '@tanstack/vue-table'
-import {
-  FlexRender,
-  getCoreRowModel,
-  useVueTable,
-} from '@tanstack/vue-table'
-
+<script setup lang="ts" generic="TData extends RowData">
+import type { ColumnDef, RowData } from '@tanstack/vue-table'
+import { FlexRender, useTable } from '@tanstack/vue-table'
 import {
   Table,
   TableBody,
@@ -153,16 +169,17 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+import { features, type DataTableFeatures } from './features'
 
 const props = defineProps<{
-  columns: ColumnDef<TData, TValue>[]
+  columns: ColumnDef<DataTableFeatures, TData>[]
   data: TData[]
 }>()
 
-const table = useVueTable({
+const table = useTable({
+  features,
   get data() { return props.data },
   get columns() { return props.columns },
-  getCoreRowModel: getCoreRowModel(),
 })
 </script>
 
@@ -180,8 +197,7 @@ const table = useVueTable({
           >
             <FlexRender
               v-if="!header.isPlaceholder"
-              :render="header.column.columnDef.header"
-              :props="header.getContext()"
+              :header="header"
             />
           </TableHead>
         </TableRow>
@@ -197,10 +213,7 @@ const table = useVueTable({
               v-for="cell in row.getVisibleCells()"
               :key="cell.id"
             >
-              <FlexRender
-                :render="cell.column.columnDef.cell"
-                :props="cell.getContext()"
-              />
+              <FlexRender :cell="cell" />
             </TableCell>
           </TableRow>
         </template>
@@ -219,6 +232,8 @@ const table = useVueTable({
   </div>
 </template>
 ```
+
+`useTable` keeps the table state (sorting, filters, pagination, and so on) inside the table, so the script stays the same as you add features in the sections below.
 
 <Callout>
 
@@ -284,7 +299,7 @@ Update the `header` and `cell` definitions for amount as follows:
 ```ts
 import { h } from 'vue'
 
-export const columns: ColumnDef<Payment>[] = [
+export const columns: ColumnDef<DataTableFeatures, Payment>[] = [
   {
     accessorKey: 'amount',
     header: () => h('div', { class: 'text-right' }, 'Amount'),
@@ -357,10 +372,11 @@ function copy(id: string) {
 Update our columns definition to add a new `actions` column. The `actions` cell returns a `<Dropdown />` component.
 
 ```ts
-import { ColumnDef } from '@tanstack/vue-table'
+import type { ColumnDef } from '@tanstack/vue-table'
 import DropdownAction from '@/components/DataTableDropDown.vue'
+import type { DataTableFeatures } from './features'
 
-export const columns: ColumnDef<Payment>[] = [
+export const columns: ColumnDef<DataTableFeatures, Payment>[] = [
   // ...
   {
     id: 'actions',
@@ -386,40 +402,37 @@ Next, we'll add pagination to our table.
 
 <Steps>
 
-#### Update `<DataTable>`
+#### Update `features.ts`
 
-```ts:line-numbers {4,12}
+Register the pagination feature and its row model:
+
+```ts
+// components/payments/features.ts
 import {
-    FlexRender,
-    getCoreRowModel,
-    getPaginationRowModel,
-    useVueTable,
-} from "@tanstack/vue-table"
+  createPaginatedRowModel,
+  rowPaginationFeature,
+  tableFeatures,
+} from '@tanstack/vue-table'
 
-const table = useVueTable({
-    get data() { return props.data },
-    get columns() { return props.columns },
-    getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
+export const features = tableFeatures({
+  rowPaginationFeature,
+  paginatedRowModel: createPaginatedRowModel(),
 })
+
+export type DataTableFeatures = typeof features
 ```
 
-This will automatically paginate your rows into pages of 10. See the [pagination docs](https://tanstack.com/table/v8/docs/api/features/pagination) for more information on customizing page size and implementing manual pagination.
+This will automatically paginate your rows into pages of 10. See the [TanStack Table features guide](https://tanstack.com/table/latest/docs/guide/features) for more information on customizing page size and implementing manual pagination.
 
 #### Add pagination controls
 
 We can add pagination controls to our table using the `<Button />` component and the `table.previousPage()`, `table.nextPage()` API methods.
 
 ```vue
-<script lang="ts" generic="TData, TValue">
+<script setup lang="ts" generic="TData extends RowData">
 import { Button } from '@/components/ui/button'
 
-const table = useVueTable({
-  get data() { return props.data },
-  get columns() { return props.columns },
-  getCoreRowModel: getCoreRowModel(),
-  getPaginationRowModel: getPaginationRowModel(),
-})
+// ...the same props and useTable() call as before
 </script>
 
 <template>
@@ -461,100 +474,45 @@ Let's make the email column sortable.
 
 <Steps>
 
-#### Add the following into your `utils` file
+#### Update `features.ts`
+
+Register the sorting feature, its row model, and the sort functions your columns use. TanStack Table v9 only ships the sort functions you register. String columns sort with `alphanumeric` or `text`. Add `sortFn_datetime` if you sort dates.
 
 ```ts
-import { type ClassValue, clsx } from 'clsx'
-import { twMerge } from 'tailwind-merge'
-
-import type { Updater } from '@tanstack/vue-table'
-import type { Ref } from 'vue'
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}
-
-export function valueUpdater<T extends Updater<any>>(updaterOrValue: T, ref: Ref) {
-  ref.value = typeof updaterOrValue === 'function'
-    ? updaterOrValue(ref.value)
-    : updaterOrValue
-}
-```
-
-The `valueUpdater` function updates a Vue `ref` object's value. It handles both direct assignments and transformations using a function. If `updaterOrValue` is a function, it's called with the current `ref` value, and the result is assigned to `ref.value`. If it's not a function, it's directly assigned to `ref.value`. This utility enhances flexibility in updating `ref` values. While Vue `ref` can manage reactive state directly, `valueUpdater` simplifies value updates, improving code readability and maintainability when the new state can be a direct value or a function generating it based on the current one.
-
-#### Update `<DataTable>`
-
-```vue:line-numbers {4,14,17,33,40-44}
-<script setup lang="ts" generic="TData, TValue">
-import type {
-  ColumnDef,
-  SortingState,
+// components/payments/features.ts
+import {
+  createPaginatedRowModel,
+  createSortedRowModel,
+  rowPaginationFeature,
+  rowSortingFeature,
+  sortFn_alphanumeric,
+  sortFn_text,
+  tableFeatures,
 } from '@tanstack/vue-table'
 
-import { ArrowUpDownIcon, ChevronDownIcon } from '@lucide/vue'
-import { h, ref } from 'vue'
-
-import {
-  FlexRender,
-  getCoreRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  useVueTable,
-} from '@tanstack/vue-table'
-import { valueUpdater } from '@ui/utils'
-
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table'
-
-const props = defineProps<{
-  columns: ColumnDef<TData, TValue>[]
-  data: TData[]
-}>()
-
-const sorting = ref<SortingState>([])
-
-const table = useVueTable({
-  get data() { return props.data },
-  get columns() { return props.columns },
-  getCoreRowModel: getCoreRowModel(),
-  getPaginationRowModel: getPaginationRowModel(),
-  getSortedRowModel: getSortedRowModel(),
-  onSortingChange: updaterOrValue => valueUpdater(updaterOrValue, sorting),
-  state: {
-    get sorting() { return sorting.value },
-  },
+export const features = tableFeatures({
+  rowPaginationFeature,
+  paginatedRowModel: createPaginatedRowModel(),
+  rowSortingFeature,
+  sortedRowModel: createSortedRowModel(),
+  sortFns: { alphanumeric: sortFn_alphanumeric, text: sortFn_text },
 })
-</script>
 
-<template>
-  <div>
-    <div class="border rounded-md">
-      <Table>{ ... }</Table>
-    </div>
-  </div>
-</template>
+export type DataTableFeatures = typeof features
 ```
 
 #### Make header cell sortable
 
 We can now update the `email` header cell to add sorting controls.
 
-```ts:line-numbers {5,10-17}
+```ts:line-numbers
 // components/payments/columns.ts
-import type {
-  ColumnDef,
-} from '@tanstack/vue-table'
-import { ArrowUpDownIcon, ChevronDownIcon } from '@lucide/vue'
+import type { ColumnDef } from '@tanstack/vue-table'
+import { ArrowUpDownIcon } from '@lucide/vue'
 import { Button } from '@/components/ui/button'
+import type { DataTableFeatures } from './features'
 
-export const columns: ColumnDef<Payment>[] = [
+export const columns: ColumnDef<DataTableFeatures, Payment>[] = [
     {
         accessorKey: 'email',
         header: ({ column }) => {
@@ -578,82 +536,66 @@ Let's add a search input to filter emails in our table.
 
 <Steps>
 
-#### Update `<DataTable>`
+#### Update `features.ts`
 
-```vue:line-numbers {4,11,19,39,48-49,52,60-64}
-<script setup lang="ts" generic="TData, TValue">
-import type {
-  ColumnDef,
-  ColumnFiltersState,
-  SortingState,
+Register the column filtering feature, its row model, and the `includesString` filter function that text columns use. Add `filterFn_inNumberRange` if you filter numbers.
+
+```ts
+// components/payments/features.ts
+import {
+  columnFilteringFeature,
+  createFilteredRowModel,
+  createPaginatedRowModel,
+  createSortedRowModel,
+  filterFn_includesString,
+  rowPaginationFeature,
+  rowSortingFeature,
+  sortFn_alphanumeric,
+  sortFn_text,
+  tableFeatures,
 } from '@tanstack/vue-table'
 
-import { valueUpdater } from '@ui/utils'
-
-import { ArrowUpDownIcon, ChevronDownIcon } from '@lucide/vue'
-import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
-import { h, ref } from 'vue'
-
-import {
-    FlexRender,
-    getCoreRowModel,
-    getPaginationRowModel,
-    getFilteredRowModel,
-    getSortedRowModel,
-    useVueTable,
-} from "@tanstack/vue-table"
-
-import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-} from "@/components/ui/table"
-
-const props = defineProps<{
-    columns: ColumnDef<TData, TValue>[]
-    data: TData[]
-}>()
-
-const sorting = ref<SortingState>([])
-const columnFilters = ref<ColumnFiltersState>([])
-
-const table = useVueTable({
-    get data() { return props.data },
-    get columns() { return props.columns },
-    getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    onSortingChange: updaterOrValue => valueUpdater(updaterOrValue, sorting),
-    onColumnFiltersChange: updaterOrValue => valueUpdater(updaterOrValue, columnFilters),
-    getFilteredRowModel: getFilteredRowModel(),
-    state: {
-        get sorting() { return sorting.value },
-        get columnFilters() { return columnFilters.value },
-    },
+export const features = tableFeatures({
+  rowPaginationFeature,
+  paginatedRowModel: createPaginatedRowModel(),
+  rowSortingFeature,
+  sortedRowModel: createSortedRowModel(),
+  sortFns: { alphanumeric: sortFn_alphanumeric, text: sortFn_text },
+  columnFilteringFeature,
+  filteredRowModel: createFilteredRowModel(),
+  filterFns: { includesString: filterFn_includesString },
 })
 
+export type DataTableFeatures = typeof features
+```
+
+#### Add a filter input to `<DataTable>`
+
+```vue
+<script setup lang="ts" generic="TData extends RowData">
+import { Input } from '@/components/ui/input'
+
+// ...the same props and useTable() call as before
 </script>
 
 <template>
-    <div>
-        <div class="flex items-center py-4">
-            <Input class="max-w-sm" placeholder="Filter emails..."
-                :model-value="table.getColumn('email')?.getFilterValue()?.toString() ?? ''"
-                @update:model-value=" table.getColumn('email')?.setFilterValue($event)" />
-        </div>
-        <div class="border rounded-md">
-            <Table>{ ... }</Table>
-        </div>
+  <div>
+    <div class="flex items-center py-4">
+      <Input
+        class="max-w-sm"
+        placeholder="Filter emails..."
+        :model-value="table.getColumn('email')?.getFilterValue()?.toString() ?? ''"
+        @update:model-value="table.getColumn('email')?.setFilterValue($event)"
+      />
     </div>
+    <div class="border rounded-md">
+      <Table>{ ... }</Table>
+    </div>
+  </div>
 </template>
-
 ```
 
-Filtering is now enabled for the `email` column. You can add filters to other columns as well. See the [filtering docs](https://tanstack.com/table/v8/docs/guide/filters) for more information on customizing filters.
+Filtering is now enabled for the `email` column. You can add filters to other columns as well. See the [TanStack Table features guide](https://tanstack.com/table/latest/docs/guide/features) for more information on customizing filters.
 
 </Steps>
 
@@ -663,137 +605,90 @@ Adding column visibility is fairly simple using `@tanstack/vue-table` visibility
 
 <Steps>
 
-#### Update `<DataTable>`
+#### Update `features.ts`
 
-```vue:line-numbers {6,9-14,48,59,63,75-91}
-<script setup lang="ts" generic="TData, TValue">
-import type {
-  ColumnDef,
-  ColumnFiltersState,
-  SortingState,
-  VisibilityState,
+```ts
+// components/payments/features.ts
+import {
+  columnFilteringFeature,
+  columnVisibilityFeature,
+  createFilteredRowModel,
+  createPaginatedRowModel,
+  createSortedRowModel,
+  filterFn_includesString,
+  rowPaginationFeature,
+  rowSortingFeature,
+  sortFn_alphanumeric,
+  sortFn_text,
+  tableFeatures,
 } from '@tanstack/vue-table'
 
+export const features = tableFeatures({
+  rowPaginationFeature,
+  paginatedRowModel: createPaginatedRowModel(),
+  rowSortingFeature,
+  sortedRowModel: createSortedRowModel(),
+  sortFns: { alphanumeric: sortFn_alphanumeric, text: sortFn_text },
+  columnFilteringFeature,
+  filteredRowModel: createFilteredRowModel(),
+  filterFns: { includesString: filterFn_includesString },
+  columnVisibilityFeature,
+})
+
+export type DataTableFeatures = typeof features
+```
+
+#### Add a column menu to `<DataTable>`
+
+```vue
+<script setup lang="ts" generic="TData extends RowData">
+import { ChevronDownIcon } from '@lucide/vue'
+import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-
-import { valueUpdater } from '@ui/utils'
-
-import { ArrowUpDownIcon, ChevronDownIcon } from '@lucide/vue'
 import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
-import { h, ref } from 'vue'
 
-import {
-    FlexRender,
-    getCoreRowModel,
-    getPaginationRowModel,
-    getFilteredRowModel,
-    getSortedRowModel,
-    useVueTable,
-} from "@tanstack/vue-table"
-
-import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-} from "@/components/ui/table"
-
-const props = defineProps<{
-    columns: ColumnDef<TData, TValue>[]
-    data: TData[]
-}>()
-
-const sorting = ref<SortingState>([])
-const columnFilters = ref<ColumnFiltersState>([])
-const columnVisibility = ref<VisibilityState>({})
-
-const table = useVueTable({
-    get data() { return props.data },
-    get columns() { return props.columns },
-    getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    onSortingChange: updaterOrValue => valueUpdater(updaterOrValue, sorting),
-    onColumnFiltersChange: updaterOrValue => valueUpdater(updaterOrValue, columnFilters),
-    onColumnVisibilityChange: updaterOrValue => valueUpdater(updaterOrValue, columnVisibility),
-    state: {
-        get sorting() { return sorting.value },
-        get columnFilters() { return columnFilters.value },
-        get columnVisibility() { return columnVisibility.value },
-    },
-})
-
+// ...the same props and useTable() call as before
 </script>
 
 <template>
-    <div>
-        <div class="flex items-center py-4">
-            <Input class="max-w-sm" placeholder="Filter emails..."
-                :model-value="table.getColumn('email')?.getFilterValue()?.toString() ?? ''"
-                @update:model-value=" table.getColumn('email')?.setFilterValue($event)" />
-            <DropdownMenu>
-                <DropdownMenuTrigger as-child>
-                    <Button variant="outline" class="ml-auto">
-                        Columns
-                        <ChevronDownIcon class="w-4 h-4 ml-2" />
-                    </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                    <DropdownMenuCheckboxItem
-                        v-for="column in table.getAllColumns().filter((column) => column.getCanHide())"
-                        :key="column.id"
-                        class="capitalize" 
-                        :model-value="column.getIsVisible()"
-                        @update:model-value="(value) => {
-                            column.toggleVisibility(!!value)
-                        }"
-                    >
-                        {{ column.id }}
-                    </DropdownMenuCheckboxItem>
-                </DropdownMenuContent>
-            </DropdownMenu>
-        </div>
-        <div class="border rounded-md">
-            <Table>
-                <TableHeader>
-                    <TableRow v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
-                        <TableHead v-for="header in headerGroup.headers" :key="header.id">
-                            <FlexRender v-if="!header.isPlaceholder" :render="header.column.columnDef.header"
-                                :props="header.getContext()" />
-                        </TableHead>
-                    </TableRow>
-                </TableHeader>
-                <TableBody>
-                    <template v-if="table.getRowModel().rows?.length">
-                        <TableRow v-for="row in table.getRowModel().rows" :key="row.id"
-                            :data-state="row.getIsSelected() ? 'selected' : undefined">
-                            <TableCell v-for="cell in row.getVisibleCells()" :key="cell.id">
-                                <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
-                            </TableCell>
-                        </TableRow>
-                    </template>
-                    <template v-else>
-                        <TableRow>
-                            <TableCell :colSpan="columns.length" class="h-24 text-center">
-                                No results.
-                            </TableCell>
-                        </TableRow>
-                    </template>
-                </TableBody>
-            </Table>
-        </div>
+  <div>
+    <div class="flex items-center py-4">
+      <Input
+        class="max-w-sm"
+        placeholder="Filter emails..."
+        :model-value="table.getColumn('email')?.getFilterValue()?.toString() ?? ''"
+        @update:model-value="table.getColumn('email')?.setFilterValue($event)"
+      />
+      <DropdownMenu>
+        <DropdownMenuTrigger as-child>
+          <Button variant="outline" class="ml-auto">
+            Columns
+            <ChevronDownIcon class="w-4 h-4 ml-2" />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end">
+          <DropdownMenuCheckboxItem
+            v-for="column in table.getAllColumns().filter((column) => column.getCanHide())"
+            :key="column.id"
+            class="capitalize"
+            :model-value="column.getIsVisible()"
+            @update:model-value="(value) => column.toggleVisibility(!!value)"
+          >
+            {{ column.id }}
+          </DropdownMenuCheckboxItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
     </div>
+    <div class="border rounded-md">
+      <Table>{ ... }</Table>
+    </div>
+  </div>
 </template>
-
 ```
 
 This adds a dropdown menu that you can use to toggle column visibility.
@@ -808,74 +703,66 @@ Next, we're going to add row selection to our table.
 
 #### Update column definitions
 
-```ts:line-numbers {3,6-20}
+```ts:line-numbers
 import type { ColumnDef } from '@tanstack/vue-table'
-
+import type { DataTableFeatures } from './features'
 import { Checkbox } from '@/components/ui/checkbox'
 
-export const columns: ColumnDef<Payment>[] = [
-    {
-        id: 'select',
-        header: ({ table }) => h(Checkbox, {
-            'modelValue': table.getIsAllPageRowsSelected(),
-            'onUpdate:modelValue': (value: boolean) => table.toggleAllPageRowsSelected(!!value),
-            'ariaLabel': 'Select all',
-        }),
-        cell: ({ row }) => h(Checkbox, {
-            'modelValue': row.getIsSelected(),
-            'onUpdate:modelValue': (value: boolean) => row.toggleSelected(!!value),
-            'ariaLabel': 'Select row',
-        }),
-        enableSorting: false,
-        enableHiding: false,
-    },
+export const columns: ColumnDef<DataTableFeatures, Payment>[] = [
+  {
+    id: 'select',
+    header: ({ table }) => h(Checkbox, {
+      'modelValue': table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && 'indeterminate'),
+      'onUpdate:modelValue': (value: boolean | 'indeterminate') => table.toggleAllPageRowsSelected(!!value),
+      'ariaLabel': 'Select all',
+    }),
+    cell: ({ row }) => h(Checkbox, {
+      'modelValue': row.getIsSelected(),
+      'onUpdate:modelValue': (value: boolean | 'indeterminate') => row.toggleSelected(!!value),
+      'ariaLabel': 'Select row',
+    }),
+    enableSorting: false,
+    enableHiding: false,
+  },
 ]
 ```
 
-#### Update `<DataTable>`
+#### Update `features.ts`
 
-```vue:line-numbers {10,22,27}
-<script setup lang="ts" generic="TData, TValue">
-const props = defineProps<{
-    columns: ColumnDef<TData, TValue>[]
-    data: TData[]
-}>()
+```ts
+// components/payments/features.ts
+import {
+  columnFilteringFeature,
+  columnVisibilityFeature,
+  createFilteredRowModel,
+  createPaginatedRowModel,
+  createSortedRowModel,
+  filterFn_includesString,
+  rowPaginationFeature,
+  rowSelectionFeature,
+  rowSortingFeature,
+  sortFn_alphanumeric,
+  sortFn_text,
+  tableFeatures,
+} from '@tanstack/vue-table'
 
-const sorting = ref<SortingState>([])
-const columnFilters = ref<ColumnFiltersState>([])
-const columnVisibility = ref<VisibilityState>({})
-const rowSelection = ref({})
-
-const table = useVueTable({
-    get data() { return props.data },
-    get columns() { return props.columns },
-    getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    onSortingChange: updaterOrValue => valueUpdater(updaterOrValue, sorting),
-    onColumnFiltersChange: updaterOrValue => valueUpdater(updaterOrValue, columnFilters),
-    onColumnVisibilityChange: updaterOrValue => valueUpdater(updaterOrValue, columnVisibility),
-    onRowSelectionChange: updaterOrValue => valueUpdater(updaterOrValue, rowSelection),
-    state: {
-        get sorting() { return sorting.value },
-        get columnFilters() { return columnFilters.value },
-        get columnVisibility() { return columnVisibility.value },
-        get rowSelection() { return rowSelection.value },
-    },
+export const features = tableFeatures({
+  rowPaginationFeature,
+  paginatedRowModel: createPaginatedRowModel(),
+  rowSortingFeature,
+  sortedRowModel: createSortedRowModel(),
+  sortFns: { alphanumeric: sortFn_alphanumeric, text: sortFn_text },
+  columnFilteringFeature,
+  filteredRowModel: createFilteredRowModel(),
+  filterFns: { includesString: filterFn_includesString },
+  columnVisibilityFeature,
+  rowSelectionFeature,
 })
 
-</script>
-
-<template>
-  <div>
-    <div class="border rounded-md">
-        <Table />
-    </div>
-  </div>
-</template>
-
+export type DataTableFeatures = typeof features
 ```
+
+The `<DataTable>` script doesn't change. The table tracks the selected rows itself. This adds a checkbox to each row and a checkbox in the header to select all rows on the page.
 
 This adds a checkbox to each row and a checkbox in the header to select all rows.
 
@@ -912,73 +799,58 @@ You can show the number of selected rows using the `table.getFilteredSelectedRow
 
 Let's make rows expandable.
 
-#### Update `<DataTable>`
+#### Update `features.ts`
 
-```vue:line-numbers {7,30,43,52,57,63,103-116}
-<script setup lang="ts" generic="TData, TValue">
-import type {
-  ColumnDef,
-  ColumnFiltersState,
-  SortingState,
-  VisibilityState,
-  ExpandedState,
+```ts
+// components/payments/features.ts
+import {
+  columnFilteringFeature,
+  columnVisibilityFeature,
+  createExpandedRowModel,
+  createFilteredRowModel,
+  createPaginatedRowModel,
+  createSortedRowModel,
+  filterFn_includesString,
+  rowExpandingFeature,
+  rowPaginationFeature,
+  rowSelectionFeature,
+  rowSortingFeature,
+  sortFn_alphanumeric,
+  sortFn_text,
+  tableFeatures,
 } from '@tanstack/vue-table'
 
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+export const features = tableFeatures({
+  rowPaginationFeature,
+  paginatedRowModel: createPaginatedRowModel(),
+  rowSortingFeature,
+  sortedRowModel: createSortedRowModel(),
+  sortFns: { alphanumeric: sortFn_alphanumeric, text: sortFn_text },
+  columnFilteringFeature,
+  filteredRowModel: createFilteredRowModel(),
+  filterFns: { includesString: filterFn_includesString },
+  columnVisibilityFeature,
+  rowSelectionFeature,
+  rowExpandingFeature,
+  expandedRowModel: createExpandedRowModel(),
+})
 
-import { valueUpdater } from '@ui/utils'
+export type DataTableFeatures = typeof features
+```
 
-import { ArrowUpDownIcon, ChevronDownIcon } from '@lucide/vue'
-import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
-import { h, ref } from 'vue'
+#### Render expanded rows in `<DataTable>`
 
-import {
-    FlexRender,
-    getCoreRowModel,
-    getPaginationRowModel,
-    getFilteredRowModel,
-    getSortedRowModel,
-    getExpandedRowModel,
-    useVueTable,
-} from "@tanstack/vue-table"
+TanStack Table v9 only lets rows with `subRows` expand by default. To open a details row for any row, pass `getRowCanExpand`.
 
-const props = defineProps<{
-    columns: ColumnDef<TData, TValue>[]
-    data: TData[]
-}>()
+```vue
+<script setup lang="ts" generic="TData extends RowData">
+// ...the same imports and props as before
 
-const sorting = ref<SortingState>([])
-const columnFilters = ref<ColumnFiltersState>([])
-const columnVisibility = ref<VisibilityState>({})
-const rowSelection = ref({})
-const expanded = ref<ExpandedState>({})
-
-const table = useVueTable({
-    get data() { return props.data },
-    get columns() { return props.columns },
-    getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    getExpandedRowModel: getExpandedRowModel(),
-    onSortingChange: updaterOrValue => valueUpdater(updaterOrValue, sorting),
-    onColumnFiltersChange: updaterOrValue => valueUpdater(updaterOrValue, columnFilters),
-    onColumnVisibilityChange: updaterOrValue => valueUpdater(updaterOrValue, columnVisibility),
-    onRowSelectionChange: updaterOrValue => valueUpdater(updaterOrValue, rowSelection),
-    onExpandedChange: updaterOrValue => valueUpdater(updaterOrValue, expanded),
-    state: {
-        get sorting() { return sorting.value },
-        get columnFilters() { return columnFilters.value },
-        get columnVisibility() { return columnVisibility.value },
-        get rowSelection() { return rowSelection.value },
-        get expanded() { return expanded.value },
-    },
+const table = useTable({
+  features,
+  get data() { return props.data },
+  get columns() { return props.columns },
+  getRowCanExpand: () => true,
 })
 </script>
 
@@ -1015,8 +887,7 @@ const table = useVueTable({
                 <TableHeader>
                     <TableRow v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
                         <TableHead v-for="header in headerGroup.headers" :key="header.id">
-                            <FlexRender v-if="!header.isPlaceholder" :render="header.column.columnDef.header"
-                                :props="header.getContext()" />
+                            <FlexRender v-if="!header.isPlaceholder" :header="header" />
                         </TableHead>
                     </TableRow>
                 </TableHeader>
@@ -1025,7 +896,7 @@ const table = useVueTable({
                       <template v-for="row in table.getRowModel().rows" :key="row.id">
                         <TableRow :data-state="row.getIsSelected() ? 'selected' : undefined">
                             <TableCell v-for="cell in row.getVisibleCells()" :key="cell.id">
-                                <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
+                                <FlexRender :cell="cell" />
                             </TableCell>
                         </TableRow>
                         <TableRow v-if="row.getIsExpanded()">
@@ -1100,9 +971,9 @@ function copy(id: string) {
 
 Now we can update the action cell to add the expand control.
 
-```vue:line-numbers {11}
-<script setup lang="ts">
-export const columns: ColumnDef<Payment>[] = [
+```ts:line-numbers {11}
+// components/payments/columns.ts
+export const columns: ColumnDef<DataTableFeatures, Payment>[] = [
   {
     id: 'actions',
     enableHiding: false,
@@ -1111,14 +982,18 @@ export const columns: ColumnDef<Payment>[] = [
 
       return h('div', { class: 'relative' }, h(DropdownAction, {
         payment,
-        onExpand: row.toggleExpanded,
+        onExpand: () => row.toggleExpanded(),
       }))
     },
   },
 ]
-</script>
-
 ```
+
+<Callout class="mt-4">
+
+Call table, row, and column methods on the instance, as in `() => row.toggleExpanded()`. In v9 they live on a shared prototype, so passing `row.toggleExpanded` on its own loses its `this`.
+
+</Callout>
 
 </Steps>
 
@@ -1134,6 +1009,7 @@ Make any column header sortable and hideable.
 <script setup lang="ts">
 import type { Column } from '@tanstack/vue-table'
 import { type Task } from '../data/schema'
+import type { DataTableFeatures } from './features'
 import { ArrowDownIcon, ArrowUpIcon, ChevronsUpDownIcon, EyeOffIcon } from '@lucide/vue'
 
 import { cn } from '@ui/utils'
@@ -1147,7 +1023,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 
 interface DataTableColumnHeaderProps {
-  column: Column<Task, any>
+  column: Column<DataTableFeatures, Task, unknown>
   title: string
 }
 
@@ -1225,12 +1101,13 @@ export const columns = [
 
 #### Pagination
 
-Add pagination controls to your table including page size and selection count.
+Add pagination controls to your table including page size and selection count. Read table state with `table.atoms.<slice>.get()`, for example `table.atoms.pagination.get()`. To keep a slice of state in your own `ref` (for example to sync it with the URL), pass it through the `state` option with the matching `on*Change` callback. See [Table state](https://tanstack.com/table/latest/docs/framework/vue/guide/table-state).
 
 ```vue:line-numbers
 <script setup lang="ts">
 import { type Table } from '@tanstack/vue-table'
 import { type Task } from '../data/schema'
+import type { DataTableFeatures } from './features'
 import { ChevronLeftIcon, ChevronRightIcon, ChevronsLeftIcon, ChevronsRightIcon } from '@lucide/vue'
 
 import { Button } from '@/components/ui/button'
@@ -1243,7 +1120,7 @@ import {
 } from '@/components/ui/select'
 
 interface DataTablePaginationProps {
-  table: Table<Task>
+  table: Table<DataTableFeatures, Task>
 }
 defineProps<DataTablePaginationProps>()
 </script>
@@ -1260,11 +1137,11 @@ defineProps<DataTablePaginationProps>()
           Rows per page
         </p>
         <Select
-          :model-value="`${table.getState().pagination.pageSize}`"
+          :model-value="`${table.atoms.pagination.get().pageSize}`"
           @update:model-value="(pageSize) => table.setPageSize(Number(pageSize))"
         >
           <SelectTrigger class="h-8 w-[70px]">
-            <SelectValue :placeholder="`${table.getState().pagination.pageSize}`" />
+            <SelectValue :placeholder="`${table.atoms.pagination.get().pageSize}`" />
           </SelectTrigger>
           <SelectContent side="top">
             <SelectItem v-for="pageSize in [10, 20, 30, 40, 50]" :key="pageSize" :value="`${pageSize}`">
@@ -1274,7 +1151,7 @@ defineProps<DataTablePaginationProps>()
         </Select>
       </div>
       <div class="flex w-[100px] items-center justify-center text-sm font-medium">
-        Page {{ table.getState().pagination.pageIndex + 1 }} of
+        Page {{ table.atoms.pagination.get().pageIndex + 1 }} of
         {{ table.getPageCount() }}
       </div>
       <div class="flex items-center space-x-2">
@@ -1334,6 +1211,7 @@ A component to toggle column visibility.
 import type { Table } from '@tanstack/vue-table'
 import { computed } from 'vue'
 import { type Task } from '../data/schema'
+import type { DataTableFeatures } from './features'
 import { Settings2Icon } from '@lucide/vue'
 
 import { Button } from '@/components/ui/button'
@@ -1347,7 +1225,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 
 interface DataTableViewOptionsProps {
-  table: Table<Task>
+  table: Table<DataTableFeatures, Task>
 }
 
 const props = defineProps<DataTableViewOptionsProps>()

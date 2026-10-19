@@ -12,9 +12,10 @@ import {
   DropdownMenuTrigger,
 } from '@ui/registry/tailwind/ui/dropdown-menu';
 import { toggleColumnsLabel, viewOptionsLabel, type Task } from '../data';
+import type { TasksTableFeatures } from './features';
 
 const props = defineProps<{
-  table: Table<Task>;
+  table: Table<TasksTableFeatures, Task>;
 }>();
 
 const columns = computed(() => props.table.getAllColumns()

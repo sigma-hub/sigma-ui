@@ -55,7 +55,7 @@ import {
 
 ### Data Table
 
-You can use the `<Table />` component with [@tanstack/vue-table](https://tanstack.com/table/v8) to build more complex data tables with sorting, filtering and pagination.
+You can use the `<Table />` component with [@tanstack/vue-table](https://tanstack.com/table/latest) v9 to build more complex data tables with sorting, filtering and pagination.
 
 See examples on the [Data Table](./data-table) page.
 

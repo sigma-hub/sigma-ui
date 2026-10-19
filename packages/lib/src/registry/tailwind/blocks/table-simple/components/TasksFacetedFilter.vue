@@ -10,9 +10,10 @@ import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, Command
 import { Popover, PopoverContent, PopoverTrigger } from '@ui/registry/tailwind/ui/popover';
 import { Separator } from '@ui/registry/tailwind/ui/separator';
 import { clearFiltersLabel, noFilterResultsLabel, selectedCountLabel, type Task } from '../data';
+import type { TasksTableFeatures } from './features';
 
 const props = defineProps<{
-  column?: Column<Task, unknown>;
+  column?: Column<TasksTableFeatures, Task, unknown>;
   title: string;
   options: {
     label: string;
