@@ -43,10 +43,13 @@ function selectItem(itemId: string) {
   .settings-forms__nav-list {
     display: flex;
     gap: calc(var(--spacing) * 2);
+    margin-inline: calc(var(--spacing) * -1);
+    padding-inline: calc(var(--spacing) * 1);
+    padding-bottom: calc(var(--spacing) * 1);
+    overflow-x: auto;
   }
 
   .settings-forms__nav-button.settings-forms__nav-button {
-    width: 100%;
     justify-content: flex-start;
     text-align: left;
   }
@@ -60,6 +63,14 @@ function selectItem(itemId: string) {
     .settings-forms__nav-list {
       flex-direction: column;
       gap: calc(var(--spacing) * 1);
+      margin-inline: 0;
+      padding-inline: 0;
+      padding-bottom: 0;
+      overflow-x: visible;
+    }
+
+    .settings-forms__nav-button.settings-forms__nav-button {
+      width: 100%;
     }
   }
 }

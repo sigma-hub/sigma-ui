@@ -36,10 +36,10 @@ const formComponents: Record<FormType, Component> = {
       </div>
       <Separator class="my-6" />
       <div class="flex flex-col gap-8 lg:flex-row lg:gap-12">
-        <aside class="lg:w-1/5">
+        <aside class="min-w-0 lg:w-1/5">
           <SettingsNav v-model="selectedForm" />
         </aside>
-        <div class="flex-1 lg:max-w-2xl">
+        <div class="min-w-0 flex-1 lg:max-w-2xl">
           <div class="space-y-6">
             <component :is="formComponents[selectedForm]" />
           </div>

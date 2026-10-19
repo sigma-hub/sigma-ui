@@ -95,6 +95,11 @@ const formComponents: Record<FormType, Component> = {
     gap: calc(var(--spacing) * 8);
   }
 
+  .settings-forms__nav,
+  .settings-forms__content {
+    min-width: 0;
+  }
+
   .settings-forms__content {
     flex: 1;
   }
