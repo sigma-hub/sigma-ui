@@ -1,6 +1,6 @@
 {
   "name": "sigma-ui-nuxt",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Nuxt module that auto-imports SIGMA-UI components.",
   "publishConfig": {
     "access": "public"
