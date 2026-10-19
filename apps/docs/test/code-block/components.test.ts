@@ -1,15 +1,18 @@
 // @vitest-environment happy-dom
 /* eslint-disable vue/one-component-per-file */
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import { defineComponent, h, nextTick, ref } from 'vue';
 import { flushPromises, mount } from '@vue/test-utils';
 import * as cssCodeBlock from '@ui/registry/css/ui/code-block';
 import * as tailwindCodeBlock from '@ui/registry/tailwind/ui/code-block';
+import { HIGHLIGHTER_WARM_UP_TIMEOUT, warmUpHighlighter } from './warm-up';
 
 const styles = [
   ['css', cssCodeBlock],
   ['tailwind', tailwindCodeBlock],
 ] as const;
+
+beforeAll(() => warmUpHighlighter(['ts']), HIGHLIGHTER_WARM_UP_TIMEOUT);
 
 // useClipboard writes a ClipboardItem; the spy records its text.
 let writeText: ReturnType<typeof vi.fn>;

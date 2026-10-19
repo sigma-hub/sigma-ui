@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { beforeAll, describe, expect, it } from 'vitest';
 import {
   codeBlockLanguageAliases,
   codeBlockLanguages,
@@ -6,6 +6,9 @@ import {
   loadCodeBlockHighlighter,
   resolveCodeBlockLanguage,
 } from '@ui/registry/shared/ui/code-block/highlighter';
+import { HIGHLIGHTER_WARM_UP_TIMEOUT, warmUpHighlighter } from './warm-up';
+
+beforeAll(() => warmUpHighlighter(), HIGHLIGHTER_WARM_UP_TIMEOUT);
 
 describe('resolveCodeBlockLanguage', () => {
   it('resolves names and aliases', () => {
