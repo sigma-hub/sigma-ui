@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs-demo",
+  "type": "registry:example",
+  "title": "Tabs",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "card",
+    "input",
+    "label",
+    "tabs"
+  ],
+  "files": [
+    {
+      "path": "example/Tabs.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/components/ui/button';\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card';\nimport { Input } from '@/components/ui/input';\nimport { Label } from '@/components/ui/label';\nimport {\n  Tabs,\n  TabsContent,\n  TabsList,\n  TabsTrigger,\n} from '@/components/ui/tabs';\n</script>\n\n<template>\n  <Tabs\n    default-value=\"account\"\n    class=\"example-sigma-ui-tabs\"\n  >\n    <TabsList class=\"example-sigma-ui-tabs__list\">\n      <TabsTrigger value=\"account\">\n        Account\n      </TabsTrigger>\n      <TabsTrigger value=\"password\">\n        Password\n      </TabsTrigger>\n    </TabsList>\n    <TabsContent value=\"account\">\n      <Card>\n        <CardHeader>\n          <CardTitle>Account</CardTitle>\n          <CardDescription>\n            Make changes to your account here. Click save when you're done.\n          </CardDescription>\n        </CardHeader>\n        <CardContent class=\"example-sigma-ui-tabs__content\">\n          <div class=\"example-sigma-ui-tabs__field\">\n            <Label for=\"name\">Name</Label>\n            <Input\n              id=\"name\"\n              autocomplete=\"name\"\n              model-value=\"Pedro Duarte\"\n            />\n          </div>\n          <div class=\"example-sigma-ui-tabs__field\">\n            <Label for=\"username\">Username</Label>\n            <Input\n              id=\"username\"\n              autocomplete=\"username\"\n              model-value=\"@peduarte\"\n            />\n          </div>\n        </CardContent>\n        <CardFooter>\n          <Button>Save changes</Button>\n        </CardFooter>\n      </Card>\n    </TabsContent>\n    <TabsContent value=\"password\">\n      <Card>\n        <CardHeader>\n          <CardTitle>Password</CardTitle>\n          <CardDescription>\n            Change your password here. After saving, you'll be logged out.\n          </CardDescription>\n        </CardHeader>\n        <CardContent class=\"example-sigma-ui-tabs__content\">\n          <div class=\"example-sigma-ui-tabs__field\">\n            <Label for=\"current\">Current password</Label>\n            <Input\n              id=\"current\"\n              autocomplete=\"current-password\"\n              type=\"password\"\n            />\n          </div>\n          <div class=\"example-sigma-ui-tabs__field\">\n            <Label for=\"new\">New password</Label>\n            <Input\n              id=\"new\"\n              autocomplete=\"new-password\"\n              type=\"password\"\n            />\n          </div>\n        </CardContent>\n        <CardFooter>\n          <Button>Save password</Button>\n        </CardFooter>\n      </Card>\n    </TabsContent>\n  </Tabs>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .example-sigma-ui-tabs {\n    width: 400px;\n  }\n\n  .example-sigma-ui-tabs__list {\n    display: grid;\n    width: 100%;\n    grid-template-columns: repeat(2, 1fr);\n  }\n\n  .example-sigma-ui-tabs__content {\n    display: flex;\n    flex-direction: column;\n    gap: calc(var(--spacing) * 3);\n  }\n\n  .example-sigma-ui-tabs__field {\n    display: flex;\n    flex-direction: column;\n    gap: calc(var(--spacing) * 2);\n  }\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

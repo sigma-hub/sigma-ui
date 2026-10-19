@@ -1,14 +1,26 @@
 <script setup lang="ts">
+import { useAttrs } from 'vue';
+
 import type { ComboboxSeparatorProps } from 'reka-ui';
 import { ComboboxSeparator } from 'reka-ui';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<ComboboxSeparatorProps>();
 </script>
 
 <template>
   <ComboboxSeparator
-    v-bind="{ ...props, ...$attrs }"
+    data-slot="combobox-separator"
+    v-bind="{ ...props, ...delegatedAttrs() }"
     :class="cn('-mx-1 h-px bg-border', $attrs.class ?? '')"
   >
     <slot />

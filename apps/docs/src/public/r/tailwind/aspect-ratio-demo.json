@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "aspect-ratio-demo",
+  "type": "registry:example",
+  "title": "AspectRatio",
+  "dependencies": [],
+  "registryDependencies": [
+    "aspect-ratio"
+  ],
+  "files": [
+    {
+      "path": "example/AspectRatio.vue",
+      "content": "<script setup lang=\"ts\">\nimport { AspectRatio } from '@/components/ui/aspect-ratio';\n</script>\n\n<template>\n  <div class=\"w-full max-w-sm\">\n    <AspectRatio :ratio=\"16 / 9\">\n      <div class=\"flex size-full items-center justify-center rounded-md bg-muted text-sm text-muted-foreground\">\n        16:9\n      </div>\n    </AspectRatio>\n  </div>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

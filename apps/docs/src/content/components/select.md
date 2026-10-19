@@ -1,8 +1,8 @@
 ---
 title: Select
-description: Displays a list of options for the user to pick from—triggered by a button.
-source: packages/lib/src/registry/tailwind/ui/select
-primitive: https://www.reka-ui.com/docs/components/select.html
+description: Displays a list of options for the user to pick from, triggered by a button.
+source: select
+primitive: https://reka-ui.com/docs/components/select
 ---
 
 ## Preview
@@ -11,13 +11,9 @@ primitive: https://www.reka-ui.com/docs/components/select.html
 
 ## Installation
 
-```bash
-npx sigma-ui add select
-```
+<ComponentInstall name="select" />
 
-## Examples
-
-### Basic
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -29,7 +25,7 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
+} from '@/components/ui/select';
 </script>
 
 <template>
@@ -49,6 +45,12 @@ import {
 </template>
 ```
 
+- Use `v-model` to control the selected value, or `defaultValue` to set an initial one.
+- `SelectValue` shows the selected item, or its `placeholder` when nothing is selected.
+- `size` on `SelectTrigger` is `default` or `sm`. The selected item shows a check on the right.
+
+## Examples
+
 ### Scrollable
 
 <ComponentPreview name="SelectScrollable" />
@@ -56,3 +58,19 @@ import {
 ### Form
 
 <ComponentPreview name="SelectForm" />
+
+## API Reference
+
+<!-- @include: @/content/meta/select.md -->
+
+## Accessibility
+
+Adheres to the [ListBox WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/listbox/). Reka UI handles the roles, focus management, and typeahead.
+
+| Key | Description |
+| --- | --- |
+| <kbd>Space</kbd> | When focus is on the trigger, opens the select and focuses the selected item. When focus is on an item, selects it. |
+| <kbd>Enter</kbd> | When focus is on the trigger, opens the select and focuses the selected item. When focus is on an item, selects it. |
+| <kbd>ArrowDown</kbd> | When focus is on the trigger, opens the select. When focus is on an item, moves focus to the next item. |
+| <kbd>ArrowUp</kbd> | When focus is on the trigger, opens the select. When focus is on an item, moves focus to the previous item. |
+| <kbd>Esc</kbd> | Closes the select and moves focus to the trigger. |

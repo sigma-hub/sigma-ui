@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "carousel-basic",
+  "type": "registry:example",
+  "title": "CarouselBasic",
+  "dependencies": [],
+  "registryDependencies": [
+    "carousel"
+  ],
+  "files": [
+    {
+      "path": "example/CarouselBasic.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';\n</script>\n\n<template>\n  <Carousel class=\"relative w-full max-w-xs\">\n    <CarouselContent>\n      <CarouselItem\n        v-for=\"(_, index) in 5\"\n        :key=\"index\"\n      >\n        <div class=\"flex aspect-square items-center justify-center p-6 border rounded-lg text-4xl font-semibold select-none\">\n          {{ index + 1 }}\n        </div>\n      </CarouselItem>\n    </CarouselContent>\n    <CarouselPrevious />\n    <CarouselNext />\n  </Carousel>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

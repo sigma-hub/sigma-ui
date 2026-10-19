@@ -1,0 +1,59 @@
+<script lang="ts" setup>
+import { useAttrs } from 'vue';
+
+import { YearPickerNext, type YearPickerNextProps, useForwardProps } from 'reka-ui';
+import { ChevronRightIcon } from '@lucide/vue';
+import { buttonVariants } from '@ui/registry/css/ui/button';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
+
+const props = defineProps<YearPickerNextProps>();
+const forwarded = useForwardProps(props);
+</script>
+
+<template>
+  <YearPickerNext
+    data-slot="year-picker-next-button"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
+    class="sigma-ui-year-picker-next"
+    :class="[buttonVariants({ variant: 'outline' }), $attrs.class]"
+  >
+    <slot>
+      <ChevronRightIcon class="sigma-ui-year-picker-next__icon" />
+    </slot>
+  </YearPickerNext>
+</template>
+
+<style>
+@layer base, components;
+
+@layer components {
+  .sigma-ui-year-picker-next {
+    width: calc(var(--spacing) * 7);
+    height: calc(var(--spacing) * 7);
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background-color: transparent;
+    opacity: 0.5;
+  }
+
+  .sigma-ui-year-picker-next:hover {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+    opacity: 1;
+  }
+
+  .sigma-ui-year-picker-next__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
+}
+</style>

@@ -14,6 +14,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <NavigationMenuContent
+    data-slot="navigation-menu-content"
     v-bind="forwarded"
     class="sigma-ui-navigation-menu-content"
   >
@@ -22,118 +23,122 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
-.sigma-ui-navigation-menu-content {
-  top: 0;
-  left: 0;
-  width: 100%;
-}
+@layer base, components;
 
-.sigma-ui-navigation-menu-content[data-state^="open"] {
-  animation: sigma-ui-nav-fade-in 200ms ease-in-out;
-}
-
-.sigma-ui-navigation-menu-content[data-state^="closed"] {
-  animation: sigma-ui-nav-fade-out 200ms ease-in-out;
-}
-
-.sigma-ui-navigation-menu-content[data-motion="from-end"] {
-  animation: sigma-ui-nav-slide-in-from-right 200ms ease-in-out;
-}
-
-.sigma-ui-navigation-menu-content[data-motion="from-start"] {
-  animation: sigma-ui-nav-slide-in-from-left 200ms ease-in-out;
-}
-
-.sigma-ui-navigation-menu-content[data-motion="to-end"] {
-  animation: sigma-ui-nav-slide-out-to-right 200ms ease-in-out;
-}
-
-.sigma-ui-navigation-menu-content[data-motion="to-start"] {
-  animation: sigma-ui-nav-slide-out-to-left 200ms ease-in-out;
-}
-
-@media (width >= 768px) {
+@layer components {
   .sigma-ui-navigation-menu-content {
-    position: absolute;
-    width: auto;
-  }
-}
-
-@keyframes sigma-ui-nav-fade-in {
-  from {
-    filter: blur(12px);
-    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
   }
 
-  to {
-    filter: blur(0);
-    opacity: 1;
-  }
-}
-
-@keyframes sigma-ui-nav-fade-out {
-  from {
-    opacity: 1;
+  .sigma-ui-navigation-menu-content[data-state^="open"] {
+    animation: sigma-ui-nav-fade-in 200ms ease-in-out;
   }
 
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes sigma-ui-nav-slide-in-from-right {
-  from {
-    filter: blur(12px);
-    opacity: 0;
-    transform: translateX(13rem);
+  .sigma-ui-navigation-menu-content[data-state^="closed"] {
+    animation: sigma-ui-nav-fade-out 200ms ease-in-out;
   }
 
-  to {
-    filter: blur(0);
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes sigma-ui-nav-slide-in-from-left {
-  from {
-    filter: blur(12px);
-    opacity: 0;
-    transform: translateX(-13rem);
+  .sigma-ui-navigation-menu-content[data-motion="from-end"] {
+    animation: sigma-ui-nav-slide-in-from-right 200ms ease-in-out;
   }
 
-  to {
-    filter: blur(0);
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes sigma-ui-nav-slide-out-to-right {
-  from {
-    filter: blur(0);
-    opacity: 1;
-    transform: translateX(0);
+  .sigma-ui-navigation-menu-content[data-motion="from-start"] {
+    animation: sigma-ui-nav-slide-in-from-left 200ms ease-in-out;
   }
 
-  to {
-    filter: blur(12px);
-    opacity: 0;
-    transform: translateX(13rem);
-  }
-}
-
-@keyframes sigma-ui-nav-slide-out-to-left {
-  from {
-    filter: blur(0);
-    opacity: 1;
-    transform: translateX(0);
+  .sigma-ui-navigation-menu-content[data-motion="to-end"] {
+    animation: sigma-ui-nav-slide-out-to-right 200ms ease-in-out;
   }
 
-  to {
-    filter: blur(12px);
-    opacity: 0;
-    transform: translateX(-13rem);
+  .sigma-ui-navigation-menu-content[data-motion="to-start"] {
+    animation: sigma-ui-nav-slide-out-to-left 200ms ease-in-out;
+  }
+
+  @media (width >= 48rem) {
+    .sigma-ui-navigation-menu-content {
+      position: absolute;
+      width: auto;
+    }
+  }
+
+  @keyframes sigma-ui-nav-fade-in {
+    from {
+      filter: blur(12px);
+      opacity: 0;
+    }
+
+    to {
+      filter: blur(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes sigma-ui-nav-fade-out {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes sigma-ui-nav-slide-in-from-right {
+    from {
+      filter: blur(12px);
+      opacity: 0;
+      transform: translateX(13rem);
+    }
+
+    to {
+      filter: blur(0);
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes sigma-ui-nav-slide-in-from-left {
+    from {
+      filter: blur(12px);
+      opacity: 0;
+      transform: translateX(-13rem);
+    }
+
+    to {
+      filter: blur(0);
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes sigma-ui-nav-slide-out-to-right {
+    from {
+      filter: blur(0);
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    to {
+      filter: blur(12px);
+      opacity: 0;
+      transform: translateX(13rem);
+    }
+  }
+
+  @keyframes sigma-ui-nav-slide-out-to-left {
+    from {
+      filter: blur(0);
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    to {
+      filter: blur(12px);
+      opacity: 0;
+      transform: translateX(-13rem);
+    }
   }
 }
 </style>

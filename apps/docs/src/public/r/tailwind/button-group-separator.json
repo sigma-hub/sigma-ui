@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-group-separator",
+  "type": "registry:example",
+  "title": "ButtonGroupSeparator",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "button-group"
+  ],
+  "files": [
+    {
+      "path": "example/ButtonGroupSeparator.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/components/ui/button';\nimport { ButtonGroup, ButtonGroupSeparator } from '@/components/ui/button-group';\n</script>\n\n<template>\n  <ButtonGroup>\n    <Button variant=\"secondary\">\n      Copy\n    </Button>\n    <ButtonGroupSeparator />\n    <Button variant=\"secondary\">\n      Paste\n    </Button>\n    <ButtonGroupSeparator />\n    <Button variant=\"secondary\">\n      Cut\n    </Button>\n  </ButtonGroup>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

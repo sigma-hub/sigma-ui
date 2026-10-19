@@ -1,18 +1,32 @@
 <script setup lang="ts">
-;
+import { useAttrs } from 'vue';
+
 import { Primitive, type PrimitiveProps } from 'reka-ui';
-import { Loader2Icon } from 'lucide-vue-next';
+import { Loader2Icon } from '@lucide/vue';
 import { cn } from '@ui/utils';
 import { type ButtonVariants, buttonVariants } from '.';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 interface Props extends PrimitiveProps {
+  /** Visual style of the button. */
   variant?: ButtonVariants['variant'];
+  /** Height and padding preset. `icon`, `icon-xs`, `icon-sm`, and `icon-lg` make a square button. */
   size?: ButtonVariants['size'];
+  /** Shows a spinner and disables the button. */
   isLoading?: boolean;
+  /** Text that replaces the button content while loading; the content stays visible when empty. */
   loadingText?: string;
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   as: 'button',
   variant: 'default',
   size: 'default',
@@ -23,6 +37,10 @@ const props = withDefaults(defineProps<Props>(), {
 
 <template>
   <Primitive
+    data-slot="button"
+    v-bind="delegatedAttrs()"
+    :data-variant="variant"
+    :data-size="size"
     :as="as"
     :as-child="asChild"
     :class="cn(buttonVariants({ variant, size }), $attrs.class ?? '')"
@@ -30,7 +48,7 @@ const props = withDefaults(defineProps<Props>(), {
   >
     <Loader2Icon
       v-if="isLoading"
-      class="w-4 h-4 mr-2 animate-spin"
+      class="size-4 animate-spin"
     />
     <template v-if="!isLoading || (isLoading && !loadingText)">
       <slot />

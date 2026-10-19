@@ -1,30 +1,25 @@
 ---
 title: Drawer
 description: Mobile-style drawer panel that slides in from the bottom of the screen.
-source: packages/lib/src/registry/tailwind/ui/drawer
-primitive: https://github.com/unovue/vaul-vue
+source: drawer
+primitive: https://reka-ui.com/docs/components/drawer
 ---
 
 ## Preview
 
 <ComponentPreview name="Drawer" />
 
-## About
-
-Drawer is built on top of [Vaul Vue](https://github.com/unovue/vaul-vue).
-
 ## Installation
 
-```bash
-npx sigma-ui add drawer
-```
+<ComponentInstall name="drawer" />
 
-## Examples
+## Usage
 
-### Basic
+Drawer is built on top of the [Reka UI Drawer](https://reka-ui.com/docs/components/drawer).
 
-```vue:line-numbers
+```vue
 <script setup lang="ts">
+import { Button } from '@/components/ui/button';
 import {
   Drawer,
   DrawerClose,
@@ -34,7 +29,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from '@/components/ui/drawer'
+} from '@/components/ui/drawer';
 </script>
 
 <template>
@@ -47,7 +42,7 @@ import {
       </DrawerHeader>
       <DrawerFooter>
         <Button>Submit</Button>
-        <DrawerClose>
+        <DrawerClose as-child>
           <Button variant="outline">
             Cancel
           </Button>
@@ -58,16 +53,30 @@ import {
 </template>
 ```
 
-### Scale Background
+- Use `v-model:open` on `<Drawer>` to control the open state.
+- `swipeDirection` is `down` by default. Set it to `up`, `left`, or `right` to anchor the panel to another edge.
+- The user can close the drawer by dragging it toward its edge, clicking the overlay, or pressing <kbd>Esc</kbd>.
 
-If you want the background to have a zoom effect, you need to add the `vaul-drawer-wrapper` attribute to the root component.
-
-```html
-<div vaul-drawer-wrapper id="app"></div>
-```
+## Examples
 
 ### Responsive Dialog
 
-You can combine the `Dialog` and `Drawer` components to create a responsive dialog. This renders a `Dialog` component on desktop and a `Drawer` on mobile.
+Combine the `Dialog` and `Drawer` components to create a responsive dialog. It renders a `Dialog` on desktop and a `Drawer` on mobile.
 
 <ComponentPreview name="DrawerDialog" />
+
+## API Reference
+
+<!-- @include: @/content/meta/drawer.md -->
+
+## Accessibility
+
+Renders as a modal dialog following the [Dialog (Modal) WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/). Focus stays inside the drawer and returns to the trigger on close.
+
+| Key | Description |
+| --- | --- |
+| <kbd>Space</kbd> | Opens or closes the drawer. |
+| <kbd>Enter</kbd> | Opens or closes the drawer. |
+| <kbd>Tab</kbd> | Moves focus to the next focusable element. |
+| <kbd>Shift</kbd> + <kbd>Tab</kbd> | Moves focus to the previous focusable element. |
+| <kbd>Esc</kbd> | Closes the drawer and moves focus to the trigger. |

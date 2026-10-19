@@ -1,7 +1,18 @@
 <script lang="ts" setup>
+import { useAttrs } from 'vue';
+
 import { RangeCalendarRoot, type RangeCalendarRootEmits, type RangeCalendarRootProps, useForwardPropsEmits } from 'reka-ui';
 import { RangeCalendarCell, RangeCalendarCellTrigger, RangeCalendarGrid, RangeCalendarGridBody, RangeCalendarGridHead, RangeCalendarGridRow, RangeCalendarHeadCell, RangeCalendarHeader, RangeCalendarHeading, RangeCalendarNextButton, RangeCalendarPrevButton } from '.';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<RangeCalendarRootProps>();
 const emits = defineEmits<RangeCalendarRootEmits>();
@@ -12,8 +23,9 @@ const forwarded = useForwardPropsEmits(props, emits);
 <template>
   <RangeCalendarRoot
     v-slot="{ grid, weekDays }"
+    data-slot="range-calendar"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="cn('p-3', $attrs.class ?? '')"
-    v-bind="forwarded"
   >
     <RangeCalendarHeader>
       <RangeCalendarPrevButton />

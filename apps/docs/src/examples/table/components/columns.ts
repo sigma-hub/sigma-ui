@@ -3,12 +3,13 @@ import { h } from 'vue';
 
 import { labels, priorities, statuses } from '../data/data';
 import type { Task } from '../data/schema';
+import type { DataTableFeatures } from './features';
 import DataTableColumnHeader from './DataTableColumnHeader.vue';
 import DataTableRowActions from './DataTableRowActions.vue';
 import { Checkbox } from '@ui/registry/tailwind/ui/checkbox';
 import { Badge } from '@ui/registry/tailwind/ui/badge';
 
-export const columns: ColumnDef<Task>[] = [
+export const columns: ColumnDef<DataTableFeatures, Task>[] = [
   {
     id: 'select',
     header: ({ table }) => h(Checkbox, {

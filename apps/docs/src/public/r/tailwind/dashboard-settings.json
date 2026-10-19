@@ -1,0 +1,68 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dashboard-settings",
+  "type": "registry:block",
+  "title": "Settings page",
+  "description": "A settings page. The settings page has a sidebar navigation and a main content area. The main content area has a form to update the store name and a form to update the plugins directory. The sidebar navigation has links to general, security, integrations, support, organizations, and advanced settings.",
+  "dependencies": [
+    "@lucide/vue@^1.59.0"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "checkbox",
+    "dropdown-menu",
+    "input",
+    "sheet"
+  ],
+  "files": [
+    {
+      "path": "blocks/dashboard-settings/DashboardSettings.vue",
+      "content": "<script setup lang=\"ts\">\nimport AppHeader from './components/AppHeader.vue';\nimport PluginsDirectoryCard from './components/PluginsDirectoryCard.vue';\nimport SettingsNav from './components/SettingsNav.vue';\nimport StoreNameCard from './components/StoreNameCard.vue';\nimport {\n  accountMenu,\n  brandHref,\n  brandName,\n  headerLinks,\n  navigationLabel,\n  pageTitle,\n  pluginsDirectoryCard,\n  searchPlaceholder,\n  settingsLinks,\n  storeNameCard,\n  userMenuLabel,\n} from './data';\n</script>\n\n<template>\n  <div class=\"flex min-h-screen w-full flex-col\">\n    <AppHeader\n      :brand-name=\"brandName\"\n      :brand-href=\"brandHref\"\n      :links=\"headerLinks\"\n      :search-placeholder=\"searchPlaceholder\"\n      :menu-entries=\"accountMenu\"\n      :user-menu-label=\"userMenuLabel\"\n      :navigation-label=\"navigationLabel\"\n    />\n    <main class=\"flex min-h-[calc(100vh_-_theme(spacing.16))] flex-1 flex-col gap-4 bg-muted/40 p-4 md:gap-8 md:p-10\">\n      <div class=\"mx-auto grid w-full max-w-6xl gap-2\">\n        <h1 class=\"text-3xl font-semibold\">\n          {{ pageTitle }}\n        </h1>\n      </div>\n      <div class=\"mx-auto grid w-full max-w-6xl items-start gap-6 md:grid-cols-[180px_1fr] lg:grid-cols-[250px_1fr]\">\n        <SettingsNav :links=\"settingsLinks\" />\n        <div class=\"grid gap-6\">\n          <StoreNameCard\n            :title=\"storeNameCard.title\"\n            :description=\"storeNameCard.description\"\n            :placeholder=\"storeNameCard.placeholder\"\n            :save-label=\"storeNameCard.saveLabel\"\n          />\n          <PluginsDirectoryCard\n            :title=\"pluginsDirectoryCard.title\"\n            :description=\"pluginsDirectoryCard.description\"\n            :placeholder=\"pluginsDirectoryCard.placeholder\"\n            :directory=\"pluginsDirectoryCard.directory\"\n            :checkbox-id=\"pluginsDirectoryCard.checkboxId\"\n            :checkbox-label=\"pluginsDirectoryCard.checkboxLabel\"\n            :include-checked=\"pluginsDirectoryCard.includeChecked\"\n            :save-label=\"pluginsDirectoryCard.saveLabel\"\n          />\n        </div>\n      </div>\n    </main>\n  </div>\n</template>\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "blocks/dashboard-settings/components/AppHeader.vue",
+      "content": "<script setup lang=\"ts\">\nimport { MenuIcon, Package2Icon } from '@lucide/vue';\nimport { Button } from '@/components/ui/button';\nimport { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';\nimport type { AccountMenuEntry, NavLink } from '../data';\nimport SearchForm from './SearchForm.vue';\nimport UserMenu from './UserMenu.vue';\n\ndefineProps<{\n  brandName: string;\n  brandHref: string;\n  links: NavLink[];\n  searchPlaceholder: string;\n  menuEntries: AccountMenuEntry[];\n  userMenuLabel: string;\n  navigationLabel: string;\n}>();\n</script>\n\n<template>\n  <header class=\"sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6\">\n    <nav class=\"hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6\">\n      <a\n        :href=\"brandHref\"\n        class=\"flex items-center gap-2 text-lg font-semibold md:text-base\"\n      >\n        <Package2Icon class=\"h-6 w-6\" />\n        <span class=\"sr-only\">{{ brandName }}</span>\n      </a>\n      <a\n        v-for=\"link in links\"\n        :key=\"link.label\"\n        :href=\"link.href\"\n        class=\"transition-colors hover:text-foreground\"\n        :class=\"link.isActive ? 'text-foreground' : 'text-muted-foreground'\"\n      >\n        {{ link.label }}\n      </a>\n    </nav>\n    <Sheet>\n      <SheetTrigger as-child>\n        <Button\n          variant=\"outline\"\n          size=\"icon\"\n          class=\"shrink-0 md:hidden\"\n        >\n          <MenuIcon class=\"h-5 w-5\" />\n          <span class=\"sr-only\">{{ navigationLabel }}</span>\n        </Button>\n      </SheetTrigger>\n      <SheetContent side=\"left\">\n        <nav class=\"grid gap-6 text-lg font-medium\">\n          <a\n            :href=\"brandHref\"\n            class=\"flex items-center gap-2 text-lg font-semibold\"\n          >\n            <Package2Icon class=\"h-6 w-6\" />\n            <span class=\"sr-only\">{{ brandName }}</span>\n          </a>\n          <a\n            v-for=\"link in links\"\n            :key=\"link.label\"\n            :href=\"link.href\"\n            :class=\"link.isActive ? 'hover:text-foreground' : 'text-muted-foreground hover:text-foreground'\"\n          >\n            {{ link.label }}\n          </a>\n        </nav>\n      </SheetContent>\n    </Sheet>\n    <div class=\"flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4\">\n      <SearchForm :placeholder=\"searchPlaceholder\" />\n      <UserMenu\n        :entries=\"menuEntries\"\n        :trigger-label=\"userMenuLabel\"\n      />\n    </div>\n  </header>\n</template>\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "blocks/dashboard-settings/components/PluginsDirectoryCard.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/components/ui/button';\nimport { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';\nimport { Checkbox } from '@/components/ui/checkbox';\nimport { Input } from '@/components/ui/input';\nimport type { PluginsDirectoryCardData } from '../data';\n\ndefineProps<PluginsDirectoryCardData>();\n</script>\n\n<template>\n  <Card>\n    <CardHeader>\n      <CardTitle>{{ title }}</CardTitle>\n      <CardDescription>\n        {{ description }}\n      </CardDescription>\n    </CardHeader>\n    <CardContent>\n      <form class=\"flex flex-col gap-4\">\n        <Input\n          :placeholder=\"placeholder\"\n          :model-value=\"directory\"\n        />\n        <div class=\"flex items-center space-x-2\">\n          <Checkbox\n            :id=\"checkboxId\"\n            :model-value=\"includeChecked\"\n          />\n          <label\n            :for=\"checkboxId\"\n            class=\"text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70\"\n          >\n            {{ checkboxLabel }}\n          </label>\n        </div>\n      </form>\n    </CardContent>\n    <CardFooter class=\"border-t px-6 py-4\">\n      <Button>{{ saveLabel }}</Button>\n    </CardFooter>\n  </Card>\n</template>\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "blocks/dashboard-settings/components/SearchForm.vue",
+      "content": "<script setup lang=\"ts\">\nimport { SearchIcon } from '@lucide/vue';\nimport { Input } from '@/components/ui/input';\n\ndefineProps<{\n  placeholder: string;\n}>();\n</script>\n\n<template>\n  <form class=\"ml-auto flex-1 sm:flex-initial\">\n    <div class=\"relative\">\n      <SearchIcon class=\"absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground\" />\n      <Input\n        type=\"search\"\n        :placeholder=\"placeholder\"\n        class=\"pl-8 sm:w-[300px] md:w-[200px] lg:w-[300px]\"\n      />\n    </div>\n  </form>\n</template>\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "blocks/dashboard-settings/components/SettingsNav.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { SettingsLink } from '../data';\n\ndefineProps<{\n  links: SettingsLink[];\n}>();\n</script>\n\n<template>\n  <nav class=\"grid gap-4 text-sm text-muted-foreground\">\n    <a\n      v-for=\"link in links\"\n      :key=\"link.label\"\n      :href=\"link.href\"\n      :class=\"{ 'font-semibold text-primary': link.isActive }\"\n    >\n      {{ link.label }}\n    </a>\n  </nav>\n</template>\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "blocks/dashboard-settings/components/StoreNameCard.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/components/ui/button';\nimport { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';\nimport { Input } from '@/components/ui/input';\nimport type { StoreNameCardData } from '../data';\n\ndefineProps<StoreNameCardData>();\n</script>\n\n<template>\n  <Card>\n    <CardHeader>\n      <CardTitle>{{ title }}</CardTitle>\n      <CardDescription>\n        {{ description }}\n      </CardDescription>\n    </CardHeader>\n    <CardContent>\n      <form>\n        <Input :placeholder=\"placeholder\" />\n      </form>\n    </CardContent>\n    <CardFooter class=\"border-t px-6 py-4\">\n      <Button>{{ saveLabel }}</Button>\n    </CardFooter>\n  </Card>\n</template>\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "blocks/dashboard-settings/components/UserMenu.vue",
+      "content": "<script setup lang=\"ts\">\nimport { CircleUserIcon } from '@lucide/vue';\nimport { Button } from '@/components/ui/button';\nimport { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';\nimport type { AccountMenuEntry } from '../data';\n\ndefineProps<{\n  entries: AccountMenuEntry[];\n  triggerLabel: string;\n}>();\n</script>\n\n<template>\n  <DropdownMenu>\n    <DropdownMenuTrigger as-child>\n      <Button\n        variant=\"secondary\"\n        size=\"icon\"\n        class=\"rounded-full\"\n      >\n        <CircleUserIcon class=\"h-5 w-5\" />\n        <span class=\"sr-only\">{{ triggerLabel }}</span>\n      </Button>\n    </DropdownMenuTrigger>\n    <DropdownMenuContent align=\"end\">\n      <template\n        v-for=\"entry in entries\"\n        :key=\"entry.id\"\n      >\n        <DropdownMenuLabel v-if=\"entry.kind === 'label'\">\n          {{ entry.label }}\n        </DropdownMenuLabel>\n        <DropdownMenuSeparator v-else-if=\"entry.kind === 'separator'\" />\n        <DropdownMenuItem v-else-if=\"entry.kind === 'action'\">\n          {{ entry.label }}\n        </DropdownMenuItem>\n      </template>\n    </DropdownMenuContent>\n  </DropdownMenu>\n</template>\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "blocks/dashboard-settings/data.ts",
+      "content": "export interface NavLink {\n  label: string;\n  href: string;\n  isActive?: boolean;\n}\n\nexport type AccountMenuEntry =\n  | { id: string; kind: 'label'; label: string }\n  | { id: string; kind: 'separator' }\n  | { id: string; kind: 'action'; label: string };\n\nexport interface SettingsLink {\n  label: string;\n  href: string;\n  isActive?: boolean;\n}\n\nexport interface StoreNameCardData {\n  title: string;\n  description: string;\n  placeholder: string;\n  saveLabel: string;\n}\n\nexport interface PluginsDirectoryCardData {\n  title: string;\n  description: string;\n  placeholder: string;\n  directory: string;\n  checkboxId: string;\n  checkboxLabel: string;\n  includeChecked: boolean;\n  saveLabel: string;\n}\n\nexport const brandName = 'Acme Inc';\n\nexport const brandHref = '#';\n\nexport const searchPlaceholder = 'Search products...';\n\nexport const navigationLabel = 'Toggle navigation menu';\n\nexport const userMenuLabel = 'Toggle user menu';\n\nexport const pageTitle = 'Settings';\n\nexport const headerLinks: NavLink[] = [\n  { label: 'Dashboard', href: '#' },\n  { label: 'Orders', href: '#' },\n  { label: 'Products', href: '#' },\n  { label: 'Customers', href: '#' },\n  { label: 'Settings', href: '#', isActive: true },\n];\n\nexport const accountMenu: AccountMenuEntry[] = [\n  { id: 'account-label', kind: 'label', label: 'My Account' },\n  { id: 'account-separator', kind: 'separator' },\n  { id: 'settings', kind: 'action', label: 'Settings' },\n  { id: 'support', kind: 'action', label: 'Support' },\n  { id: 'logout-separator', kind: 'separator' },\n  { id: 'logout', kind: 'action', label: 'Logout' },\n];\n\nexport const settingsLinks: SettingsLink[] = [\n  { label: 'General', href: '#', isActive: true },\n  { label: 'Security', href: '#' },\n  { label: 'Integrations', href: '#' },\n  { label: 'Support', href: '#' },\n  { label: 'Organizations', href: '#' },\n  { label: 'Advanced', href: '#' },\n];\n\nexport const storeNameCard: StoreNameCardData = {\n  title: 'Store Name',\n  description: 'Used to identify your store in the marketplace.',\n  placeholder: 'Store Name',\n  saveLabel: 'Save',\n};\n\nexport const pluginsDirectoryCard: PluginsDirectoryCardData = {\n  title: 'Plugins Directory',\n  description: 'The directory within your project, in which your plugins are located.',\n  placeholder: 'Project Name',\n  directory: '/content/plugins',\n  checkboxId: 'include',\n  checkboxLabel: 'Allow administrators to change the directory.',\n  includeChecked: true,\n  saveLabel: 'Save',\n};\n",
+      "type": "registry:lib"
+    }
+  ],
+  "meta": {
+    "iframeHeight": "780px",
+    "containerClass": "w-full h-full"
+  },
+  "categories": [
+    "dashboard",
+    "settings"
+  ]
+}

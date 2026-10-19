@@ -44,6 +44,7 @@ import {
             <Label for="name">Name</Label>
             <Input
               id="name"
+              autocomplete="name"
               model-value="Pedro Duarte"
             />
           </div>
@@ -51,6 +52,7 @@ import {
             <Label for="username">Username</Label>
             <Input
               id="username"
+              autocomplete="username"
               model-value="@peduarte"
             />
           </div>
@@ -73,6 +75,7 @@ import {
             <Label for="current">Current password</Label>
             <Input
               id="current"
+              autocomplete="current-password"
               type="password"
             />
           </div>
@@ -80,6 +83,7 @@ import {
             <Label for="new">New password</Label>
             <Input
               id="new"
+              autocomplete="new-password"
               type="password"
             />
           </div>

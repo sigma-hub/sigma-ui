@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-group-input",
+  "type": "registry:example",
+  "title": "ButtonGroupInput",
+  "dependencies": [
+    "@lucide/vue@^1.59.0"
+  ],
+  "registryDependencies": [
+    "button",
+    "button-group",
+    "input",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "example/ButtonGroupInput.vue",
+      "content": "<script setup lang=\"ts\">\nimport { SearchIcon } from '@lucide/vue';\nimport { Button } from '@/components/ui/button';\nimport { ButtonGroup, ButtonGroupText } from '@/components/ui/button-group';\nimport { Input } from '@/components/ui/input';\nimport { Label } from '@/components/ui/label';\n</script>\n\n<template>\n  <div class=\"flex w-full max-w-sm flex-col gap-4\">\n    <ButtonGroup class=\"w-full\">\n      <Input placeholder=\"Search...\" />\n      <Button\n        variant=\"outline\"\n        size=\"icon\"\n        aria-label=\"Search\"\n      >\n        <SearchIcon class=\"size-4\" />\n      </Button>\n    </ButtonGroup>\n    <ButtonGroup class=\"w-full\">\n      <ButtonGroupText as-child>\n        <Label for=\"button-group-url\">https://</Label>\n      </ButtonGroupText>\n      <Input\n        id=\"button-group-url\"\n        placeholder=\"sigma-ui.dev\"\n      />\n    </ButtonGroup>\n  </div>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

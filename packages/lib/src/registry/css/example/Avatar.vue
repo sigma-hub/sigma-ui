@@ -35,13 +35,17 @@ import { Avatar } from '@ui/registry/css/ui/avatar';
 </template>
 
 <style>
-.example-sigma-ui-avatar-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
+@layer base, components;
 
-.example-sigma-ui-avatar__text {
-  color: hsl(var(--primary) / 50%);
+@layer components {
+  .example-sigma-ui-avatar-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--spacing) * 8);
+  }
+
+  .example-sigma-ui-avatar__text {
+    color: color-mix(in oklch, var(--primary) 50%, transparent);
+  }
 }
 </style>

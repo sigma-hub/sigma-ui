@@ -1,97 +1,103 @@
-import { readFileSync, readdirSync } from 'node:fs'
-import { join } from 'node:path'
-import { parseSync } from '@oxc-parser/wasm'
-import { addComponent, addTemplate, createResolver, defineNuxtModule, useLogger } from '@nuxt/kit'
-import { UTILS_TEMPLATE } from '../../shared/templates/tailwind-config.ts'
+import { resolve } from 'node:path';
+import { addComponent, addTemplate, defineNuxtModule, findPath, resolvePath, useLogger } from '@nuxt/kit';
+import { UTILS_TEMPLATE } from '@sigma-ui/shared/templates/tailwind-config';
+import { ignorePatternsForComponentDir, isComponentIndexFile, scanComponentExports } from './components';
+import { setupTailwind, type TailwindOption } from './tailwind';
 
 export interface ModuleOptions {
   /**
-   * Prefix for all the imported component.
+   * Prefix for all the imported components.
    */
-  prefix?: string
+  prefix?: string;
   /**
-   * Directory that the component lives in.
-   * @default "./components/ui"
+   * Directory that the components live in. Accepts Nuxt aliases (such as `@/` or `~/`, which point at `srcDir`)
+   * and paths relative to `rootDir`. Match it to `aliases.components` in `sigma-ui.config.json`.
+   * @default "@/components/ui"
    */
-  componentDir?: string
+  componentDir?: string;
+  /**
+   * Registers the `@tailwindcss/vite` plugin for Tailwind v4 projects.
+   * `'auto'` registers it when `@tailwindcss/vite` is installed and not already in `vite.plugins`.
+   * @default "auto"
+   */
+  tailwind?: TailwindOption;
 }
+
+const UTILS_ALIAS = '@/lib/utils';
+const DEFAULT_COMPONENT_DIR = '@/components/ui';
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: 'sigmaUi',
+    name: 'sigma-ui-nuxt',
     configKey: 'sigmaUi',
+    compatibility: {
+      nuxt: '>=3.21.0',
+    },
   },
   defaults: {
     prefix: '',
-    componentDir: './components/ui',
+    componentDir: DEFAULT_COMPONENT_DIR,
+    tailwind: 'auto',
   },
-  async setup({ prefix, componentDir }, nuxt) {
-    const COMPONENT_DIR_PATH = componentDir!
-    const ROOT_DIR_PATH = nuxt.options.rootDir
-    const UTILS_ALIAS = '@/lib/utils' // Use the same path from the cli for backward compatibility
-    const { resolve, resolvePath } = createResolver(ROOT_DIR_PATH)
-    const logger = useLogger('sigma-ui-nuxt')
+  async setup(options, nuxt) {
+    const logger = useLogger('sigma-ui-nuxt');
+    const prefix = options.prefix ?? '';
+    const componentsPath = await resolvePath(options.componentDir ?? DEFAULT_COMPONENT_DIR, { type: 'dir' });
 
-    // `lib/utils`
-    const utilsTemplate = addTemplate({
-      filename: 'sigma-ui-nuxt/utils.ts',
-      getContents: () => UTILS_TEMPLATE,
-      write: true,
-    })
+    const projectUtilsPath = await findPath(UTILS_ALIAS);
 
-    // Add utils dir alias to the top to avoid conflicts with nuxt built in `@` alias
-    nuxt.options.alias = { [UTILS_ALIAS]: utilsTemplate.dst, ...nuxt.options.alias }
+    if (!projectUtilsPath) {
+      const utilsTemplate = addTemplate({
+        filename: 'sigma-ui-nuxt/utils.ts',
+        getContents: () => UTILS_TEMPLATE,
+        write: true,
+      });
 
-    logger.info('[sigma-ui-nuxt] Generating auto imports for components...')
+      nuxt.options.alias = { [UTILS_ALIAS]: utilsTemplate.dst, ...nuxt.options.alias };
+    }
 
-    // Components Auto Imports
-    const componentsPath = resolve(COMPONENT_DIR_PATH)
+    await setupTailwind(options.tailwind ?? 'auto', nuxt, logger);
 
-    // Tell Nuxt to not scan `componentsDir` for auto imports as we will do it manually
     nuxt.hook('components:dirs', (dirs) => {
-      dirs.unshift({
-        path: componentsPath,
-        extensions: [],
-      })
-    })
+      for (const dir of dirs) {
+        if (typeof dir === 'string' || !dir.path) {
+          continue;
+        }
 
-    // Manually scan `componentsDir` for components and register them for auto imports
-    try {
-      readdirSync(resolve(COMPONENT_DIR_PATH))
-        .forEach(async (dir) => {
-          try {
-            const filePath = await resolvePath(join(COMPONENT_DIR_PATH, dir, 'index'), { extensions: ['.ts', '.js'] })
-            const content = readFileSync(filePath, { encoding: 'utf8' })
-            const ast = parseSync(content, {
-              sourceType: 'module',
-              sourceFilename: filePath,
-            })
+        const patterns = ignorePatternsForComponentDir(componentsPath, dir.path);
 
-            const exportedKeys: string[] = ast.program.body
-              .filter(node => node.type === 'ExportNamedDeclaration')
-              // @ts-expect-error parse return any
-              .flatMap(node => node.specifiers.map(specifier => specifier.exported.name))
-              .filter((key: string) => /^[A-Z]/.test(key))
+        if (patterns.length === 0) {
+          continue;
+        }
 
-            exportedKeys.forEach((key) => {
-              addComponent({
-                name: `${prefix}${key}`, // name of the component to be used in vue templates
-                export: key, // (optional) if the component is a named (rather than default) export
-                filePath: resolve(filePath),
-              })
-            })
-          }
-          catch (error) {
-            if (error instanceof Error) {
-              console.warn('Module error: ', error.message)
-            }
-          }
-        })
-    }
-    catch (error) {
-      if (error instanceof Error) {
-        console.warn(error.message)
+        dir.ignore = [...(dir.ignore ?? []), ...patterns];
       }
+    });
+
+    const componentExports = await scanComponentExports(componentsPath, (filePath, error) => {
+      logger.warn(`Skipped components from \`${filePath}\`: ${error instanceof Error ? error.message : String(error)}`);
+    });
+
+    for (const { exportName, filePath } of componentExports) {
+      addComponent({
+        name: `${prefix}${exportName}`,
+        export: exportName,
+        filePath,
+        priority: 1,
+      });
+    }
+
+    if (nuxt.options.dev) {
+      nuxt.hook('builder:watch', async (event, path) => {
+        if (event === 'addDir' || event === 'unlinkDir') {
+          return;
+        }
+
+        if (isComponentIndexFile(componentsPath, resolve(nuxt.options.srcDir, path))) {
+          logger.info('Component exports changed, restarting Nuxt to update auto-imports...');
+          await nuxt.callHook('restart');
+        }
+      });
     }
   },
-})
+});

@@ -5,7 +5,7 @@ label: Alpha
 ---
 
 <script setup>
-import { ChartAreaIcon, ChartColumnIcon, ChartLineIcon, ChartPieIcon } from 'lucide-vue-next'
+import { ChartAreaIcon, ChartColumnIcon, ChartLineIcon, ChartPieIcon } from '@lucide/vue'
 </script>
 
 ## Chart type
@@ -96,11 +96,25 @@ The expected prop definition would be:
 
 ```ts
 defineProps<{
-  title?: string
+  title?: string;
   data: {
-    name: string
-    color: string
-    value: any
-  }[]
-}>()
+    name: string;
+    color: string;
+    value: unknown;
+  }[];
+}>();
 ```
+
+## API Reference
+
+Parts shared by every chart:
+
+<!-- @include: @/content/meta/chart.md -->
+
+## Accessibility
+
+Charts are SVG graphics. Hovering a point or bar shows a tooltip, and a donut chart lists each slice in a legend. Give the surrounding section a heading or caption that states what the chart measures. Provide the same numbers in a table when the exact values matter, and do not rely on color alone to tell series apart.
+
+| Key | Description |
+| --- | --- |
+| <kbd>Tab</kbd> | Moves focus past the chart. Points, bars, and slices are not individually focusable. |

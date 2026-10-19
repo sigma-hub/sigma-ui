@@ -50,39 +50,43 @@ const disabledTerms = ref<boolean | 'indeterminate'>(false);
 </template>
 
 <style>
-.example-sigma-ui-checkbox-custom__container {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
+@layer base, components;
 
-.example-sigma-ui-checkbox-custom {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-}
+@layer components {
+  .example-sigma-ui-checkbox-custom__container {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 8);
+  }
 
-.example-sigma-ui-checkbox-custom__content {
-  display: grid;
-  gap: 0.375rem;
-  line-height: 1;
-}
+  .example-sigma-ui-checkbox-custom {
+    display: flex;
+    align-items: flex-start;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-checkbox-custom__label {
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1;
-}
+  .example-sigma-ui-checkbox-custom__content {
+    display: grid;
+    gap: calc(var(--spacing) * 1.5);
+    line-height: 1;
+  }
 
-.example-sigma-ui-checkbox-custom:has([data-disabled]) .example-sigma-ui-checkbox-custom__label,
-.example-sigma-ui-checkbox-custom:has([data-disabled]) .example-sigma-ui-checkbox-custom__description {
-  cursor: not-allowed;
-  opacity: 0.7;
-}
+  .example-sigma-ui-checkbox-custom__label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1;
+  }
 
-.example-sigma-ui-checkbox-custom__description {
-  color: hsl(var(--muted-foreground));
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  .example-sigma-ui-checkbox-custom:has([data-disabled]) .example-sigma-ui-checkbox-custom__label,
+  .example-sigma-ui-checkbox-custom:has([data-disabled]) .example-sigma-ui-checkbox-custom__description {
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+
+  .example-sigma-ui-checkbox-custom__description {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
 }
 </style>

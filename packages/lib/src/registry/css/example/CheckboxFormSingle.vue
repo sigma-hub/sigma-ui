@@ -1,23 +1,15 @@
 <script setup lang="ts">
 import { h } from 'vue';
 import { useForm } from 'vee-validate';
-import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
 import { toast } from '@ui/registry/css/ui/toaster';
 import { Button } from '@ui/registry/css/ui/button';
-import {
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@ui/registry/css/ui/form';
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@ui/registry/css/ui/form';
 import { Checkbox } from '@ui/registry/css/ui/checkbox';
 
 const formSchema = toTypedSchema(z.object({
   mobile: z.boolean().refine(val => val === true, {
-    message: 'You must check this checkbox to proceed',
+    error: 'You must check this checkbox to proceed',
   }),
 }));
 
@@ -70,33 +62,37 @@ const onSubmit = handleSubmit((values) => {
 </template>
 
 <style>
-.example-sigma-ui-checkbox-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
+@layer base, components;
 
-.example-sigma-ui-checkbox-form__item {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 1rem;
-  border: 1px solid hsl(var(--border));
-  border-radius: var(--radius);
-  gap: 0.75rem;
-}
+@layer components {
+  .example-sigma-ui-checkbox-form {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 6);
+  }
 
-.example-sigma-ui-checkbox-form__content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  line-height: 1;
-}
+  .example-sigma-ui-checkbox-form__item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: calc(var(--spacing) * 4);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    gap: calc(var(--spacing) * 3);
+  }
 
-.example-sigma-ui-checkbox-form__toast-pre {
-  padding: 0.5rem;
-  border-radius: var(--radius-md);
-  margin-top: 0.5rem;
-  background-color: hsl(var(--muted) / 50%);
+  .example-sigma-ui-checkbox-form__content {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 1);
+    line-height: 1;
+  }
+
+  .example-sigma-ui-checkbox-form__toast-pre {
+    padding: calc(var(--spacing) * 2);
+    border-radius: var(--radius-md);
+    margin-top: calc(var(--spacing) * 2);
+    background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  }
 }
 </style>

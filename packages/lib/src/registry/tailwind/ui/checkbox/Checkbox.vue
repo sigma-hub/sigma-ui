@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import type { CheckboxRootEmits, CheckboxRootProps } from 'reka-ui';
 import { CheckboxIndicator, CheckboxRoot, useForwardPropsEmits } from 'reka-ui';
-import { CheckIcon } from 'lucide-vue-next';
+import { CheckIcon } from '@lucide/vue';
 import { cn } from '@ui/utils';
 
 interface Props extends CheckboxRootProps {
+  /** Text label rendered next to the checkbox. */
   label?: string;
+  /** Secondary text rendered below the label. */
   description?: string;
   id?: string;
 }
@@ -17,7 +19,10 @@ const forwarded = useForwardPropsEmits(props, emits);
 </script>
 
 <template>
-  <div :class="cn('peer flex items-center gap-2', { 'items-start': props.description })">
+  <div
+    :class="cn('peer flex items-center gap-2', { 'items-start': props.description })"
+    data-slot="checkbox"
+  >
     <CheckboxRoot
       v-bind="forwarded"
       :id="(props.label && props.id) || forwarded.id"

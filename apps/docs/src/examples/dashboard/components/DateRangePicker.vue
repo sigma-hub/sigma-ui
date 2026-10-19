@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CalendarIcon } from 'lucide-vue-next';
+import { CalendarIcon } from '@lucide/vue';
 import type { DateRange } from 'reka-ui';
 import { CalendarDate, DateFormatter, getLocalTimeZone } from '@internationalized/date';
 import { type Ref, ref } from 'vue';

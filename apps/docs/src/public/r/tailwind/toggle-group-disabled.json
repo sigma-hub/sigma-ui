@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle-group-disabled",
+  "type": "registry:example",
+  "title": "ToggleGroupDisabled",
+  "dependencies": [
+    "@lucide/vue@^1.59.0"
+  ],
+  "registryDependencies": [
+    "toggle-group"
+  ],
+  "files": [
+    {
+      "path": "example/ToggleGroupDisabled.vue",
+      "content": "<script setup lang=\"ts\">\nimport { BoldIcon, ItalicIcon, UnderlineIcon } from '@lucide/vue';\nimport { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';\n</script>\n\n<template>\n  <ToggleGroup\n    type=\"multiple\"\n    disabled\n  >\n    <ToggleGroupItem\n      value=\"bold\"\n      aria-label=\"Toggle bold\"\n    >\n      <BoldIcon class=\"h-4 w-4\" />\n    </ToggleGroupItem>\n    <ToggleGroupItem\n      value=\"italic\"\n      aria-label=\"Toggle italic\"\n    >\n      <ItalicIcon class=\"h-4 w-4\" />\n    </ToggleGroupItem>\n    <ToggleGroupItem\n      value=\"underline\"\n      aria-label=\"Toggle underline\"\n    >\n      <UnderlineIcon class=\"h-4 w-4\" />\n    </ToggleGroupItem>\n  </ToggleGroup>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -3,6 +3,20 @@ title: Changelog
 description: Latest updates and announcements.
 ---
 
+Every CLI release is listed in the [sigma-ui changelog](https://github.com/sigma-hub/sigma-ui/blob/main/packages/cli/CHANGELOG.md), and Nuxt module releases in the [sigma-ui-nuxt changelog](https://github.com/sigma-hub/sigma-ui/blob/main/packages/nuxt-module/CHANGELOG.md).
+
+## October 2026
+
+`v2.0.0`:
+
+- Registry-driven CLI: components are fetched from `https://sigma-ui.dev/r/{style}/{name}.json`.
+- Tailwind CSS v4 only (`@theme`, `@tailwindcss/vite`, `tw-animate-css`). Tailwind 3 and `tailwindcss-animate` are not supported for new installs.
+- `migrate` upgrades 1.x projects: config shape, kebab-case component directories, imports, and theme CSS. See the [migration guide](/docs/migration).
+- `diff` is deprecated. It prints a warning and runs `add --diff`.
+- New commands: `view`, `search`, `build`, and [`mcp`](/docs/mcp).
+- Forms validate with any Standard Schema library (Zod 4, Valibot, ArkType). `@vee-validate/zod` is no longer needed.
+- First release of the [Nuxt module](/docs/installation/nuxt), `sigma-ui-nuxt` 1.0.0.
+
 ## January 2026
 
 #### Changes

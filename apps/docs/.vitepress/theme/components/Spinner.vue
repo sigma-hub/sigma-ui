@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LoaderCircleIcon } from 'lucide-vue-next';
+import { LoaderCircleIcon } from '@lucide/vue';
 </script>
 
 <template>

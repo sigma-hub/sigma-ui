@@ -24,7 +24,7 @@ import { Label } from '@ui/registry/tailwind/ui/label';
 import { Input } from '@ui/registry/tailwind/ui/input';
 
 const [UseTemplate, GridForm] = createReusableTemplate();
-const isDesktop = useMediaQuery('(min-width: 768px)');
+const isDesktop = useMediaQuery('(width >= 48rem)');
 
 const isOpen = ref(false);
 </script>
@@ -36,6 +36,7 @@ const isOpen = ref(false);
         <Label html-for="email">Email</Label>
         <Input
           id="email"
+          autocomplete="email"
           type="email"
           model-value="sigma-ui@example.com"
         />
@@ -44,6 +45,7 @@ const isOpen = ref(false);
         <Label html-for="username">Username</Label>
         <Input
           id="username"
+          autocomplete="username"
           model-value="sigma-ui"
         />
       </div>

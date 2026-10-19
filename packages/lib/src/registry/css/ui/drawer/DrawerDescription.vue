@@ -1,22 +1,39 @@
 <script lang="ts" setup>
-import type { DrawerDescriptionProps } from 'vaul-vue';
-import { DrawerDescription } from 'vaul-vue';
+import { useAttrs } from 'vue';
+
+import type { DrawerDescriptionProps } from 'reka-ui';
+import { DrawerDescription } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<DrawerDescriptionProps>();
 </script>
 
 <template>
   <DrawerDescription
-    v-bind="props"
+    data-slot="drawer-description"
+    v-bind="{ ...props, ...delegatedAttrs() }"
     class="sigma-ui-drawer-description"
+    :class="[$attrs.class]"
   >
     <slot />
   </DrawerDescription>
 </template>
 
 <style>
-.sigma-ui-drawer-description {
-  color: hsl(var(--muted-foreground));
-  font-size: 0.875rem;
+@layer base, components;
+
+@layer components {
+  .sigma-ui-drawer-description {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+  }
 }
 </style>

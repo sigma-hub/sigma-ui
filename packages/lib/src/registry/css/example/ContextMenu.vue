@@ -76,22 +76,26 @@ import {
 </template>
 
 <style>
-.example-sigma-ui-context__trigger {
-  display: flex;
-  width: 300px;
-  height: 150px;
-  align-items: center;
-  justify-content: center;
-  border: 1px dashed hsl(var(--border));
-  border-radius: var(--radius);
-  font-size: 0.875rem;
-}
+@layer base, components;
 
-.example-sigma-ui-context__content {
-  width: 16rem;
-}
+@layer components {
+  .example-sigma-ui-context__trigger {
+    display: flex;
+    width: 300px;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+  }
 
-.example-sigma-ui-context__subcontent {
-  width: 12rem;
+  .example-sigma-ui-context__content {
+    width: calc(var(--spacing) * 64);
+  }
+
+  .example-sigma-ui-context__subcontent {
+    width: calc(var(--spacing) * 48);
+  }
 }
 </style>

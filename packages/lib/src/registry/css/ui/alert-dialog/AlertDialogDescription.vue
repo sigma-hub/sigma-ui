@@ -11,6 +11,7 @@ const attrs = useAttrs();
 
 <template>
   <AlertDialogDescription
+    data-slot="alert-dialog-description"
     v-bind="props"
     class="sigma-ui-alert-dialog-description"
     :class="attrs.class"
@@ -20,8 +21,12 @@ const attrs = useAttrs();
 </template>
 
 <style>
-.sigma-ui-alert-dialog-description {
-  color: hsl(var(--muted-foreground));
-  font-size: 0.875rem;
+@layer base, components;
+
+@layer components {
+  .sigma-ui-alert-dialog-description {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+  }
 }
 </style>

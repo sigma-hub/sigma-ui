@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "number-field-currency",
+  "type": "registry:example",
+  "title": "NumberFieldCurrency",
+  "dependencies": [],
+  "registryDependencies": [
+    "label",
+    "number-field"
+  ],
+  "files": [
+    {
+      "path": "example/NumberFieldCurrency.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue';\nimport {\n  NumberField,\n  NumberFieldContent,\n  NumberFieldDecrement,\n  NumberFieldIncrement,\n  NumberFieldInput,\n} from '@/components/ui/number-field';\nimport { Label } from '@/components/ui/label';\n\nconst model = ref(1500);\n</script>\n\n<template>\n  <NumberField\n    id=\"balance\"\n    v-model=\"model\"\n    :format-options=\"{\n      style: 'currency',\n      currency: 'EUR',\n      currencyDisplay: 'code',\n      currencySign: 'accounting',\n    }\"\n  >\n    <Label for=\"balance\">Balance</Label>\n    <NumberFieldContent>\n      <NumberFieldDecrement />\n      <NumberFieldInput />\n      <NumberFieldIncrement />\n    </NumberFieldContent>\n  </NumberField>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

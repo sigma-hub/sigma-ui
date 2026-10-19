@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { MinusIcon, PlusIcon } from 'lucide-vue-next';
+import { MinusIcon, PlusIcon } from '@lucide/vue';
 import { VisStackedBar, VisXYContainer } from '@unovis/vue';
 import { Button } from '@ui/registry/css/ui/button';
 import {
@@ -57,7 +57,7 @@ const data = [
               @click="goal -= 10"
             >
               <MinusIcon class="example-sigma-ui-drawer__goal-icon" />
-              <span class="sr-only">Decrease</span>
+              <span class="sigma-ui-sr-only">Decrease</span>
             </Button>
             <div class="example-sigma-ui-drawer__goal-display">
               <div class="example-sigma-ui-drawer__goal-value">
@@ -75,7 +75,7 @@ const data = [
               @click="goal += 10"
             >
               <PlusIcon class="example-sigma-ui-drawer__goal-icon" />
-              <span class="sr-only">Increase</span>
+              <span class="sigma-ui-sr-only">Increase</span>
             </Button>
           </div>
           <div class="example-sigma-ui-drawer__chart">
@@ -84,7 +84,7 @@ const data = [
               class="example-sigma-ui-drawer__chart-container"
               :style="{
                 'opacity': 0.9,
-                '--theme-primary': `hsl(var(--foreground))`,
+                '--theme-primary': `var(--foreground)`,
               }"
             >
               <VisStackedBar
@@ -111,62 +111,78 @@ const data = [
 </template>
 
 <style>
-.example-sigma-ui-drawer__container {
-  width: 100%;
-  max-width: 24rem;
-  margin: 0 auto;
-}
+@layer base, components;
 
-.example-sigma-ui-drawer__content {
-  padding: 1rem;
-  padding-bottom: 0;
-}
+@layer components {
+  .example-sigma-ui-drawer__container {
+    width: 100%;
+    max-width: 24rem;
+    margin: 0 auto;
+  }
 
-.example-sigma-ui-drawer__goal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
+  .example-sigma-ui-drawer__content {
+    padding: calc(var(--spacing) * 4);
+    padding-bottom: 0;
+  }
 
-.example-sigma-ui-drawer__goal-button {
-  width: 2rem;
-  height: 2rem;
-  flex-shrink: 0;
-  border-radius: var(--radius-full);
-}
+  .example-sigma-ui-drawer__goal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-drawer__goal-icon {
-  width: 1rem;
-  height: 1rem;
-}
+  .example-sigma-ui-drawer__goal-button {
+    width: calc(var(--spacing) * 8);
+    height: calc(var(--spacing) * 8);
+    flex-shrink: 0;
+    border-radius: var(--radius-full);
+  }
 
-.example-sigma-ui-drawer__goal-display {
-  flex: 1;
-  text-align: center;
-}
+  .example-sigma-ui-drawer__goal-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 
-.example-sigma-ui-drawer__goal-value {
-  font-size: 4.5rem;
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1;
-}
+  .example-sigma-ui-drawer__goal-display {
+    flex: 1;
+    text-align: center;
+  }
 
-.example-sigma-ui-drawer__goal-label {
-  color: hsl(var(--muted-foreground));
-  font-size: 0.7rem;
-  line-height: 1;
-  text-transform: uppercase;
-}
+  .example-sigma-ui-drawer__goal-value {
+    font-size: 4.5rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1;
+  }
 
-.example-sigma-ui-drawer__chart {
-  height: 120px;
-  padding: 0 0.75rem;
-  margin: 0.75rem;
-}
+  .example-sigma-ui-drawer__goal-label {
+    color: var(--muted-foreground);
+    font-size: 0.7rem;
+    line-height: 1;
+    text-transform: uppercase;
+  }
 
-.example-sigma-ui-drawer__chart-container {
-  height: 120px;
+  .example-sigma-ui-drawer__chart {
+    height: 120px;
+    padding: 0 calc(var(--spacing) * 3);
+    margin: calc(var(--spacing) * 3);
+  }
+
+  .example-sigma-ui-drawer__chart-container {
+    height: 120px;
+  }
+
+  .sigma-ui-sr-only {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border-width: 0;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
 }
 </style>

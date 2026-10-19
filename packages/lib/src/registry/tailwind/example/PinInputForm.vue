@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { h } from 'vue';
 import { useForm } from 'vee-validate';
-import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
 import { toast } from '@ui/registry/tailwind/ui/toaster';
 import {
@@ -10,23 +9,16 @@ import {
   PinInputInput,
 } from '@ui/registry/tailwind/ui/pin-input';
 import { Button } from '@ui/registry/tailwind/ui/button';
-import {
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@ui/registry/tailwind/ui/form';
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@ui/registry/tailwind/ui/form';
 
 const formSchema = toTypedSchema(z.object({
-  pin: z.array(z.coerce.string()).length(5, { message: 'Invalid input' }),
+  pin: z.array(z.coerce.number()).length(5, { error: 'Invalid input' }),
 }));
 
 const { handleSubmit, setFieldValue } = useForm({
   validationSchema: formSchema,
   initialValues: {
-    pin: ['1', '2', '3'],
+    pin: [1, 2, 3],
   },
 });
 
@@ -36,7 +28,7 @@ const onSubmit = handleSubmit(({ pin }) => {
   });
 });
 
-const handleComplete = (e: string[]) => console.log(e.join(''));
+const handleComplete = (digits: (number | undefined)[]) => console.log(digits.join(''));
 </script>
 
 <template>
@@ -60,8 +52,8 @@ const handleComplete = (e: string[]) => console.log(e.join(''));
             type="number"
             :name="componentField.name"
             @complete="handleComplete"
-            @update:model-value="(arrStr) => {
-              setFieldValue('pin', arrStr.filter(Boolean))
+            @update:model-value="(digits) => {
+              setFieldValue('pin', digits.filter((digit) => digit !== undefined))
             }"
           >
             <PinInputGroup>

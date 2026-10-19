@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "command-dialog",
+  "type": "registry:example",
+  "title": "CommandDialog",
+  "dependencies": [
+    "@vueuse/core@^15.0.0"
+  ],
+  "registryDependencies": [
+    "command",
+    "toaster"
+  ],
+  "files": [
+    {
+      "path": "example/CommandDialog.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useMagicKeys } from '@vueuse/core';\nimport { ref, watch } from 'vue';\nimport { toast } from '@/components/ui/toaster';\nimport {\n  CommandDialog,\n  CommandEmpty,\n  CommandGroup,\n  CommandInput,\n  CommandItem,\n  CommandList,\n  CommandSeparator,\n} from '@/components/ui/command';\n\nconst open = ref(false);\n\nconst { Meta_J, Ctrl_J } = useMagicKeys({\n  passive: false,\n  onEventFired(e) {\n    if (e.key === 'j' && (e.metaKey || e.ctrlKey)) {\n      e.preventDefault();\n    }\n  },\n});\n\nwatch([Meta_J, Ctrl_J], (v) => {\n  if (v[0] || v[1]) {\n    handleOpenChange();\n  }\n});\n\nfunction handleOpenChange() {\n  open.value = !open.value;\n}\n\nfunction handleSelect(event: any) {\n  if (event.detail?.value) {\n    toast('Selected command', {\n      description: `You selected: ${event.detail.value}`,\n    });\n    open.value = false;\n  }\n}\n</script>\n\n<template>\n  <div>\n    <p class=\"text-sm text-muted-foreground\">\n      Press\n      <kbd\n        class=\"pointer-events-none inline-flex select-none items-center gap-1 rounded border bg-muted px-2 py-1 font-mono text-[10px] font-medium text-muted-foreground opacity-100\"\n      >\n        <span class=\"text-xs\">⌘</span>\n        <span class=\"text-sm\">J</span>\n      </kbd>\n    </p>\n    <CommandDialog v-model:open=\"open\">\n      <CommandInput placeholder=\"Type a command or search...\" />\n      <CommandList>\n        <CommandEmpty>No results found.</CommandEmpty>\n        <CommandGroup heading=\"Suggestions\">\n          <CommandItem\n            value=\"calendar\"\n            @select=\"handleSelect\"\n          >\n            Calendar\n          </CommandItem>\n          <CommandItem\n            value=\"search-emoji\"\n            @select=\"handleSelect\"\n          >\n            Search Emoji\n          </CommandItem>\n          <CommandItem\n            value=\"calculator\"\n            @select=\"handleSelect\"\n          >\n            Calculator\n          </CommandItem>\n        </CommandGroup>\n        <CommandSeparator />\n        <CommandGroup heading=\"Settings\">\n          <CommandItem\n            value=\"profile\"\n            @select=\"handleSelect\"\n          >\n            Profile\n          </CommandItem>\n          <CommandItem\n            value=\"billing\"\n            @select=\"handleSelect\"\n          >\n            Billing\n          </CommandItem>\n          <CommandItem\n            value=\"settings\"\n            @select=\"handleSelect\"\n          >\n            Settings\n          </CommandItem>\n        </CommandGroup>\n      </CommandList>\n    </CommandDialog>\n  </div>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

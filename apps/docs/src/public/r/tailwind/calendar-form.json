@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "calendar-form",
+  "type": "registry:example",
+  "title": "CalendarForm",
+  "dependencies": [
+    "@internationalized/date@^3.12.4",
+    "@lucide/vue@^1.59.0",
+    "reka-ui@^2.11.0",
+    "vee-validate@^4.15.1",
+    "zod@^4.6.7"
+  ],
+  "registryDependencies": [
+    "button",
+    "calendar",
+    "form",
+    "popover",
+    "toaster"
+  ],
+  "files": [
+    {
+      "path": "example/CalendarForm.vue",
+      "content": "<script setup lang=\"ts\">\nimport { computed, h, ref } from 'vue';\nimport { CalendarDate, DateFormatter, getLocalTimeZone, parseDate, today } from '@internationalized/date';\nimport { toDate } from 'reka-ui/date';\nimport { CalendarIcon } from '@lucide/vue';\nimport { useForm } from 'vee-validate';\nimport { z } from 'zod';\nimport { toast } from '@/components/ui/toaster';\nimport { Calendar } from '@/components/ui/calendar';\nimport { Button } from '@/components/ui/button';\nimport { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@/components/ui/form';\nimport { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';\nimport { cn } from '@/lib/utils';\n\nconst df = new DateFormatter('en-US', {\n  dateStyle: 'long',\n});\n\nconst formSchema = toTypedSchema(z.object({\n  dob: z\n    .string({ error: 'A date of birth is required.' })\n    .refine(v => v, { error: 'A date of birth is required.' }),\n}));\n\nconst placeholder = ref();\n\nconst { handleSubmit, setFieldValue, values } = useForm({\n  validationSchema: formSchema,\n});\n\nconst value = computed({\n  get: () => values.dob ? parseDate(values.dob) : undefined,\n  set: val => val,\n});\n\nconst onSubmit = handleSubmit((values) => {\n  toast('You submitted the following values:', {\n    description: h('pre', { class: 'mt-2 rounded-md bg-muted/50 p-4' }, h('code', {}, JSON.stringify(values, null, 2))),\n  });\n});\n</script>\n\n<template>\n  <form\n    class=\"space-y-8\"\n    @submit=\"onSubmit\"\n  >\n    <FormField name=\"dob\">\n      <FormItem class=\"flex flex-col gap-2\">\n        <FormLabel>Date of birth</FormLabel>\n        <Popover>\n          <PopoverTrigger as-child>\n            <FormControl>\n              <Button\n                variant=\"outline\"\n                :class=\"cn(\n                  'w-[240px] ps-3 text-start font-normal',\n                  !value && 'text-muted-foreground',\n                )\"\n              >\n                <span>{{ value ? df.format(toDate(value)) : \"Pick a date\" }}</span>\n                <CalendarIcon class=\"ms-auto h-4 w-4 opacity-50\" />\n              </Button>\n              <input hidden>\n            </FormControl>\n          </PopoverTrigger>\n          <PopoverContent class=\"w-auto p-0\">\n            <Calendar\n              v-model:placeholder=\"placeholder\"\n              v-model=\"value\"\n              calendar-label=\"Date of birth\"\n              initial-focus\n              :min-value=\"new CalendarDate(1900, 1, 1)\"\n              :max-value=\"today(getLocalTimeZone())\"\n              @update:model-value=\"(value) => {\n                if (value) {\n                  setFieldValue('dob', value.toString())\n                }\n                else {\n                  setFieldValue('dob', undefined)\n                }\n              }\"\n            />\n          </PopoverContent>\n        </Popover>\n        <FormDescription>\n          Your date of birth is used to calculate your age.\n        </FormDescription>\n        <FormMessage />\n      </FormItem>\n    </FormField>\n    <Button type=\"submit\">\n      Submit\n    </Button>\n  </form>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

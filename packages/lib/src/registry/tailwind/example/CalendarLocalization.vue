@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { type Ref, computed } from 'vue';
+import type { Ref } from 'vue';
 import { CalendarRoot, type CalendarRootEmits, type CalendarRootProps, useDateFormatter, useForwardPropsEmits } from 'reka-ui';
 import { createDecade, createYear, toDate } from 'reka-ui/date';
 import { type DateValue, getLocalTimeZone, today } from '@internationalized/date';
-import { useVModel } from '@vueuse/core';
-import { ref } from 'vue';
+import { reactiveOmit, useVModel } from '@vueuse/core';
+import { ref, useAttrs } from 'vue';
 import { CalendarCell, CalendarCellTrigger, CalendarGrid, CalendarGridBody, CalendarGridHead, CalendarGridRow, CalendarHeadCell, CalendarHeader, CalendarHeading } from '@ui/registry/tailwind/ui/calendar';
 import {
   Select,
@@ -14,6 +14,15 @@ import {
   SelectValue,
 } from '@ui/registry/tailwind/ui/select';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = withDefaults(defineProps<CalendarRootProps>(), {
   modelValue: undefined,
@@ -24,7 +33,7 @@ const props = withDefaults(defineProps<CalendarRootProps>(), {
 });
 const emits = defineEmits<CalendarRootEmits>();
 
-const delegatedProps = computed(() => ({ ...props, placeholder: undefined }));
+const delegatedProps = reactiveOmit(props, 'placeholder');
 const forwarded = useForwardPropsEmits(delegatedProps, emits);
 
 const placeholder = useVModel(props, 'modelValue', emits, {
@@ -41,8 +50,8 @@ formatter.setLocale(locale.value);
 <template>
   <CalendarRoot
     v-slot="{ date, grid, weekDays }"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     v-model:placeholder="placeholder"
-    v-bind="forwarded"
     :locale="locale"
     :class="cn('rounded-md border p-3', $attrs.class ?? '')"
   >

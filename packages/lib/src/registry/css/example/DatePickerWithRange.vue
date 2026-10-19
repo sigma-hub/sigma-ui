@@ -5,7 +5,7 @@ import {
   DateFormatter,
   getLocalTimeZone,
 } from '@internationalized/date';
-import { CalendarIcon } from 'lucide-vue-next';
+import { CalendarIcon } from '@lucide/vue';
 import type { DateRange } from 'reka-ui';
 import { RangeCalendar } from '@ui/registry/css/ui/range-calendar';
 import { Button } from '@ui/registry/css/ui/button';
@@ -56,25 +56,29 @@ const value = ref({
 </template>
 
 <style>
-.example-sigma-ui-date-picker__button {
-  width: 280px;
-  justify-content: flex-start;
-  font-weight: normal;
-  text-align: left;
-}
+@layer base, components;
 
-.example-sigma-ui-date-picker__button--placeholder {
-  color: hsl(var(--muted-foreground));
-}
+@layer components {
+  .example-sigma-ui-date-picker__button {
+    width: 280px;
+    justify-content: flex-start;
+    font-weight: normal;
+    text-align: left;
+  }
 
-.example-sigma-ui-date-picker__button-icon {
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.5rem;
-}
+  .example-sigma-ui-date-picker__button--placeholder {
+    color: var(--muted-foreground);
+  }
 
-.example-sigma-ui-date-picker__content {
-  width: auto;
-  padding: 0;
+  .example-sigma-ui-date-picker__button-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-right: calc(var(--spacing) * 2);
+  }
+
+  .example-sigma-ui-date-picker__content {
+    width: auto;
+    padding: 0;
+  }
 }
 </style>

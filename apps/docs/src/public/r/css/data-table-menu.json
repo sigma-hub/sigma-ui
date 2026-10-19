@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "data-table-menu",
+  "type": "registry:example",
+  "title": "DataTableMenu",
+  "dependencies": [
+    "@lucide/vue@^1.59.0"
+  ],
+  "registryDependencies": [
+    "button",
+    "dropdown-menu"
+  ],
+  "files": [
+    {
+      "path": "example/DataTableMenu.vue",
+      "content": "<script setup lang=\"ts\">\nimport { MoreHorizontalIcon } from '@lucide/vue';\nimport { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';\nimport { Button } from '@/components/ui/button';\n\ntype Props = {\n  payment: {\n    id: string;\n  };\n};\n\ntype Emits = {\n  expand: [];\n};\n\nconst props = defineProps<Props>();\nconst emit = defineEmits<Emits>();\n\nfunction copy(id: string) {\n  navigator.clipboard.writeText(id);\n}\n</script>\n\n<template>\n  <DropdownMenu>\n    <DropdownMenuTrigger as-child>\n      <Button\n        variant=\"ghost\"\n        class=\"example-sigma-ui-data-table-menu__button\"\n      >\n        <span class=\"example-sigma-ui-data-table-menu__button-label\">Open menu</span>\n        <MoreHorizontalIcon class=\"example-sigma-ui-data-table-menu__button-icon\" />\n      </Button>\n    </DropdownMenuTrigger>\n    <DropdownMenuContent align=\"end\">\n      <DropdownMenuLabel>Actions</DropdownMenuLabel>\n      <DropdownMenuItem @click=\"copy(payment.id)\">\n        Copy payment ID\n      </DropdownMenuItem>\n      <DropdownMenuItem @click=\"emit('expand')\">\n        Expand\n      </DropdownMenuItem>\n      <DropdownMenuSeparator />\n      <DropdownMenuItem>View customer</DropdownMenuItem>\n      <DropdownMenuItem>View payment details</DropdownMenuItem>\n    </DropdownMenuContent>\n  </DropdownMenu>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .example-sigma-ui-data-table-menu__button {\n    width: calc(var(--spacing) * 8);\n    height: calc(var(--spacing) * 8);\n    padding: 0;\n  }\n\n  .example-sigma-ui-data-table-menu__button-label {\n    position: absolute;\n    overflow: hidden;\n    width: 1px;\n    height: 1px;\n    padding: 0;\n    border: 0;\n    margin: -1px;\n    clip: rect(0, 0, 0, 0);\n    white-space: nowrap;\n  }\n\n  .example-sigma-ui-data-table-menu__button-icon {\n    width: calc(var(--spacing) * 4);\n    height: calc(var(--spacing) * 4);\n  }\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

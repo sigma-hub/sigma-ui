@@ -1,0 +1,28 @@
+<script lang="ts" setup>
+import { useAttrs } from 'vue';
+
+import { YearPickerGrid, type YearPickerGridProps, useForwardProps } from 'reka-ui';
+import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
+
+const props = defineProps<YearPickerGridProps>();
+const forwarded = useForwardProps(props);
+</script>
+
+<template>
+  <YearPickerGrid
+    data-slot="year-picker-grid"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
+    :class="cn('w-full border-collapse', $attrs.class ?? '')"
+  >
+    <slot />
+  </YearPickerGrid>
+</template>

@@ -1,6 +1,8 @@
 <script lang="ts" setup>
+import { useAttrs } from 'vue';
+
 import type { Component } from 'vue';
-import { ChevronRightIcon } from 'lucide-vue-next';
+import { ChevronRightIcon } from '@lucide/vue';
 import {
   Breadcrumb,
   BreadcrumbItem as BreadcrumbItemComponent,
@@ -9,24 +11,54 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '.';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
+
+export interface BreadcrumbRouteLocation {
+  name?: string | symbol;
+  path?: string;
+  params?: Record<string, unknown>;
+  query?: Record<string, unknown>;
+  hash?: string;
+  replace?: boolean;
+}
 
 export interface BreadcrumbItem {
   label?: string;
   icon?: string | Component;
   url?: string;
-  route?: any;
+  route?: string | BreadcrumbRouteLocation;
   target?: string;
   active?: boolean;
 }
 
 interface ActionProps {
-
+  /** Classes for the active or inactive item. */
+  'class'?: string;
   'aria-current'?: 'page' | 'step' | 'location' | 'date' | 'time' | boolean;
 }
 
 const props = defineProps<{
+  /** Item rendered first, before the model items. */
   home?: BreadcrumbItem;
+  /** Items to render in order; the last one is marked as the current page. */
   model?: BreadcrumbItem[];
+}>();
+
+defineSlots<{
+  /** Replaces the rendering of the home item. */
+  home?: (props: { item: BreadcrumbItem; props: { action: ActionProps } }) => unknown;
+  /** Replaces the chevron icon between items. */
+  separator?: () => unknown;
+  /** Replaces the rendering of each model item. */
+  item?: (props: { item: BreadcrumbItem; props: { action: ActionProps } }) => unknown;
 }>();
 
 function getActionProps(item: BreadcrumbItem, isLast: boolean): ActionProps {
@@ -39,7 +71,11 @@ function getActionProps(item: BreadcrumbItem, isLast: boolean): ActionProps {
 </script>
 
 <template>
-  <Breadcrumb :class="$attrs.class">
+  <Breadcrumb
+    data-slot="breadcrumb-generator"
+    v-bind="delegatedAttrs()"
+    :class="$attrs.class"
+  >
     <BreadcrumbList>
       <BreadcrumbItemComponent v-if="home">
         <slot
@@ -147,32 +183,36 @@ function getActionProps(item: BreadcrumbItem, isLast: boolean): ActionProps {
 </template>
 
 <style>
-.sigma-ui-breadcrumb__action {
-  display: flex;
-  align-items: center;
-  color: hsl(var(--muted-foreground));
-  cursor: pointer;
-}
+@layer base, components;
 
-.sigma-ui-breadcrumb__action--active {
-  color: hsl(var(--foreground));
-  font-weight: 500;
-}
+@layer components {
+  .sigma-ui-breadcrumb__action {
+    display: flex;
+    align-items: center;
+    color: var(--muted-foreground);
+    cursor: pointer;
+  }
 
-.sigma-ui-breadcrumb__link {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
+  .sigma-ui-breadcrumb__action--active {
+    color: var(--foreground);
+    font-weight: 500;
+  }
 
-.sigma-ui-breadcrumb__content {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
+  .sigma-ui-breadcrumb__link {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.sigma-ui-breadcrumb__icon {
-  width: 1rem;
-  height: 1rem;
+  .sigma-ui-breadcrumb__content {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+  }
+
+  .sigma-ui-breadcrumb__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 }
 </style>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useAttrs } from 'vue';
+
 import {
   DropdownMenuCheckboxItem,
   type DropdownMenuCheckboxItemEmits,
@@ -6,8 +8,17 @@ import {
   DropdownMenuItemIndicator,
   useForwardPropsEmits,
 } from 'reka-ui';
-import { CheckIcon } from 'lucide-vue-next';
+import { CheckIcon } from '@lucide/vue';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<DropdownMenuCheckboxItemProps>();
 const emits = defineEmits<DropdownMenuCheckboxItemEmits>();
@@ -17,7 +28,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <DropdownMenuCheckboxItem
-    v-bind="forwarded"
+    data-slot="dropdown-menu-checkbox-item"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class=" cn(
       'relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-hidden transition-colors focus:bg-secondary focus:text-secondary-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
       $attrs.class ?? '',

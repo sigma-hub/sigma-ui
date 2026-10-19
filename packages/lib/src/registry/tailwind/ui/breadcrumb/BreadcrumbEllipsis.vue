@@ -1,11 +1,29 @@
 <script lang="ts" setup>
-import { MoreHorizontalIcon } from 'lucide-vue-next';
-import { cn } from '@ui/utils';
+import { useAttrs } from 'vue';
 
+import { MoreHorizontalIcon } from '@lucide/vue';
+import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
+
+const props = withDefaults(defineProps<{
+  label?: string;
+}>(), {
+  label: 'More',
+});
 </script>
 
 <template>
   <span
+    data-slot="breadcrumb-ellipsis"
+    v-bind="delegatedAttrs()"
     role="presentation"
     aria-hidden="true"
     :class="cn('flex items-center justify-center', $attrs.class ?? '')"
@@ -13,6 +31,6 @@ import { cn } from '@ui/utils';
     <slot>
       <MoreHorizontalIcon class="h-4 w-4" />
     </slot>
-    <span class="sr-only">More</span>
+    <span class="sr-only">{{ props.label }}</span>
   </span>
 </template>

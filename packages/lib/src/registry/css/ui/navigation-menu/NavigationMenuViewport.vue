@@ -1,9 +1,20 @@
 <script setup lang="ts">
+import { useAttrs } from 'vue';
+
 import {
   NavigationMenuViewport,
   type NavigationMenuViewportProps,
   useForwardProps,
 } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<NavigationMenuViewportProps>();
 
@@ -13,7 +24,8 @@ const forwardedProps = useForwardProps(props);
 <template>
   <div class="sigma-ui-navigation-menu-viewport-wrapper">
     <NavigationMenuViewport
-      v-bind="forwardedProps"
+      data-slot="navigation-menu-viewport"
+      v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
       class="sigma-ui-navigation-menu-viewport"
       :class="$attrs.class"
     />
@@ -21,64 +33,68 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-navigation-menu-viewport-wrapper {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  display: flex;
-  justify-content: center;
-}
+@layer base, components;
 
-.sigma-ui-navigation-menu-viewport {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: var(--reka-navigation-menu-viewport-height);
-  border: 1px solid hsl(var(--border));
-  border-radius: var(--radius);
-  margin-top: 0.375rem;
-  backdrop-filter: blur(var(--backdrop-filter-blur));
-  background-color: hsl(var(--popover));
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
-  color: hsl(var(--popover-foreground));
-  transform-origin: top center;
-}
+@layer components {
+  .sigma-ui-navigation-menu-viewport-wrapper {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: flex;
+    justify-content: center;
+  }
 
-@media (width >= 768px) {
   .sigma-ui-navigation-menu-viewport {
-    width: var(--reka-navigation-menu-viewport-width);
-  }
-}
-
-.sigma-ui-navigation-menu-viewport[data-state="open"] {
-  animation: sigma-ui-nav-viewport-in 0.2s ease;
-}
-
-.sigma-ui-navigation-menu-viewport[data-state="closed"] {
-  animation: sigma-ui-nav-viewport-out 0.2s ease;
-}
-
-@keyframes sigma-ui-nav-viewport-in {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: var(--reka-navigation-menu-viewport-height);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-top: calc(var(--spacing) * 1.5);
+    backdrop-filter: blur(var(--backdrop-filter-blur));
+    background-color: var(--popover);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
+    color: var(--popover-foreground);
+    transform-origin: top center;
   }
 
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes sigma-ui-nav-viewport-out {
-  from {
-    opacity: 1;
-    transform: scale(1);
+  @media (width >= 48rem) {
+    .sigma-ui-navigation-menu-viewport {
+      width: var(--reka-navigation-menu-viewport-width);
+    }
   }
 
-  to {
-    opacity: 0;
-    transform: scale(0.95);
+  .sigma-ui-navigation-menu-viewport[data-state="open"] {
+    animation: sigma-ui-nav-viewport-in 0.2s ease;
+  }
+
+  .sigma-ui-navigation-menu-viewport[data-state="closed"] {
+    animation: sigma-ui-nav-viewport-out 0.2s ease;
+  }
+
+  @keyframes sigma-ui-nav-viewport-in {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes sigma-ui-nav-viewport-out {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    to {
+      opacity: 0;
+      transform: scale(0.95);
+    }
   }
 }
 </style>

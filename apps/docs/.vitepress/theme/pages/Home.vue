@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { buttonVariants } from '@ui/registry/tailwind/ui/button';
 import { cn } from '@ui/utils';
-import { GithubIcon } from 'lucide-vue-next';
+import GithubIcon from '../components/GithubIcon.vue';
 import PageHeader from '../components/PageHeader.vue';
 import PageHeaderHeading from '../components/PageHeaderHeading.vue';
 import PageHeaderDescription from '../components/PageHeaderDescription.vue';
@@ -17,7 +17,7 @@ import ExamplesDemo from '../../theme/components/ExamplesDemo.vue';
     <PageHeaderHeading>Sigma-UI components</PageHeaderHeading>
     <PageHeaderDescription>
       Well designed <span class="whitespace-nowrap font-mono bg-muted dark:bg-muted/60 font-bold rounded-md px-2 py-1">Vue</span> components.
-      Built on Reka (formerly Radix-Vue). Minimally styled. Accessible. Fully customizable. Open Source.
+      Built on Reka UI primitives. Minimally styled. Accessible. Fully customizable. Open Source. It's like shadcn/ui but for Vue
       <br>
       Copy to your project with a single
       <span class="whitespace-nowrap font-mono bg-muted dark:bg-muted/60 font-bold rounded-md px-2 py-1">npx sigma-ui add</span>

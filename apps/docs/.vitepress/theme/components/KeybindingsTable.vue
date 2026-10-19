@@ -1,9 +1,6 @@
 <script setup lang="ts">
-import { capitalize } from 'vue';
-
 defineProps<{
-  type: 'prop' | 'emit' | 'slot' | 'method';
-  data: { name: string; description: string; type: string; required: boolean }[];
+  data: { name: string; description: string; type?: string }[];
 }>();
 </script>
 

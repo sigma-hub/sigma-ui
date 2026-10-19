@@ -1,10 +1,21 @@
 <script setup lang="ts">
+import { useAttrs } from 'vue';
+
 import {
   HoverCardContent,
   type HoverCardContentProps,
   HoverCardPortal,
   useForwardProps,
 } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = withDefaults(
   defineProps<HoverCardContentProps>(),
@@ -19,7 +30,8 @@ const forwardedProps = useForwardProps(props);
 <template>
   <HoverCardPortal>
     <HoverCardContent
-      v-bind="forwardedProps"
+      data-slot="hover-card-content"
+      v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
       class="sigma-ui-hover-card-content"
       :class="$attrs.class"
     >
@@ -29,20 +41,24 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-hover-card-content {
-  z-index: 50;
-  padding: 1rem;
-  border: 1px solid hsl(var(--border));
-  border-radius: var(--radius-md);
-  animation: sigma-ui-fade-out-scale 100ms ease-in forwards;
-  background-color: hsl(var(--popover));
-  box-shadow: var(--shadow-md);
-  color: hsl(var(--popover-foreground));
-  outline: none;
-  transform-origin: var(--reka-popper-transform-origin);
-}
+@layer base, components;
 
-.sigma-ui-hover-card-content[data-state="open"] {
-  animation: sigma-ui-fade-in-scale 200ms ease-out;
+@layer components {
+  .sigma-ui-hover-card-content {
+    z-index: 50;
+    padding: calc(var(--spacing) * 4);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    animation: sigma-ui-fade-out-scale 100ms ease-in forwards;
+    background-color: var(--popover);
+    box-shadow: var(--shadow-md);
+    color: var(--popover-foreground);
+    outline: none;
+    transform-origin: var(--reka-popper-transform-origin);
+  }
+
+  .sigma-ui-hover-card-content[data-state="open"] {
+    animation: sigma-ui-fade-in-scale 200ms ease-out;
+  }
 }
 </style>

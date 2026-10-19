@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Primitive, type PrimitiveProps, useForwardProps } from 'reka-ui';
-import { DotIcon } from 'lucide-vue-next';
+import { DotIcon } from '@lucide/vue';
 
 const props = defineProps<PrimitiveProps>();
 const forwardedProps = useForwardProps(props);
@@ -8,6 +8,7 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <Primitive
+    data-slot="pin-input-separator"
     v-bind="forwardedProps"
     class="sigma-ui-pin-input-separator"
   >
@@ -18,15 +19,19 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-pin-input-separator {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+@layer base, components;
 
-.sigma-ui-pin-input-separator__icon {
-  width: 1rem;
-  height: 1rem;
-  color: hsl(var(--muted-foreground));
+@layer components {
+  .sigma-ui-pin-input-separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sigma-ui-pin-input-separator__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    color: var(--muted-foreground);
+  }
 }
 </style>

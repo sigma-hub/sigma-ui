@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar-glow",
+  "type": "registry:example",
+  "title": "AvatarGlow",
+  "dependencies": [],
+  "registryDependencies": [
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "example/AvatarGlow.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Avatar } from '@/components/ui/avatar';\n</script>\n\n<template>\n  <Avatar\n    src=\"/avatars/avatar-example@0.25x.png\"\n    glow\n  />\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

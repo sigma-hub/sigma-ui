@@ -37,6 +37,7 @@ import { Label } from '@ui/registry/css/ui/label';
           </Label>
           <Input
             id="name"
+            autocomplete="name"
             value="Pedro Duarte"
             class="example-sigma-ui-dialog__input"
           />
@@ -50,6 +51,7 @@ import { Label } from '@ui/registry/css/ui/label';
           </Label>
           <Input
             id="username"
+            autocomplete="username"
             value="@peduarte"
             class="example-sigma-ui-dialog__input"
           />
@@ -65,34 +67,38 @@ import { Label } from '@ui/registry/css/ui/label';
 </template>
 
 <style>
-.example-sigma-ui-dialog__content {
-  max-width: 425px;
-}
+@layer base, components;
 
-@media (width >= 640px) {
+@layer components {
   .example-sigma-ui-dialog__content {
     max-width: 425px;
   }
-}
 
-.example-sigma-ui-dialog__form {
-  display: grid;
-  padding: 1rem 0;
-  gap: 1rem;
-}
+  @media (width >= 40rem) {
+    .example-sigma-ui-dialog__content {
+      max-width: 425px;
+    }
+  }
 
-.example-sigma-ui-dialog__form-row {
-  display: grid;
-  align-items: center;
-  gap: 1rem;
-  grid-template-columns: repeat(4, 1fr);
-}
+  .example-sigma-ui-dialog__form {
+    display: grid;
+    padding: calc(var(--spacing) * 4) 0;
+    gap: calc(var(--spacing) * 4);
+  }
 
-.example-sigma-ui-dialog__label {
-  text-align: right;
-}
+  .example-sigma-ui-dialog__form-row {
+    display: grid;
+    align-items: center;
+    gap: calc(var(--spacing) * 4);
+    grid-template-columns: repeat(4, 1fr);
+  }
 
-.example-sigma-ui-dialog__input {
-  grid-column: span 3 / span 3;
+  .example-sigma-ui-dialog__label {
+    text-align: right;
+  }
+
+  .example-sigma-ui-dialog__input {
+    grid-column: span 3 / span 3;
+  }
 }
 </style>

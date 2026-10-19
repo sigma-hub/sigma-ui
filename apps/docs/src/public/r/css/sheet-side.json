@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sheet-side",
+  "type": "registry:example",
+  "title": "SheetSide",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "input",
+    "label",
+    "sheet"
+  ],
+  "files": [
+    {
+      "path": "example/SheetSide.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue';\nimport { Button } from '@/components/ui/button';\nimport { Input } from '@/components/ui/input';\nimport { Label } from '@/components/ui/label';\nimport {\n  Sheet,\n  SheetClose,\n  SheetContent,\n  SheetDescription,\n  SheetFooter,\n  SheetHeader,\n  SheetTitle,\n  SheetTrigger,\n} from '@/components/ui/sheet';\n\nconst SHEET_SIDES = ['top', 'right', 'bottom', 'left'] as const;\n\nconst username = ref('');\n</script>\n\n<template>\n  <div class=\"example-sigma-ui-sheet-side\">\n    <Sheet\n      v-for=\"side in SHEET_SIDES\"\n      :key=\"side\"\n    >\n      <SheetTrigger as-child>\n        <Button variant=\"outline\">\n          {{ side }}\n        </Button>\n      </SheetTrigger>\n      <SheetContent\n        :side=\"side\"\n        class=\"example-sigma-ui-sheet-side__content\"\n      >\n        <SheetHeader>\n          <SheetTitle>Edit profile</SheetTitle>\n          <SheetDescription>\n            Make changes to your profile here. Click save when you're done.\n          </SheetDescription>\n        </SheetHeader>\n        <div class=\"example-sigma-ui-sheet-side__form\">\n          <div class=\"example-sigma-ui-sheet-side__form-row\">\n            <Label\n              for=\"name\"\n              class=\"example-sigma-ui-sheet-side__label\"\n            >Name</Label>\n            <Input\n              id=\"name\"\n              v-model=\"username\"\n              class=\"example-sigma-ui-sheet-side__input\"\n            />\n          </div>\n          <div class=\"example-sigma-ui-sheet-side__form-row\">\n            <Label\n              for=\"username\"\n              class=\"example-sigma-ui-sheet-side__label\"\n            >Username</Label>\n            <Input\n              id=\"username\"\n              v-model=\"username\"\n              class=\"example-sigma-ui-sheet-side__input\"\n            />\n          </div>\n        </div>\n        <SheetFooter>\n          <SheetClose as-child>\n            <Button type=\"submit\">\n              Save changes\n            </Button>\n          </SheetClose>\n        </SheetFooter>\n      </SheetContent>\n    </Sheet>\n  </div>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .example-sigma-ui-sheet-side {\n    display: grid;\n    gap: calc(var(--spacing) * 2);\n    grid-template-columns: repeat(2, 1fr);\n  }\n\n  .example-sigma-ui-sheet-side__content {\n    padding: calc(var(--spacing) * 6);\n  }\n\n  .example-sigma-ui-sheet-side__form {\n    display: grid;\n    padding: calc(var(--spacing) * 4) 0;\n    gap: calc(var(--spacing) * 4);\n  }\n\n  .example-sigma-ui-sheet-side__form-row {\n    display: grid;\n    align-items: center;\n    gap: calc(var(--spacing) * 4);\n    grid-template-columns: repeat(4, 1fr);\n  }\n\n  .example-sigma-ui-sheet-side__label {\n    text-align: right;\n  }\n\n  .example-sigma-ui-sheet-side__input {\n    grid-column: span 3;\n  }\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

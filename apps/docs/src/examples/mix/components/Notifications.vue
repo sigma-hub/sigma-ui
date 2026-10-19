@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@ui/registry/tailwind/ui/card';
-import { BellIcon, EyeOffIcon, UserRoundIcon } from 'lucide-vue-next';
+import { BellIcon, EyeOffIcon, UserRoundIcon } from '@lucide/vue';
 </script>
 
 <template>

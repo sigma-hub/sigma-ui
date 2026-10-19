@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useAttrs } from 'vue';
+
 import {
   MenubarRoot,
   type MenubarRootEmits,
@@ -6,6 +8,15 @@ import {
   useForwardPropsEmits,
 } from 'reka-ui';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<MenubarRootProps>();
 const emits = defineEmits<MenubarRootEmits>();
@@ -15,7 +26,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <MenubarRoot
-    v-bind="forwarded"
+    data-slot="menubar"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="
       cn(
         'flex h-10 items-center gap-x-1 rounded-md border bg-background p-1',

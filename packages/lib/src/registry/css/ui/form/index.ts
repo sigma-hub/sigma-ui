@@ -5,3 +5,4 @@ export { default as FormControl } from './FormControl.vue';
 export { default as FormMessage } from './FormMessage.vue';
 export { default as FormDescription } from './FormDescription.vue';
 export { FORM_ITEM_INJECTION_KEY } from './injectionKeys';
+export { toTypedSchema, type InferSchemaInput, type InferSchemaOutput, type PartialDeep, type StandardSchemaV1 } from '@ui/registry/shared/ui/form/standard-schema';

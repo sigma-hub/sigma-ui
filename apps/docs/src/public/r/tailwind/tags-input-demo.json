@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tags-input-demo",
+  "type": "registry:example",
+  "title": "TagsInput",
+  "dependencies": [],
+  "registryDependencies": [
+    "tags-input"
+  ],
+  "files": [
+    {
+      "path": "example/TagsInput.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue';\nimport { TagsInput, TagsInputInput, TagsInputItem, TagsInputItemDelete, TagsInputItemText } from '@/components/ui/tags-input';\n\nconst modelValue = ref(['Apple', 'Banana']);\n</script>\n\n<template>\n  <TagsInput v-model=\"modelValue\">\n    <TagsInputItem\n      v-for=\"item in modelValue\"\n      :key=\"item\"\n      :value=\"item\"\n    >\n      <TagsInputItemText />\n      <TagsInputItemDelete />\n    </TagsInputItem>\n\n    <TagsInputInput placeholder=\"Fruits...\" />\n  </TagsInput>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

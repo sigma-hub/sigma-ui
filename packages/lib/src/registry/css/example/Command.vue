@@ -6,7 +6,7 @@ import {
   SettingsIcon,
   SmileIcon,
   UserIcon,
-} from 'lucide-vue-next';
+} from '@lucide/vue';
 import { toast } from '@ui/registry/css/ui/toaster';
 import {
   Command,
@@ -88,16 +88,20 @@ function handleSelect(event: any) {
 </template>
 
 <style>
-.example-sigma-ui-command {
-  max-width: 450px;
-  border: 1px solid hsl(var(--border));
-  border-radius: var(--radius-lg);
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%);
-}
+@layer base, components;
 
-.example-sigma-ui-command__icon {
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.5rem;
+@layer components {
+  .example-sigma-ui-command {
+    max-width: 450px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%);
+  }
+
+  .example-sigma-ui-command__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-right: calc(var(--spacing) * 2);
+  }
 }
 </style>

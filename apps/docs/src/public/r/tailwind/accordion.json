@@ -1,0 +1,38 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion",
+  "type": "registry:ui",
+  "title": "Accordion",
+  "description": "Set of interactive collapsible sections.",
+  "dependencies": [
+    "reka-ui@^2.11.0"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/accordion/Accordion.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  AccordionRoot,\n  type AccordionRootEmits,\n  type AccordionRootProps,\n  useForwardPropsEmits,\n} from 'reka-ui';\n\nconst props = defineProps<AccordionRootProps>();\nconst emits = defineEmits<AccordionRootEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <AccordionRoot\n    data-slot=\"accordion\"\n    v-bind=\"forwarded\"\n  >\n    <slot />\n  </AccordionRoot>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/accordion/AccordionContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { AccordionContent, type AccordionContentProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<AccordionContentProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <AccordionContent\n    data-slot=\"accordion-content\"\n    v-bind=\"forwarded\"\n    class=\"overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down\"\n  >\n    <div\n      v-bind=\"delegatedAttrs()\"\n      :class=\"cn('pb-4 pt-0', $attrs.class ?? '')\"\n    >\n      <slot />\n    </div>\n  </AccordionContent>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/accordion/AccordionItem.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { AccordionItem, type AccordionItemProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<AccordionItemProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <AccordionItem\n    data-slot=\"accordion-item\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :class=\"cn('border-b', $attrs.class ?? '')\"\n  >\n    <slot />\n  </AccordionItem>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/accordion/AccordionTrigger.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { AccordionHeader, AccordionTrigger, type AccordionTriggerProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<AccordionTriggerProps>();\nconst forwarded = useForwardProps(props);\n\ndefineSlots<{\n  /** The trigger label. */\n  default?: () => unknown;\n  /** Replaces the chevron icon that rotates when the item opens. */\n  icon?: () => unknown;\n}>();\n</script>\n\n<template>\n  <AccordionHeader class=\"flex\">\n    <AccordionTrigger\n      data-slot=\"accordion-trigger\"\n      v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n      :class=\"cn('flex flex-1 items-center justify-between py-4 font-medium transition-all [&[data-state=open]>svg]:rotate-180', $attrs.class ?? '')\"\n    >\n      <slot />\n      <slot name=\"icon\">\n        <svg\n          xmlns=\"http://www.w3.org/2000/svg\"\n          viewBox=\"0 0 24 24\"\n          fill=\"none\"\n          stroke=\"currentColor\"\n          stroke-width=\"2\"\n          stroke-linecap=\"round\"\n          stroke-linejoin=\"round\"\n          class=\"h-4 w-4 shrink-0 transition-transform duration-200\"\n          aria-hidden=\"true\"\n        >\n          <path d=\"m6 9 6 6 6-6\" />\n        </svg>\n      </slot>\n    </AccordionTrigger>\n  </AccordionHeader>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/accordion/index.ts",
+      "content": "export { default as Accordion } from './Accordion.vue';\nexport { default as AccordionContent } from './AccordionContent.vue';\nexport { default as AccordionItem } from './AccordionItem.vue';\nexport { default as AccordionTrigger } from './AccordionTrigger.vue';\n",
+      "type": "registry:ui"
+    }
+  ]
+}

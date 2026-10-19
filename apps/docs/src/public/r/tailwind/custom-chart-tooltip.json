@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "custom-chart-tooltip",
+  "type": "registry:example",
+  "title": "CustomChartTooltip",
+  "dependencies": [],
+  "registryDependencies": [
+    "card"
+  ],
+  "files": [
+    {
+      "path": "example/CustomChartTooltip.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Card, CardContent } from '@/components/ui/card';\n\ndefineProps<{\n  title?: string;\n  data: {\n    name: string;\n    color: string;\n    value: any;\n  }[];\n}>();\n</script>\n\n<template>\n  <Card class=\"text-sm\">\n    <CardContent class=\"p-3 min-w-[180px] flex flex-col gap-2\">\n      <div\n        v-for=\"(item, key) in data\"\n        :key=\"key\"\n        class=\"flex justify-between items-center\"\n      >\n        <div class=\"flex items-center\">\n          <span\n            class=\"w-1 h-7 mr-4 rounded-full\"\n            :style=\"{ background: item.color }\"\n          />\n          <span>{{ item.name }}</span>\n        </div>\n        <span class=\"font-semibold ml-4\">{{ item.value }}</span>\n      </div>\n    </CardContent>\n  </Card>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

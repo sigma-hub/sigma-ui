@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "time-field",
+  "type": "registry:ui",
+  "title": "Time Field",
+  "description": "A field for typing a time, one segment at a time.",
+  "dependencies": [
+    "reka-ui@^2.11.0"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/time-field/TimeField.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { TimeFieldRoot, type TimeFieldRootEmits, type TimeFieldRootProps, type SegmentPart, useForwardPropsEmits } from 'reka-ui';\nimport { cn } from '@/lib/utils';\nimport { TimeFieldInput } from '.';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<TimeFieldRootProps>();\nconst emits = defineEmits<TimeFieldRootEmits>();\nconst forwarded = useForwardPropsEmits(props, emits);\n\ndefineSlots<{\n  /**\n   * The time segments. Each one renders in a `TimeFieldInput` unless you pass your own content.\n   */\n  default?: (props: {\n    modelValue: TimeFieldRootProps['modelValue'];\n    segments: { part: SegmentPart; value: string }[];\n    isInvalid: boolean;\n  }) => unknown;\n}>();\n</script>\n\n<template>\n  <TimeFieldRoot\n    v-slot=\"slotProps\"\n    data-slot=\"time-field\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :class=\"cn('inline-flex h-9 items-center rounded-md border border-border bg-input px-3 text-base focus-within:outline-2 focus-within:outline-ring focus-within:outline-offset-2 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50 data-[invalid]:border-destructive aria-invalid:border-destructive md:text-sm', $attrs.class ?? '')\"\n  >\n    <slot v-bind=\"slotProps\">\n      <TimeFieldInput\n        v-for=\"(item, index) in slotProps.segments\"\n        :key=\"`${item.part}-${index}`\"\n        :part=\"item.part\"\n      >\n        {{ item.value }}\n      </TimeFieldInput>\n    </slot>\n  </TimeFieldRoot>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/time-field/TimeFieldInput.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { TimeFieldInput, type TimeFieldInputProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<TimeFieldInputProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <TimeFieldInput\n    data-slot=\"time-field-input\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :data-part=\"props.part\"\n    :class=\"cn('rounded-sm px-0.5 tabular-nums outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:cursor-not-allowed data-[part=literal]:px-0', $attrs.class ?? '')\"\n  >\n    <slot />\n  </TimeFieldInput>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/time-field/index.ts",
+      "content": "export { default as TimeField } from './TimeField.vue';\nexport { default as TimeFieldInput } from './TimeFieldInput.vue';\n",
+      "type": "registry:ui"
+    }
+  ]
+}

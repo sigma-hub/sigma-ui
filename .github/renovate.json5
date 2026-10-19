@@ -1,0 +1,52 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    'config:recommended',
+    ':semanticCommitsDisabled',
+    'group:allNonMajor',
+  ],
+  baseBranchPatterns: ['main'],
+  schedule: ['before 6am on monday'],
+  timezone: 'UTC',
+  prConcurrentLimit: 5,
+  rangeStrategy: 'bump',
+  commitMessagePrefix: 'Dev:',
+  lockFileMaintenance: {
+    enabled: true,
+    schedule: ['before 6am on the first day of the month'],
+  },
+  packageRules: [
+    {
+      matchUpdateTypes: ['major'],
+      dependencyDashboardApproval: true,
+    },
+    {
+      groupName: 'vue',
+      matchPackageNames: ['vue', '@vue/compiler-*'],
+    },
+    {
+      groupName: 'volar',
+      matchPackageNames: ['vue-tsc', 'vue-component-meta'],
+    },
+    {
+      groupName: 'tailwindcss',
+      matchPackageNames: ['tailwindcss', '@tailwindcss/*'],
+    },
+    {
+      groupName: 'reka-ui',
+      matchPackageNames: ['reka-ui', '@internationalized/*'],
+    },
+    {
+      groupName: 'vee-validate',
+      matchPackageNames: ['vee-validate', '@vee-validate/*'],
+    },
+    {
+      groupName: 'unovis',
+      matchPackageNames: ['@unovis/*'],
+    },
+    {
+      groupName: 'nuxt',
+      matchPackageNames: ['nuxt', '@nuxt/*'],
+    },
+  ],
+}

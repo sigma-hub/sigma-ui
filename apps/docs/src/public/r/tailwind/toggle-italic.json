@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle-italic",
+  "type": "registry:example",
+  "title": "ToggleItalic",
+  "dependencies": [
+    "@lucide/vue@^1.59.0"
+  ],
+  "registryDependencies": [
+    "toggle"
+  ],
+  "files": [
+    {
+      "path": "example/ToggleItalic.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ItalicIcon } from '@lucide/vue';\nimport { Toggle } from '@/components/ui/toggle';\n</script>\n\n<template>\n  <Toggle\n    variant=\"outline\"\n    aria-label=\"Toggle italic\"\n  >\n    <ItalicIcon class=\"w-4 h-4\" />\n  </Toggle>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -9,6 +9,7 @@ const attrs = useAttrs();
 
 <template>
   <AlertDialogCancel
+    data-slot="alert-dialog-cancel"
     v-bind="props"
     class="sigma-ui-button sigma-ui-alert-dialog-cancel"
     :class="[buttonVariants({ variant: 'outline' }), attrs.class]"
@@ -18,13 +19,17 @@ const attrs = useAttrs();
 </template>
 
 <style>
-.sigma-ui-alert-dialog-cancel {
-  margin-top: 0.5rem;
-}
+@layer base, components;
 
-@media (width >= 640px) {
+@layer components {
   .sigma-ui-alert-dialog-cancel {
-    margin-top: 0;
+    margin-top: calc(var(--spacing) * 2);
+  }
+
+  @media (width >= 40rem) {
+    .sigma-ui-alert-dialog-cancel {
+      margin-top: 0;
+    }
   }
 }
 </style>

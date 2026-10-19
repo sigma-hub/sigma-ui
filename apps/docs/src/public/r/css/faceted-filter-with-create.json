@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "faceted-filter-with-create",
+  "type": "registry:example",
+  "title": "FacetedFilterWithCreate",
+  "dependencies": [],
+  "registryDependencies": [
+    "faceted-filter"
+  ],
+  "files": [
+    {
+      "path": "example/FacetedFilterWithCreate.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue';\nimport { FacetedFilter } from '@/components/ui/faceted-filter';\n\nconst selectedTags = ref<string[]>([]);\nconst tagOptions = ref([\n  'Bug',\n  'Feature',\n  'Documentation',\n  'Enhancement',\n]);\n\nfunction handleCreate(value: string) {\n  tagOptions.value.push(value);\n  selectedTags.value.push(value);\n}\n</script>\n\n<template>\n  <FacetedFilter\n    v-model=\"selectedTags\"\n    title=\"Tags\"\n    :options=\"tagOptions\"\n    allow-create\n    @create=\"handleCreate\"\n  />\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

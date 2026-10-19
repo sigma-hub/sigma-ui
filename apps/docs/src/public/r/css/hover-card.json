@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hover-card",
+  "type": "registry:ui",
+  "title": "Hover Card",
+  "description": "For displaying additional content that appears when hovering over a trigger element.",
+  "dependencies": [
+    "reka-ui@^2.11.0"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/hover-card/HoverCard.vue",
+      "content": "<script setup lang=\"ts\">\nimport { HoverCardRoot, type HoverCardRootEmits, type HoverCardRootProps, useForwardPropsEmits } from 'reka-ui';\n\nconst props = defineProps<HoverCardRootProps>();\nconst emits = defineEmits<HoverCardRootEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <HoverCardRoot\n    data-slot=\"hover-card\"\n    v-bind=\"forwarded\"\n  >\n    <slot />\n  </HoverCardRoot>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/hover-card/HoverCardContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport {\n  HoverCardContent,\n  type HoverCardContentProps,\n  HoverCardPortal,\n  useForwardProps,\n} from 'reka-ui';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = withDefaults(\n  defineProps<HoverCardContentProps>(),\n  {\n    sideOffset: 4,\n  },\n);\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <HoverCardPortal>\n    <HoverCardContent\n      data-slot=\"hover-card-content\"\n      v-bind=\"{ ...forwardedProps, ...delegatedAttrs() }\"\n      class=\"sigma-ui-hover-card-content\"\n      :class=\"$attrs.class\"\n    >\n      <slot />\n    </HoverCardContent>\n  </HoverCardPortal>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .sigma-ui-hover-card-content {\n    z-index: 50;\n    padding: calc(var(--spacing) * 4);\n    border: 1px solid var(--border);\n    border-radius: var(--radius-md);\n    animation: sigma-ui-fade-out-scale 100ms ease-in forwards;\n    background-color: var(--popover);\n    box-shadow: var(--shadow-md);\n    color: var(--popover-foreground);\n    outline: none;\n    transform-origin: var(--reka-popper-transform-origin);\n  }\n\n  .sigma-ui-hover-card-content[data-state=\"open\"] {\n    animation: sigma-ui-fade-in-scale 200ms ease-out;\n  }\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/hover-card/HoverCardTrigger.vue",
+      "content": "<script setup lang=\"ts\">\nimport { HoverCardTrigger, type HoverCardTriggerProps } from 'reka-ui';\n\nconst props = defineProps<HoverCardTriggerProps>();\n</script>\n\n<template>\n  <HoverCardTrigger\n    data-slot=\"hover-card-trigger\"\n    v-bind=\"props\"\n  >\n    <slot />\n  </HoverCardTrigger>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/hover-card/index.ts",
+      "content": "export { default as HoverCard } from './HoverCard.vue';\nexport { default as HoverCardTrigger } from './HoverCardTrigger.vue';\nexport { default as HoverCardContent } from './HoverCardContent.vue';\n",
+      "type": "registry:ui"
+    }
+  ]
+}

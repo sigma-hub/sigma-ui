@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-block-wrap",
+  "type": "registry:example",
+  "title": "CodeBlockWrap",
+  "dependencies": [
+    "@lucide/vue@^1.59.0"
+  ],
+  "registryDependencies": [
+    "code-block"
+  ],
+  "files": [
+    {
+      "path": "example/CodeBlockWrap.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue';\nimport { CircleXIcon } from '@lucide/vue';\nimport {\n  CodeBlock,\n  CodeBlockActions,\n  CodeBlockContent,\n  CodeBlockCopyButton,\n  CodeBlockHeader,\n  CodeBlockTitle,\n  CodeBlockWrapButton,\n} from '@/components/ui/code-block';\n\nconst wrap = ref(true);\nconst output = `[vite] Internal server error: [vue/compiler-sfc] Unexpected token, expected \",\" (14:37) in /home/projects/acme/src/components/OrdersTable.vue. The template expression on line 14 is missing a closing parenthesis before the arrow function body.\n  Plugin: vite:vue\n  File: /home/projects/acme/src/components/OrdersTable.vue:14:37`;\n</script>\n\n<template>\n  <CodeBlock v-model:wrap=\"wrap\">\n    <CodeBlockHeader>\n      <CodeBlockTitle>\n        <CircleXIcon />\n        Build error\n      </CodeBlockTitle>\n      <CodeBlockActions>\n        <CodeBlockWrapButton />\n        <CodeBlockCopyButton />\n      </CodeBlockActions>\n    </CodeBlockHeader>\n    <CodeBlockContent :code=\"output\" />\n  </CodeBlock>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, useAttrs } from 'vue';
 import {
   DialogClose,
   DialogContent,
@@ -9,17 +9,24 @@ import {
   DialogPortal,
   useForwardPropsEmits,
 } from 'reka-ui';
-import { XIcon } from 'lucide-vue-next';
+import { XIcon } from '@lucide/vue';
 import { type SheetVariants, sheetVariants } from '.';
 import { cn } from '@ui/utils';
 
 interface SheetContentProps extends DialogContentProps {
+  /** Edge of the screen the sheet slides in from. */
   side?: SheetVariants['side'];
 }
 
 defineOptions({
   inheritAttrs: false,
 });
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<SheetContentProps>();
 const emits = defineEmits<DialogContentEmits>();
@@ -35,8 +42,9 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
       class="fixed inset-0 z-50 bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"
     />
     <DialogContent
+      data-slot="sheet-content"
       :class="cn(sheetVariants({ side }), $attrs.class ?? '')"
-      v-bind="{ ...forwarded, ...$attrs }"
+      v-bind="{ ...forwarded, ...delegatedAttrs() }"
     >
       <slot />
 

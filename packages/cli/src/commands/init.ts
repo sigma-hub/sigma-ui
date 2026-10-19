@@ -5,590 +5,361 @@ import { Command } from 'commander';
 import { template } from 'lodash-es';
 import ora from 'ora';
 import prompts from 'prompts';
-import { z } from 'zod';
-import { addDependency, addDevDependency } from '../utils/package-manager';
 import { consola } from 'consola';
 import { colors } from 'consola/utils';
-import prettier from 'prettier';
-import { Project, SyntaxKind } from 'ts-morph';
-import { getProjectInfo, type Framework, type TailwindConfigType } from '../utils/get-project-info';
+import { CONFIG_SCHEMA_URL } from '@sigma-ui/shared/schemas';
+import { CONFIG_FILE_PATH, DEFAULT_COMPONENTS, DEFAULT_UTILS, TAILWIND_CSS_PATH } from '@sigma-ui/shared/consts';
 import {
-  getRegistryBaseColor,
-  getRegistryBaseColors,
-  getRegistryStyles,
-} from '../utils/registry';
-import { handleError } from '../utils/handle-error';
-import {
-  resolveConfigPaths,
-} from '../utils/get-config';
-import { DEFAULT_COMPONENTS, DEFAULT_UTILS, CONFIG_FILE_PATH, DEFAULT_TAILWIND_CONFIG, TAILWIND_CSS_PATH } from '~/packages/shared/consts';
-import {
-  rawConfigSchema,
-  initOptionsSchema,
-  type Config,
-  type ComponentNaming,
-} from '../schemas';
-import { transformCJSToESM } from '../utils/transformers/transform-cjs-to-esm';
-import { applyPrefixesCss } from '../utils/transformers/transform-tw-prefix';
-import {
-  TAILWIND_CONFIG_JS_TEMPLATE,
-  TAILWIND_V4_CSS_TEMPLATE,
   TAILWIND_CSS_WITH_JS_CONFIG_TEMPLATE,
+  TAILWIND_V4_CSS_TEMPLATE,
   UTILS_TEMPLATE,
-} from '~/packages/shared/templates/tailwind-config';
-import { PREFLIGHT_CSS_TEMPLATE } from '~/packages/shared/templates/preflight';
+} from '@sigma-ui/shared/templates/tailwind-config';
+import { withCssLayerOrder } from '@sigma-ui/shared/templates/css-styles';
+import { PREFLIGHT_CSS_TEMPLATE } from '@sigma-ui/shared/templates/preflight';
+import {
+  initOptionsSchema,
+  rawConfigSchema,
+  type ComponentNaming,
+  type Config,
+  type InitOptions,
+  type RawConfig,
+} from '@/src/schemas';
+import { resolveConfigPaths } from '@/src/utils/get-config';
+import { getProjectInfo, type ProjectInfo } from '@/src/utils/get-project-info';
+import { handleError } from '@/src/utils/handle-error';
+import {
+  getNuxtCssEntry,
+  importCssInViteEntry,
+  registerNuxtCss,
+  registerTailwindVitePlugin,
+  registerTsconfigPaths,
+  registerViteSourceAlias,
+  type ConfigUpdateResult,
+} from '@/src/utils/framework-config';
+import { excludeInstalledDependencies } from '@/src/utils/install-plan';
+import { getInstalledPackages, installPackages } from '@/src/utils/package-manager';
+import { getBaseColors, getStyleSystems, getTheme } from '@/src/utils/themes';
+import { applyPrefixesCss } from '@/src/utils/transformers/transform-tw-prefix';
 
-const PROJECT_DEPENDENCIES = {
-  sharedBase: [
-    'lucide-vue-next',
-  ],
-  styleSystemBase: {
-    tailwind: [
-      'tailwindcss-animate',
-      'class-variance-authority',
-      'clsx',
-      'tailwind-merge',
-      'reka-ui',
-    ],
-    css: [
-      'class-variance-authority',
-      'reka-ui',
-    ],
-  },
-  nuxt: [
-    '@nuxtjs/tailwindcss',
-  ],
-};
+const UTILS_DEPENDENCIES = ['clsx', 'tailwind-merge'];
+const TAILWIND_DEPENDENCIES = ['tw-animate-css'];
+const TAILWIND_DEV_DEPENDENCIES = ['tailwindcss', '@tailwindcss/vite'];
+const VITE_DEV_DEPENDENCIES = ['@types/node'];
+const NUXT_DEV_DEPENDENCIES = ['typescript@~5.9.3'];
 
-const PROJECT_DEV_DEPENDENCIES = {
-  styleSystemBase: {
-    tailwind: [
-      'tailwindcss',
-      '@tailwindcss/vite',
-    ],
-  },
+interface ConfigAnswers {
+  styleSystem: RawConfig['styleSystem'];
+  baseColor: string;
+  componentNaming: ComponentNaming;
+}
+
+const DEFAULT_ANSWERS: ConfigAnswers = {
+  styleSystem: 'tailwind',
+  baseColor: 'grayscale',
+  componentNaming: 'pascal-case',
 };
 
 export const init = new Command()
   .name('init')
   .description('initialize your project and install dependencies')
-  .option('-y, --yes', 'skip confirmation prompt.', false)
-  .option('-d, --defaults', 'use default configuration without prompts.', false)
-  .option(
-    '-c, --cwd <cwd>',
-    'the working directory. defaults to the current directory.',
-    process.cwd(),
-  )
+  .option('-y, --yes', 'skip confirmation prompts and overwrite existing files', false)
+  .option('-d, --defaults', 'use the default configuration without prompts', false)
+  .option('-c, --cwd <cwd>', 'the working directory. defaults to the current directory.', process.cwd())
   .action(async (opts) => {
     try {
       const options = initOptionsSchema.parse(opts);
       const cwd = path.resolve(options.cwd);
 
       if (!existsSync(cwd)) {
-        consola.error(`The path ${cwd} does not exist. Please try again.`);
-        process.exit(1);
+        throw new Error(`The path ${cwd} does not exist.`);
       }
 
-      const config = await promptForConfig(cwd, options.yes, options.defaults);
+      const projectInfo = await getProjectInfo(cwd);
+      const config = await promptForConfig(cwd, projectInfo, options);
 
-      await runInit(cwd, config);
+      await runInit(cwd, config, { ...options, projectInfo });
 
       consola.log('');
-      consola.info(
-        `${colors.green('Success!')} Project initialization completed.`,
-      );
-      consola.log('');
+      consola.success('Project initialized. Add components with', colors.green('npx sigma-ui add button'));
     } catch (error) {
       handleError(error);
     }
   });
 
-interface DetectedConfig {
-  framework: Framework;
-  tsConfigPath: string;
-  cssPath: string;
-  tailwindConfigPath: string;
-  tailwindConfigType: TailwindConfigType;
-  setupTailwind: boolean;
+async function confirm(message: string, initial: boolean) {
+  const { confirmed } = await prompts({ type: 'confirm', name: 'confirmed', message, initial });
+  return Boolean(confirmed);
 }
 
-function getDetectedConfig(projectInfo: Awaited<ReturnType<typeof getProjectInfo>>): DetectedConfig {
-  const { framework, tsConfigPath, hasTailwind, tailwindConfigType, tailwindConfigPath } = projectInfo;
-
-  return {
-    framework,
-    tsConfigPath,
-    cssPath: TAILWIND_CSS_PATH[framework],
-    tailwindConfigPath: tailwindConfigPath ?? (framework === 'astro' ? 'tailwind.config.mjs' : DEFAULT_TAILWIND_CONFIG),
-    tailwindConfigType: tailwindConfigType,
-    setupTailwind: !hasTailwind,
-  };
+function canPrompt(options: Pick<InitOptions, 'yes'>) {
+  return !options.yes && Boolean(process.stdout.isTTY);
 }
 
-export async function promptForConfig(
-  cwd: string,
-  skipConfirmation = false,
-  useDefaults = false,
-) {
-  const highlight = (text: string) => colors.cyan(text);
-
-  const spinner = ora('Detecting project settings...').start();
-  const projectInfo = await getProjectInfo(cwd);
-  const detectedConfig = getDetectedConfig(projectInfo);
-  const styles = await getRegistryStyles();
-  const baseColors = await getRegistryBaseColors();
-  spinner.stop();
-
-  consola.info(`Detected ${highlight(detectedConfig.framework)} project`);
-
-  if (useDefaults) {
-    const config = createConfig({
-      framework: detectedConfig.framework,
-      styleSystem: 'tailwind',
-      tailwindBaseColor: 'grayscale',
-      componentNaming: 'pascal-case',
-      tsConfigPath: detectedConfig.tsConfigPath,
-      cssPath: detectedConfig.cssPath,
-      tailwindConfigPath: detectedConfig.tailwindConfigPath,
-      tailwindConfigType: detectedConfig.tailwindConfigType,
-      setupTailwind: detectedConfig.setupTailwind,
-      components: DEFAULT_COMPONENTS,
-      utils: DEFAULT_UTILS,
-      generatePreflight: true,
-    });
-
-    await writeConfigFile(cwd, config);
-    return await resolveConfigPaths(cwd, config);
+export function getDefaultCssPath(cwd: string, framework: RawConfig['framework']) {
+  if (framework === 'nuxt' && existsSync(path.join(cwd, 'app'))) {
+    return `app/${TAILWIND_CSS_PATH.nuxt}`;
   }
 
-  const options = await prompts([
-    {
-      type: 'select',
-      name: 'styleSystem',
-      message: `Which ${highlight('style system')} would you like to use?`,
-      choices: styles.map(style => ({
-        title: style.label,
-        value: style.name,
-      })),
-    },
-    {
-      type: 'select',
-      name: 'tailwindBaseColor',
-      message: `Choose a ${highlight('base color')} for your theme:`,
-      choices: baseColors.map(color => ({
-        title: color.label,
-        value: color.name,
-      })),
-    },
-    {
-      type: 'select',
-      name: 'componentNaming',
-      message: `Choose ${highlight('component naming')} convention:`,
-      choices: [
-        { title: 'PascalCase (Button.vue)', value: 'pascal-case' },
-        { title: 'kebab-case (button.vue)', value: 'kebab-case' },
-      ],
-      initial: 0,
-    },
-  ]);
+  return TAILWIND_CSS_PATH[framework];
+}
 
-  if (!skipConfirmation) {
-    consola.log('');
-    consola.box(
-      `Framework: ${highlight(detectedConfig.framework)}\n`
-      + `Style: ${highlight(options.styleSystem)}\n`
-      + `Theme: ${highlight(options.tailwindBaseColor)}\n`
-      + `Naming: ${highlight(options.componentNaming)}\n`
-      + `CSS: ${highlight(detectedConfig.cssPath)}\n`
-      + `Components: ${highlight(DEFAULT_COMPONENTS)}`,
-    );
+export function createConfig(cwd: string, projectInfo: ProjectInfo, answers: ConfigAnswers): RawConfig {
+  const usesTailwind = answers.styleSystem === 'tailwind';
 
-    const { proceed } = await prompts({
-      type: 'confirm',
-      name: 'proceed',
-      message: 'Proceed with installation?',
-      initial: true,
-    });
+  return rawConfigSchema.parse({
+    $schema: CONFIG_SCHEMA_URL,
+    styleSystem: answers.styleSystem,
+    framework: projectInfo.framework,
+    tsConfigPath: projectInfo.tsConfigPath,
+    setupTailwind: usesTailwind && !projectInfo.hasTailwind,
+    cssPath: getDefaultCssPath(cwd, projectInfo.framework),
+    baseColor: answers.baseColor,
+    tailwind: {
+      config: usesTailwind && projectInfo.tailwindConfigType === 'js' ? projectInfo.tailwindConfigPath ?? '' : '',
+    },
+    aliases: {
+      components: DEFAULT_COMPONENTS,
+      utils: usesTailwind ? DEFAULT_UTILS : '',
+    },
+    generatePreflight: !usesTailwind,
+    componentNaming: answers.componentNaming,
+  });
+}
 
-    if (!proceed) {
+async function promptForConfig(cwd: string, projectInfo: ProjectInfo, options: InitOptions): Promise<RawConfig> {
+  const highlight = (text: string) => colors.cyan(text);
+
+  consola.info(`Detected a ${highlight(projectInfo.framework)} project.`);
+
+  if (existsSync(path.join(cwd, CONFIG_FILE_PATH)) && canPrompt(options)) {
+    if (!await confirm(`${CONFIG_FILE_PATH} already exists. Overwrite it?`, false)) {
       process.exit(0);
     }
   }
 
-  const config = createConfig({
-    ...options,
-    framework: detectedConfig.framework,
-    tsConfigPath: detectedConfig.tsConfigPath,
-    cssPath: detectedConfig.cssPath,
-    tailwindConfigPath: options.styleSystem === 'tailwind' ? detectedConfig.tailwindConfigPath : '',
-    tailwindConfigType: detectedConfig.tailwindConfigType,
-    setupTailwind: options.styleSystem === 'tailwind' ? detectedConfig.setupTailwind : false,
-    components: DEFAULT_COMPONENTS,
-    utils: options.styleSystem === 'tailwind' ? DEFAULT_UTILS : '',
-    generatePreflight: options.styleSystem === 'css',
-  });
+  if (options.defaults) {
+    return createConfig(cwd, projectInfo, DEFAULT_ANSWERS);
+  }
 
-  await writeConfigFile(cwd, config);
-  return await resolveConfigPaths(cwd, config);
-}
-
-interface ConfigOptions {
-  framework: Framework;
-  styleSystem: string;
-  tailwindBaseColor: string;
-  componentNaming: ComponentNaming;
-  tsConfigPath: string;
-  cssPath: string;
-  tailwindConfigPath: string;
-  tailwindConfigType: TailwindConfigType;
-  setupTailwind: boolean;
-  components: string;
-  utils: string;
-  generatePreflight: boolean;
-}
-
-function createConfig(options: ConfigOptions): Config {
-  const usesJsConfig = options.tailwindConfigType === 'js';
-
-  const config = rawConfigSchema.parse({
-    $schema: 'https://sigma-ui.dev/schema.json',
-    styleSystem: options.styleSystem,
-    tsConfigPath: options.tsConfigPath,
-    setupTailwind: options.setupTailwind,
-    framework: options.framework,
-    cssPath: options.cssPath,
-    baseColor: options.tailwindBaseColor,
-    tailwind: {
-      config: usesJsConfig ? options.tailwindConfigPath : '',
+  const answers: ConfigAnswers = await prompts([
+    {
+      type: 'select',
+      name: 'styleSystem',
+      message: `Which ${highlight('style system')} would you like to use?`,
+      choices: getStyleSystems().map(style => ({ title: style.label, value: style.name })),
     },
-    aliases: {
-      utils: options.utils || '',
-      components: options.components,
+    {
+      type: 'select',
+      name: 'baseColor',
+      message: `Choose a ${highlight('base color')} for your theme:`,
+      choices: getBaseColors().map(color => ({ title: color.label, value: color.name })),
     },
-    generatePreflight: options.generatePreflight,
-    componentNaming: options.componentNaming || 'pascal-case',
-  } satisfies z.infer<typeof rawConfigSchema>);
+    {
+      type: 'select',
+      name: 'componentNaming',
+      message: `Choose the ${highlight('component file naming')} convention:`,
+      choices: [
+        { title: 'PascalCase (button/Button.vue)', value: 'pascal-case' },
+        { title: 'kebab-case (button/button.vue)', value: 'kebab-case' },
+      ],
+    },
+  ], { onCancel: () => process.exit(0) });
 
-  return config as Config;
-}
+  const config = createConfig(cwd, projectInfo, answers);
 
-async function writeConfigFile(cwd: string, config: Config) {
-  consola.log('');
-  const spinner = ora(`Writing config file ${CONFIG_FILE_PATH}`).start();
-  const targetPath = path.resolve(cwd, CONFIG_FILE_PATH);
-  await fs.writeFile(targetPath, JSON.stringify(config, null, 2), 'utf8');
-  spinner.succeed();
-}
+  if (!options.yes) {
+    consola.box(
+      `Framework: ${highlight(config.framework)}\n`
+      + `Style system: ${highlight(config.styleSystem)}\n`
+      + `Base color: ${highlight(config.baseColor)}\n`
+      + `File naming: ${highlight(config.componentNaming)}\n`
+      + `CSS: ${highlight(config.cssPath)}\n`
+      + `Components: ${highlight(config.aliases.components)}`,
+    );
 
-async function handleNuxtProject(cwd: string) {
-  const projectInfo = await getProjectInfo(cwd);
-
-  if (projectInfo.framework === 'nuxt') {
-    consola.log('');
-
-    if (projectInfo.sigmaUiNuxtModuleInfo) {
-      consola.info(`Detected a Nuxt project with 'sigma-ui-nuxt' v${projectInfo.sigmaUiNuxtModuleInfo.version}`);
-    } else {
-      consola.warn(`Detected a Nuxt project without 'sigma-ui-nuxt' module. It's recommended to install it.`);
-    }
-  }
-}
-
-export async function runInit(cwd: string, config: Config) {
-  await writeFiles(config, cwd);
-  await installDependencies(config, cwd);
-}
-
-async function writeFiles(config: Config, cwd: string) {
-  const writeFilesSpinner = ora('Initializing project')?.start();
-  await handleNuxtProject(cwd);
-  await ensureDirectoriesExist(config);
-
-  const hasJsConfig = Boolean(config.tailwind.config && config.tailwind.config.length > 0);
-
-  if (hasJsConfig) {
-    await writeTailwindJsConfig(config);
-  }
-
-  if (config.framework === 'vite' && config.setupTailwind) {
-    await updateViteConfig();
-  }
-
-  await writeCssFile(config, hasJsConfig);
-  writeCnFile(config);
-  await writePreflightCss(config);
-
-  writeFilesSpinner?.succeed();
-}
-
-async function writeTailwindJsConfig(config: Config) {
-  const unformattedConfig = template(TAILWIND_CONFIG_JS_TEMPLATE)({
-    framework: config.framework,
-    prefix: config.tailwind.prefix,
-    extension: 'ts',
-  });
-
-  const esmConfig = transformCJSToESM(
-    config.resolvedPaths.tailwindConfig,
-    unformattedConfig,
-  );
-
-  const formattedConfig = await prettier.format(esmConfig, {
-    parser: 'typescript',
-    semi: false,
-    singleQuote: true,
-    trailingComma: 'es5',
-  });
-
-  await fs.writeFile(
-    config.resolvedPaths.tailwindConfig,
-    formattedConfig,
-    'utf8',
-  );
-}
-
-async function writeCssFile(config: Config, hasJsConfig: boolean) {
-  const baseColorData = await getRegistryBaseColor(config.baseColor);
-
-  if (!baseColorData) {
-    return;
-  }
-
-  const file = config.resolvedPaths.tailwindCss;
-  let data = '';
-
-  if (config.styleSystem === 'tailwind') {
-    const cssVarsLight = generateCssVars(baseColorData.cssVars.light);
-    const cssVarsDark = generateCssVars(baseColorData.cssVars.dark);
-
-    if (hasJsConfig) {
-      data = template(TAILWIND_CSS_WITH_JS_CONFIG_TEMPLATE)({
-        configPath: config.tailwind.config,
-        cssVarsLight,
-        cssVarsDark,
-      });
-    } else {
-      data = template(TAILWIND_V4_CSS_TEMPLATE)({
-        cssVarsLight,
-        cssVarsDark,
-      });
-    }
-
-    if (config.tailwind.prefix) {
-      data = applyPrefixesCss(data, config.tailwind.prefix);
-    }
-  } else if (config.styleSystem === 'css') {
-    data = baseColorData.templates.css.withVariables;
-
-    if (config.generatePreflight) {
-      data = `@import "./preflight.css";\n\n${data}`;
+    if (!await confirm('Proceed?', true)) {
+      process.exit(0);
     }
   }
 
-  const formattedCss = await prettier.format(data, {
-    parser: 'css',
-    singleQuote: true,
-  });
-
-  await fs.writeFile(file, formattedCss, 'utf8');
+  return config;
 }
 
-function generateCssVars(vars: Record<string, string>): string {
+export async function runInit(
+  cwd: string,
+  rawConfig: RawConfig,
+  options: Pick<InitOptions, 'yes'> & { projectInfo?: ProjectInfo } = { yes: true },
+) {
+  const projectInfo = options.projectInfo ?? await getProjectInfo(cwd);
+  const spinner = ora('Writing files...').start();
+
+  await fs.writeFile(path.join(cwd, CONFIG_FILE_PATH), `${JSON.stringify(rawConfig, null, 2)}\n`, 'utf8');
+  const config = await resolveConfigPaths(cwd, rawConfig);
+
+  spinner.stop();
+  await writeProjectFiles(config, options);
+  await updateFrameworkConfig(config);
+
+  if (projectInfo.hasSigmaUiNuxtModule) {
+    consola.info('Detected the sigma-ui-nuxt module.');
+  }
+
+  await installDependencies(config);
+  return config;
+}
+
+async function writeFileIfAllowed(filePath: string, content: string, config: Config, options: Pick<InitOptions, 'yes'>) {
+  if (existsSync(filePath)) {
+    const currentContent = await fs.readFile(filePath, 'utf8');
+
+    if (currentContent === content) {
+      return;
+    }
+
+    const relativePath = path.relative(config.resolvedPaths.cwd, filePath);
+
+    if (canPrompt(options) && !await confirm(`${relativePath} already exists. Overwrite it?`, false)) {
+      consola.info(`Kept ${relativePath}.`);
+      return;
+    }
+  }
+
+  await fs.mkdir(path.dirname(filePath), { recursive: true });
+  await fs.writeFile(filePath, content, 'utf8');
+}
+
+async function writeProjectFiles(config: Config, options: Pick<InitOptions, 'yes'>) {
+  await fs.mkdir(config.resolvedPaths.components, { recursive: true });
+  await writeFileIfAllowed(config.resolvedPaths.tailwindCss, getCssFileContent(config), config, options);
+
+  if (config.resolvedPaths.utils) {
+    const utilsPath = `${config.resolvedPaths.utils}.ts`;
+
+    if (!existsSync(utilsPath)) {
+      await fs.mkdir(path.dirname(utilsPath), { recursive: true });
+      await fs.writeFile(utilsPath, UTILS_TEMPLATE, 'utf8');
+    }
+  }
+
+  if (config.styleSystem === 'css' && config.generatePreflight) {
+    const preflightPath = path.join(path.dirname(config.resolvedPaths.tailwindCss), 'preflight.css');
+    await writeFileIfAllowed(preflightPath, PREFLIGHT_CSS_TEMPLATE, config, options);
+  }
+}
+
+function generateCssVars(vars: Record<string, string>) {
   return Object.entries(vars)
     .map(([key, value]) => `--${key}: ${value};`)
     .join('\n    ');
 }
 
-async function writeCnFile(config: Config) {
-  if (config.resolvedPaths.utils) {
-    await fs.writeFile(
-      `${config.resolvedPaths.utils}.ts`,
-      UTILS_TEMPLATE,
-      'utf8',
+export function getCssFileContent(config: Config) {
+  const theme = getTheme(config.baseColor);
+
+  switch (config.styleSystem) {
+    case 'tailwind': {
+      const cssTemplate = config.tailwind.config ? TAILWIND_CSS_WITH_JS_CONFIG_TEMPLATE : TAILWIND_V4_CSS_TEMPLATE;
+      const css = template(cssTemplate)({
+        configPath: config.tailwind.config,
+        cssVarsLight: generateCssVars(theme.cssVars.light),
+        cssVarsDark: generateCssVars(theme.cssVars.dark),
+      });
+
+      return config.tailwind.prefix ? applyPrefixesCss(css, config.tailwind.prefix) : css;
+    }
+
+    case 'css':
+      return withCssLayerOrder(config.generatePreflight
+        ? `@import "./preflight.css";\n\n${theme.cssStylesWithVariables}`
+        : theme.cssStylesWithVariables);
+
+    default: {
+      const unsupportedStyleSystem: never = config.styleSystem;
+      throw new Error(`Unsupported style system "${unsupportedStyleSystem}".`);
+    }
+  }
+}
+
+function reportConfigUpdate(result: ConfigUpdateResult, cwd: string, manualStep: string) {
+  switch (result.status) {
+    case 'updated':
+      consola.log(`  ${colors.yellow('~')} ${path.relative(cwd, result.file)}`);
+      return;
+    case 'unchanged':
+      return;
+    case 'not-found':
+      consola.warn(`Could not find the file to update. ${manualStep}`);
+      return;
+    case 'failed':
+      consola.warn(`Could not update ${path.relative(cwd, result.file)} (${result.reason}). ${manualStep}`);
+      return;
+
+    default: {
+      const unknownResult: never = result;
+      throw new Error(`Unknown config update result ${JSON.stringify(unknownResult)}.`);
+    }
+  }
+}
+
+async function updateFrameworkConfig(config: Config) {
+  const { cwd } = config.resolvedPaths;
+
+  if (config.styleSystem === 'tailwind') {
+    reportConfigUpdate(
+      await registerTailwindVitePlugin(cwd, config.framework),
+      cwd,
+      `Add ${colors.cyan('tailwindcss()')} from ${colors.cyan('@tailwindcss/vite')} to your Vite plugins.`,
+    );
+  }
+
+  if (config.framework === 'nuxt') {
+    const cssEntry = getNuxtCssEntry(cwd, config.cssPath);
+    reportConfigUpdate(await registerNuxtCss(cwd, cssEntry), cwd, `Add ${colors.cyan(`'${cssEntry}'`)} to the css array in nuxt.config.`);
+  }
+
+  if (config.framework === 'vite') {
+    reportConfigUpdate(await importCssInViteEntry(cwd, config.cssPath), cwd, `Import ${colors.cyan(config.cssPath)} in your app entry file.`);
+    reportConfigUpdate(
+      await registerViteSourceAlias(cwd),
+      cwd,
+      `Add an ${colors.cyan('@')} alias to ${colors.cyan('./src')} in your Vite config.`,
+    );
+    reportConfigUpdate(
+      await registerTsconfigPaths(cwd),
+      cwd,
+      `Add ${colors.cyan('"@/*": ["./src/*"]')} to compilerOptions.paths.`,
     );
   }
 }
 
-async function writePreflightCss(config: Config) {
-  if (config.styleSystem === 'css' && config.generatePreflight) {
-    const preflightPath = path.join(path.dirname(config.resolvedPaths.tailwindCss), 'preflight.css');
-    const formattedPreflight = await prettier.format(PREFLIGHT_CSS_TEMPLATE, {
-      parser: 'css',
-      singleQuote: true,
-    });
-    await fs.writeFile(preflightPath, formattedPreflight, 'utf8');
-  }
-}
+async function installDependencies(config: Config) {
+  const { cwd } = config.resolvedPaths;
+  const installedPackages = getInstalledPackages(cwd);
+  const usesTailwind = config.styleSystem === 'tailwind';
 
-async function installDependencies(config: Config, cwd: string) {
-  const projectInfo = await getProjectInfo(cwd);
-  const dependenciesSpinner = ora('Installing dependencies')?.start();
+  const dependencies = excludeInstalledDependencies([
+    ...(config.resolvedPaths.utils ? UTILS_DEPENDENCIES : []),
+    ...(usesTailwind ? TAILWIND_DEPENDENCIES : []),
+  ], installedPackages);
+  const devDependencies = excludeInstalledDependencies([
+    ...(config.framework === 'nuxt' ? NUXT_DEV_DEPENDENCIES : []),
+    ...(config.framework === 'vite' ? VITE_DEV_DEPENDENCIES : []),
+    ...(usesTailwind ? TAILWIND_DEV_DEPENDENCIES : []),
+  ], installedPackages);
 
-  let baseDeps: string[] = [];
-  let baseDevDeps: string[] = [];
-
-  if (projectInfo.sigmaUiNuxtModuleInfo?.version) {
-    baseDeps = [];
-  } else {
-    if (config.styleSystem === 'css') {
-      baseDeps = PROJECT_DEPENDENCIES.styleSystemBase.css;
-    } else if (config.styleSystem === 'tailwind') {
-      baseDeps = PROJECT_DEPENDENCIES.styleSystemBase.tailwind;
-
-      if (config.setupTailwind) {
-        baseDevDeps = PROJECT_DEV_DEPENDENCIES.styleSystemBase.tailwind;
-      }
-    }
+  if (!dependencies.length && !devDependencies.length) {
+    return;
   }
 
-  const deps = [...baseDeps, ...PROJECT_DEPENDENCIES.sharedBase].filter(Boolean);
-  const devDeps = baseDevDeps.filter(Boolean);
-
-  const installTasks = [
-    config.framework === 'nuxt' && PROJECT_DEPENDENCIES.nuxt.length && { type: 'devDependencies', deps: PROJECT_DEPENDENCIES.nuxt, installer: addDevDependency },
-    deps.length && { type: 'dependencies', deps, installer: addDependency },
-    devDeps.length && { type: 'devDependencies', deps: devDeps, installer: addDevDependency },
-  ].filter(Boolean) as { type: 'dependencies' | 'devDependencies'; deps: string[]; installer: typeof addDependency | typeof addDevDependency }[];
-
-  for (const task of installTasks) {
-    try {
-      dependenciesSpinner.text = `Installing ${task.type}...`;
-      await task.installer(task.deps, { cwd, silent: true });
-    } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-      consola.error(`Failed to install ${task.type}: ${errorMessage}`);
-      // Don't throw here to allow other tasks to continue
-    }
-  }
-
-  dependenciesSpinner?.succeed();
-}
-
-async function ensureDirectoriesExist(config: Config) {
-  for (const [key, resolvedPath] of Object.entries(config.resolvedPaths)) {
-    const directoryPath = await getDirectoryPath(key, resolvedPath);
-
-    if (directoryPath) {
-      await fs.mkdir(directoryPath, { recursive: true });
-    }
-  }
-}
-
-async function getDirectoryPath(key: string, resolvedPath: string): Promise<string> {
-  let directoryPath = resolvedPath;
+  const spinner = ora('Installing dependencies...').start();
 
   try {
-    const stats = await fs.stat(resolvedPath);
-
-    if (stats.isFile()) {
-      directoryPath = path.dirname(resolvedPath);
-    }
-  } catch {
-    // During initialization, files not existing is expected
-    // Just get the directory path without logging an error
-    if (path.extname(resolvedPath) !== '') {
-      directoryPath = path.dirname(resolvedPath);
-    }
+    await installPackages(dependencies, { cwd, silent: true });
+    await installPackages(devDependencies, { cwd, dev: true, silent: true });
+    spinner.succeed(`Installed ${[...dependencies, ...devDependencies].join(', ')}`);
+  } catch (error) {
+    spinner.fail('Failed to install dependencies.');
+    consola.warn(`Install them manually: ${[...dependencies, ...devDependencies].join(' ')}`);
+    consola.debug(error);
   }
-
-  if (key === 'utils' && directoryPath?.endsWith('/utils')) {
-    directoryPath = directoryPath.replace(/\/utils$/, '');
-  }
-
-  return directoryPath;
-}
-
-async function updateViteConfig() {
-  const viteConfigPath = path.join(process.cwd(), 'vite.config.ts');
-
-  if (!existsSync(viteConfigPath)) {
-    consola.warn(`Vite config file not found at ${viteConfigPath}`);
-    return;
-  }
-
-  const viteConfig = await fs.readFile(viteConfigPath, 'utf8');
-  const needsTailwindConfig = !viteConfig.includes('@tailwindcss/vite');
-
-  if (!needsTailwindConfig) {
-    return;
-  }
-
-  const project = new Project({
-    compilerOptions: {},
-  });
-
-  const sourceFile = project.addSourceFileAtPath(viteConfigPath);
-  const exportAssignment = sourceFile.getExportAssignment(node => node.isExportEquals() === false);
-
-  if (!exportAssignment) {
-    consola.warn('Could not find default export in Vite config');
-    return;
-  }
-
-  const configObject = exportAssignment.getExpression();
-
-  if (!configObject.asKind(SyntaxKind.CallExpression)) {
-    consola.warn('Default export is not a defineConfig call');
-    return;
-  }
-
-  const defineConfigCall = configObject.asKindOrThrow(SyntaxKind.CallExpression);
-  const configArg = defineConfigCall.getArguments()[0];
-
-  if (!configArg?.asKind(SyntaxKind.ObjectLiteralExpression)) {
-    consola.warn('defineConfig argument is not an object literal');
-    return;
-  }
-
-  const configObjLiteral = configArg.asKindOrThrow(SyntaxKind.ObjectLiteralExpression);
-
-  sourceFile.addImportDeclaration({
-    moduleSpecifier: '@tailwindcss/vite',
-    defaultImport: 'tailwindcss',
-  });
-
-  let pluginsProp = configObjLiteral.getProperty('plugins');
-
-  if (!pluginsProp) {
-    configObjLiteral.addPropertyAssignment({
-      name: 'plugins',
-      initializer: '[]',
-    });
-    pluginsProp = configObjLiteral.getProperty('plugins');
-  }
-
-  if (!pluginsProp) {
-    consola.warn('Could not create plugins property');
-    return;
-  }
-
-  const pluginsArray = pluginsProp.getFirstChildByKind(SyntaxKind.ArrayLiteralExpression);
-
-  if (!pluginsArray) {
-    consola.warn('Could not find or create plugins array');
-    return;
-  }
-
-  const hasTailwindPlugin = pluginsArray.getElements().some((element) => {
-    if (element.getKind() !== SyntaxKind.CallExpression) {
-      return false;
-    }
-
-    const callExpr = element.asKindOrThrow(SyntaxKind.CallExpression);
-    const expression = callExpr.getExpression();
-    return expression.getText() === 'tailwindcss';
-  });
-
-  if (!hasTailwindPlugin) {
-    pluginsArray.addElement('tailwindcss()');
-  }
-
-  const formattedCode = await prettier.format(sourceFile.getFullText(), {
-    parser: 'typescript',
-    semi: false,
-    singleQuote: true,
-    trailingComma: 'es5',
-  });
-
-  await fs.writeFile(viteConfigPath, formattedCode, 'utf8');
 }

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "typography-blockquote",
+  "type": "registry:example",
+  "title": "TypographyBlockquote",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "example/TypographyBlockquote.vue",
+      "content": "<template>\n  <blockquote class=\"example-sigma-ui-typography__blockquote\">\n    \"After all,\" he said, \"everyone enjoys a good joke, so it's only fair that\n    they should pay for the privilege.\"\n  </blockquote>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .example-sigma-ui-typography__blockquote {\n    padding-left: calc(var(--spacing) * 6);\n    border-left: 2px solid var(--border);\n    margin-top: calc(var(--spacing) * 6);\n    font-style: italic;\n  }\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 ---
 title: Resizable
 description: Accessible resizable panel groups and layouts with keyboard support.
-source: packages/lib/src/registry/tailwind/ui/resizable
-primitive: https://www.reka-ui.com/docs/components/splitter.html
+source: resizable
+primitive: https://reka-ui.com/docs/components/splitter
 ---
 
 ## Preview
@@ -11,42 +11,7 @@ primitive: https://www.reka-ui.com/docs/components/splitter.html
 
 ## Installation
 
-<TabPreview name="CLI">
-<template #CLI>
-
-```bash
-npx sigma-ui add resizable
-```
-</template>
-
-<template #Manual>
-
-<Steps>
-
-### Install the following dependency:
-
-```bash
-npm install reka-ui
-```
-
-<!-- ### Copy and paste the following code into your project:
-
-`index.ts`
-
-<<< @ui/registry/tailwind/ui/resizable/index.ts
-
-`ResizablePanelGroup.vue`
-
-<<< @ui/registry/tailwind/ui/resizable/ResizablePanelGroup.vue
-
-`ResizableHandle.vue`
-
-<<< @ui/registry/tailwind/ui/resizable/ResizableHandle.vue -->
-
-</Steps>
-
-</template>
-</TabPreview>
+<ComponentInstall name="resizable" />
 
 ## Usage
 
@@ -56,7 +21,7 @@ import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from '@/components/ui/resizable'
+} from '@/components/ui/resizable';
 </script>
 
 <template>
@@ -68,11 +33,14 @@ import {
 </template>
 ```
 
+- `defaultSize`, `minSize`, and `maxSize` on `ResizablePanel` are percentages of the group.
+- Set `auto-save-id` on `ResizablePanelGroup` to persist the layout in local storage.
+
 ## Examples
 
 ### Vertical
 
-Use the direction prop to set the direction of the resizable panels.
+Use the `direction` prop to set the direction of the resizable panels.
 
 <ComponentPreview name="ResizableVertical" />
 
@@ -82,7 +50,7 @@ import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from '@/components/ui/resizable'
+} from '@/components/ui/resizable';
 </script>
 
 <template>
@@ -96,7 +64,7 @@ import {
 
 ### Handle
 
-You can set or hide the handle by using the withHandle prop on the ResizableHandle component.
+You can set or hide the handle by using the `withHandle` prop on the `ResizableHandle` component.
 
 <ComponentPreview name="ResizableHandle" />
 
@@ -106,7 +74,7 @@ import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from '@/components/ui/resizable'
+} from '@/components/ui/resizable';
 </script>
 
 <template>
@@ -117,3 +85,22 @@ import {
   </ResizablePanelGroup>
 </template>
 ```
+
+## API Reference
+
+<!-- @include: @/content/meta/resizable.md -->
+
+## Accessibility
+
+Adheres to the [Window Splitter WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/windowsplitter/). Reka UI handles the roles, ARIA attributes, and keyboard interactions of the handle.
+
+| Key | Description |
+| --- | --- |
+| <kbd>Tab</kbd> | Moves focus to the next handle or focusable element. |
+| <kbd>Enter</kbd> | If the primary panel is not collapsed, collapses it. If it is collapsed, restores the handle to its previous position. |
+| <kbd>ArrowDown</kbd> | Moves a horizontal handle down. |
+| <kbd>ArrowUp</kbd> | Moves a horizontal handle up. |
+| <kbd>ArrowRight</kbd> | Moves a vertical handle to the right. |
+| <kbd>ArrowLeft</kbd> | Moves a vertical handle to the left. |
+| <kbd>Home</kbd> | Moves the handle to give the primary panel its smallest allowed size. |
+| <kbd>End</kbd> | Moves the handle to give the primary panel its largest allowed size. |

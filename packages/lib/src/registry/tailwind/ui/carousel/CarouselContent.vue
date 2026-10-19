@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { type ComponentPublicInstance, useAttrs } from 'vue';
+
 import { useCarousel } from './useCarousel';
 import { cn } from '@ui/utils';
 
@@ -6,13 +8,24 @@ defineOptions({
   inheritAttrs: false,
 });
 
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
+
 const { carouselRef, orientation } = useCarousel();
+
+function setCarouselElement(element: Element | ComponentPublicInstance | null) {
+  carouselRef.value = element instanceof HTMLElement ? element : undefined;
+}
 </script>
 
 <template>
   <div
-    ref="carouselRef"
+    :ref="setCarouselElement"
     class="overflow-hidden"
+    data-slot="carousel-content"
   >
     <div
       :class="
@@ -21,7 +34,7 @@ const { carouselRef, orientation } = useCarousel();
           orientation === 'horizontal' ? '-ml-4' : '-mt-4 flex-col',
           $attrs.class ?? '',
         )"
-      v-bind="$attrs"
+      v-bind="delegatedAttrs()"
     >
       <slot />
     </div>

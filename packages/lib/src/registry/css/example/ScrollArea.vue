@@ -29,29 +29,33 @@ const tags = Array.from({ length: 50 }).map(
 </template>
 
 <style>
-.example-sigma-ui-scroll-area {
-  width: 12rem;
-  height: 18rem;
-  border: 1px solid hsl(var(--border));
-  border-radius: var(--radius);
-}
+@layer base, components;
 
-.example-sigma-ui-scroll-area__content {
-  padding: 1rem;
-}
+@layer components {
+  .example-sigma-ui-scroll-area {
+    width: calc(var(--spacing) * 48);
+    height: calc(var(--spacing) * 72);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
 
-.example-sigma-ui-scroll-area__heading {
-  margin-bottom: 1rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1;
-}
+  .example-sigma-ui-scroll-area__content {
+    padding: calc(var(--spacing) * 4);
+  }
 
-.example-sigma-ui-scroll-area__tag {
-  font-size: 0.875rem;
-}
+  .example-sigma-ui-scroll-area__heading {
+    margin-bottom: calc(var(--spacing) * 4);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1;
+  }
 
-.example-sigma-ui-scroll-area__separator {
-  margin: 0.5rem 0;
+  .example-sigma-ui-scroll-area__tag {
+    font-size: 0.875rem;
+  }
+
+  .example-sigma-ui-scroll-area__separator {
+    margin: calc(var(--spacing) * 2) 0;
+  }
 }
 </style>

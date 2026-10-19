@@ -2,21 +2,13 @@
 import { computed, h, ref } from 'vue';
 import { CalendarDate, DateFormatter, getLocalTimeZone, parseDate, today } from '@internationalized/date';
 import { toDate } from 'reka-ui/date';
-import { CalendarIcon } from 'lucide-vue-next';
+import { CalendarIcon } from '@lucide/vue';
 import { useForm } from 'vee-validate';
-import { toTypedSchema } from '@vee-validate/zod';
 import { z } from 'zod';
 import { toast } from '@ui/registry/css/ui/toaster';
 import { Calendar } from '@ui/registry/css/ui/calendar';
 import { Button } from '@ui/registry/css/ui/button';
-import {
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@ui/registry/css/ui/form';
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@ui/registry/css/ui/form';
 import { Popover, PopoverContent, PopoverTrigger } from '@ui/registry/css/ui/popover';
 
 const df = new DateFormatter('en-US', {
@@ -25,8 +17,8 @@ const df = new DateFormatter('en-US', {
 
 const formSchema = toTypedSchema(z.object({
   dob: z
-    .string()
-    .refine(v => v, { message: 'A date of birth is required.' }),
+    .string({ error: 'A date of birth is required.' })
+    .refine(v => v, { error: 'A date of birth is required.' }),
 }));
 
 const placeholder = ref();
@@ -100,49 +92,53 @@ const onSubmit = handleSubmit((values) => {
     <Button type="submit">
       Submit
     </Button>
-  </Form>
+  </form>
 </template>
 
 <style>
-.example-sigma-ui-date-picker-form {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
+@layer base, components;
 
-.example-sigma-ui-date-picker-form__item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
+@layer components {
+  .example-sigma-ui-date-picker-form {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 8);
+  }
 
-.example-sigma-ui-date-picker-form__button {
-  width: 240px;
-  padding-left: 0.75rem;
-  font-weight: normal;
-  text-align: start;
-}
+  .example-sigma-ui-date-picker-form__item {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-date-picker-form__button--placeholder {
-  color: hsl(var(--muted-foreground));
-}
+  .example-sigma-ui-date-picker-form__button {
+    width: 240px;
+    padding-left: calc(var(--spacing) * 3);
+    font-weight: normal;
+    text-align: start;
+  }
 
-.example-sigma-ui-date-picker-form__button-icon {
-  width: 1rem;
-  height: 1rem;
-  margin-left: auto;
-  opacity: 0.5;
-}
+  .example-sigma-ui-date-picker-form__button--placeholder {
+    color: var(--muted-foreground);
+  }
 
-.example-sigma-ui-date-picker-form__content {
-  width: auto;
-  padding: 0;
-}
+  .example-sigma-ui-date-picker-form__button-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-left: auto;
+    opacity: 0.5;
+  }
 
-.example-sigma-ui-date-picker-form__toast-pre {
-  padding: 1rem;
-  border-radius: var(--radius);
-  margin-top: 0.5rem;
-  background-color: hsl(var(--muted) / 50%);
+  .example-sigma-ui-date-picker-form__content {
+    width: auto;
+    padding: 0;
+  }
+
+  .example-sigma-ui-date-picker-form__toast-pre {
+    padding: calc(var(--spacing) * 4);
+    border-radius: var(--radius);
+    margin-top: calc(var(--spacing) * 2);
+    background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  }
 }
 </style>

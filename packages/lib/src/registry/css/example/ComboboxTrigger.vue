@@ -12,7 +12,7 @@ import {
   ComboboxList,
   ComboboxTrigger,
 } from '@ui/registry/css/ui/combobox';
-import { CheckIcon, ChevronsUpDownIcon, SearchIcon } from 'lucide-vue-next';
+import { CheckIcon, ChevronsUpDownIcon, SearchIcon } from '@lucide/vue';
 
 const frameworks = [
   { value: 'next.js', label: 'Next.js' },
@@ -78,75 +78,79 @@ const value = ref<typeof frameworks[0]>();
 </template>
 
 <style>
-.example-sigma-ui-combobox-trigger__trigger {
-  display: flex;
-  width: 200px;
-  justify-content: space-between;
-}
+@layer base, components;
 
-.example-sigma-ui-combobox-trigger__trigger--empty {
-  color: hsl(var(--muted-foreground));
-}
+@layer components {
+  .example-sigma-ui-combobox-trigger__trigger {
+    display: flex;
+    width: 200px;
+    justify-content: space-between;
+  }
 
-.example-sigma-ui-combobox-trigger__trigger--filled {
-  color: hsl(var(--foreground));
-}
+  .example-sigma-ui-combobox-trigger__trigger--empty {
+    color: var(--muted-foreground);
+  }
 
-.example-sigma-ui-combobox-trigger__chevron {
-  width: 1rem;
-  height: 1rem;
-  flex-shrink: 0;
-  margin-left: 0.5rem;
-  opacity: 0.5;
-}
+  .example-sigma-ui-combobox-trigger__trigger--filled {
+    color: var(--foreground);
+  }
 
-.example-sigma-ui-combobox-trigger__content {
-  position: relative;
-  width: 200px;
-  padding: 0;
-}
+  .example-sigma-ui-combobox-trigger__chevron {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    flex-shrink: 0;
+    margin-left: calc(var(--spacing) * 2);
+    opacity: 0.5;
+  }
 
-.example-sigma-ui-combobox-trigger__check {
-  width: 1rem;
-  height: 1rem;
-  margin-left: auto;
-  opacity: 0;
-}
+  .example-sigma-ui-combobox-trigger__content {
+    position: relative;
+    width: 200px;
+    padding: 0;
+  }
 
-.example-sigma-ui-combobox-trigger__check--selected {
-  opacity: 1;
-}
+  .example-sigma-ui-combobox-trigger__check {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-left: auto;
+    opacity: 0;
+  }
 
-.example-sigma-ui-combobox-trigger__input {
-  height: 2.25rem;
-  padding-left: 2.25rem;
-  border: none;
-  border-radius: 0;
-  background-color: transparent;
-  box-shadow: 1px 1px 0 0 hsl(var(--border));
-  color: hsl(var(--muted-foreground));
-  outline: none;
-}
+  .example-sigma-ui-combobox-trigger__check--selected {
+    opacity: 1;
+  }
 
-.sigma-ui-combobox-input:focus-visible {
-  border-bottom: 1px solid hsl(var(--border));
-  box-shadow: none;
-  outline: none;
-}
+  .example-sigma-ui-combobox-trigger__input {
+    height: calc(var(--spacing) * 9);
+    padding-left: calc(var(--spacing) * 9);
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    box-shadow: 1px 1px 0 0 var(--border);
+    color: var(--muted-foreground);
+    outline: none;
+  }
 
-.example-sigma-ui-combobox-trigger__search-icon {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  padding: 0 0.75rem;
-}
+  .sigma-ui-combobox-input:focus-visible {
+    border-bottom: 1px solid var(--border);
+    box-shadow: none;
+    outline: none;
+  }
 
-.example-sigma-ui-combobox-trigger__search-icon-icon {
-  width: 1rem;
-  height: 1rem;
-  color: hsl(var(--muted-foreground));
+  .example-sigma-ui-combobox-trigger__search-icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 calc(var(--spacing) * 3);
+  }
+
+  .example-sigma-ui-combobox-trigger__search-icon-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    color: var(--muted-foreground);
+  }
 }
 </style>

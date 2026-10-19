@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-block-diff",
+  "type": "registry:example",
+  "title": "CodeBlockDiff",
+  "dependencies": [
+    "@lucide/vue@^1.59.0"
+  ],
+  "registryDependencies": [
+    "code-block"
+  ],
+  "files": [
+    {
+      "path": "example/CodeBlockDiff.vue",
+      "content": "<script setup lang=\"ts\">\nimport { FileCodeIcon } from '@lucide/vue';\nimport {\n  CodeBlock,\n  CodeBlockActions,\n  CodeBlockContent,\n  CodeBlockCopyButton,\n  CodeBlockHeader,\n  CodeBlockTitle,\n  useHighlightedCode,\n} from '@/components/ui/code-block';\n\nconst code = ` import { computed, ref } from 'vue';\n\n const query = ref('');\n-const results = computed(() => search(query.value));\n+const debouncedQuery = refDebounced(query, 300);\n+const results = computed(() => search(debouncedQuery.value));`;\n\nconst { lines } = useHighlightedCode(code, 'ts', { diff: true });\n</script>\n\n<template>\n  <CodeBlock>\n    <CodeBlockHeader>\n      <CodeBlockTitle>\n        <FileCodeIcon />\n        composables/useSearch.ts\n      </CodeBlockTitle>\n      <CodeBlockActions>\n        <CodeBlockCopyButton />\n      </CodeBlockActions>\n    </CodeBlockHeader>\n    <CodeBlockContent\n      :code=\"code\"\n      :lines=\"lines\"\n      language=\"ts\"\n      diff\n      line-numbers\n    />\n  </CodeBlock>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

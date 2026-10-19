@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ImageIcon } from 'lucide-vue-next';
+import { ImageIcon } from '@lucide/vue';
 import { Image } from '@ui/registry/tailwind/ui/image';
 </script>
 
@@ -10,7 +10,7 @@ import { Image } from '@ui/registry/tailwind/ui/image';
     >
       <template #fallback>
         <div
-          class="flex flex-col gap-1 items-center justify-center text-muted-foreground w-full h-full bg-[length:16px_16px] bg-[image:linear-gradient(90deg,transparent_95%,hsl(var(--foreground)/10%)_95%),linear-gradient(0deg,transparent_95%,hsl(var(--foreground)/10%)_95%)]"
+          class="flex flex-col gap-1 items-center justify-center text-muted-foreground w-full h-full bg-[length:16px_16px] bg-[image:linear-gradient(90deg,transparent_95%,color-mix(in oklch, var(--foreground) 10%, transparent)_95%),linear-gradient(0deg,transparent_95%,color-mix(in oklch, var(--foreground) 10%, transparent)_95%)]"
         >
           <ImageIcon class="w-[50%] max-w-[50px] h-[50%] max-h-[50px]" />
           no photo

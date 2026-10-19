@@ -1,213 +1,76 @@
 import { getParameters } from 'codesandbox/lib/api/define';
 import sdk from '@stackblitz/sdk';
-import { dependencies as deps } from '../../../package.json';
-import { Index as demoIndex } from '../../../../docs/__generated';
-// @ts-expect-error ?raw
-import tailwindConfigRaw from '../../../tailwind.config?raw';
-// @ts-expect-error ?raw
-import cssRaw from '../../../../../packages/cli/test/fixtures/nuxt/assets/css/tailwind.css?raw';
-import type { StyleSystem } from '@/lib/registry/style-system';
+import { PREFLIGHT_CSS_TEMPLATE } from '@sigma-ui/shared/templates/preflight';
+import { assemblePlaygroundFiles, createPlaygroundStylesheet, playgroundRegistryNames, toRegistrySlug, type PlaygroundItem, type PlaygroundProjectFile } from './playground';
+import type { StyleSystem } from '@sigma-ui/shared/style-systems';
 
-export function makeCodeSandboxParams(componentName: string, style: StyleSystem, sources: Record<string, string>) {
-  let files: Record<string, any> = {};
-  files = constructFiles(componentName, style, sources);
-  files['.codesandbox/Dockerfile'] = {
-    content: 'FROM node:18',
-  };
+interface RegistryItemResponse extends PlaygroundItem {
+  registryDependencies?: string[];
+}
+
+async function fetchRegistryItem(styleSystem: StyleSystem, slug: string): Promise<RegistryItemResponse | null> {
+  const response = await fetch(`/r/${styleSystem}/${slug}.json`);
+
+  if (!response.ok) {
+    return null;
+  }
+
+  return response.json() as Promise<RegistryItemResponse>;
+}
+
+async function loadRegistryItems(styleSystem: StyleSystem, names: string[], seen = new Set<string>()): Promise<RegistryItemResponse[]> {
+  const items: RegistryItemResponse[] = [];
+
+  for (const name of names) {
+    const slug = toRegistrySlug(name);
+
+    if (!slug || slug === 'utils' || seen.has(slug)) {
+      continue;
+    }
+
+    seen.add(slug);
+    const item = await fetchRegistryItem(styleSystem, slug);
+
+    if (!item) {
+      continue;
+    }
+
+    items.push(item, ...await loadRegistryItems(styleSystem, item.registryDependencies ?? [], seen));
+  }
+
+  return items;
+}
+
+export async function createPlaygroundFiles(componentName: string, styleSystem: StyleSystem, demoCode: string, registryNames: readonly string[] = []) {
+  const items = await loadRegistryItems(styleSystem, playgroundRegistryNames(componentName, demoCode, registryNames));
+
+  return assemblePlaygroundFiles({
+    styleSystem,
+    componentName,
+    demoCode,
+    items,
+    css: createPlaygroundStylesheet(styleSystem),
+    preflight: styleSystem === 'css' ? PREFLIGHT_CSS_TEMPLATE : undefined,
+  });
+}
+
+export function makeCodeSandboxParams(files: Record<string, PlaygroundProjectFile>) {
   return getParameters({ files, template: 'node' });
 }
 
-export function makeStackblitzParams(componentName: string, style: StyleSystem, sources: Record<string, string>) {
-  const files: Record<string, string> = {};
-  Object.entries(constructFiles(componentName, style, sources)).forEach(([k, v]) => (files[`${k}`] = typeof v.content === 'object' ? JSON.stringify(v.content, null, 2) : v.content));
+export function openInStackblitz(componentName: string, files: Record<string, PlaygroundProjectFile>) {
+  const projectFiles: Record<string, string> = {};
+
+  for (const [filePath, file] of Object.entries(files)) {
+    projectFiles[filePath] = file.content;
+  }
 
   return sdk.openProject({
     title: `${componentName} - SIGMA-UI`,
-    files,
+    files: projectFiles,
     template: 'node',
   }, {
     newWindow: true,
     openFile: ['src/App.vue'],
   });
-}
-
-const viteConfig = {
-  'vite.config.js': {
-    content: `import path from "path"
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import tailwindcss from '@tailwindcss/vite'
-
-export default defineConfig({
-  plugins: [
-    vue(),
-    tailwindcss(),
-  ],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
-})`,
-    isBinary: false,
-  },
-  'index.html': {
-    content: `<!DOCTYPE html>
-    <html class="dark" lang="en">
-      <head>
-        <meta charset="UTF-8" />
-        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Vite + Vue + TS</title>
-      </head>
-      <body>
-        <div vaul-drawer-wrapper id="app"></div>
-        <script type="module" src="/src/main.ts"></script>
-      </body>
-    </html>
-    `,
-    isBinary: false,
-  },
-};
-
-function constructFiles(componentName: string, style: StyleSystem, sources: Record<string, string>) {
-  const componentsJson = {
-    style,
-    tailwind: {
-      config: 'tailwind.config.js',
-      css: 'src/assets/index.css',
-      baseColor: 'grayscale',
-    },
-    aliases: {
-      utils: '@/utils',
-      components: '@/components',
-    },
-  };
-
-  const dependencies = {
-    'vue': 'latest',
-    'reka-ui': deps['reka-ui'],
-    '@radix-ui/colors': 'latest',
-    'clsx': 'latest',
-    'class-variance-authority': 'latest',
-    'tailwind-merge': 'latest',
-    'tailwindcss-animate': 'latest',
-    'lucide-vue-next': 'latest',
-    'sigma-ui': 'latest',
-    'typescript': 'latest',
-    'vaul-vue': 'latest',
-    'vue-sonner': 'latest',
-    '@unovis/vue': 'latest',
-    '@unovis/ts': 'latest',
-  };
-
-  const devDependencies = {
-    'vite': 'latest',
-    '@vitejs/plugin-vue': 'latest',
-    'vue-tsc': 'latest',
-    'tailwindcss': 'latest',
-    '@tailwindcss/vite': 'latest',
-  };
-
-  const transformImportPath = (code: string) => {
-    let parsed = code;
-    parsed = parsed.replaceAll(`@ui/registry/${style}`, '@/components');
-    parsed = parsed.replaceAll('@ui/utils', '@/utils');
-    return parsed;
-  };
-
-  const componentFiles = Object.keys(sources).filter(key => key.endsWith('.vue') && key !== 'index.vue');
-  const components: Record<string, any> = {};
-  componentFiles.forEach((i) => {
-    components[`src/${i}`] = {
-      isBinary: false,
-      content: transformImportPath(sources[i]),
-    };
-  });
-
-  // @ts-expect-error componentName might not exist in Index
-  const registryDependencies = demoIndex[style][componentName as any]?.registryDependencies?.filter(i => i !== 'utils');
-
-  const files = {
-    'package.json': {
-      content: {
-        name: `sigma-ui-${componentName.toLowerCase().replace(/ /g, '-')}`,
-        scripts: { start: `sigma-ui add ${registryDependencies.join(' ')} -y && vite` },
-        dependencies,
-        devDependencies,
-      },
-      isBinary: false,
-    },
-    'sigma-ui.config.json': {
-      content: componentsJson,
-      isBinary: false,
-    },
-    ...viteConfig,
-    'tailwind.config.js': {
-      content: tailwindConfigRaw,
-      isBinary: false,
-    },
-    'tsconfig.json': {
-      content: `{
-"$schema": "https://json.schemastore.org/tsconfig",
-"compilerOptions": {
-  "baseUrl": ".",
-  "paths": {
-    "@/*": ["./src/*"]
-  }
-}
-}`,
-      isBinary: false,
-    },
-    'src/utils.ts': {
-      isBinary: false,
-      content: `import { type ClassValue, clsx } from 'clsx'
-import { twMerge } from 'tailwind-merge'
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}`,
-    },
-    'src/assets/index.css': {
-      content: cssRaw,
-      isBinary: false,
-    },
-    'src/main.ts': {
-      content: `import { createApp } from 'vue';
-import App from './App.vue';
-import './assets/global.css';
-import './assets/index.css';
-
-createApp(App).mount('#app')`,
-      isBinary: false,
-    },
-    'src/App.vue': {
-      isBinary: false,
-      content: sources['index.vue'],
-    },
-    ...components,
-    'src/assets/global.css': {
-      content: `body {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 120px;
-  width: 100vw;
-  height: 100vh;
-  background-color: hsl(var(--background));
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  color: hsl(var(--foreground));
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: "rlig" 1, "calt" 1;
-} 
-
-#app {
-  @apply w-full flex items-center justify-center px-12;
-}`,
-      isBinary: false,
-    },
-  };
-
-  return files;
 }

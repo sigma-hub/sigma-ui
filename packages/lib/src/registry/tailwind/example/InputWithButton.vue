@@ -7,6 +7,7 @@ import { Button } from '@ui/registry/tailwind/ui/button';
   <div class="flex w-full max-w-sm gap-2">
     <Input
       id="email"
+      autocomplete="email"
       type="email"
       placeholder="Email"
     />

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "command-responsive",
+  "type": "registry:example",
+  "title": "CommandResponsive",
+  "dependencies": [
+    "@vueuse/core@^15.0.0"
+  ],
+  "registryDependencies": [
+    "button",
+    "command",
+    "drawer",
+    "popover"
+  ],
+  "files": [
+    {
+      "path": "example/CommandResponsive.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { createReusableTemplate, useMediaQuery } from '@vueuse/core';\nimport { ref } from 'vue';\nimport { Button } from '@/components/ui/button';\nimport { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command';\nimport { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';\nimport { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';\n\ninterface Status {\n  value: string;\n  label: string;\n}\n\nconst statuses: Status[] = [\n  {\n    value: 'backlog',\n    label: 'Backlog',\n  },\n  {\n    value: 'todo',\n    label: 'Todo',\n  },\n  {\n    value: 'in progress',\n    label: 'In Progress',\n  },\n  {\n    value: 'done',\n    label: 'Done',\n  },\n  {\n    value: 'canceled',\n    label: 'Canceled',\n  },\n];\n\nconst [UseTemplate, StatusList] = createReusableTemplate();\nconst isDesktop = useMediaQuery('(width >= 48rem)');\n\nconst isOpen = ref(false);\nconst selectedStatus = ref<Status | null>(null);\n\nfunction onStatusSelect(status: Status) {\n  selectedStatus.value = status;\n  isOpen.value = false;\n}\n</script>\n\n<template>\n  <div class=\"example-sigma-ui-command-responsive\">\n    <UseTemplate>\n      <Command>\n        <CommandInput placeholder=\"Filter status...\" />\n        <CommandList>\n          <CommandEmpty>No results found.</CommandEmpty>\n          <CommandGroup>\n            <CommandItem\n              v-for=\"status of statuses\"\n              :key=\"status.value\"\n              :value=\"status.value\"\n              @select=\"onStatusSelect(status)\"\n            >\n              {{ status.label }}\n            </CommandItem>\n          </CommandGroup>\n        </CommandList>\n      </Command>\n    </UseTemplate>\n\n    <Popover\n      v-if=\"isDesktop\"\n      v-model:open=\"isOpen\"\n    >\n      <PopoverTrigger as-child>\n        <Button\n          variant=\"outline\"\n          class=\"example-sigma-ui-command-responsive__trigger\"\n        >\n          {{ selectedStatus ? selectedStatus.label : \"+ Set status\" }}\n        </Button>\n      </PopoverTrigger>\n      <PopoverContent\n        class=\"example-sigma-ui-command-responsive__content\"\n        align=\"start\"\n      >\n        <StatusList />\n      </PopoverContent>\n    </Popover>\n\n    <Drawer\n      v-else\n      :open=\"isOpen\"\n      @update:open=\"(newOpenValue) => isOpen = newOpenValue\"\n    >\n      <DrawerTrigger as-child>\n        <Button\n          variant=\"outline\"\n          class=\"example-sigma-ui-command-responsive__trigger\"\n        >\n          {{ selectedStatus ? selectedStatus.label : \"+ Set status\" }}\n        </Button>\n      </DrawerTrigger>\n      <DrawerContent>\n        <div class=\"example-sigma-ui-command-responsive__drawer-content\">\n          <StatusList />\n        </div>\n      </DrawerContent>\n    </Drawer>\n  </div>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .example-sigma-ui-command-responsive__trigger {\n    width: 150px;\n    justify-content: flex-start;\n  }\n\n  .example-sigma-ui-command-responsive__content {\n    width: 200px;\n    padding: 0;\n  }\n\n  .example-sigma-ui-command-responsive__drawer-content {\n    border-top: 1px solid var(--border);\n    margin-top: calc(var(--spacing) * 4);\n  }\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+<script setup lang="ts">
+import { useAttrs } from 'vue';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
+
+defineSlots<{
+  /**
+   * Secondary text. Links inside it are underlined.
+   */
+  default?: () => unknown;
+}>();
+</script>
+
+<template>
+  <p
+    data-slot="item-description"
+    v-bind="delegatedAttrs()"
+    class="sigma-ui-item-description"
+    :class="[$attrs.class]"
+  >
+    <slot />
+  </p>
+</template>
+
+<style>
+@layer base, components;
+
+@layer components {
+  .sigma-ui-item-description {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+    font-weight: 400;
+    -webkit-line-clamp: 2;
+    line-height: 1.5;
+    text-wrap: balance;
+  }
+
+  .sigma-ui-item-description a {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .sigma-ui-item-description a:hover {
+    color: var(--primary);
+  }
+}
+</style>

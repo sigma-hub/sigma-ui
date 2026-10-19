@@ -12,14 +12,19 @@ const { name, formMessageId } = useFormField();
     as="p"
     :name="toValue(name)"
     class="sigma-ui-form-message"
+    data-slot="form-message"
   />
 </template>
 
 <style>
-.sigma-ui-form-message {
-  color: hsl(var(--destructive));
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1.25rem;
+@layer base, components;
+
+@layer components {
+  .sigma-ui-form-message {
+    color: var(--destructive);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+  }
 }
 </style>

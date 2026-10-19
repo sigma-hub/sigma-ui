@@ -1,22 +1,17 @@
 <script setup lang="ts">
 import { h } from 'vue';
 import { useForm } from 'vee-validate';
-import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
 import { toast } from '@ui/registry/css/ui/toaster';
 import { Button } from '@ui/registry/css/ui/button';
-import {
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@ui/registry/css/ui/form';
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@ui/registry/css/ui/form';
 import { Input } from '@ui/registry/css/ui/input';
 
 const formSchema = toTypedSchema(z.object({
-  username: z.string().min(2).max(50),
+  username: z
+    .string({ error: 'Username is required.' })
+    .min(2, 'Username must be at least 2 characters.')
+    .max(50, 'Username must not be longer than 50 characters.'),
 }));
 
 const { handleSubmit } = useForm({
@@ -64,21 +59,25 @@ const onSubmit = handleSubmit((values) => {
 </template>
 
 <style>
-.example-sigma-ui-form {
-  display: flex;
-  width: 66%;
-  flex-direction: column;
-  gap: 1.5rem;
-}
+@layer base, components;
 
-.example-sigma-ui-form__button {
-  width: fit-content;
-}
+@layer components {
+  .example-sigma-ui-form {
+    display: flex;
+    width: 66%;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 6);
+  }
 
-.example-sigma-ui-form__toast-pre {
-  padding: 1rem;
-  border-radius: var(--radius);
-  margin-top: 0.5rem;
-  background-color: hsl(var(--muted) / 50%);
+  .example-sigma-ui-form__button {
+    width: fit-content;
+  }
+
+  .example-sigma-ui-form__toast-pre {
+    padding: calc(var(--spacing) * 4);
+    border-radius: var(--radius);
+    margin-top: calc(var(--spacing) * 2);
+    background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  }
 }
 </style>

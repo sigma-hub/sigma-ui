@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ChevronDownIcon, SlashIcon } from 'lucide-vue-next';
+import { ChevronDownIcon, SlashIcon } from '@lucide/vue';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -51,14 +51,18 @@ import {
 </template>
 
 <style>
-.example-sigma-ui-breadcrumb__trigger {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-}
+@layer base, components;
 
-.example-sigma-ui-breadcrumb__trigger-icon {
-  width: 1rem;
-  height: 1rem;
+@layer components {
+  .example-sigma-ui-breadcrumb__trigger {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 1);
+  }
+
+  .example-sigma-ui-breadcrumb__trigger-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 }
 </style>

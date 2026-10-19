@@ -1,31 +1,50 @@
 <script setup lang="ts">
-import { DropdownMenuLabel, type DropdownMenuLabelProps, useForwardProps } from 'reka-ui';
+import { useAttrs } from 'vue';
 
-const props = defineProps<DropdownMenuLabelProps & { inset?: boolean }>();
+import { DropdownMenuLabel, type DropdownMenuLabelProps, useForwardProps } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
+
+const props = defineProps<DropdownMenuLabelProps & {
+  /** Adds left padding to align with items that have an icon or indicator. */
+  inset?: boolean;
+}>();
 
 const forwardedProps = useForwardProps(props);
 </script>
 
 <template>
   <DropdownMenuLabel
-    v-bind="forwardedProps"
+    data-slot="dropdown-menu-label"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     class="sigma-ui-dropdown-menu-label"
-    :class="[{ 'sigma-ui-dropdown-menu-label--inset': inset }]"
+    :class="[{ 'sigma-ui-dropdown-menu-label--inset': inset }, $attrs.class]"
   >
     <slot />
   </DropdownMenuLabel>
 </template>
 
 <style>
-.sigma-ui-dropdown-menu-label {
-  padding: 0.375rem 0.5rem;
-  color: hsl(var(--foreground));
-  font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1.25rem;
-}
+@layer base, components;
 
-.sigma-ui-dropdown-menu-label--inset {
-  padding-left: 2rem;
+@layer components {
+  .sigma-ui-dropdown-menu-label {
+    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
+    color: var(--foreground);
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+  }
+
+  .sigma-ui-dropdown-menu-label--inset {
+    padding-left: calc(var(--spacing) * 8);
+  }
 }
 </style>

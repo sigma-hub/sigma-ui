@@ -44,44 +44,48 @@ import {
 </template>
 
 <style>
-.example-sigma-ui-dialog-scroll__content {
-  max-width: 425px;
-}
+@layer base, components;
 
-.example-sigma-ui-dialog-scroll__content--scroll {
-  display: grid;
-  max-height: 90dvh;
-  padding: 0;
-  grid-template-rows: auto minmax(0, 1fr) auto;
-}
-
-@media (width >= 640px) {
+@layer components {
   .example-sigma-ui-dialog-scroll__content {
     max-width: 425px;
   }
-}
 
-.example-sigma-ui-dialog-scroll__header {
-  padding: 1.5rem;
-  padding-bottom: 0;
-}
+  .example-sigma-ui-dialog-scroll__content--scroll {
+    display: grid;
+    max-height: 90dvh;
+    padding: 0;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+  }
 
-.example-sigma-ui-dialog-scroll__body {
-  display: grid;
-  padding: 1.5rem;
-  gap: 1rem;
-  overflow-y: auto;
-}
+  @media (width >= 40rem) {
+    .example-sigma-ui-dialog-scroll__content {
+      max-width: 425px;
+    }
+  }
 
-.example-sigma-ui-dialog-scroll__scroll-content {
-  display: flex;
-  height: 300dvh;
-  flex-direction: column;
-  justify-content: space-between;
-}
+  .example-sigma-ui-dialog-scroll__header {
+    padding: calc(var(--spacing) * 6);
+    padding-bottom: 0;
+  }
 
-.example-sigma-ui-dialog-scroll__footer {
-  padding: 1.5rem;
-  padding-top: 0;
+  .example-sigma-ui-dialog-scroll__body {
+    display: grid;
+    padding: calc(var(--spacing) * 6);
+    gap: calc(var(--spacing) * 4);
+    overflow-y: auto;
+  }
+
+  .example-sigma-ui-dialog-scroll__scroll-content {
+    display: flex;
+    height: 300dvh;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .example-sigma-ui-dialog-scroll__footer {
+    padding: calc(var(--spacing) * 6);
+    padding-top: 0;
+  }
 }
 </style>

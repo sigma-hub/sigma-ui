@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BoldIcon } from 'lucide-vue-next';
+import { BoldIcon } from '@lucide/vue';
 import { Toggle } from '@ui/registry/tailwind/ui/toggle';
 </script>
 

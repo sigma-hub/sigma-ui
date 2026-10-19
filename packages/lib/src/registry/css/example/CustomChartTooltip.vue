@@ -33,38 +33,42 @@ defineProps<{
 </template>
 
 <style>
-.example-sigma-ui-custom-chart-tooltip {
-  font-size: 0.875rem;
-}
+@layer base, components;
 
-.example-sigma-ui-custom-chart-tooltip__content {
-  display: flex;
-  min-width: 180px;
-  flex-direction: column;
-  padding: 0.75rem;
-  gap: 0.5rem;
-}
+@layer components {
+  .example-sigma-ui-custom-chart-tooltip {
+    font-size: 0.875rem;
+  }
 
-.example-sigma-ui-custom-chart-tooltip__item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+  .example-sigma-ui-custom-chart-tooltip__content {
+    display: flex;
+    min-width: 180px;
+    flex-direction: column;
+    padding: calc(var(--spacing) * 3);
+    gap: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-custom-chart-tooltip__item-label {
-  display: flex;
-  align-items: center;
-}
+  .example-sigma-ui-custom-chart-tooltip__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-.example-sigma-ui-custom-chart-tooltip__color-indicator {
-  width: 4px;
-  height: 28px;
-  border-radius: 9999px;
-  margin-right: 1rem;
-}
+  .example-sigma-ui-custom-chart-tooltip__item-label {
+    display: flex;
+    align-items: center;
+  }
 
-.example-sigma-ui-custom-chart-tooltip__value {
-  margin-left: 1rem;
-  font-weight: 600;
+  .example-sigma-ui-custom-chart-tooltip__color-indicator {
+    width: 4px;
+    height: 28px;
+    border-radius: 9999px;
+    margin-right: calc(var(--spacing) * 4);
+  }
+
+  .example-sigma-ui-custom-chart-tooltip__value {
+    margin-left: calc(var(--spacing) * 4);
+    font-weight: 600;
+  }
 }
 </style>

@@ -8,22 +8,27 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <TagsInputInput
+    data-slot="tags-input-input"
     v-bind="forwardedProps"
     class="sigma-ui-tags-input-input"
   />
 </template>
 
 <style>
-.sigma-ui-tags-input-input {
-  min-height: 1.5rem;
-  flex: 1;
-  background-color: transparent;
-  font-size: 0.875rem;
-  padding-inline: 0.25rem;
-}
+@layer base, components;
 
-.sigma-ui-tags-input-input:focus-visible {
-  box-shadow: none;
-  outline: none;
+@layer components {
+  .sigma-ui-tags-input-input {
+    min-height: calc(var(--spacing) * 6);
+    flex: 1;
+    background-color: transparent;
+    font-size: 0.875rem;
+    padding-inline: calc(var(--spacing) * 1);
+  }
+
+  .sigma-ui-tags-input-input:focus-visible {
+    box-shadow: none;
+    outline: none;
+  }
 }
 </style>

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar-demo",
+  "type": "registry:example",
+  "title": "Avatar",
+  "dependencies": [],
+  "registryDependencies": [
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "example/Avatar.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Avatar } from '@/components/ui/avatar';\n</script>\n\n<template>\n  <div class=\"gap-8 hidden sm:flex\">\n    <Avatar\n      src=\"/avatars/avatar-example@0.25x.png\"\n      shape=\"rounded\"\n      size=\"base\"\n    />\n\n    <Avatar\n      src=\"/avatars/avatar-example@0.25x.png\"\n      shape=\"circle\"\n      size=\"base\"\n    />\n\n    <Avatar\n      shape=\"circle\"\n      size=\"base\"\n    >\n      <template #fallback>\n        <div class=\"text-primary/50\">\n          YU\n        </div>\n      </template>\n    </Avatar>\n\n    <Avatar\n      shape=\"circle\"\n      size=\"base\"\n    />\n  </div>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

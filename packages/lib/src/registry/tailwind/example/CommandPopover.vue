@@ -6,7 +6,7 @@ import {
   CircleIcon,
   HelpCircleIcon,
   XCircleIcon,
-} from 'lucide-vue-next';
+} from '@lucide/vue';
 import { cn } from '@ui/utils';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import {
@@ -26,7 +26,7 @@ import {
 interface Status {
   value: string;
   label: string;
-  icon: typeof ArrowUpCircleIcon;
+  icon: typeof HelpCircleIcon;
 }
 
 const statuses: Status[] = [
@@ -87,7 +87,7 @@ const selectedStatus = ref<Status>();
       </PopoverTrigger>
       <PopoverContent
         class="p-0"
-        side="right"
+        side="bottom"
         align="start"
       >
         <Command>

@@ -14,14 +14,6 @@ export function kebabToPascal(kebabCase: string): string {
     .join('');
 }
 
-export function transformDirectoryName(dirName: string, naming: ComponentNaming): string {
-  if (naming === 'kebab-case') {
-    return dirName;
-  }
-
-  return kebabToPascal(dirName);
-}
-
 export function transformFileName(fileName: string, naming: ComponentNaming): string {
   if (naming === 'pascal-case') {
     return fileName;
@@ -43,10 +35,7 @@ export function transformLocalVueImports(content: string, naming: ComponentNamin
   }
 
   return content.replace(
-    /from\s+['"]\.\/([\w-]+)\.vue['"]/g,
-    (match, componentName) => {
-      const kebabName = pascalToKebab(componentName);
-      return `from './${kebabName}.vue'`;
-    },
+    /from\s+(['"])(\.{1,2}\/(?:[\w.-]+\/)*)([\w-]+)\.vue\1/g,
+    (match, quote, directory, componentName) => `from ${quote}${directory}${pascalToKebab(componentName)}.vue${quote}`,
   );
 }

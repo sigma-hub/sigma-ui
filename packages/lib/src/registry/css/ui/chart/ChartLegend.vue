@@ -5,12 +5,17 @@ import { BulletLegend } from '@unovis/ts';
 import { nextTick, onMounted, ref } from 'vue';
 import { buttonVariants } from '@ui/registry/css/ui/button';
 
-const props = withDefaults(defineProps<{ items: BulletLegendItemInterface[] }>(), {
+const props = withDefaults(defineProps<{
+  /** Legend entries; inactive items are shown as filtered out. */
+  items: BulletLegendItemInterface[];
+}>(), {
   items: () => [],
 });
 
 const emits = defineEmits<{
+  /** Emitted when a legend item is clicked, with the item and its index. */
   'legendItemClick': [d: BulletLegendItemInterface, i: number];
+  /** Emitted with the new items after a click isolates one series or resets the filter. */
   'update:items': [payload: BulletLegendItemInterface[]];
 }>();
 
@@ -44,6 +49,7 @@ function onLegendItemClick(d: BulletLegendItemInterface, i: number) {
   <div
     ref="elRef"
     class="sigma-ui-chart-legend"
+    data-slot="chart-legend"
   >
     <VisBulletLegend
       :items="items"
@@ -53,12 +59,16 @@ function onLegendItemClick(d: BulletLegendItemInterface, i: number) {
 </template>
 
 <style>
-.sigma-ui-chart-legend {
-  width: max-content;
-}
+@layer base, components;
 
-.sigma-ui-chart-legend__item {
-  display: inline-flex !important;
-  margin-right: 0.5rem;
+@layer components {
+  .sigma-ui-chart-legend {
+    width: max-content;
+  }
+
+  .sigma-ui-chart-legend__item {
+    display: inline-flex !important;
+    margin-right: calc(var(--spacing) * 2);
+  }
 }
 </style>

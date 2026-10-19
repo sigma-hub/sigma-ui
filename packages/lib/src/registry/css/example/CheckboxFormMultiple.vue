@@ -1,18 +1,10 @@
 <script setup lang="ts">
 import { h } from 'vue';
 import { useForm } from 'vee-validate';
-import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
 import { toast } from '@ui/registry/css/ui/toaster';
 import { Button } from '@ui/registry/css/ui/button';
-import {
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@ui/registry/css/ui/form';
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@ui/registry/css/ui/form';
 import { Checkbox } from '@ui/registry/css/ui/checkbox';
 
 const items = [
@@ -44,7 +36,7 @@ const items = [
 
 const formSchema = toTypedSchema(z.object({
   items: z.array(z.string()).refine(value => value.some(item => item), {
-    message: 'You have to select at least one item.',
+    error: 'You have to select at least one item.',
   }),
 }));
 
@@ -109,41 +101,45 @@ const onSubmit = handleSubmit((values) => {
 </template>
 
 <style>
-.example-sigma-ui-checkbox-multiple__header-item {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
+@layer base, components;
 
-.example-sigma-ui-checkbox-multiple__header {
-  margin-bottom: 0.5rem;
-}
+@layer components {
+  .example-sigma-ui-checkbox-multiple__header-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
 
-.example-sigma-ui-checkbox-multiple__title {
-  font-size: 1rem;
-}
+  .example-sigma-ui-checkbox-multiple__header {
+    margin-bottom: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-checkbox-multiple__item {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 0.75rem;
-}
+  .example-sigma-ui-checkbox-multiple__title {
+    font-size: 1rem;
+  }
 
-.example-sigma-ui-checkbox-multiple__label {
-  font-weight: 400;
-}
+  .example-sigma-ui-checkbox-multiple__item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: calc(var(--spacing) * 3);
+  }
 
-.example-sigma-ui-checkbox-multiple__footer {
-  display: flex;
-  justify-content: flex-start;
-  margin-top: 1rem;
-}
+  .example-sigma-ui-checkbox-multiple__label {
+    font-weight: 400;
+  }
 
-.example-sigma-ui-checkbox-multiple__toast-pre {
-  padding: 1rem;
-  border-radius: var(--radius);
-  margin-top: 0.5rem;
-  background-color: hsl(var(--muted) / 50%);
+  .example-sigma-ui-checkbox-multiple__footer {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: calc(var(--spacing) * 4);
+  }
+
+  .example-sigma-ui-checkbox-multiple__toast-pre {
+    padding: calc(var(--spacing) * 4);
+    border-radius: var(--radius);
+    margin-top: calc(var(--spacing) * 2);
+    background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  }
 }
 </style>

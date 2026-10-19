@@ -285,8 +285,12 @@ const data = [
 </template>
 
 <style>
-.example-sigma-ui-line-chart-sparkline {
-  width: 400px;
-  height: 100px;
+@layer base, components;
+
+@layer components {
+  .example-sigma-ui-line-chart-sparkline {
+    width: 400px;
+    height: 100px;
+  }
 }
 </style>

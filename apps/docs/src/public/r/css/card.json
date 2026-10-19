@@ -1,0 +1,46 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card",
+  "type": "registry:ui",
+  "title": "Card",
+  "description": "Displays a card with header, content, and footer.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/card/Card.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <div\n    data-slot=\"card\"\n    v-bind=\"delegatedAttrs()\"\n    class=\"sigma-ui-card\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .sigma-ui-card {\n    border: 1px solid var(--border);\n    border-radius: var(--radius);\n    background-color: var(--card);\n    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);\n    color: var(--card-foreground);\n  }\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/card/CardContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <div\n    data-slot=\"card-content\"\n    v-bind=\"delegatedAttrs()\"\n    class=\"sigma-ui-card__content\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .sigma-ui-card__content {\n    padding: 0 calc(var(--spacing) * 6) calc(var(--spacing) * 6);\n  }\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/card/CardDescription.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <p\n    data-slot=\"card-description\"\n    v-bind=\"delegatedAttrs()\"\n    class=\"sigma-ui-card__description\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </p>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .sigma-ui-card__description {\n    color: var(--muted-foreground);\n    font-size: 0.875rem;\n    line-height: 1.25rem;\n  }\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/card/CardFooter.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <div\n    data-slot=\"card-footer\"\n    v-bind=\"delegatedAttrs()\"\n    class=\"sigma-ui-card__footer\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .sigma-ui-card__footer {\n    display: flex;\n    padding: 0 calc(var(--spacing) * 6) calc(var(--spacing) * 6);\n    gap: calc(var(--spacing) * 2);\n  }\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/card/CardHeader.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <div\n    data-slot=\"card-header\"\n    v-bind=\"delegatedAttrs()\"\n    class=\"sigma-ui-card__header\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .sigma-ui-card__header {\n    display: flex;\n    flex-direction: column;\n    padding: calc(var(--spacing) * 6);\n    gap: calc(var(--spacing) * 1.5);\n  }\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/card/CardTitle.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <h3\n    data-slot=\"card-title\"\n    v-bind=\"delegatedAttrs()\"\n    class=\"sigma-ui-card__title\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </h3>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .sigma-ui-card__title {\n    font-size: 1.5rem;\n    font-weight: 600;\n    letter-spacing: -0.025em;\n    line-height: 1;\n  }\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/card/index.ts",
+      "content": "export { default as Card } from './Card.vue';\nexport { default as CardHeader } from './CardHeader.vue';\nexport { default as CardFooter } from './CardFooter.vue';\nexport { default as CardTitle } from './CardTitle.vue';\nexport { default as CardDescription } from './CardDescription.vue';\nexport { default as CardContent } from './CardContent.vue';\n",
+      "type": "registry:ui"
+    }
+  ]
+}

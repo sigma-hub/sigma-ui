@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { h } from 'vue';
 import { useForm } from 'vee-validate';
-import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
 import { toast } from '@ui/registry/css/ui/toaster';
 import {
@@ -10,23 +9,16 @@ import {
   PinInputInput,
 } from '@ui/registry/css/ui/pin-input';
 import { Button } from '@ui/registry/css/ui/button';
-import {
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@ui/registry/css/ui/form';
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@ui/registry/css/ui/form';
 
 const formSchema = toTypedSchema(z.object({
-  pin: z.array(z.coerce.string()).length(5, { message: 'Invalid input' }),
+  pin: z.array(z.coerce.number()).length(5, { error: 'Invalid input' }),
 }));
 
 const { handleSubmit, setFieldValue } = useForm({
   validationSchema: formSchema,
   initialValues: {
-    pin: ['1', '2', '3'],
+    pin: [1, 2, 3],
   },
 });
 
@@ -36,7 +28,7 @@ const onSubmit = handleSubmit(({ pin }) => {
   });
 });
 
-const handleComplete = (e: string[]) => console.log(e.join(''));
+const handleComplete = (digits: (number | undefined)[]) => console.log(digits.join(''));
 </script>
 
 <template>
@@ -60,8 +52,8 @@ const handleComplete = (e: string[]) => console.log(e.join(''));
             type="number"
             :name="componentField.name"
             @complete="handleComplete"
-            @update:model-value="(arrStr) => {
-              setFieldValue('pin', arrStr.filter(Boolean))
+            @update:model-value="(digits) => {
+              setFieldValue('pin', digits.filter((digit) => digit !== undefined))
             }"
           >
             <PinInputGroup>
@@ -87,30 +79,34 @@ const handleComplete = (e: string[]) => console.log(e.join(''));
 </template>
 
 <style>
-.example-sigma-ui-pin-input-form {
-  display: flex;
-  width: 66%;
-  flex-direction: column;
-  margin-right: auto;
-  margin-left: auto;
-  gap: 1.5rem;
-}
+@layer base, components;
 
-.example-sigma-ui-pin-input-form__input {
-  display: flex;
-  align-items: center;
-  margin-top: 0.25rem;
-  gap: 0.5rem;
-}
+@layer components {
+  .example-sigma-ui-pin-input-form {
+    display: flex;
+    width: 66%;
+    flex-direction: column;
+    margin-right: auto;
+    margin-left: auto;
+    gap: calc(var(--spacing) * 6);
+  }
 
-.example-sigma-ui-pin-input-form__button {
-  width: fit-content;
-}
+  .example-sigma-ui-pin-input-form__input {
+    display: flex;
+    align-items: center;
+    margin-top: calc(var(--spacing) * 1);
+    gap: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-pin-input-form__toast-pre {
-  padding: 1rem;
-  border-radius: var(--radius);
-  margin-top: 0.5rem;
-  background-color: hsl(var(--muted) / 50%);
+  .example-sigma-ui-pin-input-form__button {
+    width: fit-content;
+  }
+
+  .example-sigma-ui-pin-input-form__toast-pre {
+    padding: calc(var(--spacing) * 4);
+    border-radius: var(--radius);
+    margin-top: calc(var(--spacing) * 2);
+    background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  }
 }
 </style>

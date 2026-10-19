@@ -72,46 +72,110 @@ Border radius for card, input and buttons
 ```
 --radius: 0.5rem;
 ```
+
+Spacing step for padding, gaps and sizes (CSS style system; Tailwind defines it in its theme)
+```
+--spacing: 0.25rem;
+```
 </Steps>
+
+### Pixel-based spacing
+
+Spacing and sizes are in `rem`, so components grow when the user raises the browser's default font size. If you'd rather keep spacing in pixels, change the spacing step:
+
+Tailwind style system:
+
+```css
+@theme {
+  --spacing: 4px;
+}
+```
+
+CSS style system:
+
+```css
+:root {
+  --spacing: 4px;
+}
+```
+
+All spacing and sizing (padding, margin, gap, width, height, icon sizes) switches from `rem` to `px`. At the default 16px font size nothing moves. Font sizes, line heights, radii, breakpoints and container widths such as `max-w-md` stay in `rem`.
+
+The tradeoff: buttons, inputs and other controls no longer grow with the user's default font size, while their text still does, so large text can get cramped or clipped in fixed-height controls. Browser zoom still scales everything.
+
+### Overriding component styles
+
+The CSS style system puts every component style in a [cascade layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer). `init` writes the layer order at the top of your stylesheet:
+
+```css
+@layer base, components;
+
+@import "./preflight.css" layer(base);
+
+@layer base {
+  /* theme variables, body, border color */
+}
+```
+
+- `base` holds the preflight and the theme.
+- `components` holds the styles inside the component files (`@layer components { .sigma-ui-button { ... } }`).
+- CSS that is not in a layer beats both, whatever its specificity or load order.
+
+Each component style also starts with `@layer base, components;`. The first place a layer is named fixes its position, and a bundler can load a component's CSS before your stylesheet, so repeating the order keeps `base` below `components` whichever file loads first.
+
+So a plain class overrides a component style without `!important` or extra specificity:
+
+```css
+.brand-button {
+  background-color: oklch(0.55 0.22 27);
+  border-radius: 0;
+}
+```
+
+```vue
+<Button class="brand-button">Save</Button>
+```
+
+That also means global element rules in your own CSS, such as `code { padding: 4px }` or `h1 { margin: 0 }`, apply inside components. Put resets like that in `@layer base` so the components keep their own styles:
+
+```css
+@layer base {
+  code {
+    font-family: var(--font-mono);
+  }
+}
+```
+
+To keep your own layered styles above the components, declare your layer after them: `@layer base, components, app;`. The layer names match Tailwind v4, so in a project that also uses Tailwind the component styles join its `components` layer and utilities still win. With the Tailwind style system there are no component stylesheets: pass utility classes, and `cn` merges them over the defaults.
 
 ### Color format
 
-The variable values are written in [HSL format](https://www.smashingmagazine.com/2021/07/hsl-colors-css/) (without color space function and commas between values). I recommend using this HSL color format for theming since it allows for easy alpha channel customization, like:
+Theme colors are OKLCH values in the stylesheet. Tailwind utilities read them through `@theme inline`, so `bg-foreground/50` still sets the alpha:
 
 ```html
-<div class="bg-foreground/50" >
+<div class="bg-foreground/50">
   Text with 50% opacity
 </div>
 ```
 
-See the [Tailwind CSS documentation](https://tailwindcss.com/docs/customizing-colors#using-css-variables) for more information on using `rgb`, `rgba` or `hsl` colors.
-
 ### Adding new variables
 
-To add new variables, you need to add them to your CSS file and to your `tailwind.config.js` file (if you use Tailwind).
+Add the color to the stylesheet and expose it in `@theme inline`. A new project has no `tailwind.config.js`.
 
-```css title="app/globals.css"
+```css
 :root {
-  --warning: 38 92% 50%;
-  --warning-foreground: 48 96% 89%;
+  --warning: oklch(0.75 0.15 75);
+  --warning-foreground: oklch(0.98 0.02 95);
 }
 
 .dark {
-  --warning: 48 96% 89%;
-  --warning-foreground: 38 92% 50%;
+  --warning: oklch(0.98 0.02 95);
+  --warning-foreground: oklch(0.45 0.12 55);
 }
-```
 
-```js {5-6} title="tailwind.config.js"
-module.exports = {
-  theme: {
-    extend: {
-      colors: {
-        'warning': 'hsl(var(--warning))',
-        'warning-foreground': 'hsl(var(--warning-foreground))',
-      },
-    },
-  },
+@theme inline {
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
 }
 ```
 

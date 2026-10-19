@@ -8,12 +8,21 @@ import {
   DialogPortal,
   useForwardPropsEmits,
 } from 'reka-ui';
-import { XIcon } from 'lucide-vue-next';
+import { XIcon } from '@lucide/vue';
+import { reactiveOmit } from '@vueuse/core';
 
-const props = defineProps<DialogContentProps>();
+const props = withDefaults(defineProps<DialogContentProps & {
+  closeLabel?: string;
+}>(), {
+  closeLabel: 'Close',
+});
 const emits = defineEmits<DialogContentEmits>();
 
-const forwarded = useForwardPropsEmits(props, emits);
+const forwarded = useForwardPropsEmits(reactiveOmit(props, 'closeLabel'), emits);
+
+defineOptions({
+  inheritAttrs: false,
+});
 </script>
 
 <template>
@@ -22,6 +31,7 @@ const forwarded = useForwardPropsEmits(props, emits);
       class="sigma-ui-dialog-scroll-overlay"
     >
       <DialogContent
+        data-slot="dialog-scroll-content"
         class="sigma-ui-dialog-scroll-content"
         :class="[$attrs.class]"
         v-bind="forwarded"
@@ -37,7 +47,7 @@ const forwarded = useForwardPropsEmits(props, emits);
 
         <DialogClose class="sigma-ui-dialog-scroll-close">
           <XIcon class="sigma-ui-dialog-scroll-close__icon" />
-          <span class="sigma-ui-dialog-scroll-close__label">Close</span>
+          <span class="sigma-ui-dialog-scroll-close__label">{{ closeLabel }}</span>
         </DialogClose>
       </DialogContent>
     </DialogOverlay>
@@ -45,82 +55,85 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
-.sigma-ui-dialog-scroll-overlay {
-  position: fixed;
-  z-index: 50;
-  display: grid;
-  animation: sigma-ui-fade-in 0.2s ease-out;
-  background-color: rgb(0 0 0 / 80%);
-  inset: 0;
-  overflow-y: auto;
-  place-items: center;
-}
+@layer base, components;
 
-.sigma-ui-dialog-scroll-overlay[data-state="open"] {
-  animation: sigma-ui-fade-in 0.2s ease-out;
-}
-
-.sigma-ui-dialog-scroll-overlay[data-state="closed"] {
-  animation: sigma-ui-fade-out 0.2s ease-in;
-}
-
-.sigma-ui-dialog-scroll-content {
-  position: relative;
-  z-index: 50;
-  display: grid;
-  width: 100%;
-  max-width: 32rem;
-  padding: 1.5rem;
-  border: 1px solid hsl(var(--border));
-  margin: 2rem 0;
-  background-color: hsl(var(--background));
-  box-shadow: var(--shadow-lg);
-  gap: 1rem;
-  transition-duration: 200ms;
-}
-
-.sigma-ui-dialog-scroll-close {
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  padding: 0.125rem;
-  border-radius: var(--radius-md);
-  transition-duration: 150ms;
-  transition-property: background-color;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.sigma-ui-dialog-scroll-close:hover {
-  background-color: hsl(var(--secondary));
-}
-
-.sigma-ui-dialog-scroll-close__icon {
-  width: 1rem;
-  height: 1rem;
-}
-
-.sigma-ui-dialog-scroll-close__label {
-  position: absolute;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  border-width: 0;
-  margin: -1px;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-}
-
-@media (width >= 640px) {
-  .sigma-ui-dialog-scroll-content {
-    border-radius: var(--radius-lg);
+@layer components {
+  .sigma-ui-dialog-scroll-overlay {
+    position: fixed;
+    z-index: 50;
+    display: grid;
+    animation: sigma-ui-fade-in 0.2s ease-out;
+    background-color: rgb(0 0 0 / 80%);
+    inset: 0;
+    overflow-y: auto;
+    place-items: center;
   }
-}
 
-@media (width >= 768px) {
+  .sigma-ui-dialog-scroll-overlay[data-state="open"] {
+    animation: sigma-ui-fade-in 0.2s ease-out;
+  }
+
+  .sigma-ui-dialog-scroll-overlay[data-state="closed"] {
+    animation: sigma-ui-fade-out 0.2s ease-in;
+  }
+
   .sigma-ui-dialog-scroll-content {
+    position: relative;
+    z-index: 50;
+    display: grid;
     width: 100%;
+    max-width: 32rem;
+    padding: calc(var(--spacing) * 6);
+    border: 1px solid var(--border);
+    margin: calc(var(--spacing) * 8) 0;
+    background-color: var(--background);
+    box-shadow: var(--shadow-lg);
+    gap: calc(var(--spacing) * 4);
+    transition-duration: 200ms;
+  }
+
+  .sigma-ui-dialog-scroll-close {
+    position: absolute;
+    top: calc(var(--spacing) * 3);
+    right: calc(var(--spacing) * 3);
+    padding: calc(var(--spacing) * 0.5);
+    border-radius: var(--radius-md);
+    transition-duration: 150ms;
+    transition-property: background-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .sigma-ui-dialog-scroll-close:hover {
+    background-color: var(--secondary);
+  }
+
+  .sigma-ui-dialog-scroll-close__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
+
+  .sigma-ui-dialog-scroll-close__label {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border-width: 0;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
+  @media (width >= 40rem) {
+    .sigma-ui-dialog-scroll-content {
+      border-radius: var(--radius-lg);
+    }
+  }
+
+  @media (width >= 48rem) {
+    .sigma-ui-dialog-scroll-content {
+      width: 100%;
+    }
   }
 }
-
 </style>

@@ -48,13 +48,13 @@ const lineY = (d: Data) => d.revenue;
             <VisLine
               :x="lineX"
               :y="lineY"
-              color="hsl(var(--primary))"
+              color="var(--primary)"
             />
             <VisScatter
               :x="lineX"
               :y="lineY"
               :size="6"
-              stroke-color="hsl(var(--primary))"
+              stroke-color="var(--primary)"
               :stroke-width="2"
               color="white"
             />
@@ -87,7 +87,7 @@ const lineY = (d: Data) => d.revenue;
               :y="(d: Data) => d.subscription"
               :bar-padding="0.1"
               :rounded-corners="0"
-              color="hsl(var(--primary))"
+              color="var(--primary)"
             />
           </VisXYContainer>
         </div>
@@ -97,38 +97,42 @@ const lineY = (d: Data) => d.revenue;
 </template>
 
 <style>
-.example-sigma-ui-card-stats {
-  display: grid;
-  gap: 1rem;
-}
+@layer base, components;
 
-@media (width >= 640px) {
+@layer components {
   .example-sigma-ui-card-stats {
-    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    gap: calc(var(--spacing) * 4);
   }
-}
 
-.example-sigma-ui-card-stats__header {
-  padding-bottom: 0.5rem;
-}
+  @media (width >= 40rem) {
+    .example-sigma-ui-card-stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 
-.example-sigma-ui-card-stats__title {
-  font-size: 0.875rem;
-  font-weight: 400;
-}
+  .example-sigma-ui-card-stats__header {
+    padding-bottom: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-card-stats__value {
-  font-size: 1.5rem;
-  font-weight: 700;
-}
+  .example-sigma-ui-card-stats__title {
+    font-size: 0.875rem;
+    font-weight: 400;
+  }
 
-.example-sigma-ui-card-stats__change {
-  color: hsl(var(--muted-foreground));
-  font-size: 0.75rem;
-}
+  .example-sigma-ui-card-stats__value {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
 
-.example-sigma-ui-card-stats__chart {
-  height: 5rem;
-  margin-top: 1rem;
+  .example-sigma-ui-card-stats__change {
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+  }
+
+  .example-sigma-ui-card-stats__chart {
+    height: calc(var(--spacing) * 20);
+    margin-top: calc(var(--spacing) * 4);
+  }
 }
 </style>

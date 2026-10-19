@@ -1,16 +1,32 @@
+import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'pathe';
-import fs from 'fs-extra';
 import type { PackageJson } from 'type-fest';
 
 export function getPackageInfo() {
-  const packageJsonPath = getPackageFilePath('../package.json');
-
-  return fs.readJSONSync(packageJsonPath) as PackageJson;
+  return readCliPackageJson(path.dirname(fileURLToPath(import.meta.url)));
 }
 
-function getPackageFilePath(filePath: string) {
-  const distPath = fileURLToPath(new URL('.', import.meta.url));
+function readCliPackageJson(start: string): PackageJson {
+  let directory = start;
 
-  return path.resolve(distPath, filePath);
+  while (true) {
+    const candidate = path.join(directory, 'package.json');
+
+    if (existsSync(candidate)) {
+      const parsed = JSON.parse(readFileSync(candidate, 'utf8')) as PackageJson;
+
+      if (parsed.name === 'sigma-ui') {
+        return parsed;
+      }
+    }
+
+    const parent = path.dirname(directory);
+
+    if (parent === directory) {
+      throw new Error('Could not find the sigma-ui package.json');
+    }
+
+    directory = parent;
+  }
 }

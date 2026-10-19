@@ -17,12 +17,16 @@ import { Avatar } from '@ui/registry/css/ui/avatar';
 </template>
 
 <style>
-.example-sigma-ui-avatar-group {
-  display: flex;
-  gap: 1rem;
-}
+@layer base, components;
 
-.example-sigma-ui-avatar__text {
-  color: hsl(var(--primary) / 50%);
+@layer components {
+  .example-sigma-ui-avatar-group {
+    display: flex;
+    gap: calc(var(--spacing) * 4);
+  }
+
+  .example-sigma-ui-avatar__text {
+    color: color-mix(in oklch, var(--primary) 50%, transparent);
+  }
 }
 </style>

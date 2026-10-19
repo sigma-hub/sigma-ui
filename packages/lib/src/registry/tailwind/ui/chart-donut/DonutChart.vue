@@ -1,11 +1,22 @@
-<script setup lang="ts" generic="T extends Record<string, any>">
+<script setup lang="ts" generic="T extends Record<string, any>
+"
+>
 import { VisDonut, VisSingleContainer } from '@unovis/vue';
 import { Donut } from '@unovis/ts';
-import { type Component, computed, ref } from 'vue';
+import { type Component, computed, ref, useAttrs } from 'vue';
 import { useMounted } from '@vueuse/core';
 import type { BaseChartProps } from '.';
 import { ChartSingleTooltip, defaultColors } from '@ui/registry/tailwind/ui/chart';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = withDefaults(defineProps<Pick<BaseChartProps<T>, 'data' | 'colors' | 'index' | 'margin' | 'showLegend' | 'showTooltip' | 'filterOpacity'> & {
   /**
@@ -60,7 +71,11 @@ const totalValue = computed(() => props.data.reduce((prev, curr) => {
 </script>
 
 <template>
-  <div :class="cn('w-full h-48 flex flex-col items-end', $attrs.class ?? '')">
+  <div
+    data-slot="donut-chart"
+    v-bind="delegatedAttrs()"
+    :class="cn('w-full h-48 flex flex-col items-end', $attrs.class ?? '')"
+  >
     <VisSingleContainer
       :style="{ height: isMounted ? '100%' : 'auto' }"
       :margin="{ left: 20, right: 20 }"
@@ -83,7 +98,7 @@ const totalValue = computed(() => props.data.reduce((prev, curr) => {
         :central-label="type === 'donut' ? valueFormatter(totalValue) : ''"
         :events="{
           [Donut.selectors.segment]: {
-            click: (d: Data, ev: PointerEvent, i: number, elements: HTMLElement[]) => {
+            click: (d: Data, _event: PointerEvent, i: number, elements: HTMLElement[]) => {
               if (d?.data?.[index] === activeSegmentKey) {
                 activeSegmentKey = undefined
                 elements.forEach(el => el.style.opacity = '1')

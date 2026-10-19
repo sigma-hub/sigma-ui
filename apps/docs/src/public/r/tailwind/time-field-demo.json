@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "time-field-demo",
+  "type": "registry:example",
+  "title": "TimeField",
+  "dependencies": [
+    "reka-ui@^2.11.0"
+  ],
+  "registryDependencies": [
+    "time-field"
+  ],
+  "files": [
+    {
+      "path": "example/TimeField.vue",
+      "content": "<script setup lang=\"ts\">\nimport { type TimeValue } from 'reka-ui';\nimport { ref } from 'vue';\nimport { TimeField } from '@/components/ui/time-field';\n\nconst value = ref<TimeValue>();\n</script>\n\n<template>\n  <TimeField v-model=\"value\" />\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

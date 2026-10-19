@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-block-basic",
+  "type": "registry:example",
+  "title": "CodeBlockBasic",
+  "dependencies": [],
+  "registryDependencies": [
+    "code-block"
+  ],
+  "files": [
+    {
+      "path": "example/CodeBlockBasic.vue",
+      "content": "<script setup lang=\"ts\">\nimport { CodeBlock, CodeBlockContent } from '@/components/ui/code-block';\n\nconst output = `$ pnpm build\nvite v6.4.4 building for production...\n✓ 1204 modules transformed.\ndist/index.html                  0.46 kB │ gzip:  0.30 kB\ndist/assets/index-BqLm2Ugs.css  18.92 kB │ gzip:  4.61 kB\ndist/assets/index-C7Fa1ePq.js   96.37 kB │ gzip: 37.85 kB\n✓ built in 2.84s`;\n</script>\n\n<template>\n  <CodeBlock>\n    <CodeBlockContent :code=\"output\" />\n  </CodeBlock>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

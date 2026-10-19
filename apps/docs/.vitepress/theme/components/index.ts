@@ -1,7 +1,7 @@
 export { default as CodeWrapper } from './CodeWrapper';
 export { default as ComponentPreview } from './ComponentPreview.vue';
 export { default as Faq } from './Faq.vue';
-export { default as APITable } from './APITable.vue';
+export { default as ApiTable } from './ApiTable.vue';
 export { default as KeybindingsTable } from './KeybindingsTable.vue';
 export { default as TabPreview } from './TabPreview.vue';
 export { default as TabMarkdown } from './TabMarkdown.vue';
@@ -14,3 +14,5 @@ export { default as Steps } from './Steps.vue';
 export { default as VPImage } from './VPImage.vue';
 export { default as Description } from './Description.vue';
 export { default as StyleSwitcher } from './StyleSwitcher.vue';
+export { default as ComponentInstall } from './ComponentInstall.vue';
+export { default as PackageManagerCommand } from './PackageManagerCommand.vue';

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox-form-multiple",
+  "type": "registry:example",
+  "title": "CheckboxFormMultiple",
+  "dependencies": [
+    "vee-validate@^4.15.1",
+    "zod@^4.6.7"
+  ],
+  "registryDependencies": [
+    "button",
+    "checkbox",
+    "form",
+    "toaster"
+  ],
+  "files": [
+    {
+      "path": "example/CheckboxFormMultiple.vue",
+      "content": "<script setup lang=\"ts\">\nimport { h } from 'vue';\nimport { useForm } from 'vee-validate';\nimport * as z from 'zod';\nimport { toast } from '@/components/ui/toaster';\nimport { Button } from '@/components/ui/button';\nimport { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@/components/ui/form';\nimport { Checkbox } from '@/components/ui/checkbox';\n\nconst items = [\n  {\n    id: 'recents',\n    label: 'Recents',\n  },\n  {\n    id: 'home',\n    label: 'Home',\n  },\n  {\n    id: 'applications',\n    label: 'Applications',\n  },\n  {\n    id: 'desktop',\n    label: 'Desktop',\n  },\n  {\n    id: 'downloads',\n    label: 'Downloads',\n  },\n  {\n    id: 'documents',\n    label: 'Documents',\n  },\n] as const;\n\nconst formSchema = toTypedSchema(z.object({\n  items: z.array(z.string()).refine(value => value.some(item => item), {\n    error: 'You have to select at least one item.',\n  }),\n}));\n\nconst { handleSubmit } = useForm({\n  validationSchema: formSchema,\n  initialValues: {\n    items: ['recents', 'home'],\n  },\n});\n\nconst onSubmit = handleSubmit((values) => {\n  toast('You submitted the following values:', {\n    description: h('pre', { class: 'example-sigma-ui-checkbox-multiple__toast-pre' }, h('code', {}, JSON.stringify(values, null, 2))),\n  });\n});\n</script>\n\n<template>\n  <form @submit=\"onSubmit\">\n    <FormField name=\"items\">\n      <FormItem class=\"example-sigma-ui-checkbox-multiple__header-item\">\n        <div class=\"example-sigma-ui-checkbox-multiple__header\">\n          <FormLabel class=\"example-sigma-ui-checkbox-multiple__title\">\n            Sidebar\n          </FormLabel>\n          <FormDescription>\n            Select the items you want to display in the sidebar.\n          </FormDescription>\n        </div>\n\n        <FormField\n          v-for=\"item in items\"\n          v-slot=\"{ value, handleChange }\"\n          :key=\"item.id\"\n          type=\"checkbox\"\n          :value=\"item.id\"\n          :unchecked-value=\"false\"\n          name=\"items\"\n        >\n          <FormItem class=\"example-sigma-ui-checkbox-multiple__item\">\n            <FormControl>\n              <Checkbox\n                :model-value=\"value.includes(item.id)\"\n                @update:model-value=\"handleChange\"\n              />\n            </FormControl>\n            <FormLabel class=\"example-sigma-ui-checkbox-multiple__label\">\n              {{ item.label }}\n            </FormLabel>\n          </FormItem>\n        </FormField>\n        <FormMessage />\n      </FormItem>\n    </FormField>\n\n    <div class=\"example-sigma-ui-checkbox-multiple__footer\">\n      <Button type=\"submit\">\n        Submit\n      </Button>\n    </div>\n  </form>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .example-sigma-ui-checkbox-multiple__header-item {\n    display: flex;\n    flex-direction: column;\n    gap: 8px;\n  }\n\n  .example-sigma-ui-checkbox-multiple__header {\n    margin-bottom: calc(var(--spacing) * 2);\n  }\n\n  .example-sigma-ui-checkbox-multiple__title {\n    font-size: 1rem;\n  }\n\n  .example-sigma-ui-checkbox-multiple__item {\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    gap: calc(var(--spacing) * 3);\n  }\n\n  .example-sigma-ui-checkbox-multiple__label {\n    font-weight: 400;\n  }\n\n  .example-sigma-ui-checkbox-multiple__footer {\n    display: flex;\n    justify-content: flex-start;\n    margin-top: calc(var(--spacing) * 4);\n  }\n\n  .example-sigma-ui-checkbox-multiple__toast-pre {\n    padding: calc(var(--spacing) * 4);\n    border-radius: var(--radius);\n    margin-top: calc(var(--spacing) * 2);\n    background-color: color-mix(in oklch, var(--muted) 50%, transparent);\n  }\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

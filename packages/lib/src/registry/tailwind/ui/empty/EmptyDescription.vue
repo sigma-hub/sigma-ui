@@ -1,0 +1,31 @@
+<script setup lang="ts">
+import { useAttrs } from 'vue';
+
+import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
+
+defineSlots<{
+  /**
+   * Explanation of the empty state. Links inside it are underlined.
+   */
+  default?: () => unknown;
+}>();
+</script>
+
+<template>
+  <p
+    data-slot="empty-description"
+    v-bind="delegatedAttrs()"
+    :class="cn('text-sm/relaxed text-muted-foreground [&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-primary', $attrs.class ?? '')"
+  >
+    <slot />
+  </p>
+</template>

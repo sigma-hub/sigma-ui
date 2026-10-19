@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { HomeIcon, MonitorIcon, PackageIcon, SquareLibrary } from 'lucide-vue-next';
+import { HomeIcon, MonitorIcon, PackageIcon, SquareLibrary } from '@lucide/vue';
 import { BreadcrumbGenerator } from '@ui/registry/css/ui/breadcrumb';
 
 const basicExampleHome = { label: 'Home', url: '/' };
@@ -103,20 +103,24 @@ const routerExampleItems = [
 </template>
 
 <style>
-.example-sigma-ui-breadcrumb__container {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-}
+@layer base, components;
 
-.example-sigma-ui-breadcrumb__link {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
+@layer components {
+  .example-sigma-ui-breadcrumb__container {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 12);
+  }
 
-.example-sigma-ui-breadcrumb__icon {
-  width: 1rem;
-  height: 1rem;
+  .example-sigma-ui-breadcrumb__link {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+  }
+
+  .example-sigma-ui-breadcrumb__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 }
 </style>

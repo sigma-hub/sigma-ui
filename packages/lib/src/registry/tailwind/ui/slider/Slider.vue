@@ -1,7 +1,18 @@
 <script setup lang="ts">
+import { useAttrs } from 'vue';
+
 import type { SliderRootEmits, SliderRootProps } from 'reka-ui';
 import { SliderRange, SliderRoot, SliderThumb, SliderTrack, useForwardPropsEmits } from 'reka-ui';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<SliderRootProps>();
 const emits = defineEmits<SliderRootEmits>();
@@ -11,7 +22,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <SliderRoot
-    v-bind="forwarded"
+    data-slot="slider"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="cn(
       'relative flex w-full min-w-[50px] touch-none select-none items-center',
       $attrs.class ?? '',

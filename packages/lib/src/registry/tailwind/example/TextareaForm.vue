@@ -1,28 +1,20 @@
 <script setup lang="ts">
 import { h } from 'vue';
 import { useForm } from 'vee-validate';
-import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
 import { toast } from '@ui/registry/tailwind/ui/toaster';
 import { Button } from '@ui/registry/tailwind/ui/button';
-import {
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@ui/registry/tailwind/ui/form';
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@ui/registry/tailwind/ui/form';
 import { Textarea } from '@ui/registry/tailwind/ui/textarea';
 
 const formSchema = toTypedSchema(z.object({
   bio: z
-    .string()
+    .string({ error: 'Bio is required.' })
     .min(10, {
-      message: 'Bio must be at least 10 characters.',
+      error: 'Bio must be at least 10 characters.',
     })
     .max(160, {
-      message: 'Bio must not be longer than 30 characters.',
+      error: 'Bio must not be longer than 160 characters.',
     }),
 }));
 

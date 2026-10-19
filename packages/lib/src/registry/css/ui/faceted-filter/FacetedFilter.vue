@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { CheckIcon, CirclePlusIcon } from 'lucide-vue-next';
+import { CheckIcon, CirclePlusIcon } from '@lucide/vue';
 import { Button } from '@ui/registry/css/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@ui/registry/css/ui/popover';
 import { Separator } from '@ui/registry/css/ui/separator';
@@ -9,11 +9,17 @@ import {
 } from '@ui/registry/css/ui/command';
 
 const props = withDefaults(defineProps<{
+  /** Label of the trigger button, also used as the search placeholder. */
   title: string;
+  /** Values the user can pick from. */
   options: string[];
+  /** Currently selected values; use with `v-model`. */
   modelValue: string[];
+  /** Maximum number of selected values shown as badges in the trigger before collapsing into a "+N" badge. */
   maxBadges?: number;
+  /** Shows an "Add" button that emits `create` when the search text matches no option. */
   allowCreate?: boolean;
+  /** Minimum width of the dropdown, in pixels. */
   minWidth?: number;
 }>(), {
   maxBadges: 2,
@@ -22,8 +28,15 @@ const props = withDefaults(defineProps<{
 });
 
 const emit = defineEmits<{
+  /** Emitted with the new selection when an option is toggled. */
   'update:modelValue': [value: string[]];
+  /** Emitted with the trimmed search text when the user clicks the "Add" button. */
   'create': [value: string];
+}>();
+
+defineSlots<{
+  /** Content rendered below the options, separated by a divider. */
+  footer?: () => unknown;
 }>();
 
 const searchQuery = ref('');
@@ -33,14 +46,25 @@ const trimmedSearchQuery = computed(() => searchQuery.value.trim());
 const selectedValues = computed(() => new Set(props.modelValue));
 const filteredOptions = computed(() => {
   const normalizedSearch = searchQuery.value.trim().toLowerCase();
-  if (!normalizedSearch) return props.options;
+
+  if (!normalizedSearch) {
+    return props.options;
+  }
+
   return props.options.filter(option => option.toLowerCase().includes(normalizedSearch));
 });
 
 const canCreate = computed(() => {
-  if (!props.allowCreate) return false;
+  if (!props.allowCreate) {
+    return false;
+  }
+
   const value = trimmedSearchQuery.value;
-  if (value.length === 0) return false;
+
+  if (value.length === 0) {
+    return false;
+  }
+
   const normalizedValue = value.toLowerCase();
   return !props.options.some(option => option.toLowerCase() === normalizedValue);
 });
@@ -53,14 +77,23 @@ const contentStyle = computed(() => props.minWidth ? ({ minWidth: `${props.minWi
 
 function toggleValue(value: string) {
   const next = new Set(props.modelValue);
-  if (next.has(value)) next.delete(value);
-  else next.add(value);
+
+  if (next.has(value)) {
+    next.delete(value);
+  } else {
+    next.add(value);
+  }
+
   emit('update:modelValue', Array.from(next));
 }
 
 function createFromSearchQuery() {
   const value = trimmedSearchQuery.value;
-  if (!value) return;
+
+  if (!value) {
+    return;
+  }
+
   emit('create', value);
   clearSearch();
   commandKey.value += 1;
@@ -72,7 +105,9 @@ function clearSearch() {
 </script>
 
 <template>
-  <Popover>
+  <Popover
+    data-slot="faceted-filter"
+  >
     <PopoverTrigger as-child>
       <Button
         variant="outline"
@@ -167,117 +202,121 @@ function clearSearch() {
 </template>
 
 <style>
-.sigma-ui-faceted-filter__trigger {
-  gap: 0.5rem;
-  border-style: dashed;
-}
+@layer base, components;
 
-.sigma-ui-faceted-filter__trigger-icon {
-  width: 0.875rem;
-  height: 0.875rem;
-}
+@layer components {
+  .sigma-ui-faceted-filter__trigger {
+    border-style: dashed;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.sigma-ui-faceted-filter__separator {
-  height: 0.875rem;
-  margin: 0 0.375rem;
-}
+  .sigma-ui-faceted-filter__trigger-icon {
+    width: calc(var(--spacing) * 3.5);
+    height: calc(var(--spacing) * 3.5);
+  }
 
-.sigma-ui-faceted-filter__count {
-  display: inline-flex;
-  height: 1rem;
-  align-items: center;
-  justify-content: center;
-  padding: 0 0.375rem;
-  border-radius: 0.375rem;
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
-  font-size: 0.6875rem;
-}
-
-.sigma-ui-faceted-filter__badges {
-  display: none;
-  gap: 0.375rem;
-}
-
-.sigma-ui-faceted-filter__badge {
-  display: inline-flex;
-  height: 1rem;
-  align-items: center;
-  justify-content: center;
-  padding: 0 0.375rem;
-  border-radius: 0.375rem;
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
-  font-size: 0.6875rem;
-}
-
-.sigma-ui-faceted-filter__content {
-  width: 20rem;
-  padding: 0;
-}
-
-.sigma-ui-faceted-filter__empty-create {
-  padding: 0.625rem;
-}
-
-.sigma-ui-faceted-filter__empty-create-button {
-  width: 100%;
-  gap: 0.5rem;
-  justify-content: flex-start;
-}
-
-.sigma-ui-faceted-filter__empty-create-icon {
-  width: 1rem;
-  height: 1rem;
-}
-
-.sigma-ui-faceted-filter__checkbox {
-  display: flex;
-  width: 1rem;
-  height: 1rem;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid hsl(var(--border));
-  border-radius: 0.25rem;
-  margin-right: 0.625rem;
-  opacity: 0.6;
-}
-
-.sigma-ui-faceted-filter__checkbox:not([data-selected]) .sigma-ui-faceted-filter__check {
-  visibility: hidden;
-}
-
-.sigma-ui-faceted-filter__checkbox[data-selected] {
-  border-color: hsl(var(--primary) / 60%);
-  background: hsl(var(--primary) / 15%);
-  opacity: 1;
-}
-
-.sigma-ui-faceted-filter__check {
-  width: 0.875rem;
-  height: 0.875rem;
-  color: hsl(var(--primary));
-}
-
-.sigma-ui-faceted-filter__option-text {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  user-select: text;
-  white-space: nowrap;
-}
-
-.sigma-ui-faceted-filter__footer {
-  padding: 0.625rem 0.625rem 0.75rem;
-}
-
-@media (width >= 1024px) {
-  .sigma-ui-faceted-filter__badges {
-    display: flex;
+  .sigma-ui-faceted-filter__separator {
+    height: calc(var(--spacing) * 3.5);
+    margin: 0 calc(var(--spacing) * 1.5);
   }
 
   .sigma-ui-faceted-filter__count {
+    display: inline-flex;
+    height: calc(var(--spacing) * 4);
+    align-items: center;
+    justify-content: center;
+    padding: 0 calc(var(--spacing) * 1.5);
+    border-radius: 0.375rem;
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+    font-size: 0.6875rem;
+  }
+
+  .sigma-ui-faceted-filter__badges {
     display: none;
+    gap: calc(var(--spacing) * 1.5);
+  }
+
+  .sigma-ui-faceted-filter__badge {
+    display: inline-flex;
+    height: calc(var(--spacing) * 4);
+    align-items: center;
+    justify-content: center;
+    padding: 0 calc(var(--spacing) * 1.5);
+    border-radius: 0.375rem;
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+    font-size: 0.6875rem;
+  }
+
+  .sigma-ui-faceted-filter__content {
+    width: calc(var(--spacing) * 80);
+    padding: 0;
+  }
+
+  .sigma-ui-faceted-filter__empty-create {
+    padding: calc(var(--spacing) * 2.5);
+  }
+
+  .sigma-ui-faceted-filter__empty-create-button {
+    width: 100%;
+    justify-content: flex-start;
+    gap: calc(var(--spacing) * 2);
+  }
+
+  .sigma-ui-faceted-filter__empty-create-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
+
+  .sigma-ui-faceted-filter__checkbox {
+    display: flex;
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    border-radius: 0.25rem;
+    margin-right: calc(var(--spacing) * 2.5);
+    opacity: 0.6;
+  }
+
+  .sigma-ui-faceted-filter__checkbox:not([data-selected]) .sigma-ui-faceted-filter__check {
+    visibility: hidden;
+  }
+
+  .sigma-ui-faceted-filter__checkbox[data-selected] {
+    border-color: color-mix(in oklch, var(--primary) 60%, transparent);
+    background: color-mix(in oklch, var(--primary) 15%, transparent);
+    opacity: 1;
+  }
+
+  .sigma-ui-faceted-filter__check {
+    width: calc(var(--spacing) * 3.5);
+    height: calc(var(--spacing) * 3.5);
+    color: var(--primary);
+  }
+
+  .sigma-ui-faceted-filter__option-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    user-select: text;
+    white-space: nowrap;
+  }
+
+  .sigma-ui-faceted-filter__footer {
+    padding: calc(var(--spacing) * 2.5) calc(var(--spacing) * 2.5) calc(var(--spacing) * 3);
+  }
+
+  @media (width >= 64rem) {
+    .sigma-ui-faceted-filter__badges {
+      display: flex;
+    }
+
+    .sigma-ui-faceted-filter__count {
+      display: none;
+    }
   }
 }
 </style>

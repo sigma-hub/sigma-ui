@@ -6,6 +6,7 @@ const props = defineProps<CollapsibleContentProps>();
 
 <template>
   <CollapsibleContent
+    data-slot="collapsible-content"
     v-bind="props"
     class="sigma-ui-collapsible__content"
   >
@@ -14,15 +15,19 @@ const props = defineProps<CollapsibleContentProps>();
 </template>
 
 <style>
-.sigma-ui-collapsible__content {
-  overflow: hidden;
-}
+@layer base, components;
 
-.sigma-ui-collapsible__content[data-state="open"] {
-  animation: sigma-ui-collapsible-down 0.2s ease-out;
-}
+@layer components {
+  .sigma-ui-collapsible__content {
+    overflow: hidden;
+  }
 
-.sigma-ui-collapsible__content[data-state="closed"] {
-  animation: sigma-ui-collapsible-up 0.2s ease-out;
+  .sigma-ui-collapsible__content[data-state="open"] {
+    animation: sigma-ui-collapsible-down 0.2s ease-out;
+  }
+
+  .sigma-ui-collapsible__content[data-state="closed"] {
+    animation: sigma-ui-collapsible-up 0.2s ease-out;
+  }
 }
 </style>

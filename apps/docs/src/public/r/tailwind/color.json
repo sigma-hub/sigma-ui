@@ -1,0 +1,78 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "color",
+  "type": "registry:ui",
+  "title": "Color",
+  "description": "A color area, channel slider, hex field, and swatch picker.",
+  "dependencies": [
+    "reka-ui@^2.11.0"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/color/ColorArea.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport type { CSSProperties } from 'vue';\nimport { ColorAreaRoot, type ColorAreaRootEmits, type ColorAreaRootProps, useForwardPropsEmits } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<ColorAreaRootProps>();\nconst emits = defineEmits<ColorAreaRootEmits>();\nconst forwarded = useForwardPropsEmits(props, emits);\n\ndefineSlots<{\n  /**\n   * The color surface. Receives the gradient style for the area.\n   */\n  default?: (props: { style: CSSProperties }) => unknown;\n}>();\n</script>\n\n<template>\n  <ColorAreaRoot\n    v-slot=\"slotProps\"\n    data-slot=\"color-area\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :class=\"cn('relative h-40 w-full', $attrs.class ?? '')\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </ColorAreaRoot>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/color/ColorAreaArea.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { ColorAreaArea, type ColorAreaAreaProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<ColorAreaAreaProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <ColorAreaArea\n    data-slot=\"color-area-area\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :class=\"cn('relative size-full rounded-md', $attrs.class ?? '')\"\n  >\n    <slot />\n  </ColorAreaArea>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/color/ColorAreaThumb.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { ColorAreaThumb, type ColorAreaThumbProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<ColorAreaThumbProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <ColorAreaThumb\n    data-slot=\"color-area-thumb\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :class=\"cn('size-4 rounded-full border-2 border-white shadow-sm', $attrs.class ?? '')\"\n  >\n    <slot />\n  </ColorAreaThumb>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/color/ColorField.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { ColorFieldRoot, type ColorFieldRootEmits, type ColorFieldRootProps, useForwardPropsEmits } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<ColorFieldRootProps>();\nconst emits = defineEmits<ColorFieldRootEmits>();\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <ColorFieldRoot\n    data-slot=\"color-field\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :class=\"cn('flex', $attrs.class ?? '')\"\n  >\n    <slot />\n  </ColorFieldRoot>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/color/ColorFieldInput.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { ColorFieldInput, type ColorFieldInputProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<ColorFieldInputProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <ColorFieldInput\n    data-slot=\"color-field-input\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :class=\"cn('flex h-9 w-full min-w-0 rounded-md border border-input bg-transparent px-3 py-1 text-base outline-none focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2 md:text-sm', $attrs.class ?? '')\"\n  />\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/color/ColorSlider.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { ColorSliderRoot, type ColorSliderRootEmits, type ColorSliderRootProps, useForwardPropsEmits } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<ColorSliderRootProps>();\nconst emits = defineEmits<ColorSliderRootEmits>();\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <ColorSliderRoot\n    data-slot=\"color-slider\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :class=\"cn('relative flex w-full touch-none select-none items-center', $attrs.class ?? '')\"\n  >\n    <slot />\n  </ColorSliderRoot>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/color/ColorSliderThumb.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { ColorSliderThumb, type ColorSliderThumbProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<ColorSliderThumbProps>();\nconst forwarded = useForwardProps(props);\n\ndefineSlots<{\n  /**\n   * Thumb content. Receives the channel name and its current value.\n   */\n  default?: (props: { channelName: string; channelValue: number }) => unknown;\n}>();\n</script>\n\n<template>\n  <ColorSliderThumb\n    v-slot=\"slotProps\"\n    data-slot=\"color-slider-thumb\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :class=\"cn('block size-4 rounded-full border-2 border-white bg-background shadow-sm focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2', $attrs.class ?? '')\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </ColorSliderThumb>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/color/ColorSliderTrack.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { ColorSliderTrack, type ColorSliderTrackProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<ColorSliderTrackProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <ColorSliderTrack\n    data-slot=\"color-slider-track\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :class=\"cn('relative h-3 w-full grow rounded-full', $attrs.class ?? '')\"\n  >\n    <slot />\n  </ColorSliderTrack>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/color/ColorSwatch.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { ColorSwatch, type ColorSwatchProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<ColorSwatchProps>();\nconst forwarded = useForwardProps(props);\n\ndefineSlots<{\n  /**\n   * Replaces the painted swatch. Receives the hex color and its alpha.\n   */\n  default?: (props: { color: string; alpha: number }) => unknown;\n}>();\n</script>\n\n<template>\n  <ColorSwatch\n    v-slot=\"slotProps\"\n    data-slot=\"color-swatch\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :class=\"cn('size-9 rounded-md border border-border bg-(--reka-color-swatch-color) bg-[image:linear-gradient(var(--reka-color-swatch-color),var(--reka-color-swatch-color)),repeating-conic-gradient(var(--muted)_0%_25%,var(--background)_0%_50%)] bg-[size:auto,0.5rem_0.5rem]', $attrs.class ?? '')\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </ColorSwatch>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/color/ColorSwatchPicker.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { ColorSwatchPickerRoot, type ColorSwatchPickerRootEmits, type ColorSwatchPickerRootProps, useForwardPropsEmits } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<ColorSwatchPickerRootProps>();\nconst emits = defineEmits<ColorSwatchPickerRootEmits>();\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <ColorSwatchPickerRoot\n    data-slot=\"color-swatch-picker\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :class=\"cn('flex flex-wrap gap-2', $attrs.class ?? '')\"\n  >\n    <slot />\n  </ColorSwatchPickerRoot>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/color/ColorSwatchPickerItem.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { ColorSwatchPickerItem, type ColorSwatchPickerItemProps, type ListboxItemEmits, useForwardPropsEmits } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<ColorSwatchPickerItemProps>();\nconst emits = defineEmits<ListboxItemEmits>();\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <ColorSwatchPickerItem\n    data-slot=\"color-swatch-picker-item\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :class=\"cn('rounded-md outline-none focus-visible:outline-2 focus-visible:outline-ring data-[highlighted]:outline-2 data-[highlighted]:outline-ring', $attrs.class ?? '')\"\n  >\n    <slot />\n  </ColorSwatchPickerItem>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/color/ColorSwatchPickerItemSwatch.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { ColorSwatchPickerItemSwatch, type ColorSwatchPickerItemSwatchProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<ColorSwatchPickerItemSwatchProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <ColorSwatchPickerItemSwatch\n    data-slot=\"color-swatch-picker-item-swatch\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :class=\"cn('block size-6 rounded-md border border-border bg-(--reka-color-swatch-color)', $attrs.class ?? '')\"\n  />\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/color/index.ts",
+      "content": "export { default as ColorArea } from './ColorArea.vue';\nexport { default as ColorAreaArea } from './ColorAreaArea.vue';\nexport { default as ColorAreaThumb } from './ColorAreaThumb.vue';\nexport { default as ColorField } from './ColorField.vue';\nexport { default as ColorFieldInput } from './ColorFieldInput.vue';\nexport { default as ColorSlider } from './ColorSlider.vue';\nexport { default as ColorSliderThumb } from './ColorSliderThumb.vue';\nexport { default as ColorSliderTrack } from './ColorSliderTrack.vue';\nexport { default as ColorSwatch } from './ColorSwatch.vue';\nexport { default as ColorSwatchPicker } from './ColorSwatchPicker.vue';\nexport { default as ColorSwatchPickerItem } from './ColorSwatchPickerItem.vue';\nexport { default as ColorSwatchPickerItemSwatch } from './ColorSwatchPickerItemSwatch.vue';\n",
+      "type": "registry:ui"
+    }
+  ]
+}

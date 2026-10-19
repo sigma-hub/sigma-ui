@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-form",
+  "type": "registry:example",
+  "title": "CardForm",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "card",
+    "input",
+    "label",
+    "select"
+  ],
+  "files": [
+    {
+      "path": "example/CardForm.vue",
+      "content": "<script setup lang='ts'>\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card';\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select';\nimport { Input } from '@/components/ui/input';\nimport { Label } from '@/components/ui/label';\nimport { Button } from '@/components/ui/button';\n</script>\n\n<template>\n  <Card class=\"example-sigma-ui-card-form\">\n    <CardHeader>\n      <CardTitle>Create project</CardTitle>\n      <CardDescription>Deploy your new project in one-click.</CardDescription>\n    </CardHeader>\n    <CardContent>\n      <form>\n        <div class=\"example-sigma-ui-card-form__grid\">\n          <div class=\"example-sigma-ui-card-form__field\">\n            <Label for=\"name\">Name</Label>\n            <Input\n              id=\"name\"\n              placeholder=\"Name of your project\"\n            />\n          </div>\n          <div class=\"example-sigma-ui-card-form__field\">\n            <Label for=\"framework\">Framework</Label>\n            <Select>\n              <SelectTrigger id=\"framework\">\n                <SelectValue placeholder=\"Select\" />\n              </SelectTrigger>\n              <SelectContent position=\"popper\">\n                <SelectItem value=\"nuxt\">\n                  Nuxt\n                </SelectItem>\n                <SelectItem value=\"next\">\n                  Next.js\n                </SelectItem>\n                <SelectItem value=\"sveltekit\">\n                  SvelteKit\n                </SelectItem>\n                <SelectItem value=\"astro\">\n                  Astro\n                </SelectItem>\n              </SelectContent>\n            </Select>\n          </div>\n        </div>\n      </form>\n    </CardContent>\n    <CardFooter class=\"example-sigma-ui-card-form__footer\">\n      <Button variant=\"outline\">\n        Cancel\n      </Button>\n      <Button>Deploy</Button>\n    </CardFooter>\n  </Card>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .example-sigma-ui-card-form {\n    width: 350px;\n  }\n\n  .example-sigma-ui-card-form__grid {\n    display: grid;\n    width: 100%;\n    gap: calc(var(--spacing) * 4);\n  }\n\n  .example-sigma-ui-card-form__field {\n    display: flex;\n    flex-direction: column;\n    gap: calc(var(--spacing) * 1.5);\n  }\n\n  .example-sigma-ui-card-form__footer {\n    display: flex;\n    justify-content: space-between;\n    padding: 0 calc(var(--spacing) * 6) calc(var(--spacing) * 6);\n  }\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

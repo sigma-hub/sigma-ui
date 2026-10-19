@@ -26,7 +26,7 @@ npm install @vueuse/core
 ```vue
 <script setup lang="ts">
 import { useColorMode } from '@vueuse/core'
-import { MoonIcon, SunIcon } from 'lucide-vue-next'
+import { MoonIcon, SunIcon } from '@lucide/vue'
 import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 
@@ -85,7 +85,7 @@ npm install @vueuse/core
 <script setup lang="ts">
 import { useData } from 'vitepress'
 import { useToggle } from '@vueuse/core'
-import { MoonIcon, SunIcon } from 'lucide-vue-next'
+import { MoonIcon, SunIcon } from '@lucide/vue'
 import { Button } from '@ui/registry/tailwind/ui/button'
 
 const { frontmatter, isDark } = useData()

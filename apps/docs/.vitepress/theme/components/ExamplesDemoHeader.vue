@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PaintbrushIcon } from 'lucide-vue-next';
+import { PaintbrushIcon } from '@lucide/vue';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@ui/registry/tailwind/ui/popover';
 import { Card, CardContent } from '@ui/registry/tailwind/ui/card';
@@ -7,7 +7,7 @@ import ThemeCustomizer from '../components/ThemeCustomizer.vue';
 import ThemePickerMini from '../components/ThemePickerMini.vue';
 import { useExamplesStore } from '@/stores/examples';
 import ExamplesDemoNav from '../components/ExamplesDemoNav.vue';
-import { GithubIcon } from 'lucide-vue-next';
+import GithubIcon from './GithubIcon.vue';
 
 const examplesStore = useExamplesStore();
 

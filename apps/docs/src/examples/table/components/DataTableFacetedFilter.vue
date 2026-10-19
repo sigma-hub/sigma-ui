@@ -2,7 +2,7 @@
 import type { Column } from '@tanstack/vue-table';
 import type { Component } from 'vue';
 import { computed, ref } from 'vue';
-import { CheckIcon, CirclePlusIcon } from 'lucide-vue-next';
+import { CheckIcon, CirclePlusIcon } from '@lucide/vue';
 import { Badge } from '@ui/registry/tailwind/ui/badge';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@ui/registry/tailwind/ui/command';
@@ -14,9 +14,10 @@ import {
 import { Separator } from '@ui/registry/tailwind/ui/separator';
 import { cn } from '@ui/utils';
 import type { Task } from '../data/schema';
+import type { DataTableFeatures } from './features';
 
 interface DataTableFacetedFilter {
-  column?: Column<Task, any>;
+  column?: Column<DataTableFeatures, Task, any>;
   title?: string;
   options: {
     label: string;

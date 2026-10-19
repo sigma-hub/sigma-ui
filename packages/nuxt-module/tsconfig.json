@@ -3,13 +3,6 @@
   "exclude": [
     "dist",
     "node_modules",
-    "playground",
-  ],
-  "compilerOptions": {
-    "moduleResolution": "NodeNext",
-    "module": "NodeNext",
-    "paths": {
-      "~/*": ["../../*"]
-    }
-  }
+    "playground"
+  ]
 }

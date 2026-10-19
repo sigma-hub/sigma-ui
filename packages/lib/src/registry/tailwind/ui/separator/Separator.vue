@@ -1,15 +1,30 @@
 <script setup lang="ts">
+import { useAttrs } from 'vue';
+
 import { Separator, type SeparatorProps } from 'reka-ui';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<
-  SeparatorProps & { label?: string }
+  SeparatorProps & {
+    /** Text displayed centered on the line. */
+    label?: string;
+  }
 >();
 </script>
 
 <template>
   <Separator
-    v-bind="props"
+    data-slot="separator"
+    v-bind="{ ...props, ...delegatedAttrs() }"
     :class="
       cn(
         'shrink-0 bg-border relative',

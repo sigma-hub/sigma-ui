@@ -1,11 +1,22 @@
 <script setup lang="ts">
+import { useAttrs } from 'vue';
+
 import {
   NavigationMenuTrigger,
   type NavigationMenuTriggerProps,
   useForwardProps,
 } from 'reka-ui';
-import { ChevronDownIcon } from 'lucide-vue-next';
+import { ChevronDownIcon } from '@lucide/vue';
 import { navigationMenuTriggerStyle } from '.';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<NavigationMenuTriggerProps>();
 
@@ -14,9 +25,10 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <NavigationMenuTrigger
-    v-bind="forwardedProps"
+    data-slot="navigation-menu-trigger"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     class="sigma-ui-navigation-menu-trigger"
-    :class="[navigationMenuTriggerStyle()]"
+    :class="[navigationMenuTriggerStyle(), $attrs.class]"
   >
     <slot />
     <ChevronDownIcon
@@ -27,60 +39,64 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-navigation-menu-trigger {
-  position: relative;
-}
+@layer base, components;
 
-.sigma-ui-navigation-menu-trigger__base {
-  display: inline-flex;
-  width: max-content;
-  height: 2.5rem;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem 1rem;
-  border-radius: var(--radius);
-  background-color: hsl(var(--background));
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition-duration: 150ms;
-  transition-property: color, background-color;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
+@layer components {
+  .sigma-ui-navigation-menu-trigger {
+    position: relative;
+  }
 
-.sigma-ui-navigation-menu-trigger__base:hover {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
-}
+  .sigma-ui-navigation-menu-trigger__base {
+    display: inline-flex;
+    width: max-content;
+    height: calc(var(--spacing) * 10);
+    align-items: center;
+    justify-content: center;
+    padding: calc(var(--spacing) * 2) calc(var(--spacing) * 4);
+    border-radius: var(--radius);
+    background-color: var(--background);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition-duration: 150ms;
+    transition-property: color, background-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
-.sigma-ui-navigation-menu-trigger__base:focus {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
-  outline: none;
-}
+  .sigma-ui-navigation-menu-trigger__base:hover {
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+  }
 
-.sigma-ui-navigation-menu-trigger__base:disabled {
-  opacity: 0.5;
-  pointer-events: none;
-}
+  .sigma-ui-navigation-menu-trigger__base:focus {
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+    outline: none;
+  }
 
-.sigma-ui-navigation-menu-trigger__base[data-active] {
-  background-color: hsl(var(--secondary) / 50%);
-}
+  .sigma-ui-navigation-menu-trigger__base:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 
-.sigma-ui-navigation-menu-trigger__base[data-state="open"] {
-  background-color: hsl(var(--secondary) / 50%);
-}
+  .sigma-ui-navigation-menu-trigger__base[data-active] {
+    background-color: color-mix(in oklch, var(--secondary) 50%, transparent);
+  }
 
-.sigma-ui-navigation-menu-trigger__icon {
-  position: relative;
-  top: 1px;
-  width: 0.75rem;
-  height: 0.75rem;
-  margin-left: 0.25rem;
-  transition: transform 0.2s;
-}
+  .sigma-ui-navigation-menu-trigger__base[data-state="open"] {
+    background-color: color-mix(in oklch, var(--secondary) 50%, transparent);
+  }
 
-.sigma-ui-navigation-menu-trigger__icon[data-state="open"] {
-  transform: rotate(180deg);
+  .sigma-ui-navigation-menu-trigger__icon {
+    position: relative;
+    top: 1px;
+    width: calc(var(--spacing) * 3);
+    height: calc(var(--spacing) * 3);
+    margin-left: calc(var(--spacing) * 1);
+    transition: transform 0.2s;
+  }
+
+  .sigma-ui-navigation-menu-trigger__icon[data-state="open"] {
+    transform: rotate(180deg);
+  }
 }
 </style>

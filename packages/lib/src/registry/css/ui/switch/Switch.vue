@@ -1,15 +1,24 @@
 <script setup lang="ts">
+import { useAttrs } from 'vue';
+
 import {
   SwitchRoot,
   type SwitchRootEmits,
   type SwitchRootProps,
   SwitchThumb,
   useForwardPropsEmits,
-
 } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<SwitchRootProps>();
-
 const emits = defineEmits<SwitchRootEmits>();
 
 const forwarded = useForwardPropsEmits(props, emits);
@@ -17,93 +26,99 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <SwitchRoot
-    v-bind="forwarded"
+    data-slot="switch"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     class="sigma-ui-switch"
+    :class="[$attrs.class]"
   >
     <SwitchThumb class="sigma-ui-switch__thumb" />
   </SwitchRoot>
 </template>
 
 <style>
-.sigma-ui-switch {
-  display: inline-flex;
-  width: 2.75rem;
-  height: 1.5rem;
-  flex-shrink: 0;
-  align-items: center;
-  border: 2px solid transparent;
-  border-radius: var(--radius-full);
-  cursor: pointer;
-  transition-duration: 150ms;
-  transition-property: color, background-color, border-color;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
+@layer base, components;
 
-.sigma-ui-switch:focus-visible {
-  outline: 2px solid hsl(var(--ring));
-  outline-offset: 2px;
-}
-
-.sigma-ui-switch:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-}
-
-.sigma-ui-switch[data-state="checked"] {
-  background-color: hsl(var(--primary));
-}
-
-.sigma-ui-switch[data-state="unchecked"] {
-  background-color: hsl(218deg 14% 84% / 70%);
-}
-
-.sigma-ui-switch__thumb {
-  display: block;
-  width: 1.25rem;
-  height: 1.25rem;
-  border-radius: var(--radius-full);
-  animation: none;
-  background-color: hsl(var(--background));
-  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
-  pointer-events: none;
-  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.sigma-ui-switch__thumb[data-state="checked"] {
-  animation: sigma-ui-switch-thumb-in 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  transform: translateX(1.25rem);
-}
-
-.sigma-ui-switch__thumb[data-state="unchecked"] {
-  animation: sigma-ui-switch-thumb-out 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  transform: translateX(0);
-}
-
-@keyframes sigma-ui-switch-thumb-in {
-  0% {
-    filter: blur(0);
+@layer components {
+  .sigma-ui-switch {
+    display: inline-flex;
+    width: calc(var(--spacing) * 11);
+    height: calc(var(--spacing) * 6);
+    flex-shrink: 0;
+    align-items: center;
+    border: 2px solid transparent;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition-duration: 150ms;
+    transition-property: color, background-color, border-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  50% {
-    filter: blur(2px);
+  .sigma-ui-switch:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
   }
 
-  100% {
-    filter: blur(0);
-  }
-}
-
-@keyframes sigma-ui-switch-thumb-out {
-  0% {
-    filter: blur(0);
+  .sigma-ui-switch:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
   }
 
-  50% {
-    filter: blur(2px);
+  .sigma-ui-switch[data-state="checked"] {
+    background-color: var(--primary);
   }
 
-  100% {
-    filter: blur(0);
+  .sigma-ui-switch[data-state="unchecked"] {
+    background-color: hsl(218deg 14% 84% / 70%);
+  }
+
+  .sigma-ui-switch__thumb {
+    display: block;
+    width: calc(var(--spacing) * 5);
+    height: calc(var(--spacing) * 5);
+    border-radius: var(--radius-full);
+    animation: none;
+    background-color: var(--background);
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+    pointer-events: none;
+    transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .sigma-ui-switch__thumb[data-state="checked"] {
+    animation: sigma-ui-switch-thumb-in 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(1.25rem);
+  }
+
+  .sigma-ui-switch__thumb[data-state="unchecked"] {
+    animation: sigma-ui-switch-thumb-out 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(0);
+  }
+
+  @keyframes sigma-ui-switch-thumb-in {
+    0% {
+      filter: blur(0);
+    }
+
+    50% {
+      filter: blur(2px);
+    }
+
+    100% {
+      filter: blur(0);
+    }
+  }
+
+  @keyframes sigma-ui-switch-thumb-out {
+    0% {
+      filter: blur(0);
+    }
+
+    50% {
+      filter: blur(2px);
+    }
+
+    100% {
+      filter: blur(0);
+    }
   }
 }
 </style>

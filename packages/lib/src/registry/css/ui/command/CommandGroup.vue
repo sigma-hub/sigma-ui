@@ -1,16 +1,30 @@
 <script setup lang="ts">
+import { useAttrs } from 'vue';
+
 import type { ComboboxGroupProps } from 'reka-ui';
 import { ComboboxGroup, ComboboxLabel } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<ComboboxGroupProps & {
+  /** Label shown above the group items. */
   heading?: string;
 }>();
 </script>
 
 <template>
   <ComboboxGroup
-    v-bind="props"
+    data-slot="command-group"
+    v-bind="{ ...props, ...delegatedAttrs() }"
     class="sigma-ui-command-group text-xs"
+    :class="[$attrs.class]"
   >
     <ComboboxLabel
       v-if="heading"
@@ -23,25 +37,29 @@ const props = defineProps<ComboboxGroupProps & {
 </template>
 
 <style>
-.sigma-ui-command-group {
-  overflow: hidden;
-  padding: 0.25rem;
-  color: hsl(var(--foreground));
-}
+@layer base, components;
 
-.sigma-ui-command-group [cmdk-group-heading] {
-  padding: 0.375rem 0.5rem;
-  color: hsl(var(--muted-foreground));
-  font-size: 0.75rem;
-  font-weight: 500;
-  line-height: 1rem;
-}
+@layer components {
+  .sigma-ui-command-group {
+    overflow: hidden;
+    padding: calc(var(--spacing) * 1);
+    color: var(--foreground);
+  }
 
-.sigma-ui-command-group__heading {
-  padding: 0.375rem 0.5rem;
-  color: hsl(var(--muted-foreground));
-  font-size: 0.75rem;
-  font-weight: 500;
-  line-height: 1rem;
+  .sigma-ui-command-group [cmdk-group-heading] {
+    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1rem;
+  }
+
+  .sigma-ui-command-group__heading {
+    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1rem;
+  }
 }
 </style>

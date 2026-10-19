@@ -1,15 +1,18 @@
 <script lang="ts" setup>
-import type { DrawerRootEmits, DrawerRootProps } from 'vaul-vue';
-import { DrawerRoot } from 'vaul-vue';
-import { useForwardPropsEmits } from 'reka-ui';
+import type { DrawerRootEmits, DrawerRootProps } from 'reka-ui';
+import { DrawerRoot, useForwardPropsEmits } from 'reka-ui';
 
-const props = withDefaults(defineProps<DrawerRootProps>(), {
-  shouldScaleBackground: true,
-});
-
+const props = defineProps<DrawerRootProps>();
 const emits = defineEmits<DrawerRootEmits>();
 
 const forwarded = useForwardPropsEmits(props, emits);
+
+defineSlots<{
+  /**
+   * Trigger and content.
+   */
+  default?: () => unknown;
+}>();
 </script>
 
 <template>

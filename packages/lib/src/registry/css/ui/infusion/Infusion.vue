@@ -2,16 +2,27 @@
 import { computed, type CSSProperties } from 'vue';
 
 interface Props {
+  /** URL of the image or video used as the background. */
   src: string;
+  /** Opacity of the media in light mode, from 0 to 1. */
   opacity?: number;
+  /** Opacity of the media in dark mode, from 0 to 1. */
   opacityDark?: number;
+  /** CSS z-index of the overlay. */
   zIndex?: number;
+  /** Blur radius applied to the media, in pixels. */
   blur?: number;
+  /** Alpha of the generated noise pixels, from 0 to 1; 0 disables the noise layer. */
   noiseIntensity?: number;
+  /** Scale multiplier of the noise tile (256px at 1). */
   noiseScale?: number;
+  /** Opacity of the noise layer, from 0 to 1. */
   noiseOpacity?: number;
+  /** CSS `mix-blend-mode` of the overlay. */
   blendMode?: CSSProperties['mixBlendMode'];
+  /** Fills the nearest positioned parent instead of the whole viewport. */
   relative?: boolean;
+  /** Whether `src` points to an image or a looping, muted video. */
   type?: 'image' | 'video';
 }
 
@@ -85,6 +96,7 @@ const containerClass = computed(() => [
   <div
     :class="containerClass"
     :style="imageStyle"
+    data-slot="infusion"
   >
     <img
       v-if="props.type === 'image'"
@@ -111,61 +123,65 @@ const containerClass = computed(() => [
 </template>
 
 <style scoped>
-.infusion-container {
-  position: fixed;
-  z-index: var(--infusion-z-index);
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-}
+@layer base, components;
 
-.infusion-container--relative {
-  position: absolute;
-  z-index: var(--infusion-z-index);
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
+@layer components {
+  .infusion-container {
+    position: fixed;
+    z-index: var(--infusion-z-index);
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+  }
 
-.infusion-image {
-  width: 100%;
-  height: 100%;
-  filter: blur(var(--infusion-blur));
-  object-fit: cover;
-  opacity: var(--infusion-opacity);
-  transform: scale(1.1)
-}
+  .infusion-container--relative {
+    position: absolute;
+    z-index: var(--infusion-z-index);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 
-.dark .infusion-image {
-  opacity: var(--infusion-opacity-dark);
-}
+  .infusion-image {
+    width: 100%;
+    height: 100%;
+    filter: blur(var(--infusion-blur));
+    object-fit: cover;
+    opacity: var(--infusion-opacity);
+    transform: scale(1.1)
+  }
 
-.infusion-video {
-  width: 100%;
-  height: 100%;
-  filter: blur(var(--infusion-blur));
-  object-fit: cover;
-  opacity: var(--infusion-opacity);
-  transform: scale(1.1)
-}
+  .dark .infusion-image {
+    opacity: var(--infusion-opacity-dark);
+  }
 
-.dark .infusion-video {
-  opacity: var(--infusion-opacity-dark);
-}
+  .infusion-video {
+    width: 100%;
+    height: 100%;
+    filter: blur(var(--infusion-blur));
+    object-fit: cover;
+    opacity: var(--infusion-opacity);
+    transform: scale(1.1)
+  }
 
-.infusion-noise {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-repeat: repeat;
-  background-size: calc(256px * var(--infusion-noise-scale));
-  mix-blend-mode: overlay;
-  opacity: var(--infusion-noise-opacity);
+  .dark .infusion-video {
+    opacity: var(--infusion-opacity-dark);
+  }
+
+  .infusion-noise {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: repeat;
+    background-size: calc(256px * var(--infusion-noise-scale));
+    mix-blend-mode: overlay;
+    opacity: var(--infusion-noise-opacity);
+  }
 }
 </style>

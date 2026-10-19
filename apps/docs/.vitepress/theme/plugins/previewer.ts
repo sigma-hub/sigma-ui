@@ -1,25 +1,31 @@
 import type { MarkdownRenderer } from 'vitepress';
+import { toPublicImports } from '../../../../../packages/shared/src/registry';
+import { type StateCore, type Token, createHtmlBlock, renderFence, replaceHtmlBlocks, toAttributeJson } from './markdown-tokens';
+import { STYLE_SYSTEMS, exampleExists, readExample } from './registry-source';
 import { parseProps } from './utils';
 
-export default function (md: MarkdownRenderer) {
-  function addRenderRule(type: string) {
-    const defaultRender = md.renderer.rules[type];
+const COMPONENT_PREVIEW_PATTERN = /^<ComponentPreview\s(?:[^>"']|"[^"]*"|'[^']*')*\/>$/;
 
-    md.renderer.rules[type] = (tokens, idx, options, env, self) => {
-      const token = tokens[idx];
-      const content = token.content.trim();
+export default function componentPreviewPlugin(md: MarkdownRenderer) {
+  function createPreviewTokens(state: StateCore, match: RegExpMatchArray, sourceToken: Token) {
+    const props = parseProps(match[0]);
+    const exampleName = props.name;
 
-      if (!content.match(/^<ComponentPreview\s/) || !content.endsWith('/>')) {
-        return defaultRender!(tokens, idx, options, env, self);
-      }
+    if (typeof exampleName !== 'string' || !exampleExists(exampleName)) {
+      throw new Error(`<ComponentPreview name="${exampleName}" /> does not match an example in every style system`);
+    }
 
-      const props = parseProps(content);
-      const { attrs } = props;
-      const demoScripts = `<ComponentPreview ${attrs ?? ''} v-bind='${JSON.stringify(props)}'></ComponentPreview>`.trim();
-      return demoScripts;
-    };
+    const code = Object.fromEntries(STYLE_SYSTEMS.map(style => [
+      style,
+      readExample(style, exampleName).trim(),
+    ]));
+    const codeHtml = Object.fromEntries(STYLE_SYSTEMS.map(style => [
+      style,
+      renderFence(md, state, toPublicImports(code[style]), 'vue'),
+    ]));
+
+    return [createHtmlBlock(state, `<ComponentPreview v-bind='${toAttributeJson({ ...props, code, codeHtml })}' />`, sourceToken)];
   }
 
-  addRenderRule('html_block');
-  addRenderRule('html_inline');
+  replaceHtmlBlocks(md, 'component_preview', COMPONENT_PREVIEW_PATTERN, createPreviewTokens);
 }

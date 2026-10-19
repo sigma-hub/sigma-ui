@@ -1,9 +1,17 @@
 <script setup lang="ts">
+import { useAttrs } from 'vue';
+
 import { TooltipContent, type TooltipContentEmits, type TooltipContentProps, TooltipPortal, useForwardPropsEmits } from 'reka-ui';
 
 defineOptions({
   inheritAttrs: false,
 });
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = withDefaults(defineProps<TooltipContentProps>(), {
   sideOffset: 4,
@@ -17,7 +25,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 <template>
   <TooltipPortal>
     <TooltipContent
-      v-bind="{ ...forwarded, ...$attrs }"
+      data-slot="tooltip-content"
+      v-bind="{ ...forwarded, ...delegatedAttrs() }"
       class="sigma-ui-tooltip-content"
       :class="[$attrs.class]"
     >
@@ -27,108 +36,112 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
-.sigma-ui-tooltip-content {
-  z-index: 50;
-  overflow: hidden;
-  padding: 0.375rem 0.75rem;
-  border: 1px solid hsl(var(--border));
-  border-radius: var(--radius-md);
-  animation: sigma-ui-tooltip-in 150ms cubic-bezier(0.16, 1, 0.3, 1);
-  background-color: hsl(var(--popover));
-  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
-  color: hsl(var(--popover-foreground));
-  font-size: 0.875rem;
-}
+@layer base, components;
 
-.sigma-ui-tooltip-content[data-side="bottom"] {
-  animation: sigma-ui-tooltip-in-bottom 150ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.sigma-ui-tooltip-content[data-side="top"] {
-  animation: sigma-ui-tooltip-in-top 150ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.sigma-ui-tooltip-content[data-side="left"] {
-  animation: sigma-ui-tooltip-in-left 150ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.sigma-ui-tooltip-content[data-side="right"] {
-  animation: sigma-ui-tooltip-in-right 150ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.sigma-ui-tooltip-content[data-state="closed"] {
-  animation: sigma-ui-tooltip-out 250ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@keyframes sigma-ui-tooltip-in {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
+@layer components {
+  .sigma-ui-tooltip-content {
+    z-index: 50;
+    overflow: hidden;
+    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    animation: sigma-ui-tooltip-in 150ms cubic-bezier(0.16, 1, 0.3, 1);
+    background-color: var(--popover);
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+    color: var(--popover-foreground);
+    font-size: 0.875rem;
   }
 
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes sigma-ui-tooltip-out {
-  from {
-    opacity: 1;
-    transform: scale(1);
+  .sigma-ui-tooltip-content[data-side="bottom"] {
+    animation: sigma-ui-tooltip-in-bottom 150ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  to {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-}
-
-@keyframes sigma-ui-tooltip-in-bottom {
-  from {
-    opacity: 0;
-    transform: translateY(-0.5rem);
+  .sigma-ui-tooltip-content[data-side="top"] {
+    animation: sigma-ui-tooltip-in-top 150ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes sigma-ui-tooltip-in-top {
-  from {
-    opacity: 0;
-    transform: translateY(0.5rem);
+  .sigma-ui-tooltip-content[data-side="left"] {
+    animation: sigma-ui-tooltip-in-left 150ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes sigma-ui-tooltip-in-left {
-  from {
-    opacity: 0;
-    transform: translateX(0.5rem);
+  .sigma-ui-tooltip-content[data-side="right"] {
+    animation: sigma-ui-tooltip-in-right 150ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes sigma-ui-tooltip-in-right {
-  from {
-    opacity: 0;
-    transform: translateX(-0.5rem);
+  .sigma-ui-tooltip-content[data-state="closed"] {
+    animation: sigma-ui-tooltip-out 250ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  to {
-    opacity: 1;
-    transform: translateX(0);
+  @keyframes sigma-ui-tooltip-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes sigma-ui-tooltip-out {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    to {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+  }
+
+  @keyframes sigma-ui-tooltip-in-bottom {
+    from {
+      opacity: 0;
+      transform: translateY(-0.5rem);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes sigma-ui-tooltip-in-top {
+    from {
+      opacity: 0;
+      transform: translateY(0.5rem);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes sigma-ui-tooltip-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(0.5rem);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes sigma-ui-tooltip-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(-0.5rem);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 }
 </style>

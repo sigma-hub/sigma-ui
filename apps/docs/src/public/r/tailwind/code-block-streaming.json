@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-block-streaming",
+  "type": "registry:example",
+  "title": "CodeBlockStreaming",
+  "dependencies": [
+    "@lucide/vue@^1.59.0"
+  ],
+  "registryDependencies": [
+    "button",
+    "code-block"
+  ],
+  "files": [
+    {
+      "path": "example/CodeBlockStreaming.vue",
+      "content": "<script setup lang=\"ts\">\nimport { computed, onBeforeUnmount, onMounted, ref } from 'vue';\nimport { FileCodeIcon, RotateCcwIcon } from '@lucide/vue';\nimport { Button } from '@/components/ui/button';\nimport {\n  CodeBlock,\n  CodeBlockActions,\n  CodeBlockContent,\n  CodeBlockCopyButton,\n  CodeBlockHeader,\n  CodeBlockTitle,\n  useHighlightedCode,\n} from '@/components/ui/code-block';\n\nconst source = `export function useDebouncedRef<T>(value: T, delay = 300) {\n  return customRef((track, trigger) => {\n    let timeout: ReturnType<typeof setTimeout> | undefined;\n\n    return {\n      get() {\n        track();\n        return value;\n      },\n      set(next: T) {\n        clearTimeout(timeout);\n        timeout = setTimeout(() => {\n          value = next;\n          trigger();\n        }, delay);\n      },\n    };\n  });\n}`;\n\nconst length = ref(0);\nconst code = computed(() => source.slice(0, length.value));\nconst streaming = computed(() => length.value < source.length);\nconst { lines } = useHighlightedCode(code, 'ts');\nlet timer: ReturnType<typeof setInterval> | undefined;\n\nfunction replay() {\n  clearInterval(timer);\n  length.value = 0;\n  timer = setInterval(() => {\n    length.value = Math.min(source.length, length.value + 6);\n\n    if (!streaming.value) {\n      clearInterval(timer);\n    }\n  }, 30);\n}\n\nonMounted(replay);\nonBeforeUnmount(() => clearInterval(timer));\n</script>\n\n<template>\n  <CodeBlock>\n    <CodeBlockHeader>\n      <CodeBlockTitle>\n        <FileCodeIcon />\n        composables/useDebouncedRef.ts\n      </CodeBlockTitle>\n      <CodeBlockActions>\n        <Button\n          variant=\"ghost\"\n          size=\"icon-xs\"\n          aria-label=\"Replay\"\n          @click=\"replay\"\n        >\n          <RotateCcwIcon />\n        </Button>\n        <CodeBlockCopyButton :disabled=\"streaming\" />\n      </CodeBlockActions>\n    </CodeBlockHeader>\n    <CodeBlockContent\n      :code=\"code\"\n      :lines=\"lines\"\n      language=\"ts\"\n      line-numbers\n      :aria-busy=\"streaming\"\n    />\n  </CodeBlock>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

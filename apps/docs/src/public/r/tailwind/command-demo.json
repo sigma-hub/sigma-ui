@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "command-demo",
+  "type": "registry:example",
+  "title": "Command",
+  "dependencies": [
+    "@lucide/vue@^1.59.0"
+  ],
+  "registryDependencies": [
+    "command",
+    "toaster"
+  ],
+  "files": [
+    {
+      "path": "example/Command.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  CalculatorIcon,\n  CalendarIcon,\n  CreditCardIcon,\n  SettingsIcon,\n  SmileIcon,\n  UserIcon,\n} from '@lucide/vue';\nimport { toast } from '@/components/ui/toaster';\nimport {\n  Command,\n  CommandEmpty,\n  CommandGroup,\n  CommandInput,\n  CommandItem,\n  CommandList,\n  CommandSeparator,\n  CommandShortcut,\n} from '@/components/ui/command';\n\nfunction handleSelect(event: any) {\n  if (event.detail?.value) {\n    toast('Selected command', {\n      description: `You selected: ${event.detail.value}`,\n    });\n  }\n}\n</script>\n\n<template>\n  <Command class=\"rounded-lg border shadow-md max-w-[450px]\">\n    <CommandInput placeholder=\"Type a command or search...\" />\n    <CommandList>\n      <CommandEmpty>No results found.</CommandEmpty>\n      <CommandGroup heading=\"Suggestions\">\n        <CommandItem\n          value=\"Calendar\"\n          @select=\"handleSelect\"\n        >\n          <CalendarIcon class=\"mr-2 h-4 w-4\" />\n          <span>Calendar</span>\n        </CommandItem>\n        <CommandItem\n          value=\"Search Emoji\"\n          @select=\"handleSelect\"\n        >\n          <SmileIcon class=\"mr-2 h-4 w-4\" />\n          <span>Search Emoji</span>\n        </CommandItem>\n        <CommandItem\n          value=\"Calculator\"\n          @select=\"handleSelect\"\n        >\n          <CalculatorIcon class=\"mr-2 h-4 w-4\" />\n          <span>Calculator</span>\n        </CommandItem>\n      </CommandGroup>\n      <CommandSeparator />\n      <CommandGroup heading=\"Settings\">\n        <CommandItem\n          value=\"Profile\"\n          @select=\"handleSelect\"\n        >\n          <UserIcon class=\"mr-2 h-4 w-4\" />\n          <span>Profile</span>\n          <CommandShortcut>⌘P</CommandShortcut>\n        </CommandItem>\n        <CommandItem\n          value=\"Billing\"\n          @select=\"handleSelect\"\n        >\n          <CreditCardIcon class=\"mr-2 h-4 w-4\" />\n          <span>Billing</span>\n          <CommandShortcut>⌘B</CommandShortcut>\n        </CommandItem>\n        <CommandItem\n          value=\"Settings\"\n          @select=\"handleSelect\"\n        >\n          <SettingsIcon class=\"mr-2 h-4 w-4\" />\n          <span>Settings</span>\n          <CommandShortcut>⌘S</CommandShortcut>\n        </CommandItem>\n      </CommandGroup>\n    </CommandList>\n  </Command>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CheckIcon, ChevronsUpDownIcon, SearchIcon } from 'lucide-vue-next';
+import { CheckIcon, ChevronsUpDownIcon, SearchIcon } from '@lucide/vue';
 import { Combobox, ComboboxAnchor, ComboboxEmpty, ComboboxGroup, ComboboxInput, ComboboxItem, ComboboxItemIndicator, ComboboxList, ComboboxTrigger } from '@ui/registry/css/ui/combobox';
 
 const frameworks = [
@@ -52,56 +52,60 @@ const frameworks = [
 </template>
 
 <style>
-.example-sigma-ui-combobox {
-  position: relative;
-  display: flex;
-  width: 100%;
-  max-width: 24rem;
-  align-items: center;
-}
+@layer base, components;
 
-.example-sigma-ui-combobox__input {
-  padding-left: 2.25rem;
-}
+@layer components {
+  .example-sigma-ui-combobox {
+    position: relative;
+    display: flex;
+    width: 100%;
+    max-width: 24rem;
+    align-items: center;
+  }
 
-.example-sigma-ui-combobox__icon {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 0.75rem;
-}
+  .example-sigma-ui-combobox__input {
+    padding-left: calc(var(--spacing) * 9);
+  }
 
-.example-sigma-ui-combobox__search-icon {
-  width: 1rem;
-  height: 1rem;
-  color: hsl(var(--muted-foreground));
-}
+  .example-sigma-ui-combobox__icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 calc(var(--spacing) * 3);
+  }
 
-.example-sigma-ui-combobox__check-icon {
-  width: 1rem;
-  height: 1rem;
-  margin-left: auto;
-}
+  .example-sigma-ui-combobox__search-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    color: var(--muted-foreground);
+  }
 
-.example-sigma-ui-combobox__trigger {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 0.75rem;
-}
+  .example-sigma-ui-combobox__check-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-left: auto;
+  }
 
-.example-sigma-ui-combobox__chevron {
-  width: 1rem;
-  height: 1rem;
-  color: hsl(var(--muted-foreground));
-  opacity: 0.5;
+  .example-sigma-ui-combobox__trigger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 calc(var(--spacing) * 3);
+  }
+
+  .example-sigma-ui-combobox__chevron {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    color: var(--muted-foreground);
+    opacity: 0.5;
+  }
 }
 </style>

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "breadcrumb-dropdown",
+  "type": "registry:example",
+  "title": "BreadcrumbDropdown",
+  "dependencies": [
+    "@lucide/vue@^1.59.0"
+  ],
+  "registryDependencies": [
+    "breadcrumb",
+    "dropdown-menu"
+  ],
+  "files": [
+    {
+      "path": "example/BreadcrumbDropdown.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { ChevronDownIcon, SlashIcon } from '@lucide/vue';\nimport {\n  Breadcrumb,\n  BreadcrumbItem,\n  BreadcrumbLink,\n  BreadcrumbList,\n  BreadcrumbPage,\n  BreadcrumbSeparator,\n} from '@/components/ui/breadcrumb';\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuTrigger,\n} from '@/components/ui/dropdown-menu';\n</script>\n\n<template>\n  <Breadcrumb>\n    <BreadcrumbList>\n      <BreadcrumbItem>\n        <BreadcrumbLink href=\"/\">\n          Home\n        </BreadcrumbLink>\n      </BreadcrumbItem>\n      <BreadcrumbSeparator>\n        <SlashIcon />\n      </BreadcrumbSeparator>\n      <BreadcrumbItem>\n        <DropdownMenu>\n          <DropdownMenuTrigger class=\"example-sigma-ui-breadcrumb__trigger\">\n            Components\n            <ChevronDownIcon class=\"example-sigma-ui-breadcrumb__trigger-icon\" />\n          </DropdownMenuTrigger>\n          <DropdownMenuContent align=\"start\">\n            <DropdownMenuItem>Documentation</DropdownMenuItem>\n            <DropdownMenuItem>Themes</DropdownMenuItem>\n            <DropdownMenuItem>GitHub</DropdownMenuItem>\n          </DropdownMenuContent>\n        </DropdownMenu>\n      </BreadcrumbItem>\n      <BreadcrumbSeparator>\n        <SlashIcon />\n      </BreadcrumbSeparator>\n      <BreadcrumbItem>\n        <BreadcrumbPage>Breadcrumb</BreadcrumbPage>\n      </BreadcrumbItem>\n    </BreadcrumbList>\n  </Breadcrumb>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .example-sigma-ui-breadcrumb__trigger {\n    display: flex;\n    align-items: center;\n    gap: calc(var(--spacing) * 1);\n  }\n\n  .example-sigma-ui-breadcrumb__trigger-icon {\n    width: calc(var(--spacing) * 4);\n    height: calc(var(--spacing) * 4);\n  }\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

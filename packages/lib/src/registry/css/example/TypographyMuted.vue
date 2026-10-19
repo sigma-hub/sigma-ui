@@ -5,8 +5,12 @@
 </template>
 
 <style>
-.example-sigma-ui-typography__muted {
-  color: hsl(var(--muted-foreground));
-  font-size: 0.875rem;
+@layer base, components;
+
+@layer components {
+  .example-sigma-ui-typography__muted {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+  }
 }
 </style>

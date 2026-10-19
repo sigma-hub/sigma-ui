@@ -1,7 +1,18 @@
 <script setup lang="ts">
+import { useAttrs } from 'vue';
+
 import type { ComboboxAnchorProps } from 'reka-ui';
 import { ComboboxAnchor, useForwardProps } from 'reka-ui';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<ComboboxAnchorProps>();
 
@@ -10,7 +21,8 @@ const forwarded = useForwardProps(props);
 
 <template>
   <ComboboxAnchor
-    v-bind="{ ...forwarded, ...$attrs }"
+    data-slot="combobox-anchor"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="cn('w-[200px]', $attrs.class ?? '')"
   >
     <slot />

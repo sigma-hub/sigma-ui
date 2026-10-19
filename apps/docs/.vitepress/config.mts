@@ -1,6 +1,6 @@
 import path from 'node:path';
 import fs from 'node:fs';
-import { defineConfig } from 'vitepress';
+import { defineConfig, type MarkdownOptions, type UserConfig } from 'vitepress';
 import tailwindcss from '@tailwindcss/vite';
 import { transformerMetaWordHighlight } from '@shikijs/transformers';
 import { cssVariables } from './theme/config/shiki';
@@ -8,6 +8,14 @@ import { cssVariables } from './theme/config/shiki';
 import { siteConfig } from './theme/config/site';
 import ComponentPreviewPlugin from './theme/plugins/previewer';
 import CodeWrapperPlugin from './theme/plugins/codewrapper';
+import ComponentInstallPlugin from './theme/plugins/component-install';
+import { blockRendererPlugin } from './block-renderer/plugin';
+
+type VitePressPlugins = NonNullable<UserConfig['vite']>['plugins'];
+
+function vitePressPlugins(plugins: unknown[]): VitePressPlugins {
+  return plugins as VitePressPlugins;
+}
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -31,14 +39,17 @@ export default defineConfig({
   ],
   sitemap: {
     hostname: 'https://sigma-ui.dev',
-    transformItems(items) {
-      return items.filter(item => !item.url.includes('migration'));
-    },
   },
   lastUpdated: true,
   themeConfig: {
     search: {
       provider: 'local',
+      options: {
+        _render(src, env, md) {
+          const html = md.render(src, Object.assign(env, { isSearchIndex: true }));
+          return env.frontmatter?.search === false ? '' : html;
+        },
+      },
     },
     editLink: {
       pattern: 'https://github.com/sigma-hub/sigma-ui/tree/main/apps/docs/src/:path',
@@ -46,23 +57,26 @@ export default defineConfig({
     },
   },
   srcDir: path.resolve(__dirname, '../src'),
+  srcExclude: ['content/meta/**'],
   markdown: {
     theme: cssVariables,
     codeTransformers: [
-      transformerMetaWordHighlight(),
+      transformerMetaWordHighlight() as NonNullable<MarkdownOptions['codeTransformers']>[number],
     ],
     config(md) {
       md.use(ComponentPreviewPlugin);
       md.use(CodeWrapperPlugin);
+      md.use(ComponentInstallPlugin);
     },
   },
   rewrites: {
     'content/(.*)': '(.*)',
   },
   vite: {
-    plugins: [
+    plugins: vitePressPlugins([
       tailwindcss(),
-    ],
+      blockRendererPlugin(path.resolve(__dirname, '../src/block-renderer/index.html')),
+    ]),
     define: {
       'import.meta.env.VITE_APP_VERSION': JSON.stringify(
         JSON.parse(

@@ -17,7 +17,7 @@ import {
   DropdownMenuTrigger,
 } from '@ui/registry/tailwind/ui/dropdown-menu';
 import { Separator } from '@ui/registry/tailwind/ui/separator';
-import { ChevronDownIcon, CircleIcon, PlusIcon, StarIcon } from 'lucide-vue-next';
+import { ChevronDownIcon, CircleIcon, PlusIcon, StarIcon } from '@lucide/vue';
 </script>
 
 <template>

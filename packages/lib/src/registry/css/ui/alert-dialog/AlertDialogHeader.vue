@@ -8,22 +8,27 @@ const attrs = useAttrs();
   <div
     class="sigma-ui-alert-dialog-header"
     :class="attrs.class"
+    data-slot="alert-dialog-header"
   >
     <slot />
   </div>
 </template>
 
 <style>
-.sigma-ui-alert-dialog-header {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  text-align: center;
-}
+@layer base, components;
 
-@media (width >= 640px) {
+@layer components {
   .sigma-ui-alert-dialog-header {
-    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2);
+    text-align: center;
+  }
+
+  @media (width >= 40rem) {
+    .sigma-ui-alert-dialog-header {
+      text-align: left;
+    }
   }
 }
 </style>

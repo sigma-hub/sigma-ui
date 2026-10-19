@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs-demo",
+  "type": "registry:example",
+  "title": "Tabs",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "card",
+    "input",
+    "label",
+    "tabs"
+  ],
+  "files": [
+    {
+      "path": "example/Tabs.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/components/ui/button';\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card';\nimport { Input } from '@/components/ui/input';\nimport { Label } from '@/components/ui/label';\nimport {\n  Tabs,\n  TabsContent,\n  TabsList,\n  TabsTrigger,\n} from '@/components/ui/tabs';\n</script>\n\n<template>\n  <Tabs\n    default-value=\"account\"\n    class=\"w-[400px]\"\n  >\n    <TabsList class=\"grid w-full grid-cols-2\">\n      <TabsTrigger value=\"account\">\n        Account\n      </TabsTrigger>\n      <TabsTrigger value=\"password\">\n        Password\n      </TabsTrigger>\n    </TabsList>\n    <TabsContent value=\"account\">\n      <Card>\n        <CardHeader>\n          <CardTitle>Account</CardTitle>\n          <CardDescription>\n            Make changes to your account here. Click save when you're done.\n          </CardDescription>\n        </CardHeader>\n        <CardContent class=\"space-y-3\">\n          <div class=\"flex flex-col gap-2\">\n            <Label for=\"name\">Name</Label>\n            <Input\n              id=\"name\"\n              autocomplete=\"name\"\n              model-value=\"Pedro Duarte\"\n            />\n          </div>\n          <div class=\"flex flex-col gap-2\">\n            <Label for=\"username\">Username</Label>\n            <Input\n              id=\"username\"\n              autocomplete=\"username\"\n              model-value=\"@peduarte\"\n            />\n          </div>\n        </CardContent>\n        <CardFooter>\n          <Button>Save changes</Button>\n        </CardFooter>\n      </Card>\n    </TabsContent>\n    <TabsContent value=\"password\">\n      <Card>\n        <CardHeader>\n          <CardTitle>Password</CardTitle>\n          <CardDescription>\n            Change your password here. After saving, you'll be logged out.\n          </CardDescription>\n        </CardHeader>\n        <CardContent class=\"space-y-2\">\n          <div class=\"space-y-1\">\n            <Label for=\"current\">Current password</Label>\n            <Input\n              id=\"current\"\n              autocomplete=\"current-password\"\n              type=\"password\"\n            />\n          </div>\n          <div class=\"space-y-1\">\n            <Label for=\"new\">New password</Label>\n            <Input\n              id=\"new\"\n              autocomplete=\"new-password\"\n              type=\"password\"\n            />\n          </div>\n        </CardContent>\n        <CardFooter>\n          <Button>Save password</Button>\n        </CardFooter>\n      </Card>\n    </TabsContent>\n  </Tabs>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

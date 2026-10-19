@@ -1,0 +1,66 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "command",
+  "type": "registry:ui",
+  "title": "Command",
+  "description": "Composable command menu (command palette) with search.",
+  "dependencies": [
+    "@lucide/vue@^1.59.0",
+    "reka-ui@^2.11.0"
+  ],
+  "registryDependencies": [
+    "dialog"
+  ],
+  "files": [
+    {
+      "path": "ui/command/Command.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport type { ComboboxRootEmits, ComboboxRootProps } from 'reka-ui';\nimport { ComboboxRoot, useForwardPropsEmits } from 'reka-ui';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = withDefaults(defineProps<ComboboxRootProps>(), {\n  open: true,\n  modelValue: '',\n});\n\nconst emits = defineEmits<ComboboxRootEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <ComboboxRoot\n    data-slot=\"command\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :class=\"cn('flex h-full w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground', $attrs.class ?? '')\"\n  >\n    <slot />\n  </ComboboxRoot>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/command/CommandDialog.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useForwardPropsEmits } from 'reka-ui';\nimport type { DialogRootEmits, DialogRootProps } from 'reka-ui';\nimport Command from './Command.vue';\nimport { Dialog, DialogContent } from '@/components/ui/dialog';\n\nconst props = defineProps<DialogRootProps>();\nconst emits = defineEmits<DialogRootEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <Dialog\n    data-slot=\"command-dialog\"\n    v-bind=\"forwarded\"\n  >\n    <DialogContent class=\"overflow-hidden p-0 shadow-lg\">\n      <Command class=\"[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-group]]:px-2 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-2 [&_[cmdk-item]]:py-3 [&_[cmdk-item]_svg]:h-5 [&_[cmdk-item]_svg]:w-5\">\n        <slot />\n      </Command>\n    </DialogContent>\n  </Dialog>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/command/CommandEmpty.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport type { ComboboxEmptyProps } from 'reka-ui';\nimport { ComboboxEmpty } from 'reka-ui';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<ComboboxEmptyProps>();\n</script>\n\n<template>\n  <ComboboxEmpty\n    data-slot=\"command-empty\"\n    v-bind=\"{ ...props, ...delegatedAttrs() }\"\n    :class=\"cn('py-6 text-center text-sm', $attrs.class ?? '')\"\n  >\n    <slot />\n  </ComboboxEmpty>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/command/CommandGroup.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport type { ComboboxGroupProps } from 'reka-ui';\nimport { ComboboxGroup, ComboboxLabel } from 'reka-ui';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<ComboboxGroupProps & {\n  /** Label shown above the group items. */\n  heading?: string;\n}>();\n</script>\n\n<template>\n  <ComboboxGroup\n    data-slot=\"command-group\"\n    v-bind=\"{ ...props, ...delegatedAttrs() }\"\n    :class=\"cn('overflow-hidden p-1 text-foreground [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground', $attrs.class ?? '')\"\n  >\n    <ComboboxLabel\n      v-if=\"heading\"\n      class=\"px-2 py-1.5 text-xs font-medium text-muted-foreground\"\n    >\n      {{ heading }}\n    </ComboboxLabel>\n    <slot />\n  </ComboboxGroup>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/command/CommandInput.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { SearchIcon } from '@lucide/vue';\nimport { ComboboxInput, type ComboboxInputProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<ComboboxInputProps>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <div\n    class=\"flex items-center border-b px-3\"\n    cmdk-input-wrapper\n    data-slot=\"command-input\"\n  >\n    <SearchIcon class=\"mr-2 h-4 w-4 shrink-0 opacity-50\" />\n    <ComboboxInput\n      v-bind=\"{ ...forwardedProps, ...delegatedAttrs() }\"\n      auto-focus\n      :class=\"cn('flex h-11 w-full rounded-md bg-transparent py-3 text-sm outline-hidden placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50', $attrs.class ?? '')\"\n    />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/command/CommandItem.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport type { ComboboxItemEmits, ComboboxItemProps } from 'reka-ui';\nimport { ComboboxItem, useForwardPropsEmits } from 'reka-ui';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<ComboboxItemProps>();\nconst emits = defineEmits<ComboboxItemEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <ComboboxItem\n    data-slot=\"command-item\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :class=\"cn('relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-hidden data-[highlighted]:bg-secondary data-[highlighted]:text-secondary-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50', $attrs.class ?? '')\"\n  >\n    <slot />\n  </ComboboxItem>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/command/CommandList.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport type { ListboxContentProps } from 'reka-ui';\nimport { ListboxContent, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<ListboxContentProps>();\n\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <ListboxContent\n    data-slot=\"command-list\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :class=\"cn('max-h-[300px] overflow-y-auto overflow-x-hidden', $attrs.class ?? '')\"\n  >\n    <div role=\"presentation\">\n      <slot />\n    </div>\n  </ListboxContent>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/command/CommandSeparator.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport type { ComboboxSeparatorProps } from 'reka-ui';\nimport { ComboboxSeparator } from 'reka-ui';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<ComboboxSeparatorProps>();\n</script>\n\n<template>\n  <ComboboxSeparator\n    data-slot=\"command-separator\"\n    v-bind=\"{ ...props, ...delegatedAttrs() }\"\n    :class=\"cn('-mx-1 h-px bg-border', $attrs.class ?? '')\"\n  >\n    <slot />\n  </ComboboxSeparator>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/command/CommandShortcut.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <span\n    data-slot=\"command-shortcut\"\n    v-bind=\"delegatedAttrs()\"\n    :class=\"cn('ml-auto text-xs tracking-widest text-muted-foreground', $attrs.class ?? '')\"\n  >\n    <slot />\n  </span>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/command/index.ts",
+      "content": "export { default as Command } from './Command.vue';\nexport { default as CommandDialog } from './CommandDialog.vue';\nexport { default as CommandEmpty } from './CommandEmpty.vue';\nexport { default as CommandGroup } from './CommandGroup.vue';\nexport { default as CommandInput } from './CommandInput.vue';\nexport { default as CommandItem } from './CommandItem.vue';\nexport { default as CommandList } from './CommandList.vue';\nexport { default as CommandSeparator } from './CommandSeparator.vue';\nexport { default as CommandShortcut } from './CommandShortcut.vue';\n",
+      "type": "registry:ui"
+    }
+  ]
+}

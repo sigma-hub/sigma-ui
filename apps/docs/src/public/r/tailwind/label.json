@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "label",
+  "type": "registry:ui",
+  "title": "Label",
+  "description": "Renders an accessible label associated with controls.",
+  "dependencies": [
+    "reka-ui@^2.11.0"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/label/Label.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { Label, type LabelProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<LabelProps>();\n</script>\n\n<template>\n  <Label\n    data-slot=\"label\"\n    v-bind=\"{ ...props, ...delegatedAttrs() }\"\n    :class=\"\n\n      cn(\n        'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',\n        $attrs.class ?? '',\n      )\n    \"\n  >\n    <slot />\n  </Label>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/label/index.ts",
+      "content": "export { default as Label } from './Label.vue';\n",
+      "type": "registry:ui"
+    }
+  ]
+}

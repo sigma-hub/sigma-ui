@@ -1,0 +1,59 @@
+<script lang="ts" setup>
+import { useAttrs } from 'vue';
+
+import { MonthPickerNext, type MonthPickerNextProps, useForwardProps } from 'reka-ui';
+import { ChevronRightIcon } from '@lucide/vue';
+import { buttonVariants } from '@ui/registry/css/ui/button';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
+
+const props = defineProps<MonthPickerNextProps>();
+const forwarded = useForwardProps(props);
+</script>
+
+<template>
+  <MonthPickerNext
+    data-slot="month-picker-next-button"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
+    class="sigma-ui-month-picker-next"
+    :class="[buttonVariants({ variant: 'outline' }), $attrs.class]"
+  >
+    <slot>
+      <ChevronRightIcon class="sigma-ui-month-picker-next__icon" />
+    </slot>
+  </MonthPickerNext>
+</template>
+
+<style>
+@layer base, components;
+
+@layer components {
+  .sigma-ui-month-picker-next {
+    width: calc(var(--spacing) * 7);
+    height: calc(var(--spacing) * 7);
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background-color: transparent;
+    opacity: 0.5;
+  }
+
+  .sigma-ui-month-picker-next:hover {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+    opacity: 1;
+  }
+
+  .sigma-ui-month-picker-next__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
+}
+</style>

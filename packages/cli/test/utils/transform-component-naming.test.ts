@@ -2,7 +2,6 @@ import { expect, it, describe } from 'vitest';
 import {
   pascalToKebab,
   kebabToPascal,
-  transformDirectoryName,
   transformFileName,
   transformLocalVueImports,
 } from '../../src/utils/transformers/transform-component-naming';
@@ -37,19 +36,6 @@ describe('kebabToPascal', () => {
   it('should handle single word', () => {
     expect(kebabToPascal('button')).toBe('Button');
     expect(kebabToPascal('card')).toBe('Card');
-  });
-});
-
-describe('transformDirectoryName', () => {
-  it('should keep kebab-case when using kebab-case naming', () => {
-    expect(transformDirectoryName('button', 'kebab-case')).toBe('button');
-    expect(transformDirectoryName('alert-dialog', 'kebab-case')).toBe('alert-dialog');
-  });
-
-  it('should convert to PascalCase when using pascal-case naming', () => {
-    expect(transformDirectoryName('button', 'pascal-case')).toBe('Button');
-    expect(transformDirectoryName('alert-dialog', 'pascal-case')).toBe('AlertDialog');
-    expect(transformDirectoryName('context-menu', 'pascal-case')).toBe('ContextMenu');
   });
 });
 
@@ -128,6 +114,16 @@ import TableCell from './TableCell.vue';`;
 
     const expected = `import TableRow from './table-row.vue';
 import TableCell from './table-cell.vue';`;
+
+    expect(transformLocalVueImports(content, 'kebab-case')).toBe(expected);
+  });
+
+  it('should transform nested relative imports used by blocks', () => {
+    const content = `import AppSidebar from './components/AppSidebar.vue';
+import NavMain from "../NavMain.vue";`;
+
+    const expected = `import AppSidebar from './components/app-sidebar.vue';
+import NavMain from "../nav-main.vue";`;
 
     expect(transformLocalVueImports(content, 'kebab-case')).toBe(expected);
   });

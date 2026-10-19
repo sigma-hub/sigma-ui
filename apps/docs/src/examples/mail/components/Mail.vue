@@ -1,9 +1,10 @@
 <script lang="ts" setup>
 import {
+  ArrowLeftIcon,
   SearchIcon,
-} from 'lucide-vue-next';
+} from '@lucide/vue';
 import { computed, ref } from 'vue';
-import { refDebounced } from '@vueuse/core';
+import { createReusableTemplate, refDebounced, useMediaQuery } from '@vueuse/core';
 import type { Mail } from '../data/mails';
 import AccountSwitcher from './AccountSwitcher.vue';
 import MailList from './MailList.vue';
@@ -12,6 +13,7 @@ import Nav, { type LinkProp } from './Nav.vue';
 import { cn } from '@ui/utils';
 import { Separator } from '@ui/registry/tailwind/ui/separator';
 import { Input } from '@ui/registry/tailwind/ui/input';
+import { Button } from '@ui/registry/tailwind/ui/button';
 import {
   Tabs,
   TabsContent,
@@ -39,6 +41,16 @@ const props = withDefaults(defineProps<MailProps>(), {
 });
 
 const isCollapsed = ref(props.defaultCollapsed);
+// Three resizable panes do not fit a phone, so narrow screens show the list or the open message.
+const isWide = useMediaQuery('(min-width: 768px)');
+const isMailOpenOnNarrow = ref(false);
+const [DefineMailListPane, MailListPane] = createReusableTemplate();
+
+function openMail(id: string | undefined) {
+  selectedMail.value = id;
+  isMailOpenOnNarrow.value = Boolean(id);
+}
+
 const selectedMail = ref<string | undefined>(props.mails[0].id);
 const searchValue = ref('');
 const debouncedSearch = refDebounced(searchValue, 250);
@@ -148,8 +160,92 @@ function onExpand() {
 </script>
 
 <template>
+  <DefineMailListPane>
+    <Tabs default-value="all">
+      <div class="flex items-center px-4 py-2">
+        <h1 class="text-xl font-bold">
+          Inbox
+        </h1>
+        <TabsList class="ml-auto">
+          <TabsTrigger
+            value="all"
+            class="text-gray-600 dark:text-gray-200"
+          >
+            All mail
+          </TabsTrigger>
+          <TabsTrigger
+            value="unread"
+            class="text-gray-600 dark:text-gray-200"
+          >
+            Unread
+          </TabsTrigger>
+        </TabsList>
+      </div>
+      <Separator />
+      <div class="p-4">
+        <form>
+          <div class="relative">
+            <SearchIcon class="absolute left-2 top-2.5 size-4 text-muted-foreground" />
+            <Input
+              v-model="searchValue"
+              placeholder="Search"
+              class="pl-8"
+            />
+          </div>
+        </form>
+      </div>
+      <TabsContent
+        value="all"
+        class="m-0"
+      >
+        <MailList
+          :selected-mail="selectedMail"
+          :items="filteredMailList"
+          @update:selected-mail="openMail"
+        />
+      </TabsContent>
+      <TabsContent
+        value="unread"
+        class="m-0"
+      >
+        <MailList
+          :selected-mail="selectedMail"
+          :items="unreadMailList"
+          @update:selected-mail="openMail"
+        />
+      </TabsContent>
+    </Tabs>
+  </DefineMailListPane>
   <TooltipProvider :delay-duration="0">
+    <div
+      v-if="!isWide"
+      class="flex h-[800px] flex-col overflow-hidden"
+    >
+      <template v-if="isMailOpenOnNarrow">
+        <div class="flex items-center px-2 py-2">
+          <Button
+            variant="ghost"
+            size="sm"
+            @click="isMailOpenOnNarrow = false"
+          >
+            <ArrowLeftIcon class="size-4" />
+            Inbox
+          </Button>
+        </div>
+        <Separator />
+        <div class="min-h-0 flex-1 overflow-y-auto">
+          <MailDisplay :mail="selectedMailData" />
+        </div>
+      </template>
+      <div
+        v-else
+        class="min-h-0 flex-1 overflow-y-auto"
+      >
+        <MailListPane />
+      </div>
+    </div>
     <ResizablePanelGroup
+      v-else
       id="resize-panel-group-1"
       direction="horizontal"
       class="h-full max-h-[800px] items-stretch"
@@ -191,58 +287,7 @@ function onExpand() {
         :default-size="defaultLayout[1]"
         :min-size="30"
       >
-        <Tabs default-value="all">
-          <div class="flex items-center px-4 py-2">
-            <h1 class="text-xl font-bold">
-              Inbox
-            </h1>
-            <TabsList class="ml-auto">
-              <TabsTrigger
-                value="all"
-                class="text-gray-600 dark:text-gray-200"
-              >
-                All mail
-              </TabsTrigger>
-              <TabsTrigger
-                value="unread"
-                class="text-gray-600 dark:text-gray-200"
-              >
-                Unread
-              </TabsTrigger>
-            </TabsList>
-          </div>
-          <Separator />
-          <div class="p-4">
-            <form>
-              <div class="relative">
-                <SearchIcon class="absolute left-2 top-2.5 size-4 text-muted-foreground" />
-                <Input
-                  v-model="searchValue"
-                  placeholder="Search"
-                  class="pl-8"
-                />
-              </div>
-            </form>
-          </div>
-          <TabsContent
-            value="all"
-            class="m-0"
-          >
-            <MailList
-              v-model:selected-mail="selectedMail"
-              :items="filteredMailList"
-            />
-          </TabsContent>
-          <TabsContent
-            value="unread"
-            class="m-0"
-          >
-            <MailList
-              v-model:selected-mail="selectedMail"
-              :items="unreadMailList"
-            />
-          </TabsContent>
-        </Tabs>
+        <MailListPane />
       </ResizablePanel>
       <ResizableHandle
         id="resiz-handle-2"

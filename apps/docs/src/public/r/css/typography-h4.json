@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "typography-h4",
+  "type": "registry:example",
+  "title": "TypographyH4",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "example/TypographyH4.vue",
+      "content": "<template>\n  <h4 class=\"example-sigma-ui-typography__heading-4\">\n    People stopped telling jokes\n  </h4>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .example-sigma-ui-typography__heading-4 {\n    font-size: 1.25rem;\n    font-weight: 600;\n    letter-spacing: -0.025em;\n    scroll-margin-top: calc(var(--spacing) * 20);\n  }\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

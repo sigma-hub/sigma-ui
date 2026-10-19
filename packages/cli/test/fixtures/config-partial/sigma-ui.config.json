@@ -1,0 +1,9 @@
+{
+  "styleSystem": "tailwind",
+  "cssPath": "./src/assets/css/tailwind.css",
+  "baseColor": "grayscale",
+  "aliases": {
+    "utils": "@/lib/utils",
+    "components": "@/components/ui"
+  }
+}

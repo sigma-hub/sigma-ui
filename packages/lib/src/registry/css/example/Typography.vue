@@ -123,114 +123,118 @@
 </template>
 
 <style>
-.example-sigma-ui-typography__heading-1 {
-  font-size: 2.25rem;
-  font-weight: 800;
-  letter-spacing: -0.025em;
-  line-height: 1.1;
-  scroll-margin-top: 5rem;
-}
+@layer base, components;
 
-@media (width >= 1024px) {
+@layer components {
   .example-sigma-ui-typography__heading-1 {
-    font-size: 3rem;
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    scroll-margin-top: calc(var(--spacing) * 20);
   }
-}
 
-.example-sigma-ui-typography__heading-2 {
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid hsl(var(--border));
-  margin-top: 2.5rem;
-  font-size: 1.875rem;
-  font-weight: 600;
-  letter-spacing: -0.025em;
-  scroll-margin-top: 5rem;
-  transition-duration: 150ms;
-  transition-property: color;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
+  @media (width >= 64rem) {
+    .example-sigma-ui-typography__heading-1 {
+      font-size: 3rem;
+    }
+  }
 
-.example-sigma-ui-typography__heading-2:first-child {
-  margin-top: 0;
-}
+  .example-sigma-ui-typography__heading-2 {
+    padding-bottom: calc(var(--spacing) * 2);
+    border-bottom: 1px solid var(--border);
+    margin-top: calc(var(--spacing) * 10);
+    font-size: 1.875rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    scroll-margin-top: calc(var(--spacing) * 20);
+    transition-duration: 150ms;
+    transition-property: color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
-.example-sigma-ui-typography__heading-3 {
-  margin-top: 2rem;
-  font-size: 1.5rem;
-  font-weight: 600;
-  letter-spacing: -0.025em;
-  scroll-margin-top: 5rem;
-}
+  .example-sigma-ui-typography__heading-2:first-child {
+    margin-top: 0;
+  }
 
-.example-sigma-ui-typography__paragraph {
-  line-height: 1.75;
-}
+  .example-sigma-ui-typography__heading-3 {
+    margin-top: calc(var(--spacing) * 8);
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    scroll-margin-top: calc(var(--spacing) * 20);
+  }
 
-.example-sigma-ui-typography__paragraph:not(:first-child) {
-  margin-top: 1.5rem;
-}
+  .example-sigma-ui-typography__paragraph {
+    line-height: 1.75;
+  }
 
-.example-sigma-ui-typography__link {
-  color: hsl(var(--primary));
-  font-weight: 500;
-  text-decoration-line: underline;
-  text-underline-offset: 4px;
-}
+  .example-sigma-ui-typography__paragraph:not(:first-child) {
+    margin-top: calc(var(--spacing) * 6);
+  }
 
-.example-sigma-ui-typography__blockquote {
-  padding-left: 1.5rem;
-  border-left: 2px solid hsl(var(--border));
-  margin-top: 1.5rem;
-  font-style: italic;
-}
+  .example-sigma-ui-typography__link {
+    color: var(--primary);
+    font-weight: 500;
+    text-decoration-line: underline;
+    text-underline-offset: 4px;
+  }
 
-.example-sigma-ui-typography__list {
-  margin: 1.5rem 0 1.5rem 1.5rem;
-  list-style-type: disc;
-}
+  .example-sigma-ui-typography__blockquote {
+    padding-left: calc(var(--spacing) * 6);
+    border-left: 2px solid var(--border);
+    margin-top: calc(var(--spacing) * 6);
+    font-style: italic;
+  }
 
-.example-sigma-ui-typography__list-item {
-  margin-top: 0.5rem;
-}
+  .example-sigma-ui-typography__list {
+    margin: calc(var(--spacing) * 6) 0 calc(var(--spacing) * 6) calc(var(--spacing) * 6);
+    list-style-type: disc;
+  }
 
-.example-sigma-ui-typography__table-container {
-  width: 100%;
-  margin: 1.5rem 0;
-  overflow-y: auto;
-}
+  .example-sigma-ui-typography__list-item {
+    margin-top: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-typography__table {
-  width: 100%;
-}
+  .example-sigma-ui-typography__table-container {
+    width: 100%;
+    margin: calc(var(--spacing) * 6) 0;
+    overflow-y: auto;
+  }
 
-.example-sigma-ui-typography__table-row {
-  padding: 0;
-  border-top: 1px solid hsl(var(--border));
-  margin: 0;
-}
+  .example-sigma-ui-typography__table {
+    width: 100%;
+  }
 
-.example-sigma-ui-typography__table-header,
-.example-sigma-ui-typography__table-cell {
-  padding: 0.5rem 1rem;
-  border: 1px solid hsl(var(--border));
-  text-align: left;
-}
+  .example-sigma-ui-typography__table-row {
+    padding: 0;
+    border-top: 1px solid var(--border);
+    margin: 0;
+  }
 
-.example-sigma-ui-typography__table-header {
-  font-weight: 700;
-}
+  .example-sigma-ui-typography__table-header,
+  .example-sigma-ui-typography__table-cell {
+    padding: calc(var(--spacing) * 2) calc(var(--spacing) * 4);
+    border: 1px solid var(--border);
+    text-align: left;
+  }
 
-.example-sigma-ui-typography__table-header[align="center"],
-.example-sigma-ui-typography__table-cell[align="center"] {
-  text-align: center;
-}
+  .example-sigma-ui-typography__table-header {
+    font-weight: 700;
+  }
 
-.example-sigma-ui-typography__table-header[align="right"],
-.example-sigma-ui-typography__table-cell[align="right"] {
-  text-align: right;
-}
+  .example-sigma-ui-typography__table-header[align="center"],
+  .example-sigma-ui-typography__table-cell[align="center"] {
+    text-align: center;
+  }
 
-.example-sigma-ui-typography__table tbody tr:nth-child(even) {
-  background-color: hsl(var(--muted));
+  .example-sigma-ui-typography__table-header[align="right"],
+  .example-sigma-ui-typography__table-cell[align="right"] {
+    text-align: right;
+  }
+
+  .example-sigma-ui-typography__table tbody tr:nth-child(even) {
+    background-color: var(--muted);
+  }
 }
 </style>

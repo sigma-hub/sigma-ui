@@ -1,91 +1,156 @@
 <script setup lang="ts">
-import { InfoIcon, MonitorIcon, SmartphoneIcon, TabletIcon } from 'lucide-vue-next';
-import { reactive, ref, watch } from 'vue';
-import { codeToHtml } from 'shiki';
-import { compileScript, parse, walk } from 'vue/compiler-sfc';
-import MagicString from 'magic-string';
+import { InfoIcon, MonitorIcon, SmartphoneIcon, TabletIcon } from '@lucide/vue';
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
+import { DEFAULT_COMPONENTS, DEFAULT_UTILS } from '@sigma-ui/shared/consts';
 import { Badge } from '@ui/registry/tailwind/ui/badge';
 import { Popover, PopoverContent, PopoverTrigger } from '@ui/registry/tailwind/ui/popover';
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@ui/registry/tailwind/ui/resizable';
 import { Separator } from '@ui/registry/tailwind/ui/separator';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@ui/registry/tailwind/ui/tabs';
 import { ToggleGroup, ToggleGroupItem } from '@ui/registry/tailwind/ui/toggle-group';
-import { cssVariables } from '../config/shiki';
+import { buildBlockFrameSrc } from '../../block-renderer/frame';
+import { getBlockFileTree, getBlockMainFile, getBlockMeta, type BlockFileNode } from '../utils/blocks';
 import BlockCopyButton from './BlockCopyButton.vue';
+import PackageManagerCommand from './PackageManagerCommand.vue';
 import Spinner from './Spinner.vue';
 import { useConfigStore } from '@/stores/config';
 
 const props = defineProps<{
   name: string;
-  blockDir: string;
 }>();
+
+interface RegistrySourceFile {
+  path: string;
+  content?: string;
+}
+
+interface RegistryBlockItem {
+  registryDependencies?: string[];
+  dependencies?: string[];
+  files?: Array<RegistrySourceFile | string>;
+}
 
 const { config, codeConfig } = useConfigStore();
 
 const isLoading = ref(true);
 const tabValue = ref('preview');
 const resizableRef = ref<InstanceType<typeof ResizablePanel>>();
-const rawString = ref('');
-const codeHtml = ref('');
-const metadata = reactive({
-  description: null as string | null,
-  iframeHeight: null as string | null,
-  containerClass: null as string | null,
-});
+const selectedPath = ref('');
+const registryItem = ref<RegistryBlockItem>();
+const blockMeta = computed(() => getBlockMeta(props.name));
+const frameSrc = computed(() => buildBlockFrameSrc({
+  name: props.name,
+  styleSystem: config.value.styleSystem,
+  containerClass: blockMeta.value?.meta.containerClass ?? '',
+}));
 
-function removeScript(code: string) {
-  const s = new MagicString(code);
-  const scriptTagRegex = /<script\s+lang="ts"\s*>[\s\S]+?<\/script>/g;
-  let match;
+function sourcePath(file: RegistrySourceFile | string) {
+  return typeof file === 'string' ? file : file.path;
+}
 
-  while ((match = scriptTagRegex.exec(code)) !== null) {
-    const start = match.index;
-    const end = match.index + match[0].length;
-    s.overwrite(start, end, '');
+function sourceContent(file: RegistrySourceFile | string) {
+  return typeof file === 'string' ? '' : (file.content ?? '');
+}
+
+const registryFiles = computed(() => registryItem.value?.files ?? []);
+const blockEntry = computed(() => ({
+  registryDependencies: registryItem.value?.registryDependencies ?? [],
+  dependencies: registryItem.value?.dependencies ?? [],
+  files: registryFiles.value.map(sourcePath),
+}));
+const fileTree = computed(() => getBlockFileTree(props.name, blockEntry.value.files));
+const selectedFile = computed(() => registryFiles.value.find((file) => {
+  const blockPrefix = `blocks/${props.name}/`;
+  const path = sourcePath(file);
+  const relativePath = path.startsWith(blockPrefix) ? path.slice(blockPrefix.length) : path;
+
+  return relativePath === selectedPath.value;
+}));
+
+let activeRegistryRequest = 0;
+let registryAbortController: AbortController | undefined;
+
+async function loadRegistryItem() {
+  if (typeof window === 'undefined') {
+    return;
   }
 
-  return s.trimStart().toString();
-}
+  const requestId = ++activeRegistryRequest;
+  registryAbortController?.abort();
 
-function transformImportPath(code: string) {
-  const s = new MagicString(code);
-  s.replaceAll(`@ui/registry/${config.value.styleSystem}/ui`, codeConfig.value.componentsPath);
-  s.replaceAll(`@ui/utils`, codeConfig.value.utilsPath);
-  return s.toString();
-}
+  const abortController = new AbortController();
+  registryAbortController = abortController;
+  const styleSystem = config.value.styleSystem;
+  const blockName = props.name;
+  registryItem.value = undefined;
 
-watch([() => config.value.styleSystem, codeConfig], async () => {
   try {
-    const baseRawString = await import(`@ui/registry/${config.value.styleSystem}/block/${props.blockDir}/${props.name}.vue?raw`)
-      .then(res => res.default.trim());
-    rawString.value = transformImportPath(removeScript(baseRawString));
+    const response = await fetch(`/r/${styleSystem}/${blockName}.json`, { signal: abortController.signal });
+    const item = response.ok ? await response.json() as RegistryBlockItem : undefined;
 
-    if (!metadata.description) {
-      const { descriptor } = parse(baseRawString);
-      const ast = compileScript(descriptor, { id: '' });
-      walk(ast.scriptAst, {
-        enter(node: any) {
-          const declaration = node.declaration;
-
-          if (declaration?.type === 'VariableDeclaration') {
-            // Extract variable names and their values
-            declaration.declarations.forEach((decl: any) => {
-              // @ts-expect-error ignore missing type
-              metadata[decl.id.name] = decl.init ? decl.init.value : null;
-            });
-          }
-        },
-      });
+    if (requestId !== activeRegistryRequest || abortController.signal.aborted) {
+      return;
     }
 
-    codeHtml.value = await codeToHtml(rawString.value, {
-      lang: 'vue',
-      theme: cssVariables,
-    });
-  } catch (err) {
-    console.error(err);
+    registryItem.value = item;
+  } catch {
+    if (requestId !== activeRegistryRequest || abortController.signal.aborted) {
+      return;
+    }
+
+    registryItem.value = undefined;
   }
-}, { immediate: true, deep: true });
+}
+
+onMounted(() => {
+  loadRegistryItem();
+});
+
+onUnmounted(() => {
+  activeRegistryRequest += 1;
+  registryAbortController?.abort();
+});
+
+watch(() => [config.value.styleSystem, props.name], () => {
+  loadRegistryItem();
+});
+const requirements = computed(() => ({
+  components: (blockEntry.value?.registryDependencies ?? []).filter(dependency => dependency !== 'utils'),
+  packages: (blockEntry.value?.dependencies ?? []).map(stripVersion),
+}));
+
+function stripVersion(dependency: string) {
+  const versionAt = dependency.startsWith('@') ? dependency.indexOf('@', 1) : dependency.indexOf('@');
+  return versionAt === -1 ? dependency : dependency.slice(0, versionAt);
+}
+
+function selectFile(node: BlockFileNode) {
+  if (node.path) {
+    selectedPath.value = node.path;
+  }
+}
+
+function rewriteSourcePaths(source: string) {
+  return source
+    .replaceAll(DEFAULT_COMPONENTS, codeConfig.value.componentsPath)
+    .replaceAll(DEFAULT_UTILS, codeConfig.value.utilsPath);
+}
+
+const rawString = computed(() => rewriteSourcePaths(selectedFile.value ? sourceContent(selectedFile.value) : ''));
+
+watch(frameSrc, () => {
+  isLoading.value = true;
+});
+
+watch(fileTree, (nodes) => {
+  const selectablePaths = nodes.flatMap(node => node.path ? [node.path] : []);
+  const mainFile = selectablePaths.find(filePath => filePath.endsWith(getBlockMainFile(props.name)));
+
+  if (!selectedPath.value || !selectablePaths.includes(selectedPath.value)) {
+    selectedPath.value = mainFile ?? selectablePaths[0] ?? '';
+  }
+}, { immediate: true });
+
 </script>
 
 <template>
@@ -94,7 +159,7 @@ watch([() => config.value.styleSystem, codeConfig], async () => {
     v-model="tabValue"
     class="relative grid w-full scroll-m-20 gap-4"
     :style=" {
-      '--container-height': metadata.iframeHeight ?? '600px',
+      '--container-height': blockMeta?.meta.iframeHeight ?? '600px',
     }"
   >
     <div class="flex gap-4">
@@ -134,7 +199,7 @@ watch([() => config.value.styleSystem, codeConfig], async () => {
                   :side-offset="10"
                   class="text-sm"
                 >
-                  {{ metadata.description }}
+                  {{ blockMeta?.description }}
                 </PopoverContent>
               </Popover>
             </div>
@@ -172,6 +237,30 @@ watch([() => config.value.styleSystem, codeConfig], async () => {
         </div>
       </div>
     </div>
+    <p
+      v-if="requirements.components.length || requirements.packages.length"
+      class="text-sm text-muted-foreground"
+    >
+      Requires:
+      <template
+        v-for="(component, index) in requirements.components"
+        :key="component"
+      >
+        <a
+          :href="`/components/${component}`"
+          class="font-mono text-foreground underline underline-offset-4"
+        >{{ component }}</a><span v-if="index < requirements.components.length - 1">, </span>
+      </template>
+      <template v-if="requirements.packages.length">
+        <span v-if="requirements.components.length"> · </span>
+        <span
+          v-for="(packageName, index) in requirements.packages"
+          :key="packageName"
+          class="font-mono"
+        >{{ packageName }}<span v-if="index < requirements.packages.length - 1">, </span></span>
+      </template>
+    </p>
+    <PackageManagerCommand :run="`sigma-ui@latest add ${name}`" />
     <TabsContent
       v-show="tabValue === 'preview'"
       force-mount
@@ -198,7 +287,7 @@ watch([() => config.value.styleSystem, codeConfig], async () => {
           </div>
           <iframe
             v-show="!isLoading"
-            :src="`/blocks/renderer#name=${name}&styleSystem=${config.styleSystem}&blockDir=${props.blockDir}&blockType=${name.split(/(?=[A-Z])/)[0].toLowerCase()}&containerClass=${encodeURIComponent(metadata.containerClass ?? '')}`"
+            :src="frameSrc"
             class="relative z-20 w-full bg-background h-(--container-height)"
             @load="isLoading = false"
           />
@@ -218,10 +307,23 @@ watch([() => config.value.styleSystem, codeConfig], async () => {
       value="code"
       class="h-(--container-height)"
     >
-      <div
-        class="language-vue !h-full !max-h-[none] !mt-0"
-        v-html="codeHtml"
-      />
+      <div class="flex h-full overflow-hidden rounded-lg border">
+        <div class="w-56 shrink-0 overflow-auto border-r bg-muted/30 py-2">
+          <button
+            v-for="node in fileTree"
+            :key="`${node.depth}-${node.path ?? node.name}`"
+            type="button"
+            class="block w-full truncate py-1 pr-2 text-left font-mono text-xs"
+            :class="node.path === selectedPath ? 'bg-muted text-foreground' : 'text-muted-foreground hover:text-foreground'"
+            :style="{ paddingLeft: `${node.depth * 12 + 8}px` }"
+            :disabled="!node.path"
+            @click="selectFile(node)"
+          >
+            {{ node.name }}
+          </button>
+        </div>
+        <pre class="language-vue min-w-0 flex-1 overflow-auto !mt-0 p-4 text-xs"><code>{{ rawString }}</code></pre>
+      </div>
     </TabsContent>
   </Tabs>
 </template>

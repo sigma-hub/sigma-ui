@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { MinusIcon, PlusIcon } from 'lucide-vue-next';
+import { MinusIcon, PlusIcon } from '@lucide/vue';
 import { VisStackedBar, VisXYContainer } from '@unovis/vue';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import {
@@ -82,7 +82,7 @@ const data = [
           <VisStackedBar
             :x="(d: Data, i :number) => i"
             :y="(d: Data) => d.goal"
-            color="hsl(var(--primary))"
+            color="var(--primary)"
             :bar-padding="0.1"
             :rounded-corners="0"
           />

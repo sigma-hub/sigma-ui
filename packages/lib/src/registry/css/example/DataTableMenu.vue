@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MoreHorizontalIcon } from 'lucide-vue-next';
+import { MoreHorizontalIcon } from '@lucide/vue';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@ui/registry/css/ui/dropdown-menu';
 import { Button } from '@ui/registry/css/ui/button';
 
@@ -48,26 +48,30 @@ function copy(id: string) {
 </template>
 
 <style>
-.example-sigma-ui-data-table-menu__button {
-  width: 2rem;
-  height: 2rem;
-  padding: 0;
-}
+@layer base, components;
 
-.example-sigma-ui-data-table-menu__button-label {
-  position: absolute;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  border: 0;
-  margin: -1px;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-}
+@layer components {
+  .example-sigma-ui-data-table-menu__button {
+    width: calc(var(--spacing) * 8);
+    height: calc(var(--spacing) * 8);
+    padding: 0;
+  }
 
-.example-sigma-ui-data-table-menu__button-icon {
-  width: 1rem;
-  height: 1rem;
+  .example-sigma-ui-data-table-menu__button-label {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
+  .example-sigma-ui-data-table-menu__button-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 }
 </style>

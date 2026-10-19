@@ -1,7 +1,7 @@
 ---
 title: Image
 description: An image element with a fallback.
-source: packages/lib/src/registry/tailwind/ui/image
+source: image
 ---
 
 ## Preview
@@ -10,75 +10,50 @@ source: packages/lib/src/registry/tailwind/ui/image
 
 ## Installation
 
-```bash
-npx sigma-ui add image
+<ComponentInstall name="image" />
+
+## Usage
+
+```vue
+<script setup lang="ts">
+import { Image } from '@/components/ui/image';
+</script>
+
+<template>
+  <Image
+    src="/photo.jpg"
+    alt="A mountain lake"
+  />
+</template>
 ```
+
+- `alt` is the accessible name. It defaults to `image`, so set a real description for meaningful photos.
+- `glow` adds a soft glow behind the image.
+- `shape` is `rounded` or `circle`.
+- The `fallback` slot replaces the default placeholder when the image fails to load.
 
 ## Examples
 
 ### Basic
 
-<Description>
-  Image component with just <code>src</code> prop.
-</Description>
-
 <ComponentPreview name="ImageBasic" />
 
 ### Glow
-
-<Description>
-  Prop <code>glow: boolean</code> - adds glowing effect to the image.
-</Description>
 
 <ComponentPreview name="ImageGlow" />
 
 ### Custom fallback
 
-<Description>
-  Slot <code>#fallback</code> - let's you provide custom fallback content.
-</Description>
-
 <ComponentPreview name="ImageCustomFallback" />
 
-## API
+## API Reference
 
-### Props
+<!-- @include: @/content/meta/image.md -->
 
-#### `src`
+## Accessibility
 
-- Type: `string`
+The image is announced with its `alt` text. Leave `alt` empty only when the image is decorative, and give meaningful images a description. The fallback is shown when the file fails to load.
 
-#### `alt`
-
-- Type: `string`
-- Default: `'image'`
-
-The alt text for the image.
-
-#### `glow`
-
-- Type: `boolean`
-- Default: `false`
-
-Adds a glowing effect to the image.
-
-#### `class`
-
-- Type: `string`
-
-Additional CSS classes to apply to the image container.
-
-#### `shape`
-
-- Type: `'rounded' | 'circle'`
-- Default: `'rounded'`
-
-Determines the shape of the image.
-
----
-
-### Slots
-
-#### `fallback`
-
-Allows you to provide a custom fallback content. By default, it renders image icon with "no photo" text under it.
+| Key | Description |
+| --- | --- |
+| <kbd>Tab</kbd> | Moves focus past the image. The image itself is not interactive. |

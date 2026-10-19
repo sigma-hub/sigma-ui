@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "alert-demo",
+  "type": "registry:example",
+  "title": "Alert",
+  "dependencies": [
+    "@lucide/vue@^1.59.0"
+  ],
+  "registryDependencies": [
+    "alert"
+  ],
+  "files": [
+    {
+      "path": "example/Alert.vue",
+      "content": "<script setup lang=\"ts\">\nimport { TerminalIcon } from '@lucide/vue';\nimport { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';\n</script>\n\n<template>\n  <Alert>\n    <TerminalIcon class=\"h-4 w-4\" />\n    <AlertTitle>Heads up!</AlertTitle>\n    <AlertDescription>\n      You can add components to your app using the cli.\n    </AlertDescription>\n  </Alert>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-with-button",
+  "type": "registry:example",
+  "title": "InputWithButton",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "input"
+  ],
+  "files": [
+    {
+      "path": "example/InputWithButton.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Input } from '@/components/ui/input';\nimport { Button } from '@/components/ui/button';\n</script>\n\n<template>\n  <div class=\"example-sigma-ui-input-with-button\">\n    <Input\n      id=\"email\"\n      autocomplete=\"email\"\n      type=\"email\"\n      placeholder=\"Email\"\n    />\n    <Button type=\"submit\">\n      Subscribe\n    </Button>\n  </div>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .example-sigma-ui-input-with-button {\n    display: flex;\n    width: 100%;\n    gap: calc(var(--spacing) * 2);\n  }\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

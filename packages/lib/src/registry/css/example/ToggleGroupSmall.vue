@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BoldIcon, ItalicIcon, UnderlineIcon } from 'lucide-vue-next';
+import { BoldIcon, ItalicIcon, UnderlineIcon } from '@lucide/vue';
 import { ToggleGroup, ToggleGroupItem } from '@ui/registry/css/ui/toggle-group';
 </script>
 
@@ -30,8 +30,12 @@ import { ToggleGroup, ToggleGroupItem } from '@ui/registry/css/ui/toggle-group';
 </template>
 
 <style>
-.example-sigma-ui-toggle-group__icon {
-  width: 1rem;
-  height: 1rem;
+@layer base, components;
+
+@layer components {
+  .example-sigma-ui-toggle-group__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 }
 </style>

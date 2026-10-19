@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-glow",
+  "type": "registry:example",
+  "title": "ImageGlow",
+  "dependencies": [],
+  "registryDependencies": [
+    "image"
+  ],
+  "files": [
+    {
+      "path": "example/ImageGlow.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Image } from '@/components/ui/image';\n</script>\n\n<template>\n  <div class=\"example-image-container\">\n    <Image\n      src=\"/avatars/avatar-example.png\"\n      alt=\"Image\"\n      glow\n    />\n  </div>\n</template>\n\n<style scoped>\n@layer base, components;\n\n@layer components {\n  .example-image-container {\n    display: flex;\n    width: 250px;\n    height: 300px;\n    align-items: center;\n    justify-content: center;\n    gap: calc(var(--spacing) * 4);\n  }\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

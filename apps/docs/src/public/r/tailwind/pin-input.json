@@ -1,0 +1,39 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pin-input",
+  "type": "registry:ui",
+  "title": "PIN Input",
+  "description": "Allows users to input a sequence of one-character alphanumeric inputs.",
+  "dependencies": [
+    "@lucide/vue@^1.59.0",
+    "reka-ui@^2.11.0"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/pin-input/PinInput.vue",
+      "content": "<script setup lang=\"ts\" generic=\"Type extends 'text' | 'number' = 'text'\">\nimport { useAttrs } from 'vue';\n\nimport { PinInputRoot, type PinInputRootEmits, type PinInputRootProps, useForwardPropsEmits } from 'reka-ui';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = withDefaults(defineProps<PinInputRootProps<Type>>(), {\n  modelValue: () => [],\n});\nconst emits = defineEmits<PinInputRootEmits<Type>>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <PinInputRoot\n    data-slot=\"pin-input\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :class=\"cn('flex gap-2 items-center', $attrs.class ?? '')\"\n  >\n    <slot />\n  </PinInputRoot>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/pin-input/PinInputGroup.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { Primitive, type PrimitiveProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<PrimitiveProps>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"pin-input-group\"\n    v-bind=\"{ ...forwardedProps, ...delegatedAttrs() }\"\n    :class=\"cn('flex items-center', $attrs.class ?? '')\"\n  >\n    <slot />\n  </Primitive>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/pin-input/PinInputInput.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { PinInputInput, type PinInputInputProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<PinInputInputProps>();\n\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <PinInputInput\n    data-slot=\"pin-input-input\"\n    v-bind=\"{ ...forwardedProps, ...delegatedAttrs() }\"\n    :class=\"cn('relative text-center focus:outline-2 focus:outline-ring focus:-outline-offset-1 focus:relative focus:z-10 flex h-10 w-10 items-center justify-center border-y border-r border-input text-sm transition-all first:rounded-l-md first:border-l last:rounded-r-md', $attrs.class ?? '')\"\n  />\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/pin-input/PinInputSeparator.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Primitive, type PrimitiveProps, useForwardProps } from 'reka-ui';\nimport { DotIcon } from '@lucide/vue';\n\nconst props = defineProps<PrimitiveProps>();\nconst forwardedProps = useForwardProps(props);\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"pin-input-separator\"\n    v-bind=\"forwardedProps\"\n  >\n    <slot>\n      <DotIcon class=\"w-4 h-4 text-muted-foreground\" />\n    </slot>\n  </Primitive>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/pin-input/index.ts",
+      "content": "export { default as PinInput } from './PinInput.vue';\nexport { default as PinInputGroup } from './PinInputGroup.vue';\nexport { default as PinInputSeparator } from './PinInputSeparator.vue';\nexport { default as PinInputInput } from './PinInputInput.vue';\n",
+      "type": "registry:ui"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle-demo",
+  "type": "registry:example",
+  "title": "Toggle",
+  "dependencies": [
+    "@lucide/vue@^1.59.0"
+  ],
+  "registryDependencies": [
+    "toggle"
+  ],
+  "files": [
+    {
+      "path": "example/Toggle.vue",
+      "content": "<script setup lang=\"ts\">\nimport { BoldIcon } from '@lucide/vue';\nimport { Toggle } from '@/components/ui/toggle';\n</script>\n\n<template>\n  <Toggle aria-label=\"Toggle bold\">\n    <BoldIcon class=\"h-4 w-4\" />\n  </Toggle>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

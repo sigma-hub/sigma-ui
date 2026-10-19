@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue';
+import { computed, ref } from 'vue';
 import { useClipboard } from '@vueuse/core';
 import { template } from 'lodash-es';
-import { codeToHtml } from 'shiki';
 import { Button } from '@ui/registry/tailwind/ui/button';
-import { CheckIcon, CopyIcon } from 'lucide-vue-next';
-import { TAILWIND_STYLES_WITH_VARS_TEMPLATE } from '~/packages/shared/templates/tailwind-styles';
-import { CSS_STYLES_WITH_VARS_TEMPLATE } from '~/packages/shared/templates/css-styles';
+import { CheckIcon, CopyIcon } from '@lucide/vue';
+import { TAILWIND_STYLES_WITH_VARS_TEMPLATE } from '@sigma-ui/shared/templates/tailwind-styles';
+import { CSS_STYLES_WITH_VARS_TEMPLATE } from '@sigma-ui/shared/templates/css-styles';
 import { useConfigStore } from '@/stores/config';
-import { themes } from '@/lib/registry';
+import { themes } from '@sigma-ui/shared/themes';
 
 const { config } = useConfigStore();
 
@@ -17,45 +16,30 @@ const activeTheme = computed(() => themes.find(i => i.name === config.value.them
 const { copy, copied } = useClipboard();
 
 const codeRef = ref<HTMLElement>();
-const code = ref<string>();
+const code = computed(() => {
+  const selectedTemplate = config.value.styleSystem === 'tailwind' ? TAILWIND_STYLES_WITH_VARS_TEMPLATE : CSS_STYLES_WITH_VARS_TEMPLATE;
 
-watch(activeTheme, () => {
-  getCodeTemplate().then((res) => {
-    code.value = res;
+  return template(selectedTemplate)({
+    colors: activeTheme.value?.cssVars,
+    sizes: {
+      radius: config.value.radius,
+      backdropFilterBlur: config.value.backdropFilterBlur,
+    },
   });
-}, { immediate: true });
+});
 
 async function copyCode() {
   await copy(codeRef.value?.textContent?.replace(/\u00A0/g, ' ') ?? '');
-}
-
-async function getCodeTemplate() {
-  const selectedTemplate = config.value.styleSystem === 'tailwind' ? TAILWIND_STYLES_WITH_VARS_TEMPLATE : CSS_STYLES_WITH_VARS_TEMPLATE;
-
-  return await codeToHtml(
-    template(selectedTemplate)({
-      colors: activeTheme.value?.cssVars,
-      sizes: {
-        radius: config.value.radius,
-        backdropFilterBlur: config.value.backdropFilterBlur,
-      },
-    }),
-    {
-      lang: 'css',
-      theme: 'one-dark-pro',
-    },
-  );
 }
 </script>
 
 <template>
   <div class="relative grid overflow-x-auto">
     <div class="grid overflow-x-auto">
-      <div
+      <pre
         ref="codeRef"
-        class="h-[450px] rounded-lg border bg-gray-950 !py-0 dark:bg-gray-900"
-        v-html="code"
-      />
+        class="h-[450px] overflow-auto rounded-lg border bg-gray-950 p-4 text-xs text-gray-100 dark:bg-gray-900"
+      ><code>{{ code }}</code></pre>
     </div>
     <Button
       size="sm"

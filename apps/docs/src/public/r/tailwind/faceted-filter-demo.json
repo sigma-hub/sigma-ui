@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "faceted-filter-demo",
+  "type": "registry:example",
+  "title": "FacetedFilter",
+  "dependencies": [],
+  "registryDependencies": [
+    "faceted-filter"
+  ],
+  "files": [
+    {
+      "path": "example/FacetedFilter.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue';\nimport { FacetedFilter } from '@/components/ui/faceted-filter';\n\nconst selectedStatuses = ref<string[]>([]);\n\nconst statusOptions = [\n  'Backlog',\n  'Todo',\n  'In Progress',\n  'Done',\n  'Cancelled',\n];\n</script>\n\n<template>\n  <FacetedFilter\n    v-model=\"selectedStatuses\"\n    title=\"Status\"\n    :options=\"statusOptions\"\n  />\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

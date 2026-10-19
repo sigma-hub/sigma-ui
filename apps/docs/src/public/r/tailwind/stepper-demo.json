@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stepper-demo",
+  "type": "registry:example",
+  "title": "Stepper",
+  "dependencies": [],
+  "registryDependencies": [
+    "stepper"
+  ],
+  "files": [
+    {
+      "path": "example/Stepper.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Stepper, StepperDescription, StepperIndicator, StepperItem, StepperSeparator, StepperTitle, StepperTrigger } from '@/components/ui/stepper';\n\nconst steps = [\n  { step: 1, title: 'Account', description: 'Your details' },\n  { step: 2, title: 'Workspace', description: 'Name and plan' },\n  { step: 3, title: 'Invite', description: 'Add teammates' },\n];\n</script>\n\n<template>\n  <Stepper class=\"w-full max-w-xl\">\n    <StepperItem\n      v-for=\"step in steps\"\n      :key=\"step.step\"\n      :step=\"step.step\"\n      class=\"relative flex-1\"\n    >\n      <StepperTrigger>\n        <StepperIndicator>{{ step.step }}</StepperIndicator>\n        <StepperTitle>{{ step.title }}</StepperTitle>\n        <StepperDescription>{{ step.description }}</StepperDescription>\n      </StepperTrigger>\n      <StepperSeparator\n        v-if=\"step.step < steps.length\"\n        class=\"absolute top-5 right-0 left-[calc(50%+1.25rem)]\"\n      />\n    </StepperItem>\n  </Stepper>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

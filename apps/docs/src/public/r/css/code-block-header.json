@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-block-header",
+  "type": "registry:example",
+  "title": "CodeBlockHeader",
+  "dependencies": [
+    "@lucide/vue@^1.59.0"
+  ],
+  "registryDependencies": [
+    "code-block"
+  ],
+  "files": [
+    {
+      "path": "example/CodeBlockHeader.vue",
+      "content": "<script setup lang=\"ts\">\nimport { TerminalIcon } from '@lucide/vue';\nimport {\n  CodeBlock,\n  CodeBlockActions,\n  CodeBlockContent,\n  CodeBlockCopyButton,\n  CodeBlockHeader,\n  CodeBlockTitle,\n  useHighlightedCode,\n} from '@/components/ui/code-block';\n\nconst code = 'npx sigma-ui@latest add code-block';\nconst { lines } = useHighlightedCode(code, 'bash');\n</script>\n\n<template>\n  <CodeBlock>\n    <CodeBlockHeader>\n      <CodeBlockTitle>\n        <TerminalIcon />\n        Terminal\n      </CodeBlockTitle>\n      <CodeBlockActions>\n        <CodeBlockCopyButton />\n      </CodeBlockActions>\n    </CodeBlockHeader>\n    <CodeBlockContent\n      :code=\"code\"\n      :lines=\"lines\"\n      language=\"bash\"\n    />\n  </CodeBlock>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

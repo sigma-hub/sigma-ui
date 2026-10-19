@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useData } from 'vitepress';
-import { CheckIcon, MoonIcon, PanelBottomOpenIcon, SunIcon } from 'lucide-vue-next';
+import { CheckIcon, MoonIcon, PanelBottomOpenIcon, SunIcon } from '@lucide/vue';
 import { useToggle } from '@vueuse/core';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import { Collapsible, CollapsibleContent } from '@ui/registry/tailwind/ui/collapsible';
@@ -8,7 +8,7 @@ import { Separator } from '@ui/registry/tailwind/ui/separator';
 import { Label } from '@ui/registry/tailwind/ui/label';
 import { Switch } from '@ui/registry/tailwind/ui/switch';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@ui/registry/tailwind/ui/dialog';
-import { baseColors, themes } from '../../../src/lib/registry/themes';
+import { baseColors, themes } from '@sigma-ui/shared/themes';
 import ThemeCustomizerCode from '../components/ThemeCustomizerCode.vue';
 import { BACKDROP_FILTER_BLURS, RADII, useConfigStore } from '@/stores/config';
 import { computed } from 'vue';

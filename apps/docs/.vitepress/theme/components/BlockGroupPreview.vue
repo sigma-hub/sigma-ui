@@ -1,39 +1,23 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { computed } from 'vue';
+import { getBlocksByCategory } from '../utils/blocks';
 import BlockPreview from './BlockPreview.vue';
 
-interface RegistryComponent {
-  name: string;
-  type: string;
-  registryDependencies: string[];
-  component: () => Promise<any>;
-  files: string[];
-}
-
 const props = defineProps<{
-  dir: string;
+  category: string;
 }>();
 
-const groupComponents = ref<RegistryComponent[]>([]);
-
-onMounted(async () => {
-  const module = await import('../../../__generated/index');
-  groupComponents.value = Object.values(module.Index.css)
-    .filter(component => component.type === 'components:block' && component.name.toLowerCase().includes(props.dir));
-});
+const blockNames = computed(() => getBlocksByCategory(props.category).map(block => block.name));
 </script>
 
 <template>
   <div class="mt-10">
     <div
-      v-for="component in groupComponents"
-      :key="component.name"
+      v-for="name in blockNames"
+      :key="name"
       class="mb-[180px]"
     >
-      <BlockPreview
-        :name="component.name"
-        :block-dir="component.files?.[0]?.split('/')?.at(-2) || ''"
-      />
+      <BlockPreview :name="name" />
     </div>
   </div>
 </template>

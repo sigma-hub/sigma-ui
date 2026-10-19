@@ -1,5 +1,5 @@
 import { h } from 'vue';
-import { ArrowDownIcon, ArrowRightIcon, ArrowUpIcon, CircleCheckIcon, CircleHelpIcon, CircleIcon, CircleXIcon, TimerIcon } from 'lucide-vue-next';
+import { ArrowDownIcon, ArrowRightIcon, ArrowUpIcon, CircleCheckIcon, CircleHelpIcon, CircleIcon, CircleXIcon, TimerIcon } from '@lucide/vue';
 
 export const labels = [
   {

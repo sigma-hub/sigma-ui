@@ -6,11 +6,15 @@
 </template>
 
 <style>
-.example-sigma-ui-typography__paragraph {
-  line-height: 1.75;
-}
+@layer base, components;
 
-.example-sigma-ui-typography__paragraph:not(:first-child) {
-  margin-top: 1.5rem;
+@layer components {
+  .example-sigma-ui-typography__paragraph {
+    line-height: 1.75;
+  }
+
+  .example-sigma-ui-typography__paragraph:not(:first-child) {
+    margin-top: calc(var(--spacing) * 6);
+  }
 }
 </style>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MailIcon } from 'lucide-vue-next';
+import { MailIcon } from '@lucide/vue';
 import { Button } from '@ui/registry/css/ui/button';
 </script>
 
@@ -10,9 +10,13 @@ import { Button } from '@ui/registry/css/ui/button';
 </template>
 
 <style>
-.example-sigma-ui-button-with-icon {
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.5rem;
+@layer base, components;
+
+@layer components {
+  .example-sigma-ui-button-with-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-right: calc(var(--spacing) * 2);
+  }
 }
 </style>

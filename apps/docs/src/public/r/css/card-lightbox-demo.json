@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-lightbox-demo",
+  "type": "registry:example",
+  "title": "CardLightbox",
+  "dependencies": [],
+  "registryDependencies": [
+    "card-lightbox"
+  ],
+  "files": [
+    {
+      "path": "example/CardLightbox.vue",
+      "content": "<script setup lang=\"ts\">\nimport { CardLightbox } from '@/components/ui/card-lightbox';\nimport type { Item } from '@/components/ui/card-lightbox';\n\nconst items: Item[] = [\n  {\n    id: '0',\n    category: 'Game',\n    title: 'Explore the Sky Castle of Aeridor',\n    content: `\n      <p>\n        Embark on an epic journey to Aeridor, the majestic castle floating amongst the clouds. Unravel ancient mysteries and face daunting challenges in this breathtaking sky realm.\n      </p>\n      <p>\n        Master arcane arts, battle mythical creatures, and forge alliances to claim your destiny in the kingdom above the world. Are you ready to ascend?\n      </p>\n    `,\n    theme: 'light',\n    image: 'https://cdn.leonardo.ai/users/18ba1701-0a8b-497c-8b48-cc2d4ea2f4e2/generations/e645fe1e-e812-4153-9d97-6bf2a6d9d1e0/4830f995-7c0c-4a8c-893f-9a7df3d5e6fe.jpg?w=512',\n  },\n  {\n    id: '1',\n    category: 'Game',\n    title: 'Summon the Void Walker',\n    content: `\n      <p>\n        Delve into forbidden knowledge and summon entities from beyond the veil. Master dark rituals to command otherworldly power.\n      </p>\n      <p>\n        Harness the shadows, confront ancient horrors, and rewrite reality itself. But beware, for power demands a price.\n      </p>\n      <p>\n        Will you control the void, or will it consume you?\n      </p>\n    `,\n    theme: 'dark',\n    image: 'https://cdn.leonardo.ai/users/18ba1701-0a8b-497c-8b48-cc2d4ea2f4e2/generations/1cc4807e-6672-4eff-8c9c-a890c8d3aa7c/e268d66a-ddce-4c0b-9f53-fab156c0f0df.jpg?w=512',\n  },\n  {\n    id: '2',\n    category: 'Game',\n    title: 'Ascend the Cyber Spire',\n    content: `\n      <p>\n        Navigate the towering structures of Neo-Veridia, a city reaching for the stars. Outsmart corporate security and rival climbers.\n      </p>\n      <p>\n        Utilize high-tech gear, traverse perilous heights, and uncover the secrets hidden within the city's metallic heart.\n      </p>\n    `,\n    theme: 'light',\n    image: 'https://cdn.leonardo.ai/users/18ba1701-0a8b-497c-8b48-cc2d4ea2f4e2/generations/8eaf76f8-1554-4c70-830b-9fa5b3f12622/a6359710-f784-4661-9b39-c666fb20644b.jpg?w=512',\n  },\n  {\n    id: '3',\n    category: 'App',\n    title: 'The Chronomancer\\'s Apprentice',\n    content: `\n      <p>\n        Join Elara, a young apprentice wielding a time-altering hat, on a quest through fractured timelines. Solve paradoxes and restore temporal order.\n      </p>\n      <p>\n        Manipulate time, overcome clockwork automatons, and confront the forces threatening to unravel history itself.\n      </p>\n      <p>\n        The past, present, and future are in your hands... and on your head.\n      </p>\n    `,\n    theme: 'dark',\n    image: 'https://cdn.leonardo.ai/users/18ba1701-0a8b-497c-8b48-cc2d4ea2f4e2/generations/9d82f1b5-b490-4a0b-aaed-25a0ab6f4177/4dfddcc1-d9b3-4d12-b45f-60e8aea794e2.jpg?w=512',\n  },\n];\n</script>\n\n<template>\n  <CardLightbox :items=\"items\" />\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "native-select-demo",
+  "type": "registry:example",
+  "title": "NativeSelect",
+  "dependencies": [],
+  "registryDependencies": [
+    "native-select"
+  ],
+  "files": [
+    {
+      "path": "example/NativeSelect.vue",
+      "content": "<script setup lang=\"ts\">\nimport { NativeSelect, NativeSelectOption } from '@/components/ui/native-select';\n</script>\n\n<template>\n  <NativeSelect aria-label=\"Fruit\">\n    <NativeSelectOption value=\"\">\n      Select a fruit\n    </NativeSelectOption>\n    <NativeSelectOption value=\"apple\">\n      Apple\n    </NativeSelectOption>\n    <NativeSelectOption value=\"banana\">\n      Banana\n    </NativeSelectOption>\n    <NativeSelectOption value=\"orange\">\n      Orange\n    </NativeSelectOption>\n  </NativeSelect>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,15 +1,19 @@
 {
-  "name": "sigma-ui",
+  "name": "sigma-ui-monorepo",
   "type": "module",
   "version": "0.0.1",
   "private": true,
   "packageManager": "pnpm@10.2.1",
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "license": "MIT",
   "repository": "sigma-hub/sigma-ui",
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
+    "prepare": "husky",
     "dev": "pnpm --filter docs dev",
     "build": "pnpm --filter docs build",
     "preview": "pnpm --filter docs preview",
@@ -18,33 +22,45 @@
     "dev:cli": "pnpm --filter sigma-ui dev",
     "dev:nuxt": "pnpm --filter sigma-ui-nuxt dev",
     "build:cli": "pnpm --filter sigma-ui build",
+    "build:nuxt": "pnpm --filter sigma-ui-nuxt build",
     "build:registry": "pnpm --filter=docs build:registry",
-    "bumpp": "bumpp package.json packages/*/package.json apps/*/package.json",
-    "prerelease": "pnpm ts:cli && pnpm build:registry && pnpm build:cli",
-    "pub:beta": "pnpm --filter sigma-ui pub:beta",
-    "pub:release": "pnpm --filter sigma-ui pub:release",
-    "test": "pnpm --filter sigma-ui test",
+    "docs:gen": "pnpm --filter docs docs:gen",
+    "docs:check": "pnpm --filter docs docs:check",
+    "docs:lint": "pnpm --filter docs docs:lint",
+    "new:component": "pnpm --filter docs new:component",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "changeset publish",
+    "test": "pnpm -r --if-present test",
     "ts:docs": "pnpm --filter docs ts",
     "ts:cli": "pnpm --filter sigma-ui ts",
     "ts:nuxt": "pnpm --filter sigma-ui-nuxt ts",
-    "ts": "pnpm run ts:docs && pnpm run ts:cli && pnpm run ts:nuxt"
+    "ts:lib": "pnpm --filter lib ts",
+    "ts:shared": "pnpm --filter @sigma-ui/shared ts",
+    "ts": "pnpm run ts:cli && pnpm run ts:shared && pnpm run ts:nuxt && pnpm run ts:lib && pnpm run ts:docs"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.7.1",
-    "@commitlint/config-conventional": "^19.7.1",
+    "@changesets/changelog-github": "^1.0.1",
+    "@changesets/cli": "^3.0.3",
+    "@commitlint/cli": "^21.2.3",
     "@eslint/js": "^9.20.0",
     "@stylistic/eslint-plugin": "^3.1.0",
-    "@vitest/ui": "^3.0.5",
+    "@vitest/ui": "catalog:",
     "eslint": "^9.20.0",
     "eslint-plugin-vue": "^9.32.0",
     "globals": "^15.14.0",
-    "typescript": "^5.7.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
+    "typescript": "catalog:",
     "typescript-eslint": "^8.23.0",
-    "vitest": "^3.0.5"
+    "vitest": "catalog:"
   },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
+  "lint-staged": {
+    "*.{js,mjs,cjs,ts,vue}": "eslint --fix --no-warn-ignored"
+  },
+  "pnpm": {
+    "overrides": {
+      "stylelint>css-tree": "3.2.1"
+    }
   }
 }

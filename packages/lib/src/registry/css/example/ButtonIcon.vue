@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ChevronRightIcon } from 'lucide-vue-next';
+import { ChevronRightIcon } from '@lucide/vue';
 import { Button } from '@ui/registry/css/ui/button';
 </script>
 
@@ -13,8 +13,12 @@ import { Button } from '@ui/registry/css/ui/button';
 </template>
 
 <style>
-.example-sigma-ui-button-icon {
-  width: 1rem;
-  height: 1rem;
+@layer base, components;
+
+@layer components {
+  .example-sigma-ui-button-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 }
 </style>

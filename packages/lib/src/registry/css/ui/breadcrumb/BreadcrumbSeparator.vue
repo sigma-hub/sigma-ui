@@ -1,10 +1,23 @@
 <script lang="ts" setup>
-import { ChevronRightIcon } from 'lucide-vue-next';
+import { useAttrs } from 'vue';
+
+import { ChevronRightIcon } from '@lucide/vue';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 </script>
 
 <template>
   <li
+    data-slot="breadcrumb-separator"
+    v-bind="delegatedAttrs()"
     role="presentation"
     aria-hidden="true"
     class="sigma-ui-breadcrumb__separator"
@@ -17,8 +30,12 @@ import { ChevronRightIcon } from 'lucide-vue-next';
 </template>
 
 <style>
-.sigma-ui-breadcrumb__separator > svg {
-  width: 0.875rem;
-  height: 0.875rem;
+@layer base, components;
+
+@layer components {
+  .sigma-ui-breadcrumb__separator > svg {
+    width: calc(var(--spacing) * 3.5);
+    height: calc(var(--spacing) * 3.5);
+  }
 }
 </style>

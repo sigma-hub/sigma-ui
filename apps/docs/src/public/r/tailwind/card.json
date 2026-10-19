@@ -1,0 +1,46 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card",
+  "type": "registry:ui",
+  "title": "Card",
+  "description": "Displays a card with header, content, and footer.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/card/Card.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <div\n    data-slot=\"card\"\n    v-bind=\"delegatedAttrs()\"\n    :class=\"\n      cn(\n        'rounded-lg border bg-card text-card-foreground shadow-sm',\n        $attrs.class ?? '',\n      )\n    \"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/card/CardContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <div\n    data-slot=\"card-content\"\n    v-bind=\"delegatedAttrs()\"\n    :class=\"cn('p-6 pt-0', $attrs.class ?? '')\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/card/CardDescription.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <p\n    data-slot=\"card-description\"\n    v-bind=\"delegatedAttrs()\"\n    :class=\"cn('text-sm text-muted-foreground', $attrs.class ?? '')\"\n  >\n    <slot />\n  </p>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/card/CardFooter.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <div\n    data-slot=\"card-footer\"\n    v-bind=\"delegatedAttrs()\"\n    :class=\"cn('flex items-center p-6 pt-0', $attrs.class ?? '')\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/card/CardHeader.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <div\n    data-slot=\"card-header\"\n    v-bind=\"delegatedAttrs()\"\n    :class=\"cn('flex flex-col gap-y-1.5 p-6', $attrs.class ?? '')\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/card/CardTitle.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <h3\n    data-slot=\"card-title\"\n    v-bind=\"delegatedAttrs()\"\n    :class=\"\n      cn('text-2xl font-semibold leading-none tracking-tight', $attrs.class ?? '')\n    \"\n  >\n    <slot />\n  </h3>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/card/index.ts",
+      "content": "export { default as Card } from './Card.vue';\nexport { default as CardHeader } from './CardHeader.vue';\nexport { default as CardTitle } from './CardTitle.vue';\nexport { default as CardDescription } from './CardDescription.vue';\nexport { default as CardContent } from './CardContent.vue';\nexport { default as CardFooter } from './CardFooter.vue';\n",
+      "type": "registry:ui"
+    }
+  ]
+}

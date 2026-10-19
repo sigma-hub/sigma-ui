@@ -1,26 +1,29 @@
 <script setup lang="ts">
-import { ref, toRefs, watch } from 'vue';
 import { Icon } from '@iconify/vue';
 import { Button } from '@ui/registry/tailwind/ui/button';
-import { makeStackblitzParams } from '../utils/codeeditor';
+import { createPlaygroundFiles, openInStackblitz } from '../utils/codeeditor';
 import Tooltip from './Tooltip.vue';
-import type { StyleSystem } from '@/lib/registry/style-system';
+import type { StyleSystem } from '@sigma-ui/shared/style-systems';
 
 const props = defineProps<{
   name: string;
   code: string;
   styleSystem: StyleSystem;
+  registryName?: string;
 }>();
 
-const { code } = toRefs(props);
-const sources = ref<Record<string, string>>({});
+let openRequestId = 0;
 
-watch(code, () => {
-  sources.value['App.vue'] = code.value;
-}, { immediate: true });
+async function handleClick() {
+  const requestId = ++openRequestId;
+  const { name, styleSystem, code, registryName } = props;
+  const files = await createPlaygroundFiles(name, styleSystem, code, registryName ? [registryName] : []);
 
-function handleClick() {
-  makeStackblitzParams(props.name, props.styleSystem, sources.value);
+  if (requestId !== openRequestId) {
+    return;
+  }
+
+  openInStackblitz(name, files);
 }
 </script>
 

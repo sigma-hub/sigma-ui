@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slider-form",
+  "type": "registry:example",
+  "title": "SliderForm",
+  "dependencies": [
+    "vee-validate@^4.15.1",
+    "zod@^4.6.7"
+  ],
+  "registryDependencies": [
+    "button",
+    "form",
+    "slider",
+    "toaster"
+  ],
+  "files": [
+    {
+      "path": "example/SliderForm.vue",
+      "content": "<script setup lang=\"ts\">\nimport { h, ref } from 'vue';\nimport { useForm } from 'vee-validate';\nimport * as z from 'zod';\nimport { toast } from '@/components/ui/toaster';\nimport { Button } from '@/components/ui/button';\nimport { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@/components/ui/form';\nimport { Slider } from '@/components/ui/slider';\n\nconst formSchema = toTypedSchema(z.object({\n  duration: z.array(\n    z.number().min(0).max(60),\n  ),\n}));\n\nconst { handleSubmit } = useForm({\n  validationSchema: formSchema,\n  initialValues: {\n    duration: [30],\n  },\n});\n\nconst model = ref([30]);\n\nconst onSubmit = handleSubmit((values) => {\n  toast('You submitted the following values:', {\n    description: h('pre', { class: 'mt-2 rounded-md bg-muted/50 p-4' }, h('code', {}, JSON.stringify(values, null, 2))),\n  });\n});\n</script>\n\n<template>\n  <form\n    class=\"w-2/3 space-y-6\"\n    @submit=\"onSubmit\"\n  >\n    <FormField\n      v-slot=\"{ componentField, value }\"\n      name=\"duration\"\n    >\n      <FormItem class=\"space-y-2\">\n        <FormLabel>Duration</FormLabel>\n        <FormControl>\n          <Slider\n            v-bind=\"componentField\"\n            v-model=\"model\"\n            :max=\"100\"\n            :min=\"0\"\n            :step=\"5\"\n          />\n          <FormDescription class=\"flex justify-between\">\n            <span>How many minutes are you available?</span>\n            <span>{{ value?.[0] }} min</span>\n          </FormDescription>\n        </FormControl>\n        <FormMessage />\n      </FormItem>\n    </FormField>\n\n    <Button type=\"submit\">\n      Submit\n    </Button>\n  </form>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

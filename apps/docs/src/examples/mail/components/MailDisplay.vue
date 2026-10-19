@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ArchiveIcon, ArchiveXIcon, ClockIcon, ForwardIcon, MoreVerticalIcon, ReplyAllIcon, ReplyIcon, Trash2Icon } from 'lucide-vue-next';
+import { ArchiveIcon, ArchiveXIcon, ClockIcon, ForwardIcon, MoreVerticalIcon, ReplyAllIcon, ReplyIcon, Trash2Icon } from '@lucide/vue';
 import { addDays, addHours, format, nextSaturday } from 'date-fns';
 import type { Mail } from '../data/mails';
 import { Calendar } from '@ui/registry/tailwind/ui/calendar';
@@ -25,7 +25,7 @@ const today = new Date();
 <template>
   <div class="flex h-full flex-col">
     <div class="flex items-center p-2">
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-0.5 sm:gap-2">
         <Tooltip>
           <TooltipTrigger as-child>
             <Button
@@ -67,7 +67,7 @@ const today = new Date();
         </Tooltip>
         <Separator
           orientation="vertical"
-          class="mx-1 h-6"
+          class="mx-1 hidden h-6 sm:block"
         />
         <Tooltip>
           <Popover>
@@ -135,7 +135,7 @@ const today = new Date();
           <TooltipContent>Snooze</TooltipContent>
         </Tooltip>
       </div>
-      <div class="ml-auto flex items-center gap-2">
+      <div class="ml-auto flex items-center gap-0.5 sm:gap-2">
         <Tooltip>
           <TooltipTrigger as-child>
             <Button
@@ -178,7 +178,7 @@ const today = new Date();
       </div>
       <Separator
         orientation="vertical"
-        class="mx-2 h-6"
+        class="mx-2 hidden h-6 sm:block"
       />
       <DropdownMenu>
         <DropdownMenuTrigger as-child>

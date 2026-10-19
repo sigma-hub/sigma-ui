@@ -17,10 +17,10 @@ export const totalRevenueChartOptions = {
   },
   markers: {
     size: 3,
-    colors: ['hsl(var(--background))'],
-    strokeColors: 'hsl(var(--primary))',
+    colors: ['var(--background)'],
+    strokeColors: 'var(--primary)',
   },
-  colors: ['hsl(var(--primary))'],
+  colors: ['var(--primary)'],
   dataLabels: {
     enabled: false,
   },
@@ -77,10 +77,10 @@ export const subscriptionsChartOptions = {
   },
   markers: {
     size: 4,
-    colors: ['hsl(var(--background))'],
-    strokeColors: 'hsl(var(--primary)',
+    colors: ['var(--background)'],
+    strokeColors: 'var(--primary)',
   },
-  colors: ['hsl(var(--primary)'],
+  colors: ['var(--primary)'],
   dataLabels: {
     enabled: false,
   },
@@ -135,10 +135,10 @@ export const goalsMinutesChartOptions = {
   },
   markers: {
     size: 3,
-    colors: 'hsl(var(--background))',
-    strokeColors: 'hsl(var(--primary))',
+    colors: 'var(--background)',
+    strokeColors: 'var(--primary)',
   },
-  colors: ['hsl(var(--primary))', 'hsl(var(--muted-foreground))'],
+  colors: ['var(--primary)', 'var(--muted-foreground)'],
   dataLabels: {
     enabled: false,
   },

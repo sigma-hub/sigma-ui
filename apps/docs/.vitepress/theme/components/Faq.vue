@@ -4,15 +4,13 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@u
 const items = [
   {
     value: '1',
-    title: 'Why is it using GOAT installation method instead of NPM modules?',
+    title: 'Why does the CLI copy components into the project instead of installing NPM modules?',
     content: `
-      Because GOAT is superior to NPM when it comes to distributing components. 
+      The CLI copies component source into your project. Each item is a shadcn registry item, served from /r/{style}/{name}.json.
       <br><br>
-      When you install components as NPM dependencies to your project, their style is coupled with their implementation, making it difficult to customize the components to your style system.
+      An NPM package keeps the component in node_modules. Matching your design system then means props, slots, and CSS overrides.
       <br><br>
-      This library gives you the building blocks to create your own components that match your design system.
-      <br><br>
-      I wanted to create this installation method for a long time. So long that some people got ahead of me and created first implementations of it before me. Now, finally the time has come for the GOAT to shine.
+      The copied files are yours to edit.
     `,
   },
   {

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-confirm",
+  "type": "registry:example",
+  "title": "ButtonConfirm",
+  "dependencies": [
+    "@lucide/vue@^1.59.0"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "example/ButtonConfirm.vue",
+      "content": "<script setup lang=\"ts\">\nimport { RotateCcwIcon } from '@lucide/vue';\nimport { ConfirmButton } from '@/components/ui/button';\n</script>\n\n<template>\n  <ConfirmButton>\n    <RotateCcwIcon :size=\"14\" />\n    Reset\n  </ConfirmButton>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

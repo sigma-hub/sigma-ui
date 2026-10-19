@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "typography-small",
+  "type": "registry:example",
+  "title": "TypographySmall",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "example/TypographySmall.vue",
+      "content": "<template>\n  <small class=\"example-sigma-ui-typography__small\">\n    Email address\n  </small>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .example-sigma-ui-typography__small {\n    font-size: 0.875rem;\n    font-weight: 500;\n    line-height: 1;\n  }\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton",
+  "type": "registry:ui",
+  "title": "Skeleton",
+  "description": "Use to show a placeholder while content is loading.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/skeleton/Skeleton.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <div\n    data-slot=\"skeleton\"\n    v-bind=\"delegatedAttrs()\"\n    :class=\"cn('animate-pulse rounded-md bg-muted', $attrs.class ?? '')\"\n  />\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/skeleton/index.ts",
+      "content": "export { default as Skeleton } from './Skeleton.vue';\n",
+      "type": "registry:ui"
+    }
+  ]
+}

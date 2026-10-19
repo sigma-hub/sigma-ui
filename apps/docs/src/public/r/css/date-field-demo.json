@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "date-field-demo",
+  "type": "registry:example",
+  "title": "DateField",
+  "dependencies": [
+    "@internationalized/date@^3.12.4"
+  ],
+  "registryDependencies": [
+    "date-field"
+  ],
+  "files": [
+    {
+      "path": "example/DateField.vue",
+      "content": "<script setup lang=\"ts\">\nimport { type DateValue } from '@internationalized/date';\nimport { ref } from 'vue';\nimport { DateField } from '@/components/ui/date-field';\n\nconst value = ref<DateValue>();\n</script>\n\n<template>\n  <DateField v-model=\"value\" />\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pin-input-separator",
+  "type": "registry:example",
+  "title": "PinInputSeparator",
+  "dependencies": [],
+  "registryDependencies": [
+    "pin-input"
+  ],
+  "files": [
+    {
+      "path": "example/PinInputSeparator.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue';\nimport {\n  PinInput,\n  PinInputGroup,\n  PinInputInput,\n  PinInputSeparator,\n} from '@/components/ui/pin-input';\n\nconst value = ref<string[]>([]);\nconst handleComplete = (e: string[]) => alert(e.join(''));\n</script>\n\n<template>\n  <div>\n    <PinInput\n      id=\"pin-input\"\n      v-model=\"value\"\n      placeholder=\"○\"\n      @complete=\"handleComplete\"\n    >\n      <PinInputGroup class=\"gap-1\">\n        <template\n          v-for=\"(id, index) in 5\"\n          :key=\"id\"\n        >\n          <PinInputInput\n            class=\"rounded-md border\"\n            :index=\"index\"\n          />\n          <template v-if=\"index !== 4\">\n            <PinInputSeparator />\n          </template>\n        </template>\n      </PinInputGroup>\n    </PinInput>\n  </div>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

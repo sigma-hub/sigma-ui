@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "login-simple",
+  "type": "registry:block",
+  "title": "Simple login",
+  "description": "A simple login form with email and password. The submit button says 'Sign in'.",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "card",
+    "input",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "blocks/login-simple/LoginSimple.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/components/ui/button';\nimport { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';\nimport { Input } from '@/components/ui/input';\nimport { Label } from '@/components/ui/label';\n</script>\n\n<template>\n  <Card class=\"login-simple__card\">\n    <CardHeader>\n      <CardTitle class=\"login-simple__title\">\n        Login\n      </CardTitle>\n      <CardDescription>\n        Enter your email below to login to your account.\n      </CardDescription>\n    </CardHeader>\n    <CardContent class=\"login-simple__content\">\n      <div class=\"login-simple__field\">\n        <Label for=\"email\">Email</Label>\n        <Input\n          id=\"email\"\n          autocomplete=\"username\"\n          type=\"email\"\n          placeholder=\"m@example.com\"\n          required\n        />\n      </div>\n      <div class=\"login-simple__field\">\n        <Label for=\"password\">Password</Label>\n        <Input\n          id=\"password\"\n          autocomplete=\"current-password\"\n          type=\"password\"\n          required\n        />\n      </div>\n    </CardContent>\n    <CardFooter>\n      <Button class=\"login-simple__submit\">\n        Sign in\n      </Button>\n    </CardFooter>\n  </Card>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .login-simple__card {\n    width: 100%;\n    max-width: 24rem;\n  }\n\n  .login-simple__title {\n    font-size: 1.5rem;\n    line-height: 2rem;\n  }\n\n  .login-simple__content {\n    display: grid;\n    gap: calc(var(--spacing) * 4);\n  }\n\n  .login-simple__field {\n    display: grid;\n    gap: calc(var(--spacing) * 2);\n  }\n\n  .login-simple__submit {\n    width: 100%;\n  }\n}\n</style>\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "iframeHeight": "600px",
+    "containerClass": "w-full h-screen flex items-center justify-center px-4"
+  },
+  "categories": [
+    "authentication",
+    "login"
+  ]
+}

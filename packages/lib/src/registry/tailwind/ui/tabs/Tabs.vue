@@ -9,7 +9,10 @@ const forwarded = useForwardPropsEmits(props, emits);
 </script>
 
 <template>
-  <TabsRoot v-bind="forwarded">
+  <TabsRoot
+    data-slot="tabs"
+    v-bind="forwarded"
+  >
     <slot />
   </TabsRoot>
 </template>

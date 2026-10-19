@@ -44,6 +44,7 @@ import {
             <Label for="name">Name</Label>
             <Input
               id="name"
+              autocomplete="name"
               model-value="Pedro Duarte"
             />
           </div>
@@ -51,6 +52,7 @@ import {
             <Label for="username">Username</Label>
             <Input
               id="username"
+              autocomplete="username"
               model-value="@peduarte"
             />
           </div>
@@ -73,6 +75,7 @@ import {
             <Label for="current">Current password</Label>
             <Input
               id="current"
+              autocomplete="current-password"
               type="password"
             />
           </div>
@@ -80,6 +83,7 @@ import {
             <Label for="new">New password</Label>
             <Input
               id="new"
+              autocomplete="new-password"
               type="password"
             />
           </div>
@@ -93,25 +97,29 @@ import {
 </template>
 
 <style>
-.example-sigma-ui-tabs {
-  width: 400px;
-}
+@layer base, components;
 
-.example-sigma-ui-tabs__list {
-  display: grid;
-  width: 100%;
-  grid-template-columns: repeat(2, 1fr);
-}
+@layer components {
+  .example-sigma-ui-tabs {
+    width: 400px;
+  }
 
-.example-sigma-ui-tabs__content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
+  .example-sigma-ui-tabs__list {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-.example-sigma-ui-tabs__field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  .example-sigma-ui-tabs__content {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 3);
+  }
+
+  .example-sigma-ui-tabs__field {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2);
+  }
 }
 </style>

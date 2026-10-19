@@ -17,14 +17,18 @@ import { Label } from '@ui/registry/css/ui/label';
 </template>
 
 <style>
-.example-sigma-ui-textarea-with-text {
-  display: grid;
-  width: 100%;
-  gap: 0.5rem;
-}
+@layer base, components;
 
-.example-sigma-ui-textarea-with-text__help-text {
-  color: hsl(var(--muted-foreground));
-  font-size: 0.875rem;
+@layer components {
+  .example-sigma-ui-textarea-with-text {
+    display: grid;
+    width: 100%;
+    gap: calc(var(--spacing) * 2);
+  }
+
+  .example-sigma-ui-textarea-with-text__help-text {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+  }
 }
 </style>

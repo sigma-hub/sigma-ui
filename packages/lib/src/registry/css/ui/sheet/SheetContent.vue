@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, useAttrs } from 'vue';
 import {
   DialogClose,
   DialogContent,
@@ -9,16 +9,23 @@ import {
   DialogPortal,
   useForwardPropsEmits,
 } from 'reka-ui';
-import { XIcon } from 'lucide-vue-next';
+import { XIcon } from '@lucide/vue';
 import { type SheetVariants, sheetVariants } from '.';
 
 interface SheetContentProps extends DialogContentProps {
+  /** Edge of the screen the sheet slides in from. */
   side?: SheetVariants['side'];
 }
 
 defineOptions({
   inheritAttrs: false,
 });
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<SheetContentProps>();
 const emits = defineEmits<DialogContentEmits>();
@@ -31,8 +38,9 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
   <DialogPortal>
     <DialogOverlay class="sigma-ui-sheet-overlay" />
     <DialogContent
+      data-slot="sheet-content"
       :class="[sheetVariants({ side }), $attrs.class]"
-      v-bind="{ ...forwarded, ...$attrs }"
+      v-bind="{ ...forwarded, ...delegatedAttrs() }"
     >
       <slot />
 
@@ -44,221 +52,225 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 </template>
 
 <style>
-.sigma-ui-sheet-overlay {
-  position: fixed;
-  z-index: 50;
-  background-color: rgb(0 0 0 / 80%);
-  inset: 0;
-}
+@layer base, components;
 
-.sigma-ui-sheet-overlay[data-state="open"] {
-  animation: sigma-ui-fade-in 150ms ease-out;
-}
+@layer components {
+  .sigma-ui-sheet-overlay {
+    position: fixed;
+    z-index: 50;
+    background-color: rgb(0 0 0 / 80%);
+    inset: 0;
+  }
 
-.sigma-ui-sheet-overlay[data-state="closed"] {
-  animation: sigma-ui-fade-out 150ms ease-in forwards;
-}
+  .sigma-ui-sheet-overlay[data-state="open"] {
+    animation: sigma-ui-fade-in 150ms ease-out;
+  }
 
-.sigma-ui-sheet-content__base {
-  position: fixed;
-  z-index: 50;
-  padding: 1.5rem;
-  background-color: hsl(var(--background));
-  box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
-  transition: all 0.3s ease-in-out;
-}
+  .sigma-ui-sheet-overlay[data-state="closed"] {
+    animation: sigma-ui-fade-out 150ms ease-in forwards;
+  }
 
-.sigma-ui-sheet-content__base[data-state="open"] {
-  animation-duration: 500ms;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
+  .sigma-ui-sheet-content__base {
+    position: fixed;
+    z-index: 50;
+    padding: calc(var(--spacing) * 6);
+    background-color: var(--background);
+    box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+    transition: all 0.3s ease-in-out;
+  }
 
-.sigma-ui-sheet-content__base[data-state="closed"] {
-  animation-duration: 300ms;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
+  .sigma-ui-sheet-content__base[data-state="open"] {
+    animation-duration: 500ms;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
-.sigma-ui-sheet-content--top {
-  top: 0;
-  border-bottom: 1px solid hsl(var(--border));
-  inset-inline: 0;
-}
+  .sigma-ui-sheet-content__base[data-state="closed"] {
+    animation-duration: 300ms;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
-.sigma-ui-sheet-content--top[data-state="closed"] {
-  animation-name: sigma-ui-slide-out-to-top;
-}
+  .sigma-ui-sheet-content--top {
+    top: 0;
+    border-bottom: 1px solid var(--border);
+    inset-inline: 0;
+  }
 
-.sigma-ui-sheet-content--top[data-state="open"] {
-  animation-name: sigma-ui-slide-in-from-top;
-}
+  .sigma-ui-sheet-content--top[data-state="closed"] {
+    animation-name: sigma-ui-slide-out-to-top;
+  }
 
-.sigma-ui-sheet-content--bottom {
-  bottom: 0;
-  border-top: 1px solid hsl(var(--border));
-  inset-inline: 0;
-}
+  .sigma-ui-sheet-content--top[data-state="open"] {
+    animation-name: sigma-ui-slide-in-from-top;
+  }
 
-.sigma-ui-sheet-content--bottom[data-state="closed"] {
-  animation-name: sigma-ui-slide-out-to-bottom;
-}
+  .sigma-ui-sheet-content--bottom {
+    bottom: 0;
+    border-top: 1px solid var(--border);
+    inset-inline: 0;
+  }
 
-.sigma-ui-sheet-content--bottom[data-state="open"] {
-  animation-name: sigma-ui-slide-in-from-bottom;
-}
+  .sigma-ui-sheet-content--bottom[data-state="closed"] {
+    animation-name: sigma-ui-slide-out-to-bottom;
+  }
 
-.sigma-ui-sheet-content--left {
-  left: 0;
-  width: 75%;
-  height: 100%;
-  border-right: 1px solid hsl(var(--border));
-  inset-block: 0;
-}
+  .sigma-ui-sheet-content--bottom[data-state="open"] {
+    animation-name: sigma-ui-slide-in-from-bottom;
+  }
 
-.sigma-ui-sheet-content--left[data-state="closed"] {
-  animation-name: sigma-ui-slide-out-to-left;
-}
-
-.sigma-ui-sheet-content--left[data-state="open"] {
-  animation-name: sigma-ui-slide-in-from-left;
-}
-
-@media (width >= 640px) {
   .sigma-ui-sheet-content--left {
-    max-width: 24rem;
+    left: 0;
+    width: 75%;
+    height: 100%;
+    border-right: 1px solid var(--border);
+    inset-block: 0;
   }
-}
 
-.sigma-ui-sheet-content--right {
-  right: 0;
-  width: 75%;
-  height: 100%;
-  border-left: 1px solid hsl(var(--border));
-  inset-block: 0;
-}
+  .sigma-ui-sheet-content--left[data-state="closed"] {
+    animation-name: sigma-ui-slide-out-to-left;
+  }
 
-.sigma-ui-sheet-content--right[data-state="closed"] {
-  animation-name: sigma-ui-slide-out-to-right;
-}
+  .sigma-ui-sheet-content--left[data-state="open"] {
+    animation-name: sigma-ui-slide-in-from-left;
+  }
 
-.sigma-ui-sheet-content--right[data-state="open"] {
-  animation-name: sigma-ui-slide-in-from-right;
-}
+  @media (width >= 40rem) {
+    .sigma-ui-sheet-content--left {
+      max-width: 24rem;
+    }
+  }
 
-@media (width >= 640px) {
   .sigma-ui-sheet-content--right {
-    max-width: 24rem;
-  }
-}
-
-.sigma-ui-sheet-close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  border-radius: var(--radius-sm);
-  opacity: 0.7;
-  transition: opacity 0.2s;
-}
-
-.sigma-ui-sheet-close:hover {
-  opacity: 1;
-}
-
-.sigma-ui-sheet-close:focus {
-  outline: 2px solid hsl(var(--ring));
-  outline-offset: 2px;
-}
-
-.sigma-ui-sheet-close:disabled {
-  pointer-events: none;
-}
-
-.sigma-ui-sheet-close[data-state="open"] {
-  background-color: hsl(var(--secondary));
-}
-
-.sigma-ui-sheet-close__icon {
-  width: 1rem;
-  height: 1rem;
-  color: hsl(var(--muted-foreground));
-}
-
-@keyframes sigma-ui-slide-in-from-top {
-  from {
-    transform: translateY(-100%);
+    right: 0;
+    width: 75%;
+    height: 100%;
+    border-left: 1px solid var(--border);
+    inset-block: 0;
   }
 
-  to {
-    transform: translateY(0);
-  }
-}
-
-@keyframes sigma-ui-slide-out-to-top {
-  from {
-    transform: translateY(0);
+  .sigma-ui-sheet-content--right[data-state="closed"] {
+    animation-name: sigma-ui-slide-out-to-right;
   }
 
-  to {
-    transform: translateY(-100%);
-  }
-}
-
-@keyframes sigma-ui-slide-in-from-bottom {
-  from {
-    transform: translateY(100%);
+  .sigma-ui-sheet-content--right[data-state="open"] {
+    animation-name: sigma-ui-slide-in-from-right;
   }
 
-  to {
-    transform: translateY(0);
-  }
-}
-
-@keyframes sigma-ui-slide-out-to-bottom {
-  from {
-    transform: translateY(0);
+  @media (width >= 40rem) {
+    .sigma-ui-sheet-content--right {
+      max-width: 24rem;
+    }
   }
 
-  to {
-    transform: translateY(100%);
-  }
-}
-
-@keyframes sigma-ui-slide-in-from-left {
-  from {
-    transform: translateX(-100%);
-  }
-
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes sigma-ui-slide-out-to-left {
-  from {
-    transform: translateX(0);
+  .sigma-ui-sheet-close {
+    position: absolute;
+    top: calc(var(--spacing) * 4);
+    right: calc(var(--spacing) * 4);
+    border-radius: var(--radius-sm);
+    opacity: 0.7;
+    transition: opacity 0.2s;
   }
 
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes sigma-ui-slide-in-from-right {
-  from {
-    transform: translateX(100%);
+  .sigma-ui-sheet-close:hover {
+    opacity: 1;
   }
 
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes sigma-ui-slide-out-to-right {
-  from {
-    transform: translateX(0);
+  .sigma-ui-sheet-close:focus {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
   }
 
-  to {
-    transform: translateX(100%);
+  .sigma-ui-sheet-close:disabled {
+    pointer-events: none;
+  }
+
+  .sigma-ui-sheet-close[data-state="open"] {
+    background-color: var(--secondary);
+  }
+
+  .sigma-ui-sheet-close__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    color: var(--muted-foreground);
+  }
+
+  @keyframes sigma-ui-slide-in-from-top {
+    from {
+      transform: translateY(-100%);
+    }
+
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes sigma-ui-slide-out-to-top {
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(-100%);
+    }
+  }
+
+  @keyframes sigma-ui-slide-in-from-bottom {
+    from {
+      transform: translateY(100%);
+    }
+
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes sigma-ui-slide-out-to-bottom {
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(100%);
+    }
+  }
+
+  @keyframes sigma-ui-slide-in-from-left {
+    from {
+      transform: translateX(-100%);
+    }
+
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes sigma-ui-slide-out-to-left {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes sigma-ui-slide-in-from-right {
+    from {
+      transform: translateX(100%);
+    }
+
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes sigma-ui-slide-out-to-right {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(100%);
+    }
   }
 }
 </style>

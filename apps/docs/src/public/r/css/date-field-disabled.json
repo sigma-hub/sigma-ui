@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "date-field-disabled",
+  "type": "registry:example",
+  "title": "DateFieldDisabled",
+  "dependencies": [
+    "@internationalized/date@^3.12.4"
+  ],
+  "registryDependencies": [
+    "date-field"
+  ],
+  "files": [
+    {
+      "path": "example/DateFieldDisabled.vue",
+      "content": "<script setup lang=\"ts\">\nimport { CalendarDate, type DateValue } from '@internationalized/date';\nimport { type Ref, ref } from 'vue';\nimport { DateField } from '@/components/ui/date-field';\n\nconst value = ref(new CalendarDate(2026, 10, 18)) as Ref<DateValue>;\n</script>\n\n<template>\n  <DateField\n    v-model=\"value\"\n    disabled\n  />\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

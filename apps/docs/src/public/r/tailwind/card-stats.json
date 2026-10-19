@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-stats",
+  "type": "registry:example",
+  "title": "CardStats",
+  "dependencies": [
+    "@unovis/ts@^1.7.1",
+    "@unovis/vue@^1.7.1"
+  ],
+  "registryDependencies": [
+    "card"
+  ],
+  "files": [
+    {
+      "path": "example/CardStats.vue",
+      "content": "<script setup lang=\"ts\">\nimport { VisLine, VisScatter, VisStackedBar, VisXYContainer } from '@unovis/vue';\nimport { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';\n\ntype Data = typeof data[number];\nconst data = [\n  { revenue: 10400, subscription: 240 },\n  { revenue: 14405, subscription: 300 },\n  { revenue: 9400, subscription: 200 },\n  { revenue: 8200, subscription: 278 },\n  { revenue: 7000, subscription: 189 },\n  { revenue: 9600, subscription: 239 },\n  { revenue: 11244, subscription: 278 },\n  { revenue: 26475, subscription: 189 },\n];\n\nconst lineX = (d: Data, i: number) => i;\nconst lineY = (d: Data) => d.revenue;\n</script>\n\n<template>\n  <div class=\"grid gap-4 sm:grid-cols-2 xl:grid-cols-2\">\n    <Card>\n      <CardHeader class=\"flex flex-row items-center justify-between space-y-0 pb-2\">\n        <CardTitle class=\"text-sm font-normal\">\n          Total Revenue\n        </CardTitle>\n      </CardHeader>\n      <CardContent>\n        <div class=\"text-2xl font-bold\">\n          $15,231.89\n        </div>\n        <p class=\"text-xs text-muted-foreground\">\n          +20.1% from last month\n        </p>\n\n        <div class=\"h-20\">\n          <VisXYContainer\n            height=\"80px\"\n            :data=\"data\"\n            :margin=\"{\n              top: 5,\n              right: 10,\n              left: 10,\n              bottom: 0,\n            }\"\n          >\n            <VisLine\n              :x=\"lineX\"\n              :y=\"lineY\"\n              color=\"var(--primary)\"\n            />\n            <VisScatter\n              :x=\"lineX\"\n              :y=\"lineY\"\n              :size=\"6\"\n              stroke-color=\"var(--primary)\"\n              :stroke-width=\"2\"\n              color=\"white\"\n            />\n          </VisXYContainer>\n        </div>\n      </CardContent>\n    </Card>\n\n    <Card>\n      <CardHeader class=\"pb-2\">\n        <CardTitle class=\"text-lg\">\n          Subscriptions\n        </CardTitle>\n      </CardHeader>\n      <CardContent>\n        <div class=\"text-2xl font-bold\">\n          +2,350\n        </div>\n        <p class=\"text-xs text-muted-foreground\">\n          +54.8% from last month\n        </p>\n\n        <div class=\"mt-4 h-20\">\n          <VisXYContainer\n            height=\"80px\"\n            :data=\"data\"\n          >\n            <VisStackedBar\n              :x=\"lineX\"\n              :y=\"(d: Data) => d.subscription\"\n              :bar-padding=\"0.1\"\n              :rounded-corners=\"0\"\n              color=\"var(--primary)\"\n            />\n          </VisXYContainer>\n        </div>\n      </CardContent>\n    </Card>\n  </div>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

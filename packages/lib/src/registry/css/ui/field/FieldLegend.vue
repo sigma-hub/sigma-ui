@@ -1,0 +1,59 @@
+<script setup lang="ts">
+import { useAttrs } from 'vue';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
+
+interface FieldLegendProps {
+  /**
+   * `legend` renders a section heading, `label` matches the size of a field label.
+   */
+  variant?: 'legend' | 'label';
+}
+
+const props = withDefaults(defineProps<FieldLegendProps>(), {
+  variant: 'legend',
+});
+
+defineSlots<{
+  /**
+   * Legend text of the `FieldSet`.
+   */
+  default?: () => unknown;
+}>();
+</script>
+
+<template>
+  <legend
+    data-slot="field-legend"
+    :data-variant="props.variant"
+    class="sigma-ui-field-legend"
+    v-bind="delegatedAttrs()"
+    :class="[$attrs.class]"
+  >
+    <slot />
+  </legend>
+</template>
+
+<style>
+@layer base, components;
+
+@layer components {
+  .sigma-ui-field-legend {
+    padding: 0;
+    margin-bottom: calc(var(--spacing) * 3);
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .sigma-ui-field-legend[data-variant="label"] {
+    font-size: 0.875rem;
+  }
+}
+</style>

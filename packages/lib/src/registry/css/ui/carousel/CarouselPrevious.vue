@@ -1,13 +1,32 @@
 <script setup lang="ts">
-import { ArrowLeftIcon } from 'lucide-vue-next';
+import { useAttrs } from 'vue';
+
+import { ArrowLeftIcon } from '@lucide/vue';
 import { useCarousel } from './useCarousel';
 import { Button } from '@ui/registry/css/ui/button';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
+
+const props = withDefaults(defineProps<{
+  label?: string;
+}>(), {
+  label: 'Previous Slide',
+});
 
 const { orientation, canScrollPrev, scrollPrev } = useCarousel();
 </script>
 
 <template>
   <Button
+    data-slot="carousel-previous"
+    v-bind="delegatedAttrs()"
     :disabled="!canScrollPrev"
     class="sigma-ui-carousel-previous"
     :class="[
@@ -19,35 +38,51 @@ const { orientation, canScrollPrev, scrollPrev } = useCarousel();
   >
     <slot>
       <ArrowLeftIcon class="sigma-ui-carousel-previous__icon" />
-      <span class="sr-only">Previous Slide</span>
+      <span class="sigma-ui-sr-only">{{ props.label }}</span>
     </slot>
   </Button>
 </template>
 
 <style>
-.sigma-ui-carousel-previous {
-  position: absolute;
-  width: 2rem;
-  height: 2rem;
-  padding: 0;
-  border-radius: var(--radius);
-  touch-action: manipulation;
-}
+@layer base, components;
 
-.sigma-ui-carousel-previous--horizontal {
-  top: 50%;
-  left: -3rem;
-  transform: translateY(-50%);
-}
+@layer components {
+  .sigma-ui-carousel-previous {
+    position: absolute;
+    width: calc(var(--spacing) * 8);
+    height: calc(var(--spacing) * 8);
+    padding: 0;
+    border-radius: var(--radius);
+    touch-action: manipulation;
+  }
 
-.sigma-ui-carousel-previous--vertical {
-  top: -3rem;
-  left: 50%;
-  transform: translateX(-50%) rotate(90deg);
-}
+  .sigma-ui-carousel-previous--horizontal {
+    top: 50%;
+    left: calc(var(--spacing) * -12);
+    transform: translateY(-50%);
+  }
 
-.sigma-ui-carousel-previous__icon {
-  width: 1rem;
-  height: 1rem;
+  .sigma-ui-carousel-previous--vertical {
+    top: calc(var(--spacing) * -12);
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+  }
+
+  .sigma-ui-carousel-previous__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
+
+  .sigma-ui-sr-only {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border-width: 0;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
 }
 </style>

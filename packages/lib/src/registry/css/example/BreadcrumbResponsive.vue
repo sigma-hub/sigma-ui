@@ -28,7 +28,7 @@ import {
   DropdownMenuTrigger,
 } from '@ui/registry/css/ui/dropdown-menu';
 
-const isDesktop = useMediaQuery('(min-width: 768px)');
+const isDesktop = useMediaQuery('(width >= 48rem)');
 const isOpen = ref(false);
 const items = ref([
   { href: '#', label: 'Home' },
@@ -140,43 +140,47 @@ const remainingItems = computed(() => items.value.slice(-itemsToDisplay + 1));
 </template>
 
 <style>
-.example-sigma-ui-breadcrumb__trigger {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-}
+@layer base, components;
 
-.example-sigma-ui-breadcrumb__drawer-header {
-  text-align: left;
-}
+@layer components {
+  .example-sigma-ui-breadcrumb__trigger {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 1);
+  }
 
-.example-sigma-ui-breadcrumb__drawer-content {
-  display: grid;
-  padding: 0 1rem;
-  gap: 0.25rem;
-}
+  .example-sigma-ui-breadcrumb__drawer-header {
+    text-align: left;
+  }
 
-.example-sigma-ui-breadcrumb__drawer-link {
-  padding: 0.25rem 0;
-  font-size: 0.875rem;
-}
+  .example-sigma-ui-breadcrumb__drawer-content {
+    display: grid;
+    padding: 0 calc(var(--spacing) * 4);
+    gap: calc(var(--spacing) * 1);
+  }
 
-.example-sigma-ui-breadcrumb__drawer-footer {
-  padding-top: 1rem;
-}
+  .example-sigma-ui-breadcrumb__drawer-link {
+    padding: calc(var(--spacing) * 1) 0;
+    font-size: 0.875rem;
+  }
 
-.example-sigma-ui-breadcrumb__truncated-link,
-.example-sigma-ui-breadcrumb__truncated-page {
-  overflow: hidden;
-  max-width: 5rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+  .example-sigma-ui-breadcrumb__drawer-footer {
+    padding-top: calc(var(--spacing) * 4);
+  }
 
-@media (width >= 768px) {
   .example-sigma-ui-breadcrumb__truncated-link,
   .example-sigma-ui-breadcrumb__truncated-page {
-    max-width: none;
+    overflow: hidden;
+    max-width: calc(var(--spacing) * 20);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  @media (width >= 48rem) {
+    .example-sigma-ui-breadcrumb__truncated-link,
+    .example-sigma-ui-breadcrumb__truncated-page {
+      max-width: none;
+    }
   }
 }
 </style>

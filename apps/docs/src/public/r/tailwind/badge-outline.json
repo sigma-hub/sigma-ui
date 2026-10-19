@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge-outline",
+  "type": "registry:example",
+  "title": "BadgeOutline",
+  "dependencies": [],
+  "registryDependencies": [
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "example/BadgeOutline.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Badge } from '@/components/ui/badge';\n</script>\n\n<template>\n  <Badge variant=\"outline\">\n    Outline\n  </Badge>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

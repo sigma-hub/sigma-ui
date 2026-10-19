@@ -13,9 +13,13 @@ import { Label } from '@ui/registry/css/ui/label';
 </template>
 
 <style>
-.example-sigma-ui-label {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+@layer base, components;
+
+@layer components {
+  .example-sigma-ui-label {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+  }
 }
 </style>

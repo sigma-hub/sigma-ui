@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "empty-demo",
+  "type": "registry:example",
+  "title": "Empty",
+  "dependencies": [
+    "@lucide/vue@^1.59.0"
+  ],
+  "registryDependencies": [
+    "button",
+    "empty"
+  ],
+  "files": [
+    {
+      "path": "example/Empty.vue",
+      "content": "<script setup lang=\"ts\">\nimport { FolderOpenIcon } from '@lucide/vue';\nimport { Button } from '@/components/ui/button';\nimport { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty';\n</script>\n\n<template>\n  <Empty>\n    <EmptyHeader>\n      <EmptyMedia variant=\"icon\">\n        <FolderOpenIcon />\n      </EmptyMedia>\n      <EmptyTitle>No projects yet</EmptyTitle>\n      <EmptyDescription>Create a project to get started.</EmptyDescription>\n    </EmptyHeader>\n    <EmptyContent>\n      <Button>Create project</Button>\n    </EmptyContent>\n  </Empty>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

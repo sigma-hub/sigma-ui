@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useClipboard } from '@vueuse/core';
 import { toRefs } from 'vue';
-import { CheckIcon, ClipboardIcon } from 'lucide-vue-next';
+import { CheckIcon, ClipboardIcon } from '@lucide/vue';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import {
   Tooltip,

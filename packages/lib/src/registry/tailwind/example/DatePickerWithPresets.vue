@@ -6,7 +6,7 @@ import {
   getLocalTimeZone,
   today,
 } from '@internationalized/date';
-import { CalendarIcon } from 'lucide-vue-next';
+import { CalendarIcon } from '@lucide/vue';
 import { Calendar } from '@ui/registry/tailwind/ui/calendar';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@ui/registry/tailwind/ui/popover';

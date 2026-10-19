@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-block-expand",
+  "type": "registry:example",
+  "title": "CodeBlockExpand",
+  "dependencies": [
+    "@lucide/vue@^1.59.0"
+  ],
+  "registryDependencies": [
+    "code-block"
+  ],
+  "files": [
+    {
+      "path": "example/CodeBlockExpand.vue",
+      "content": "<script setup lang=\"ts\">\nimport { FileCodeIcon } from '@lucide/vue';\nimport {\n  CodeBlock,\n  CodeBlockActions,\n  CodeBlockContent,\n  CodeBlockCopyButton,\n  CodeBlockExpandButton,\n  CodeBlockFooter,\n  CodeBlockHeader,\n  CodeBlockTitle,\n  useHighlightedCode,\n} from '@/components/ui/code-block';\n\nconst code = `import { computed, ref } from 'vue';\n\nexport interface CartItem {\n  id: string;\n  name: string;\n  price: number;\n  quantity: number;\n}\n\nexport function useCart() {\n  const items = ref<CartItem[]>([]);\n\n  const total = computed(() => items.value.reduce((sum, item) => sum + item.price * item.quantity, 0));\n  const count = computed(() => items.value.reduce((sum, item) => sum + item.quantity, 0));\n\n  function add(item: Omit<CartItem, 'quantity'>) {\n    const existing = items.value.find(entry => entry.id === item.id);\n\n    if (existing) {\n      existing.quantity++;\n      return;\n    }\n\n    items.value.push({ ...item, quantity: 1 });\n  }\n\n  function remove(id: string) {\n    items.value = items.value.filter(item => item.id !== id);\n  }\n\n  return { items, total, count, add, remove };\n}`;\n\nconst { lines } = useHighlightedCode(code, 'ts');\n</script>\n\n<template>\n  <CodeBlock>\n    <CodeBlockHeader>\n      <CodeBlockTitle>\n        <FileCodeIcon />\n        stores/cart.ts\n      </CodeBlockTitle>\n      <CodeBlockActions>\n        <CodeBlockCopyButton />\n      </CodeBlockActions>\n    </CodeBlockHeader>\n    <CodeBlockContent\n      :code=\"code\"\n      :lines=\"lines\"\n      language=\"ts\"\n      line-numbers\n      :collapsed-height=\"240\"\n      :max-height=\"480\"\n    />\n    <CodeBlockFooter>\n      <CodeBlockExpandButton />\n    </CodeBlockFooter>\n  </CodeBlock>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle",
+  "type": "registry:ui",
+  "title": "Toggle",
+  "description": "A two-state button that can be either on or off.",
+  "dependencies": [
+    "class-variance-authority@^0.7.1",
+    "reka-ui@^2.11.0"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/toggle/Toggle.vue",
+      "content": "<script setup lang=\"ts\">\nimport { computed, useAttrs } from 'vue';\nimport { Toggle, type ToggleEmits, type ToggleProps, useForwardPropsEmits } from 'reka-ui';\nimport { type ToggleVariants, toggleVariants } from '.';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = withDefaults(defineProps<ToggleProps & {\n  /** Visual style of the toggle. */\n  variant?: ToggleVariants['variant'];\n  /** Height and horizontal padding of the toggle. */\n  size?: ToggleVariants['size'];\n}>(), {\n  variant: 'default',\n  size: 'default',\n  disabled: false,\n});\n\nconst emits = defineEmits<ToggleEmits>();\n\nconst delegatedProps = computed(() => ({ ...props, size: undefined, variant: undefined }));\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits);\n</script>\n\n<template>\n  <Toggle\n    data-slot=\"toggle\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :class=\"cn(toggleVariants({ variant, size }), $attrs.class ?? '')\"\n  >\n    <slot />\n  </Toggle>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/toggle/index.ts",
+      "content": "import { type VariantProps, cva } from 'class-variance-authority';\n\nexport { default as Toggle } from './Toggle.vue';\n\nexport const toggleVariants = cva(\n  'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-muted hover:text-muted-foreground focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-secondary data-[state=on]:text-secondary-foreground',\n  {\n    variants: {\n      variant: {\n        default: 'bg-transparent',\n        outline:\n          'border border-input bg-transparent hover:bg-secondary hover:text-secondary-foreground',\n      },\n      size: {\n        default: 'h-10 px-3',\n        sm: 'h-9 px-2.5',\n        lg: 'h-11 px-5',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n      size: 'default',\n    },\n  },\n);\n\nexport type ToggleVariants = VariantProps<typeof toggleVariants>;\n",
+      "type": "registry:ui"
+    }
+  ]
+}

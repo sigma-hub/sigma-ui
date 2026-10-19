@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toaster-demo",
+  "type": "registry:example",
+  "title": "Toaster",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "toaster"
+  ],
+  "files": [
+    {
+      "path": "example/Toaster.vue",
+      "content": "<script setup lang=\"ts\">\nimport { toast } from '@/components/ui/toaster';\nimport { Button } from '@/components/ui/button';\n</script>\n\n<template>\n  <Button\n    variant=\"outline\"\n    @click=\"() => {\n      toast('Event has been created', {\n        description: 'Sunday, December 03, 2023 at 9:00 AM',\n        action: {\n          label: 'Undo',\n          onClick: () => console.log('Undo'),\n        },\n      })\n    }\"\n  >\n    Add to calendar\n  </Button>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

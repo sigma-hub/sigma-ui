@@ -40,20 +40,24 @@ import {
 </template>
 
 <style>
-.example-sigma-ui-dialog__content {
-  max-width: 425px;
-}
+@layer base, components;
 
-@media (width >= 640px) {
+@layer components {
   .example-sigma-ui-dialog__content {
     max-width: 425px;
   }
-}
 
-.example-sigma-ui-dialog__scroll-content {
-  display: grid;
-  height: 300dvh;
-  padding: 1rem 0;
-  gap: 1rem;
+  @media (width >= 40rem) {
+    .example-sigma-ui-dialog__content {
+      max-width: 425px;
+    }
+  }
+
+  .example-sigma-ui-dialog__scroll-content {
+    display: grid;
+    height: 300dvh;
+    padding: calc(var(--spacing) * 4) 0;
+    gap: calc(var(--spacing) * 4);
+  }
 }
 </style>

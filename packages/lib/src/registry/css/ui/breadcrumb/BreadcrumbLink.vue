@@ -1,13 +1,26 @@
 <script lang="ts" setup>
-import { Primitive, type PrimitiveProps } from 'reka-ui';
+import { useAttrs } from 'vue';
 
-const props = withDefaults(defineProps<PrimitiveProps>(), {
+import { Primitive, type PrimitiveProps } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
+
+withDefaults(defineProps<PrimitiveProps>(), {
   as: 'a',
 });
 </script>
 
 <template>
   <Primitive
+    data-slot="breadcrumb-link"
+    v-bind="delegatedAttrs()"
     :as="as"
     :as-child="asChild"
     class="sigma-ui-breadcrumb__link"
@@ -18,13 +31,17 @@ const props = withDefaults(defineProps<PrimitiveProps>(), {
 </template>
 
 <style>
-.sigma-ui-breadcrumb__link {
-  transition-duration: 150ms;
-  transition-property: color;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
+@layer base, components;
 
-.sigma-ui-breadcrumb__link:hover {
-  color: hsl(var(--foreground));
+@layer components {
+  .sigma-ui-breadcrumb__link {
+    transition-duration: 150ms;
+    transition-property: color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .sigma-ui-breadcrumb__link:hover {
+    color: var(--foreground);
+  }
 }
 </style>

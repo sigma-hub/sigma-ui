@@ -53,26 +53,30 @@ import {
 </template>
 
 <style>
-.example-sigma-ui-resizable {
-  max-width: 28rem;
-  min-height: 200px;
-  border: 1px solid hsl(var(--border));
-  border-radius: var(--radius);
-}
+@layer base, components;
 
-.example-sigma-ui-resizable__nested-group {
-  height: 100%;
-}
+@layer components {
+  .example-sigma-ui-resizable {
+    max-width: 28rem;
+    min-height: 200px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
 
-.example-sigma-ui-resizable__panel {
-  display: flex;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-}
+  .example-sigma-ui-resizable__nested-group {
+    height: 100%;
+  }
 
-.example-sigma-ui-resizable__text {
-  font-weight: 600;
+  .example-sigma-ui-resizable__panel {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: calc(var(--spacing) * 6);
+  }
+
+  .example-sigma-ui-resizable__text {
+    font-weight: 600;
+  }
 }
 </style>

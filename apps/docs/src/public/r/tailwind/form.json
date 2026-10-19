@@ -1,0 +1,66 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "form",
+  "type": "registry:ui",
+  "title": "Form",
+  "description": "Building forms with VeeValidate and any Standard Schema library, such as Zod, Valibot, or ArkType.",
+  "dependencies": [
+    "reka-ui@^2.11.0",
+    "vee-validate@^4.15.1"
+  ],
+  "registryDependencies": [
+    "label"
+  ],
+  "files": [
+    {
+      "path": "ui/form/FormControl.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { Slot } from 'reka-ui';\nimport { useFormField } from './useFormField';\n\nconst { error, formItemId, formDescriptionId, formMessageId } = useFormField();\n</script>\n\n<template>\n  <Slot\n    :id=\"formItemId\"\n    :aria-describedby=\"!error ? `${formDescriptionId}` : `${formDescriptionId} ${formMessageId}`\"\n    :aria-invalid=\"!!error\"\n    data-slot=\"form-control\"\n  >\n    <slot />\n  </Slot>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/form/FormDescription.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { useAttrs } from 'vue';\n\nimport { useFormField } from './useFormField';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class' && key !== 'id'));\n};\n\nconst { formDescriptionId } = useFormField();\n</script>\n\n<template>\n  <p\n    :id=\"formDescriptionId\"\n    data-slot=\"form-description\"\n    v-bind=\"delegatedAttrs()\"\n    :class=\"cn('text-sm text-muted-foreground', $attrs.class ?? '')\"\n  >\n    <slot />\n  </p>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/form/FormItem.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { provide, useAttrs } from 'vue';\nimport { useId } from 'reka-ui';\nimport { FORM_ITEM_INJECTION_KEY } from './injectionKeys';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst id = useId();\nprovide(FORM_ITEM_INJECTION_KEY, id);\n</script>\n\n<template>\n  <div\n    data-slot=\"form-item\"\n    v-bind=\"delegatedAttrs()\"\n    :class=\"cn('flex flex-col gap-2', $attrs.class ?? '')\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/form/FormLabel.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { useAttrs } from 'vue';\n\nimport type { LabelProps } from 'reka-ui';\nimport { useFormField } from './useFormField';\nimport { cn } from '@/lib/utils';\nimport { Label } from '@/components/ui/label';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\ndefineProps<LabelProps>();\n\nconst { error, formItemId } = useFormField();\n</script>\n\n<template>\n  <Label\n    data-slot=\"form-label\"\n    v-bind=\"delegatedAttrs()\"\n    :class=\"cn(\n      error && 'text-destructive',\n      $attrs.class ?? '',\n    )\"\n    :for=\"formItemId\"\n  >\n    <slot />\n  </Label>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/form/FormMessage.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { ErrorMessage } from 'vee-validate';\nimport { toValue } from 'vue';\nimport { useFormField } from './useFormField';\n\nconst { name, formMessageId } = useFormField();\n</script>\n\n<template>\n  <ErrorMessage\n    :id=\"formMessageId\"\n    as=\"p\"\n    :name=\"toValue(name)\"\n    class=\"text-sm font-medium text-destructive\"\n    data-slot=\"form-message\"\n  />\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/form/index.ts",
+      "content": "export { Form, Field as FormField } from 'vee-validate';\nexport { default as FormItem } from './FormItem.vue';\nexport { default as FormLabel } from './FormLabel.vue';\nexport { default as FormControl } from './FormControl.vue';\nexport { default as FormMessage } from './FormMessage.vue';\nexport { default as FormDescription } from './FormDescription.vue';\nexport { FORM_ITEM_INJECTION_KEY } from './injectionKeys';\nexport { toTypedSchema, type InferSchemaInput, type InferSchemaOutput, type PartialDeep, type StandardSchemaV1 } from '@/components/ui/form/standard-schema';\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/form/injectionKeys.ts",
+      "content": "export { FORM_ITEM_INJECTION_KEY } from '@/components/ui/form/form-field';\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/form/useFormField.ts",
+      "content": "export { useFormField } from '@/components/ui/form/form-field';\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/form/standard-schema.ts",
+      "content": "import type { TypedSchema, TypedSchemaError } from 'vee-validate';\n\n/**\n * The Standard Schema interface (https://standardschema.dev). zod 4, valibot, arktype, and other libraries\n * implement it, so any of their schemas can validate a form.\n */\nexport interface StandardSchemaV1<Input = unknown, Output = Input> {\n  readonly '~standard': {\n    readonly version: 1;\n    readonly vendor: string;\n    readonly validate: (value: unknown) => StandardSchemaResult<Output> | Promise<StandardSchemaResult<Output>>;\n    readonly types?: { readonly input: Input; readonly output: Output };\n  };\n}\n\ntype StandardSchemaResult<Output>\n  = | { readonly value: Output; readonly issues?: undefined }\n    | { readonly issues: ReadonlyArray<StandardSchemaIssue> };\n\ninterface StandardSchemaIssue {\n  readonly message: string;\n  readonly path?: ReadonlyArray<PropertyKey | { readonly key: PropertyKey }>;\n}\n\nexport type InferSchemaInput<Schema extends StandardSchemaV1> = NonNullable<Schema['~standard']['types']>['input'];\nexport type InferSchemaOutput<Schema extends StandardSchemaV1> = NonNullable<Schema['~standard']['types']>['output'];\n\n/** Form values start out incomplete, so every field of the input type is optional, like in `@vee-validate/zod`. */\nexport type PartialDeep<T> = T extends Date | ReadonlyArray<unknown> | ((...args: never[]) => unknown)\n  ? T\n  : T extends object ? { [Key in keyof T]?: PartialDeep<T[Key]> } : T;\n\ntype PlainObject = Record<string, unknown>;\n\nfunction isPlainObject(value: unknown): value is PlainObject {\n  return typeof value === 'object' && value !== null && !Array.isArray(value) && !(value instanceof Date);\n}\n\nfunction isStandardSchema(value: unknown): value is StandardSchemaV1 {\n  return typeof value === 'object' && value !== null && '~standard' in value;\n}\n\n/** vee-validate writes array indexes in brackets: `urls[0].value`. */\nfunction toFormPath(path: StandardSchemaIssue['path']) {\n  return (path ?? []).reduce<string>((formPath, segment) => {\n    const key = typeof segment === 'object' ? segment.key : segment;\n    const part = String(key);\n\n    if (typeof key === 'number' || /^\\d+$/.test(part)) {\n      return `${formPath}[${part}]`;\n    }\n\n    return formPath ? `${formPath}.${part}` : part;\n  }, '');\n}\n\n/** The property schemas of an object schema: zod's `shape` or valibot's `entries`. */\nfunction objectProperties(schema: unknown): Record<string, unknown> | undefined {\n  if (!isPlainObject(schema) && typeof schema !== 'object') {\n    return undefined;\n  }\n\n  const candidate = schema as { shape?: unknown; entries?: unknown };\n  const properties = candidate.shape ?? candidate.entries;\n\n  return isPlainObject(properties) ? properties : undefined;\n}\n\n/**\n * Default values of an object schema. Each property schema is validated with `undefined`: a property with\n * `.default(value)` (zod) or `optional(schema, value)` (valibot) returns its default.\n */\nfunction schemaDefaults(schema: unknown): PlainObject | undefined {\n  const properties = objectProperties(schema);\n\n  if (!properties) {\n    return undefined;\n  }\n\n  const defaults: PlainObject = {};\n\n  for (const [key, property] of Object.entries(properties)) {\n    const nested = schemaDefaults(property);\n\n    if (nested && Object.keys(nested).length) {\n      defaults[key] = nested;\n      continue;\n    }\n\n    if (!isStandardSchema(property)) {\n      continue;\n    }\n\n    const result = property['~standard'].validate(undefined);\n\n    if (!(result instanceof Promise) && !result.issues && result.value !== undefined) {\n      defaults[key] = result.value;\n    }\n  }\n\n  return defaults;\n}\n\nfunction mergeDefaults(defaults: PlainObject, values: PlainObject): PlainObject {\n  const merged: PlainObject = { ...defaults };\n\n  for (const [key, value] of Object.entries(values)) {\n    merged[key] = isPlainObject(value) && isPlainObject(defaults[key])\n      ? mergeDefaults(defaults[key], value)\n      : value === undefined ? defaults[key] : value;\n  }\n\n  return merged;\n}\n\n/**\n * Turns a Standard Schema (zod 4, valibot, arktype, ...) into a vee-validate typed schema.\n *\n * ```ts\n * const { handleSubmit } = useForm({ validationSchema: toTypedSchema(z.object({ email: z.email() })) })\n * ```\n *\n * Defaults (`.default()` in zod) fill the initial values and the submitted values.\n */\nexport function toTypedSchema<Schema extends StandardSchemaV1>(\n  schema: Schema,\n): TypedSchema<PartialDeep<InferSchemaInput<Schema>>, InferSchemaOutput<Schema>> {\n  return {\n    __type: 'VVTypedSchema',\n    async parse(values) {\n      const result = await schema['~standard'].validate(values);\n\n      if (!result.issues) {\n        return { value: result.value as InferSchemaOutput<Schema>, errors: [] };\n      }\n\n      const errors = new Map<string, TypedSchemaError>();\n\n      for (const issue of result.issues) {\n        const path = toFormPath(issue.path);\n        const entry = errors.get(path) ?? { path, errors: [] };\n        entry.errors.push(issue.message);\n        errors.set(path, entry);\n      }\n\n      return { errors: [...errors.values()] };\n    },\n    cast(values) {\n      const result = schema['~standard'].validate(values);\n\n      if (!(result instanceof Promise) && !result.issues) {\n        return result.value as PartialDeep<InferSchemaInput<Schema>>;\n      }\n\n      const defaults = schemaDefaults(schema);\n\n      if (defaults && isPlainObject(values)) {\n        return mergeDefaults(defaults, values) as PartialDeep<InferSchemaInput<Schema>>;\n      }\n\n      return values as PartialDeep<InferSchemaInput<Schema>>;\n    },\n  };\n}\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/form/form-field.ts",
+      "content": "import type { InjectionKey } from 'vue';\nimport { FieldContextKey, useFieldError, useIsFieldDirty, useIsFieldTouched, useIsFieldValid } from 'vee-validate';\nimport { inject } from 'vue';\n\nexport const FORM_ITEM_INJECTION_KEY = Symbol() as InjectionKey<string>;\n\nexport function useFormField() {\n  const fieldContext = inject(FieldContextKey);\n  const fieldItemContext = inject(FORM_ITEM_INJECTION_KEY);\n\n  if (!fieldContext) {\n    throw new Error('useFormField should be used within <FormField>');\n  }\n\n  const { name } = fieldContext;\n  const id = fieldItemContext;\n  const fieldState = {\n    valid: useIsFieldValid(name),\n    isDirty: useIsFieldDirty(name),\n    isTouched: useIsFieldTouched(name),\n    error: useFieldError(name),\n  };\n\n  return {\n    id,\n    name,\n    formItemId: `${id}-form-item`,\n    formDescriptionId: `${id}-form-item-description`,\n    formMessageId: `${id}-form-item-message`,\n    ...fieldState,\n  };\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

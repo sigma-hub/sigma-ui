@@ -1,28 +1,20 @@
 <script setup lang="ts">
 import { h } from 'vue';
 import { useForm } from 'vee-validate';
-import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
 import { toast } from '@ui/registry/css/ui/toaster';
 import { Button } from '@ui/registry/css/ui/button';
-import {
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@ui/registry/css/ui/form';
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@ui/registry/css/ui/form';
 import { Textarea } from '@ui/registry/css/ui/textarea';
 
 const formSchema = toTypedSchema(z.object({
   bio: z
-    .string()
+    .string({ error: 'Bio is required.' })
     .min(10, {
-      message: 'Bio must be at least 10 characters.',
+      error: 'Bio must be at least 10 characters.',
     })
     .max(160, {
-      message: 'Bio must not be longer than 30 characters.',
+      error: 'Bio must not be longer than 160 characters.',
     }),
 }));
 
@@ -71,32 +63,36 @@ const onSubmit = handleSubmit((values) => {
 </template>
 
 <style>
-.example-sigma-ui-textarea-form {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  gap: 1.5rem;
-}
+@layer base, components;
 
-.example-sigma-ui-textarea-form__item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
+@layer components {
+  .example-sigma-ui-textarea-form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 6);
+  }
 
-.example-sigma-ui-textarea-form__input {
-  resize: none;
-}
+  .example-sigma-ui-textarea-form__item {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-textarea-form__button {
-  width: fit-content;
-}
+  .example-sigma-ui-textarea-form__input {
+    resize: none;
+  }
 
-.example-sigma-ui-textarea-form__toast-pre {
-  padding: 1rem;
-  border-radius: var(--radius);
-  margin-top: 0.5rem;
-  background-color: hsl(var(--muted) / 50%);
-  color: hsl(var(--foreground));
+  .example-sigma-ui-textarea-form__button {
+    width: fit-content;
+  }
+
+  .example-sigma-ui-textarea-form__toast-pre {
+    padding: calc(var(--spacing) * 4);
+    border-radius: var(--radius);
+    margin-top: calc(var(--spacing) * 2);
+    background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+    color: var(--foreground);
+  }
 }
 </style>

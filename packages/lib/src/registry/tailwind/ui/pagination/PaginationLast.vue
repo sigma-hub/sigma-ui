@@ -1,10 +1,21 @@
 <script setup lang="ts">
+import { useAttrs } from 'vue';
+
 import { PaginationLast, type PaginationLastProps } from 'reka-ui';
-import { ChevronsRightIcon } from 'lucide-vue-next';
+import { ChevronsRightIcon } from '@lucide/vue';
 import {
   Button,
 } from '@ui/registry/tailwind/ui/button';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = withDefaults(defineProps<PaginationLastProps>(), {
   asChild: true,
@@ -12,8 +23,12 @@ const props = withDefaults(defineProps<PaginationLastProps>(), {
 </script>
 
 <template>
-  <PaginationLast v-bind="props">
+  <PaginationLast
+    data-slot="pagination-last"
+    v-bind="props"
+  >
     <Button
+      v-bind="delegatedAttrs()"
       :class="cn('w-10 h-10 p-0', $attrs.class ?? '')"
       variant="outline"
     >

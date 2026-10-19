@@ -53,23 +53,27 @@ import {
 </template>
 
 <style>
-.example-sigma-ui-toaster-dialog {
-  max-width: 28rem;
-}
+@layer base, components;
 
-.example-sigma-ui-toaster-dialog__actions {
-  display: grid;
-  gap: 1rem;
-}
-
-.example-sigma-ui-toaster-dialog__button {
-  padding-right: 0.75rem;
-  padding-left: 0.75rem;
-}
-
-@media (width >= 640px) {
+@layer components {
   .example-sigma-ui-toaster-dialog {
     max-width: 28rem;
+  }
+
+  .example-sigma-ui-toaster-dialog__actions {
+    display: grid;
+    gap: calc(var(--spacing) * 4);
+  }
+
+  .example-sigma-ui-toaster-dialog__button {
+    padding-right: calc(var(--spacing) * 3);
+    padding-left: calc(var(--spacing) * 3);
+  }
+
+  @media (width >= 40rem) {
+    .example-sigma-ui-toaster-dialog {
+      max-width: 28rem;
+    }
   }
 }
 </style>

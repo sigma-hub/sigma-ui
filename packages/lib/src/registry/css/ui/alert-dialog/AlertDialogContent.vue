@@ -20,6 +20,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   <AlertDialogPortal>
     <AlertDialogOverlay class="sigma-ui-alert-dialog-overlay" />
     <AlertDialogContent
+      data-slot="alert-dialog-content"
       v-bind="forwarded"
       class="sigma-ui-alert-dialog-content"
       :class="attrs.class"
@@ -30,73 +31,77 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
-.sigma-ui-alert-dialog-overlay {
-  position: fixed;
-  z-index: 50;
-  background-color: rgb(0 0 0 / 80%);
-  inset: 0;
-}
+@layer base, components;
 
-.sigma-ui-alert-dialog-overlay[data-state='open'] {
-  animation: sigma-ui-fade-in 150ms cubic-bezier(0.4, 0, 0.2, 1);
-}
+@layer components {
+  .sigma-ui-alert-dialog-overlay {
+    position: fixed;
+    z-index: 50;
+    background-color: rgb(0 0 0 / 80%);
+    inset: 0;
+  }
 
-.sigma-ui-alert-dialog-overlay[data-state='closed'] {
-  animation: sigma-ui-fade-out 150ms cubic-bezier(0.4, 0, 0.2, 1);
-}
+  .sigma-ui-alert-dialog-overlay[data-state='open'] {
+    animation: sigma-ui-fade-in 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
-.sigma-ui-alert-dialog-content {
-  position: fixed;
-  z-index: 50;
-  top: 50%;
-  left: 50%;
-  display: grid;
-  width: 100%;
-  max-width: 32rem;
-  padding: 1.5rem;
-  border: 1px solid hsl(var(--border));
-  background-color: hsl(var(--background));
-  box-shadow: var(--shadow-lg);
-  gap: 1rem;
-  transform: translate(-50%, -50%);
-  transition-duration: 200ms;
-}
+  .sigma-ui-alert-dialog-overlay[data-state='closed'] {
+    animation: sigma-ui-fade-out 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
-@media (width >= 640px) {
   .sigma-ui-alert-dialog-content {
-    border-radius: var(--radius);
-  }
-}
-
-.sigma-ui-alert-dialog-content[data-state='open'] {
-  animation: sigma-ui-alert-dialog-show 200ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.sigma-ui-alert-dialog-content[data-state='closed'] {
-  animation: sigma-ui-alert-dialog-hide 200ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@keyframes sigma-ui-alert-dialog-show {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.95);
+    position: fixed;
+    z-index: 50;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    width: 100%;
+    max-width: 32rem;
+    padding: calc(var(--spacing) * 6);
+    border: 1px solid var(--border);
+    background-color: var(--background);
+    box-shadow: var(--shadow-lg);
+    gap: calc(var(--spacing) * 4);
+    transform: translate(-50%, -50%);
+    transition-duration: 200ms;
   }
 
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
-
-@keyframes sigma-ui-alert-dialog-hide {
-  from {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+  @media (width >= 40rem) {
+    .sigma-ui-alert-dialog-content {
+      border-radius: var(--radius);
+    }
   }
 
-  to {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.95);
+  .sigma-ui-alert-dialog-content[data-state='open'] {
+    animation: sigma-ui-alert-dialog-show 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .sigma-ui-alert-dialog-content[data-state='closed'] {
+    animation: sigma-ui-alert-dialog-hide 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @keyframes sigma-ui-alert-dialog-show {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.95);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  @keyframes sigma-ui-alert-dialog-hide {
+    from {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    to {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.95);
+    }
   }
 }
 </style>

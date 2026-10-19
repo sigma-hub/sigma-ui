@@ -1,290 +1,142 @@
 ---
 title: Form
-description: Building forms with VeeValidate and Zod.
+description: Building forms with VeeValidate and any Standard Schema library, such as Zod, Valibot, or ArkType.
+source: form
 primitive: https://vee-validate.logaretm.com/v4/guide/overview/
 ---
 
-Forms are tricky. They are one of the most common things you'll build in a web application, but also one of the most complex.
+## Preview
 
-Well-designed HTML forms are:
-
-- Well-structured and semantically correct.
-- Easy to use and navigate (keyboard).
-- Accessible with ARIA attributes and proper labels.
-- Has support for client and server side validation.
-- Well-styled and consistent with the rest of the application.
-
-In this guide, we will take a look at building forms with [`vee-validate`](https://vee-validate.logaretm.com/v4/) and [`zod`](https://zod.dev). We're going to use a `<FormField>` component to compose accessible forms using Reka components.
-
-## Features
-
-The `<Form />` component is a wrapper around the `vee-validate` library. It provides a few things:
-
-- Composable components for building forms.
-- A `<FormField />` component for building controlled form fields.
-- Form validation using `zod`.
-- Applies the correct `aria` attributes to form fields based on states, handle unique IDs
-- Built to work with all Reka components.
-- Bring your own schema library. We use `zod` but you can use any other supported schema validation you want, like [`yup`](https://github.com/jquense/yup) or [`valibot`](https://valibot.dev/).
-- **You have full control over the markup and styling.**
-
-[`vee-validate`](https://vee-validate.logaretm.com/v4/) makes use of two flavors to add validation to your forms.
-- Composition API
-- Higher-order components (HOC)
-
-## Anatomy
-
-```vue
-<Form>
-  <FormField v-slot="{ ... }">
-    <FormItem>
-      <FormLabel />
-      <FormControl>
-        <!-- any Form Input component or native input elements -->
-      </FormControl>
-      <FormDescription />
-      <FormMessage />
-    </FormItem>
-  </FormField>
-</Form>
-```
-
-## Example
-
-<TabPreview name="Component" :names="['Component', 'Native']">
-<template #Component>
-
-#### `Input` Component
-
-```vue
-<FormField v-slot="{ componentField }">
-  <FormItem>
-    <FormLabel>Username</FormLabel>
-    <FormControl>
-      <Input placeholder="sigma-ui" v-bind="componentField" />
-    </FormControl>
-    <FormDescription />
-    <FormMessage />
-  </FormItem>
-</FormField>
-```
-
-</template>
-
-<template #Native>
-
-#### native `input` element
-
-```vue
-<FormField v-slot="{ field }">
-  <FormItem>
-    <FormLabel>Username</FormLabel>
-    <FormControl>
-      <input placeholder="sigma-ui" v-bind="field" />
-    </FormControl>
-    <FormDescription />
-    <FormMessage />
-  </FormItem>
-</FormField>
-```
-
-</template>
-</TabPreview>
+<ComponentPreview name="InputForm" />
 
 ## Installation
 
-<TabPreview name="CLI">
-<template #CLI>
+<ComponentInstall name="form" />
+
+### Schema validation
+
+The form validates with any [Standard Schema](https://standardschema.dev) library: Zod 4, Valibot, ArkType, and others. The examples on this page use Zod. Install it next to vee-validate:
 
 ```bash
-npx sigma-ui add form
-```
-</template>
-
-<template #Manual>
-
-<Steps>
-
-### Install the following dependency:
-
-```bash
-npm install reka-ui vee-validate @vee-validate/zod zod
+npm install zod
 ```
 
-<!-- ### Copy and paste the following code into your project:
-
-`index.ts`
-
-<<< ../../../../packages/lib/src/registry/tailwind/ui/form/index.ts
-
-`FormItem.vue`
-
-<<< ../../../../packages/lib/src/registry/tailwind/ui/form/FormItem.vue
-
-`FormLabel.vue`
-
-<<< ../../../../packages/lib/src/registry/tailwind/ui/form/FormLabel.vue
-
-`FormControl.vue`
-
-<<< ../../../../packages/lib/src/registry/tailwind/ui/form/FormControl.vue
-
-`FormMessage.vue`
-
-<<< ../../../../packages/lib/src/registry/tailwind/ui/form/FormMessage.vue
-
-`FormDescription.vue`
-
-<<< ../../../../packages/lib/src/registry/tailwind/ui/form/FormDescription.vue -->
-
-### Update the import paths to match your project setup.
-
-</Steps>
-
-</template>
-</TabPreview>
+`toTypedSchema` ships with the form component, so no `@vee-validate/zod` adapter is needed. That adapter only supports Zod 3, and it breaks on Zod 4 schemas that use `.default()`.
 
 ## Usage
 
-<Steps>
+`<Form />` and `<FormField />` wrap [vee-validate](https://vee-validate.logaretm.com/v4/). A field is built from these parts:
 
-### Create a form schema
+```vue
+<FormField v-slot="{ componentField }" name="username">
+  <FormItem>
+    <FormLabel>Username</FormLabel>
+    <FormControl>
+      <Input v-bind="componentField" />
+    </FormControl>
+    <FormDescription />
+    <FormMessage />
+  </FormItem>
+</FormField>
+```
 
-Define the shape of your form using a Zod schema. You can read more about using Zod in the [Zod documentation](https://zod.dev).
+`FormControl` applies the right `id`, `aria-describedby`, and `aria-invalid` for the field state. Validation can use any Standard Schema library, such as [Zod](https://zod.dev), [Valibot](https://valibot.dev/), or [ArkType](https://arktype.io).
 
-Use `@vee-validate/zod` to integrate Zod schema validation with `vee-validate`
+### Create a schema
 
-`toTypedSchema` also makes the form values and submitted values typed automatically and caters for both input and output types of that schema.
+`toTypedSchema` from the form component turns a Standard Schema into a vee-validate schema. It types the form values from the schema, including the input and output types, and fills initial values from defaults such as Zod's `.default()`.
 
-```vue:line-numbers {2-3,5-7}
+```vue
 <script setup lang="ts">
-import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
+import * as z from 'zod';
+import { toTypedSchema } from '@/components/ui/form';
 
 const formSchema = toTypedSchema(z.object({
   username: z.string().min(2).max(50),
-}))
+  newsletter: z.boolean().default(false),
+}));
 </script>
 ```
 
-### Define a form
+The same field with Valibot or ArkType:
 
-#### Method 1
+```ts
+import * as v from 'valibot';
+import { type } from 'arktype';
+import { toTypedSchema } from '@/components/ui/form';
 
-Use the `useForm` composable from `vee-validate` and default `<form />`
+const valibotSchema = toTypedSchema(v.object({
+  username: v.pipe(v.string(), v.minLength(2), v.maxLength(50)),
+}));
 
-#### Method 2
+const arktypeSchema = toTypedSchema(type({
+  username: '2 <= string <= 50',
+}));
+```
 
-Use `<Form />` component to create a form.
+### Define the form
 
-<TabPreview name="Composition" :names="['Composition', 'Component']">
-<template #Composition>
+`useForm` is the recommended way to create the form, because the submitted values are typed from the schema. `<Form />` is the alternative when you want the schema on the component.
 
-```vue:line-numbers {2,19-21}
+```vue
 <script setup lang="ts">
-import { useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
-
-import {
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage
-} from '@/components/ui/form'
+import { useForm } from 'vee-validate';
+import * as z from 'zod';
+import { toTypedSchema } from '@/components/ui/form';
 
 const formSchema = toTypedSchema(z.object({
   username: z.string().min(2).max(50),
-}))
+}));
 
 const form = useForm({
   validationSchema: formSchema,
-})
+});
 
 const onSubmit = form.handleSubmit((values) => {
-  console.log('Form submitted!', values)
-})
+  console.log('Form submitted!', values);
+});
 </script>
 
 <template>
   <form @submit="onSubmit">
-    ...
+    <!-- fields -->
   </form>
 </template>
 ```
 
-</template>
+The same schema passed to `<Form>`:
 
-<template #Component>
-
-```vue:line-numbers {5,24-26}
-<script setup lang="ts">
-import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage
-} from '@/components/ui/form'
-
-const formSchema = toTypedSchema(z.object({
-  username: z.string().min(2).max(50),
-}))
-
-function onSubmit(values) {
-  console.log('Form submitted!', values)
-}
-</script>
-
+```vue
 <template>
   <Form :validation-schema="formSchema" @submit="onSubmit">
-    ...
+    <!-- fields -->
   </Form>
 </template>
 ```
 
-</template>
-</TabPreview>
+### Build the fields
 
-### Build your form
+Bind each input with the `componentField` slot prop. `FormMessage` renders the error for that field.
 
-Based on last step we can either use `<Form />` component or `useForm` composable
-`useForm` is recommended because values are typed automatically
-
-```vue:line-numbers {2}
+```vue
 <script setup lang="ts">
-import { useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
-
-import { Button } from '@/components/ui/button'
-import {
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+import { useForm } from 'vee-validate';
+import * as z from 'zod';
+import { Button } from '@/components/ui/button';
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
 
 const formSchema = toTypedSchema(z.object({
   username: z.string().min(2).max(50),
-}))
+}));
 
 const form = useForm({
   validationSchema: formSchema,
-})
+});
 
 const onSubmit = form.handleSubmit((values) => {
-  console.log('Form submitted!', values)
-})
+  console.log('Form submitted!', values);
+});
 </script>
 
 <template>
@@ -308,33 +160,49 @@ const onSubmit = form.handleSubmit((values) => {
 </template>
 ```
 
-### Done
+A native `<input>` uses the `field` slot prop instead of `componentField`:
 
-That's it. You now have a fully accessible form that is type-safe with client-side validation.
-
-<ComponentPreview
-  name="InputForm"
-  class="[&_[role=tablist]]:hidden [&>div>div:first-child]:hidden"
-/>
-
-</Steps>
+```vue
+<FormField v-slot="{ field }" name="username">
+  <FormItem>
+    <FormLabel>Username</FormLabel>
+    <FormControl>
+      <input placeholder="sigma-ui" v-bind="field">
+    </FormControl>
+    <FormMessage />
+  </FormItem>
+</FormField>
+```
 
 ## Examples
 
-See the following links for more examples on how to use the `vee-validate` features with other components:
+The same `FormField` pattern works with the other fields:
 
-- [Checkbox](./checkbox#form)
-- [Date Picker](./date-picker#form)
-- [Input](./input#form)
-- [Radio Group](./radio-group#form)
-- [Select](./select#form)
-- [Slider](./slider#form)
-- [Switch](./switch#form)
-- [Textarea](./textarea#form)
-- [Combobox](./combobox#form)
+- [Checkbox](/components/checkbox#form)
+- [Date Picker](/components/date-picker#form)
+- [Input](/components/input#form)
+- [Radio Group](/components/radio-group#form)
+- [Select](/components/select#form)
+- [Slider](/components/slider#form)
+- [Switch](/components/switch#form)
+- [Textarea](/components/textarea#form)
 
-## Extras
+### Auto animate
 
-This example shows how to add motion to your forms with [Formkit AutoAnimate](https://auto-animate.formkit.com/)
+[FormKit AutoAnimate](https://auto-animate.formkit.com/) can animate fields as errors appear.
 
 <ComponentPreview name="InputFormAutoAnimate" />
+
+## API Reference
+
+<!-- @include: @/content/meta/form.md -->
+
+## Accessibility
+
+`FormLabel` and `FormControl` connect the label to the input. `FormMessage` is referenced with `aria-describedby`, and invalid fields get `aria-invalid`. Keep one label per field, and do not remove `FormMessage` if you still want the error announced.
+
+| Key | Description |
+| --- | --- |
+| <kbd>Tab</kbd> | Moves focus to the next field or button. |
+| <kbd>Shift</kbd> + <kbd>Tab</kbd> | Moves focus to the previous field or button. |
+| <kbd>Enter</kbd> | Submits the form when focus is on a single-line field or the submit button. |

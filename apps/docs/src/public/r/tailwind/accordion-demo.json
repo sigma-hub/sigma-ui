@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion-demo",
+  "type": "registry:example",
+  "title": "Accordion",
+  "dependencies": [],
+  "registryDependencies": [
+    "accordion"
+  ],
+  "files": [
+    {
+      "path": "example/Accordion.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';\n\nconst accordionItems = [\n  { value: 'item-1', title: 'Is it accessible?', content: 'Yes. It adheres to the WAI-ARIA design pattern.' },\n  { value: 'item-2', title: 'Is it unstyled?', content: 'It\\'s minimally styled, giving you freedom to easily customize it to your design system.' },\n  { value: 'item-3', title: 'Can it be animated?', content: 'Yes, the animation is fully controllable.' },\n];\n</script>\n\n<template>\n  <Accordion\n    class=\"w-full\"\n    type=\"single\"\n    collapsible\n    default-value=\"item-1\"\n  >\n    <AccordionItem\n      v-for=\"item in accordionItems\"\n      :key=\"item.value\"\n      :value=\"item.value\"\n    >\n      <AccordionTrigger>\n        {{ item.title }}\n      </AccordionTrigger>\n      <AccordionContent>\n        {{ item.content }}\n      </AccordionContent>\n    </AccordionItem>\n  </Accordion>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

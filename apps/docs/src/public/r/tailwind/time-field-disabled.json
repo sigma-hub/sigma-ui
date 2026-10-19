@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "time-field-disabled",
+  "type": "registry:example",
+  "title": "TimeFieldDisabled",
+  "dependencies": [
+    "@internationalized/date@^3.12.4",
+    "reka-ui@^2.11.0"
+  ],
+  "registryDependencies": [
+    "time-field"
+  ],
+  "files": [
+    {
+      "path": "example/TimeFieldDisabled.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Time } from '@internationalized/date';\nimport { type TimeValue } from 'reka-ui';\nimport { type Ref, ref } from 'vue';\nimport { TimeField } from '@/components/ui/time-field';\n\nconst value = ref(new Time(9, 0)) as Ref<TimeValue>;\n</script>\n\n<template>\n  <TimeField\n    v-model=\"value\"\n    disabled\n  />\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,22 +1,15 @@
 <script setup lang="ts">
 import { h } from 'vue';
 import { useForm } from 'vee-validate';
-import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
 import { toast } from '@ui/registry/css/ui/toaster';
 import { Button } from '@ui/registry/css/ui/button';
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@ui/registry/css/ui/form';
+import { FormControl, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@ui/registry/css/ui/form';
 import { RadioGroup, RadioGroupItem } from '@ui/registry/css/ui/radio-group';
 
 const formSchema = toTypedSchema(z.object({
   type: z.enum(['all', 'mentions', 'none'], {
-    required_error: 'You need to select a notification type.',
+    error: 'You need to select a notification type.',
   }),
 }));
 
@@ -88,44 +81,48 @@ const onSubmit = handleSubmit((values) => {
 </template>
 
 <style>
-.example-sigma-ui-radio-group-form {
-  display: flex;
-  width: 66%;
-  flex-direction: column;
-  gap: 1.5rem;
-}
+@layer base, components;
 
-.example-sigma-ui-radio-group-form__group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
+@layer components {
+  .example-sigma-ui-radio-group-form {
+    display: flex;
+    width: 66%;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 6);
+  }
 
-.example-sigma-ui-radio-group-form__options {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
+  .example-sigma-ui-radio-group-form__group {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 3);
+  }
 
-.example-sigma-ui-radio-group-form__option {
-  display: flex;
-  align-items: center;
-  margin-top: 0;
-  gap: 0.75rem;
-}
+  .example-sigma-ui-radio-group-form__options {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-radio-group-form__label {
-  font-weight: normal;
-}
+  .example-sigma-ui-radio-group-form__option {
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+    gap: calc(var(--spacing) * 3);
+  }
 
-.example-sigma-ui-radio-group-form__button {
-  width: fit-content;
-}
+  .example-sigma-ui-radio-group-form__label {
+    font-weight: normal;
+  }
 
-.example-sigma-ui-radio-group-form__toast-pre {
-  padding: 1rem;
-  border-radius: var(--radius);
-  margin-top: 0.5rem;
-  background-color: hsl(var(--muted) / 50%);
+  .example-sigma-ui-radio-group-form__button {
+    width: fit-content;
+  }
+
+  .example-sigma-ui-radio-group-form__toast-pre {
+    padding: calc(var(--spacing) * 4);
+    border-radius: var(--radius);
+    margin-top: calc(var(--spacing) * 2);
+    background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  }
 }
 </style>

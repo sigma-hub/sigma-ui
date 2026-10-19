@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PaintbrushIcon } from 'lucide-vue-next';
+import { PaintbrushIcon } from '@lucide/vue';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@ui/registry/tailwind/ui/popover';
 import ThemeCustomizer from './ThemeCustomizer.vue';

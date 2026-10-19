@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { MinusIcon, PlusIcon } from 'lucide-vue-next';
+import { MinusIcon, PlusIcon } from '@lucide/vue';
 import { VisStackedBar, VisXYContainer } from '@unovis/vue';
 import { Button } from '@ui/registry/css/ui/button';
 import {
@@ -50,7 +50,7 @@ const data = [
           @click="goal -= 10"
         >
           <MinusIcon class="h-4 w-4" />
-          <span class="sr-only">Decrease</span>
+          <span class="sigma-ui-sr-only">Decrease</span>
         </Button>
         <div class="flex-1 text-center">
           <div class="text-5xl font-bold tracking-tighter">
@@ -68,7 +68,7 @@ const data = [
           @click="goal += 10 "
         >
           <PlusIcon class="h-4 w-4" />
-          <span class="sr-only">Increase</span>
+          <span class="sigma-ui-sr-only">Increase</span>
         </Button>
       </div>
       <div class="my-3 h-[60px]">
@@ -82,7 +82,7 @@ const data = [
           <VisStackedBar
             :x="(d: Data, i :number) => i"
             :y="(d: Data) => d.goal"
-            color="hsl(var(--primary))"
+            color="var(--primary)"
             :bar-padding="0.1"
             :rounded-corners="0"
           />
@@ -96,3 +96,21 @@ const data = [
     </CardFooter>
   </Card>
 </template>
+
+<style>
+@layer base, components;
+
+@layer components {
+  .sigma-ui-sr-only {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border-width: 0;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+}
+</style>

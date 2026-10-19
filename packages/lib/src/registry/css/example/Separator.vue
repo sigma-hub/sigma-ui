@@ -27,32 +27,36 @@ import { Separator } from '@ui/registry/css/ui/separator';
 </template>
 
 <style>
-.example-sigma-ui-separator__header {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
+@layer base, components;
 
-.example-sigma-ui-separator__title {
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1;
-}
+@layer components {
+  .example-sigma-ui-separator__header {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 1);
+  }
 
-.example-sigma-ui-separator__description {
-  color: hsl(var(--muted-foreground));
-  font-size: 0.875rem;
-}
+  .example-sigma-ui-separator__title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1;
+  }
 
-.example-sigma-ui-separator__divider {
-  margin: 1rem 0;
-}
+  .example-sigma-ui-separator__description {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+  }
 
-.example-sigma-ui-separator__nav {
-  display: flex;
-  height: 1.25rem;
-  align-items: center;
-  font-size: 0.875rem;
-  gap: 1rem;
+  .example-sigma-ui-separator__divider {
+    margin: calc(var(--spacing) * 4) 0;
+  }
+
+  .example-sigma-ui-separator__nav {
+    display: flex;
+    height: calc(var(--spacing) * 5);
+    align-items: center;
+    font-size: 0.875rem;
+    gap: calc(var(--spacing) * 4);
+  }
 }
 </style>

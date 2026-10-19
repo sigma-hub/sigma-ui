@@ -2,7 +2,8 @@
 import { useMagicKeys, useToggle } from '@vueuse/core';
 import { computed, ref, watch } from 'vue';
 import { Content, useData, useRoute, useRouter } from 'vitepress';
-import { CircleIcon, FileIcon, GithubIcon, MoonIcon, SearchIcon, SunIcon } from 'lucide-vue-next';
+import { CircleIcon, FileIcon, MoonIcon, SearchIcon, SunIcon } from '@lucide/vue';
+import GithubIcon from '../components/GithubIcon.vue';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@ui/registry/tailwind/ui/command';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import { Dialog, DialogContent } from '@ui/registry/tailwind/ui/dialog';
@@ -15,8 +16,9 @@ import Kbd from '../components/Kbd.vue';
 import MobileNav from '../components/MobileNav.vue';
 import Logo from '../components/Logo.vue';
 import { type NavItem, docsConfig } from '../config/docs';
+import { siteConfig } from '../config/site';
 import { useConfigStore } from '@/stores/config';
-import { baseColors } from '../../../src/lib/registry/themes';
+import { baseColors } from '@sigma-ui/shared/themes';
 import {
   Tooltip,
   TooltipContent,
@@ -24,6 +26,25 @@ import {
 } from '@ui/registry/tailwind/ui/tooltip';
 
 const { config } = useConfigStore();
+
+function setRootStyle(property: string, value: string) {
+  if (typeof document === 'undefined') {
+    return;
+  }
+
+  document.documentElement.style.setProperty(property, value);
+}
+
+function updateThemeClass(theme: string | undefined) {
+  if (typeof document === 'undefined' || !theme) {
+    return;
+  }
+
+  document.documentElement.classList.remove(
+    ...baseColors.map(color => `theme-${color.name}`),
+  );
+  document.documentElement.classList.add(`theme-${theme}`);
+}
 
 const { frontmatter, isDark } = useData();
 
@@ -66,9 +87,11 @@ function handleSelectLink(item: NavItem) {
 }
 
 watch(() => $route.path, () => {
-  if (document.startViewTransition) {
-    document.startViewTransition(() => {});
+  if (typeof document === 'undefined' || !document.startViewTransition) {
+    return;
   }
+
+  document.startViewTransition(() => {});
 });
 
 function isRouteActive(href: string) {
@@ -80,7 +103,7 @@ function isRouteActive(href: string) {
 }
 
 const appVersion = computed(() => {
-  return `v${import.meta.env.VITE_APP_VERSION}`;
+  return `v${siteConfig.version}`;
 });
 
 const isConfigReady = computed(() => {
@@ -102,62 +125,59 @@ const infusionKey = computed(() => {
 });
 
 watch(() => config.value.radius, (radius) => {
-  document.documentElement.style.setProperty('--radius', `${radius}rem`);
+  setRootStyle('--radius', `${radius}rem`);
 });
 
 watch(() => config.value.backdropFilterBlur, (backdropFilterBlur) => {
-  document.documentElement.style.setProperty('--backdrop-filter-blur', `${backdropFilterBlur}px`);
+  setRootStyle('--backdrop-filter-blur', `${backdropFilterBlur}px`);
 });
 
 watch(() => config.value.infusionEnabled, (enabled) => {
   if (enabled) {
-    document.documentElement.style.setProperty('--infusion-opacity', config.value.infusionImageOpacity.toString());
-    document.documentElement.style.setProperty('--infusion-opacity-dark', config.value.infusionImageOpacityDark.toString());
-    document.documentElement.style.setProperty('--infusion-blur', `${config.value.infusionBlur}px`);
-    document.documentElement.style.setProperty('--infusion-noise-intensity', config.value.infusionNoiseIntensity.toString());
-    document.documentElement.style.setProperty('--infusion-noise-opacity', config.value.infusionNoiseOpacity.toString());
+    setRootStyle('--infusion-opacity', config.value.infusionImageOpacity.toString());
+    setRootStyle('--infusion-opacity-dark', config.value.infusionImageOpacityDark.toString());
+    setRootStyle('--infusion-blur', `${config.value.infusionBlur}px`);
+    setRootStyle('--infusion-noise-intensity', config.value.infusionNoiseIntensity.toString());
+    setRootStyle('--infusion-noise-opacity', config.value.infusionNoiseOpacity.toString());
   }
 });
 
 watch(() => config.value.infusionImageOpacity, (opacity) => {
-  document.documentElement.style.setProperty('--infusion-opacity', opacity.toString());
+  setRootStyle('--infusion-opacity', opacity.toString());
 });
 
 watch(() => config.value.infusionImageOpacityDark, (opacity) => {
-  document.documentElement.style.setProperty('--infusion-opacity-dark', opacity.toString());
+  setRootStyle('--infusion-opacity-dark', opacity.toString());
 });
 
 watch(() => config.value.infusionBlur, (blur) => {
-  document.documentElement.style.setProperty('--infusion-blur', `${blur}px`);
+  setRootStyle('--infusion-blur', `${blur}px`);
 });
 
 watch(() => config.value.infusionNoiseIntensity, (intensity) => {
-  document.documentElement.style.setProperty('--infusion-noise-intensity', intensity.toString());
+  setRootStyle('--infusion-noise-intensity', intensity.toString());
 });
 
 watch(() => config.value.infusionNoiseOpacity, (opacity) => {
-  document.documentElement.style.setProperty('--infusion-noise-opacity', opacity.toString());
+  setRootStyle('--infusion-noise-opacity', opacity.toString());
 });
 
 watch(() => config.value.theme, (theme) => {
-  document.documentElement.classList.remove(
-    ...baseColors.map(color => `theme-${color.name}`),
-  );
-  document.documentElement.classList.add(`theme-${theme}`);
+  updateThemeClass(theme);
 });
 
 watch(isConfigReady, (ready) => {
   if (ready) {
-    document.documentElement.style.setProperty('--radius', `${config.value.radius}rem`);
-    document.documentElement.style.setProperty('--backdrop-filter-blur', `${config.value.backdropFilterBlur}px`);
-    document.documentElement.classList.add(`theme-${config.value.theme}`);
+    setRootStyle('--radius', `${config.value.radius}rem`);
+    setRootStyle('--backdrop-filter-blur', `${config.value.backdropFilterBlur}px`);
+    updateThemeClass(config.value.theme);
 
     if (config.value.infusionEnabled) {
-      document.documentElement.style.setProperty('--infusion-opacity', config.value.infusionImageOpacity.toString());
-      document.documentElement.style.setProperty('--infusion-opacity-dark', config.value.infusionImageOpacityDark.toString());
-      document.documentElement.style.setProperty('--infusion-blur', `${config.value.infusionBlur}px`);
-      document.documentElement.style.setProperty('--infusion-noise-intensity', config.value.infusionNoiseIntensity.toString());
-      document.documentElement.style.setProperty('--infusion-noise-opacity', config.value.infusionNoiseOpacity.toString());
+      setRootStyle('--infusion-opacity', config.value.infusionImageOpacity.toString());
+      setRootStyle('--infusion-opacity-dark', config.value.infusionImageOpacityDark.toString());
+      setRootStyle('--infusion-blur', `${config.value.infusionBlur}px`);
+      setRootStyle('--infusion-noise-intensity', config.value.infusionNoiseIntensity.toString());
+      setRootStyle('--infusion-noise-opacity', config.value.infusionNoiseOpacity.toString());
     }
   }
 }, { immediate: true });
@@ -182,7 +202,6 @@ watch(isConfigReady, (ready) => {
         />
       </ClientOnly>
       <div
-        vaul-drawer-wrapper
         class="animate-fade-in flex min-h-screen flex-col bg-background"
       >
         <header class="animate-fade-in z-50 sticky top-0 bg-muted/50 border-b dark:border-none dark:bg-muted/20 backdrop-blur-lg">

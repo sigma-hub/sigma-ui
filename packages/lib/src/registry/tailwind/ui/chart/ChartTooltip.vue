@@ -2,7 +2,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@ui/registry/tailwind/ui/card';
 
 defineProps<{
+  /** Heading shown above the values. */
   title?: string;
+  /** Rows to list, each with a name, color swatch, and value. */
   data: {
     name: string;
     color: string;
@@ -12,7 +14,10 @@ defineProps<{
 </script>
 
 <template>
-  <Card class="text-sm">
+  <Card
+    class="text-sm"
+    data-slot="chart-tooltip"
+  >
     <CardHeader
       v-if="title"
       class="p-3 border-b"

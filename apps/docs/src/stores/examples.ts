@@ -1,13 +1,6 @@
 import { computed, ref } from 'vue';
 import { defineStore } from 'pinia';
 import type { Example } from '../../.vitepress/theme/types/examples';
-import Mix from '../examples/mix/Example.vue';
-import Mail from '../examples/mail/Example.vue';
-import Dashboard from '../examples/dashboard/Example.vue';
-import Table from '../examples/table/Example.vue';
-import Forms from '../examples/forms/Example.vue';
-import Music from '../examples/music/Example.vue';
-import Authentication from '../examples/authentication/Example.vue';
 
 export const useExamplesStore = defineStore('examples', () => {
   const examples = computed<Example[]>(() => (
@@ -15,43 +8,38 @@ export const useExamplesStore = defineStore('examples', () => {
       {
         name: 'mix',
         code: 'https://github.com/sigma-hub/sigma-ui/tree/main/apps/docs/src/examples/mix',
-        component: Mix,
+        frameHeight: 'content',
       },
       {
         name: 'mail',
         code: 'https://github.com/sigma-hub/sigma-ui/tree/main/apps/docs/src/examples/mail',
-        component: Mail,
+        frameHeight: 'fixed',
       },
       {
         name: 'dashboard',
         code: 'https://github.com/sigma-hub/sigma-ui/tree/main/apps/docs/src/examples/dashboard',
-        component: Dashboard,
+        frameHeight: 'content',
       },
       {
         name: 'table',
         code: 'https://github.com/sigma-hub/sigma-ui/tree/main/apps/docs/src/examples/table',
-        component: Table,
+        frameHeight: 'content',
       },
       {
-        name: 'forms',
-        code: 'https://github.com/sigma-hub/sigma-ui/tree/main/apps/docs/src/examples/forms',
-        component: Forms,
-      },
-      {
-        name: 'music',
-        code: 'https://github.com/sigma-hub/sigma-ui/tree/main/apps/docs/src/examples/music',
-        component: Music,
+        name: 'settings',
+        code: 'https://github.com/sigma-hub/sigma-ui/tree/main/apps/docs/src/examples/settings',
+        frameHeight: 'content',
       },
       {
         name: 'authentication',
         code: 'https://github.com/sigma-hub/sigma-ui/tree/main/apps/docs/src/examples/authentication',
-        component: Authentication,
+        frameHeight: 'fixed',
       },
     ]
   ));
 
   const exampleName = ref<Example['name']>('mix');
-  const currentExample = computed(() => examples.value.find(e => e.name === exampleName.value));
+  const currentExample = computed(() => examples.value.find(example => example.name === exampleName.value));
 
   const setSelectedExample = (name: Example['name']) => {
     exampleName.value = name;

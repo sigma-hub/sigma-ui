@@ -1,6 +1,7 @@
 ---
 title: Breadcrumb
 description: Displays the path to the current resource using a hierarchy of links.
+source: breadcrumb
 ---
 
 ## Preview
@@ -9,9 +10,46 @@ description: Displays the path to the current resource using a hierarchy of link
 
 ## Installation
 
-```bash
-npx sigma-ui add breadcrumb
+<ComponentInstall name="breadcrumb" />
+
+## Usage
+
+```vue
+<script setup lang="ts">
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '@/components/ui/breadcrumb';
+</script>
+
+<template>
+  <Breadcrumb>
+    <BreadcrumbList>
+      <BreadcrumbItem>
+        <BreadcrumbLink href="/">
+          Home
+        </BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbSeparator />
+      <BreadcrumbItem>
+        <BreadcrumbLink href="/components">
+          Components
+        </BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbSeparator />
+      <BreadcrumbItem>
+        <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+      </BreadcrumbItem>
+    </BreadcrumbList>
+  </Breadcrumb>
+</template>
 ```
+
+Use `<BreadcrumbPage>` for the current page and `<BreadcrumbLink>` for the other items.
 
 ## Examples
 
@@ -61,8 +99,22 @@ It displays a dropdown on desktop and a drawer on mobile.
 
 ### Breadcrumb generator
 
-Alternative way of using the breadcrumb component. Provides less customization but easier to use.
+`<BreadcrumbGenerator />` is an alternative way of using the breadcrumb component. Pass a `home` item and a `model` array of items. It provides less customization but is easier to use.
 
 For this example to work, make sure to specify route `url:` and route `name:` values that are actually defined in your router.
 
 <ComponentPreview name="BreadcrumbGenerator" class="[&_.preview]:p-2" />
+
+## API Reference
+
+<!-- @include: @/content/meta/breadcrumb.md -->
+
+## Accessibility
+
+Follows the [Breadcrumb WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/): it renders a `nav` landmark with `aria-label="breadcrumb"`, an ordered list of links, and marks the current page with `aria-current="page"`.
+
+| Key | Description |
+| --- | --- |
+| <kbd>Tab</kbd> | Moves focus to the next link in the breadcrumb. |
+| <kbd>Shift</kbd> + <kbd>Tab</kbd> | Moves focus to the previous link in the breadcrumb. |
+| <kbd>Enter</kbd> | Follows the focused link. |

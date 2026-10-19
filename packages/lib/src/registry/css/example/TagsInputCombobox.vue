@@ -86,51 +86,55 @@ const filteredFrameworks = computed(() => {
 </template>
 
 <style>
-.example-sigma-ui-tags-input-combobox {
-  display: flex;
-  width: 200px;
-  align-items: center;
-  padding: 0.5rem;
-  gap: 8px;
-}
+@layer base, components;
 
-.example-sigma-ui-tags-input-combobox__items {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  padding: 0;
-  gap: 0.5rem;
-}
+@layer components {
+  .example-sigma-ui-tags-input-combobox {
+    display: flex;
+    width: 200px;
+    align-items: center;
+    padding: calc(var(--spacing) * 2);
+    gap: 8px;
+  }
 
-.example-sigma-ui-tags-input-combobox__combobox {
-  width: 100%;
-}
+  .example-sigma-ui-tags-input-combobox__items {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-tags-input-combobox__input {
-  width: 100%;
-  min-width: 50px;
-  height: 24px;
-  padding: 0;
-  border: none;
-}
+  .example-sigma-ui-tags-input-combobox__combobox {
+    width: 100%;
+  }
 
-.example-sigma-ui-tags-input-combobox__input:focus-visible {
-  box-shadow: none;
-  outline: none;
-}
+  .example-sigma-ui-tags-input-combobox__input {
+    width: 100%;
+    min-width: 50px;
+    height: 24px;
+    padding: 0;
+    border: none;
+  }
 
-.example-sigma-ui-tags-input-combobox__list {
-  width: var(--reka-popper-anchor-width);
-  border: 1px solid hsl(var(--border));
-  border-radius: var(--radius);
-  background-color: hsl(var(--popover));
-  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
-  color: hsl(var(--popover-foreground));
-  outline: none;
-  transform-origin: var(--reka-popper-transform-origin);
-}
+  .example-sigma-ui-tags-input-combobox__input:focus-visible {
+    box-shadow: none;
+    outline: none;
+  }
 
-.example-sigma-ui-tags-input-combobox__list[data-state="open"] {
-  animation: sigma-ui-fade-in 0.15s ease-out;
+  .example-sigma-ui-tags-input-combobox__list {
+    width: var(--reka-popper-anchor-width);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background-color: var(--popover);
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+    color: var(--popover-foreground);
+    outline: none;
+    transform-origin: var(--reka-popper-transform-origin);
+  }
+
+  .example-sigma-ui-tags-input-combobox__list[data-state="open"] {
+    animation: sigma-ui-fade-in 0.15s ease-out;
+  }
 }
 </style>

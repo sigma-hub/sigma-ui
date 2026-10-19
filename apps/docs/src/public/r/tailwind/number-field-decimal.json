@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "number-field-decimal",
+  "type": "registry:example",
+  "title": "NumberFieldDecimal",
+  "dependencies": [],
+  "registryDependencies": [
+    "label",
+    "number-field"
+  ],
+  "files": [
+    {
+      "path": "example/NumberFieldDecimal.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue';\nimport {\n  NumberField,\n  NumberFieldContent,\n  NumberFieldDecrement,\n  NumberFieldIncrement,\n  NumberFieldInput,\n} from '@/components/ui/number-field';\nimport { Label } from '@/components/ui/label';\n\nconst model = ref(5);\n</script>\n\n<template>\n  <NumberField\n    id=\"number\"\n    v-model=\"model\"\n    :format-options=\"{\n      signDisplay: 'exceptZero',\n      minimumFractionDigits: 1,\n    }\"\n  >\n    <Label for=\"number\">Number</Label>\n    <NumberFieldContent>\n      <NumberFieldDecrement />\n      <NumberFieldInput />\n      <NumberFieldIncrement />\n    </NumberFieldContent>\n  </NumberField>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

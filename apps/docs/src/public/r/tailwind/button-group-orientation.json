@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-group-orientation",
+  "type": "registry:example",
+  "title": "ButtonGroupOrientation",
+  "dependencies": [
+    "@lucide/vue@^1.59.0"
+  ],
+  "registryDependencies": [
+    "button",
+    "button-group"
+  ],
+  "files": [
+    {
+      "path": "example/ButtonGroupOrientation.vue",
+      "content": "<script setup lang=\"ts\">\nimport { MinusIcon, PlusIcon } from '@lucide/vue';\nimport { Button } from '@/components/ui/button';\nimport { ButtonGroup } from '@/components/ui/button-group';\n</script>\n\n<template>\n  <ButtonGroup\n    orientation=\"vertical\"\n    aria-label=\"Zoom controls\"\n  >\n    <Button\n      variant=\"outline\"\n      size=\"icon\"\n      aria-label=\"Zoom in\"\n    >\n      <PlusIcon class=\"size-4\" />\n    </Button>\n    <Button\n      variant=\"outline\"\n      size=\"icon\"\n      aria-label=\"Zoom out\"\n    >\n      <MinusIcon class=\"size-4\" />\n    </Button>\n  </ButtonGroup>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

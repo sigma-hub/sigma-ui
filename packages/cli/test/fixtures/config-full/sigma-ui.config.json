@@ -1,0 +1,19 @@
+{
+  "$schema": "https://sigma-ui.dev/schema.json",
+  "styleSystem": "css",
+  "framework": "vite",
+  "cssPath": "src/app/globals.css",
+  "baseColor": "grayscale",
+  "tailwind": {
+    "prefix": "tw-"
+  },
+  "aliases": {
+    "utils": "~/lib/utils",
+    "components": "~/components/ui",
+    "blocks": "~/blocks"
+  },
+  "componentNaming": "kebab-case",
+  "registries": {
+    "@acme": "https://acme.dev/r/{style}/{name}.json"
+  }
+}

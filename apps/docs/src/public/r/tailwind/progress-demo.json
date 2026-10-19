@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "progress-demo",
+  "type": "registry:example",
+  "title": "Progress",
+  "dependencies": [],
+  "registryDependencies": [
+    "progress"
+  ],
+  "files": [
+    {
+      "path": "example/Progress.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue';\nimport { Progress } from '@/components/ui/progress';\n\nconst progress = ref(0);\n\nsetTimeout(() => progress.value = 60, 500);\n</script>\n\n<template>\n  <Progress\n    v-model=\"progress\"\n  />\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

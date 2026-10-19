@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "time-field-form",
+  "type": "registry:example",
+  "title": "TimeFieldForm",
+  "dependencies": [
+    "@internationalized/date@^3.12.4",
+    "vee-validate@^4.15.1",
+    "zod@^4.6.7"
+  ],
+  "registryDependencies": [
+    "button",
+    "form",
+    "time-field",
+    "toaster"
+  ],
+  "files": [
+    {
+      "path": "example/TimeFieldForm.vue",
+      "content": "<script setup lang=\"ts\">\nimport { h } from 'vue';\nimport { Time } from '@internationalized/date';\nimport { useForm } from 'vee-validate';\nimport * as z from 'zod';\nimport { toast } from '@/components/ui/toaster';\nimport { Button } from '@/components/ui/button';\nimport { TimeField } from '@/components/ui/time-field';\nimport { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@/components/ui/form';\n\nconst opensAt = new Time(9);\nconst closesAt = new Time(17);\n\nconst formSchema = toTypedSchema(z.object({\n  time: z\n    .custom<Time>(value => value != null, 'A delivery time is required.')\n    .refine(value => value.compare(opensAt) >= 0 && value.compare(closesAt) <= 0, 'Deliveries run from 9:00 AM to 5:00 PM.'),\n}));\n\nconst { handleSubmit } = useForm({\n  validationSchema: formSchema,\n});\n\nconst onSubmit = handleSubmit((values) => {\n  toast('You submitted the following values:', {\n    description: h('pre', { class: 'mt-2 rounded-md bg-muted/50 p-4' }, h('code', {}, JSON.stringify({ time: values.time.toString() }, null, 2))),\n  });\n});\n</script>\n\n<template>\n  <form\n    class=\"flex max-w-xs flex-col gap-6\"\n    @submit.prevent=\"onSubmit\"\n  >\n    <FormField\n      v-slot=\"{ componentField }\"\n      name=\"time\"\n    >\n      <FormItem>\n        <FormLabel>Delivery time</FormLabel>\n        <FormControl>\n          <TimeField\n            v-bind=\"componentField\"\n          />\n        </FormControl>\n        <FormDescription>\n          Deliveries run from 9:00 AM to 5:00 PM.\n        </FormDescription>\n        <FormMessage />\n      </FormItem>\n    </FormField>\n    <Button\n      type=\"submit\"\n      class=\"w-fit\"\n    >\n      Submit\n    </Button>\n  </form>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

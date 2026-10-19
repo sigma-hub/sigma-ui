@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MinusIcon, PlusIcon } from 'lucide-vue-next';
+import { MinusIcon, PlusIcon } from '@lucide/vue';
 import { ref } from 'vue';
 import { Button } from '@ui/registry/css/ui/button';
 import {
@@ -34,7 +34,7 @@ const isOpen = ref(false);
             v-else
             class="example-sigma-ui-collapsible__icon"
           />
-          <span class="sr-only">Toggle</span>
+          <span class="sigma-ui-sr-only">Toggle</span>
         </Button>
       </CollapsibleTrigger>
     </div>
@@ -53,46 +53,62 @@ const isOpen = ref(false);
 </template>
 
 <style>
-.example-sigma-ui-collapsible {
-  display: flex;
-  width: 350px;
-  flex-direction: column;
-  gap: 0.5rem;
-}
+@layer base, components;
 
-.example-sigma-ui-collapsible__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 1rem;
-}
+@layer components {
+  .example-sigma-ui-collapsible {
+    display: flex;
+    width: 350px;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-collapsible__title {
-  font-size: 0.875rem;
-  font-weight: 600;
-}
+  .example-sigma-ui-collapsible__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 calc(var(--spacing) * 4);
+  }
 
-.example-sigma-ui-collapsible__trigger {
-  width: 2.25rem;
-  padding: 0;
-}
+  .example-sigma-ui-collapsible__title {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
 
-.example-sigma-ui-collapsible__icon {
-  width: 1rem;
-  height: 1rem;
-}
+  .example-sigma-ui-collapsible__trigger {
+    width: calc(var(--spacing) * 9);
+    padding: 0;
+  }
 
-.example-sigma-ui-collapsible__component {
-  padding: 0.75rem 1rem;
-  border: 1px solid hsl(var(--border));
-  border-radius: var(--radius);
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-}
+  .example-sigma-ui-collapsible__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 
-.example-sigma-ui-collapsible__content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  .example-sigma-ui-collapsible__component {
+    padding: calc(var(--spacing) * 3) calc(var(--spacing) * 4);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+  }
+
+  .example-sigma-ui-collapsible__content {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2);
+  }
+
+  .sigma-ui-sr-only {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border-width: 0;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
 }
 </style>

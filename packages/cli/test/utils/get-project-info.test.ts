@@ -1,9 +1,6 @@
-import path from 'pathe';
 import { describe, expect, it, vi, beforeEach, afterEach } from 'vitest';
-import fs from 'fs-extra';
 import { getProjectInfo } from '../../src/utils/get-project-info';
 
-vi.mock('fs-extra');
 vi.mock('pkg-types', () => ({
   readPackageJSON: vi.fn(),
 }));

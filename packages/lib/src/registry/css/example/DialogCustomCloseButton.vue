@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CopyIcon } from 'lucide-vue-next';
+import { CopyIcon } from '@lucide/vue';
 import { Button } from '@ui/registry/css/ui/button';
 import {
   Dialog,
@@ -33,7 +33,7 @@ import { Label } from '@ui/registry/css/ui/label';
         <div class="example-sigma-ui-dialog__share-input">
           <Label
             for="link"
-            class="sr-only"
+            class="sigma-ui-sr-only"
           >
             Link
           </Label>
@@ -48,7 +48,7 @@ import { Label } from '@ui/registry/css/ui/label';
           size="sm"
           class="example-sigma-ui-dialog__share-button"
         >
-          <span class="sr-only">Copy</span>
+          <span class="sigma-ui-sr-only">Copy</span>
           <CopyIcon class="example-sigma-ui-dialog__share-icon" />
         </Button>
       </div>
@@ -67,45 +67,61 @@ import { Label } from '@ui/registry/css/ui/label';
 </template>
 
 <style>
-.example-sigma-ui-dialog__content {
-  max-width: 425px;
-}
+@layer base, components;
 
-@media (width >= 640px) {
+@layer components {
   .example-sigma-ui-dialog__content {
     max-width: 425px;
   }
-}
 
-.example-sigma-ui-dialog__share {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
+  @media (width >= 40rem) {
+    .example-sigma-ui-dialog__content {
+      max-width: 425px;
+    }
+  }
 
-.example-sigma-ui-dialog__share-input {
-  display: grid;
-  flex: 1;
-  gap: 0.5rem;
-}
+  .example-sigma-ui-dialog__share {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-dialog__share-button {
-  padding-right: 0.75rem;
-  padding-left: 0.75rem;
-}
+  .example-sigma-ui-dialog__share-input {
+    display: grid;
+    flex: 1;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-dialog__share-icon {
-  width: 1rem;
-  height: 1rem;
-}
+  .example-sigma-ui-dialog__share-button {
+    padding-right: calc(var(--spacing) * 3);
+    padding-left: calc(var(--spacing) * 3);
+  }
 
-.example-sigma-ui-dialog__footer {
-  justify-content: flex-start;
-}
+  .example-sigma-ui-dialog__share-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 
-@media (width >= 640px) {
-  .example-sigma-ui-dialog__footer.sigma-ui-dialog-footer {
+  .example-sigma-ui-dialog__footer {
     justify-content: flex-start;
+  }
+
+  @media (width >= 40rem) {
+    .example-sigma-ui-dialog__footer.sigma-ui-dialog-footer {
+      justify-content: flex-start;
+    }
+  }
+
+  .sigma-ui-sr-only {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border-width: 0;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
   }
 }
 </style>

@@ -3,7 +3,7 @@
   &nbsp;&nbsp;SIGMA-UI
 </h1>
 
-**SIGMA-UI** - is a collection of fully customizable well-built components and blocks for Vue, using recently invented distribution method via `npx` that I call GOAT (Git Obtained As Template).
+**SIGMA-UI** is a Vue and Nuxt component collection. Copy the components into your project and edit the source.
 
 It takes away the burden of recreating the same components from scratch for every new project, giving you components that you can quickly add and modify to your design system.
 
@@ -27,8 +27,8 @@ It takes away the burden of recreating the same components from scratch for ever
 - **Supported style systems**: CSS, Tailwind 4.
 - **Is open-source**: Yes, MIT licensed.
 - **Accessibility**: Supported.
-- **Based upon**: Reka (formerly Radix-Vue) primitives.
-- **Installation method**: The components are distributed via the method I call GOAT (Git Obtained As Template) - run `npx` commands to clone the components from git registry directly to your project components directory. Unlike NPM modules, these components are copied from git registry directly into your project and give you full control over customization, instead of using just props and css overrides.
+- **Based upon**: Reka UI primitives.
+- **Installation method**: Copy-paste components with the CLI. Each item is a shadcn registry item, served from `https://sigma-ui.dev/r/{style}/{name}.json`. The CLI writes the files into your project.
 
 ## Usage
 
@@ -53,7 +53,7 @@ Created, designed, and maintained by [Aleksey Hoffman](https://github.com/alekse
 
 Special thanks to all the open-source projects and developers who have inspired and contributed to the foundation that led to the creation of this project: 
  
-- [Shadcn](https://github.com/shadcn): open-source developer that showcased the first implmentation of the GOAT distribution method and beautiful components for it. 
+- [shadcn](https://github.com/shadcn): the registry-item schema and the copy-paste distribution this CLI follows. 
 - [Zernonia](https://github.com/zernonia): open-source developer that created Reka-ui primitives which are used as the basis for this project.
 
 ## License

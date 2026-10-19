@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "alert",
+  "type": "registry:ui",
+  "title": "Alert",
+  "description": "Displays a callout for user attention.",
+  "dependencies": [
+    "class-variance-authority@^0.7.1"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/alert/Alert.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { type AlertVariants, alertVariants } from '.';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\ndefineProps<{\n  /** Visual style of the alert, such as destructive for errors. */\n  variant?: AlertVariants['variant'];\n}>();\n</script>\n\n<template>\n  <div\n    data-slot=\"alert\"\n    v-bind=\"delegatedAttrs()\"\n    :class=\"cn(alertVariants({ variant }), $attrs.class ?? '')\"\n    role=\"alert\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/alert/AlertDescription.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <div\n    data-slot=\"alert-description\"\n    v-bind=\"delegatedAttrs()\"\n    :class=\"cn('text-sm [&_p]:leading-relaxed', $attrs.class ?? '')\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/alert/AlertTitle.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <h5\n    data-slot=\"alert-title\"\n    v-bind=\"delegatedAttrs()\"\n    :class=\"cn('mb-1 font-medium leading-none tracking-tight', $attrs.class ?? '')\"\n  >\n    <slot />\n  </h5>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/alert/index.ts",
+      "content": "import { type VariantProps, cva } from 'class-variance-authority';\n\nexport { default as Alert } from './Alert.vue';\nexport { default as AlertTitle } from './AlertTitle.vue';\nexport { default as AlertDescription } from './AlertDescription.vue';\n\nexport const alertVariants = cva(\n  'relative w-full rounded-lg border p-4 [&>svg~*]:pl-7 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-foreground',\n  {\n    variants: {\n      variant: {\n        default: 'bg-background text-foreground',\n        destructive:\n          'border-destructive/50 text-destructive [&>svg]:text-red-500 dark:bg-destructive/20 dark:text-red-500 dark:border-destructive',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n    },\n  },\n);\n\nexport type AlertVariants = VariantProps<typeof alertVariants>;\n",
+      "type": "registry:ui"
+    }
+  ]
+}

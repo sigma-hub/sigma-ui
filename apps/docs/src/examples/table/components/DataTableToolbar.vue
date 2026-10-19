@@ -3,19 +3,20 @@ import type { Table } from '@tanstack/vue-table';
 import { computed } from 'vue';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import { Input } from '@ui/registry/tailwind/ui/input';
-import { XIcon } from 'lucide-vue-next';
+import { XIcon } from '@lucide/vue';
 import type { Table as TableSchema } from '../data/schema';
+import type { DataTableFeatures } from './features';
 import { priorities, statuses } from '../data/data';
 import DataTableFacetedFilter from './DataTableFacetedFilter.vue';
 import DataTableViewOptions from './DataTableViewOptions.vue';
 
 interface DataTableToolbarProps {
-  table: Table<TableSchema>;
+  table: Table<DataTableFeatures, TableSchema>;
 }
 
 const props = defineProps<DataTableToolbarProps>();
 
-const isFiltered = computed(() => props.table.getState().columnFilters.length > 0);
+const isFiltered = computed(() => props.table.atoms.columnFilters.get().length > 0);
 </script>
 
 <template>

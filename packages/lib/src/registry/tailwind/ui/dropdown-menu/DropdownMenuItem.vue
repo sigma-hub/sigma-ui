@@ -1,15 +1,30 @@
 <script setup lang="ts">
+import { useAttrs } from 'vue';
+
 import { DropdownMenuItem, type DropdownMenuItemProps, useForwardProps } from 'reka-ui';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
 
-const props = defineProps<DropdownMenuItemProps & { inset?: boolean }>();
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
+
+const props = defineProps<DropdownMenuItemProps & {
+  /** Adds left padding to align with items that have an icon or indicator. */
+  inset?: boolean;
+}>();
 
 const forwardedProps = useForwardProps(props);
 </script>
 
 <template>
   <DropdownMenuItem
-    v-bind="forwardedProps"
+    data-slot="dropdown-menu-item"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     :class="cn(
       'relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-hidden transition-colors focus:bg-secondary focus:text-secondary-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
       inset && 'pl-8',

@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { h } from 'vue';
 import { useForm } from 'vee-validate';
-import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
-import { CheckIcon, ChevronsUpDownIcon } from 'lucide-vue-next';
+import { CheckIcon, ChevronsUpDownIcon } from '@lucide/vue';
 import { toast } from '@ui/registry/css/ui/toaster';
 import { Button } from '@ui/registry/css/ui/button';
 import {
@@ -14,14 +13,7 @@ import {
   CommandItem,
   CommandList,
 } from '@ui/registry/css/ui/command';
-import {
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@ui/registry/css/ui/form';
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, toTypedSchema } from '@ui/registry/css/ui/form';
 import {
   Popover,
   PopoverContent,
@@ -42,7 +34,7 @@ const languages = [
 
 const formSchema = toTypedSchema(z.object({
   language: z.string({
-    required_error: 'Please select a language.',
+    error: 'Please select a language.',
   }),
 }));
 
@@ -120,56 +112,60 @@ const onSubmit = handleSubmit((values) => {
 </template>
 
 <style>
-.example-sigma-ui-command-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
+@layer base, components;
 
-.example-sigma-ui-command-form__item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
+@layer components {
+  .example-sigma-ui-command-form {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 6);
+  }
 
-.example-sigma-ui-command-form__trigger {
-  display: flex;
-  width: 200px;
-  justify-content: space-between;
-}
+  .example-sigma-ui-command-form__item {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-command-form__trigger--placeholder {
-  color: hsl(var(--muted-foreground));
-}
+  .example-sigma-ui-command-form__trigger {
+    display: flex;
+    width: 200px;
+    justify-content: space-between;
+  }
 
-.example-sigma-ui-command-form__chevron {
-  width: 1rem;
-  height: 1rem;
-  flex-shrink: 0;
-  margin-left: 0.5rem;
-  opacity: 0.5;
-}
+  .example-sigma-ui-command-form__trigger--placeholder {
+    color: var(--muted-foreground);
+  }
 
-.example-sigma-ui-command-form__content {
-  width: 200px;
-  padding: 0;
-}
+  .example-sigma-ui-command-form__chevron {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    flex-shrink: 0;
+    margin-left: calc(var(--spacing) * 2);
+    opacity: 0.5;
+  }
 
-.example-sigma-ui-command-form__check {
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.5rem;
-  opacity: 0;
-}
+  .example-sigma-ui-command-form__content {
+    width: 200px;
+    padding: 0;
+  }
 
-.example-sigma-ui-command-form__check--selected {
-  opacity: 1;
-}
+  .example-sigma-ui-command-form__check {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-right: calc(var(--spacing) * 2);
+    opacity: 0;
+  }
 
-.example-sigma-ui-command-form__toast-pre {
-  padding: 1rem;
-  border-radius: var(--radius);
-  margin-top: 0.5rem;
-  background-color: hsl(var(--muted) / 50%);
+  .example-sigma-ui-command-form__check--selected {
+    opacity: 1;
+  }
+
+  .example-sigma-ui-command-form__toast-pre {
+    padding: calc(var(--spacing) * 4);
+    border-radius: var(--radius);
+    margin-top: calc(var(--spacing) * 2);
+    background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  }
 }
 </style>

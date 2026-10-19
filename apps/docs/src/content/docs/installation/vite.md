@@ -44,7 +44,7 @@ And follow the steps in your terminal.
 
 ### Check styles import
 
-Make sure you are importing the global styles file that was created / modified by the `init` command:
+`init` writes `src/assets/index.css` as CSS-first Tailwind v4 and installs `tw-animate-css`. It does not create a `tailwind.config.js`. Import that file from the app entry:
 
 ```diff typescript {3}
 import { createApp } from 'vue'
@@ -52,6 +52,21 @@ import App from './App.vue'
 import './assets/index.css'
 
 createApp(App).mount('#app')
+```
+
+The stylesheet starts like this:
+
+```css
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-primary: var(--primary);
+  --radius-lg: var(--radius);
+}
 ```
 
 ### Check tsconfig
@@ -115,7 +130,7 @@ And follow the steps in your terminal.
 
 ### Check styles import
 
-Make sure you are importing the global styles file that was created / modified by the `init` command:
+`init` writes `src/assets/index.css` as CSS-first Tailwind v4 and installs `tw-animate-css`. It does not create a `tailwind.config.js`. Import that file from the app entry:
 
 ```diff typescript {3}
 import { createApp } from 'vue'
@@ -123,6 +138,21 @@ import App from './App.vue'
 import './assets/index.css'
 
 createApp(App).mount('#app')
+```
+
+The stylesheet starts like this:
+
+```css
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-primary: var(--primary);
+  --radius-lg: var(--radius);
+}
 ```
 
 ### Check tsconfig
@@ -163,61 +193,35 @@ In case you get an error importing "path", install node types:
 npm i -D @types/node
 ```
 
-### Add Tailwind and its configuration
+### Tailwind CSS
 
-If you chose Tailwind style system during `init`, and don't already have Tailwind setup in your project, and didn't chose the option that automatically sets up Tailwind for you, you'll need to setup Tailwind yourself (see [Tailwind docs](https://tailwindcss.com/docs/installation/framework-guides) for more details):
+For the Tailwind style system, `init` installs `tailwindcss`, `@tailwindcss/vite`, and `tw-animate-css`, registers the Vite plugin, and writes `src/assets/index.css`. Theme tokens live in that file under `@theme inline`. There is no `tailwind.config.js`.
 
-#### Install Tailwind deps
-
-Vite already has [`postcss`](https://github.com/vitejs/vite/blob/main/packages/vite/package.json#89) dependency so you don't have to install it again in your package.json
+Install the same packages yourself when you set Tailwind up by hand:
 
 ```bash
 npm install -D tailwindcss @tailwindcss/vite
+npm install tw-animate-css
 ```
 
-#### Configure Tailwind
-If you are using a separate `postcss.config.js` file, see the `postcss.config.js` tab, otherwise config Tailwind directly in the `vite.config` file:
+```typescript
+import path from 'node:path'
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import tailwindcss from '@tailwindcss/vite'
 
-<TabsMarkdown>
-  <TabMarkdown title="vite.config">
-
-  #### `vite.config`
-
-  ```typescript {4,5,14-18}
-  import path from 'node:path'
-  import { defineConfig } from 'vite'
-  import vue from '@vitejs/plugin-vue'
-  import tailwindcss from '@tailwindcss/vite'
-
-  export default defineConfig({
-    plugins: [
-      vue(), 
-      tailwindcss()
-    ],
-    resolve: {
-      alias: {
-        '@': path.resolve(__dirname, './src'),
-      },
+export default defineConfig({
+  plugins: [
+    vue(),
+    tailwindcss(),
+  ],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
     },
-  })
-  ```
-
-  </TabMarkdown>
-
-<TabMarkdown title="postcss.config.js">
-
-#### `postcss.config.js`
-
-  ```js
-  module.exports = {
-    plugins: {
-      "@tailwindcss/postcss": {},
-    },
-  }
-  ```
-
-  </TabMarkdown>
-</TabsMarkdown>
+  },
+})
+```
 
 ### Add components
 

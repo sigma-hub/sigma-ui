@@ -7,4 +7,4 @@ description: Authentication-related building blocks
 import BlockGroupPreview from '../../../.vitepress/theme/components/BlockGroupPreview.vue'
 </script>
 
-<BlockGroupPreview dir="auth" />
+<BlockGroupPreview category="authentication" />

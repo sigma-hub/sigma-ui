@@ -1,6 +1,17 @@
 <script lang="ts" setup>
+import { useAttrs } from 'vue';
+
 import { RangeCalendarRoot, type RangeCalendarRootEmits, type RangeCalendarRootProps, useForwardPropsEmits } from 'reka-ui';
 import { RangeCalendarCell, RangeCalendarCellTrigger, RangeCalendarGrid, RangeCalendarGridBody, RangeCalendarGridHead, RangeCalendarGridRow, RangeCalendarHeadCell, RangeCalendarHeader, RangeCalendarHeading, RangeCalendarNextButton, RangeCalendarPrevButton } from '.';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<RangeCalendarRootProps>();
 const emits = defineEmits<RangeCalendarRootEmits>();
@@ -12,7 +23,9 @@ const forwarded = useForwardPropsEmits(props, emits);
   <RangeCalendarRoot
     v-slot="{ grid, weekDays }"
     class="sigma-ui-range-calendar"
-    v-bind="forwarded"
+    data-slot="range-calendar"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
+    :class="[$attrs.class]"
   >
     <RangeCalendarHeader>
       <RangeCalendarPrevButton />
@@ -59,26 +72,30 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
-.sigma-ui-range-calendar {
-  padding: 0.75rem;
-}
+@layer base, components;
 
-.sigma-ui-range-calendar__grid-container {
-  display: flex;
-  flex-direction: column;
-  margin-top: 1rem;
-  gap: 1rem;
-}
+@layer components {
+  .sigma-ui-range-calendar {
+    padding: calc(var(--spacing) * 3);
+  }
 
-.sigma-ui-range-calendar__week-row {
-  width: 100%;
-  margin-top: 0.5rem;
-}
-
-@media (width >= 640px) {
   .sigma-ui-range-calendar__grid-container {
-    flex-direction: row;
-    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: calc(var(--spacing) * 4);
+    gap: calc(var(--spacing) * 4);
+  }
+
+  .sigma-ui-range-calendar__week-row {
+    width: 100%;
+    margin-top: calc(var(--spacing) * 2);
+  }
+
+  @media (width >= 40rem) {
+    .sigma-ui-range-calendar__grid-container {
+      flex-direction: row;
+      gap: calc(var(--spacing) * 4);
+    }
   }
 }
 </style>

@@ -10,11 +10,12 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@ui/registry/tailwind/ui/dropdown-menu';
-import { Settings2Icon } from 'lucide-vue-next';
+import { Settings2Icon } from '@lucide/vue';
 import type { Task } from '../data/schema';
+import type { DataTableFeatures } from './features';
 
 interface DataTableViewOptionsProps {
-  table: Table<Task>;
+  table: Table<DataTableFeatures, Task>;
 }
 
 const props = defineProps<DataTableViewOptionsProps>();

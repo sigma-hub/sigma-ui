@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "table-demo",
+  "type": "registry:example",
+  "title": "Table",
+  "dependencies": [],
+  "registryDependencies": [
+    "table"
+  ],
+  "files": [
+    {
+      "path": "example/Table.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  Table,\n  TableBody,\n  TableCaption,\n  TableCell,\n  TableHead,\n  TableHeader,\n  TableRow,\n} from '@/components/ui/table';\n\nconst invoices = [\n  {\n    invoice: 'INV001',\n    paymentStatus: 'Paid',\n    totalAmount: '$250.00',\n    paymentMethod: 'Credit Card',\n  },\n  {\n    invoice: 'INV002',\n    paymentStatus: 'Pending',\n    totalAmount: '$150.00',\n    paymentMethod: 'PayPal',\n  },\n  {\n    invoice: 'INV003',\n    paymentStatus: 'Unpaid',\n    totalAmount: '$350.00',\n    paymentMethod: 'Bank Transfer',\n  },\n  {\n    invoice: 'INV004',\n    paymentStatus: 'Paid',\n    totalAmount: '$450.00',\n    paymentMethod: 'Credit Card',\n  },\n  {\n    invoice: 'INV005',\n    paymentStatus: 'Paid',\n    totalAmount: '$550.00',\n    paymentMethod: 'PayPal',\n  },\n  {\n    invoice: 'INV006',\n    paymentStatus: 'Pending',\n    totalAmount: '$200.00',\n    paymentMethod: 'Bank Transfer',\n  },\n  {\n    invoice: 'INV007',\n    paymentStatus: 'Unpaid',\n    totalAmount: '$300.00',\n    paymentMethod: 'Credit Card',\n  },\n];\n</script>\n\n<template>\n  <Table>\n    <TableCaption>A list of your recent invoices.</TableCaption>\n    <TableHeader>\n      <TableRow>\n        <TableHead class=\"example-sigma-ui-table__head-invoice\">\n          Invoice\n        </TableHead>\n        <TableHead>Status</TableHead>\n        <TableHead>Method</TableHead>\n        <TableHead class=\"example-sigma-ui-table__head-amount\">\n          Amount\n        </TableHead>\n      </TableRow>\n    </TableHeader>\n    <TableBody>\n      <TableRow\n        v-for=\"invoice in invoices\"\n        :key=\"invoice.invoice\"\n      >\n        <TableCell class=\"example-sigma-ui-table__cell-invoice\">\n          {{ invoice.invoice }}\n        </TableCell>\n        <TableCell>{{ invoice.paymentStatus }}</TableCell>\n        <TableCell>{{ invoice.paymentMethod }}</TableCell>\n        <TableCell class=\"example-sigma-ui-table__cell-amount\">\n          {{ invoice.totalAmount }}\n        </TableCell>\n      </TableRow>\n    </TableBody>\n  </Table>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .example-sigma-ui-table__head-invoice {\n    width: calc(var(--spacing) * 25);\n  }\n\n  .example-sigma-ui-table__head-amount {\n    text-align: right;\n  }\n\n  .example-sigma-ui-table__cell-invoice {\n    font-weight: 500;\n  }\n\n  .example-sigma-ui-table__cell-amount {\n    text-align: right;\n  }\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

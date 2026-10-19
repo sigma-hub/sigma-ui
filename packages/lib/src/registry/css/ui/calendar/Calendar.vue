@@ -1,6 +1,17 @@
 <script lang="ts" setup>
+import { useAttrs } from 'vue';
+
 import { CalendarRoot, type CalendarRootEmits, type CalendarRootProps, useForwardPropsEmits } from 'reka-ui';
 import { CalendarCell, CalendarCellTrigger, CalendarGrid, CalendarGridBody, CalendarGridHead, CalendarGridRow, CalendarHeadCell, CalendarHeader, CalendarHeading, CalendarNextButton, CalendarPrevButton } from '.';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<CalendarRootProps>();
 const emits = defineEmits<CalendarRootEmits>();
@@ -12,7 +23,9 @@ const forwarded = useForwardPropsEmits(props, emits);
   <CalendarRoot
     v-slot="{ grid, weekDays }"
     class="sigma-ui-calendar"
-    v-bind="forwarded"
+    data-slot="calendar"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
+    :class="[$attrs.class]"
   >
     <CalendarHeader>
       <CalendarPrevButton />
@@ -59,26 +72,30 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
-.sigma-ui-calendar {
-  padding: 0.75rem;
-}
+@layer base, components;
 
-.sigma-ui-calendar__grid-container {
-  display: flex;
-  flex-direction: column;
-  margin-top: 1rem;
-  gap: 1rem;
-}
+@layer components {
+  .sigma-ui-calendar {
+    padding: calc(var(--spacing) * 3);
+  }
 
-.sigma-ui-calendar__week-row {
-  width: 100%;
-  margin-top: 0.5rem;
-}
-
-@media (width >= 640px) {
   .sigma-ui-calendar__grid-container {
-    flex-direction: row;
-    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: calc(var(--spacing) * 4);
+    gap: calc(var(--spacing) * 4);
+  }
+
+  .sigma-ui-calendar__week-row {
+    width: 100%;
+    margin-top: calc(var(--spacing) * 2);
+  }
+
+  @media (width >= 40rem) {
+    .sigma-ui-calendar__grid-container {
+      flex-direction: row;
+      gap: calc(var(--spacing) * 4);
+    }
   }
 }
 </style>

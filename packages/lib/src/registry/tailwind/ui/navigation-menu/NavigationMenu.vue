@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useAttrs } from 'vue';
+
 import {
   NavigationMenuRoot,
   type NavigationMenuRootEmits,
@@ -7,6 +9,15 @@ import {
 } from 'reka-ui';
 import NavigationMenuViewport from './NavigationMenuViewport.vue';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<NavigationMenuRootProps>();
 const emits = defineEmits<NavigationMenuRootEmits>();
@@ -16,7 +27,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <NavigationMenuRoot
-    v-bind="forwarded"
+    data-slot="navigation-menu"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     :class="cn('relative z-10 flex max-w-max flex-1 items-center justify-center', $attrs.class ?? '')"
   >
     <slot />

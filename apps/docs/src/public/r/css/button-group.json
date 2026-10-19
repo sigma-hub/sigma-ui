@@ -1,0 +1,36 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-group",
+  "type": "registry:ui",
+  "title": "Button Group",
+  "description": "Join related buttons, inputs, and text into a single control.",
+  "dependencies": [
+    "class-variance-authority@^0.7.1",
+    "reka-ui@^2.11.0"
+  ],
+  "registryDependencies": [
+    "separator"
+  ],
+  "files": [
+    {
+      "path": "ui/button-group/ButtonGroup.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { type ButtonGroupVariants, buttonGroupVariants } from '.';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\ninterface ButtonGroupProps {\n  /**\n   * Direction in which the buttons are joined.\n   */\n  orientation?: ButtonGroupVariants['orientation'];\n}\n\nconst props = withDefaults(defineProps<ButtonGroupProps>(), {\n  orientation: 'horizontal',\n});\n\ndefineSlots<{\n  /**\n   * Buttons, inputs, `ButtonGroupText`, `ButtonGroupSeparator`, or nested `ButtonGroup` components.\n   */\n  default?: () => unknown;\n}>();\n</script>\n\n<template>\n  <div\n    data-slot=\"button-group\"\n    v-bind=\"delegatedAttrs()\"\n    role=\"group\"\n    :data-orientation=\"props.orientation\"\n    :class=\"[buttonGroupVariants({ orientation: props.orientation }), $attrs.class]\"\n  >\n    <slot />\n  </div>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .sigma-ui-button-group {\n    display: flex;\n    width: fit-content;\n    align-items: stretch;\n  }\n\n  .sigma-ui-button-group > :focus-visible {\n    position: relative;\n    z-index: 10;\n  }\n\n  .sigma-ui-button-group > input {\n    flex: 1;\n  }\n\n  .sigma-ui-button-group:has(> .sigma-ui-button-group) {\n    gap: calc(var(--spacing) * 2);\n  }\n\n  .sigma-ui-button-group--horizontal > :not(:first-child) {\n    border-left-width: 0;\n    border-bottom-left-radius: 0;\n    border-top-left-radius: 0;\n  }\n\n  .sigma-ui-button-group--horizontal > :not(:last-child) {\n    border-bottom-right-radius: 0;\n    border-top-right-radius: 0;\n  }\n\n  .sigma-ui-button-group--vertical {\n    flex-direction: column;\n  }\n\n  .sigma-ui-button-group--vertical > :not(:first-child) {\n    border-top-width: 0;\n    border-top-left-radius: 0;\n    border-top-right-radius: 0;\n  }\n\n  .sigma-ui-button-group--vertical > :not(:last-child) {\n    border-bottom-left-radius: 0;\n    border-bottom-right-radius: 0;\n  }\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/button-group/ButtonGroupSeparator.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport type { SeparatorProps } from 'reka-ui';\nimport { Separator } from '@/components/ui/separator';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = withDefaults(defineProps<SeparatorProps>(), {\n  orientation: 'vertical',\n});\n</script>\n\n<template>\n  <Separator\n    data-slot=\"button-group-separator\"\n    v-bind=\"{ ...props, ...delegatedAttrs() }\"\n    class=\"sigma-ui-button-group-separator\"\n    :class=\"[$attrs.class]\"\n  />\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .sigma-ui-separator.sigma-ui-button-group-separator {\n    position: relative;\n    align-self: stretch;\n    margin: 0;\n    background-color: var(--border);\n  }\n\n  .sigma-ui-separator.sigma-ui-button-group-separator[data-orientation=\"vertical\"] {\n    height: auto;\n  }\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/button-group/ButtonGroupText.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { Primitive, type PrimitiveProps } from 'reka-ui';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nwithDefaults(defineProps<PrimitiveProps>(), {\n  as: 'div',\n});\n\ndefineSlots<{\n  /**\n   * Static text or an icon, such as a URL prefix or a unit.\n   */\n  default?: () => unknown;\n}>();\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"button-group-text\"\n    :as=\"as\"\n    :as-child=\"asChild\"\n    class=\"sigma-ui-button-group-text\"\n    v-bind=\"delegatedAttrs()\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </Primitive>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .sigma-ui-button-group-text {\n    display: flex;\n    align-items: center;\n    padding: 0 calc(var(--spacing) * 4);\n    border: 1px solid var(--border);\n    border-radius: var(--radius-md);\n    background-color: var(--muted);\n    font-size: 0.875rem;\n    font-weight: 500;\n    gap: calc(var(--spacing) * 2);\n  }\n\n  .sigma-ui-button-group-text svg {\n    pointer-events: none;\n  }\n\n  .sigma-ui-button-group-text svg:not([class*=\"size-\"]) {\n    width: calc(var(--spacing) * 4);\n    height: calc(var(--spacing) * 4);\n  }\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/button-group/index.ts",
+      "content": "import { type VariantProps, cva } from 'class-variance-authority';\n\nexport { default as ButtonGroup } from './ButtonGroup.vue';\n\nexport { default as ButtonGroupSeparator } from './ButtonGroupSeparator.vue';\n\nexport { default as ButtonGroupText } from './ButtonGroupText.vue';\n\nexport const buttonGroupVariants = cva(\n  'sigma-ui-button-group',\n  {\n    variants: {\n      orientation: {\n        horizontal: 'sigma-ui-button-group--horizontal',\n        vertical: 'sigma-ui-button-group--vertical',\n      },\n    },\n    defaultVariants: {\n      orientation: 'horizontal',\n    },\n  },\n);\n\nexport type ButtonGroupVariants = VariantProps<typeof buttonGroupVariants>;\n",
+      "type": "registry:ui"
+    }
+  ]
+}

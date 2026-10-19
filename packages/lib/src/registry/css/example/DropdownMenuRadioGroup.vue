@@ -40,7 +40,11 @@ const position = ref('bottom');
 </template>
 
 <style>
-.example-sigma-ui-dropdown-radio__content {
-  width: 14rem;
+@layer base, components;
+
+@layer components {
+  .example-sigma-ui-dropdown-radio__content {
+    width: calc(var(--spacing) * 56);
+  }
 }
 </style>

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox-with-description",
+  "type": "registry:example",
+  "title": "CheckboxWithDescription",
+  "dependencies": [],
+  "registryDependencies": [
+    "checkbox"
+  ],
+  "files": [
+    {
+      "path": "example/CheckboxWithDescription.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue';\nimport { Checkbox } from '@/components/ui/checkbox';\n\nconst termsAccepted = ref<boolean | 'indeterminate'>(false);\nconst disabledTerms = ref<boolean | 'indeterminate'>(false);\n</script>\n\n<template>\n  <div class=\"flex flex-col gap-8\">\n    <div class=\"items-start flex gap-x-2\">\n      <Checkbox\n        id=\"checkbox-with-description-1\"\n        :model-value=\"termsAccepted\"\n        @update:model-value=\"termsAccepted = $event\"\n      />\n      <div class=\"grid gap-1.5 leading-none peer-[&:has([disabled])]:opacity-70\">\n        <label\n          for=\"checkbox-with-description-1\"\n          class=\"text-sm font-medium leading-none\"\n        >\n          Accept terms and conditions\n        </label>\n        <p class=\"text-sm text-muted-foreground\">\n          You agree to our Terms of Service and Privacy Policy.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"items-start flex gap-x-2\">\n      <Checkbox\n        id=\"checkbox-with-description-2\"\n        disabled\n        :model-value=\"disabledTerms\"\n        @update:model-value=\"disabledTerms = $event\"\n      />\n      <div class=\"grid gap-1.5 leading-none peer-[&:has([disabled])]:opacity-70\">\n        <label\n          for=\"checkbox-with-description-2\"\n          class=\"text-sm font-medium leading-none\"\n        >\n          Accept terms and conditions\n        </label>\n        <p class=\"text-sm text-muted-foreground\">\n          You agree to our Terms of Service and Privacy Policy.\n        </p>\n      </div>\n    </div>\n  </div>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

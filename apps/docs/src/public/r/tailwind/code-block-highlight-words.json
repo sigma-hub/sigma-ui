@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-block-highlight-words",
+  "type": "registry:example",
+  "title": "CodeBlockHighlightWords",
+  "dependencies": [],
+  "registryDependencies": [
+    "code-block"
+  ],
+  "files": [
+    {
+      "path": "example/CodeBlockHighlightWords.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  CodeBlock,\n  CodeBlockContent,\n  useHighlightedCode,\n} from '@/components/ui/code-block';\n\nconst code = `const { data, error, isFetching } = useFetch('/api/orders').json();\n\nwatch(data, (orders) => {\n  console.log(\\`Loaded \\${orders.length} orders\\`);\n});`;\n\nconst words = ['useFetch', /\\bdata\\b/];\nconst { lines } = useHighlightedCode(code, 'ts');\n</script>\n\n<template>\n  <CodeBlock>\n    <CodeBlockContent\n      :code=\"code\"\n      :lines=\"lines\"\n      language=\"ts\"\n      :highlight-words=\"words\"\n    />\n  </CodeBlock>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

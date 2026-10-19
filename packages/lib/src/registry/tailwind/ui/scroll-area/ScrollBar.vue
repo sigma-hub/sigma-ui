@@ -1,6 +1,17 @@
 <script setup lang="ts">
+import { useAttrs } from 'vue';
+
 import { ScrollAreaScrollbar, type ScrollAreaScrollbarProps, ScrollAreaThumb } from 'reka-ui';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = withDefaults(defineProps<ScrollAreaScrollbarProps>(), {
   orientation: 'vertical',
@@ -9,7 +20,8 @@ const props = withDefaults(defineProps<ScrollAreaScrollbarProps>(), {
 
 <template>
   <ScrollAreaScrollbar
-    v-bind="props"
+    data-slot="scroll-bar"
+    v-bind="{ ...props, ...delegatedAttrs() }"
     :class="
       cn('flex touch-none select-none transition-colors',
          orientation === 'vertical'

@@ -1,0 +1,12 @@
+/blocks/settings-forms /blocks/settings 301
+/blocks/settings-forms.html /blocks/settings 301
+/components/tag-group /components/tags-input 301
+/components/tag-group.html /components/tags-input 301
+/components/month-picker /components/date-picker 301
+/components/month-picker.html /components/date-picker 301
+/components/year-picker /components/date-picker 301
+/components/year-picker.html /components/date-picker 301
+/r/css/app-shell.json /r/css/dashboard-app-shell.json 301
+/r/tailwind/app-shell.json /r/tailwind/dashboard-app-shell.json 301
+/r/css/mail-inbox.json /r/css/dashboard-mail.json 301
+/r/tailwind/mail-inbox.json /r/tailwind/dashboard-mail.json 301

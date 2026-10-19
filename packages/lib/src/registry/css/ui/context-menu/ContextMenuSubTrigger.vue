@@ -1,21 +1,36 @@
 <script setup lang="ts">
+import { useAttrs } from 'vue';
+
 import {
   ContextMenuSubTrigger,
   type ContextMenuSubTriggerProps,
   useForwardProps,
 } from 'reka-ui';
-import { ChevronRightIcon } from 'lucide-vue-next';
+import { ChevronRightIcon } from '@lucide/vue';
+defineOptions({
+  inheritAttrs: false,
+});
 
-const props = defineProps<ContextMenuSubTriggerProps & { inset?: boolean }>();
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
+
+const props = defineProps<ContextMenuSubTriggerProps & {
+  /** Adds left padding to align with items that have an icon or indicator. */
+  inset?: boolean;
+}>();
 
 const forwardedProps = useForwardProps(props);
 </script>
 
 <template>
   <ContextMenuSubTrigger
-    v-bind="forwardedProps"
+    data-slot="context-menu-sub-trigger"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     class="sigma-ui-context-menu-sub-trigger"
-    :class="[{ 'sigma-ui-context-menu-sub-trigger--inset': inset }]"
+    :class="[{ 'sigma-ui-context-menu-sub-trigger--inset': inset }, $attrs.class]"
   >
     <slot />
     <ChevronRightIcon class="sigma-ui-context-menu-sub-trigger__icon" />
@@ -23,35 +38,39 @@ const forwardedProps = useForwardProps(props);
 </template>
 
 <style>
-.sigma-ui-context-menu-sub-trigger {
-  display: flex;
-  align-items: center;
-  padding: 0.375rem 0.5rem;
-  border-radius: var(--radius-sm);
-  cursor: default;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  outline: none;
-  user-select: none;
-}
+@layer base, components;
 
-.sigma-ui-context-menu-sub-trigger:focus {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
-}
+@layer components {
+  .sigma-ui-context-menu-sub-trigger {
+    display: flex;
+    align-items: center;
+    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
+    border-radius: var(--radius-sm);
+    cursor: default;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    outline: none;
+    user-select: none;
+  }
 
-.sigma-ui-context-menu-sub-trigger[data-state="open"] {
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
-}
+  .sigma-ui-context-menu-sub-trigger:focus {
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+  }
 
-.sigma-ui-context-menu-sub-trigger--inset {
-  padding-left: 2rem;
-}
+  .sigma-ui-context-menu-sub-trigger[data-state="open"] {
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+  }
 
-.sigma-ui-context-menu-sub-trigger__icon {
-  width: 1rem;
-  height: 1rem;
-  margin-left: auto;
+  .sigma-ui-context-menu-sub-trigger--inset {
+    padding-left: calc(var(--spacing) * 8);
+  }
+
+  .sigma-ui-context-menu-sub-trigger__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    margin-left: auto;
+  }
 }
 </style>

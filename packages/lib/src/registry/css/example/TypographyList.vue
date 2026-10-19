@@ -13,12 +13,16 @@
 </template>
 
 <style>
-.example-sigma-ui-typography__list {
-  margin: 1.5rem 0 1.5rem 1.5rem;
-  list-style-type: disc;
-}
+@layer base, components;
 
-.example-sigma-ui-typography__list-item {
-  margin-top: 0.5rem;
+@layer components {
+  .example-sigma-ui-typography__list {
+    margin: calc(var(--spacing) * 6) 0 calc(var(--spacing) * 6) calc(var(--spacing) * 6);
+    list-style-type: disc;
+  }
+
+  .example-sigma-ui-typography__list-item {
+    margin-top: calc(var(--spacing) * 2);
+  }
 }
 </style>

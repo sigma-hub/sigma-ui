@@ -1,11 +1,24 @@
 <script setup lang="ts">
-import { SelectLabel, type SelectLabelProps } from 'reka-ui';
+import { useAttrs } from 'vue';
 
-const props = defineProps<SelectLabelProps>();
+import { SelectLabel, type SelectLabelProps } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
+
+defineProps<SelectLabelProps>();
 </script>
 
 <template>
   <SelectLabel
+    data-slot="select-label"
+    v-bind="delegatedAttrs()"
     class="sigma-ui-select-label"
     :class="[$attrs.class]"
   >
@@ -14,9 +27,13 @@ const props = defineProps<SelectLabelProps>();
 </template>
 
 <style>
-.sigma-ui-select-label {
-  padding: 0.375rem 0.5rem 0.375rem 2rem;
-  font-size: 0.875rem;
-  font-weight: 600;
+@layer base, components;
+
+@layer components {
+  .sigma-ui-select-label {
+    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+  }
 }
 </style>

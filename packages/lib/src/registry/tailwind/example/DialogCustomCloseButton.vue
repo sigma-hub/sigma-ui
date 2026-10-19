@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CopyIcon } from 'lucide-vue-next';
+import { CopyIcon } from '@lucide/vue';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import {
   Dialog,

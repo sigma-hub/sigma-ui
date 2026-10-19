@@ -34,39 +34,43 @@ const plugin = Autoplay({
 </template>
 
 <style>
-.example-sigma-ui-carousel-plugin {
-  position: relative;
-  width: 100%;
-  max-width: 20rem;
-}
+@layer base, components;
 
-.example-sigma-ui-carousel-plugin__slide {
-  padding: 0.25rem;
-}
+@layer components {
+  .example-sigma-ui-carousel-plugin {
+    position: relative;
+    width: 100%;
+    max-width: 20rem;
+  }
 
-.example-sigma-ui-carousel-plugin__content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-  aspect-ratio: 1;
-}
+  .example-sigma-ui-carousel-plugin__slide {
+    padding: calc(var(--spacing) * 1);
+  }
 
-.example-sigma-ui-carousel-plugin__number {
-  font-size: 2.25rem;
-  font-weight: 600;
-}
+  .example-sigma-ui-carousel-plugin__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(var(--spacing) * 6);
+    aspect-ratio: 1;
+  }
 
-.example-sigma-ui-carousel-plugin__item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-  border: 1px solid hsl(var(--border));
-  border-radius: var(--radius);
-  aspect-ratio: 1;
-  font-size: 2.25rem;
-  font-weight: 600;
-  user-select: none;
+  .example-sigma-ui-carousel-plugin__number {
+    font-size: 2.25rem;
+    font-weight: 600;
+  }
+
+  .example-sigma-ui-carousel-plugin__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(var(--spacing) * 6);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    aspect-ratio: 1;
+    font-size: 2.25rem;
+    font-weight: 600;
+    user-select: none;
+  }
 }
 </style>

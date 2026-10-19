@@ -1,50 +1,69 @@
 ---
 title: Bar
-description: A line chart visually represents data using rectangular bars of varying lengths to compare quantities across different categories or groups.
-source: packages/lib/src/registry/tailwind/ui/chart-bar
+description: A bar chart compares quantities across categories with rectangular bars.
+source: chart-bar
 label: Alpha
 ---
 
-<ComponentPreview name="BarChart"  />
+## Preview
+
+<ComponentPreview name="BarChart" />
 
 ## Installation
 
-<Callout>
-  Requires Vue >= 3.3
-</Callout>
-
-<Steps>
-
-### Run the following command
-
-```bash
-npx sigma-ui add chart card chart-bar
-```
+<ComponentInstall name="chart-bar" />
 
 ### Setup
 
-Follow the [guide](/components/charts.html#installation) to complete the setup.
+Charts need the Unovis color variables from the [Charts installation](/components/charts#installation).
 
-</Steps>
+## Usage
 
-## API
+```vue
+<script setup lang="ts">
+import { BarChart } from '@/components/ui/chart-bar';
 
-<!-- @include: @/content/meta/BarChart.md -->
+const data = [
+  { name: 'Jan', total: 1200 },
+  { name: 'Feb', total: 1600 },
+];
+</script>
+
+<template>
+  <BarChart
+    :data="data"
+    index="name"
+    :categories="['total']"
+  />
+</template>
+```
+
+Set `type` to `stacked` to stack the series. `roundedCorners` rounds the bar corners, in pixels.
 
 ## Examples
 
 ### Stacked
 
-You can stack the bar chart by settings prop `type` to `stacked`.
-
-<ComponentPreview name="BarChartStacked"  />
+<ComponentPreview name="BarChartStacked" />
 
 ### Rounded
 
-<ComponentPreview name="BarChartRounded"  />
+<ComponentPreview name="BarChartRounded" />
 
-### Custom Tooltip
+### Custom tooltip
 
-If you want to render custom tooltip, you can easily pass in a custom component. Refer to prop definition [here](/components/charts.html#custom-tooltip).
+Pass a component to `customTooltip`. It receives `title` and `data`. See the [Charts](/components/charts#custom-tooltip) page for the prop shape.
 
-<ComponentPreview name="BarChartCustomTooltip"  />
+<ComponentPreview name="BarChartCustomTooltip" />
+
+## API Reference
+
+<!-- @include: @/content/meta/chart-bar.md -->
+
+## Accessibility
+
+The chart is an SVG graphic. Hovering a bar shows a tooltip. Give the surrounding section a heading or caption that states what the chart measures, and provide the same numbers in a table when the exact values matter.
+
+| Key | Description |
+| --- | --- |
+| <kbd>Tab</kbd> | Moves focus past the chart. Bars are not individually focusable. |

@@ -1,20 +1,23 @@
 <script setup lang="ts">
-import type {
-  ColumnDef,
-  ColumnFiltersState,
-  SortingState,
-  VisibilityState,
-} from '@tanstack/vue-table';
+import type { ColumnDef } from '@tanstack/vue-table';
 import {
+  columnFilteringFeature,
+  columnVisibilityFeature,
+  createFilteredRowModel,
+  createPaginatedRowModel,
+  createSortedRowModel,
+  filterFn_includesString,
   FlexRender,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  useVueTable,
+  rowPaginationFeature,
+  rowSelectionFeature,
+  rowSortingFeature,
+  sortFn_alphanumeric,
+  sortFn_text,
+  tableFeatures,
+  useTable,
 } from '@tanstack/vue-table';
-import { h, ref } from 'vue';
-import { ChevronDownIcon, ChevronsUpDownIcon } from 'lucide-vue-next';
+import { h } from 'vue';
+import { ChevronDownIcon, ChevronsUpDownIcon } from '@lucide/vue';
 import DropdownAction from '../DataTableMenu.vue';
 import { Button } from '@ui/registry/css/ui/button';
 import { Checkbox } from '@ui/registry/css/ui/checkbox';
@@ -34,7 +37,6 @@ import {
   TableRow,
 } from '@ui/registry/css/ui/table';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@ui/registry/css/ui/card';
-import { valueUpdater } from '@ui/utils';
 
 export interface Payment {
   id: string;
@@ -76,7 +78,20 @@ const data: Payment[] = [
   },
 ];
 
-const columns: ColumnDef<Payment>[] = [
+const features = tableFeatures({
+  columnFilteringFeature,
+  columnVisibilityFeature,
+  rowPaginationFeature,
+  rowSelectionFeature,
+  rowSortingFeature,
+  filteredRowModel: createFilteredRowModel(),
+  paginatedRowModel: createPaginatedRowModel(),
+  sortedRowModel: createSortedRowModel(),
+  filterFns: { includesString: filterFn_includesString },
+  sortFns: { alphanumeric: sortFn_alphanumeric, text: sortFn_text },
+});
+
+const columns: ColumnDef<typeof features, Payment>[] = [
   {
     id: 'select',
     header: ({ table }) => h(Checkbox, {
@@ -134,36 +149,10 @@ const columns: ColumnDef<Payment>[] = [
   },
 ];
 
-const sorting = ref<SortingState>([]);
-const columnFilters = ref<ColumnFiltersState>([]);
-const columnVisibility = ref<VisibilityState>({});
-const rowSelection = ref({});
-
-const table = useVueTable({
+const table = useTable({
+  features,
   data,
   columns,
-  getCoreRowModel: getCoreRowModel(),
-  getPaginationRowModel: getPaginationRowModel(),
-  getSortedRowModel: getSortedRowModel(),
-  getFilteredRowModel: getFilteredRowModel(),
-  onSortingChange: updaterOrValue => valueUpdater(updaterOrValue, sorting),
-  onColumnFiltersChange: updaterOrValue => valueUpdater(updaterOrValue, columnFilters),
-  onColumnVisibilityChange: updaterOrValue => valueUpdater(updaterOrValue, columnVisibility),
-  onRowSelectionChange: updaterOrValue => valueUpdater(updaterOrValue, rowSelection),
-  state: {
-    get sorting() {
-      return sorting.value;
-    },
-    get columnFilters() {
-      return columnFilters.value;
-    },
-    get columnVisibility() {
-      return columnVisibility.value;
-    },
-    get rowSelection() {
-      return rowSelection.value;
-    },
-  },
 });
 </script>
 
@@ -220,8 +209,7 @@ const table = useVueTable({
                 >
                   <FlexRender
                     v-if="!header.isPlaceholder"
-                    :render="header.column.columnDef.header"
-                    :props="header.getContext()"
+                    :header="header"
                   />
                 </TableHead>
               </TableRow>
@@ -238,10 +226,7 @@ const table = useVueTable({
                     :key="cell.id"
                     class="[&:has([role=checkbox])]:pl-3"
                   >
-                    <FlexRender
-                      :render="cell.column.columnDef.cell"
-                      :props="cell.getContext()"
-                    />
+                    <FlexRender :cell="cell" />
                   </TableCell>
                 </TableRow>
               </template>

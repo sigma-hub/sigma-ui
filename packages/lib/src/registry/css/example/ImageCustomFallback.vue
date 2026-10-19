@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ImageIcon } from 'lucide-vue-next';
+import { ImageIcon } from '@lucide/vue';
 import { Image } from '@ui/registry/css/ui/image';
 </script>
 
@@ -20,33 +20,37 @@ import { Image } from '@ui/registry/css/ui/image';
 </template>
 
 <style scoped>
-.example-image-container {
-  display: flex;
-  width: 250px;
-  height: 300px;
-  align-items: center;
-  justify-content: center;
-}
+@layer base, components;
 
-.example-image-fallback-icon-container {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-image:
-    linear-gradient(90deg, transparent 95%, hsl(var(--foreground) / 10%) 95%),
-    linear-gradient(0deg, transparent 95%, hsl(var(--foreground) / 10%) 95%);
-  background-size: 16px 16px;
-  color: hsl(var(--muted-foreground));
-  gap: 0.25rem;
-}
+@layer components {
+  .example-image-container {
+    display: flex;
+    width: 250px;
+    height: 300px;
+    align-items: center;
+    justify-content: center;
+  }
 
-.example-image-fallback-icon {
-  width: 50%;
-  max-width: 50px;
-  height: 50%;
-  max-height: 50px;
+  .example-image-fallback-icon-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image:
+      linear-gradient(90deg, transparent 95%, color-mix(in oklch, var(--foreground) 10%, transparent) 95%),
+      linear-gradient(0deg, transparent 95%, color-mix(in oklch, var(--foreground) 10%, transparent) 95%);
+    background-size: 16px 16px;
+    color: var(--muted-foreground);
+    gap: calc(var(--spacing) * 1);
+  }
+
+  .example-image-fallback-icon {
+    width: 50%;
+    max-width: 50px;
+    height: 50%;
+    max-height: 50px;
+  }
 }
 </style>

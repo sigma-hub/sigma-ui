@@ -1,14 +1,33 @@
 <script setup lang="ts">
-import { ArrowRightIcon } from 'lucide-vue-next';
+import { useAttrs } from 'vue';
+
+import { ArrowRightIcon } from '@lucide/vue';
 import { useCarousel } from './useCarousel';
 import { cn } from '@ui/utils';
 import { Button } from '@ui/registry/tailwind/ui/button';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
+
+const props = withDefaults(defineProps<{
+  label?: string;
+}>(), {
+  label: 'Next Slide',
+});
 
 const { orientation, canScrollNext, scrollNext } = useCarousel();
 </script>
 
 <template>
   <Button
+    data-slot="carousel-next"
+    v-bind="delegatedAttrs()"
     :disabled="!canScrollNext"
     :class="cn(
       'touch-manipulation absolute h-8 w-8 rounded p-0',
@@ -22,7 +41,7 @@ const { orientation, canScrollNext, scrollNext } = useCarousel();
   >
     <slot>
       <ArrowRightIcon class="h-4 w-4 text-current" />
-      <span class="sr-only">Next Slide</span>
+      <span class="sr-only">{{ props.label }}</span>
     </slot>
   </Button>
 </template>

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { type Ref, computed } from 'vue';
+import type { Ref } from 'vue';
 import { CalendarRoot, type CalendarRootEmits, type CalendarRootProps, useDateFormatter, useForwardPropsEmits } from 'reka-ui';
 import { createDecade, createYear, toDate } from 'reka-ui/date';
 import { type DateValue, getLocalTimeZone, today } from '@internationalized/date';
-import { useVModel } from '@vueuse/core';
+import { reactiveOmit, useVModel } from '@vueuse/core';
 import { CalendarCell, CalendarCellTrigger, CalendarGrid, CalendarGridBody, CalendarGridHead, CalendarGridRow, CalendarHeadCell, CalendarHeader, CalendarHeading } from '@ui/registry/css/ui/calendar';
 import {
   Select,
@@ -22,7 +22,7 @@ const props = withDefaults(defineProps<CalendarRootProps>(), {
 });
 const emits = defineEmits<CalendarRootEmits>();
 
-const delegatedProps = computed(() => ({ ...props, placeholder: undefined }));
+const delegatedProps = reactiveOmit(props, 'placeholder');
 
 const placeholder = useVModel(props, 'modelValue', emits, {
   passive: true,
@@ -138,53 +138,57 @@ const formatter = useDateFormatter('en');
 </template>
 
 <style>
-.example-sigma-ui-calendar-select {
-  padding: 0.75rem;
-  border: 1px solid hsl(var(--border));
-  border-radius: var(--radius-md);
-}
+@layer base, components;
 
-.example-sigma-ui-calendar-select__heading {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-}
+@layer components {
+  .example-sigma-ui-calendar-select {
+    padding: calc(var(--spacing) * 3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+  }
 
-.example-sigma-ui-calendar-select__month-trigger {
-  width: 60%;
-}
+  .example-sigma-ui-calendar-select__heading {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-calendar-select__year-trigger {
-  width: 40%;
-}
+  .example-sigma-ui-calendar-select__month-trigger {
+    width: 60%;
+  }
 
-.example-sigma-ui-calendar-select__month-content,
-.example-sigma-ui-calendar-select__year-content {
-  max-height: 200px;
-}
+  .example-sigma-ui-calendar-select__year-trigger {
+    width: 40%;
+  }
 
-.example-sigma-ui-calendar-select__grid-container {
-  display: flex;
-  flex-direction: column;
-  padding-top: 1rem;
-  gap: 1rem;
-}
+  .example-sigma-ui-calendar-select__month-content,
+  .example-sigma-ui-calendar-select__year-content {
+    max-height: 200px;
+  }
 
-.example-sigma-ui-calendar-select__grid {
-  display: grid;
-}
-
-.example-sigma-ui-calendar-select__week-row {
-  width: 100%;
-  margin-top: 0.5rem;
-}
-
-@media (width >= 640px) {
   .example-sigma-ui-calendar-select__grid-container {
-    flex-direction: row;
-    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding-top: calc(var(--spacing) * 4);
+    gap: calc(var(--spacing) * 4);
+  }
+
+  .example-sigma-ui-calendar-select__grid {
+    display: grid;
+  }
+
+  .example-sigma-ui-calendar-select__week-row {
+    width: 100%;
+    margin-top: calc(var(--spacing) * 2);
+  }
+
+  @media (width >= 40rem) {
+    .example-sigma-ui-calendar-select__grid-container {
+      flex-direction: row;
+      gap: calc(var(--spacing) * 4);
+    }
   }
 }
 </style>

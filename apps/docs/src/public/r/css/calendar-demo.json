@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "calendar-demo",
+  "type": "registry:example",
+  "title": "Calendar",
+  "dependencies": [
+    "@internationalized/date@^3.12.4"
+  ],
+  "registryDependencies": [
+    "calendar"
+  ],
+  "files": [
+    {
+      "path": "example/Calendar.vue",
+      "content": "<script setup lang=\"ts\">\nimport { type Ref, ref } from 'vue';\nimport { type DateValue, getLocalTimeZone, today } from '@internationalized/date';\nimport { Calendar } from '@/components/ui/calendar';\n\nconst value = ref(today(getLocalTimeZone())) as Ref<DateValue>;\n</script>\n\n<template>\n  <Calendar\n    v-model=\"value\"\n    :weekday-format=\"'short'\"\n    class=\"example-sigma-ui-calendar\"\n  />\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .example-sigma-ui-calendar {\n    border: 1px solid var(--border);\n    border-radius: var(--radius-md);\n  }\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

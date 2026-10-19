@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scroll-area-horizontal",
+  "type": "registry:example",
+  "title": "ScrollAreaHorizontal",
+  "dependencies": [],
+  "registryDependencies": [
+    "scroll-area"
+  ],
+  "files": [
+    {
+      "path": "example/ScrollAreaHorizontal.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';\n\ninterface Artwork {\n  id: string;\n  artist: string;\n  art: string;\n}\n\nconst works: Artwork[] = [\n  {\n    id: '1',\n    artist: 'Ornella Binni',\n    art: 'https://images.unsplash.com/photo-1465869185982-5a1a7522cbcb?auto=format&fit=crop&w=300&q=80',\n  },\n  {\n    id: '2',\n    artist: 'Tom Byrom',\n    art: 'https://images.unsplash.com/photo-1548516173-3cabfa4607e9?auto=format&fit=crop&w=300&q=80',\n  },\n  {\n    id: '3',\n    artist: 'Vladimir Malyavko',\n    art: 'https://images.unsplash.com/photo-1494337480532-3725c85fd2ab?auto=format&fit=crop&w=300&q=80',\n  },\n];\n</script>\n\n<template>\n  <ScrollArea class=\"example-sigma-ui-scroll-area-horizontal\">\n    <div class=\"example-sigma-ui-scroll-area-horizontal__content\">\n      <div\n        v-for=\"artwork in works\"\n        :key=\"artwork.id\"\n        class=\"example-sigma-ui-scroll-area-horizontal__artwork\"\n      >\n        <figure class=\"example-sigma-ui-scroll-area-horizontal__figure\">\n          <div class=\"example-sigma-ui-scroll-area-horizontal__image-container\">\n            <img\n              :src=\"artwork.art\"\n              :alt=\"`Photo by ${artwork.artist}`\"\n              class=\"example-sigma-ui-scroll-area-horizontal__image\"\n            >\n          </div>\n          <figcaption class=\"example-sigma-ui-scroll-area-horizontal__caption\">\n            Photo by\n            <span class=\"example-sigma-ui-scroll-area-horizontal__artist\">\n              {{ artwork.artist }}\n            </span>\n          </figcaption>\n        </figure>\n      </div>\n    </div>\n    <ScrollBar orientation=\"horizontal\" />\n  </ScrollArea>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .example-sigma-ui-scroll-area-horizontal {\n    width: calc(var(--spacing) * 96);\n    border: 1px solid var(--border);\n    border-radius: var(--radius);\n    white-space: nowrap;\n  }\n\n  .example-sigma-ui-scroll-area-horizontal__content {\n    display: flex;\n    width: max-content;\n    padding: calc(var(--spacing) * 4);\n    gap: calc(var(--spacing) * 4);\n  }\n\n  .example-sigma-ui-scroll-area-horizontal__figure {\n    flex-shrink: 0;\n  }\n\n  .example-sigma-ui-scroll-area-horizontal__image-container {\n    overflow: hidden;\n    border-radius: var(--radius);\n  }\n\n  .example-sigma-ui-scroll-area-horizontal__image {\n    width: calc(var(--spacing) * 36);\n    height: calc(var(--spacing) * 56);\n    aspect-ratio: 3/4;\n    object-fit: cover;\n  }\n\n  .example-sigma-ui-scroll-area-horizontal__caption {\n    padding-top: calc(var(--spacing) * 2);\n    color: var(--muted-foreground);\n    font-size: 0.75rem;\n  }\n\n  .example-sigma-ui-scroll-area-horizontal__artist {\n    color: var(--foreground);\n    font-weight: 600;\n  }\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

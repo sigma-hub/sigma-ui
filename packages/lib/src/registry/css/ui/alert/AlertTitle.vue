@@ -8,16 +8,21 @@ const attrs = useAttrs();
   <h5
     class="sigma-ui-alert-title"
     :class="attrs.class"
+    data-slot="alert-title"
   >
     <slot />
   </h5>
 </template>
 
 <style>
-.sigma-ui-alert-title {
-  margin-bottom: 0.25rem;
-  font-weight: 500;
-  letter-spacing: -0.025em;
-  line-height: 1;
+@layer base, components;
+
+@layer components {
+  .sigma-ui-alert-title {
+    margin-bottom: calc(var(--spacing) * 1);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 1;
+  }
 }
 </style>

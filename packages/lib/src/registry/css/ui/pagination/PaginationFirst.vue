@@ -1,7 +1,18 @@
 <script setup lang="ts">
+import { useAttrs } from 'vue';
+
 import { PaginationFirst, type PaginationFirstProps } from 'reka-ui';
-import { ChevronsLeftIcon } from 'lucide-vue-next';
+import { ChevronsLeftIcon } from '@lucide/vue';
 import { Button } from '@ui/registry/css/ui/button';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = withDefaults(defineProps<PaginationFirstProps>(), {
   asChild: true,
@@ -9,8 +20,12 @@ const props = withDefaults(defineProps<PaginationFirstProps>(), {
 </script>
 
 <template>
-  <PaginationFirst v-bind="props">
+  <PaginationFirst
+    data-slot="pagination-first"
+    v-bind="props"
+  >
     <Button
+      v-bind="delegatedAttrs()"
       class="sigma-ui-pagination-first"
       :class="$attrs.class"
       variant="outline"
@@ -23,14 +38,18 @@ const props = withDefaults(defineProps<PaginationFirstProps>(), {
 </template>
 
 <style>
-.sigma-ui-pagination-first {
-  width: 2.5rem;
-  height: 2.5rem;
-  padding: 0;
-}
+@layer base, components;
 
-.sigma-ui-pagination-first__icon {
-  width: 1rem;
-  height: 1rem;
+@layer components {
+  .sigma-ui-pagination-first {
+    width: calc(var(--spacing) * 10);
+    height: calc(var(--spacing) * 10);
+    padding: 0;
+  }
+
+  .sigma-ui-pagination-first__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 }
 </style>

@@ -1,9 +1,21 @@
 <script setup lang="ts">
+import { useAttrs } from 'vue';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 </script>
 
 <template>
   <div
+    data-slot="sheet-header"
+    v-bind="delegatedAttrs()"
     class="sigma-ui-sheet-header"
     :class="[$attrs.class]"
   >
@@ -12,16 +24,20 @@
 </template>
 
 <style>
-.sigma-ui-sheet-header {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  text-align: center;
-}
+@layer base, components;
 
-@media (width >= 640px) {
+@layer components {
   .sigma-ui-sheet-header {
-    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2);
+    text-align: center;
+  }
+
+  @media (width >= 40rem) {
+    .sigma-ui-sheet-header {
+      text-align: left;
+    }
   }
 }
 </style>

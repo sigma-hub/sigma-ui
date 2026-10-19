@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { CheckIcon, CirclePlusIcon } from 'lucide-vue-next';
+import { CheckIcon, CirclePlusIcon } from '@lucide/vue';
 import { cn } from '@ui/utils';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@ui/registry/tailwind/ui/popover';
@@ -10,11 +10,17 @@ import {
 } from '@ui/registry/tailwind/ui/command';
 
 const props = withDefaults(defineProps<{
+  /** Label of the trigger button, also used as the search placeholder. */
   title: string;
+  /** Values the user can pick from. */
   options: string[];
+  /** Currently selected values; use with `v-model`. */
   modelValue: string[];
+  /** Maximum number of selected values shown as badges in the trigger before collapsing into a "+N" badge. */
   maxBadges?: number;
+  /** Shows an "Add" button that emits `create` when the search text matches no option. */
   allowCreate?: boolean;
+  /** Minimum width of the dropdown, in pixels. */
   minWidth?: number;
 }>(), {
   maxBadges: 2,
@@ -23,8 +29,15 @@ const props = withDefaults(defineProps<{
 });
 
 const emit = defineEmits<{
+  /** Emitted with the new selection when an option is toggled. */
   'update:modelValue': [value: string[]];
+  /** Emitted with the trimmed search text when the user clicks the "Add" button. */
   'create': [value: string];
+}>();
+
+defineSlots<{
+  /** Content rendered below the options, separated by a divider. */
+  footer?: () => unknown;
 }>();
 
 const searchQuery = ref('');
@@ -34,14 +47,25 @@ const trimmedSearchQuery = computed(() => searchQuery.value.trim());
 const selectedValues = computed(() => new Set(props.modelValue));
 const filteredOptions = computed(() => {
   const normalizedSearch = searchQuery.value.trim().toLowerCase();
-  if (!normalizedSearch) return props.options;
+
+  if (!normalizedSearch) {
+    return props.options;
+  }
+
   return props.options.filter(option => option.toLowerCase().includes(normalizedSearch));
 });
 
 const canCreate = computed(() => {
-  if (!props.allowCreate) return false;
+  if (!props.allowCreate) {
+    return false;
+  }
+
   const value = trimmedSearchQuery.value;
-  if (value.length === 0) return false;
+
+  if (value.length === 0) {
+    return false;
+  }
+
   const normalizedValue = value.toLowerCase();
   return !props.options.some(option => option.toLowerCase() === normalizedValue);
 });
@@ -54,14 +78,23 @@ const contentStyle = computed(() => props.minWidth ? ({ minWidth: `${props.minWi
 
 function toggleValue(value: string) {
   const next = new Set(props.modelValue);
-  if (next.has(value)) next.delete(value);
-  else next.add(value);
+
+  if (next.has(value)) {
+    next.delete(value);
+  } else {
+    next.add(value);
+  }
+
   emit('update:modelValue', Array.from(next));
 }
 
 function createFromSearchQuery() {
   const value = trimmedSearchQuery.value;
-  if (!value) return;
+
+  if (!value) {
+    return;
+  }
+
   emit('create', value);
   clearSearch();
   commandKey.value += 1;
@@ -73,7 +106,9 @@ function clearSearch() {
 </script>
 
 <template>
-  <Popover>
+  <Popover
+    data-slot="faceted-filter"
+  >
     <PopoverTrigger as-child>
       <Button
         variant="outline"

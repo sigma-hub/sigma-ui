@@ -5,17 +5,21 @@
 </template>
 
 <style>
-.example-sigma-ui-typography__heading-1 {
-  font-size: 2.25rem;
-  font-weight: 800;
-  letter-spacing: -0.025em;
-  line-height: 1.1;
-  scroll-margin-top: 5rem;
-}
+@layer base, components;
 
-@media (width >= 1024px) {
+@layer components {
   .example-sigma-ui-typography__heading-1 {
-    font-size: 3rem;
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    scroll-margin-top: calc(var(--spacing) * 20);
+  }
+
+  @media (width >= 64rem) {
+    .example-sigma-ui-typography__heading-1 {
+      font-size: 3rem;
+    }
   }
 }
 </style>

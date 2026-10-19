@@ -24,7 +24,7 @@ import { Label } from '@ui/registry/css/ui/label';
 import { Input } from '@ui/registry/css/ui/input';
 
 const [UseTemplate, GridForm] = createReusableTemplate();
-const isDesktop = useMediaQuery('(min-width: 768px)');
+const isDesktop = useMediaQuery('(width >= 48rem)');
 
 const isOpen = ref(false);
 </script>
@@ -36,6 +36,7 @@ const isOpen = ref(false);
         <Label html-for="email">Email</Label>
         <Input
           id="email"
+          autocomplete="email"
           type="email"
           model-value="sigma-ui@example.com"
         />
@@ -44,6 +45,7 @@ const isOpen = ref(false);
         <Label html-for="username">Username</Label>
         <Input
           id="username"
+          autocomplete="username"
           model-value="sigma-ui"
         />
       </div>
@@ -102,33 +104,37 @@ const isOpen = ref(false);
 </template>
 
 <style>
-.example-sigma-ui-drawer-dialog__form {
-  display: grid;
-  align-items: start;
-  padding: 0 1rem;
-  gap: 1rem;
-}
+@layer base, components;
 
-.example-sigma-ui-drawer-dialog__field {
-  display: grid;
-  gap: 0.5rem;
-}
+@layer components {
+  .example-sigma-ui-drawer-dialog__form {
+    display: grid;
+    align-items: start;
+    padding: 0 calc(var(--spacing) * 4);
+    gap: calc(var(--spacing) * 4);
+  }
 
-.example-sigma-ui-drawer-dialog__content {
-  max-width: 425px;
-}
+  .example-sigma-ui-drawer-dialog__field {
+    display: grid;
+    gap: calc(var(--spacing) * 2);
+  }
 
-@media (width >= 640px) {
   .example-sigma-ui-drawer-dialog__content {
     max-width: 425px;
   }
-}
 
-.example-sigma-ui-drawer-dialog__header {
-  text-align: left;
-}
+  @media (width >= 40rem) {
+    .example-sigma-ui-drawer-dialog__content {
+      max-width: 425px;
+    }
+  }
 
-.example-sigma-ui-drawer-dialog__footer {
-  padding-top: 0.5rem;
+  .example-sigma-ui-drawer-dialog__header {
+    text-align: left;
+  }
+
+  .example-sigma-ui-drawer-dialog__footer {
+    padding-top: calc(var(--spacing) * 2);
+  }
 }
 </style>

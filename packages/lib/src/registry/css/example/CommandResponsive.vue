@@ -35,7 +35,7 @@ const statuses: Status[] = [
 ];
 
 const [UseTemplate, StatusList] = createReusableTemplate();
-const isDesktop = useMediaQuery('(min-width: 768px)');
+const isDesktop = useMediaQuery('(width >= 48rem)');
 
 const isOpen = ref(false);
 const selectedStatus = ref<Status | null>(null);
@@ -110,18 +110,22 @@ function onStatusSelect(status: Status) {
 </template>
 
 <style>
-.example-sigma-ui-command-responsive__trigger {
-  width: 150px;
-  justify-content: flex-start;
-}
+@layer base, components;
 
-.example-sigma-ui-command-responsive__content {
-  width: 200px;
-  padding: 0;
-}
+@layer components {
+  .example-sigma-ui-command-responsive__trigger {
+    width: 150px;
+    justify-content: flex-start;
+  }
 
-.example-sigma-ui-command-responsive__drawer-content {
-  border-top: 1px solid hsl(var(--border));
-  margin-top: 1rem;
+  .example-sigma-ui-command-responsive__content {
+    width: 200px;
+    padding: 0;
+  }
+
+  .example-sigma-ui-command-responsive__drawer-content {
+    border-top: 1px solid var(--border);
+    margin-top: calc(var(--spacing) * 4);
+  }
 }
 </style>

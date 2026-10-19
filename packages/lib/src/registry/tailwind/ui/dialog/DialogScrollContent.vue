@@ -8,13 +8,22 @@ import {
   DialogPortal,
   useForwardPropsEmits,
 } from 'reka-ui';
-import { XIcon } from 'lucide-vue-next';
+import { XIcon } from '@lucide/vue';
+import { reactiveOmit } from '@vueuse/core';
 import { cn } from '@ui/utils';
 
-const props = defineProps<DialogContentProps>();
+const props = withDefaults(defineProps<DialogContentProps & {
+  closeLabel?: string;
+}>(), {
+  closeLabel: 'Close',
+});
 const emits = defineEmits<DialogContentEmits>();
 
-const forwarded = useForwardPropsEmits(props, emits);
+const forwarded = useForwardPropsEmits(reactiveOmit(props, 'closeLabel'), emits);
+
+defineOptions({
+  inheritAttrs: false,
+});
 </script>
 
 <template>
@@ -23,6 +32,7 @@ const forwarded = useForwardPropsEmits(props, emits);
       class="fixed inset-0 z-50 grid place-items-center overflow-y-auto bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"
     >
       <DialogContent
+        data-slot="dialog-scroll-content"
         :class="
           cn(
             'relative z-50 grid w-full max-w-lg my-8 gap-4 border border-border bg-background p-6 shadow-lg duration-200 sm:rounded-lg md:w-full',
@@ -44,7 +54,7 @@ const forwarded = useForwardPropsEmits(props, emits);
           class="absolute top-3 right-3 p-0.5 transition-colors rounded-md hover:bg-secondary"
         >
           <XIcon class="w-4 h-4" />
-          <span class="sr-only">Close</span>
+          <span class="sr-only">{{ closeLabel }}</span>
         </DialogClose>
       </DialogContent>
     </DialogOverlay>

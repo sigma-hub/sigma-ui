@@ -1,17 +1,18 @@
 {
   "$schema": "https://sigma-ui.dev/schema.json",
-  "styleSystem": "css",
-  "tsConfigPath": "./tsconfig.json",
+  "styleSystem": "tailwind",
+  "tsConfigPath": ".nuxt/tsconfig.json",
   "setupTailwind": false,
-  "framework": "vite",
-  "cssPath": "src/assets/index.css",
+  "framework": "nuxt",
+  "cssPath": "app/assets/css/main.css",
   "baseColor": "grayscale",
   "tailwind": {
     "config": ""
   },
   "aliases": {
-    "utils": "",
-    "components": "@/components"
+    "utils": "@/lib/utils",
+    "components": "@/components/ui"
   },
-  "generatePreflight": true
+  "generatePreflight": false,
+  "componentNaming": "kebab-case"
 }

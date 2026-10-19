@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { MinusIcon, PlusIcon } from 'lucide-vue-next';
+import { MinusIcon, PlusIcon } from '@lucide/vue';
 import { VisStackedBar, VisXYContainer } from '@unovis/vue';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import {
@@ -84,7 +84,7 @@ const data = [
               class="h-[120px]"
               :style="{
                 'opacity': 0.9,
-                '--theme-primary': `hsl(var(--foreground))`,
+                '--theme-primary': `var(--foreground)`,
               }"
             >
               <VisStackedBar

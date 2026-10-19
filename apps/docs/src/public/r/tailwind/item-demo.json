@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "item-demo",
+  "type": "registry:example",
+  "title": "Item",
+  "dependencies": [
+    "@lucide/vue@^1.59.0"
+  ],
+  "registryDependencies": [
+    "button",
+    "item"
+  ],
+  "files": [
+    {
+      "path": "example/Item.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ShieldIcon } from '@lucide/vue';\nimport { Button } from '@/components/ui/button';\nimport { Item, ItemActions, ItemContent, ItemDescription, ItemMedia, ItemTitle } from '@/components/ui/item';\n</script>\n\n<template>\n  <Item\n    variant=\"outline\"\n    class=\"w-full max-w-md\"\n  >\n    <ItemMedia variant=\"icon\">\n      <ShieldIcon />\n    </ItemMedia>\n    <ItemContent>\n      <ItemTitle>Security</ItemTitle>\n      <ItemDescription>Manage how you sign in and which devices stay trusted.</ItemDescription>\n    </ItemContent>\n    <ItemActions>\n      <Button\n        variant=\"outline\"\n        size=\"sm\"\n      >\n        Manage\n      </Button>\n    </ItemActions>\n  </Item>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

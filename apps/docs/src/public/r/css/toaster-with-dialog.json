@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toaster-with-dialog",
+  "type": "registry:example",
+  "title": "ToasterWithDialog",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "dialog",
+    "toaster"
+  ],
+  "files": [
+    {
+      "path": "example/ToasterWithDialog.vue",
+      "content": "<script setup lang=\"ts\">\nimport { toast } from '@/components/ui/toaster';\nimport { Button } from '@/components/ui/button';\nimport {\n  Dialog,\n  DialogContent,\n  DialogDescription,\n  DialogHeader,\n  DialogTitle,\n  DialogTrigger,\n} from '@/components/ui/dialog';\n</script>\n\n<template>\n  <Dialog>\n    <DialogTrigger as-child>\n      <Button variant=\"outline\">\n        Dialog with toast\n      </Button>\n    </DialogTrigger>\n    <DialogContent\n      class=\"example-sigma-ui-toaster-dialog\"\n      @interact-outside=\"event => {\n        const target = event.target as HTMLElement;\n        if (target?.closest('[data-sonner-toaster]')) { return event.preventDefault() }\n      }\"\n    >\n      <DialogHeader>\n        <DialogTitle>Toast within a dialog</DialogTitle>\n        <DialogDescription>Dialog with toast</DialogDescription>\n      </DialogHeader>\n      <div class=\"example-sigma-ui-toaster-dialog__actions\">\n        <Button\n          size=\"sm\"\n          class=\"example-sigma-ui-toaster-dialog__button\"\n          @click=\"\n            () => {\n              toast('Event has been created', {\n                description: 'Sunday, December 03, 2023 at 9:00 AM',\n                action: {\n                  label: 'Undo',\n                  onClick: () => console.log('Undo'),\n                },\n              });\n            }\n          \"\n        >\n          Toast\n        </Button>\n      </div>\n    </DialogContent>\n  </Dialog>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .example-sigma-ui-toaster-dialog {\n    max-width: 28rem;\n  }\n\n  .example-sigma-ui-toaster-dialog__actions {\n    display: grid;\n    gap: calc(var(--spacing) * 4);\n  }\n\n  .example-sigma-ui-toaster-dialog__button {\n    padding-right: calc(var(--spacing) * 3);\n    padding-left: calc(var(--spacing) * 3);\n  }\n\n  @media (width >= 40rem) {\n    .example-sigma-ui-toaster-dialog {\n      max-width: 28rem;\n    }\n  }\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

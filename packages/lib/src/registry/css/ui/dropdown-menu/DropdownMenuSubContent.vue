@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useAttrs } from 'vue';
+
 import {
   DropdownMenuSubContent,
   type DropdownMenuSubContentEmits,
@@ -10,12 +12,13 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const props = withDefaults(
-  defineProps<DropdownMenuSubContentProps>(),
-  {
-    sideOffset: 4,
-  },
-);
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
+
+const props = defineProps<DropdownMenuSubContentProps>();
 const emits = defineEmits<DropdownMenuSubContentEmits>();
 
 const forwarded = useForwardPropsEmits(props, emits);
@@ -23,7 +26,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 
 <template>
   <DropdownMenuSubContent
-    v-bind="{ ...forwarded, ...$attrs }"
+    data-slot="dropdown-menu-sub-content"
+    v-bind="{ ...forwarded, ...delegatedAttrs() }"
     class="sigma-ui-dropdown-menu-sub-content"
     :class="$attrs.class"
   >
@@ -32,25 +36,29 @@ const forwarded = useForwardPropsEmits(props, emits);
 </template>
 
 <style>
-.sigma-ui-dropdown-menu-sub-content {
-  z-index: 50;
-  overflow: hidden;
-  min-width: 8rem;
-  padding: 0.25rem;
-  border: 1px solid hsl(var(--border));
-  border-radius: var(--radius-md);
-  backdrop-filter: blur(var(--backdrop-filter-blur));
-  background-color: hsl(var(--popover));
-  box-shadow: var(--shadow-md);
-  color: hsl(var(--popover-foreground));
-  transform-origin: var(--reka-dropdown-menu-content-transform-origin);
-}
+@layer base, components;
 
-.sigma-ui-dropdown-menu-sub-content[data-state="open"] {
-  animation: sigma-ui-fade-in-scale 200ms ease-out;
-}
+@layer components {
+  .sigma-ui-dropdown-menu-sub-content {
+    z-index: 50;
+    overflow: hidden;
+    min-width: calc(var(--spacing) * 32);
+    padding: calc(var(--spacing) * 1);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    backdrop-filter: blur(var(--backdrop-filter-blur));
+    background-color: var(--popover);
+    box-shadow: var(--shadow-md);
+    color: var(--popover-foreground);
+    transform-origin: var(--reka-dropdown-menu-content-transform-origin);
+  }
 
-.sigma-ui-dropdown-menu-sub-content[data-state="closed"] {
-  animation: sigma-ui-fade-out-scale 100ms ease-in forwards;
+  .sigma-ui-dropdown-menu-sub-content[data-state="open"] {
+    animation: sigma-ui-fade-in-scale 200ms ease-out;
+  }
+
+  .sigma-ui-dropdown-menu-sub-content[data-state="closed"] {
+    animation: sigma-ui-fade-out-scale 100ms ease-in forwards;
+  }
 }
 </style>

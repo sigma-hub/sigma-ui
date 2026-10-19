@@ -83,7 +83,7 @@ function computeLineOpacity(val: any, index: number) {
             :x="x"
             :y="[(d: Data) => d.average, (d: Data) => d.today]"
             :stroke-width="2"
-            color="hsl(var(--primary))"
+            color="var(--primary)"
             :attributes="{ [Line.selectors.linePath]: { opacity: computeLineOpacity } }"
           />
           <VisScatter
@@ -91,7 +91,7 @@ function computeLineOpacity(val: any, index: number) {
             :y="[(d: Data) => d.average, (d: Data) => d.today]"
             :size="6"
             :stroke-width="2"
-            stroke-color="hsl(var(--primary))"
+            stroke-color="var(--primary)"
             color="white"
           />
           <VisCrosshair :template="template" />

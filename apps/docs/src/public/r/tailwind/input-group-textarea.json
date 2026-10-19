@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-group-textarea",
+  "type": "registry:example",
+  "title": "InputGroupTextarea",
+  "dependencies": [],
+  "registryDependencies": [
+    "input-group"
+  ],
+  "files": [
+    {
+      "path": "example/InputGroupTextarea.vue",
+      "content": "<script setup lang=\"ts\">\nimport { InputGroup, InputGroupAddon, InputGroupButton, InputGroupTextarea } from '@/components/ui/input-group';\n</script>\n\n<template>\n  <InputGroup class=\"max-w-sm\">\n    <InputGroupTextarea placeholder=\"Write a message...\" />\n    <InputGroupAddon align=\"block-end\">\n      <InputGroupButton\n        variant=\"outline\"\n        size=\"sm\"\n      >\n        Cancel\n      </InputGroupButton>\n      <InputGroupButton\n        size=\"sm\"\n        class=\"ml-auto\"\n      >\n        Send\n      </InputGroupButton>\n    </InputGroupAddon>\n  </InputGroup>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

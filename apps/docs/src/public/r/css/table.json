@@ -1,0 +1,61 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "table",
+  "type": "registry:ui",
+  "title": "Table",
+  "description": "A responsive table component.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/table/Table.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <div\n    class=\"sigma-ui-table-wrapper\"\n    data-slot=\"table\"\n  >\n    <table\n      v-bind=\"delegatedAttrs()\"\n      class=\"sigma-ui-table\"\n      :class=\"[$attrs.class]\"\n    >\n      <slot />\n    </table>\n  </div>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .sigma-ui-table-wrapper {\n    position: relative;\n    overflow: auto;\n    width: 100%;\n  }\n\n  .sigma-ui-table {\n    width: 100%;\n    caption-side: bottom;\n    font-size: 0.875rem;\n  }\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/table/TableBody.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <tbody\n    data-slot=\"table-body\"\n    v-bind=\"delegatedAttrs()\"\n    class=\"sigma-ui-table-body\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </tbody>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .sigma-ui-table-body tr:last-child {\n    border: 0;\n  }\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/table/TableCaption.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <caption\n    data-slot=\"table-caption\"\n    v-bind=\"delegatedAttrs()\"\n    class=\"sigma-ui-table-caption\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </caption>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .sigma-ui-table-caption {\n    margin-top: calc(var(--spacing) * 4);\n    color: var(--muted-foreground);\n    font-size: 0.875rem;\n  }\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/table/TableCell.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <td\n    data-slot=\"table-cell\"\n    v-bind=\"delegatedAttrs()\"\n    class=\"sigma-ui-table-cell\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </td>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .sigma-ui-table-cell {\n    padding: calc(var(--spacing) * 4);\n    vertical-align: middle;\n  }\n\n  .sigma-ui-table-cell:has([role=\"checkbox\"]) {\n    padding-right: 0;\n  }\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/table/TableEmpty.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport TableRow from './TableRow.vue';\nimport TableCell from './TableCell.vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = withDefaults(defineProps<{\n  /** Number of columns the empty-state cell spans; usually the column count of the table. */\n  colspan?: number;\n}>(), {\n  colspan: 1,\n});\n</script>\n\n<template>\n  <TableRow\n    data-slot=\"table-empty\"\n  >\n    <TableCell\n      v-bind=\"{ ...props, ...delegatedAttrs() }\"\n      class=\"sigma-ui-table-empty\"\n      :class=\"[$attrs.class]\"\n    >\n      <div class=\"sigma-ui-table-empty__content\">\n        <slot />\n      </div>\n    </TableCell>\n  </TableRow>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .sigma-ui-table-empty {\n    padding: calc(var(--spacing) * 4);\n    color: var(--foreground);\n    font-size: 0.875rem;\n    vertical-align: middle;\n    white-space: nowrap;\n  }\n\n  .sigma-ui-table-empty__content {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    padding-top: calc(var(--spacing) * 10);\n    padding-bottom: calc(var(--spacing) * 10);\n  }\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/table/TableFooter.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <tfoot\n    data-slot=\"table-footer\"\n    v-bind=\"delegatedAttrs()\"\n    class=\"sigma-ui-table-footer\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </tfoot>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .sigma-ui-table-footer {\n    border-top: 1px solid var(--border);\n    background-color: color-mix(in oklch, var(--muted) 50%, transparent);\n    font-weight: 500;\n  }\n\n  .sigma-ui-table-footer > tr:last-child {\n    border-bottom: 0;\n  }\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/table/TableHead.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <th\n    data-slot=\"table-head\"\n    v-bind=\"delegatedAttrs()\"\n    class=\"sigma-ui-table-head\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </th>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .sigma-ui-table-head {\n    height: calc(var(--spacing) * 12);\n    padding-right: calc(var(--spacing) * 4);\n    padding-left: calc(var(--spacing) * 4);\n    color: var(--muted-foreground);\n    font-weight: 500;\n    text-align: left;\n    vertical-align: middle;\n  }\n\n  .sigma-ui-table-head:has([role=\"checkbox\"]) {\n    padding-right: 0;\n  }\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/table/TableHeader.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <thead\n    data-slot=\"table-header\"\n    v-bind=\"delegatedAttrs()\"\n    class=\"sigma-ui-table-header\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </thead>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .sigma-ui-table-header tr {\n    border-bottom: 1px solid var(--border);\n  }\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/table/TableRow.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\n</script>\n\n<template>\n  <tr\n    data-slot=\"table-row\"\n    v-bind=\"delegatedAttrs()\"\n    class=\"sigma-ui-table-row\"\n    :class=\"[$attrs.class]\"\n  >\n    <slot />\n  </tr>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .sigma-ui-table-row {\n    border-bottom: 1px solid var(--border);\n    transition-duration: 150ms;\n    transition-property: color, background-color, border-color;\n    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);\n  }\n\n  .sigma-ui-table-row:hover {\n    background-color: color-mix(in oklch, var(--muted) 50%, transparent);\n  }\n\n  .sigma-ui-table-row[data-state=\"selected\"] {\n    background-color: var(--muted);\n  }\n}\n</style>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/table/index.ts",
+      "content": "export { default as Table } from './Table.vue';\nexport { default as TableBody } from './TableBody.vue';\nexport { default as TableCell } from './TableCell.vue';\nexport { default as TableHead } from './TableHead.vue';\nexport { default as TableHeader } from './TableHeader.vue';\nexport { default as TableFooter } from './TableFooter.vue';\nexport { default as TableRow } from './TableRow.vue';\nexport { default as TableCaption } from './TableCaption.vue';\nexport { default as TableEmpty } from './TableEmpty.vue';\n",
+      "type": "registry:ui"
+    }
+  ]
+}

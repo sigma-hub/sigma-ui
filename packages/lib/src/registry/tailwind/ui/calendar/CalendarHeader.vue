@@ -1,6 +1,17 @@
 <script lang="ts" setup>
+import { useAttrs } from 'vue';
+
 import { CalendarHeader, type CalendarHeaderProps, useForwardProps } from 'reka-ui';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<CalendarHeaderProps>();
 
@@ -9,8 +20,9 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <CalendarHeader
+    data-slot="calendar-header"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     :class="cn('relative flex w-full items-center justify-between pt-1', $attrs.class ?? '')"
-    v-bind="forwardedProps"
   >
     <slot />
   </CalendarHeader>

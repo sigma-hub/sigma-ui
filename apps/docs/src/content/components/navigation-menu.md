@@ -1,8 +1,8 @@
 ---
 title: Navigation Menu
 description: A collection of links for navigating websites.
-source: packages/lib/src/registry/tailwind/ui/navigation-menu
-primitive: https://www.reka-ui.com/docs/components/navigation-menu.html
+source: navigation-menu
+primitive: https://reka-ui.com/docs/components/navigation-menu
 ---
 
 ## Preview
@@ -11,26 +11,20 @@ primitive: https://www.reka-ui.com/docs/components/navigation-menu.html
 
 ## Installation
 
-```bash
-npx sigma-ui add navigation-menu
-```
+<ComponentInstall name="navigation-menu" />
 
-## Examples
-
-### Basic
+## Usage
 
 ```vue
 <script setup lang="ts">
 import {
   NavigationMenu,
   NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  NavigationMenuViewport,
-} from '@/components/ui/navigation-menu'
+} from '@/components/ui/navigation-menu';
 </script>
 
 <template>
@@ -39,7 +33,9 @@ import {
       <NavigationMenuItem>
         <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
         <NavigationMenuContent>
-          <NavigationMenuLink>Link</NavigationMenuLink>
+          <NavigationMenuLink href="/docs">
+            Link
+          </NavigationMenuLink>
         </NavigationMenuContent>
       </NavigationMenuItem>
     </NavigationMenuList>
@@ -47,22 +43,55 @@ import {
 </template>
 ```
 
+- An item with a `<NavigationMenuTrigger>` opens its `<NavigationMenuContent>` panel on hover or click.
+- An item with only a `<NavigationMenuLink>` renders a top-level link.
+
+## Examples
+
 ### Link Component
 
-When using the Nuxt `<NuxtLink />` component, you can use `navigationMenuTriggerStyle()` to apply the correct styles to the trigger.
-
-```ts
-import { navigationMenuTriggerStyle } from '@/components/ui/navigation-menu'
-```
+To render a router link such as Nuxt's `<NuxtLink />`, use `as-child` and apply the trigger styles with `navigationMenuTriggerStyle()`.
 
 ```vue
+<script setup lang="ts">
+import {
+  NavigationMenuItem,
+  NavigationMenuLink,
+  navigationMenuTriggerStyle,
+} from '@/components/ui/navigation-menu';
+</script>
+
 <template>
   <NavigationMenuItem>
-    <NuxtLink to="/docs">
-      <NavigationMenuLink :class="navigationMenuTriggerStyle()">
+    <NavigationMenuLink
+      as-child
+      :class="navigationMenuTriggerStyle()"
+    >
+      <NuxtLink to="/docs">
         Documentation
-      </NavigationMenuLink>
-    </NuxtLink>
+      </NuxtLink>
+    </NavigationMenuLink>
   </NavigationMenuItem>
 </template>
 ```
+
+## API Reference
+
+<!-- @include: @/content/meta/navigation-menu.md -->
+
+## Accessibility
+
+Adheres to the [Disclosure Navigation Menu WAI-ARIA example](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/). Reka UI manages focus and the `aria-expanded` state of the triggers.
+
+| Key | Description |
+| --- | --- |
+| <kbd>Space</kbd> | When focus is on a trigger, opens its content. |
+| <kbd>Enter</kbd> | When focus is on a trigger, opens its content. |
+| <kbd>Tab</kbd> | Moves focus to the next focusable element. |
+| <kbd>ArrowDown</kbd> | When focus is on a trigger in a horizontal menu, opens its content and focuses the first link. Moves focus to the next item in a vertical menu. |
+| <kbd>ArrowUp</kbd> | Moves focus to the previous item in a vertical menu. |
+| <kbd>ArrowRight</kbd> | Moves focus to the next trigger or link in a horizontal menu. |
+| <kbd>ArrowLeft</kbd> | Moves focus to the previous trigger or link in a horizontal menu. |
+| <kbd>Home</kbd> | Moves focus to the first trigger or link. |
+| <kbd>End</kbd> | Moves focus to the last trigger or link. |
+| <kbd>Esc</kbd> | Closes the open content and moves focus to its trigger. |

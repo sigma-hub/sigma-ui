@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import { useRoute } from 'vitepress';
 import { docsConfig } from '../config/docs';
 import Logo from './Logo.vue';
-import { Sheet, SheetContent, SheetTrigger } from '@ui/registry/tailwind/ui/sheet';
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@ui/registry/tailwind/ui/sheet';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import { ScrollArea } from '@ui/registry/tailwind/ui/scroll-area';
 import {
@@ -12,7 +12,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@ui/registry/tailwind/ui/tooltip';
-import { InfoIcon } from 'lucide-vue-next';
+import { InfoIcon } from '@lucide/vue';
 import StyleSwitcher from '../components/StyleSwitcher.vue';
 import CodeConfigCustomizer from '../components/CodeConfigCustomizer.vue';
 import ThemePopover from '../components/ThemePopover.vue';
@@ -73,6 +73,12 @@ function isRouteActive(href: string) {
       side="left"
       class="pr-0"
     >
+      <SheetHeader class="sr-only">
+        <SheetTitle>Menu</SheetTitle>
+        <SheetDescription>
+          Site navigation
+        </SheetDescription>
+      </SheetHeader>
       <Logo @click="open = false" />
       <ScrollArea class="my-4 h-[calc(100vh-4rem)] pb-10 pr-6">
         <div class="my-6 px-2 py-3 bg-muted/20 w-full max-w-[300px] border rounded-lg">

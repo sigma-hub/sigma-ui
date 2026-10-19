@@ -8,17 +8,22 @@ const attrs = useAttrs();
   <div
     class="sigma-ui-alert-description"
     :class="attrs.class"
+    data-slot="alert-description"
   >
     <slot />
   </div>
 </template>
 
 <style>
-.sigma-ui-alert-description {
-  font-size: 0.875rem;
-}
+@layer base, components;
 
-.sigma-ui-alert-description p {
-  line-height: 1.65;
+@layer components {
+  .sigma-ui-alert-description {
+    font-size: 0.875rem;
+  }
+
+  .sigma-ui-alert-description p {
+    line-height: 1.65;
+  }
 }
 </style>

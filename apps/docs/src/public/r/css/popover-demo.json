@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "popover-demo",
+  "type": "registry:example",
+  "title": "Popover",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "input",
+    "label",
+    "popover"
+  ],
+  "files": [
+    {
+      "path": "example/Popover.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  Popover,\n  PopoverContent,\n  PopoverTrigger,\n} from '@/components/ui/popover';\nimport { Button } from '@/components/ui/button';\nimport { Label } from '@/components/ui/label';\nimport { Input } from '@/components/ui/input';\n</script>\n\n<template>\n  <Popover>\n    <PopoverTrigger as-child>\n      <Button variant=\"outline\">\n        Open popover\n      </Button>\n    </PopoverTrigger>\n    <PopoverContent class=\"example-sigma-ui-popover__content\">\n      <div class=\"example-sigma-ui-popover__container\">\n        <div class=\"example-sigma-ui-popover__header\">\n          <h4 class=\"example-sigma-ui-popover__title\">\n            Dimensions\n          </h4>\n          <p class=\"example-sigma-ui-popover__description\">\n            Set the dimensions for the layer.\n          </p>\n        </div>\n        <div class=\"example-sigma-ui-popover__form\">\n          <div class=\"example-sigma-ui-popover__form-row\">\n            <Label for=\"width\">Width</Label>\n            <Input\n              id=\"width\"\n              type=\"text\"\n              model-value=\"100%\"\n              class=\"example-sigma-ui-popover__input\"\n            />\n          </div>\n          <div class=\"example-sigma-ui-popover__form-row\">\n            <Label for=\"maxWidth\">Max. width</Label>\n            <Input\n              id=\"maxWidth\"\n              type=\"text\"\n              model-value=\"300px\"\n              class=\"example-sigma-ui-popover__input\"\n            />\n          </div>\n          <div class=\"example-sigma-ui-popover__form-row\">\n            <Label for=\"height\">Height</Label>\n            <Input\n              id=\"height\"\n              type=\"text\"\n              model-value=\"25px\"\n              class=\"example-sigma-ui-popover__input\"\n            />\n          </div>\n          <div class=\"example-sigma-ui-popover__form-row\">\n            <Label for=\"maxHeight\">Max. height</Label>\n            <Input\n              id=\"maxHeight\"\n              type=\"text\"\n              model-value=\"none\"\n              class=\"example-sigma-ui-popover__input\"\n            />\n          </div>\n        </div>\n      </div>\n    </PopoverContent>\n  </Popover>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .example-sigma-ui-popover__content {\n    width: calc(var(--spacing) * 80);\n  }\n\n  .example-sigma-ui-popover__container {\n    display: grid;\n    gap: calc(var(--spacing) * 4);\n  }\n\n  .example-sigma-ui-popover__header {\n    display: flex;\n    flex-direction: column;\n    gap: calc(var(--spacing) * 2);\n  }\n\n  .example-sigma-ui-popover__title {\n    font-weight: 500;\n    line-height: 1;\n  }\n\n  .example-sigma-ui-popover__description {\n    color: var(--muted-foreground);\n    font-size: 0.875rem;\n  }\n\n  .example-sigma-ui-popover__form {\n    display: grid;\n    gap: calc(var(--spacing) * 2);\n  }\n\n  .example-sigma-ui-popover__form-row {\n    display: grid;\n    align-items: center;\n    gap: calc(var(--spacing) * 4);\n    grid-template-columns: repeat(3, 1fr);\n  }\n\n  .example-sigma-ui-popover__input {\n    height: calc(var(--spacing) * 8);\n    grid-column: span 2;\n  }\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

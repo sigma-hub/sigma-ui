@@ -1,0 +1,48 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "autocomplete",
+  "type": "registry:ui",
+  "title": "Autocomplete",
+  "description": "A text field that suggests matching options as you type.",
+  "dependencies": [
+    "reka-ui@^2.11.0"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/autocomplete/Autocomplete.vue",
+      "content": "<script setup lang=\"ts\">\nimport { AutocompleteRoot, type AutocompleteRootEmits, type AutocompleteRootProps, useForwardPropsEmits } from 'reka-ui';\n\nconst props = defineProps<AutocompleteRootProps>();\nconst emits = defineEmits<AutocompleteRootEmits>();\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <AutocompleteRoot\n    data-slot=\"autocomplete\"\n    v-bind=\"forwarded\"\n  >\n    <slot />\n  </AutocompleteRoot>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/autocomplete/AutocompleteAnchor.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { AutocompleteAnchor, type ComboboxAnchorProps, useForwardProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<ComboboxAnchorProps>();\nconst forwarded = useForwardProps(props);\n</script>\n\n<template>\n  <AutocompleteAnchor\n    data-slot=\"autocomplete-anchor\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :class=\"cn('w-64', $attrs.class ?? '')\"\n  >\n    <slot />\n  </AutocompleteAnchor>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/autocomplete/AutocompleteEmpty.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { AutocompleteEmpty, type ComboboxEmptyProps } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<ComboboxEmptyProps>();\n</script>\n\n<template>\n  <AutocompleteEmpty\n    data-slot=\"autocomplete-empty\"\n    v-bind=\"{ ...props, ...delegatedAttrs() }\"\n    :class=\"cn('py-6 text-center text-sm', $attrs.class ?? '')\"\n  >\n    <slot />\n  </AutocompleteEmpty>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/autocomplete/AutocompleteInput.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { AutocompleteInput, type AutocompleteInputEmits, type AutocompleteInputProps, useForwardPropsEmits } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<AutocompleteInputProps>();\nconst emits = defineEmits<AutocompleteInputEmits>();\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <AutocompleteInput\n    data-slot=\"autocomplete-input\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :class=\"cn('flex h-9 w-full rounded-md border border-border bg-input px-3 py-1 text-sm outline-none placeholder:text-muted-foreground focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-50', $attrs.class ?? '')\"\n  >\n    <slot />\n  </AutocompleteInput>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/autocomplete/AutocompleteItem.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { AutocompleteItem, type ComboboxItemEmits, type ComboboxItemProps, useForwardPropsEmits } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<ComboboxItemProps>();\nconst emits = defineEmits<ComboboxItemEmits>();\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <AutocompleteItem\n    data-slot=\"autocomplete-item\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :class=\"cn('relative flex cursor-default items-center rounded-sm px-2 py-1.5 text-sm outline-none select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground', $attrs.class ?? '')\"\n  >\n    <slot />\n  </AutocompleteItem>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/autocomplete/AutocompleteList.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport type { ComboboxContentEmits, ComboboxContentProps } from 'reka-ui';\nimport { AutocompleteContent, AutocompletePortal, AutocompleteViewport, useForwardPropsEmits } from 'reka-ui';\nimport { cn } from '@/lib/utils';\n\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = withDefaults(defineProps<ComboboxContentProps>(), {\n  position: 'popper',\n  align: 'center',\n  sideOffset: 4,\n  collisionPadding: 8,\n});\nconst emits = defineEmits<ComboboxContentEmits>();\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <AutocompletePortal>\n    <AutocompleteContent\n      data-slot=\"autocomplete-list\"\n      v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n      :class=\"cn('z-50 flex max-h-[min(var(--reka-combobox-content-available-height,18rem),18rem)] w-(--reka-combobox-trigger-width) min-w-32 origin-(--reka-combobox-content-transform-origin) flex-col overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md backdrop-blur-(--backdrop-filter-blur) outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2', $attrs.class ?? '')\"\n    >\n      <AutocompleteViewport>\n        <slot />\n      </AutocompleteViewport>\n    </AutocompleteContent>\n  </AutocompletePortal>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/autocomplete/index.ts",
+      "content": "export { default as Autocomplete } from './Autocomplete.vue';\nexport { default as AutocompleteAnchor } from './AutocompleteAnchor.vue';\nexport { default as AutocompleteEmpty } from './AutocompleteEmpty.vue';\nexport { default as AutocompleteInput } from './AutocompleteInput.vue';\nexport { default as AutocompleteItem } from './AutocompleteItem.vue';\nexport { default as AutocompleteList } from './AutocompleteList.vue';\nexport { AutocompleteCancel, AutocompleteItemIndicator, AutocompleteTrigger } from 'reka-ui';\n",
+      "type": "registry:ui"
+    }
+  ]
+}

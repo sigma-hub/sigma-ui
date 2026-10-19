@@ -7,6 +7,7 @@ import { Button } from '@ui/registry/css/ui/button';
   <div class="example-sigma-ui-input-with-button">
     <Input
       id="email"
+      autocomplete="email"
       type="email"
       placeholder="Email"
     />
@@ -17,9 +18,13 @@ import { Button } from '@ui/registry/css/ui/button';
 </template>
 
 <style>
-.example-sigma-ui-input-with-button {
-  display: flex;
-  width: 100%;
-  gap: 0.5rem;
+@layer base, components;
+
+@layer components {
+  .example-sigma-ui-input-with-button {
+    display: flex;
+    width: 100%;
+    gap: calc(var(--spacing) * 2);
+  }
 }
 </style>

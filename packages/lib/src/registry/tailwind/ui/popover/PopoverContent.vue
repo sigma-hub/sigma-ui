@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useAttrs } from 'vue';
+
 import {
   PopoverContent,
   type PopoverContentEmits,
@@ -11,6 +13,12 @@ import { cn } from '@ui/utils';
 defineOptions({
   inheritAttrs: false,
 });
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = withDefaults(
   defineProps<PopoverContentProps>(),
@@ -27,7 +35,8 @@ const forwarded = useForwardPropsEmits(props, emits);
 <template>
   <PopoverPortal>
     <PopoverContent
-      v-bind="{ ...forwarded, ...$attrs }"
+      data-slot="popover-content"
+      v-bind="{ ...forwarded, ...delegatedAttrs() }"
       :class="
         cn(
           [

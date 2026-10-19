@@ -1,11 +1,27 @@
 <script setup lang="ts">
-import { MenubarLabel, type MenubarLabelProps } from 'reka-ui';
+import { useAttrs } from 'vue';
 
-const props = defineProps<MenubarLabelProps & { inset?: boolean }>();
+import { MenubarLabel, type MenubarLabelProps } from 'reka-ui';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
+
+defineProps<MenubarLabelProps & {
+  /** Adds left padding so the text lines up with items that have an icon or indicator. */
+  inset?: boolean;
+}>();
 </script>
 
 <template>
   <MenubarLabel
+    data-slot="menubar-label"
+    v-bind="delegatedAttrs()"
     class="sigma-ui-menubar-label"
     :class="[{ 'sigma-ui-menubar-label--inset': inset }, $attrs.class]"
   >
@@ -14,13 +30,17 @@ const props = defineProps<MenubarLabelProps & { inset?: boolean }>();
 </template>
 
 <style>
-.sigma-ui-menubar-label {
-  padding: 0.375rem 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-}
+@layer base, components;
 
-.sigma-ui-menubar-label--inset {
-  padding-left: 2rem;
+@layer components {
+  .sigma-ui-menubar-label {
+    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .sigma-ui-menubar-label--inset {
+    padding-left: calc(var(--spacing) * 8);
+  }
 }
 </style>

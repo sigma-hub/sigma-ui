@@ -30,9 +30,13 @@ import { RadioGroup, RadioGroupItem } from '@ui/registry/css/ui/radio-group';
 </template>
 
 <style>
-.example-sigma-ui-radio-group__item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+@layer base, components;
+
+@layer components {
+  .example-sigma-ui-radio-group__item {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+  }
 }
 </style>

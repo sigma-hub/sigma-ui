@@ -1,7 +1,18 @@
 <script setup lang="ts">
+import { useAttrs } from 'vue';
+
 import { SelectScrollDownButton, type SelectScrollDownButtonProps, useForwardProps } from 'reka-ui';
-import { ChevronDownIcon } from 'lucide-vue-next';
+import { ChevronDownIcon } from '@lucide/vue';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<SelectScrollDownButtonProps>();
 
@@ -10,7 +21,8 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <SelectScrollDownButton
-    v-bind="forwardedProps"
+    data-slot="select-scroll-down-button"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     :class="cn('flex cursor-default items-center justify-center py-1', $attrs.class ?? '')"
   >
     <slot>

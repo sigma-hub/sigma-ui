@@ -1,13 +1,16 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { CheckIcon } from 'lucide-vue-next';
+import { CheckIcon } from '@lucide/vue';
 import { cn } from '@ui/utils';
 import { Button } from '.';
 import { type ButtonVariants } from '.';
 
 interface Props {
+  /** Visual style of the button. */
   variant?: ButtonVariants['variant'];
+  /** Height and padding preset; icon makes a square button. */
   size?: ButtonVariants['size'];
+  /** Milliseconds the checkmark stays visible after a click. */
   confirmDuration?: number;
 }
 
@@ -18,6 +21,7 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const emit = defineEmits<{
+  /** Emitted on click; clicks while the checkmark is showing are ignored. */
   click: [event: MouseEvent];
 }>();
 
@@ -52,6 +56,7 @@ async function handleClick(event: MouseEvent) {
       'relative overflow-hidden gap-2',
       isConfirmed && 'border-green-500/50',
     )"
+    data-slot="confirm-button"
     @click="handleClick"
   >
     <span

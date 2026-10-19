@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "aspect-ratio",
+  "type": "registry:ui",
+  "title": "Aspect Ratio",
+  "description": "Keep content at a fixed width-to-height ratio.",
+  "dependencies": [
+    "reka-ui@^2.11.0"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/aspect-ratio/AspectRatio.vue",
+      "content": "<script setup lang=\"ts\">\nimport { AspectRatio, type AspectRatioProps } from 'reka-ui';\n\nconst props = defineProps<AspectRatioProps>();\n\ndefineSlots<{\n  /**\n   * Content that fills the ratio box. Receives the current ratio as a percentage.\n   */\n  default?: (props: { aspect: number }) => unknown;\n}>();\n</script>\n\n<template>\n  <AspectRatio\n    v-slot=\"slotProps\"\n    data-slot=\"aspect-ratio\"\n    v-bind=\"props\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </AspectRatio>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/aspect-ratio/index.ts",
+      "content": "export { default as AspectRatio } from './AspectRatio.vue';\n",
+      "type": "registry:ui"
+    }
+  ]
+}

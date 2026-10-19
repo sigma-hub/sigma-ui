@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "signup-card",
+  "type": "registry:block",
+  "title": "Sign up card",
+  "description": "A sign up form with first name, last name, email and password inside a card. There's an option to sign up with GitHub and a link to login if you already have an account",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "card",
+    "input",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "blocks/signup-card/SignupCard.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/components/ui/button';\nimport { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';\nimport { Input } from '@/components/ui/input';\nimport { Label } from '@/components/ui/label';\n</script>\n\n<template>\n  <Card class=\"mx-auto max-w-sm\">\n    <CardHeader>\n      <CardTitle class=\"text-xl\">\n        Sign Up\n      </CardTitle>\n      <CardDescription>\n        Enter your information to create an account\n      </CardDescription>\n    </CardHeader>\n    <CardContent>\n      <div class=\"grid gap-4\">\n        <div class=\"grid grid-cols-2 gap-4\">\n          <div class=\"grid gap-2\">\n            <Label for=\"first-name\">First name</Label>\n            <Input\n              id=\"first-name\"\n              autocomplete=\"given-name\"\n              placeholder=\"Max\"\n              required\n            />\n          </div>\n          <div class=\"grid gap-2\">\n            <Label for=\"last-name\">Last name</Label>\n            <Input\n              id=\"last-name\"\n              autocomplete=\"family-name\"\n              placeholder=\"Robinson\"\n              required\n            />\n          </div>\n        </div>\n        <div class=\"grid gap-2\">\n          <Label for=\"email\">Email</Label>\n          <Input\n            id=\"email\"\n            autocomplete=\"email\"\n            type=\"email\"\n            placeholder=\"m@example.com\"\n            required\n          />\n        </div>\n        <div class=\"grid gap-2\">\n          <Label for=\"password\">Password</Label>\n          <Input\n            id=\"password\"\n            autocomplete=\"new-password\"\n            type=\"password\"\n          />\n        </div>\n        <Button\n          type=\"submit\"\n          class=\"w-full\"\n        >\n          Create an account\n        </Button>\n        <Button\n          variant=\"outline\"\n          class=\"w-full\"\n        >\n          Sign up with GitHub\n        </Button>\n      </div>\n      <div class=\"mt-4 text-center text-sm\">\n        Already have an account?\n        <a\n          href=\"#\"\n          class=\"underline\"\n        >\n          Sign in\n        </a>\n      </div>\n    </CardContent>\n  </Card>\n</template>\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "iframeHeight": "600px",
+    "containerClass": "w-full h-screen flex items-center justify-center px-4"
+  },
+  "categories": [
+    "authentication",
+    "signup"
+  ]
+}

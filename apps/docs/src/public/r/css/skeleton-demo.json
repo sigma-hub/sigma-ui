@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton-demo",
+  "type": "registry:example",
+  "title": "Skeleton",
+  "dependencies": [],
+  "registryDependencies": [
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "example/Skeleton.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Skeleton } from '@/components/ui/skeleton';\n</script>\n\n<template>\n  <div class=\"example-sigma-ui-skeleton\">\n    <Skeleton class=\"example-sigma-ui-skeleton__avatar\" />\n    <div class=\"example-sigma-ui-skeleton__content\">\n      <Skeleton class=\"example-sigma-ui-skeleton__title\" />\n      <Skeleton class=\"example-sigma-ui-skeleton__description\" />\n    </div>\n  </div>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .example-sigma-ui-skeleton {\n    display: flex;\n    align-items: center;\n    gap: calc(var(--spacing) * 4);\n  }\n\n  .example-sigma-ui-skeleton__avatar {\n    width: calc(var(--spacing) * 12);\n    height: calc(var(--spacing) * 12);\n    border-radius: var(--radius-full);\n  }\n\n  .example-sigma-ui-skeleton__content {\n    display: flex;\n    flex-direction: column;\n    gap: calc(var(--spacing) * 2);\n  }\n\n  .example-sigma-ui-skeleton__title {\n    width: calc(var(--spacing) * 62.5);\n    height: calc(var(--spacing) * 4);\n  }\n\n  .example-sigma-ui-skeleton__description {\n    width: calc(var(--spacing) * 50);\n    height: calc(var(--spacing) * 4);\n  }\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

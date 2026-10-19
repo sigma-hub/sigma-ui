@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CheckIcon, PlusIcon, SendIcon } from 'lucide-vue-next';
+import { CheckIcon, PlusIcon, SendIcon } from '@lucide/vue';
 import { computed, ref } from 'vue';
 import {
   Card,
@@ -129,7 +129,7 @@ const filteredUsers = computed(() => users.value.filter(user => user.name.toLowe
           :disabled="inputLength === 0"
         >
           <SendIcon class="example-sigma-ui-card-chat__send-icon" />
-          <span class="sr-only">Send</span>
+          <span class="sigma-ui-sr-only">Send</span>
         </Button>
       </form>
     </CardFooter>
@@ -212,168 +212,184 @@ const filteredUsers = computed(() => users.value.filter(user => user.name.toLowe
 </template>
 
 <style>
-.example-sigma-ui-card-chat__header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
+@layer base, components;
 
-.example-sigma-ui-card-chat__user {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
+@layer components {
+  .example-sigma-ui-card-chat__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-.example-sigma-ui-card-chat__user-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
+  .example-sigma-ui-card-chat__user {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 4);
+  }
 
-.example-sigma-ui-card-chat__user-name {
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1;
-}
+  .example-sigma-ui-card-chat__user-info {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 1);
+  }
 
-.example-sigma-ui-card-chat__user-email {
-  color: hsl(var(--muted-foreground));
-  font-size: 0.875rem;
-}
+  .example-sigma-ui-card-chat__user-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1;
+  }
 
-.example-sigma-ui-card-chat__new-message {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.625rem;
-  border-radius: var(--radius-full);
-}
+  .example-sigma-ui-card-chat__user-email {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+  }
 
-.example-sigma-ui-card-chat__new-message-icon {
-  width: 1rem;
-  height: 1rem;
-}
+  .example-sigma-ui-card-chat__new-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(var(--spacing) * 2.5);
+    border-radius: var(--radius-full);
+  }
 
-.example-sigma-ui-card-chat__messages {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
+  .example-sigma-ui-card-chat__new-message-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 
-.example-sigma-ui-card-chat__message {
-  display: flex;
-  max-width: 75%;
-  flex-direction: column;
-  padding: 0.75rem;
-  border-radius: var(--radius);
-  font-size: 0.875rem;
-  gap: 0.5rem;
-}
+  .example-sigma-ui-card-chat__messages {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 4);
+  }
 
-.example-sigma-ui-card-chat__message--agent {
-  background-color: hsl(var(--muted));
-}
+  .example-sigma-ui-card-chat__message {
+    display: flex;
+    max-width: 75%;
+    flex-direction: column;
+    padding: calc(var(--spacing) * 3);
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-card-chat__message--user {
-  margin-left: auto;
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
-}
+  .example-sigma-ui-card-chat__message--agent {
+    background-color: var(--muted);
+  }
 
-.example-sigma-ui-card-chat__form {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  gap: 0.5rem;
-}
+  .example-sigma-ui-card-chat__message--user {
+    margin-left: auto;
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+  }
 
-.example-sigma-ui-card-chat__input {
-  flex: 1;
-}
+  .example-sigma-ui-card-chat__form {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-card-chat__send {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.625rem;
-}
+  .example-sigma-ui-card-chat__input {
+    flex: 1;
+  }
 
-.example-sigma-ui-card-chat__send-icon {
-  width: 1rem;
-  height: 1rem;
-}
+  .example-sigma-ui-card-chat__send {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(var(--spacing) * 2.5);
+  }
 
-.example-sigma-ui-card-chat__dialog {
-  padding: 0;
-  gap: 0;
-  outline: none;
-}
+  .example-sigma-ui-card-chat__send-icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 
-.example-sigma-ui-card-chat__dialog-header {
-  padding: 1.25rem 1rem 1rem;
-}
+  .example-sigma-ui-card-chat__dialog {
+    padding: 0;
+    gap: 0;
+    outline: none;
+  }
 
-.example-sigma-ui-card-chat__command {
-  overflow: hidden;
-  border-top: 1px solid hsl(var(--border));
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
+  .example-sigma-ui-card-chat__dialog-header {
+    padding: calc(var(--spacing) * 5) calc(var(--spacing) * 4) calc(var(--spacing) * 4);
+  }
 
-.example-sigma-ui-card-chat__command-group {
-  padding: 0.5rem;
-}
+  .example-sigma-ui-card-chat__command {
+    overflow: hidden;
+    border-top: 1px solid var(--border);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
 
-.example-sigma-ui-card-chat__command-item {
-  display: flex;
-  align-items: center;
-  padding: 0 0.5rem;
-}
+  .example-sigma-ui-card-chat__command-group {
+    padding: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-card-chat__command-user {
-  margin-left: 0.5rem;
-}
+  .example-sigma-ui-card-chat__command-item {
+    display: flex;
+    align-items: center;
+    padding: 0 calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-card-chat__command-user-name {
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1;
-}
+  .example-sigma-ui-card-chat__command-user {
+    margin-left: calc(var(--spacing) * 2);
+  }
 
-.example-sigma-ui-card-chat__command-user-email {
-  color: hsl(var(--muted-foreground));
-  font-size: 0.875rem;
-}
+  .example-sigma-ui-card-chat__command-user-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1;
+  }
 
-.example-sigma-ui-card-chat__command-check {
-  width: 1.25rem;
-  height: 1.25rem;
-  margin-left: auto;
-  color: hsl(var(--primary));
-}
+  .example-sigma-ui-card-chat__command-user-email {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+  }
 
-.example-sigma-ui-card-chat__dialog-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-  border-top: 1px solid hsl(var(--border));
-}
+  .example-sigma-ui-card-chat__command-check {
+    width: calc(var(--spacing) * 5);
+    height: calc(var(--spacing) * 5);
+    margin-left: auto;
+    color: var(--primary);
+  }
 
-.example-sigma-ui-card-chat__selected-users {
-  display: flex;
-  overflow: hidden;
-  margin-left: -0.5rem;
-}
+  .example-sigma-ui-card-chat__dialog-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: calc(var(--spacing) * 4);
+    border-top: 1px solid var(--border);
+  }
 
-.example-sigma-ui-card-chat__selected-avatar {
-  display: inline-block;
-  border: 2px solid hsl(var(--background));
-}
+  .example-sigma-ui-card-chat__selected-users {
+    display: flex;
+    overflow: hidden;
+    margin-left: calc(var(--spacing) * -2);
+  }
 
-.example-sigma-ui-card-chat__empty-selection {
-  color: hsl(var(--muted-foreground));
-  font-size: 0.875rem;
+  .example-sigma-ui-card-chat__selected-avatar {
+    display: inline-block;
+    border: 2px solid var(--background);
+  }
+
+  .example-sigma-ui-card-chat__empty-selection {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+  }
+
+  .sigma-ui-sr-only {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border-width: 0;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
 }
 </style>

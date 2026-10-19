@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slider",
+  "type": "registry:ui",
+  "title": "Slider",
+  "description": "An input where the user selects a value from within a given range.",
+  "dependencies": [
+    "reka-ui@^2.11.0"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/slider/Slider.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport type { SliderRootEmits, SliderRootProps } from 'reka-ui';\nimport { SliderRange, SliderRoot, SliderThumb, SliderTrack, useForwardPropsEmits } from 'reka-ui';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = defineProps<SliderRootProps>();\nconst emits = defineEmits<SliderRootEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <SliderRoot\n    data-slot=\"slider\"\n    v-bind=\"{ ...forwarded, ...delegatedAttrs() }\"\n    :class=\"cn(\n      'relative flex w-full min-w-[50px] touch-none select-none items-center',\n      $attrs.class ?? '',\n    )\"\n  >\n    <SliderTrack class=\"relative h-2 w-full grow overflow-hidden rounded-full bg-secondary\">\n      <SliderRange class=\"absolute h-full bg-primary\" />\n    </SliderTrack>\n    <SliderThumb\n      v-for=\"(_, key) in modelValue\"\n      :key=\"key\"\n      class=\"block h-5 w-5 rounded-full border-2 border-primary bg-background transition-colors focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2 disabled:pointer-events-none disabled:opacity-50\"\n    />\n  </SliderRoot>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/slider/index.ts",
+      "content": "export { default as Slider } from './Slider.vue';\n",
+      "type": "registry:ui"
+    }
+  ]
+}

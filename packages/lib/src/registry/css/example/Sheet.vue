@@ -38,6 +38,7 @@ import {
           </Label>
           <Input
             id="name"
+            autocomplete="name"
             value="Pedro Duarte"
             class="example-sigma-ui-sheet__input"
           />
@@ -51,6 +52,7 @@ import {
           </Label>
           <Input
             id="username"
+            autocomplete="username"
             value="@peduarte"
             class="example-sigma-ui-sheet__input"
           />
@@ -68,28 +70,32 @@ import {
 </template>
 
 <style>
-.example-sigma-ui-sheet {
-  padding: 1.5rem;
-}
+@layer base, components;
 
-.example-sigma-ui-sheet__form {
-  display: grid;
-  padding: 1rem 0;
-  gap: 1rem;
-}
+@layer components {
+  .example-sigma-ui-sheet {
+    padding: calc(var(--spacing) * 6);
+  }
 
-.example-sigma-ui-sheet__form-row {
-  display: grid;
-  align-items: center;
-  gap: 1rem;
-  grid-template-columns: repeat(4, 1fr);
-}
+  .example-sigma-ui-sheet__form {
+    display: grid;
+    padding: calc(var(--spacing) * 4) 0;
+    gap: calc(var(--spacing) * 4);
+  }
 
-.example-sigma-ui-sheet__label {
-  text-align: right;
-}
+  .example-sigma-ui-sheet__form-row {
+    display: grid;
+    align-items: center;
+    gap: calc(var(--spacing) * 4);
+    grid-template-columns: repeat(4, 1fr);
+  }
 
-.example-sigma-ui-sheet__input {
-  grid-column: span 3;
+  .example-sigma-ui-sheet__label {
+    text-align: right;
+  }
+
+  .example-sigma-ui-sheet__input {
+    grid-column: span 3;
+  }
 }
 </style>

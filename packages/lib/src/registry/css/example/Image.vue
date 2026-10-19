@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ImageIcon } from 'lucide-vue-next';
+import { ImageIcon } from '@lucide/vue';
 import { Image } from '@ui/registry/css/ui/image';
 </script>
 
@@ -30,28 +30,32 @@ import { Image } from '@ui/registry/css/ui/image';
 </template>
 
 <style scoped>
-.example-image-container {
-  display: grid;
-  height: 250px;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  grid-template-columns: repeat(3, minmax(120px, 220px));
-}
+@layer base, components;
 
-.example-fallback-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: hsl(var(--muted-foreground));
-  gap: 0.25rem;
-}
+@layer components {
+  .example-image-container {
+    display: grid;
+    height: 250px;
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--spacing) * 4);
+    grid-template-columns: repeat(3, minmax(120px, 220px));
+  }
 
-.example-fallback-icon {
-  width: 50%;
-  max-width: 50px;
-  height: 50%;
-  max-height: 50px;
+  .example-fallback-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted-foreground);
+    gap: calc(var(--spacing) * 1);
+  }
+
+  .example-fallback-icon {
+    width: 50%;
+    max-width: 50px;
+    height: 50%;
+    max-height: 50px;
+  }
 }
 </style>

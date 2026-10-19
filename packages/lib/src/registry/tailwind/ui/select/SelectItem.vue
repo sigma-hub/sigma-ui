@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useAttrs } from 'vue';
+
 import {
   SelectItem,
   SelectItemIndicator,
@@ -6,8 +8,17 @@ import {
   SelectItemText,
   useForwardProps,
 } from 'reka-ui';
-import { CheckIcon } from 'lucide-vue-next';
+import { CheckIcon } from '@lucide/vue';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const props = defineProps<SelectItemProps>();
 
@@ -16,17 +27,18 @@ const forwardedProps = useForwardProps(props);
 
 <template>
   <SelectItem
-    v-bind="forwardedProps"
+    data-slot="select-item"
+    v-bind="{ ...forwardedProps, ...delegatedAttrs() }"
     :class="
       cn(
-        'relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-hidden focus:bg-secondary focus:text-secondary-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+        'relative flex w-full cursor-default items-center gap-2 rounded-sm py-1.5 pr-8 pl-2 text-sm outline-hidden select-none focus:bg-secondary focus:text-secondary-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*=size-])]:size-4',
         $attrs.class ?? '',
       )
     "
   >
-    <span class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+    <span class="absolute right-2 flex size-3.5 items-center justify-center">
       <SelectItemIndicator>
-        <CheckIcon class="h-4 w-4" />
+        <CheckIcon class="size-4" />
       </SelectItemIndicator>
     </span>
 

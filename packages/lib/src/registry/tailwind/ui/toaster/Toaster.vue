@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { Toaster, type ToasterProps } from 'vue-sonner';
+import 'vue-sonner/style.css';
 
 const props = defineProps<ToasterProps>();
 </script>
@@ -7,6 +8,7 @@ const props = defineProps<ToasterProps>();
 <template>
   <Toaster
     class="!z-[60] pointer-events-auto fixed flex flex-col gap-[10px] max-w-[420px]"
+    data-slot="toaster"
     v-bind="props"
     :toast-options="{
       ...props.toastOptions,

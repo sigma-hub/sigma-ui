@@ -1,49 +1,88 @@
 {
   "name": "sigma-ui-nuxt",
-  "version": "1.0.0",
-  "description": "Nuxt module for SIGMA-UI components.",
-  "repository": "sigma-hub/sigma-ui-nuxt",
+  "version": "0.0.0",
+  "description": "Nuxt module that auto-imports SIGMA-UI components.",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sigma-hub/sigma-ui.git",
+    "directory": "packages/nuxt-module"
+  },
+  "homepage": "https://sigma-ui.dev/docs/installation/nuxt",
+  "bugs": "https://github.com/sigma-hub/sigma-ui/issues",
   "license": "MIT",
+  "keywords": [
+    "nuxt",
+    "nuxt-module",
+    "vue",
+    "ui",
+    "components",
+    "reka-ui",
+    "tailwind",
+    "sigma-ui"
+  ],
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/types.d.ts",
-      "import": "./dist/module.mjs",
-      "require": "./dist/module.cjs"
+      "types": "./dist/types.d.mts",
+      "import": "./dist/module.mjs"
     }
   },
-  "main": "./dist/module.cjs",
-  "types": "./dist/types.d.ts",
+  "main": "./dist/module.mjs",
+  "typesVersions": {
+    "*": {
+      ".": [
+        "./dist/types.d.mts"
+      ]
+    }
+  },
   "files": [
-    "dist"
+    "dist",
+    "CHANGELOG.md",
+    "THIRD_PARTY_NOTICES.md"
   ],
   "scripts": {
-    "prepack": "nuxt-module-build build",
-    "dev": "nuxi dev playground",
-    "dev:build": "nuxi build playground",
-    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
-    "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
-    "lint": "eslint .",
-    "test": "vitest run",
-    "test:watch": "vitest watch",
-    "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
+    "build": "nuxt-module-build prepare && nuxt-module-build build",
+    "prepack": "pnpm build && node ../../scripts/copy-publish-files.mjs",
+    "dev": "nuxt dev playground",
+    "dev:build": "nuxt build playground",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxt prepare playground",
+    "dev:components": "pnpm --dir playground components",
+    "ts": "nuxt-module-build prepare && vue-tsc --noEmit",
+    "test": "vitest run --exclude test/playground-ssr.test.ts",
+    "test:playground": "vitest run test/playground-ssr.test.ts",
+    "test:watch": "vitest watch"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.15.4",
-    "@oxc-parser/wasm": "^0.52.0"
+    "@nuxt/kit": "^4.6.1",
+    "oxc-parser": "^0.154.0"
+  },
+  "peerDependencies": {
+    "@tailwindcss/vite": "^4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@tailwindcss/vite": {
+      "optional": true
+    }
   },
   "devDependencies": {
-    "@nuxt/devtools": "^1.7.0",
-    "@nuxt/eslint-config": "^1.0.0",
-    "@nuxt/module-builder": "^0.8.4",
-    "@nuxt/schema": "^3.15.4",
-    "@nuxt/test-utils": "^3.15.4",
-    "@types/node": "latest",
-    "changelogen": "^0.5.7",
-    "eslint": "^9.19.0",
-    "nuxt": "^3.15.4",
-    "typescript": "~5.7.3",
-    "vitest": "^3.0.5",
-    "vue-tsc": "^2.2.0"
+    "@nuxt/module-builder": "^1.0.3",
+    "@nuxt/schema": "^4.6.1",
+    "@nuxt/test-utils": "^4.3.3",
+    "@sigma-ui/shared": "workspace:*",
+    "@tailwindcss/vite": "catalog:",
+    "@types/node": "^22.13.1",
+    "clsx": "catalog:",
+    "nuxt": "catalog:",
+    "tailwind-merge": "catalog:",
+    "tailwindcss": "catalog:",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.5",
+    "vue-tsc": "^3.3.13"
   }
 }

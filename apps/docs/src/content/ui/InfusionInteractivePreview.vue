@@ -66,6 +66,7 @@ const noiseOpacityValue = computed(() => noiseOpacity.value[0]);
               <Label>Email</Label>
               <Input
                 type="email"
+                autocomplete="email"
                 placeholder="your@email.com"
                 class="flex h-10 w-full"
               />

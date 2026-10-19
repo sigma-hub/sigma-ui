@@ -2,7 +2,7 @@
 import { useData } from 'vitepress';
 import { computed } from 'vue';
 import { Button } from '@ui/registry/tailwind/ui/button';
-import { SquarePenIcon } from 'lucide-vue-next';
+import { SquarePenIcon } from '@lucide/vue';
 
 const { theme, page } = useData();
 

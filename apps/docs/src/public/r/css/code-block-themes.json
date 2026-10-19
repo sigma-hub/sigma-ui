@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-block-themes",
+  "type": "registry:example",
+  "title": "CodeBlockThemes",
+  "dependencies": [
+    "@lucide/vue@^1.59.0"
+  ],
+  "registryDependencies": [
+    "code-block"
+  ],
+  "files": [
+    {
+      "path": "example/CodeBlockThemes.vue",
+      "content": "<script setup lang=\"ts\">\nimport { PaletteIcon } from '@lucide/vue';\nimport {\n  type CodeBlockThemes,\n  CodeBlock,\n  CodeBlockActions,\n  CodeBlockContent,\n  CodeBlockCopyButton,\n  CodeBlockHeader,\n  CodeBlockTitle,\n  useHighlightedCode,\n} from '@/components/ui/code-block';\n\nconst themes: CodeBlockThemes = {\n  light: () => import('shiki/themes/github-light.mjs'),\n  dark: () => import('shiki/themes/github-dark.mjs'),\n};\n\nconst code = `const formatter = new Intl.NumberFormat('en-US', {\n  style: 'currency',\n  currency: 'USD',\n});\n\nexport function formatPrice(cents: number) {\n  return formatter.format(cents / 100);\n}`;\n\nconst { lines } = useHighlightedCode(code, 'ts', { themes });\n</script>\n\n<template>\n  <CodeBlock>\n    <CodeBlockHeader>\n      <CodeBlockTitle>\n        <PaletteIcon />\n        GitHub light and dark\n      </CodeBlockTitle>\n      <CodeBlockActions>\n        <CodeBlockCopyButton />\n      </CodeBlockActions>\n    </CodeBlockHeader>\n    <CodeBlockContent\n      :code=\"code\"\n      :lines=\"lines\"\n      language=\"ts\"\n    />\n  </CodeBlock>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

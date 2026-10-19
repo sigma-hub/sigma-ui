@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "separator-demo",
+  "type": "registry:example",
+  "title": "Separator",
+  "dependencies": [],
+  "registryDependencies": [
+    "separator"
+  ],
+  "files": [
+    {
+      "path": "example/Separator.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Separator } from '@/components/ui/separator';\n</script>\n\n<template>\n  <div>\n    <div class=\"example-sigma-ui-separator__header\">\n      <h4 class=\"example-sigma-ui-separator__title\">\n        Reka Primitives\n      </h4>\n      <p class=\"example-sigma-ui-separator__description\">\n        An open-source UI component library.\n      </p>\n    </div>\n    <Separator\n      class=\"example-sigma-ui-separator__divider\"\n      label=\"Or\"\n    />\n    <div class=\"example-sigma-ui-separator__nav\">\n      <div>Blog</div>\n      <Separator orientation=\"vertical\" />\n      <div>Docs</div>\n      <Separator orientation=\"vertical\" />\n      <div>Source</div>\n    </div>\n  </div>\n</template>\n\n<style>\n@layer base, components;\n\n@layer components {\n  .example-sigma-ui-separator__header {\n    display: flex;\n    flex-direction: column;\n    gap: calc(var(--spacing) * 1);\n  }\n\n  .example-sigma-ui-separator__title {\n    font-size: 0.875rem;\n    font-weight: 500;\n    line-height: 1;\n  }\n\n  .example-sigma-ui-separator__description {\n    color: var(--muted-foreground);\n    font-size: 0.875rem;\n  }\n\n  .example-sigma-ui-separator__divider {\n    margin: calc(var(--spacing) * 4) 0;\n  }\n\n  .example-sigma-ui-separator__nav {\n    display: flex;\n    height: calc(var(--spacing) * 5);\n    align-items: center;\n    font-size: 0.875rem;\n    gap: calc(var(--spacing) * 4);\n  }\n}\n</style>\n",
+      "type": "registry:example"
+    }
+  ]
+}

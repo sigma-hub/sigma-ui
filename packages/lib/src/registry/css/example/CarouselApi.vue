@@ -55,43 +55,47 @@ watchOnce(api, (api) => {
 </template>
 
 <style>
-.example-sigma-ui-carousel-api {
-  width: 100%;
-}
+@layer base, components;
 
-@media (width >= 640px) {
+@layer components {
   .example-sigma-ui-carousel-api {
-    width: auto;
+    width: 100%;
   }
-}
 
-.example-sigma-ui-carousel-api__carousel {
-  position: relative;
-  width: 100%;
-  max-width: 20rem;
-}
+  @media (width >= 40rem) {
+    .example-sigma-ui-carousel-api {
+      width: auto;
+    }
+  }
 
-.example-sigma-ui-carousel-api__slide {
-  padding: 0.25rem;
-}
+  .example-sigma-ui-carousel-api__carousel {
+    position: relative;
+    width: 100%;
+    max-width: 20rem;
+  }
 
-.example-sigma-ui-carousel-api__item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-  border: 1px solid hsl(var(--border));
-  border-radius: var(--radius);
-  aspect-ratio: 1;
-  font-size: 2.25rem;
-  font-weight: 600;
-  user-select: none;
-}
+  .example-sigma-ui-carousel-api__slide {
+    padding: calc(var(--spacing) * 1);
+  }
 
-.example-sigma-ui-carousel-api__counter {
-  padding-top: 0.5rem;
-  color: hsl(var(--muted-foreground));
-  font-size: 0.875rem;
-  text-align: center;
+  .example-sigma-ui-carousel-api__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(var(--spacing) * 6);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    aspect-ratio: 1;
+    font-size: 2.25rem;
+    font-weight: 600;
+    user-select: none;
+  }
+
+  .example-sigma-ui-carousel-api__counter {
+    padding-top: calc(var(--spacing) * 2);
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+    text-align: center;
+  }
 }
 </style>

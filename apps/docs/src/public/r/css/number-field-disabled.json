@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "number-field-disabled",
+  "type": "registry:example",
+  "title": "NumberFieldDisabled",
+  "dependencies": [],
+  "registryDependencies": [
+    "label",
+    "number-field"
+  ],
+  "files": [
+    {
+      "path": "example/NumberFieldDisabled.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue';\nimport {\n  NumberField,\n  NumberFieldContent,\n  NumberFieldDecrement,\n  NumberFieldIncrement,\n  NumberFieldInput,\n} from '@/components/ui/number-field';\nimport { Label } from '@/components/ui/label';\n\nconst model = ref(18);\n</script>\n\n<template>\n  <NumberField\n    id=\"age-disabled\"\n    v-model=\"model\"\n    disabled\n  >\n    <Label for=\"age-disabled\">Age</Label>\n    <NumberFieldContent>\n      <NumberFieldDecrement />\n      <NumberFieldInput />\n      <NumberFieldIncrement />\n    </NumberFieldContent>\n  </NumberField>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

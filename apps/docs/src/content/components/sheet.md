@@ -1,8 +1,8 @@
 ---
 title: Sheet
 description: Extends the Dialog component to display content that complements the main content of the screen.
-source: packages/lib/src/registry/tailwind/ui/sheet
-primitive: https://www.reka-ui.com/docs/components/dialog.html
+source: sheet
+primitive: https://reka-ui.com/docs/components/dialog
 ---
 
 ## Preview
@@ -11,13 +11,9 @@ primitive: https://www.reka-ui.com/docs/components/dialog.html
 
 ## Installation
 
-```bash
-npx sigma-ui add sheet
-```
+<ComponentInstall name="sheet" />
 
-## Examples
-
-### Basic
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -28,7 +24,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from '@/components/ui/sheet'
+} from '@/components/ui/sheet';
 </script>
 
 <template>
@@ -46,6 +42,10 @@ import {
   </Sheet>
 </template>
 ```
+
+Use `v-model:open` on `Sheet` to control the open state.
+
+## Examples
 
 ### Side
 
@@ -73,3 +73,19 @@ You can adjust the size of the sheet using CSS classes:
   </Sheet>
 </template>
 ```
+
+## API Reference
+
+<!-- @include: @/content/meta/sheet.md -->
+
+## Accessibility
+
+Adheres to the [Dialog WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/). Reka UI traps focus inside the open sheet and returns it to the trigger on close. `SheetTitle` and `SheetDescription` label the content.
+
+| Key | Description |
+| --- | --- |
+| <kbd>Space</kbd> | Opens or closes the sheet. |
+| <kbd>Enter</kbd> | Opens or closes the sheet. |
+| <kbd>Tab</kbd> | Moves focus to the next focusable element. |
+| <kbd>Shift</kbd> + <kbd>Tab</kbd> | Moves focus to the previous focusable element. |
+| <kbd>Esc</kbd> | Closes the sheet and moves focus to the trigger. |

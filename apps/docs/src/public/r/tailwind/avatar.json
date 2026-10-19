@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar",
+  "type": "registry:ui",
+  "title": "Avatar",
+  "description": "An image element with a fallback for representing the user.",
+  "dependencies": [
+    "@lucide/vue@^1.59.0",
+    "class-variance-authority@^0.7.1"
+  ],
+  "registryDependencies": [
+    "image"
+  ],
+  "files": [
+    {
+      "path": "ui/avatar/Avatar.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue';\n\nimport { UserIcon } from '@lucide/vue';\nimport { avatarVariants } from '.';\nimport { Image, type ImageVariants } from '@/components/ui/image';\nimport { cn } from '@/lib/utils';\ndefineOptions({\n  inheritAttrs: false,\n});\n\nconst attrs = useAttrs();\n\nconst delegatedAttrs = () => {\n  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));\n};\n\nconst props = withDefaults(defineProps<{\n  /** URL of the avatar image. */\n  src?: string;\n  /** Alternative text for the image. */\n  alt?: string;\n  /** Renders a blurred, saturated copy of the image behind it as a glow. */\n  glow?: boolean;\n  /** Size of the avatar. */\n  size?: 'xs' | 'sm' | 'base' | 'lg';\n  /** Corner style of the avatar: circle or rounded. */\n  shape?: ImageVariants['shape'];\n}>(), {\n  size: 'base',\n  shape: 'circle',\n});\n\ndefineSlots<{\n  /** Content shown when there is no image or it fails to load; defaults to a user icon. */\n  fallback?: () => unknown;\n}>();\n</script>\n\n<template>\n  <div\n    data-slot=\"avatar\"\n    v-bind=\"delegatedAttrs()\"\n    :class=\"[cn(avatarVariants({ size }), $attrs.class ?? '')]\"\n  >\n    <Image\n      v-bind=\"props\"\n    >\n      <template #fallback>\n        <slot name=\"fallback\">\n          <UserIcon class=\"w-[40%] h-[40%] text-primary/50\" />\n        </slot>\n      </template>\n    </Image>\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "ui/avatar/index.ts",
+      "content": "import { type VariantProps, cva } from 'class-variance-authority';\n\nexport { default as Avatar } from './Avatar.vue';\n\nexport const avatarVariants = cva(\n  'inline-flex items-center justify-center font-normal text-foreground select-none shrink-0',\n  {\n    variants: {\n      size: {\n        xs: 'h-6 w-6 text-xs',\n        sm: 'h-10 w-10 text-xs',\n        base: 'h-16 w-16 text-2xl',\n        lg: 'h-32 w-32 text-5xl',\n      },\n    },\n  },\n);\n\nexport type AvatarVariants = VariantProps<typeof avatarVariants>;\n",
+      "type": "registry:ui"
+    }
+  ]
+}

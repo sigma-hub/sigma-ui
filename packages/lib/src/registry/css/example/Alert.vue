@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TerminalIcon } from 'lucide-vue-next';
+import { TerminalIcon } from '@lucide/vue';
 import { Alert, AlertDescription, AlertTitle } from '@ui/registry/css/ui/alert';
 </script>
 
@@ -14,8 +14,12 @@ import { Alert, AlertDescription, AlertTitle } from '@ui/registry/css/ui/alert';
 </template>
 
 <style>
-.example-sigma-ui-alert__icon {
-  width: 1rem;
-  height: 1rem;
+@layer base, components;
+
+@layer components {
+  .example-sigma-ui-alert__icon {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
 }
 </style>

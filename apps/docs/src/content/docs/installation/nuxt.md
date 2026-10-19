@@ -1,218 +1,109 @@
 ---
 title: Nuxt
-description: Initialize SIGMA-UI in a Nuxt project.
+description: Install sigma-ui in a Nuxt 4 project.
 ---
 
-<Steps>
+## Create a project
 
-### Create project (optional step)
-
-If you don't have a Nuxt project yet, create it first. Here's an example using `create-nuxt-app`:
+Create a Nuxt 4 project if you do not already have one:
 
 ```bash
 npx nuxi@latest init my-app
 ```
 
-### Install TypeScript
+Nuxt 4 keeps the application source in `app/`. `@/` and `~/` both point at that directory.
 
-If you encounter the error `ERROR: Cannot read properties of undefined (reading 'sys') (x4)`, please proceed to install TypeScript as a dependency, as advised in this [issue](https://github.com/nuxt/nuxt/issues/20936)
+## Install Tailwind CSS
 
-```bash
-npm install -D typescript
-```
-
-### Install TailwindCSS module (optional step)
-
-If you want to use Tailwind version of the SIGMA-UI components, and you don't already have Tailwind setup in your project, install the TailwindCSS module as well:
+Install Tailwind v4 and its Vite plugin when you want the Tailwind components:
 
 ```bash
-npx nuxi@latest module add @nuxtjs/tailwindcss
+npm install -D tailwindcss @tailwindcss/vite
+npm install tw-animate-css
 ```
 
-### Add `Nuxt` module
+`sigma-ui-nuxt` registers `@tailwindcss/vite` for you. It does not use `@nuxtjs/tailwindcss`, which targets Tailwind v3. If that module is installed, `sigma-ui-nuxt` skips the Vite plugin and logs a warning.
 
-Install the SIGMA-UI Nuxt module either manually or using the `sigma-ui-nuxt` module:
+Skip this step for the CSS style system. That path does not use Tailwind.
 
-<TabsMarkdown>
-  <TabMarkdown title="sigma-ui-nuxt">
-
-  ```bash
- npx nuxi@latest module add sigma-ui-nuxt
-  ```
-
-  </TabMarkdown>
-
-  <TabMarkdown title="manual">
-
-  Add the following code to `modules/sigma-ui.ts`.
+## Add the module
 
 ```bash
-import {
-  defineNuxtModule,
-  addComponent,
-  addComponentsDir,
-  tryResolveModule,
-} from 'nuxt/kit';
-
-export interface SigmaUiOptions {
-  /**
-   * Prefix for all the imported component
-   */
-  prefix: string;
-
-  /**
-   * Directory that the component lives in.
-   * @default "~/components/ui"
-   */
-  componentDir: string;
-}
-
-export default defineNuxtModule<SigmaUiOptions>({
-  defaults: {
-    prefix: 'Ui',
-    componentDir: '~/components/ui',
-  },
-  meta: {
-    name: 'SigmaUi',
-    configKey: 'sigmaUi',
-    version: '0.0.1',
-    compatibility: {
-      nuxt: '>=3.9.0',
-      bridge: false,
-    },
-  },
-  async setup({ componentDir, prefix }) {
-    const isVeeValidateExist = await tryResolveModule('vee-validate');
-
-    addComponentsDir(
-      {
-        path: componentDir,
-        extensions: ['.vue'],
-        prefix,
-        pathPrefix: false,
-      },
-      {
-        prepend: true,
-      }
-    );
-
-    if (isVeeValidateExist !== undefined) {
-      addComponent({
-        filePath: 'vee-validate',
-        export: 'Form',
-        name: `${prefix}Form`,
-        priority: 999,
-      });
-
-      addComponent({
-        filePath: 'vee-validate',
-        export: 'Field',
-        name: `${prefix}FormField`,
-        priority: 999,
-      });
-    }
-
-    addComponent({
-      filePath: 'reka-ui',
-      export: 'PaginationRoot',
-      name: `${prefix}Pagination`,
-      priority: 999,
-    });
-
-    addComponent({
-      filePath: 'reka-ui',
-      export: 'PaginationList',
-      name: `${prefix}PaginationList`,
-      priority: 999,
-    });
-
-    addComponent({
-      filePath: 'reka-ui',
-      export: 'PaginationListItem',
-      name: `${prefix}PaginationListItem`,
-      priority: 999,
-    });
-  },
-});
-
-declare module '@nuxt/schema' {
-  interface NuxtConfig {
-    sigmaUi?: SigmaUiOptions;
-  }
-  interface NuxtOptions {
-    sigmaUi?: SigmaUiOptions;
-  }
-}
+npx nuxi module add sigma-ui-nuxt
 ```
 
-  </TabMarkdown>
-</TabsMarkdown>
+The module auto-imports every component exported from `app/components/ui/<name>/index.ts`. You do not paste a module into the project. When the project has no `@/lib/utils`, the module provides `cn()` itself.
 
-### Configure `nuxt.config.ts`
-
-```ts
-export default defineNuxtConfig({
-  modules: ['@nuxtjs/tailwindcss', 'sigma-ui-nuxt'],
-  sigmaUi: {
-    /**
-     * Prefix for all the imported component
-     */
-    prefix: '',
-    /**
-     * Directory that the component lives in.
-     * @default "./components/ui"
-     */
-    componentDir: './components/ui'
-  },
-  css: ['./src/assets/index.css'],
-})
-```
-
-Also make sure you have the `tsconfig.json` properly configured, so the components are added to the path you want:
-
-```json
-{
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    }
-  }
-}
-```
-
-### Initialize SIGMA-UI
-
-In your existing Nuxt project, run the following command to config SIGMA-UI (learn more in: [CLI docs > init](/docs/cli.html)):
+## Initialize sigma-ui
 
 ```bash
 npx sigma-ui init
 ```
 
-And follow the steps in your terminal.
+On a Nuxt 4 project, init writes `app/assets/css/tailwind.css` and adds `~/assets/css/tailwind.css` to the `css` array in `nuxt.config.ts`.
 
-### Add components
+With the Tailwind style system, that file starts with the Tailwind v4 imports and then defines the theme. Init does not create a `tailwind.config.js`. It installs `clsx`, `tailwind-merge`, and `tw-animate-css`, writes `@/lib/utils`, and adds `tailwindcss()` from `@tailwindcss/vite` to `vite.plugins` when Tailwind is not already set up:
 
-You can now start adding [components](/components/accordion.html) to your project (learn more in: [CLI docs > add](/docs/cli.html)):
+```css
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --radius-lg: var(--radius);
+}
+```
+
+```ts
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineNuxtConfig({
+  modules: ['sigma-ui-nuxt'],
+  css: ['~/assets/css/tailwind.css'],
+  vite: {
+    plugins: [tailwindcss()],
+  },
+})
+```
+
+The module leaves an existing `tailwindcss()` plugin in place. `sigmaUi.tailwind` controls what it does when the plugin is missing:
+
+| Value | Behavior |
+| --- | --- |
+| `'auto'` (default) | Registers `@tailwindcss/vite` when it is installed. |
+| `true` | Same as `'auto'`, and warns when the package is missing. |
+| `false` | Never registers the plugin. |
+
+```ts
+export default defineNuxtConfig({
+  modules: ['sigma-ui-nuxt'],
+  sigmaUi: {
+    // 'Ui' turns <Button> into <UiButton>.
+    prefix: '',
+    // Directory the CLI copies components into. Keep it in sync with
+    // aliases.components in sigma-ui.config.json.
+    componentDir: '@/components/ui',
+    tailwind: 'auto',
+  },
+})
+```
+
+## Add components
 
 ```bash
 npx sigma-ui add button
 ```
 
-Then, you can use the added component without importing it:
+The module imports the component for you:
 
-```vue {2,6}
+```vue
 <template>
   <Button>Click me</Button>
 </template>
 ```
 
-If you define a prefix in the config, you will need to use the prefix:
-
-```vue {2,6}
-<template>
-  <UiButton>Click me</UiButton>
-</template>
-```
-
-</Steps>
+With `prefix: 'Ui'`, use `<UiButton>` instead.

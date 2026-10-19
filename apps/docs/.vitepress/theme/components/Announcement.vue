@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Separator } from '@ui/registry/tailwind/ui/separator';
-import { ArrowRightIcon } from 'lucide-vue-next';
+import { ArrowRightIcon } from '@lucide/vue';
 import { announcementConfig } from '../config/site';
 </script>
 

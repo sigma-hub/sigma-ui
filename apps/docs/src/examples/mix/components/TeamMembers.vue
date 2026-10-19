@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { ChevronDownIcon } from 'lucide-vue-next';
+import { ChevronDownIcon } from '@lucide/vue';
 import { Avatar } from '@ui/registry/tailwind/ui/avatar';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import {

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-secondary",
+  "type": "registry:example",
+  "title": "ButtonSecondary",
+  "dependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "example/ButtonSecondary.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/components/ui/button';\n</script>\n\n<template>\n  <Button variant=\"secondary\">\n    Secondary\n  </Button>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}

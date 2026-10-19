@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { BellRingIcon, CheckIcon } from 'lucide-vue-next';
+import { useAttrs } from 'vue';
+
+import { BellRingIcon, CheckIcon } from '@lucide/vue';
 import { Button } from '@ui/registry/tailwind/ui/button';
 import {
   Card,
@@ -11,6 +13,15 @@ import {
 } from '@ui/registry/tailwind/ui/card';
 import { Switch } from '@ui/registry/tailwind/ui/switch';
 import { cn } from '@ui/utils';
+defineOptions({
+  inheritAttrs: false,
+});
+
+const attrs = useAttrs();
+
+const delegatedAttrs = () => {
+  return Object.fromEntries(Object.entries(attrs).filter(([key]) => key !== 'class'));
+};
 
 const notifications = [
   {
@@ -29,7 +40,10 @@ const notifications = [
 </script>
 
 <template>
-  <Card :class="cn('w-[380px]', $attrs.class ?? '')">
+  <Card
+    v-bind="delegatedAttrs()"
+    :class="cn('w-[380px]', $attrs.class ?? '')"
+  >
     <CardHeader>
       <CardTitle>Notifications</CardTitle>
       <CardDescription>You have 3 unread messages.</CardDescription>

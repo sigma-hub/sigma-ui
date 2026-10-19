@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "carousel-orientation",
+  "type": "registry:example",
+  "title": "CarouselOrientation",
+  "dependencies": [],
+  "registryDependencies": [
+    "carousel"
+  ],
+  "files": [
+    {
+      "path": "example/CarouselOrientation.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';\n</script>\n\n<template>\n  <Carousel\n    orientation=\"vertical\"\n    class=\"relative w-full max-w-xsw-full max-w-xs\"\n    :opts=\"{\n      align: 'start',\n    }\"\n  >\n    <CarouselContent class=\"-mt-1 h-[200px]\">\n      <CarouselItem\n        v-for=\"(_, index) in 5\"\n        :key=\"index\"\n        class=\"p-1 md:basis-1/2\"\n      >\n        <div class=\"flex items-center justify-center p-6 border rounded-lg text-4xl font-semibold select-none\">\n          {{ index + 1 }}\n        </div>\n      </CarouselItem>\n    </CarouselContent>\n    <CarouselPrevious />\n    <CarouselNext />\n  </Carousel>\n</template>\n",
+      "type": "registry:example"
+    }
+  ]
+}
