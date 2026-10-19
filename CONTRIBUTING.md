@@ -129,6 +129,6 @@ Run these before you open a pull request:
 
 - Write one change per commit, with a `Scope: description` subject. Scopes are `CLI`, `Docs`, `Lib`, `Blocks`, `Styles`, `Dev`, `CI`, `Nuxt`, and `UI`, joined with `/` when a commit spans several (`CLI/Docs: ...`). For example: `Lib: add the inset prop to DropdownMenuSubTrigger`.
 - `pnpm install` sets up git hooks that check the subject with commitlint and run `eslint --fix` on the staged files.
-- Changes to the published packages (`sigma-ui` and `sigma-ui-nuxt`) need a changeset. Run `pnpm changeset` and commit the generated file. See [.changeset/README.md](.changeset/README.md) for the release flow.
+- Changes to the published packages (`sigma-ui` and `sigma-ui-nuxt`) need a changeset. Run `pnpm changeset` and commit the generated file. See [.changeset/README.md](.changeset/README.md) for the release flow and npm publishing setup.
 - Keep the two style systems in sync in the same pull request.
 - Include screenshots in the pull request when you change something visual.

@@ -21,6 +21,42 @@ Pick the affected packages and the bump type, then write a short user-facing sum
 
 ## Repository setup
 
-- Add an `NPM_TOKEN` repository secret: a granular npm access token with read and write permission for the `sigma-ui` and `sigma-ui-nuxt` packages. It is the only secret the workflow needs, `GITHUB_TOKEN` is provided by GitHub Actions.
+- The workflow needs no secrets. It publishes to npm with trusted publishing (see [Releasing](#releasing)), and `GITHUB_TOKEN` is provided by GitHub Actions.
 - Enable "Allow GitHub Actions to create and approve pull requests" in Settings > Actions > General, so the workflow can open the version pull request. Pull requests opened with `GITHUB_TOKEN` don't trigger the CI workflow, which is fine for the version pull request because it only touches versions and changelogs.
-- `sigma-ui-nuxt` has to be published once before it can be switched to [npm trusted publishing](https://docs.npmjs.com/trusted-publishers). After both packages trust `.github/workflows/release.yml`, the `NPM_TOKEN` secret can be removed.
+
+## Releasing
+
+The `Release` workflow publishes with [npm trusted publishing](https://docs.npmjs.com/trusted-publishers) (OIDC) instead of an npm token. The job has the `id-token: write` permission, and npm exchanges a short-lived GitHub identity token for a publish token for each package. npm adds provenance automatically.
+
+Trusted publishing needs npm 11.5.1 or later and Node.js 22.14.0 or later. Node.js 22 ships npm 10, so the workflow installs npm 11 into the Node.js install before publishing. `changeset publish` runs `pnpm publish`, and pnpm 10 hands the packed tarball to the npm that sits next to the `node` binary, not just the first `npm` on `PATH`. `scripts/check-trusted-publishing.mjs` asks pnpm which npm it runs and fails the job early if it is too old.
+
+### Set up trusted publishing for a package
+
+Do this once for each published package (`sigma-ui` and `sigma-ui-nuxt`). On npmjs.com, open the package > Settings > Trusted publishing, choose GitHub Actions, and fill in:
+
+| Field | Value |
+| --- | --- |
+| Organization or user | `sigma-hub` |
+| Repository | `sigma-ui` |
+| Workflow filename | `release.yml` |
+| Environment name | leave empty, the workflow doesn't use a GitHub environment |
+| Allowed actions | allow `npm publish`. New configurations only allow `npm stage publish` by default, and the workflow publishes directly. |
+
+The same thing from the command line, with npm 11 and a maintainer account:
+
+```bash
+npm trust github <package> --file release.yml --repository sigma-hub/sigma-ui --allow-publish
+```
+
+- A new configuration expires if no publish uses it within 2 days, so set it up shortly before merging the version pull request.
+- `repository.url` in the package's `package.json` must match the GitHub repository (`git+https://github.com/sigma-hub/sigma-ui.git`, with `directory` pointing at the package folder).
+- Once a release has gone out this way, set Settings > Publishing access to "Require two-factor authentication and disallow tokens", and revoke npm tokens you no longer need.
+
+### Add a brand-new package
+
+Trusted publishing can only be set up for a package that already exists on npm. For a new package:
+
+1. From your own machine, publish a placeholder `0.0.0`: a folder with only a `package.json` that has the package `name`, `"version": "0.0.0"`, a description saying it's a placeholder, `"license": "MIT"`, and `repository` (`url` as above, `directory` set to the package folder). Then run `npm login` and `npm publish --access public`.
+2. Set up trusted publishing for it as described above.
+3. Release the real first version (for example `1.0.0`) through changesets as usual. `changeset publish` publishes every version that isn't on npm yet, with the `latest` tag, so the placeholder doesn't get in the way.
+4. After the real version is out, deprecate the placeholder: `npm deprecate <package>@0.0.0 "Placeholder, use 1.0.0 or later"`.

@@ -6,10 +6,10 @@ inputs:
     description: Node.js version to install. Defaults to the version in .nvmrc.
     required: false
     default: ''
-  registry-url:
-    description: npm registry to authenticate against, needed for publishing.
+  cache:
+    description: Package manager whose store setup-node caches. Set it to an empty string to turn caching off.
     required: false
-    default: ''
+    default: pnpm
 
 runs:
   using: composite
@@ -23,8 +23,7 @@ runs:
       with:
         node-version: ${{ inputs.node-version }}
         node-version-file: ${{ inputs.node-version == '' && '.nvmrc' || '' }}
-        registry-url: ${{ inputs.registry-url }}
-        cache: pnpm
+        cache: ${{ inputs.cache }}
 
     - name: Install dependencies
       shell: bash
