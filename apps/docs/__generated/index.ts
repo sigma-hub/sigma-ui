@@ -100,6 +100,13 @@ export const Index = {
       dependencies: ["@internationalized/date@^3.12.4","@lucide/vue@^1.59.0","reka-ui@^2.11.0","vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["blocks/settings-forms/SettingsForms.vue","blocks/settings-forms/components/AccountForm.vue","blocks/settings-forms/components/AppearanceForm.vue","blocks/settings-forms/components/DisplayForm.vue","blocks/settings-forms/components/NotificationsForm.vue","blocks/settings-forms/components/ProfileForm.vue","blocks/settings-forms/components/SettingsNav.vue"],
     },
+    "settings-list": {
+      name: "settings-list",
+      type: "registry:block",
+      registryDependencies: ["badge","button","empty","input-group","label","select","switch"],
+      dependencies: ["@lucide/vue@^1.59.0"],
+      files: ["blocks/settings-list/SettingsList.vue","blocks/settings-list/components/SettingsRow.vue","blocks/settings-list/data.ts"],
+    },
     "signup-card": {
       name: "signup-card",
       type: "registry:block",
@@ -2110,6 +2117,13 @@ export const Index = {
       registryDependencies: ["button","calendar","card","checkbox","command","form","input","popover","radio-group","select","separator","switch","textarea","toaster"],
       dependencies: ["@internationalized/date@^3.12.4","@lucide/vue@^1.59.0","reka-ui@^2.11.0","vee-validate@^4.15.1","zod@^4.6.7"],
       files: ["blocks/settings-forms/SettingsForms.vue","blocks/settings-forms/components/AccountForm.vue","blocks/settings-forms/components/AppearanceForm.vue","blocks/settings-forms/components/DisplayForm.vue","blocks/settings-forms/components/NotificationsForm.vue","blocks/settings-forms/components/ProfileForm.vue","blocks/settings-forms/components/SettingsNav.vue"],
+    },
+    "settings-list": {
+      name: "settings-list",
+      type: "registry:block",
+      registryDependencies: ["badge","button","empty","input-group","label","select","switch"],
+      dependencies: ["@lucide/vue@^1.59.0"],
+      files: ["blocks/settings-list/SettingsList.vue","blocks/settings-list/components/SettingsRow.vue","blocks/settings-list/data.ts"],
     },
     "signup-card": {
       name: "signup-card",

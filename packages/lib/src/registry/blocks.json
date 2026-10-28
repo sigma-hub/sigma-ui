@@ -213,5 +213,17 @@
       "iframeHeight": "1100px",
       "containerClass": "w-full h-full"
     }
+  },
+  {
+    "name": "settings-list",
+    "title": "Settings list",
+    "description": "A preferences page with a category nav, search, and rows that each pair a title and description with a switch, select, stepper, or button. A row can carry nested options.",
+    "categories": [
+      "settings"
+    ],
+    "meta": {
+      "iframeHeight": "900px",
+      "containerClass": "w-full h-full"
+    }
   }
 ]

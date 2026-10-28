@@ -3718,6 +3718,45 @@
       ]
     },
     {
+      "name": "settings-list",
+      "type": "registry:block",
+      "title": "Settings list",
+      "description": "A preferences page with a category nav, search, and rows that each pair a title and description with a switch, select, stepper, or button. A row can carry nested options.",
+      "dependencies": [
+        "@lucide/vue@^1.59.0"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "empty",
+        "input-group",
+        "label",
+        "select",
+        "switch"
+      ],
+      "files": [
+        {
+          "path": "blocks/settings-list/SettingsList.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/settings-list/components/SettingsRow.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/settings-list/data.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "900px",
+        "containerClass": "w-full h-full"
+      },
+      "categories": [
+        "settings"
+      ]
+    },
+    {
       "name": "signup-card",
       "type": "registry:block",
       "title": "Sign up card",
