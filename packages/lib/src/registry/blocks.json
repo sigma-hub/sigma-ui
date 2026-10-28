@@ -237,5 +237,17 @@
       "iframeHeight": "900px",
       "containerClass": "w-full h-full"
     }
+  },
+  {
+    "name": "dashboard-marketplace",
+    "title": "Integrations marketplace",
+    "description": "A browse, installed, and updates gallery for integrations or plugins with search, category filters, featured cards, install and update progress with cancel, and empty states.",
+    "categories": [
+      "dashboard"
+    ],
+    "meta": {
+      "iframeHeight": "900px",
+      "containerClass": "w-full h-full"
+    }
   }
 ]

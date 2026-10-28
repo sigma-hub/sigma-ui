@@ -37,6 +37,13 @@ export const Index = {
       dependencies: ["@lucide/vue@^1.59.0","@vueuse/core@^15.0.0","date-fns@^4.4.0"],
       files: ["blocks/dashboard-mail/DashboardMail.vue","blocks/dashboard-mail/components/AccountSwitcher.vue","blocks/dashboard-mail/components/FolderNav.vue","blocks/dashboard-mail/components/MailDisplay.vue","blocks/dashboard-mail/components/MailList.vue","blocks/dashboard-mail/data.ts"],
     },
+    "dashboard-marketplace": {
+      name: "dashboard-marketplace",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","empty","input-group","progress","skeleton","spinner","tabs"],
+      dependencies: ["@lucide/vue@^1.59.0"],
+      files: ["blocks/dashboard-marketplace/DashboardMarketplace.vue","blocks/dashboard-marketplace/components/MarketplaceCard.vue","blocks/dashboard-marketplace/data.ts"],
+    },
     "dashboard-orders": {
       name: "dashboard-orders",
       type: "registry:block",
@@ -2061,6 +2068,13 @@ export const Index = {
       registryDependencies: ["avatar","badge","button","calendar","dropdown-menu","input","label","popover","resizable","scroll-area","select","separator","switch","tabs","textarea","tooltip"],
       dependencies: ["@lucide/vue@^1.59.0","@vueuse/core@^15.0.0","date-fns@^4.4.0"],
       files: ["blocks/dashboard-mail/DashboardMail.vue","blocks/dashboard-mail/components/AccountSwitcher.vue","blocks/dashboard-mail/components/FolderNav.vue","blocks/dashboard-mail/components/MailDisplay.vue","blocks/dashboard-mail/components/MailList.vue","blocks/dashboard-mail/data.ts"],
+    },
+    "dashboard-marketplace": {
+      name: "dashboard-marketplace",
+      type: "registry:block",
+      registryDependencies: ["badge","button","card","empty","input-group","progress","skeleton","spinner","tabs"],
+      dependencies: ["@lucide/vue@^1.59.0"],
+      files: ["blocks/dashboard-marketplace/DashboardMarketplace.vue","blocks/dashboard-marketplace/components/MarketplaceCard.vue","blocks/dashboard-marketplace/data.ts"],
     },
     "dashboard-orders": {
       name: "dashboard-orders",

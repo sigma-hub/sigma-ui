@@ -3225,6 +3225,47 @@
       ]
     },
     {
+      "name": "dashboard-marketplace",
+      "type": "registry:block",
+      "title": "Integrations marketplace",
+      "description": "A browse, installed, and updates gallery for integrations or plugins with search, category filters, featured cards, install and update progress with cancel, and empty states.",
+      "dependencies": [
+        "@lucide/vue@^1.59.0"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "card",
+        "empty",
+        "input-group",
+        "progress",
+        "skeleton",
+        "spinner",
+        "tabs"
+      ],
+      "files": [
+        {
+          "path": "blocks/dashboard-marketplace/DashboardMarketplace.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-marketplace/components/MarketplaceCard.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-marketplace/data.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "900px",
+        "containerClass": "w-full h-full"
+      },
+      "categories": [
+        "dashboard"
+      ]
+    },
+    {
       "name": "dashboard-orders",
       "type": "registry:block",
       "title": "Orders dashboard",
