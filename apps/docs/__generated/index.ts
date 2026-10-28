@@ -121,6 +121,13 @@ export const Index = {
       dependencies: ["@lucide/vue@^1.59.0"],
       files: ["blocks/settings-list/SettingsList.vue","blocks/settings-list/components/SettingsRow.vue","blocks/settings-list/data.ts"],
     },
+    "settings-shortcuts": {
+      name: "settings-shortcuts",
+      type: "registry:block",
+      registryDependencies: ["alert","badge","button","dialog","empty","input-group","kbd","table"],
+      dependencies: ["@lucide/vue@^1.59.0"],
+      files: ["blocks/settings-shortcuts/SettingsShortcuts.vue","blocks/settings-shortcuts/components/KeybindingDisplay.vue","blocks/settings-shortcuts/components/ShortcutDialog.vue","blocks/settings-shortcuts/data.ts","blocks/settings-shortcuts/shortcuts.ts","blocks/settings-shortcuts/useKeyRecorder.ts"],
+    },
     "signup-card": {
       name: "signup-card",
       type: "registry:block",
@@ -2152,6 +2159,13 @@ export const Index = {
       registryDependencies: ["badge","button","empty","input-group","label","select","switch"],
       dependencies: ["@lucide/vue@^1.59.0"],
       files: ["blocks/settings-list/SettingsList.vue","blocks/settings-list/components/SettingsRow.vue","blocks/settings-list/data.ts"],
+    },
+    "settings-shortcuts": {
+      name: "settings-shortcuts",
+      type: "registry:block",
+      registryDependencies: ["alert","badge","button","dialog","empty","input-group","kbd","table"],
+      dependencies: ["@lucide/vue@^1.59.0"],
+      files: ["blocks/settings-shortcuts/SettingsShortcuts.vue","blocks/settings-shortcuts/components/KeybindingDisplay.vue","blocks/settings-shortcuts/components/ShortcutDialog.vue","blocks/settings-shortcuts/data.ts","blocks/settings-shortcuts/shortcuts.ts","blocks/settings-shortcuts/useKeyRecorder.ts"],
     },
     "signup-card": {
       name: "signup-card",

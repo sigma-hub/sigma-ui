@@ -3843,6 +3843,58 @@
       ]
     },
     {
+      "name": "settings-shortcuts",
+      "type": "registry:block",
+      "title": "Keyboard shortcuts",
+      "description": "A keyboard shortcuts editor. Commands are grouped in a table with their keys. A dialog records a new key combination, warns about conflicts, and each command can be reset to its default.",
+      "dependencies": [
+        "@lucide/vue@^1.59.0"
+      ],
+      "registryDependencies": [
+        "alert",
+        "badge",
+        "button",
+        "dialog",
+        "empty",
+        "input-group",
+        "kbd",
+        "table"
+      ],
+      "files": [
+        {
+          "path": "blocks/settings-shortcuts/SettingsShortcuts.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/settings-shortcuts/components/KeybindingDisplay.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/settings-shortcuts/components/ShortcutDialog.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/settings-shortcuts/data.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "blocks/settings-shortcuts/shortcuts.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "blocks/settings-shortcuts/useKeyRecorder.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "900px",
+        "containerClass": "w-full h-full"
+      },
+      "categories": [
+        "settings"
+      ]
+    },
+    {
       "name": "signup-card",
       "type": "registry:block",
       "title": "Sign up card",

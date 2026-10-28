@@ -249,5 +249,17 @@
       "iframeHeight": "900px",
       "containerClass": "w-full h-full"
     }
+  },
+  {
+    "name": "settings-shortcuts",
+    "title": "Keyboard shortcuts",
+    "description": "A keyboard shortcuts editor. Commands are grouped in a table with their keys. A dialog records a new key combination, warns about conflicts, and each command can be reset to its default.",
+    "categories": [
+      "settings"
+    ],
+    "meta": {
+      "iframeHeight": "900px",
+      "containerClass": "w-full h-full"
+    }
   }
 ]
