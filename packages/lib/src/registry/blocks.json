@@ -225,5 +225,17 @@
       "iframeHeight": "900px",
       "containerClass": "w-full h-full"
     }
+  },
+  {
+    "name": "dashboard-activity-center",
+    "title": "Activity center",
+    "description": "A header button with a live job count that opens a popover of running jobs with progress and cancel, and a collapsible list of finished jobs with retry and dismiss.",
+    "categories": [
+      "dashboard"
+    ],
+    "meta": {
+      "iframeHeight": "900px",
+      "containerClass": "w-full h-full"
+    }
   }
 ]

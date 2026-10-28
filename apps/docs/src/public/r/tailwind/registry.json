@@ -2951,6 +2951,50 @@
       ]
     },
     {
+      "name": "dashboard-activity-center",
+      "type": "registry:block",
+      "title": "Activity center",
+      "description": "A header button with a live job count that opens a popover of running jobs with progress and cancel, and a collapsible list of finished jobs with retry and dismiss.",
+      "dependencies": [
+        "@lucide/vue@^1.59.0"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "card",
+        "collapsible",
+        "popover",
+        "progress",
+        "separator",
+        "spinner"
+      ],
+      "files": [
+        {
+          "path": "blocks/dashboard-activity-center/DashboardActivityCenter.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-activity-center/components/ActivityCenter.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-activity-center/components/ActivityRow.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-activity-center/data.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "900px",
+        "containerClass": "w-full h-full"
+      },
+      "categories": [
+        "dashboard"
+      ]
+    },
+    {
       "name": "dashboard-ai-playground",
       "type": "registry:block",
       "title": "AI playground",
