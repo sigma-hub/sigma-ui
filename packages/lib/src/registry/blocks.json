@@ -273,5 +273,17 @@
       "iframeHeight": "900px",
       "containerClass": "w-full h-full"
     }
+  },
+  {
+    "name": "dashboard-changelog",
+    "title": "What's new dialog",
+    "description": "A release notes dialog with a version list, highlights, notes grouped by new, improved and fixed changes, and a preference to show it after updates.",
+    "categories": [
+      "dashboard"
+    ],
+    "meta": {
+      "iframeHeight": "900px",
+      "containerClass": "w-full h-full"
+    }
   }
 ]

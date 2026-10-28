@@ -3163,6 +3163,44 @@
       ]
     },
     {
+      "name": "dashboard-changelog",
+      "type": "registry:block",
+      "title": "What's new dialog",
+      "description": "A release notes dialog with a version list, highlights, notes grouped by new, improved and fixed changes, and a preference to show it after updates.",
+      "dependencies": [
+        "@lucide/vue@^1.59.0"
+      ],
+      "registryDependencies": [
+        "alert",
+        "badge",
+        "button",
+        "dialog",
+        "label",
+        "switch"
+      ],
+      "files": [
+        {
+          "path": "blocks/dashboard-changelog/DashboardChangelog.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-changelog/components/ChangelogDialog.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-changelog/data.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "900px",
+        "containerClass": "w-full h-full"
+      },
+      "categories": [
+        "dashboard"
+      ]
+    },
+    {
       "name": "dashboard-command-palette",
       "type": "registry:block",
       "title": "Command palette",

@@ -30,6 +30,13 @@ export const Index = {
       dependencies: ["@lucide/vue@^1.59.0"],
       files: ["blocks/dashboard-app-shell/DashboardAppShell.vue","blocks/dashboard-app-shell/components/OverviewPanel.vue","blocks/dashboard-app-shell/components/ShellHeader.vue","blocks/dashboard-app-shell/components/ShellSidebar.vue","blocks/dashboard-app-shell/data.ts"],
     },
+    "dashboard-changelog": {
+      name: "dashboard-changelog",
+      type: "registry:block",
+      registryDependencies: ["alert","badge","button","dialog","label","switch"],
+      dependencies: ["@lucide/vue@^1.59.0"],
+      files: ["blocks/dashboard-changelog/DashboardChangelog.vue","blocks/dashboard-changelog/components/ChangelogDialog.vue","blocks/dashboard-changelog/data.ts"],
+    },
     "dashboard-command-palette": {
       name: "dashboard-command-palette",
       type: "registry:block",
@@ -2075,6 +2082,13 @@ export const Index = {
       registryDependencies: ["collapsible","separator","sidebar"],
       dependencies: ["@lucide/vue@^1.59.0"],
       files: ["blocks/dashboard-app-shell/DashboardAppShell.vue","blocks/dashboard-app-shell/components/OverviewPanel.vue","blocks/dashboard-app-shell/components/ShellHeader.vue","blocks/dashboard-app-shell/components/ShellSidebar.vue","blocks/dashboard-app-shell/data.ts"],
+    },
+    "dashboard-changelog": {
+      name: "dashboard-changelog",
+      type: "registry:block",
+      registryDependencies: ["alert","badge","button","dialog","label","switch"],
+      dependencies: ["@lucide/vue@^1.59.0"],
+      files: ["blocks/dashboard-changelog/DashboardChangelog.vue","blocks/dashboard-changelog/components/ChangelogDialog.vue","blocks/dashboard-changelog/data.ts"],
     },
     "dashboard-command-palette": {
       name: "dashboard-command-palette",
