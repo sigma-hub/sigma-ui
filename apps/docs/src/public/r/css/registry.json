@@ -3162,6 +3162,45 @@
       ]
     },
     {
+      "name": "dashboard-command-palette",
+      "type": "registry:block",
+      "title": "Command palette",
+      "description": "A Ctrl+K command palette with recent commands, grouped actions and navigation, key hints and a search box trigger.",
+      "dependencies": [
+        "@lucide/vue@^1.59.0",
+        "@vueuse/core@^15.0.0"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "command",
+        "dialog",
+        "empty",
+        "kbd"
+      ],
+      "files": [
+        {
+          "path": "blocks/dashboard-command-palette/DashboardCommandPalette.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-command-palette/components/CommandPalette.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-command-palette/data.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "900px",
+        "containerClass": "w-full h-full"
+      },
+      "categories": [
+        "dashboard"
+      ]
+    },
+    {
       "name": "dashboard-mail",
       "type": "registry:block",
       "title": "Mail inbox",

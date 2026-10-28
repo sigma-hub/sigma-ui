@@ -30,6 +30,13 @@ export const Index = {
       dependencies: ["@lucide/vue@^1.59.0"],
       files: ["blocks/dashboard-app-shell/DashboardAppShell.vue","blocks/dashboard-app-shell/components/OverviewPanel.vue","blocks/dashboard-app-shell/components/ShellHeader.vue","blocks/dashboard-app-shell/components/ShellSidebar.vue","blocks/dashboard-app-shell/data.ts"],
     },
+    "dashboard-command-palette": {
+      name: "dashboard-command-palette",
+      type: "registry:block",
+      registryDependencies: ["badge","button","command","dialog","empty","kbd"],
+      dependencies: ["@lucide/vue@^1.59.0","@vueuse/core@^15.0.0"],
+      files: ["blocks/dashboard-command-palette/DashboardCommandPalette.vue","blocks/dashboard-command-palette/components/CommandPalette.vue","blocks/dashboard-command-palette/data.ts"],
+    },
     "dashboard-mail": {
       name: "dashboard-mail",
       type: "registry:block",
@@ -2068,6 +2075,13 @@ export const Index = {
       registryDependencies: ["collapsible","separator","sidebar"],
       dependencies: ["@lucide/vue@^1.59.0"],
       files: ["blocks/dashboard-app-shell/DashboardAppShell.vue","blocks/dashboard-app-shell/components/OverviewPanel.vue","blocks/dashboard-app-shell/components/ShellHeader.vue","blocks/dashboard-app-shell/components/ShellSidebar.vue","blocks/dashboard-app-shell/data.ts"],
+    },
+    "dashboard-command-palette": {
+      name: "dashboard-command-palette",
+      type: "registry:block",
+      registryDependencies: ["badge","button","command","dialog","empty","kbd"],
+      dependencies: ["@lucide/vue@^1.59.0","@vueuse/core@^15.0.0"],
+      files: ["blocks/dashboard-command-palette/DashboardCommandPalette.vue","blocks/dashboard-command-palette/components/CommandPalette.vue","blocks/dashboard-command-palette/data.ts"],
     },
     "dashboard-mail": {
       name: "dashboard-mail",
