@@ -4,7 +4,7 @@ type Props = {
 };
 
 const props = withDefaults(defineProps<Props>(), {
-  text: 'Alpha',
+  text: 'Beta',
 });
 </script>
 

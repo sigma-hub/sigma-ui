@@ -143,7 +143,7 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Charts',
           href: '/components/charts',
-          label: 'Alpha',
+          label: 'Beta',
           items: [
             {
               title: 'Area',

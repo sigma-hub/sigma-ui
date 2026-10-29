@@ -2,7 +2,7 @@
 title: Area
 description: An area chart shows values over time as a line with the region underneath filled in.
 source: chart-area
-label: Alpha
+label: Beta
 ---
 
 ## Preview

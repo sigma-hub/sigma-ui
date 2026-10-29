@@ -228,7 +228,7 @@ watch(isConfigReady, (ready) => {
                   {{ route.title }}
                   <InfoLabel
                     v-if="route.title === 'Blocks'"
-                    text="Alpha"
+                    text="Beta"
                   />
                   <InfoLabel
                     v-if="route.title === 'Changelog' && appVersion"
