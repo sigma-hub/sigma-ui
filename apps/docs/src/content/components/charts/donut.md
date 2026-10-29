@@ -2,7 +2,7 @@
 title: Donut
 description: A donut chart shows parts of a whole as slices around an empty center.
 source: chart-donut
-label: Alpha
+label: Beta
 ---
 
 ## Preview

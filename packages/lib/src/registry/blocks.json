@@ -213,5 +213,77 @@
       "iframeHeight": "1100px",
       "containerClass": "w-full h-full"
     }
+  },
+  {
+    "name": "settings-sfm-list",
+    "title": "Settings list",
+    "description": "A preferences page with a category nav, search, and rows that each pair a title and description with a switch, select, stepper, or button. A row can carry nested options.",
+    "categories": [
+      "settings"
+    ],
+    "meta": {
+      "iframeHeight": "900px",
+      "containerClass": "w-full h-full"
+    }
+  },
+  {
+    "name": "dashboard-sfm-activity-center",
+    "title": "Activity center",
+    "description": "A header button with a live job count that opens a popover of running jobs with progress and cancel, and a collapsible list of finished jobs with retry and dismiss.",
+    "categories": [
+      "dashboard"
+    ],
+    "meta": {
+      "iframeHeight": "900px",
+      "containerClass": "w-full h-full"
+    }
+  },
+  {
+    "name": "dashboard-sfm-marketplace",
+    "title": "Integrations marketplace",
+    "description": "A browse, installed, and updates gallery for integrations or plugins with search, category filters, featured cards, install and update progress with cancel, and empty states.",
+    "categories": [
+      "dashboard"
+    ],
+    "meta": {
+      "iframeHeight": "900px",
+      "containerClass": "w-full h-full"
+    }
+  },
+  {
+    "name": "settings-sfm-shortcuts",
+    "title": "Keyboard shortcuts",
+    "description": "A keyboard shortcuts editor. Commands are grouped in a table with their keys. A dialog records a new key combination, warns about conflicts, and each command can be reset to its default.",
+    "categories": [
+      "settings"
+    ],
+    "meta": {
+      "iframeHeight": "900px",
+      "containerClass": "w-full h-full"
+    }
+  },
+  {
+    "name": "dashboard-sfm-command-palette",
+    "title": "Command palette",
+    "description": "A Ctrl+K command palette with recent commands, grouped actions and navigation, key hints and a search box trigger.",
+    "categories": [
+      "dashboard"
+    ],
+    "meta": {
+      "iframeHeight": "900px",
+      "containerClass": "w-full h-full"
+    }
+  },
+  {
+    "name": "dashboard-sfm-changelog",
+    "title": "What's new dialog",
+    "description": "A release notes dialog with a version list, highlights, notes grouped by new, improved and fixed changes, and a preference to show it after updates.",
+    "categories": [
+      "dashboard"
+    ],
+    "meta": {
+      "iframeHeight": "900px",
+      "containerClass": "w-full h-full"
+    }
   }
 ]

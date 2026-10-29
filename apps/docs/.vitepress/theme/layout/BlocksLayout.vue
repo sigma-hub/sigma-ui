@@ -18,7 +18,7 @@ const navItemGroups = computed(() => (
       <main class="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr]">
         <div class="mx-auto w-full min-w-0">
           <InfoLabel
-            text="Alpha preview"
+            text="Beta preview"
           />
           <HeaderSection />
           <div class="vp-doc">

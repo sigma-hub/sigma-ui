@@ -3505,6 +3505,168 @@
       ]
     },
     {
+      "name": "dashboard-sfm-activity-center",
+      "type": "registry:block",
+      "title": "Activity center",
+      "description": "A header button with a live job count that opens a popover of running jobs with progress and cancel, and a collapsible list of finished jobs with retry and dismiss.",
+      "dependencies": [
+        "@lucide/vue@^1.59.0"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "card",
+        "collapsible",
+        "popover",
+        "progress",
+        "separator",
+        "spinner"
+      ],
+      "files": [
+        {
+          "path": "blocks/dashboard-sfm-activity-center/DashboardSfmActivityCenter.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-sfm-activity-center/components/ActivityCenter.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-sfm-activity-center/components/ActivityRow.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-sfm-activity-center/data.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "900px",
+        "containerClass": "w-full h-full"
+      },
+      "categories": [
+        "dashboard"
+      ]
+    },
+    {
+      "name": "dashboard-sfm-changelog",
+      "type": "registry:block",
+      "title": "What's new dialog",
+      "description": "A release notes dialog with a version list, highlights, notes grouped by new, improved and fixed changes, and a preference to show it after updates.",
+      "dependencies": [
+        "@lucide/vue@^1.59.0"
+      ],
+      "registryDependencies": [
+        "alert",
+        "badge",
+        "button",
+        "dialog",
+        "label",
+        "switch"
+      ],
+      "files": [
+        {
+          "path": "blocks/dashboard-sfm-changelog/DashboardSfmChangelog.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-sfm-changelog/components/ChangelogDialog.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-sfm-changelog/data.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "900px",
+        "containerClass": "w-full h-full"
+      },
+      "categories": [
+        "dashboard"
+      ]
+    },
+    {
+      "name": "dashboard-sfm-command-palette",
+      "type": "registry:block",
+      "title": "Command palette",
+      "description": "A Ctrl+K command palette with recent commands, grouped actions and navigation, key hints and a search box trigger.",
+      "dependencies": [
+        "@lucide/vue@^1.59.0",
+        "@vueuse/core@^15.0.0"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "command",
+        "dialog",
+        "empty",
+        "kbd"
+      ],
+      "files": [
+        {
+          "path": "blocks/dashboard-sfm-command-palette/DashboardSfmCommandPalette.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-sfm-command-palette/components/CommandPalette.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-sfm-command-palette/data.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "900px",
+        "containerClass": "w-full h-full"
+      },
+      "categories": [
+        "dashboard"
+      ]
+    },
+    {
+      "name": "dashboard-sfm-marketplace",
+      "type": "registry:block",
+      "title": "Integrations marketplace",
+      "description": "A browse, installed, and updates gallery for integrations or plugins with search, category filters, featured cards, install and update progress with cancel, and empty states.",
+      "dependencies": [
+        "@lucide/vue@^1.59.0"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "card",
+        "empty",
+        "input-group",
+        "progress",
+        "skeleton",
+        "spinner",
+        "tabs"
+      ],
+      "files": [
+        {
+          "path": "blocks/dashboard-sfm-marketplace/DashboardSfmMarketplace.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-sfm-marketplace/components/MarketplaceCard.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/dashboard-sfm-marketplace/data.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "900px",
+        "containerClass": "w-full h-full"
+      },
+      "categories": [
+        "dashboard"
+      ]
+    },
+    {
       "name": "dashboard-sidebar",
       "type": "registry:block",
       "title": "Dashboard with sidebar",
@@ -3711,6 +3873,97 @@
       ],
       "meta": {
         "iframeHeight": "1100px",
+        "containerClass": "w-full h-full"
+      },
+      "categories": [
+        "settings"
+      ]
+    },
+    {
+      "name": "settings-sfm-list",
+      "type": "registry:block",
+      "title": "Settings list",
+      "description": "A preferences page with a category nav, search, and rows that each pair a title and description with a switch, select, stepper, or button. A row can carry nested options.",
+      "dependencies": [
+        "@lucide/vue@^1.59.0"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "empty",
+        "input-group",
+        "label",
+        "select",
+        "switch"
+      ],
+      "files": [
+        {
+          "path": "blocks/settings-sfm-list/SettingsSfmList.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/settings-sfm-list/components/SettingsRow.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/settings-sfm-list/data.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "900px",
+        "containerClass": "w-full h-full"
+      },
+      "categories": [
+        "settings"
+      ]
+    },
+    {
+      "name": "settings-sfm-shortcuts",
+      "type": "registry:block",
+      "title": "Keyboard shortcuts",
+      "description": "A keyboard shortcuts editor. Commands are grouped in a table with their keys. A dialog records a new key combination, warns about conflicts, and each command can be reset to its default.",
+      "dependencies": [
+        "@lucide/vue@^1.59.0"
+      ],
+      "registryDependencies": [
+        "alert",
+        "badge",
+        "button",
+        "dialog",
+        "empty",
+        "input-group",
+        "kbd",
+        "table"
+      ],
+      "files": [
+        {
+          "path": "blocks/settings-sfm-shortcuts/SettingsSfmShortcuts.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/settings-sfm-shortcuts/components/KeybindingDisplay.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/settings-sfm-shortcuts/components/ShortcutDialog.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "blocks/settings-sfm-shortcuts/data.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "blocks/settings-sfm-shortcuts/shortcuts.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "blocks/settings-sfm-shortcuts/useKeyRecorder.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "900px",
         "containerClass": "w-full h-full"
       },
       "categories": [

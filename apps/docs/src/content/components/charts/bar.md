@@ -2,7 +2,7 @@
 title: Bar
 description: A bar chart compares quantities across categories with rectangular bars.
 source: chart-bar
-label: Alpha
+label: Beta
 ---
 
 ## Preview

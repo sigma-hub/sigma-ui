@@ -1,7 +1,7 @@
 ---
 title: Charts
 description: Versatile visualization tool, allowing users to represent data using various types of charts for effective analysis.
-label: Alpha
+label: Beta
 ---
 
 <script setup>

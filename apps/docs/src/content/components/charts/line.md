@@ -2,7 +2,7 @@
 title: Line
 description: A line chart connects values along a continuous axis to show a trend.
 source: chart-line
-label: Alpha
+label: Beta
 ---
 
 ## Preview
