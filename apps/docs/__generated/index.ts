@@ -84,7 +84,7 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["badge","button","command","dialog","empty","kbd"],
       dependencies: ["@lucide/vue@^1.59.0","@vueuse/core@^15.0.0"],
-      files: ["blocks/dashboard-sfm-command-palette/DashboardSfmCommandPalette.vue","blocks/dashboard-sfm-command-palette/components/CommandPalette.vue","blocks/dashboard-sfm-command-palette/data.ts"],
+      files: ["blocks/dashboard-sfm-command-palette/DashboardSfmCommandPalette.vue","blocks/dashboard-sfm-command-palette/components/CommandPalette.vue","blocks/dashboard-sfm-command-palette/data.ts","blocks/dashboard-sfm-command-palette/platform.ts"],
     },
     "dashboard-sfm-marketplace": {
       name: "dashboard-sfm-marketplace",
@@ -2137,7 +2137,7 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["badge","button","command","dialog","empty","kbd"],
       dependencies: ["@lucide/vue@^1.59.0","@vueuse/core@^15.0.0"],
-      files: ["blocks/dashboard-sfm-command-palette/DashboardSfmCommandPalette.vue","blocks/dashboard-sfm-command-palette/components/CommandPalette.vue","blocks/dashboard-sfm-command-palette/data.ts"],
+      files: ["blocks/dashboard-sfm-command-palette/DashboardSfmCommandPalette.vue","blocks/dashboard-sfm-command-palette/components/CommandPalette.vue","blocks/dashboard-sfm-command-palette/data.ts","blocks/dashboard-sfm-command-palette/platform.ts"],
     },
     "dashboard-sfm-marketplace": {
       name: "dashboard-sfm-marketplace",

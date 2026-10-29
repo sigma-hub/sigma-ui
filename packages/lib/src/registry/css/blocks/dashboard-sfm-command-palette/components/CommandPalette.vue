@@ -13,11 +13,14 @@ import {
 import { DialogDescription, DialogTitle } from '@ui/registry/css/ui/dialog';
 import { Kbd, KbdGroup } from '@ui/registry/css/ui/kbd';
 import type { PaletteCommand } from '../data';
+import { useShortcutKeys } from '../platform';
 
 const props = defineProps<{
   commands: PaletteCommand[];
   recentIds: string[];
 }>();
+
+const { formatKeys } = useShortcutKeys();
 
 const open = defineModel<boolean>('open', { default: false });
 
@@ -111,7 +114,7 @@ function select(command: PaletteCommand) {
           <CommandShortcut v-if="command.shortcut">
             <KbdGroup>
               <Kbd
-                v-for="key in command.shortcut"
+                v-for="key in formatKeys(command.shortcut)"
                 :key="key"
               >
                 {{ key }}

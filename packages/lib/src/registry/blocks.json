@@ -265,7 +265,7 @@
   {
     "name": "dashboard-sfm-command-palette",
     "title": "Command palette",
-    "description": "A Ctrl+K command palette with recent commands, grouped actions and navigation, key hints and a search box trigger.",
+    "description": "A Cmd+K or Ctrl+K command palette with recent commands, grouped actions and navigation, key hints and a search box trigger.",
     "categories": [
       "dashboard"
     ],

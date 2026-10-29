@@ -21,7 +21,7 @@ export interface PaletteCommand {
   icon: Component;
   /** Extra words that also match the search. */
   keywords?: string[];
-  /** Key hint shown at the end of the row. */
+  /** Key hint shown at the end of the row. `Mod` is shown as ⌘ on Apple platforms and Ctrl elsewhere. */
   shortcut?: string[];
 }
 
@@ -31,7 +31,7 @@ export const triggerLabel = 'Search commands…';
 export const maxRecentCommands = 3;
 
 export const commands: PaletteCommand[] = [
-  { id: 'create-project', label: 'Create project', group: 'Actions', icon: FilePlusIcon, keywords: ['new', 'add'], shortcut: ['Ctrl', 'N'] },
+  { id: 'create-project', label: 'Create project', group: 'Actions', icon: FilePlusIcon, keywords: ['new', 'add'], shortcut: ['Mod', 'N'] },
   { id: 'invite-teammate', label: 'Invite teammate', group: 'Actions', icon: UserPlusIcon, keywords: ['member', 'add', 'people'] },
   { id: 'import-data', label: 'Import data', group: 'Actions', icon: UploadIcon, keywords: ['upload', 'csv'] },
   { id: 'export-report', label: 'Export report', group: 'Actions', icon: DownloadIcon, keywords: ['download', 'pdf'] },
@@ -39,7 +39,7 @@ export const commands: PaletteCommand[] = [
   { id: 'go-projects', label: 'Go to projects', group: 'Navigation', icon: FolderKanbanIcon, shortcut: ['G', 'P'] },
   { id: 'go-team', label: 'Go to team', group: 'Navigation', icon: UsersIcon, keywords: ['members', 'people'], shortcut: ['G', 'T'] },
   { id: 'go-analytics', label: 'Go to analytics', group: 'Navigation', icon: ChartLineIcon, keywords: ['stats', 'metrics'], shortcut: ['G', 'A'] },
-  { id: 'open-settings', label: 'Open settings', group: 'Settings', icon: SettingsIcon, keywords: ['preferences'], shortcut: ['Ctrl', ','] },
+  { id: 'open-settings', label: 'Open settings', group: 'Settings', icon: SettingsIcon, keywords: ['preferences'], shortcut: ['Mod', ','] },
   { id: 'change-theme', label: 'Change theme', group: 'Settings', icon: PaletteIcon, keywords: ['dark', 'light', 'appearance'] },
   { id: 'keyboard-shortcuts', label: 'Keyboard shortcuts', group: 'Settings', icon: KeyboardIcon, keywords: ['keys', 'bindings'] },
   { id: 'help-support', label: 'Help and support', group: 'Settings', icon: LifeBuoyIcon, keywords: ['docs', 'contact'] },

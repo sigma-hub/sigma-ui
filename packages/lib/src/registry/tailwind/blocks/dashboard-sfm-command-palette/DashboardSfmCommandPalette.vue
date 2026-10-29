@@ -9,7 +9,9 @@ import { Kbd, KbdGroup } from '@ui/registry/tailwind/ui/kbd';
 import CommandPalette from './components/CommandPalette.vue';
 import { commands, initialRecentIds, maxRecentCommands, pageDescription, pageTitle, triggerLabel } from './data';
 import type { PaletteCommand } from './data';
+import { useShortcutKeys } from './platform';
 
+const { modifierLabel, isApplePlatform } = useShortcutKeys();
 const isPaletteOpen = ref(false);
 const recentIds = ref<string[]>([...initialRecentIds]);
 const lastCommand = ref<PaletteCommand | null>(null);
@@ -52,7 +54,7 @@ function runCommand(command: PaletteCommand) {
       <SearchIcon />
       <span class="flex-1 text-left">{{ triggerLabel }}</span>
       <KbdGroup>
-        <Kbd>Ctrl</Kbd>
+        <Kbd>{{ modifierLabel }}</Kbd>
         <Kbd>K</Kbd>
       </KbdGroup>
     </Button>
@@ -71,7 +73,7 @@ function runCommand(command: PaletteCommand) {
           </EmptyMedia>
           <EmptyTitle>No command run yet</EmptyTitle>
           <EmptyDescription>
-            Press Ctrl K or use the search box above, then pick a command to run it.
+            Press {{ isApplePlatform ? '⌘K' : 'Ctrl K' }} or use the search box above, then pick a command to run it.
           </EmptyDescription>
         </EmptyHeader>
       </Empty>
