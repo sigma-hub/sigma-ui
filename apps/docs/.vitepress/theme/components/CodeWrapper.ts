@@ -1,6 +1,6 @@
 import { type VNode, type VNodeArrayChildren, cloneVNode, defineComponent } from 'vue';
 import { useConfigStore } from '@/stores/config';
-import { DEFAULT_COMPONENTS } from '@sigma-ui/shared/consts';
+import { DEFAULT_COMPONENTS, DEFAULT_UTILS } from '@sigma-ui/shared/consts';
 
 function crawlSpan(children: VNodeArrayChildren, cb: (vnode: VNode) => void) {
   children.forEach((childNode) => {
@@ -34,7 +34,7 @@ export default defineComponent(
         crawlSpan(codeVNode.children as VNodeArrayChildren, (vnode) => {
           if (typeof vnode.children === 'string') {
             vnode.children = vnode.children.replaceAll(DEFAULT_COMPONENTS, codeConfig.value.componentsPath);
-            vnode.children = vnode.children.replaceAll('@ui/utils', codeConfig.value.utilsPath);
+            vnode.children = vnode.children.replaceAll(DEFAULT_UTILS, codeConfig.value.utilsPath);
           }
         });
 
