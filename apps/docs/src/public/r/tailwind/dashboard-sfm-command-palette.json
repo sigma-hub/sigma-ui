@@ -3,7 +3,7 @@
   "name": "dashboard-sfm-command-palette",
   "type": "registry:block",
   "title": "Command palette",
-  "description": "A Cmd+K or Ctrl+K command palette with recent commands, grouped actions and navigation, key hints and a search box trigger.",
+  "description": "A Cmd+K or Ctrl+K command palette with recent commands, grouped actions and navigation, key hints and a search box trigger. Derived from patterns in Sigma File Manager.",
   "dependencies": [
     "@lucide/vue@^1.59.0",
     "@vueuse/core@^15.0.0"

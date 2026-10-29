@@ -3,7 +3,7 @@
   "name": "dashboard-sfm-activity-center",
   "type": "registry:block",
   "title": "Activity center",
-  "description": "A header button with a live job count that opens a popover of running jobs with progress and cancel, and a collapsible list of finished jobs with retry and dismiss.",
+  "description": "A header button with a live job count that opens a popover of running jobs with progress and cancel, and a collapsible list of finished jobs with retry and dismiss. Derived from patterns in Sigma File Manager.",
   "dependencies": [
     "@lucide/vue@^1.59.0"
   ],

@@ -3,7 +3,7 @@
   "name": "settings-sfm-list",
   "type": "registry:block",
   "title": "Settings list",
-  "description": "A preferences page with a category nav, search, and rows that each pair a title and description with a switch, select, stepper, or button. A row can carry nested options.",
+  "description": "A preferences page with a category nav, search, and rows that each pair a title and description with a switch, select, stepper, or button. A row can carry nested options. Derived from patterns in Sigma File Manager.",
   "dependencies": [
     "@lucide/vue@^1.59.0"
   ],
