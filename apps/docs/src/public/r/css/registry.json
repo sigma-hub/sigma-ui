@@ -3446,65 +3446,6 @@
       ]
     },
     {
-      "name": "dashboard-settings",
-      "type": "registry:block",
-      "title": "Settings page",
-      "description": "A settings page. The settings page has a sidebar navigation and a main content area. The main content area has a form to update the store name and a form to update the plugins directory. The sidebar navigation has links to general, security, integrations, support, organizations, and advanced settings.",
-      "dependencies": [
-        "@lucide/vue@^1.59.0"
-      ],
-      "registryDependencies": [
-        "button",
-        "card",
-        "checkbox",
-        "dropdown-menu",
-        "input",
-        "sheet"
-      ],
-      "files": [
-        {
-          "path": "blocks/dashboard-settings/DashboardSettings.vue",
-          "type": "registry:component"
-        },
-        {
-          "path": "blocks/dashboard-settings/components/AppHeader.vue",
-          "type": "registry:component"
-        },
-        {
-          "path": "blocks/dashboard-settings/components/PluginsDirectoryCard.vue",
-          "type": "registry:component"
-        },
-        {
-          "path": "blocks/dashboard-settings/components/SearchForm.vue",
-          "type": "registry:component"
-        },
-        {
-          "path": "blocks/dashboard-settings/components/SettingsNav.vue",
-          "type": "registry:component"
-        },
-        {
-          "path": "blocks/dashboard-settings/components/StoreNameCard.vue",
-          "type": "registry:component"
-        },
-        {
-          "path": "blocks/dashboard-settings/components/UserMenu.vue",
-          "type": "registry:component"
-        },
-        {
-          "path": "blocks/dashboard-settings/data.ts",
-          "type": "registry:lib"
-        }
-      ],
-      "meta": {
-        "iframeHeight": "780px",
-        "containerClass": "w-full h-full"
-      },
-      "categories": [
-        "dashboard",
-        "settings"
-      ]
-    },
-    {
       "name": "dashboard-sfm-activity-center",
       "type": "registry:block",
       "title": "Activity center",

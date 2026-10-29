@@ -89,19 +89,6 @@
     }
   },
   {
-    "name": "dashboard-settings",
-    "title": "Settings page",
-    "description": "A settings page. The settings page has a sidebar navigation and a main content area. The main content area has a form to update the store name and a form to update the plugins directory. The sidebar navigation has links to general, security, integrations, support, organizations, and advanced settings.",
-    "categories": [
-      "dashboard",
-      "settings"
-    ],
-    "meta": {
-      "iframeHeight": "780px",
-      "containerClass": "w-full h-full"
-    }
-  },
-  {
     "name": "dashboard-orders",
     "title": "Orders dashboard",
     "description": "An orders dashboard with a sidebar navigation. The sidebar has icon navigation. The content area has a breadcrumb and search in the header. The main area has a list of recent orders with a filter and export button. The main area also has a detailed view of a single order with order details, shipping information, billing information, customer information, and payment information.",

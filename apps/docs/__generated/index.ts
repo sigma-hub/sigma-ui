@@ -58,13 +58,6 @@ export const Index = {
       dependencies: ["@lucide/vue@^1.59.0"],
       files: ["blocks/dashboard-products/DashboardProducts.vue","blocks/dashboard-products/components/AppHeader.vue","blocks/dashboard-products/components/AppSidebar.vue","blocks/dashboard-products/components/ProductsPanel.vue","blocks/dashboard-products/data.ts","blocks/dashboard-products/placeholder.ts"],
     },
-    "dashboard-settings": {
-      name: "dashboard-settings",
-      type: "registry:block",
-      registryDependencies: ["button","card","checkbox","dropdown-menu","input","sheet"],
-      dependencies: ["@lucide/vue@^1.59.0"],
-      files: ["blocks/dashboard-settings/DashboardSettings.vue","blocks/dashboard-settings/components/AppHeader.vue","blocks/dashboard-settings/components/PluginsDirectoryCard.vue","blocks/dashboard-settings/components/SearchForm.vue","blocks/dashboard-settings/components/SettingsNav.vue","blocks/dashboard-settings/components/StoreNameCard.vue","blocks/dashboard-settings/components/UserMenu.vue","blocks/dashboard-settings/data.ts"],
-    },
     "dashboard-sfm-activity-center": {
       name: "dashboard-sfm-activity-center",
       type: "registry:block",
@@ -2110,13 +2103,6 @@ export const Index = {
       registryDependencies: ["badge","breadcrumb","button","card","dropdown-menu","input","sheet","table","tabs","tooltip"],
       dependencies: ["@lucide/vue@^1.59.0"],
       files: ["blocks/dashboard-products/DashboardProducts.vue","blocks/dashboard-products/components/AppHeader.vue","blocks/dashboard-products/components/AppSidebar.vue","blocks/dashboard-products/components/ProductsPanel.vue","blocks/dashboard-products/data.ts","blocks/dashboard-products/placeholder.ts"],
-    },
-    "dashboard-settings": {
-      name: "dashboard-settings",
-      type: "registry:block",
-      registryDependencies: ["button","card","checkbox","dropdown-menu","input","sheet"],
-      dependencies: ["@lucide/vue@^1.59.0"],
-      files: ["blocks/dashboard-settings/DashboardSettings.vue","blocks/dashboard-settings/components/AppHeader.vue","blocks/dashboard-settings/components/PluginsDirectoryCard.vue","blocks/dashboard-settings/components/SearchForm.vue","blocks/dashboard-settings/components/SettingsNav.vue","blocks/dashboard-settings/components/StoreNameCard.vue","blocks/dashboard-settings/components/UserMenu.vue","blocks/dashboard-settings/data.ts"],
     },
     "dashboard-sfm-activity-center": {
       name: "dashboard-sfm-activity-center",
