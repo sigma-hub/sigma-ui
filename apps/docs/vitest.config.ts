@@ -8,11 +8,14 @@ export default defineConfig({
   resolve: {
     alias: {
       '@ui': fileURLToPath(new URL('../../packages/lib/src', import.meta.url)),
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
   test: {
     include: [
       '.vitepress/theme/utils/**/*.test.ts',
+      '.vitepress/theme/config/**/*.test.ts',
+      '.vitepress/theme/components/**/*.test.ts',
       '.vitepress/block-renderer/**/*.test.ts',
       '.vitepress/theme/plugins/**/*.test.ts',
       'test/**/*.test.ts',

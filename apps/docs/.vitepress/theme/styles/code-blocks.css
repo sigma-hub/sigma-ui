@@ -1,0 +1,347 @@
+/*
+ * Code blocks (VitePress fences rendered by Shiki with dual light/dark themes).
+ *
+ * Structure produced by VitePress + our fence plugin:
+ *   div.language-x            <- frame: border, radius, overflow hidden, NOT a scroll container
+ *     div.code-title          <- optional file name header (from ```ts [name] / title="name")
+ *     button.copy             <- pinned to the frame, never scrolls
+ *     span.lang
+ *     pre.shiki               <- the ONLY scroll container (x and y)
+ *     div.line-numbers-wrapper
+ */
+
+:root {
+  --code-bg: oklch(0.985 0 0);
+  --code-fg: oklch(0.21 0.006 285.883);
+  --code-border: var(--border);
+  --code-highlight: oklch(0.94 0 0);
+  --code-number: oklch(0.6 0 0);
+  --code-line-height: 1.6;
+  --code-header-height: 2.5rem;
+  --code-button-size: 1.75rem;
+  --code-diff-add: oklch(0.72 0.17 150 / 0.16);
+  --code-diff-remove: oklch(0.65 0.2 25 / 0.16);
+}
+
+html.dark {
+  --code-bg: oklch(0.2 0 0);
+  --code-fg: oklch(0.85 0 0);
+  --code-highlight: oklch(0.27 0 0);
+  --code-number: oklch(0.55 0 0);
+  --code-diff-add: oklch(0.72 0.17 150 / 0.18);
+  --code-diff-remove: oklch(0.65 0.2 25 / 0.2);
+}
+
+/* ---- Shiki dual theme switch ---------------------------------------------------------- */
+
+div[class^='language-'] .shiki span {
+  color: var(--shiki-light);
+  font-style: var(--shiki-light-font-style);
+  font-weight: var(--shiki-light-font-weight);
+  text-decoration: var(--shiki-light-text-decoration);
+}
+
+html.dark div[class^='language-'] .shiki span {
+  color: var(--shiki-dark);
+  font-style: var(--shiki-dark-font-style);
+  font-weight: var(--shiki-dark-font-weight);
+  text-decoration: var(--shiki-dark-text-decoration);
+}
+
+/* ---- Frame -------------------------------------------------------------------------- */
+
+div[class^='language-'] {
+  position: relative;
+  margin: 1rem 0;
+  overflow: hidden; /* frame clips, <pre> scrolls: absolute children stay pinned */
+  border: 1px solid var(--code-border);
+  border-radius: calc(var(--radius, 0.5rem) + 2px);
+  background-color: var(--code-bg);
+  color: var(--code-fg);
+  font-size: 0.875rem;
+}
+
+div[class^='language-'] + div[class^='language-'] {
+  margin-top: 1rem;
+}
+
+div[class^='language-'] pre,
+div[class^='language-'] pre.shiki {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 0.875rem 0;
+  max-height: 34rem;
+  overflow: auto;
+  overscroll-behavior-x: contain;
+  background: transparent !important;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in oklab, currentColor 25%, transparent) transparent;
+}
+
+/*
+ * Reserve a gutter for the copy button so long lines never run underneath it.
+ * Blocks with a header (file name, package manager tabs) carry the button in the header instead.
+ */
+div[class^='language-']:not(.has-title):not(.no-copy) > pre {
+  margin-right: 2.75rem;
+}
+
+div[class^='language-'] pre code {
+  display: block;
+  width: fit-content;
+  min-width: 100%;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+  font-size: inherit;
+  line-height: var(--code-line-height);
+  white-space: pre;
+  tab-size: 2;
+  font-variant-ligatures: none;
+}
+
+div[class^='language-'] pre code .line {
+  display: inline-block;
+  width: 100%;
+  min-height: calc(1em * var(--code-line-height));
+  padding: 0 1rem !important;
+  line-height: var(--code-line-height);
+}
+
+/* ---- Title header ------------------------------------------------------------------- */
+
+.code-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: var(--code-header-height);
+  padding: 0 3rem 0 1rem;
+  border-bottom: 1px solid color-mix(in oklab, var(--code-border) 70%, transparent);
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.code-title::before {
+  content: '';
+  flex: none;
+  width: 0.875rem;
+  height: 0.875rem;
+  background: currentColor;
+  opacity: 0.7;
+  -webkit-mask: var(--code-file-icon) center / contain no-repeat;
+  mask: var(--code-file-icon) center / contain no-repeat;
+}
+
+/* ---- Copy button (pinned to the frame) ------------------------------------------------- */
+
+div[class^='language-'] > button.copy {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--code-button-size);
+  height: var(--code-button-size);
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 0.375rem;
+  background-color: var(--code-bg);
+  background-image: none;
+  color: color-mix(in oklab, var(--muted-foreground) 85%, transparent);
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+
+/* centred in the header row (the header has a 1px bottom border) */
+div[class^='language-'].has-title > button.copy {
+  top: calc((var(--code-header-height) - 1px - var(--code-button-size)) / 2);
+}
+
+div[class^='language-'] > button.copy::before {
+  content: '';
+  width: 0.9375rem;
+  height: 0.9375rem;
+  background: currentColor;
+  -webkit-mask: var(--code-copy-icon) center / contain no-repeat;
+  mask: var(--code-copy-icon) center / contain no-repeat;
+}
+
+div[class^='language-'] > button.copy:hover {
+  background-color: var(--code-highlight);
+  color: var(--foreground);
+}
+
+div[class^='language-'] > button.copy.copied {
+  color: var(--foreground);
+  border-color: var(--code-border);
+}
+
+div[class^='language-'] > button.copy.copied::before {
+  -webkit-mask-image: var(--code-check-icon);
+  mask-image: var(--code-check-icon);
+}
+
+/* override VitePress's "Copied" text tooltip, the icon swap is enough */
+div[class^='language-'] > button.copy.copied::after {
+  display: none;
+}
+
+div[class^='language-'] > span.lang {
+  display: none;
+}
+
+:root {
+  --code-copy-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect width='14' height='14' x='8' y='8' rx='2'/%3E%3Cpath d='M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2'/%3E%3C/svg%3E");
+  --code-check-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+  --code-file-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z'/%3E%3Cpath d='M14 2v4a2 2 0 0 0 2 2h4'/%3E%3C/svg%3E");
+}
+
+/* ---- Line highlight / diff / focus / errors ------------------------------------------- */
+
+div[class^='language-'] code .highlighted {
+  background-color: var(--code-highlight);
+  box-shadow: inset 2px 0 0 color-mix(in oklab, var(--muted-foreground) 55%, transparent);
+}
+
+div[class^='language-'] code .highlighted.error {
+  background-color: oklch(0.65 0.2 25 / 0.18);
+  box-shadow: inset 2px 0 0 oklch(0.65 0.2 25 / 0.8);
+}
+
+div[class^='language-'] code .highlighted.warning {
+  background-color: oklch(0.8 0.15 85 / 0.18);
+  box-shadow: inset 2px 0 0 oklch(0.8 0.15 85 / 0.8);
+}
+
+div[class^='language-'] code .diff {
+  position: relative;
+}
+
+div[class^='language-'] code .diff::before {
+  position: absolute;
+  left: 0.3rem;
+  opacity: 0.8;
+}
+
+div[class^='language-'] code .diff.add {
+  background-color: var(--code-diff-add);
+  box-shadow: inset 2px 0 0 oklch(0.72 0.17 150 / 0.8);
+}
+
+div[class^='language-'] code .diff.add::before {
+  content: '+';
+  color: oklch(0.6 0.17 150);
+}
+
+div[class^='language-'] code .diff.remove {
+  background-color: var(--code-diff-remove);
+  box-shadow: inset 2px 0 0 oklch(0.65 0.2 25 / 0.8);
+}
+
+div[class^='language-'] code .diff.remove::before {
+  content: '-';
+  color: oklch(0.6 0.2 25);
+}
+
+div[class^='language-'] code .diff.remove span {
+  opacity: 0.75;
+}
+
+div[class^='language-'] .has-focused-lines .line:not(.has-focus) {
+  opacity: 0.5;
+  filter: blur(0.5px);
+  transition: opacity 0.25s, filter 0.25s;
+}
+
+div[class^='language-']:hover .has-focused-lines .line:not(.has-focus) {
+  opacity: 1;
+  filter: none;
+}
+
+/* word highlight: `// [!code word:foo]` and ```vue /foo/ */
+div[class^='language-'] .highlighted-word {
+  padding: 0.1rem 0.25rem;
+  margin: 0 -0.1rem;
+  border-radius: 0.25rem;
+  background-color: color-mix(in oklab, var(--muted-foreground) 25%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--muted-foreground) 30%, transparent);
+}
+
+/* ---- Line numbers (CSS counters, sticky gutter) ------------------------------------------ */
+
+div[class^='language-'] .line-numbers-wrapper {
+  display: none;
+}
+
+div[class^='language-'].line-numbers-mode pre code {
+  counter-reset: code-line;
+}
+
+div[class^='language-'].line-numbers-mode pre code .line {
+  padding-left: 0 !important;
+}
+
+div[class^='language-'].line-numbers-mode pre code .line::before {
+  content: counter(code-line);
+  counter-increment: code-line;
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  display: inline-block;
+  width: 3.25rem;
+  margin-right: 1rem;
+  padding-right: 1rem;
+  background-color: var(--code-bg);
+  color: var(--code-number);
+  font-size: 0.8125rem;
+  text-align: right;
+  user-select: none;
+}
+
+div[class^='language-'].line-numbers-mode pre code .line.highlighted {
+  box-shadow: none;
+}
+
+div[class^='language-'].line-numbers-mode pre code .line.highlighted::before {
+  background-color: var(--code-highlight);
+}
+
+/* ---- Inside custom blocks / lists / previews ------------------------------------------- */
+
+.custom-block div[class^='language-'] {
+  margin: 0.5rem 0;
+}
+
+.component-preview-code div[class^='language-'],
+.source-file-code div[class^='language-'],
+div.block-source-code[class^='language-'],
+div.theme-customizer-code[class^='language-'] {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+/* Block source view: the pane fills the preview height and scrolls inside it. */
+div.block-source-code[class^='language-'] > pre {
+  height: 100%;
+  max-height: none;
+}
+
+/* Theme customizer: a fixed-height, framed pane. */
+div.theme-customizer-code[class^='language-'] {
+  border: 1px solid var(--code-border);
+  border-radius: calc(var(--radius, 0.5rem) + 2px);
+}
+
+div.theme-customizer-code[class^='language-'] > pre {
+  height: 450px;
+  max-height: none;
+}

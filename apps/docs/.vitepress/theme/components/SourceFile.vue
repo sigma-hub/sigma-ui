@@ -38,11 +38,11 @@ useResizeObserver(codeContainer, () => {
       <div v-html="rewriteCodePaths(html)" />
       <div
         v-if="isOverflowing && !isExpanded"
-        class="absolute inset-x-0 bottom-0 flex h-24 items-end justify-center bg-gradient-to-t from-secondary-foreground to-transparent pb-3 dark:from-secondary"
+        class="absolute inset-x-0 bottom-0 flex h-24 items-end justify-center bg-gradient-to-t from-[var(--code-bg)] to-transparent pb-3"
       >
         <button
           type="button"
-          class="flex items-center gap-1 rounded-md bg-white/10 px-3 py-1 text-xs font-medium text-white backdrop-blur hover:bg-white/20"
+          class="flex items-center gap-1 rounded-md border bg-background px-3 py-1 text-xs font-medium text-foreground shadow-xs hover:bg-accent"
           @click="isExpanded = true"
         >
           Expand

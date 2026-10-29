@@ -1,14 +1,10 @@
 import path from 'node:path';
 import fs from 'node:fs';
-import { defineConfig, type MarkdownOptions, type UserConfig } from 'vitepress';
+import { defineConfig, type UserConfig } from 'vitepress';
 import tailwindcss from '@tailwindcss/vite';
-import { transformerMetaWordHighlight } from '@shikijs/transformers';
-import { cssVariables } from './theme/config/shiki';
 
 import { siteConfig } from './theme/config/site';
-import ComponentPreviewPlugin from './theme/plugins/previewer';
-import CodeWrapperPlugin from './theme/plugins/codewrapper';
-import ComponentInstallPlugin from './theme/plugins/component-install';
+import { markdownOptions } from './theme/config/markdown';
 import { blockRendererPlugin } from './block-renderer/plugin';
 
 type VitePressPlugins = NonNullable<UserConfig['vite']>['plugins'];
@@ -58,17 +54,7 @@ export default defineConfig({
   },
   srcDir: path.resolve(__dirname, '../src'),
   srcExclude: ['content/meta/**'],
-  markdown: {
-    theme: cssVariables,
-    codeTransformers: [
-      transformerMetaWordHighlight() as NonNullable<MarkdownOptions['codeTransformers']>[number],
-    ],
-    config(md) {
-      md.use(ComponentPreviewPlugin);
-      md.use(CodeWrapperPlugin);
-      md.use(ComponentInstallPlugin);
-    },
-  },
+  markdown: markdownOptions,
   rewrites: {
     'content/(.*)': '(.*)',
   },
