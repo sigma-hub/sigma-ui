@@ -3,7 +3,7 @@
   "name": "dashboard-sfm-marketplace",
   "type": "registry:block",
   "title": "Integrations marketplace",
-  "description": "A browse, installed, and updates gallery for integrations or plugins with search, category filters, featured cards, install and update progress with cancel, and empty states.",
+  "description": "A browse, installed, and updates gallery for integrations or plugins with search, category filters, featured cards, install and update progress with cancel, and empty states. Derived from patterns in Sigma File Manager.",
   "dependencies": [
     "@lucide/vue@^1.59.0"
   ],

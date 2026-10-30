@@ -3,7 +3,7 @@
   "name": "settings-sfm-shortcuts",
   "type": "registry:block",
   "title": "Keyboard shortcuts",
-  "description": "A keyboard shortcuts editor. Commands are grouped in a table with their keys. A dialog records a new key combination, warns about conflicts, and each command can be reset to its default.",
+  "description": "A keyboard shortcuts editor. Commands are grouped in a table with their keys. A dialog records a new key combination, warns about conflicts, and each command can be reset to its default. Derived from patterns in Sigma File Manager.",
   "dependencies": [
     "@lucide/vue@^1.59.0"
   ],

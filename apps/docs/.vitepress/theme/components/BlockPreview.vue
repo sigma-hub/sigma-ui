@@ -9,8 +9,10 @@ import { Separator } from '@ui/registry/tailwind/ui/separator';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@ui/registry/tailwind/ui/tabs';
 import { ToggleGroup, ToggleGroupItem } from '@ui/registry/tailwind/ui/toggle-group';
 import { buildBlockFrameSrc } from '../../block-renderer/frame';
+import { languageForFile } from '../utils/highlight';
 import { getBlockFileTree, getBlockMainFile, getBlockMeta, type BlockFileNode } from '../utils/blocks';
 import BlockCopyButton from './BlockCopyButton.vue';
+import HighlightedCode from './HighlightedCode.vue';
 import PackageManagerCommand from './PackageManagerCommand.vue';
 import Spinner from './Spinner.vue';
 import { useConfigStore } from '@/stores/config';
@@ -322,7 +324,12 @@ watch(fileTree, (nodes) => {
             {{ node.name }}
           </button>
         </div>
-        <pre class="language-vue min-w-0 flex-1 overflow-auto !mt-0 p-4 text-xs"><code>{{ rawString }}</code></pre>
+        <HighlightedCode
+          class="block-source-code min-w-0 flex-1"
+          :code="rawString"
+          :language="languageForFile(selectedPath)"
+          :copyable="false"
+        />
       </div>
     </TabsContent>
   </Tabs>

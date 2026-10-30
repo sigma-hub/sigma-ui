@@ -3,13 +3,12 @@ import path from 'node:path';
 import { createHighlighter, type Highlighter } from 'shiki';
 import type { Plugin } from 'vitepress';
 import { toPublicImports } from '../../../../../packages/shared/src/registry';
-import { cssVariables } from '../config/shiki';
+import { CODE_THEME_OPTIONS, CODE_THEME_REGISTRATIONS } from '../config/shiki';
 import { REGISTRY_ROOT, STYLE_SYSTEMS } from './registry-source';
 
 export const BLOCK_SOURCES_ID = 'virtual:block-sources';
 
 const RESOLVED_BLOCK_SOURCES_ID = '\0virtual:block-sources';
-const THEME_NAME = 'name' in cssVariables && typeof cssVariables.name === 'string' ? cssVariables.name : 'css-variables';
 
 export interface HighlightedBlockFile {
   raw: string;
@@ -30,7 +29,7 @@ let highlighterPromise: Promise<Highlighter> | undefined;
 
 function getHighlighter() {
   highlighterPromise ??= createHighlighter({
-    themes: [cssVariables],
+    themes: Object.values(CODE_THEME_REGISTRATIONS),
     langs: ['vue', 'typescript', 'css'],
   });
 
@@ -96,7 +95,7 @@ export async function highlightBlockSource(raw: string, filePath: string) {
 
   return highlighter.codeToHtml(raw, {
     lang: languageForBlockFile(filePath),
-    theme: THEME_NAME,
+    ...CODE_THEME_OPTIONS,
   });
 }
 

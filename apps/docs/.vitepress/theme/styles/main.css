@@ -444,9 +444,6 @@ html.dark {
 	}
 }
 
-div[class^="language-"] {
-	@apply max-h-[650px] overflow-x-auto md:rounded-lg border !bg-secondary-foreground dark:!bg-secondary
-}
 /* Element rules sit in the base layer so the CSS style components (in @layer components) keep their own pre and code styles. */
 @layer base {
 	pre {
@@ -456,23 +453,6 @@ div[class^="language-"] {
 	pre code {
 		@apply relative font-mono text-sm;
 	}
-
-	pre code .line {
-		@apply px-4 min-h-4 !py-0.5 w-full inline-block leading-(--vp-code-line-height);
-	}
-}
-
-.line-numbers-wrapper, code {
-	--vp-code-line-height: 1.5;
-}
-
-.line-numbers-wrapper {
-	@apply font-mono;
-}
-
-
-.line-number {
-	@apply !text-[.75rem] !inline-block text-muted-foreground leading-(--vp-code-line-height);
 }
 
 ::view-transition-old(root),

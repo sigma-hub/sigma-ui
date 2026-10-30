@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, nextTick, ref } from 'vue';
 import { ActivityIcon, ChevronDownIcon, ChevronRightIcon, InboxIcon } from '@lucide/vue';
 import { Badge } from '@ui/registry/css/ui/badge';
 import { Button } from '@ui/registry/css/ui/button';
@@ -27,6 +27,7 @@ const emit = defineEmits<{
 }>();
 
 const open = ref(props.defaultOpen);
+const headingRef = ref<HTMLElement | null>(null);
 const completedOpen = ref(true);
 
 const running = computed(() => props.items.filter(item => item.status === 'running'));
@@ -54,6 +55,15 @@ const summary = computed(() => {
 
   return parts.join(' · ');
 });
+
+/**
+ * Reka focuses the first button when the panel opens, which is the destructive "Cancel all".
+ * Focus the panel heading instead, so Tab still reaches every control in order.
+ */
+function focusHeading(event: Event) {
+  event.preventDefault();
+  nextTick(() => headingRef.value?.focus({ preventScroll: true }));
+}
 
 const triggerLabel = computed(() => `${activityLabel}: ${summary.value}`);
 </script>
@@ -92,10 +102,15 @@ const triggerLabel = computed(() => `${activityLabel}: ${summary.value}`);
     <PopoverContent
       align="end"
       class="dashboard-sfm-activity-center__popover"
+      @open-auto-focus="focusHeading"
     >
       <div class="dashboard-sfm-activity-center__panel-header">
         <div class="dashboard-sfm-activity-center__heading">
-          <h3 class="dashboard-sfm-activity-center__heading-title">
+          <h3
+            ref="headingRef"
+            tabindex="-1"
+            class="dashboard-sfm-activity-center__heading-title"
+          >
             {{ activityLabel }}
           </h3>
           <p class="dashboard-sfm-activity-center__summary">
@@ -216,6 +231,7 @@ const triggerLabel = computed(() => `${activityLabel}: ${summary.value}`);
 
   .dashboard-sfm-activity-center__heading-title {
     margin: 0;
+    outline: none;
     font-size: 0.875rem;
     font-weight: 600;
     line-height: 1.25rem;

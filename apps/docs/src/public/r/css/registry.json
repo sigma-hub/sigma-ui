@@ -3446,69 +3446,10 @@
       ]
     },
     {
-      "name": "dashboard-settings",
-      "type": "registry:block",
-      "title": "Settings page",
-      "description": "A settings page. The settings page has a sidebar navigation and a main content area. The main content area has a form to update the store name and a form to update the plugins directory. The sidebar navigation has links to general, security, integrations, support, organizations, and advanced settings.",
-      "dependencies": [
-        "@lucide/vue@^1.59.0"
-      ],
-      "registryDependencies": [
-        "button",
-        "card",
-        "checkbox",
-        "dropdown-menu",
-        "input",
-        "sheet"
-      ],
-      "files": [
-        {
-          "path": "blocks/dashboard-settings/DashboardSettings.vue",
-          "type": "registry:component"
-        },
-        {
-          "path": "blocks/dashboard-settings/components/AppHeader.vue",
-          "type": "registry:component"
-        },
-        {
-          "path": "blocks/dashboard-settings/components/PluginsDirectoryCard.vue",
-          "type": "registry:component"
-        },
-        {
-          "path": "blocks/dashboard-settings/components/SearchForm.vue",
-          "type": "registry:component"
-        },
-        {
-          "path": "blocks/dashboard-settings/components/SettingsNav.vue",
-          "type": "registry:component"
-        },
-        {
-          "path": "blocks/dashboard-settings/components/StoreNameCard.vue",
-          "type": "registry:component"
-        },
-        {
-          "path": "blocks/dashboard-settings/components/UserMenu.vue",
-          "type": "registry:component"
-        },
-        {
-          "path": "blocks/dashboard-settings/data.ts",
-          "type": "registry:lib"
-        }
-      ],
-      "meta": {
-        "iframeHeight": "780px",
-        "containerClass": "w-full h-full"
-      },
-      "categories": [
-        "dashboard",
-        "settings"
-      ]
-    },
-    {
       "name": "dashboard-sfm-activity-center",
       "type": "registry:block",
       "title": "Activity center",
-      "description": "A header button with a live job count that opens a popover of running jobs with progress and cancel, and a collapsible list of finished jobs with retry and dismiss.",
+      "description": "A header button with a live job count that opens a popover of running jobs with progress and cancel, and a collapsible list of finished jobs with retry and dismiss. Derived from patterns in Sigma File Manager.",
       "dependencies": [
         "@lucide/vue@^1.59.0"
       ],
@@ -3552,7 +3493,7 @@
       "name": "dashboard-sfm-changelog",
       "type": "registry:block",
       "title": "What's new dialog",
-      "description": "A release notes dialog with a version list, highlights, notes grouped by new, improved and fixed changes, and a preference to show it after updates.",
+      "description": "A release notes dialog with a version list, highlights, notes grouped by new, improved and fixed changes, and a preference to show it after updates. Derived from patterns in Sigma File Manager.",
       "dependencies": [
         "@lucide/vue@^1.59.0"
       ],
@@ -3590,7 +3531,7 @@
       "name": "dashboard-sfm-command-palette",
       "type": "registry:block",
       "title": "Command palette",
-      "description": "A Ctrl+K command palette with recent commands, grouped actions and navigation, key hints and a search box trigger.",
+      "description": "A Cmd+K or Ctrl+K command palette with recent commands, grouped actions and navigation, key hints and a search box trigger. Derived from patterns in Sigma File Manager.",
       "dependencies": [
         "@lucide/vue@^1.59.0",
         "@vueuse/core@^15.0.0"
@@ -3615,6 +3556,10 @@
         {
           "path": "blocks/dashboard-sfm-command-palette/data.ts",
           "type": "registry:lib"
+        },
+        {
+          "path": "blocks/dashboard-sfm-command-palette/platform.ts",
+          "type": "registry:lib"
         }
       ],
       "meta": {
@@ -3629,7 +3574,7 @@
       "name": "dashboard-sfm-marketplace",
       "type": "registry:block",
       "title": "Integrations marketplace",
-      "description": "A browse, installed, and updates gallery for integrations or plugins with search, category filters, featured cards, install and update progress with cancel, and empty states.",
+      "description": "A browse, installed, and updates gallery for integrations or plugins with search, category filters, featured cards, install and update progress with cancel, and empty states. Derived from patterns in Sigma File Manager.",
       "dependencies": [
         "@lucide/vue@^1.59.0"
       ],
@@ -3883,7 +3828,7 @@
       "name": "settings-sfm-list",
       "type": "registry:block",
       "title": "Settings list",
-      "description": "A preferences page with a category nav, search, and rows that each pair a title and description with a switch, select, stepper, or button. A row can carry nested options.",
+      "description": "A preferences page with a category nav, search, and rows that each pair a title and description with a switch, select, stepper, or button. A row can carry nested options. Derived from patterns in Sigma File Manager.",
       "dependencies": [
         "@lucide/vue@^1.59.0"
       ],
@@ -3922,7 +3867,7 @@
       "name": "settings-sfm-shortcuts",
       "type": "registry:block",
       "title": "Keyboard shortcuts",
-      "description": "A keyboard shortcuts editor. Commands are grouped in a table with their keys. A dialog records a new key combination, warns about conflicts, and each command can be reset to its default.",
+      "description": "A keyboard shortcuts editor. Commands are grouped in a table with their keys. A dialog records a new key combination, warns about conflicts, and each command can be reset to its default. Derived from patterns in Sigma File Manager.",
       "dependencies": [
         "@lucide/vue@^1.59.0"
       ],

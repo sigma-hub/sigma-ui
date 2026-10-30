@@ -3,7 +3,7 @@
   "name": "dashboard-sfm-changelog",
   "type": "registry:block",
   "title": "What's new dialog",
-  "description": "A release notes dialog with a version list, highlights, notes grouped by new, improved and fixed changes, and a preference to show it after updates.",
+  "description": "A release notes dialog with a version list, highlights, notes grouped by new, improved and fixed changes, and a preference to show it after updates. Derived from patterns in Sigma File Manager.",
   "dependencies": [
     "@lucide/vue@^1.59.0"
   ],

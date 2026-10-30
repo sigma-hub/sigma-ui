@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, nextTick, ref } from 'vue';
 import { ActivityIcon, ChevronDownIcon, ChevronRightIcon, InboxIcon } from '@lucide/vue';
 import { Badge } from '@ui/registry/tailwind/ui/badge';
 import { Button } from '@ui/registry/tailwind/ui/button';
@@ -27,6 +27,7 @@ const emit = defineEmits<{
 }>();
 
 const open = ref(props.defaultOpen);
+const headingRef = ref<HTMLElement | null>(null);
 const completedOpen = ref(true);
 
 const running = computed(() => props.items.filter(item => item.status === 'running'));
@@ -54,6 +55,15 @@ const summary = computed(() => {
 
   return parts.join(' · ');
 });
+
+/**
+ * Reka focuses the first button when the panel opens, which is the destructive "Cancel all".
+ * Focus the panel heading instead, so Tab still reaches every control in order.
+ */
+function focusHeading(event: Event) {
+  event.preventDefault();
+  nextTick(() => headingRef.value?.focus({ preventScroll: true }));
+}
 
 const triggerLabel = computed(() => `${activityLabel}: ${summary.value}`);
 </script>
@@ -92,10 +102,15 @@ const triggerLabel = computed(() => `${activityLabel}: ${summary.value}`);
     <PopoverContent
       align="end"
       class="w-[min(24rem,calc(100vw-2rem))] p-0"
+      @open-auto-focus="focusHeading"
     >
       <div class="flex items-center justify-between gap-3 px-4 py-3">
         <div class="min-w-0">
-          <h3 class="text-sm leading-5 font-semibold">
+          <h3
+            ref="headingRef"
+            tabindex="-1"
+            class="text-sm leading-5 font-semibold outline-hidden"
+          >
             {{ activityLabel }}
           </h3>
           <p class="truncate text-xs text-muted-foreground">

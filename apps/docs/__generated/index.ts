@@ -58,13 +58,6 @@ export const Index = {
       dependencies: ["@lucide/vue@^1.59.0"],
       files: ["blocks/dashboard-products/DashboardProducts.vue","blocks/dashboard-products/components/AppHeader.vue","blocks/dashboard-products/components/AppSidebar.vue","blocks/dashboard-products/components/ProductsPanel.vue","blocks/dashboard-products/data.ts","blocks/dashboard-products/placeholder.ts"],
     },
-    "dashboard-settings": {
-      name: "dashboard-settings",
-      type: "registry:block",
-      registryDependencies: ["button","card","checkbox","dropdown-menu","input","sheet"],
-      dependencies: ["@lucide/vue@^1.59.0"],
-      files: ["blocks/dashboard-settings/DashboardSettings.vue","blocks/dashboard-settings/components/AppHeader.vue","blocks/dashboard-settings/components/PluginsDirectoryCard.vue","blocks/dashboard-settings/components/SearchForm.vue","blocks/dashboard-settings/components/SettingsNav.vue","blocks/dashboard-settings/components/StoreNameCard.vue","blocks/dashboard-settings/components/UserMenu.vue","blocks/dashboard-settings/data.ts"],
-    },
     "dashboard-sfm-activity-center": {
       name: "dashboard-sfm-activity-center",
       type: "registry:block",
@@ -84,7 +77,7 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["badge","button","command","dialog","empty","kbd"],
       dependencies: ["@lucide/vue@^1.59.0","@vueuse/core@^15.0.0"],
-      files: ["blocks/dashboard-sfm-command-palette/DashboardSfmCommandPalette.vue","blocks/dashboard-sfm-command-palette/components/CommandPalette.vue","blocks/dashboard-sfm-command-palette/data.ts"],
+      files: ["blocks/dashboard-sfm-command-palette/DashboardSfmCommandPalette.vue","blocks/dashboard-sfm-command-palette/components/CommandPalette.vue","blocks/dashboard-sfm-command-palette/data.ts","blocks/dashboard-sfm-command-palette/platform.ts"],
     },
     "dashboard-sfm-marketplace": {
       name: "dashboard-sfm-marketplace",
@@ -2111,13 +2104,6 @@ export const Index = {
       dependencies: ["@lucide/vue@^1.59.0"],
       files: ["blocks/dashboard-products/DashboardProducts.vue","blocks/dashboard-products/components/AppHeader.vue","blocks/dashboard-products/components/AppSidebar.vue","blocks/dashboard-products/components/ProductsPanel.vue","blocks/dashboard-products/data.ts","blocks/dashboard-products/placeholder.ts"],
     },
-    "dashboard-settings": {
-      name: "dashboard-settings",
-      type: "registry:block",
-      registryDependencies: ["button","card","checkbox","dropdown-menu","input","sheet"],
-      dependencies: ["@lucide/vue@^1.59.0"],
-      files: ["blocks/dashboard-settings/DashboardSettings.vue","blocks/dashboard-settings/components/AppHeader.vue","blocks/dashboard-settings/components/PluginsDirectoryCard.vue","blocks/dashboard-settings/components/SearchForm.vue","blocks/dashboard-settings/components/SettingsNav.vue","blocks/dashboard-settings/components/StoreNameCard.vue","blocks/dashboard-settings/components/UserMenu.vue","blocks/dashboard-settings/data.ts"],
-    },
     "dashboard-sfm-activity-center": {
       name: "dashboard-sfm-activity-center",
       type: "registry:block",
@@ -2137,7 +2123,7 @@ export const Index = {
       type: "registry:block",
       registryDependencies: ["badge","button","command","dialog","empty","kbd"],
       dependencies: ["@lucide/vue@^1.59.0","@vueuse/core@^15.0.0"],
-      files: ["blocks/dashboard-sfm-command-palette/DashboardSfmCommandPalette.vue","blocks/dashboard-sfm-command-palette/components/CommandPalette.vue","blocks/dashboard-sfm-command-palette/data.ts"],
+      files: ["blocks/dashboard-sfm-command-palette/DashboardSfmCommandPalette.vue","blocks/dashboard-sfm-command-palette/components/CommandPalette.vue","blocks/dashboard-sfm-command-palette/data.ts","blocks/dashboard-sfm-command-palette/platform.ts"],
     },
     "dashboard-sfm-marketplace": {
       name: "dashboard-sfm-marketplace",
