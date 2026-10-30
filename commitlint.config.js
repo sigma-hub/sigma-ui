@@ -1,4 +1,4 @@
-const SCOPES = ['CLI', 'Docs', 'Lib', 'Blocks', 'Styles', 'Dev', 'CI', 'Nuxt', 'UI'];
+const SCOPES = ['CLI', 'Docs', 'Lib', 'Blocks', 'Styles', 'Dev', 'CI', 'Nuxt', 'UI', 'Deps', 'Registry', 'Test', 'Release'];
 
 /** @type {import('@commitlint/types').UserConfig} */
 export default {
