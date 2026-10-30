@@ -10,7 +10,9 @@ export const SECTION_TITLES = {
   'Patch Changes': 'Improvements and fixes',
 };
 
-const SECTION_ORDER = ['Breaking changes', 'New features', 'Improvements and fixes'];
+const BREAKING_TITLE = 'Breaking changes';
+const NEW_FEATURES_TITLE = 'New features';
+const SECTION_ORDER = [BREAKING_TITLE, NEW_FEATURES_TITLE, 'Improvements and fixes'];
 const OTHER_CONTRIBUTIONS_TITLE = 'Other contributions';
 
 // "- [#5](pr) [`abc1234`](commit) Thanks [@name](profile)! - Text" from @changesets/changelog-github.
@@ -96,13 +98,19 @@ function renderItems(items) {
   return items.map(item => item.join('\n')).join(isLoose ? '\n\n' : '\n');
 }
 
-function formatVersionBody(bodyLines, maintainers) {
+// The first release of a package (1.0.0 or 0.x, the oldest entry) has nothing to break.
+function isFirstRelease(version, isOldest) {
+  return isOldest && /^(0\.|1\.0\.0$)/.test(version);
+}
+
+function formatVersionBody(bodyLines, maintainers, firstRelease) {
   const { preamble, groups } = splitGroups(bodyLines);
   const sections = new Map();
   const otherContributions = [];
 
   for (const group of groups) {
-    const title = SECTION_TITLES[group.title] ?? group.title;
+    const mappedTitle = SECTION_TITLES[group.title] ?? group.title;
+    const title = firstRelease && mappedTitle === BREAKING_TITLE ? NEW_FEATURES_TITLE : mappedTitle;
 
     for (const item of splitItems(group.lines)) {
       item[0] = normalizeLegacyFirstLine(item[0], maintainers);
@@ -139,6 +147,7 @@ export function formatChangelog(markdown, options = {}) {
   const maintainers = options.maintainers ?? [];
   const lines = markdown.replace(/\r\n/g, '\n').split('\n');
   const output = [];
+  const lastVersionIndex = lines.findLastIndex(line => /^## /.test(line));
   let index = 0;
 
   while (index < lines.length) {
@@ -151,6 +160,8 @@ export function formatChangelog(markdown, options = {}) {
     }
 
     const bodyLines = [];
+    const version = line.slice(3).trim();
+    const firstRelease = isFirstRelease(version, index === lastVersionIndex);
 
     index += 1;
 
@@ -159,7 +170,7 @@ export function formatChangelog(markdown, options = {}) {
       index += 1;
     }
 
-    output.push(line, '', formatVersionBody(bodyLines, maintainers), '');
+    output.push(line, '', formatVersionBody(bodyLines, maintainers, firstRelease), '');
   }
 
   return `${output.join('\n').replace(/\n{3,}/g, '\n\n').trimEnd()}\n`;

@@ -109,6 +109,25 @@ describe('formatChangelog', () => {
   });
 });
 
+describe('first release', () => {
+  const major = '### Major Changes\n\n- First release.\n';
+
+  it('never gets a Breaking changes heading for the oldest 1.0.0 or 0.x entry', () => {
+    assert.equal(formatChangelog(`# pkg\n\n## 1.0.0\n\n${major}`), '# pkg\n\n## 1.0.0\n\n### New features\n\n- First release.\n');
+    assert.match(formatChangelog(`# pkg\n\n## 0.1.0\n\n${major}`), /### New features/);
+  });
+
+  it('converts an already formatted Breaking changes heading, and keeps real major bumps breaking', () => {
+    assert.match(formatChangelog('# pkg\n\n## 1.0.0\n\n### Breaking changes\n\n- First release.\n'), /### New features/);
+    assert.match(formatChangelog(`# pkg\n\n## 2.0.0\n\n${major}\n## 1.0.0\n\n### Minor Changes\n\n- Old.\n`), /## 2\.0\.0\n\n### Breaking changes/);
+    assert.match(formatChangelog(`# pkg\n\n## 2.1.0\n\n${major}`), /### Breaking changes/);
+  });
+
+  it('keeps Breaking changes on a 1.0.0 entry that has older releases below it', () => {
+    assert.match(formatChangelog(`# pkg\n\n## 1.0.0\n\n${major}\n## 0.9.0\n\n### Minor Changes\n\n- Old.\n`), /## 1\.0\.0\n\n### Breaking changes/);
+  });
+});
+
 describe('extractVersionSection', () => {
   it('returns the body between two version headings', () => {
     assert.equal(extractVersionSection('# x\n\n## 1.1.0\n\nA\n\n## 1.0.0\n\nB\n', '1.1.0'), 'A');
