@@ -41,7 +41,6 @@
     "ts": "pnpm run ts:cli && pnpm run ts:shared && pnpm run ts:nuxt && pnpm run ts:lib && pnpm run ts:docs"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^1.0.1",
     "@changesets/cli": "^3.0.3",
     "@commitlint/cli": "^21.2.3",
     "@eslint/js": "^9.20.0",
