@@ -3,8 +3,8 @@
   "baseBranch": "main",
   "access": "public",
   "changelog": [
-    "@changesets/changelog-github",
-    { "repo": "sigma-hub/sigma-ui" }
+    "./changelog.mjs",
+    { "repo": "sigma-hub/sigma-ui", "maintainers": ["aleksey-hoffman"] }
   ],
   "commit": false,
   "ignore": [],

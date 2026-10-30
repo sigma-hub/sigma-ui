@@ -17,7 +17,20 @@ Pick the affected packages and the bump type, then write a short user-facing sum
 1. Changesets merged into `main` are collected by the `Release` workflow (`.github/workflows/release.yml`) into a "Dev: version packages" pull request. That pull request bumps the versions and writes `packages/*/CHANGELOG.md`.
 2. Merging the version pull request runs the workflow again. It builds the CLI and the Nuxt module, publishes every package whose version isn't on npm yet with npm provenance, pushes the git tags, and creates GitHub releases.
 
-`pnpm version-packages` runs the version step locally. The GitHub changelog generator needs a `GITHUB_TOKEN` environment variable with read access to the repository.
+`pnpm version-packages` runs the version step locally. It runs `changeset version`, then `scripts/changelog/run.mjs`, which puts every `packages/*/CHANGELOG.md` into the release notes layout. The GitHub releases are cut from those changelog sections, so they have the same layout.
+
+## Release notes layout
+
+The changelog is written by our own generator (`.changeset/changelog.mjs`, code in `scripts/changelog`) instead of `@changesets/changelog-github`:
+
+- Each change is a plain bullet. There is no pull request link, commit hash or "Thanks" line.
+- Sections are named by what they hold: Breaking changes (major), New features (minor), Improvements and fixes (patch).
+- People listed under `maintainers` in `.changeset/config.json` are never credited. Changes by anyone else get "by @handle in <pull request>" and move to an "Other contributions" section at the bottom.
+- The author of a change is found from the commit that added the changeset, through the GitHub API, so `GITHUB_TOKEN` should be set (the release workflow sets it). When the author can't be found, nobody is credited.
+
+Write changeset summaries as the text you want users to read: plain sentences, and a nested list for details.
+
+`pnpm test:changelog` tests the generator and the formatter. CI also runs `node scripts/changelog/run.mjs --check` to make sure the committed changelogs are in the layout.
 
 ## Repository setup
 
